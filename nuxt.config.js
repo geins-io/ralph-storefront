@@ -40,11 +40,32 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/pwa"],
+  modules: [
+    "@nuxtjs/pwa",
+    [
+      "nuxt-i18n",
+      {
+        locales: ["en", "es"],
+        defaultLocale: "en",
+        vueI18n: {
+          fallbackLocale: "en",
+          messages: {
+            en: {
+              greeting: "Hello world!"
+            },
+            es: {
+              greeting: "¡Hola mundo!"
+            }
+          }
+        }
+      }
+    ]
+  ],
   /*
    ** Build configuration
    */
   build: {
+    transpile: ["@ralph/ralph-ui", "@storefront-ui/shared"],
     /*
      ** You can extend webpack config here
      */
