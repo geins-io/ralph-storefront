@@ -1,21 +1,11 @@
 <template>
-  <SfCircleIcon
-    icon="profile"
-    icon-size="20px"
-    icon-color="black"
-    class="sf-header__circle-icon a-account-icon"
-    role="button"
-    aria-label="account"
-    :class="{ 'sf-header__circle-icon--is-active': true }"
-    :aria-pressed="true ? 'true' : 'false'"
-    @click="goToAccount"
-  />
+  <ca-logo />
 </template>
 
 <script>
-import { SfCircleIcon } from "@storefront-ui/vue";
+import { CaLogo } from "@ralph/ralph-ui";
 export default {
-  components: { SfCircleIcon },
+  components: { CaLogo },
   computed: {},
   methods: {}
 };

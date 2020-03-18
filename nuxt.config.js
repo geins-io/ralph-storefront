@@ -35,16 +35,21 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     "@nuxtjs/eslint-module",
     // Doc: https://github.com/nuxt-community/stylelint-module
-    "@nuxtjs/stylelint-module"
+    "@nuxtjs/stylelint-module",
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    "@nuxtjs/dotenv"
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://github.com/nuxt-community/pwa-module
     "@nuxtjs/pwa",
     [
+      // Doc: https://github.com/nuxt-community/nuxt-i18n
       "nuxt-i18n",
       {
+        seo: false,
         locales: ["en", "es"],
         defaultLocale: "en",
         vueI18n: {
@@ -65,7 +70,8 @@ export default {
    ** Build configuration
    */
   build: {
-    transpile: ["@ralph/ralph-ui", "@storefront-ui/shared"],
+    analyze: true,
+    transpile: ["@ralph/ralph-ui"],
     /*
      ** You can extend webpack config here
      */
