@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.0.0",
-    "nuxt-i18n": "^6.6.0"
+    "nuxt": "^2.12.0",
+    "nuxt-i18n": "^6.6.1"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
