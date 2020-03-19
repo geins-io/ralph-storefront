@@ -70,11 +70,14 @@ export default {
    ** Build configuration
    */
   build: {
-    analyze: true,
     transpile: ["@ralph/ralph-ui"],
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, { isDev }) {
+      if (isDev) {
+        config.devtool = "source-map";
+      }
+    }
   }
 };
