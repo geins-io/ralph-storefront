@@ -53,11 +53,3 @@ html {
   background-color: #35495e;
 }
 </style>
-
-<script>
-export default {
-  head() {
-    return this.$nuxtI18nSeo();
-  }
-};
-</script>

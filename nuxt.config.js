@@ -50,18 +50,15 @@ export default {
       "nuxt-i18n",
       {
         seo: false,
-        locales: ["en", "es"],
+        locales: [
+          { code: "en", iso: "en-US", file: "en-US.js", name: "English" },
+          { code: "es", iso: "es-ES", file: "es-ES.js", name: "Español" }
+        ],
+        langDir: "languages/",
         defaultLocale: "en",
+        lazy: true,
         vueI18n: {
-          fallbackLocale: "en",
-          messages: {
-            en: {
-              greeting: "Hello world!"
-            },
-            es: {
-              greeting: "¡Hola mundo!"
-            }
-          }
+          fallbackLocale: "en"
         }
       }
     ]
@@ -79,5 +76,6 @@ export default {
         config.devtool = "source-map";
       }
     }
-  }
+  },
+  dev: process.env.NODE_ENV !== "production"
 };

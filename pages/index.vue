@@ -8,6 +8,12 @@
       <h2 class="subtitle">
         E-commerce frontend by Carismar
       </h2>
+      <nuxt-link
+        v-for="locale in availableLocales"
+        :key="locale.code"
+        :to="switchLocalePath(locale.code)"
+        >{{ locale.name }}
+      </nuxt-link>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">
           Documentation {{ message }}
@@ -35,6 +41,11 @@ export default {
     return {
       message: process.env.VUE_APP_TITLE
     };
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+    }
   }
 };
 </script>
