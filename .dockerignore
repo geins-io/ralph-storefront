@@ -1,0 +1,12 @@
+**/node_modules/
+**/node_modules_linux/
+**/Dockerfile
+**/.git*
+**/README.md
+**/LICENSE
+**/.vscode
+**/.editorconfig
+**/.prettierrc
+**/.workspace
+**/.nuxt/
+**/npm-debug*
