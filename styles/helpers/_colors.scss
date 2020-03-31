@@ -1,0 +1,8 @@
+// Convert Hex to RGBa
+@function hexToRgba($color, $opacity) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  $rgba: rgba($r, $g, $b, $opacity);
+  @return $rgba;
+}

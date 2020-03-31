@@ -1,0 +1,10 @@
+.only-mobile {
+  @include bp(laptop) {
+    display: none !important;
+  }
+}
+.only-desktop {
+  @include bp(tablet-down) {
+    display: none !important;
+  }
+}

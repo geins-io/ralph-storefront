@@ -10,7 +10,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest"
+    "test": "jest",
+    "create-component": "node ./scripts/create-component.js"
   },
   "lint-staged": {
     "*.{js,vue}": "npm run lint",
@@ -23,6 +24,7 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-0",
+    "flag-icon-css": "^3.4.6",
     "nuxt": "^2.12.0",
     "nuxt-i18n": "^6.6.1"
   },
@@ -30,6 +32,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "^3.1.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.0.1",
@@ -38,6 +41,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "file-save": "^0.2.0",
     "husky": "^4.0.0",
     "jest": "^25.1.0",
     "lint-staged": "^10.0.0",
@@ -45,6 +49,8 @@
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "stylelint": "^10.1.0",
+    "svg-inline-loader": "^0.8.2",
+    "uppercamelcase": "^3.0.0",
     "vue-jest": "^4.0.0-0"
   }
 }

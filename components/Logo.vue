@@ -1,21 +1,21 @@
 <template>
-  <ca-logo />
+  <div class="ca-logo">
+    <img class="ca-logo__img" :src="filename" />
+    <img class="ca-logo__img" :src="filename" />
+  </div>
 </template>
-
 <script>
-import { CaLogo } from "@ralph/ralph-ui";
+import { CaLogo } from '@ralph/ralph-ui';
 export default {
-  components: { CaLogo },
-  computed: {},
-  mounted() {
-    this.calculateStuff();
-  },
-  methods: {
-    calculateStuff() {
-      let nr = 1;
-      nr += 2;
-      return nr;
-    }
-  }
+  name: 'Logo',
+  mixins: [CaLogo]
 };
 </script>
+<style lang="scss">
+.ca-logo {
+  background: #fc0;
+  &__img {
+    width: 300px;
+  }
+}
+</style>
