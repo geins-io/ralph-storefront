@@ -1,6 +1,6 @@
 export const state = () => ({
   counter: 0,
-  favorites: [],
+  favorites: ['1111', '1122'],
   VATincluded: true
 });
 
@@ -9,9 +9,9 @@ export const mutations = {
     state.counter++;
   },
   toggleFavorite(state, prodID) {
-    let favorites = state.favorites;
+    const favorites = state.favorites;
     if (favorites.includes(prodID)) {
-      favorites = favorites.slice(favorites.indexOf(prodID), 1);
+      favorites.splice(favorites.indexOf(prodID), 1);
     } else {
       favorites.push(prodID);
     }

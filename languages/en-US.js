@@ -5,7 +5,7 @@ export default {
   USP_1: 'Best in the world',
   USP_2: 'Fastest delivery',
   USP_3: 'Free delivery if you`re nice',
-  USP_TEXT: 'Free an fast delivery!',
+  USP_TEXT: 'Free and fast delivery!',
   LOG_IN_LINK: 'Log in/Sign up',
   CUSTOMER_SERVICE: 'Customer service'
 };

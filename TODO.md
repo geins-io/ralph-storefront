@@ -4,4 +4,3 @@
 
 - Props
 - Komponenter i ui-bibiotek
-- CSS-variabler

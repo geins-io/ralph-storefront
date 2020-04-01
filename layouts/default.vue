@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <ca-top-bar />
-    <nuxt />
+  <div class="ca-layout ca-layout--default">
+    <CaHeader />
+    <Nuxt />
   </div>
 </template>
 <script>
-import CaTopBar from '@/components/organisms/CaTopBar/CaTopBar';
+import CaHeader from '@/components/organisms/CaHeader/CaHeader';
 export default {
   components: {
-    CaTopBar
+    CaHeader
   }
 };
 </script>
-<style></style>
+<style lang="scss"></style>

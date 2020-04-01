@@ -17,5 +17,6 @@ export default {
 };
 </script>
 <style lang="scss">
-@import '../helpers';
+.ComponentNameKebabCase {
+}
 </style>

@@ -1,48 +1,54 @@
 <template>
   <div class="ca-top-bar">
-    <div class="ca-container ca-top-bar__container">
+    <CaContainer class="ca-top-bar__container">
       <a class="ca-top-bar__lang-switcher only-desktop" href="javascript:;">
-        <ca-flag country="se" shape="circle" />
+        <CaFlag country="se" shape="circle" />
         Sverige
       </a>
-      <nuxt-link
+      <NuxtLink
         class="ca-top-bar__link ca-top-bar__link--customer-service only-desktop"
         to="/"
       >
         {{ $t('CUSTOMER_SERVICE') }}
-      </nuxt-link>
+      </NuxtLink>
       <div class="ca-usp-block ca-top-bar__usps only-desktop">
-        <ca-icon-and-text class="ca-top-bar__usp" icon-name="check-circle">
+        <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
           {{ $t('USP_1') }}
-        </ca-icon-and-text>
-        <ca-icon-and-text class="ca-top-bar__usp" icon-name="check-circle">
+        </CaIconAndText>
+        <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
           {{ $t('USP_2') }}
-        </ca-icon-and-text>
-        <ca-icon-and-text class="ca-top-bar__usp" icon-name="check-circle">
+        </CaIconAndText>
+        <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
           {{ $t('USP_3') }}
-        </ca-icon-and-text>
+        </CaIconAndText>
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
       <a
         class="ca-top-bar__link ca-top-bar__link--login only-desktop"
         href="javascript:;"
       >
-        <ca-icon-and-text icon-name="user">
+        <CaIconAndText icon-name="user">
           {{ $t('LOG_IN_LINK') }}
-        </ca-icon-and-text>
+        </CaIconAndText>
       </a>
-      <ca-vat-toggle class="only-desktop" />
-    </div>
+      <CaVatToggle class="only-desktop" />
+    </CaContainer>
   </div>
 </template>
 <script>
-import { CaIconAndText, CaFlag, CaVatToggle } from '@ralph/ralph-ui';
+import {
+  CaIconAndText,
+  CaFlag,
+  CaVatToggle,
+  CaContainer
+} from '@ralph/ralph-ui';
 export default {
   name: 'CaTopBar',
   components: {
     CaIconAndText,
     CaFlag,
-    CaVatToggle
+    CaVatToggle,
+    CaContainer
   },
   mixins: [],
   props: {},
@@ -87,9 +93,6 @@ $top-bar-height-desktop: rem-calc(36px);
     &--customer-service {
       margin: 0 auto 0 $px24;
     }
-  }
-  a {
-    text-decoration: none;
   }
   .ca-vat-toggle {
     display: flex;

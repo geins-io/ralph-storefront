@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-    <ca-logo />
+  <div class="ca-container">
     <h1 class="title">
       @ralph/ralph-storefront
     </h1>
@@ -33,10 +32,9 @@
 <script>
 import { mapState } from 'vuex';
 // import Logo from '@/components/Logo.vue';
-import { CaLogo, CaIconAndText, CaVatToggle } from '@ralph/ralph-ui';
+import { CaIconAndText, CaVatToggle } from '@ralph/ralph-ui';
 export default {
   components: {
-    CaLogo,
     CaIconAndText,
     CaVatToggle
   },

@@ -1,6 +1,7 @@
 @import '../helpers/sizing';
 
 // Spacing
+$px4: rem-calc(4px);
 $px8: rem-calc(8px);
 $px12: rem-calc(12px);
 $px16: rem-calc(16px);
@@ -13,3 +14,5 @@ $px56: rem-calc(56px);
 $px64: rem-calc(64px);
 $px72: rem-calc(72px);
 $px80: rem-calc(80px);
+
+$default-spacing: $px20;
