@@ -9,4 +9,3 @@ npm-debug.log
 .nuxt
 *.code-workspace
 *.yml
-.npmrc
