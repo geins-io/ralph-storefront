@@ -59,7 +59,7 @@ export default {
   methods: {}
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 $top-bar-height: rem-calc(20px);
 $top-bar-height-desktop: rem-calc(36px);
 .ca-top-bar {
@@ -92,17 +92,6 @@ $top-bar-height-desktop: rem-calc(36px);
     }
     &--customer-service {
       margin: 0 auto 0 $px24;
-    }
-  }
-  .ca-vat-toggle {
-    display: flex;
-    &__link {
-      &:not(:last-child) {
-        margin-right: $px8;
-      }
-      &--active {
-        font-weight: $font-weight-bold;
-      }
     }
   }
 }

@@ -7,5 +7,6 @@ export default {
   USP_3: 'Fri frakt om du är snäll',
   USP_TEXT: 'Gratis och fri frakt!',
   LOG_IN_LINK: 'Logga in/Bli medlem',
-  CUSTOMER_SERVICE: 'Kundtjänst'
+  CUSTOMER_SERVICE: 'Kundtjänst',
+  FAVORITES_LABEL: 'Mina favoriter'
 };

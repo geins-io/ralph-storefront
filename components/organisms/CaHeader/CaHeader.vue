@@ -2,7 +2,7 @@
   <div class="ca-header">
     <CaTopBar />
     <CaContainer class="ca-header__container">
-      <a href="javascript:;" class="ca-header__nav-toggle">
+      <a href="javascript:;" class="ca-header__nav-toggle only-mobile">
         <CaIcon class="ca-header__nav-toggle-icon" name="menu" />
       </a>
       <CaLogo class="ca-header__logo" />
@@ -40,14 +40,19 @@ export default {
   methods: {}
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .ca-header {
   background: $c-header-bg;
+
   &__container {
     height: rem-calc(50px);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include bp(laptop) {
+      justify-content: flex-end;
+      height: rem-calc(60px);
+    }
   }
 
   &__nav-toggle {
@@ -58,33 +63,14 @@ export default {
   &__nav-toggle-icon {
     font-size: 28px;
   }
+
   &__logo {
     @include calign;
     width: 120px;
   }
-  &__favorites {
-    position: relative;
-    margin-right: $px20;
-  }
-  &__cart {
-    position: relative;
-    margin-right: $px4;
-  }
 
-  .ca-notification-badge {
+  ::v-deep .ca-notification-badge {
     border: 1px solid $c-header-bg;
-    font-size: $font-size-xs;
-  }
-
-  .ca-favorites {
-    &__icon {
-      font-size: 24px;
-    }
-  }
-  .ca-mini-cart {
-    &__icon {
-      font-size: 24px;
-    }
   }
 }
 </style>
