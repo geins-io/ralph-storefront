@@ -25,6 +25,13 @@ spec:
                         value: "80"
                       - name: NODE_ENV
                         value: "development"
+                  resources:
+                      requests:
+                          cpu: 250mc
+                          memory: 200Mi
+                      limits:
+                          cpu: 250mc
+                          memory: 200Mi
             restartPolicy: Always
     selector:
         matchLabels:
