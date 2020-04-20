@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: ralph-storefront-dev-deployment
+    labels:
+        app: ralph-storefront-dev
+spec:
+    replicas: 1
+    template:
+        metadata:
+            name: ralph-storefront-dev
+            labels:
+                app: ralph-storefront-dev
+        spec:
+            containers:
+                - name: ralph-storefront-dev
+                  image: ralphregistry.azurecr.io/ralph-storefront:##BUILD_ID
+                  imagePullPolicy: IfNotPresent
+                  ports:
+                      - containerPort: 80
+                  env:
+                      - name: NUXT_HOST
+                        value: "0.0.0.0"
+                      - name: NUXT_PORT
+                        value: "80"
+                      - name: NODE_ENV
+                        value: "development"
+                  resources:
+                      requests:
+                          cpu: 250m
+                          memory: 200Mi
+                      limits:
+                          cpu: 250m
+                          memory: 200Mi
+            restartPolicy: Always
+    selector:
+        matchLabels:
+            app: ralph-storefront-dev
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: ralph-storefront-dev-service
+spec:
+    selector:
+        app: ralph-storefront-dev
+    ports:
+        - port: 80
+    type: LoadBalancer
