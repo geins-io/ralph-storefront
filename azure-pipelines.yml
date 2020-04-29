@@ -6,11 +6,14 @@ trigger:
   - master
 
 resources:
-  - repo: self
+  pipelines:
+  - pipeline: RalphUI
+    source: "Ralph-UI"
+    trigger: true
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: "873d77a6-6b7e-4ea1-9844-441a4cf49da1"
+  dockerRegistryServiceConnection: "f89f2b61-fa2e-4553-aa16-ed18f3b095aa"
   imageRepository: "ralph-storefront"
   containerRegistry: "ralphregistry.azurecr.io"
   dockerfilePath: "$(Build.SourcesDirectory)/Dockerfile"
