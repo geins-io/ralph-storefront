@@ -60,16 +60,15 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$top-bar-height: rem-calc(20px);
-$top-bar-height-desktop: rem-calc(36px);
 .ca-top-bar {
   background: $c-topbar-bg;
   font-size: $font-size-xs;
+  z-index: $z-index-header;
+  position: relative;
   &__container {
-    display: flex;
     height: $top-bar-height;
     line-height: $top-bar-height;
-    justify-content: center;
+    @include flex-halign;
     @include bp(laptop) {
       height: $top-bar-height-desktop;
       line-height: $top-bar-height-desktop;

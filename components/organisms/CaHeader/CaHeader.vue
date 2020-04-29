@@ -1,14 +1,47 @@
 <template>
-  <div class="ca-header">
+  <div class="ca-header" :class="modifiers">
     <CaTopBar />
-    <CaContainer class="ca-header__container">
-      <a href="javascript:;" class="ca-header__nav-toggle only-mobile">
-        <CaIcon class="ca-header__nav-toggle-icon" name="menu" />
-      </a>
-      <CaLogo class="ca-header__logo" />
-      <CaFavorites class="ca-header__favorites" />
-      <CaMiniCart class="ca-header__cart" />
-    </CaContainer>
+    <div class="ca-header__bar">
+      <CaContainer class="ca-header__container">
+        <a
+          v-if="!$store.getters.viewportLaptop"
+          href="javascript:;"
+          class="ca-header__nav-toggle"
+        >
+          <CaIcon class="ca-header__nav-toggle-icon" name="menu" />
+        </a>
+        <a
+          v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportLaptop"
+          href="javascript:;"
+          class="ca-header__search-toggle"
+          @click="() => (searchOpened = !searchOpened)"
+        >
+          <CaIcon class="ca-header__search-toggle-icon" name="search" />
+        </a>
+        <CaSearch v-if="$store.getters.viewportLaptop" />
+        <CaLogo class="ca-header__logo" />
+        <CaFavorites class="ca-header__favorites" />
+        <CaMiniCart class="ca-header__cart" />
+      </CaContainer>
+    </div>
+    <div v-if="$store.getters.viewportLaptop" class="ca-navigation">
+      <NuxtLink class="ca-navigation__link" to="/list">
+        {{ $t('PRODUCT_LIST') }}
+      </NuxtLink>
+      <NuxtLink class="ca-navigation__link" to="/product">
+        {{ $tc('PRODUCT', 1) }}
+      </NuxtLink>
+      <NuxtLink class="ca-navigation__link" to="/">
+        Nav link
+      </NuxtLink>
+      <NuxtLink class="ca-navigation__link" to="/">
+        Nav link
+      </NuxtLink>
+      <NuxtLink class="ca-navigation__link" to="/">
+        Nav link
+      </NuxtLink>
+    </div>
+    <CaSearch v-if="!$store.getters.viewportLaptop" :opened="searchOpened" />
   </div>
 </template>
 <script>
@@ -17,7 +50,8 @@ import {
   CaIcon,
   CaLogo,
   CaMiniCart,
-  CaFavorites
+  CaFavorites,
+  CaSearch
 } from '@ralph/ralph-ui';
 import CaTopBar from '@/components/organisms/CaTopBar/CaTopBar';
 
@@ -29,12 +63,21 @@ export default {
     CaIcon,
     CaLogo,
     CaMiniCart,
-    CaFavorites
+    CaFavorites,
+    CaSearch
   },
   mixins: [],
   props: {},
-  data: () => ({}),
-  computed: {},
+  data: () => ({
+    searchOpened: false
+  }),
+  computed: {
+    modifiers() {
+      return {
+        'ca-header--scrolled': !this.$store.getters.siteIsAtTop
+      };
+    }
+  },
   watch: {},
   mounted() {},
   methods: {}
@@ -42,26 +85,42 @@ export default {
 </script>
 <style lang="scss" scoped>
 .ca-header {
-  background: $c-header-bg;
-
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: $z-index-header;
+  &__bar {
+    background: $c-header-bg;
+    z-index: $z-index-header;
+    position: relative;
+  }
   &__container {
-    height: rem-calc(50px);
-    display: flex;
+    height: $header-bar-height;
+    @include flex-valign;
     justify-content: space-between;
-    align-items: center;
+
     @include bp(laptop) {
       justify-content: flex-end;
-      height: rem-calc(60px);
+      height: $header-bar-height-desktop;
     }
   }
 
   &__nav-toggle {
     margin-right: auto;
-    display: flex;
-    align-items: center;
+    @include flex-valign;
   }
   &__nav-toggle-icon {
     font-size: 28px;
+  }
+
+  &__search-toggle {
+    margin-right: auto;
+    @include flex-valign;
+  }
+
+  &__search-toggle-icon {
+    font-size: 23px;
   }
 
   &__logo {
@@ -69,8 +128,23 @@ export default {
     width: 120px;
   }
 
+  &--scrolled & {
+    &__nav-toggle {
+      margin-right: $px20;
+    }
+  }
+
   ::v-deep .ca-notification-badge {
     border: 1px solid $c-header-bg;
+  }
+}
+.ca-navigation {
+  height: 40px;
+  background: $c-header-bg;
+  @include flex-halign;
+  &__link {
+    font-size: $font-size-m;
+    padding: 0 $px32;
   }
 }
 </style>

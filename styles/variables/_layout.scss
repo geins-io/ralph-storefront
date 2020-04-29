@@ -1,0 +1,28 @@
+@import '../helpers/sizing';
+
+// Borders
+$border-light: 1px solid $c-border-light;
+
+// Z-index
+$z-index-header: 400;
+
+$z-index-overlay: 1000;
+
+$z-index-search: 200;
+$z-index-search-desktop: 1200;
+
+$z-index-modal: 2000;
+
+// Top bar
+$top-bar-height: rem-calc(20px);
+$top-bar-height-desktop: rem-calc(36px);
+
+// Header
+$header-height: rem-calc(120px);
+$header-height-desktop: rem-calc(156px);
+$header-bar-height: rem-calc(50px);
+$header-bar-height-desktop: rem-calc(80px);
+
+// Search
+$search-height: rem-calc(50px);
+$search-height-desktop: rem-calc(40px);

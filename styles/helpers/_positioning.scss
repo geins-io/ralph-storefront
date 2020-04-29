@@ -16,3 +16,19 @@
   left: 50%;
   position: absolute;
 }
+
+@mixin flex-valign {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-halign {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-calign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

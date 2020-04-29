@@ -8,5 +8,12 @@ export default {
   USP_TEXT: 'Free and fast delivery!',
   LOG_IN_LINK: 'Log in/Sign up',
   CUSTOMER_SERVICE: 'Customer service',
-  FAVORITES_LABEL: 'My favorites'
+  FAVORITES_LABEL: 'My favorites',
+  SEARCH_PLACEHOLDER: 'Search',
+  SEARCH_SEE_ALL: 'See all search results',
+  SEARCH_SEE_ALL_BRANDS: 'See all brands',
+  PRODUCT: 'Product | Products',
+  BRANDS: 'Brands',
+  CATEGORIES: 'Categories',
+  PRODUCT_LIST: 'Product list'
 };

@@ -8,5 +8,12 @@ export default {
   USP_TEXT: 'Gratis och fri frakt!',
   LOG_IN_LINK: 'Logga in/Bli medlem',
   CUSTOMER_SERVICE: 'Kundtjänst',
-  FAVORITES_LABEL: 'Mina favoriter'
+  FAVORITES_LABEL: 'Mina favoriter',
+  SEARCH_PLACEHOLDER: 'Sök',
+  SEARCH_SEE_ALL: 'Se alla sökresultat',
+  SEARCH_SEE_ALL_BRANDS: 'Se alla varumärken',
+  PRODUCT: 'Produkt | Produkter',
+  BRANDS: 'Varumärken',
+  CATEGORIES: 'Kategorier',
+  PRODUCT_LIST: 'Produktlistning'
 };
