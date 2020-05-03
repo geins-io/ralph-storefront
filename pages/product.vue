@@ -4,7 +4,11 @@
     <CaContainer>
       <div class="ca-product-page__section">
         <CaProductGallery :images="productImages" />
-        <div class="ca-product-page__main">
+        <div v-if="product !== undefined" class="ca-product-page__main">
+          <CaIconButton
+            icon-name="heart"
+            @clicked="$store.commit('toggleFavorite', product.productId)"
+          />
           <CaBrandAndName
             :brand="product.brandName"
             :name="getCurrentLang(product.names)"
@@ -15,6 +19,9 @@
             :regular-price="price.regular"
             :is-sale="price.sale"
           />
+          <CaButton type="full-width" @clicked="addToCart"
+            >Add to cart</CaButton
+          >
         </div>
       </div>
     </CaContainer>
@@ -23,7 +30,13 @@
 
 <script>
 import gql from 'graphql-tag';
-import { CaContainer, CaProductGallery, CaProductMeta } from '@ralph/ralph-ui';
+import {
+  CaContainer,
+  CaProductGallery,
+  CaButton,
+  CaIconButton,
+  CaProductMeta
+} from '@ralph/ralph-ui';
 import CaBrandAndName from '@/components/atoms/CaBrandAndName/CaBrandAndName';
 import CaPrice from '@/components/atoms/CaPrice/CaPrice';
 
@@ -34,7 +47,9 @@ export default {
     CaProductGallery,
     CaBrandAndName,
     CaPrice,
-    CaProductMeta
+    CaProductMeta,
+    CaButton,
+    CaIconButton
   },
   apollo: {
     product: gql`
@@ -126,6 +141,9 @@ export default {
           item.languageCode === this.$i18n.fallbackLocale
       );
       return result[0].content;
+    },
+    addToCart() {
+      // do sometinh
     }
   }
 };
@@ -133,7 +151,5 @@ export default {
 
 <style lang="scss">
 .ca-product-page {
-  &__section {
-  }
 }
 </style>

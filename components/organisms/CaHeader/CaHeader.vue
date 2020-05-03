@@ -3,11 +3,7 @@
     <CaTopBar />
     <div class="ca-header__bar">
       <CaContainer class="ca-header__container">
-        <a
-          v-if="!$store.getters.viewportLaptop"
-          href="javascript:;"
-          class="ca-header__nav-toggle"
-        >
+        <a href="javascript:;" class="ca-header__nav-toggle only-mobile">
           <CaIcon class="ca-header__nav-toggle-icon" name="menu" />
         </a>
         <a
@@ -18,7 +14,7 @@
         >
           <CaIcon class="ca-header__search-toggle-icon" name="search" />
         </a>
-        <CaSearch v-if="$store.getters.viewportLaptop" />
+        <CaSearch class="only-desktop" />
         <a href="/">
           <CaLogo class="ca-header__logo" />
         </a>
@@ -26,7 +22,7 @@
         <CaMiniCart class="ca-header__cart" />
       </CaContainer>
     </div>
-    <div v-if="$store.getters.viewportLaptop" class="ca-navigation">
+    <div class="ca-navigation only-desktop">
       <NuxtLink class="ca-navigation__link" to="/list">
         {{ $t('PRODUCT_LIST') }}
       </NuxtLink>

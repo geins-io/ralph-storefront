@@ -1,7 +1,7 @@
 <template>
   <div class="ca-top-bar">
     <CaContainer class="ca-top-bar__container">
-      <nuxt-link
+      <NuxtLink
         v-for="locale in availableLocales"
         :key="locale.code"
         class="ca-top-bar__lang-switcher only-desktop"
@@ -13,7 +13,7 @@
           shape="circle"
         />
         {{ locale.name }}
-      </nuxt-link>
+      </NuxtLink>
       <NuxtLink
         class="ca-top-bar__link ca-top-bar__link--customer-service only-desktop"
         to="/"
