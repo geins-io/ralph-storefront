@@ -51,22 +51,48 @@ export default {
       {
         seo: false,
         locales: [
-          { code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
-          { code: 'sv', iso: 'sv-SE', file: 'sv-SE.js', name: 'Svenska' }
+          {
+            code: 'en',
+            iso: 'en-US',
+            file: 'en-US.js',
+            name: 'English',
+            flag: 'gb'
+          },
+          {
+            code: 'sv',
+            iso: 'sv-SE',
+            file: 'sv-SE.js',
+            name: 'Svenska',
+            flag: 'se'
+          }
         ],
         langDir: 'languages/',
-        defaultLocale: 'en',
+        defaultLocale: 'sv',
         lazy: true,
         vueI18n: {
-          fallbackLocale: 'en'
+          fallbackLocale: 'sv'
         }
       }
     ],
     // Doc: https://github.com/nuxt-community/style-resources-module
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    // Doc: https://github.com/nuxt-community/apollo-module
+    '@nuxtjs/apollo'
   ],
   styleResources: {
     scss: ['./styles/_variables.scss', './styles/_helpers.scss']
+  },
+  apollo: {
+    // optional
+    // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
+    // optional
+    // errorHandler: '~/plugins/apollo-error-handler.js',
+    // required
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://ralphapi.azurewebsites.net/graphql'
+      }
+    }
   },
   /*
    ** Build configuration

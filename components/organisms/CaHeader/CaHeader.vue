@@ -19,7 +19,9 @@
           <CaIcon class="ca-header__search-toggle-icon" name="search" />
         </a>
         <CaSearch v-if="$store.getters.viewportLaptop" />
-        <CaLogo class="ca-header__logo" />
+        <a href="/">
+          <CaLogo class="ca-header__logo" />
+        </a>
         <CaFavorites class="ca-header__favorites" />
         <CaMiniCart class="ca-header__cart" />
       </CaContainer>
