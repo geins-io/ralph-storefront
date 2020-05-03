@@ -1,5 +1,6 @@
 <template>
   <div class="ca-product-page">
+    <CaProductMeta :product="product" />
     <CaContainer>
       <div class="ca-product-page__section">
         <CaProductGallery :images="productImages" />
@@ -22,7 +23,7 @@
 
 <script>
 import gql from 'graphql-tag';
-import { CaContainer, CaProductGallery } from '@ralph/ralph-ui';
+import { CaContainer, CaProductGallery, CaProductMeta } from '@ralph/ralph-ui';
 import CaBrandAndName from '@/components/atoms/CaBrandAndName/CaBrandAndName';
 import CaPrice from '@/components/atoms/CaPrice/CaPrice';
 
@@ -32,7 +33,8 @@ export default {
     CaContainer,
     CaProductGallery,
     CaBrandAndName,
-    CaPrice
+    CaPrice,
+    CaProductMeta
   },
   apollo: {
     product: gql`
