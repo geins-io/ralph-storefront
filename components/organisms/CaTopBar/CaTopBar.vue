@@ -1,10 +1,19 @@
 <template>
   <div class="ca-top-bar">
     <CaContainer class="ca-top-bar__container">
-      <a class="ca-top-bar__lang-switcher only-desktop" href="javascript:;">
-        <CaFlag country="se" shape="circle" />
-        Sverige
-      </a>
+      <nuxt-link
+        v-for="locale in availableLocales"
+        :key="locale.code"
+        class="ca-top-bar__lang-switcher only-desktop"
+        :to="switchLocalePath(locale.code)"
+      >
+        <CaFlag
+          class="ca-top-bar__flag"
+          :country="locale.flag"
+          shape="circle"
+        />
+        {{ locale.name }}
+      </nuxt-link>
       <NuxtLink
         class="ca-top-bar__link ca-top-bar__link--customer-service only-desktop"
         to="/"
@@ -53,7 +62,11 @@ export default {
   mixins: [],
   props: {},
   data: () => ({}),
-  computed: {},
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+    }
+  },
   watch: {},
   mounted() {},
   methods: {}
@@ -74,6 +87,10 @@ export default {
       line-height: $top-bar-height-desktop;
       justify-content: space-between;
     }
+  }
+  &__flag {
+    margin-right: $px4;
+    font-size: 15px;
   }
   &__usps {
     @include bp(desktop) {

@@ -23,9 +23,11 @@
     }
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "flag-icon-css": "^3.4.6",
     "@ralph/ralph-ui": "latest",
+    "flag-icon-css": "^3.4.6",
+    "graphql-tag": "^2.10.3",
     "nuxt": "^2.12.0",
     "nuxt-i18n": "^6.6.1"
   },
@@ -48,6 +50,7 @@
     "lint-staged": "^10.2.2",
     "node-sass": "^4.14.0",
     "prettier": "^1.19.1",
+    "prompts": "^2.3.2",
     "sass-loader": "^8.0.2",
     "stylelint": "^13.3.3",
     "svg-inline-loader": "^0.8.2",

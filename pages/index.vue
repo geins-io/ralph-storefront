@@ -1,42 +1,23 @@
 <template>
-  <div class="ca-container">
-    <h1 class="title">
-      @ralph/ralph-storefront
-    </h1>
-    <h2 class="subtitle">
-      E-commerce frontend by Carismar
-    </h2>
-    <nuxt-link
-      v-for="locale in availableLocales"
-      :key="locale.code"
-      :to="switchLocalePath(locale.code)"
-      >{{ locale.name }}
-    </nuxt-link>
-
-    <a @click="increment">{{ counter }}</a>
-    <br />
-    <ca-icon-and-text icon-name="anchor">Anchor</ca-icon-and-text>
-    <br />
-    <ca-icon-and-text icon-name="arrow-down-circle" icon-position="right"
-      >Down</ca-icon-and-text
-    >
-    <br />
-    <ca-icon-and-text icon-name="archive" icon-position="top"
-      >Archive</ca-icon-and-text
-    >
-    <br />
-    <ca-vat-toggle />
+  <div class="ca-front-page">
+    <CaContainer>
+      <h1 class="site-title">ralph / front page</h1>
+      <p class="site-preamble">
+        This is the front page of Ralph. In a distant future, awesome front page
+        content will be displayed here.
+      </p>
+    </CaContainer>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 // import Logo from '@/components/Logo.vue';
-import { CaIconAndText, CaVatToggle } from '@ralph/ralph-ui';
+import { CaContainer } from '@ralph/ralph-ui';
 export default {
+  name: 'FrontPage',
   components: {
-    CaIconAndText,
-    CaVatToggle
+    CaContainer
   },
   fetch({ store }) {
     store.commit('increment');
@@ -60,4 +41,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.site-title {
+  font-size: $font-size-xxl;
+  text-align: center;
+  font-weight: $font-weight-bold;
+}
+.site-preamble {
+  max-width: 450px;
+  margin: $px20 auto;
+  font-size: $font-size-l;
+  text-align: center;
+}
+</style>
