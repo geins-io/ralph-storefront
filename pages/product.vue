@@ -1,5 +1,6 @@
 <template>
   <div class="ca-product-page">
+    <CaProductMeta :product="product" />
     <CaContainer>
       <div class="ca-product-page__section">
         <CaProductGallery
@@ -73,7 +74,8 @@ import {
   CaProductGallery,
   CaButton,
   CaIconButton,
-  CaIconAndText
+  CaIconAndText,
+  CaProductMeta
 } from '@ralph/ralph-ui';
 import CaBrandAndName from '@/components/atoms/CaBrandAndName/CaBrandAndName';
 import CaPrice from '@/components/atoms/CaPrice/CaPrice';
@@ -87,7 +89,8 @@ export default {
     CaPrice,
     CaButton,
     CaIconButton,
-    CaIconAndText
+    CaIconAndText,
+    CaProductMeta
   },
   apollo: {
     product: gql`
