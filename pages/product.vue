@@ -2,9 +2,18 @@
   <div class="ca-product-page">
     <CaContainer>
       <div class="ca-product-page__section">
-        <CaProductGallery :images="productImages" />
+        <CaProductGallery
+          class="ca-product-page__gallery"
+          :images="productImages"
+        />
         <div v-if="product !== undefined" class="ca-product-page__main">
           <CaIconButton
+            class="ca-product-page__favorite"
+            :class="{
+              'ca-product-page__favorite--active': $store.getters.isFavorite(
+                product.productId
+              )
+            }"
             icon-name="heart"
             @clicked="$store.commit('toggleFavorite', product.productId)"
           />
@@ -14,13 +23,43 @@
             name-tag="h1"
           />
           <CaPrice
+            class="ca-product-page__price"
             :selling-price="price.selling"
             :regular-price="price.regular"
             :is-sale="price.sale"
           />
-          <CaButton type="full-width" @clicked="addToCart"
+          <p class="ca-product-page__short-text">
+            {{ getCurrentLang(product.shortTexts) }}
+          </p>
+          <CaButton
+            class="ca-product-page__buy-button"
+            type="full-width"
+            @clicked="addToCart"
             >Add to cart</CaButton
           >
+          <div class="ca-product-page__usps">
+            <CaIconAndText
+              class="ca-product-page__usp"
+              icon-name="check-circle"
+              icon-position="top"
+            >
+              {{ $t('USP_1') }}
+            </CaIconAndText>
+            <CaIconAndText
+              class="ca-product-page__usp"
+              icon-name="check-circle"
+              icon-position="top"
+            >
+              {{ $t('USP_2') }}
+            </CaIconAndText>
+            <CaIconAndText
+              class="ca-product-page__usp"
+              icon-name="check-circle"
+              icon-position="top"
+            >
+              {{ $t('USP_3') }}
+            </CaIconAndText>
+          </div>
         </div>
       </div>
     </CaContainer>
@@ -33,7 +72,8 @@ import {
   CaContainer,
   CaProductGallery,
   CaButton,
-  CaIconButton
+  CaIconButton,
+  CaIconAndText
 } from '@ralph/ralph-ui';
 import CaBrandAndName from '@/components/atoms/CaBrandAndName/CaBrandAndName';
 import CaPrice from '@/components/atoms/CaPrice/CaPrice';
@@ -46,7 +86,8 @@ export default {
     CaBrandAndName,
     CaPrice,
     CaButton,
-    CaIconButton
+    CaIconButton,
+    CaIconAndText
   },
   apollo: {
     product: gql`
@@ -67,6 +108,10 @@ export default {
           }
           prices {
             currency
+          }
+          shortTexts {
+            languageCode
+            content
           }
           variants {
             groupId
@@ -148,5 +193,66 @@ export default {
 
 <style lang="scss">
 .ca-product-page {
+  &__section {
+    @include bp(laptop) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__main {
+    position: relative;
+    max-width: 500px;
+    margin: $px16 auto 0;
+    @include bp(laptop) {
+      width: 40%;
+      margin: $px32 auto 0;
+    }
+  }
+  &__gallery {
+    @include bp(laptop) {
+      display: flex;
+      justify-content: space-between;
+      width: 49.6%;
+    }
+  }
+  &__favorite {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $c-white;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include flex-calign;
+    font-size: 18px;
+    color: $c-text-secondary;
+    transition: color 200ms ease;
+    &--active {
+      color: $c-sale;
+    }
+  }
+  &__price {
+    margin: $px4 0 $px8;
+  }
+  &__short-text {
+    margin-bottom: $px16;
+  }
+  &__buy-button {
+    margin-bottom: $px20;
+  }
+  &__usps {
+    display: flex;
+    justify-content: space-between;
+    border-top: $border-light;
+    padding: $px16 0;
+  }
+  &__usp {
+    padding: 0 $px4;
+    text-align: center;
+    .ca-icon {
+      margin-bottom: $px4;
+    }
+  }
 }
 </style>

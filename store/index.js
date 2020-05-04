@@ -1,6 +1,6 @@
 export const state = () => ({
   counter: 0,
-  favorites: ['1111', '1122'],
+  favorites: [1111, 1122],
   VATincluded: true,
   scrollTop: 0,
   viewportWidth: 0
@@ -74,5 +74,8 @@ export const getters = {
   },
   viewportLaptop(state) {
     return state.viewportWidth >= 1024;
+  },
+  isFavorite: state => prodId => {
+    return state.favorites.includes(prodId);
   }
 };

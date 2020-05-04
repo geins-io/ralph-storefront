@@ -24,7 +24,7 @@ export default {
 .ca-main {
   padding-top: $header-height + $default-spacing;
   @include bp(laptop) {
-    padding-top: $header-height-desktop + $default-spacing;
+    padding-top: $header-height-desktop + $default-spacing * 2;
   }
 }
 </style>
