@@ -36,7 +36,7 @@
             class="ca-product-page__buy-button"
             type="full-width"
             @clicked="addToCart"
-            >Add to cart</CaButton
+            >{{ $t('ADD_TO_CART') }}</CaButton
           >
           <div class="ca-product-page__usps">
             <CaIconAndText

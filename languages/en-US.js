@@ -15,5 +15,6 @@ export default {
   PRODUCT: 'Product | Products',
   BRANDS: 'Brands',
   CATEGORIES: 'Categories',
-  PRODUCT_LIST: 'Product list'
+  PRODUCT_LIST: 'Product list',
+  ADD_TO_CART: 'Add to bag'
 };
