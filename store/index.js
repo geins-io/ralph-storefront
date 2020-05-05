@@ -1,6 +1,6 @@
 export const state = () => ({
   counter: 0,
-  favorites: [1111, 1122],
+  favorites: [],
   VATincluded: true,
   scrollTop: 0,
   viewportWidth: 0

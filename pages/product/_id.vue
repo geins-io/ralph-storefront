@@ -1,6 +1,6 @@
 <template>
   <div class="ca-product-page">
-    <CaProductMeta :product="product" />
+    <CaProductMeta v-if="product !== undefined" :product="product" />
     <CaContainer>
       <div class="ca-product-page__section">
         <CaProductGallery
@@ -8,16 +8,7 @@
           :images="productImages"
         />
         <div v-if="product !== undefined" class="ca-product-page__main">
-          <CaIconButton
-            class="ca-product-page__favorite"
-            :class="{
-              'ca-product-page__favorite--active': $store.getters.isFavorite(
-                product.productId
-              )
-            }"
-            icon-name="heart"
-            @clicked="$store.commit('toggleFavorite', product.productId)"
-          />
+          <CaToggleFavorite :prod-id="product.productId" />
           <CaBrandAndName
             :brand="product.brandName"
             :name="getCurrentLang(product.names)"
@@ -73,12 +64,12 @@ import {
   CaContainer,
   CaProductGallery,
   CaButton,
-  CaIconButton,
   CaIconAndText,
   CaProductMeta
 } from '@ralph/ralph-ui';
 import CaBrandAndName from '@/components/atoms/CaBrandAndName/CaBrandAndName';
 import CaPrice from '@/components/atoms/CaPrice/CaPrice';
+import CaToggleFavorite from '@/components/molecules/CaToggleFavorite/CaToggleFavorite';
 
 export default {
   name: 'ProductPage',
@@ -88,9 +79,9 @@ export default {
     CaBrandAndName,
     CaPrice,
     CaButton,
-    CaIconButton,
     CaIconAndText,
-    CaProductMeta
+    CaProductMeta,
+    CaToggleFavorite
   },
   apollo: {
     product: {
@@ -223,23 +214,6 @@ export default {
       display: flex;
       justify-content: space-between;
       width: 49.6%;
-    }
-  }
-  &__favorite {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: $c-white;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    right: 0;
-    top: 0;
-    @include flex-calign;
-    font-size: 18px;
-    color: $c-text-secondary;
-    transition: color 200ms ease;
-    &--active {
-      color: $c-sale;
     }
   }
   &__price {
