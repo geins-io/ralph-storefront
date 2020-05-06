@@ -146,7 +146,11 @@ export default {
   text-align: center;
   font-weight: $font-weight-bold;
 }
-.ca-list-page {
+.site-preamble {
+  max-width: 450px;
+  margin: $px20 auto;
+  font-size: $font-size-l;
+  text-align: center;
 }
 .ca-product-list {
   display: flex;
@@ -185,15 +189,15 @@ export default {
     padding-top: $px12;
     display: block;
   }
-  &__favorite {
+  &__price {
+    margin-top: $px4;
+  }
+  .ca-toggle-favorite {
     width: 36px;
     height: 36px;
     top: auto;
     right: $px12;
     bottom: $px12;
-  }
-  &__price {
-    margin-top: $px4;
   }
 }
 </style>
