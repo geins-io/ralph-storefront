@@ -16,5 +16,8 @@ export default {
   BRANDS: 'Brands',
   CATEGORIES: 'Categories',
   PRODUCT_LIST: 'Product list',
-  ADD_TO_CART: 'Add to bag'
+  ADD_TO_CART: 'Add to bag',
+  ADD_FAVORITE: 'Add to favorites',
+  REMOVE_FAVORITE: 'Remove from favorites',
+  LOGO_ALT_TEXT: 'Logo'
 };
