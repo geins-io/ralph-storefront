@@ -90,7 +90,9 @@ export default {
     // required
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://ralphapi.azurewebsites.net/graphql'
+        httpEndpoint: 'https://ralphapi.azurewebsites.net/graphql',
+        // Enable Automatic Query persisting with Apollo Engine
+        persisting: false // try to enable this later
       }
     }
   },
