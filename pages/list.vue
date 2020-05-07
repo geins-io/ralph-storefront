@@ -117,10 +117,12 @@ export default {
   computed: {
     activeProducts() {
       return this.products
-        ? this.products.filter(
-            item =>
-              item.active === true && this.getCurrentLang(item.names) !== ''
-          )
+        ? this.products
+            .filter(
+              item =>
+                item.active === true && this.getCurrentLang(item.names) !== ''
+            )
+            .slice(0, 60)
         : [];
     }
   },
