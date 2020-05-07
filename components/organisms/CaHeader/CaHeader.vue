@@ -16,7 +16,7 @@
         </a>
         <CaSearch class="only-desktop" />
         <a href="/">
-          <CaLogo class="ca-header__logo" />
+          <CaLogo class="ca-header__logo" :alt="$t('LOGO_ALT_TEXT')" />
         </a>
         <CaFavorites class="ca-header__favorites" />
         <CaMiniCart class="ca-header__cart" />
@@ -25,9 +25,6 @@
     <div class="ca-navigation only-desktop">
       <NuxtLink class="ca-navigation__link" to="/list">
         {{ $t('PRODUCT_LIST') }}
-      </NuxtLink>
-      <NuxtLink class="ca-navigation__link" to="/product">
-        {{ $tc('PRODUCT', 1) }}
       </NuxtLink>
       <NuxtLink class="ca-navigation__link" to="/">
         Nav link

@@ -4,6 +4,7 @@
     :class="{
       'ca-toggle-favorite--active': $store.getters.isFavorite(prodId)
     }"
+    :aria-label="ariaLabel"
     icon-name="heart"
     @clicked="$store.commit('toggleFavorite', prodId)"
   />
@@ -23,7 +24,13 @@ export default {
     }
   },
   data: () => ({}),
-  computed: {},
+  computed: {
+    ariaLabel() {
+      return this.$store.getters.isFavorite(this.prodId)
+        ? this.$t('REMOVE_FAVORITE')
+        : this.$t('ADD_FAVORITE');
+    }
+  },
   watch: {},
   mounted() {},
   methods: {}
