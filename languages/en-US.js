@@ -19,5 +19,6 @@ export default {
   ADD_TO_CART: 'Add to bag',
   ADD_FAVORITE: 'Add to favorites',
   REMOVE_FAVORITE: 'Remove from favorites',
-  LOGO_ALT_TEXT: 'Logo'
+  LOGO_ALT_TEXT: 'Logo',
+  EX_VAT: 'ex. VAT'
 };

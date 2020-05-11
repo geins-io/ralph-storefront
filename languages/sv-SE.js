@@ -19,5 +19,6 @@ export default {
   ADD_TO_CART: 'Lägg i varukorgen',
   ADD_FAVORITE: 'Lägg till som favorit',
   REMOVE_FAVORITE: 'Ta bort från favoriter',
-  LOGO_ALT_TEXT: 'Logga'
+  LOGO_ALT_TEXT: 'Logga',
+  EX_VAT: 'ex. moms'
 };

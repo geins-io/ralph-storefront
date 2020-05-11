@@ -21,8 +21,14 @@
               :to="'/product/' + product.productId"
             >
               <img
+                v-if="product.images !== null"
                 class="ca-product-item__image"
-                :src="require('~/assets/placeholders/product-image.png')"
+                :src="getImageUrl(product.images, '300f300')"
+              />
+              <img
+                v-if="product.images === null"
+                class="ca-product-item__image"
+                :src="require('~/assets/placeholders/product-image-square.png')"
               />
             </NuxtLink>
             <CaToggleFavorite
@@ -39,9 +45,9 @@
               />
               <CaPrice
                 class="ca-product-item__price"
-                :selling-price="price.selling"
-                :regular-price="price.regular"
-                :is-sale="price.sale"
+                :selling-price="getPrice(product.prices)"
+                :regular-price="getPrice(product.prices)"
+                :is-sale="false"
               />
             </NuxtLink>
           </div>
@@ -69,7 +75,7 @@ export default {
   apollo: {
     products: gql`
       {
-        products {
+        products(skip: 5, take: 15) {
           active
           brandName
           names {
@@ -77,6 +83,17 @@ export default {
             languageCode
           }
           productId
+          prices {
+            currency
+            priceExVat
+            priceIncVat
+            priceListName
+          }
+          images {
+            productId
+            size
+            url
+          }
         }
       }
     `
@@ -133,8 +150,16 @@ export default {
       );
       return result.length ? result[0].content : '';
     },
+    getPrice(prices) {
+      return this.$store.state.VATincluded
+        ? prices[0].priceIncVat
+        : prices[0].priceExVat;
+    },
     addToCart() {
       // do sometinh
+    },
+    getImageUrl(images, size) {
+      return images.filter(item => item.size === size)[0].url;
     }
   }
 };

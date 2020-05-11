@@ -16,13 +16,23 @@
           />
           <CaPrice
             class="ca-product-page__price"
-            :selling-price="price.selling"
-            :regular-price="price.regular"
-            :is-sale="price.sale"
+            :selling-price="productPrice"
+            :regular-price="productPrice"
+            :is-sale="false"
           />
-          <p class="ca-product-page__short-text">
-            {{ getCurrentLang(product.shortTexts) }}
-          </p>
+          <p
+            class="ca-product-page__short-text"
+            v-html="getCurrentLang(product.shortTexts)"
+          ></p>
+          <select v-model="chosenItemID" class="mar-bot-20">
+            <option
+              v-for="(item, index) in productItems"
+              :key="index"
+              :value="item.itemId"
+            >
+              {{ item.label }}
+            </option>
+          </select>
           <CaButton
             class="ca-product-page__buy-button"
             type="full-width"
@@ -86,7 +96,7 @@ export default {
   apollo: {
     product: {
       query: gql`
-        query product($id: ID!) {
+        query product($id: Int!) {
           product(id: $id) {
             productId
             names {
@@ -94,6 +104,11 @@ export default {
               content
             }
             brandName
+            images {
+              productId
+              size
+              url
+            }
             categories {
               categoryId
               names {
@@ -103,6 +118,9 @@ export default {
             }
             prices {
               currency
+              priceExVat
+              priceIncVat
+              priceListName
             }
             shortTexts {
               languageCode
@@ -128,12 +146,13 @@ export default {
     return {
       id: 1212,
       artNo: 2525,
+      chosenItemID: 12345,
       images: [
-        'product-image.png',
-        'product-image.png',
-        'product-image.png',
-        'product-image.png',
-        'product-image.png'
+        'product-image-square.png',
+        'product-image-square.png',
+        'product-image-square.png',
+        'product-image-square.png',
+        'product-image-square.png'
       ],
       price: {
         sale: false,
@@ -165,15 +184,125 @@ export default {
       infoShort: '',
       infoLong: '',
       infoOther: '',
-      parameters: []
+      parameters: [],
+      attributes: [
+        {
+          id: 11,
+          label: 'Color',
+          type: 'product',
+          values: [
+            {
+              id: 110032,
+              label: 'Gul',
+              hex: '#fc0',
+              url: '/110032'
+            },
+            {
+              id: 110033,
+              label: 'Röd',
+              hex: '#e8001c',
+              url: '/110033'
+            }
+          ]
+        },
+        {
+          id: 22,
+          label: 'Size',
+          type: 'item',
+          values: [
+            {
+              id: 'S',
+              label: 'S',
+              itemId: 12345
+            },
+            {
+              id: 'M',
+              label: 'M',
+              itemId: 11345
+            },
+            {
+              id: 'L',
+              label: 'L',
+              itemId: 22345
+            }
+          ]
+        }
+      ],
+      variants: [
+        {
+          variants: [{ 22: 'S' }],
+          productId: 110032,
+          stock: {
+            inStock: 10,
+            oversellable: 0
+          }
+        },
+        {
+          variant: [{ 22: 'M' }],
+          productId: 110032,
+          stock: {
+            inStock: 10,
+            oversellable: 0
+          }
+        },
+        {
+          variant: [{ 22: 'L' }],
+          productId: 110032,
+          stock: {
+            inStock: 15,
+            oversellable: 0
+          }
+        },
+        {
+          variant: [{ 22: 'S' }],
+          productId: 110033,
+          stock: {
+            inStock: 20,
+            oversellable: 0
+          }
+        },
+        {
+          variant: [{ 22: 'M' }],
+          productId: 110033,
+          stock: {
+            inStock: 0,
+            oversellable: 5
+          }
+        },
+        {
+          variant: [{ 22: 'L' }],
+          productId: 110033,
+          stock: {
+            inStock: 0,
+            oversellable: 0
+          }
+        }
+      ]
     };
   },
   computed: {
     productImages() {
-      return this.images.map(item => require('~/assets/placeholders/' + item));
+      // return this.images.map(item => require('~/assets/placeholders/' + item));
+      return this.product !== undefined && this.product.images !== null
+        ? [
+            this.getImageUrl(this.product.images, '600f600'),
+            this.getImageUrl(this.product.images, '600f600'),
+            this.getImageUrl(this.product.images, '600f600'),
+            this.getImageUrl(this.product.images, '600f600'),
+            this.getImageUrl(this.product.images, '600f600')
+          ]
+        : this.images.map(item => require('~/assets/placeholders/' + item));
     },
     productInfo() {
       return this.product;
+    },
+    productItems() {
+      return this.attributes.filter(item => item.type === 'item')[0].values;
+    },
+    productPrice() {
+      return this.$store.state.VATincluded
+        ? this.product.prices[0].priceIncVat
+        : this.product.prices[0].priceExVat;
     }
   },
   methods: {
@@ -187,6 +316,9 @@ export default {
     },
     addToCart() {
       // do sometinh
+    },
+    getImageUrl(images, size) {
+      return images.filter(item => item.size === size)[0].url;
     }
   }
 };
