@@ -20,5 +20,7 @@ export default {
   ADD_FAVORITE: 'Add to favorites',
   REMOVE_FAVORITE: 'Remove from favorites',
   LOGO_ALT_TEXT: 'Logo',
-  EX_VAT: 'ex. VAT'
+  EX_VAT: 'ex. VAT',
+  NEXT: 'Next',
+  PREVIOUS: 'Previous'
 };

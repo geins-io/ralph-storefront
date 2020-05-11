@@ -20,11 +20,11 @@
             :regular-price="productPrice"
             :is-sale="false"
           />
-          <p
+          <div
             class="ca-product-page__short-text"
             v-html="getCurrentLang(product.shortTexts)"
-          ></p>
-          <select v-model="chosenItemID" class="mar-bot-20">
+          ></div>
+          <!-- <select v-model="chosenItemID" class="mar-bot-20">
             <option
               v-for="(item, index) in productItems"
               :key="index"
@@ -32,7 +32,7 @@
             >
               {{ item.label }}
             </option>
-          </select>
+          </select> -->
           <CaButton
             class="ca-product-page__buy-button"
             type="full-width"

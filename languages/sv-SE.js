@@ -20,5 +20,7 @@ export default {
   ADD_FAVORITE: 'Lägg till som favorit',
   REMOVE_FAVORITE: 'Ta bort från favoriter',
   LOGO_ALT_TEXT: 'Logga',
-  EX_VAT: 'ex. moms'
+  EX_VAT: 'ex. moms',
+  NEXT: 'Nästa',
+  PREVIOUS: 'Föregående'
 };

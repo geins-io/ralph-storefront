@@ -2,13 +2,19 @@
   <div class="ca-list-page">
     <CaContainer>
       <h1 class="site-title">ralph / list page</h1>
-      <p class="site-preamble">
-        {{
-          activeProducts.length +
-            ' ' +
-            $tc('PRODUCT', activeProducts.length).toLowerCase()
-        }}
-      </p>
+
+      <div class="ca-product-list__pagination">
+        <CaButton
+          class="ca-product-list__prev"
+          :disabled="skip === 0"
+          @clicked="prevPage"
+        >
+          {{ $t('PREVIOUS') }}
+        </CaButton>
+        <CaButton class="ca-product-list__next" @clicked="nextPage">
+          {{ $t('NEXT') }}
+        </CaButton>
+      </div>
       <ul v-if="products !== undefined" class="ca-product-list">
         <li
           v-for="(product, index) in activeProducts"
@@ -53,13 +59,25 @@
           </div>
         </li>
       </ul>
+      <div class="ca-product-list__pagination">
+        <CaButton
+          class="ca-product-list__prev"
+          :disabled="skip === 0"
+          @clicked="prevPage"
+        >
+          {{ $t('PREVIOUS') }}
+        </CaButton>
+        <CaButton class="ca-product-list__next" @clicked="nextPage">
+          {{ $t('NEXT') }}
+        </CaButton>
+      </div>
     </CaContainer>
   </div>
 </template>
 
 <script>
 import gql from 'graphql-tag';
-import { CaContainer } from '@ralph/ralph-ui';
+import { CaContainer, CaButton } from '@ralph/ralph-ui';
 import CaBrandAndName from '@/components/atoms/CaBrandAndName/CaBrandAndName';
 import CaPrice from '@/components/atoms/CaPrice/CaPrice';
 import CaToggleFavorite from '@/components/molecules/CaToggleFavorite/CaToggleFavorite';
@@ -70,36 +88,47 @@ export default {
     CaContainer,
     CaBrandAndName,
     CaPrice,
-    CaToggleFavorite
+    CaToggleFavorite,
+    CaButton
   },
   apollo: {
-    products: gql`
-      {
-        products(skip: 5, take: 15) {
-          active
-          brandName
-          names {
-            content
-            languageCode
-          }
-          productId
-          prices {
-            currency
-            priceExVat
-            priceIncVat
-            priceListName
-          }
-          images {
+    products: {
+      query: gql`
+        query products($skip: Int!, $take: Int!) {
+          products(skip: $skip, take: $take) {
+            active
+            brandName
+            names {
+              content
+              languageCode
+            }
             productId
-            size
-            url
+            prices {
+              currency
+              priceExVat
+              priceIncVat
+              priceListName
+            }
+            images {
+              productId
+              size
+              url
+            }
           }
         }
+      `,
+      variables() {
+        return {
+          skip: this.skip,
+          take: this.take
+        };
       }
-    `
+    }
   },
   data() {
     return {
+      skip: 0,
+      take: 10,
       id: 1212,
       artNo: 2525,
       price: {
@@ -162,6 +191,12 @@ export default {
     },
     getImageUrl(images, size) {
       return images.filter(item => item.size === size)[0].url;
+    },
+    nextPage() {
+      this.skip += this.take;
+    },
+    prevPage() {
+      this.skip -= this.take;
     }
   }
 };
@@ -183,6 +218,11 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  &__pagination {
+    padding: $px32 0;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .ca-product-item {
   position: relative;
@@ -219,6 +259,7 @@ export default {
   &__price {
     margin-top: $px4;
   }
+
   .ca-toggle-favorite {
     width: 36px;
     height: 36px;
