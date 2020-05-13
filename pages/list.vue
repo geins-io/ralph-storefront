@@ -26,13 +26,18 @@
               class="ca-product-item__image-wrap"
               :to="'/product/' + product.productId"
             >
-              <img
+              <CaImage
                 v-if="product.images !== null"
                 class="ca-product-item__image"
-                :src="getImageUrl(product.images, '300f300')"
+                type="product"
+                size="300f300"
+                :filename="product.images[0]"
+                :placeholder="
+                  require('~/assets/placeholders/product-image-square.png')
+                "
               />
               <img
-                v-if="product.images === null"
+                v-else
                 class="ca-product-item__image"
                 :src="require('~/assets/placeholders/product-image-square.png')"
               />
@@ -46,15 +51,10 @@
             <NuxtLink :to="'/product/' + product.productId">
               <CaBrandAndName
                 :brand="product.brandName"
-                :name="getCurrentLang(product.names)"
+                :name="product.name"
                 name-tag="h2"
               />
-              <CaPrice
-                class="ca-product-item__price"
-                :selling-price="getPrice(product.prices)"
-                :regular-price="getPrice(product.prices)"
-                :is-sale="false"
-              />
+              <CaPrice class="ca-product-item__price" :price="product.price" />
             </NuxtLink>
           </div>
         </li>
@@ -77,7 +77,7 @@
 
 <script>
 import gql from 'graphql-tag';
-import { CaContainer, CaButton } from '@ralph/ralph-ui';
+import { CaContainer, CaButton, CaImage } from '@ralph/ralph-ui';
 import CaBrandAndName from '@/components/atoms/CaBrandAndName/CaBrandAndName';
 import CaPrice from '@/components/atoms/CaPrice/CaPrice';
 import CaToggleFavorite from '@/components/molecules/CaToggleFavorite/CaToggleFavorite';
@@ -89,38 +89,34 @@ export default {
     CaBrandAndName,
     CaPrice,
     CaToggleFavorite,
-    CaButton
+    CaButton,
+    CaImage
   },
   apollo: {
     products: {
       query: gql`
-        query products($skip: Int!, $take: Int!) {
-          products(skip: $skip, take: $take) {
+        query products($skip: Int!, $take: Int!, $langCode: String!) {
+          products(skip: $skip, take: $take, langCode: $langCode) {
             active
             brandName
-            names {
-              content
-              languageCode
-            }
+            name
             productId
-            prices {
-              currency
-              priceExVat
-              priceIncVat
-              priceListName
+            price {
+              isDiscounted
+              regularPriceIncVat
+              sellingPriceIncVat
+              regularPriceExVat
+              sellingPriceExVat
             }
-            images {
-              productId
-              size
-              url
-            }
+            images
           }
         }
       `,
       variables() {
         return {
           skip: this.skip,
-          take: this.take
+          take: this.take,
+          langCode: this.$i18n.locale
         };
       }
     }
@@ -128,70 +124,19 @@ export default {
   data() {
     return {
       skip: 0,
-      take: 10,
-      id: 1212,
-      artNo: 2525,
-      price: {
-        sale: false,
-        selling: '299 kr',
-        regular: '349 kr'
-      },
-      campaigns: ['Campaign name'],
-      userFeedback: [
-        {
-          name: 'User name',
-          grade: 4,
-          message: 'This is awesome!',
-          answer: 'Thanks, user!'
-        },
-        {
-          name: 'Other user name',
-          grade: 3,
-          message: 'This is mediocre!',
-          answer: ''
-        }
-      ],
-      sizes: [
-        { name: 'XS', stock: 5 },
-        { name: 'S', stock: 0 },
-        { name: 'M', stock: 5 },
-        { name: 'L', stock: 10 },
-        { name: 'XL', stock: 30 }
-      ]
+      take: 10
     };
   },
   computed: {
     activeProducts() {
       return this.products
         ? this.products
-            .filter(
-              item =>
-                item.active === true && this.getCurrentLang(item.names) !== ''
-            )
+            .filter(item => item.active === true && item.name !== '')
             .slice(0, 60)
         : [];
     }
   },
   methods: {
-    getCurrentLang(localizedArray) {
-      const result = localizedArray.filter(
-        item =>
-          item.languageCode === this.$i18n.locale ||
-          item.languageCode === this.$i18n.fallbackLocale
-      );
-      return result.length ? result[0].content : '';
-    },
-    getPrice(prices) {
-      return this.$store.state.VATincluded
-        ? prices[0].priceIncVat
-        : prices[0].priceExVat;
-    },
-    addToCart() {
-      // do sometinh
-    },
-    getImageUrl(images, size) {
-      return images.filter(item => item.size === size)[0].url;
-    },
     nextPage() {
       this.skip += this.take;
     },

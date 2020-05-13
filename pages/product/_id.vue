@@ -11,18 +11,14 @@
           <CaToggleFavorite :prod-id="product.productId" />
           <CaBrandAndName
             :brand="product.brandName"
-            :name="getCurrentLang(product.names)"
+            :name="product.name"
             name-tag="h1"
           />
-          <CaPrice
-            class="ca-product-page__price"
-            :selling-price="productPrice"
-            :regular-price="productPrice"
-            :is-sale="false"
-          />
+          <CaPrice class="ca-product-page__price" :price="product.price" />
+          <!-- eslint-disable vue/no-v-html -->
           <div
             class="ca-product-page__short-text"
-            v-html="getCurrentLang(product.shortTexts)"
+            v-html="product.shortText"
           ></div>
           <!-- <select v-model="chosenItemID" class="mar-bot-20">
             <option
@@ -96,48 +92,31 @@ export default {
   apollo: {
     product: {
       query: gql`
-        query product($id: Int!) {
-          product(id: $id) {
+        query product($id: Int!, $langCode: String!) {
+          product(id: $id, langCode: $langCode) {
             productId
-            names {
-              languageCode
-              content
-            }
+            name
             brandName
-            images {
-              productId
-              size
-              url
-            }
+            images
             categories {
               categoryId
-              names {
-                languageCode
-                content
-              }
+              name
             }
-            prices {
-              currency
-              priceExVat
-              priceIncVat
-              priceListName
+            price {
+              isDiscounted
+              regularPriceIncVat
+              sellingPriceIncVat
+              regularPriceExVat
+              sellingPriceExVat
             }
-            shortTexts {
-              languageCode
-              content
-            }
-            variants {
-              groupId
-              label
-              productId
-              value
-            }
+            shortText
           }
         }
       `,
       variables() {
         return {
-          id: this.$route.params.id
+          id: this.$route.params.id,
+          langCode: this.$i18n.locale
         };
       }
     }
@@ -282,16 +261,9 @@ export default {
   },
   computed: {
     productImages() {
-      // return this.images.map(item => require('~/assets/placeholders/' + item));
-      return this.product !== undefined && this.product.images !== null
-        ? [
-            this.getImageUrl(this.product.images, '600f600'),
-            this.getImageUrl(this.product.images, '600f600'),
-            this.getImageUrl(this.product.images, '600f600'),
-            this.getImageUrl(this.product.images, '600f600'),
-            this.getImageUrl(this.product.images, '600f600')
-          ]
-        : this.images.map(item => require('~/assets/placeholders/' + item));
+      return this.product && this.product.images && this.product.images.length
+        ? this.product.images
+        : [];
     },
     productInfo() {
       return this.product;
@@ -306,20 +278,20 @@ export default {
     }
   },
   methods: {
-    getCurrentLang(localizedArray) {
-      const result = localizedArray.filter(
-        item =>
-          item.languageCode === this.$i18n.locale ||
-          item.languageCode === this.$i18n.fallbackLocale
-      );
-      return result[0].content;
-    },
+    // getCurrentLang(localizedArray) {
+    //   const result = localizedArray.filter(
+    //     item =>
+    //       item.languageCode === this.$i18n.locale ||
+    //       item.languageCode === this.$i18n.fallbackLocale
+    //   );
+    //   return result[0].content;
+    // },
     addToCart() {
       // do sometinh
-    },
-    getImageUrl(images, size) {
-      return images.filter(item => item.size === size)[0].url;
     }
+    // getImageUrl(images, size) {
+    //   return images.filter(item => item.size === size)[0].url;
+    // }
   }
 };
 </script>

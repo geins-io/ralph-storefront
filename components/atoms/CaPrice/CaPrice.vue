@@ -1,45 +1,42 @@
 <template>
   <div class="ca-price" :class="modifiers">
-    <span class="ca-price__selling">{{ formatCurrency(sellingPrice) }}</span>
-    <span v-if="isSale" class="ca-price__regular">{{
-      formatCurrency(regularPrice)
-    }}</span>
+    <span class="ca-price__selling">{{ sellingPrice }}</span>
+    <span v-if="price.isDiscounted" class="ca-price__regular">
+      {{ regularPrice }}
+    </span>
     <span v-if="!this.$store.state.VATincluded" class="ca-price__ex-vat">
       {{ $t('EX_VAT') }}
     </span>
   </div>
 </template>
 <script>
-import { MixNumberFormat } from '@ralph/ralph-ui';
 // @group Atoms
 // @vuese
 export default {
   name: 'CaPrice',
   components: {},
-  mixins: [MixNumberFormat],
   props: {
-    sellingPrice: {
-      type: Number,
+    price: {
+      type: Object,
       required: true
-    },
-    isSale: {
-      type: Boolean,
-      default: false
-    },
-    regularPrice: {
-      type: Number,
-      default: 0
     }
   },
-  data: () => ({
-    minDecimals: 2,
-    maxDecimals: 2
-  }),
+  data: () => ({}),
   computed: {
     modifiers() {
       return {
-        'ca-price--sale': this.isSale
+        'ca-price--sale': this.price.isDiscounted
       };
+    },
+    sellingPrice() {
+      return this.$store.state.VATincluded
+        ? this.price.sellingPriceIncVat
+        : this.price.sellingPriceExVat;
+    },
+    regularPrice() {
+      return this.$store.state.VATincluded
+        ? this.price.regularPriceIncVat
+        : this.price.regularPriceExVat;
     }
   },
   watch: {},
