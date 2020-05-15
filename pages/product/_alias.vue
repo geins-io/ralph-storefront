@@ -1,24 +1,30 @@
 <template>
   <div class="ca-product-page">
-    <CaProductMeta v-if="product !== undefined" :product="product" />
+    <CaProductMeta
+      v-if="productByAlias !== undefined"
+      :product="productByAlias"
+    />
     <CaContainer>
       <div class="ca-product-page__section">
         <CaProductGallery
           class="ca-product-page__gallery"
           :images="productImages"
         />
-        <div v-if="product !== undefined" class="ca-product-page__main">
-          <CaToggleFavorite :prod-id="product.productId" />
+        <div v-if="productByAlias !== undefined" class="ca-product-page__main">
+          <CaToggleFavorite :prod-id="productByAlias.productId" />
           <CaBrandAndName
-            :brand="product.brandName"
-            :name="product.name"
+            :brand="productByAlias.brandName"
+            :name="productByAlias.name"
             name-tag="h1"
           />
-          <CaPrice class="ca-product-page__price" :price="product.price" />
+          <CaPrice
+            class="ca-product-page__price"
+            :price="productByAlias.price"
+          />
           <!-- eslint-disable vue/no-v-html -->
           <div
             class="ca-product-page__short-text"
-            v-html="product.shortText"
+            v-html="productByAlias.shortText"
           ></div>
           <!-- <select v-model="chosenItemID" class="mar-bot-20">
             <option
@@ -90,10 +96,10 @@ export default {
     CaToggleFavorite
   },
   apollo: {
-    product: {
+    productByAlias: {
       query: gql`
-        query product($id: Int!, $langCode: String!) {
-          product(id: $id, langCode: $langCode) {
+        query productByAlias($alias: String!, $langCode: String!) {
+          productByAlias(alias: $alias, langCode: $langCode) {
             productId
             name
             brandName
@@ -115,7 +121,7 @@ export default {
       `,
       variables() {
         return {
-          id: this.$route.params.id,
+          alias: this.$route.params.alias,
           langCode: this.$i18n.locale
         };
       }
@@ -261,20 +267,14 @@ export default {
   },
   computed: {
     productImages() {
-      return this.product && this.product.images && this.product.images.length
-        ? this.product.images
+      return this.productByAlias &&
+        this.productByAlias.images &&
+        this.productByAlias.images.length
+        ? this.productByAlias.images
         : [];
-    },
-    productInfo() {
-      return this.product;
     },
     productItems() {
       return this.attributes.filter(item => item.type === 'item')[0].values;
-    },
-    productPrice() {
-      return this.$store.state.VATincluded
-        ? this.product.prices[0].priceIncVat
-        : this.product.prices[0].priceExVat;
     }
   },
   methods: {

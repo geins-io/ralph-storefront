@@ -24,7 +24,7 @@
           <div class="ca-product-item__image-wrap">
             <NuxtLink
               class="ca-product-item__image-wrap"
-              :to="'/product/' + product.productId"
+              :to="'/product/' + product.alias"
             >
               <CaImage
                 v-if="product.images !== null"
@@ -101,6 +101,7 @@ export default {
             brandName
             name
             productId
+            alias
             price {
               isDiscounted
               regularPriceIncVat
