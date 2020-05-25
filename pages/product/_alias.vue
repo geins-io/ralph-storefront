@@ -1,30 +1,24 @@
 <template>
   <div class="ca-product-page">
-    <CaProductMeta
-      v-if="productByAlias !== undefined"
-      :product="productByAlias"
-    />
+    <CaProductMeta v-if="product !== undefined" :product="product" />
     <CaContainer>
       <div class="ca-product-page__section">
         <CaProductGallery
           class="ca-product-page__gallery"
           :images="productImages"
         />
-        <div v-if="productByAlias !== undefined" class="ca-product-page__main">
-          <CaToggleFavorite :prod-id="productByAlias.productId" />
+        <div v-if="product !== undefined" class="ca-product-page__main">
+          <CaToggleFavorite :prod-id="product.productId" />
           <CaBrandAndName
-            :brand="productByAlias.brandName"
-            :name="productByAlias.name"
+            :brand="product.brandName"
+            :name="product.name"
             name-tag="h1"
           />
-          <CaPrice
-            class="ca-product-page__price"
-            :price="productByAlias.price"
-          />
+          <CaPrice class="ca-product-page__price" :price="product.price" />
           <!-- eslint-disable vue/no-v-html -->
           <div
             class="ca-product-page__short-text"
-            v-html="productByAlias.shortText"
+            v-html="product.shortText"
           ></div>
           <!-- <select v-model="chosenItemID" class="mar-bot-20">
             <option
@@ -96,7 +90,7 @@ export default {
     CaToggleFavorite
   },
   apollo: {
-    productByAlias: {
+    product: {
       query: gql`
         query productByAlias($alias: String!, $langCode: String!) {
           productByAlias(alias: $alias, langCode: $langCode) {
@@ -119,11 +113,15 @@ export default {
           }
         }
       `,
+      update: data => data.productByAlias,
       variables() {
         return {
           alias: this.$route.params.alias,
           langCode: this.$i18n.locale
         };
+      },
+      error(error) {
+        this.error = error.message;
       }
     }
   },
@@ -262,15 +260,14 @@ export default {
             oversellable: 0
           }
         }
-      ]
+      ],
+      error: null
     };
   },
   computed: {
     productImages() {
-      return this.productByAlias &&
-        this.productByAlias.images &&
-        this.productByAlias.images.length
-        ? this.productByAlias.images
+      return this.product && this.product.images && this.product.images.length
+        ? this.product.images
         : [];
     },
     productItems() {

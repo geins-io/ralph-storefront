@@ -96,6 +96,26 @@ export default {
       }
     }
   },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'product',
+        path: '/p/*/:product',
+        component: resolve(__dirname, 'pages/product/_alias.vue')
+      });
+      routes.push({
+        name: 'category',
+        path: '/c/*/:category',
+        component: resolve(__dirname, 'pages/list.vue')
+      });
+      routes.push({
+        name: 'brand',
+        path: '/b/*/:brand',
+        component: resolve(__dirname, 'pages/list.vue')
+      });
+    }
+  },
+
   /*
    ** Build configuration
    */
