@@ -12,7 +12,7 @@ export default {
   SEARCH_PLACEHOLDER: 'Sök',
   SEARCH_SEE_ALL: 'Se alla sökresultat',
   SEARCH_SEE_ALL_BRANDS: 'Se alla varumärken',
-  PRODUCT: 'Produkt | Produkter',
+  PRODUCT: 'produkt | produkter',
   BRANDS: 'Varumärken',
   CATEGORIES: 'Kategorier',
   PRODUCT_LIST: 'Produktlistning',
@@ -22,5 +22,10 @@ export default {
   LOGO_ALT_TEXT: 'Logga',
   EX_VAT: 'ex. moms',
   NEXT: 'Nästa',
-  PREVIOUS: 'Föregående'
+  PREVIOUS: 'Föregående',
+  READ_MORE: 'Läs mer',
+  READ_LESS: 'Läs mindre',
+  LOAD_MORE: 'Ladda fler',
+  LOAD_PREVIOUS: 'Ladda föregående',
+  PAGINATION_SHOWING: 'Visar {sum} av {total}'
 };

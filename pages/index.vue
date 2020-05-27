@@ -36,6 +36,9 @@ export default {
   methods: {
     increment() {
       this.$store.commit('increment');
+    },
+    getSubLevelCategories(id) {
+      return this.activeCategories.filter(i => i.parentCategoryId === id);
     }
   }
 };
@@ -52,5 +55,11 @@ export default {
   margin: $px20 auto;
   font-size: $font-size-l;
   text-align: center;
+}
+
+.categories {
+  ul {
+    margin-left: 10px;
+  }
 }
 </style>

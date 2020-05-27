@@ -10,38 +10,10 @@
   </div>
 </template>
 <script>
-// @group Atoms
-// @vuese
+import { MixPrice } from '@ralph/ralph-ui';
 export default {
   name: 'CaPrice',
-  components: {},
-  props: {
-    price: {
-      type: Object,
-      required: true
-    }
-  },
-  data: () => ({}),
-  computed: {
-    modifiers() {
-      return {
-        'ca-price--sale': this.price.isDiscounted
-      };
-    },
-    sellingPrice() {
-      return this.$store.state.VATincluded
-        ? this.price.sellingPriceIncVat
-        : this.price.sellingPriceExVat;
-    },
-    regularPrice() {
-      return this.$store.state.VATincluded
-        ? this.price.regularPriceIncVat
-        : this.price.regularPriceExVat;
-    }
-  },
-  watch: {},
-  mounted() {},
-  methods: {}
+  mixins: [MixPrice]
 };
 </script>
 <style lang="scss">

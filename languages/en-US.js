@@ -12,7 +12,7 @@ export default {
   SEARCH_PLACEHOLDER: 'Search',
   SEARCH_SEE_ALL: 'See all search results',
   SEARCH_SEE_ALL_BRANDS: 'See all brands',
-  PRODUCT: 'Product | Products',
+  PRODUCT: 'product | products',
   BRANDS: 'Brands',
   CATEGORIES: 'Categories',
   PRODUCT_LIST: 'Product list',
@@ -22,5 +22,10 @@ export default {
   LOGO_ALT_TEXT: 'Logo',
   EX_VAT: 'ex. VAT',
   NEXT: 'Next',
-  PREVIOUS: 'Previous'
+  PREVIOUS: 'Previous',
+  READ_MORE: 'Read more',
+  READ_LESS: 'Read less',
+  LOAD_MORE: 'Load more',
+  LOAD_PREVIOUS: 'Load previous',
+  PAGINATION_SHOWING: 'Showing {sum} of {total}'
 };

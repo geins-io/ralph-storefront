@@ -22,27 +22,54 @@
         <CaMiniCart class="ca-header__cart" />
       </CaContainer>
     </div>
-    <div class="ca-navigation only-desktop">
-      <NuxtLink class="ca-navigation__link" to="/list">
-        {{ $t('PRODUCT_LIST') }}
-      </NuxtLink>
-      <NuxtLink class="ca-navigation__link" to="/">
-        Nav link
-      </NuxtLink>
-      <NuxtLink class="ca-navigation__link" to="/">
-        Nav link
-      </NuxtLink>
-      <NuxtLink class="ca-navigation__link" to="/">
-        Nav link
-      </NuxtLink>
-    </div>
+    <nav class="ca-navigation only-desktop">
+      <ul
+        v-if="topLevelCategories && topLevelCategories.length > 0"
+        class="ca-navigation__categories"
+      >
+        <li
+          v-for="(category, index) in topLevelCategories"
+          :key="index"
+          class="ca-navigation__item"
+        >
+          <NuxtLink class="ca-navigation__link" :to="'/c/' + category.alias">
+            <CaIconAndText
+              v-if="getSubLevelCategories(category.categoryId).length"
+              icon-name="chevron-down"
+              icon-position="right"
+            >
+              {{ category.name }}
+            </CaIconAndText>
+            <span v-else>{{ category.name }}</span>
+          </NuxtLink>
+          <ul
+            v-if="getSubLevelCategories(category.categoryId).length"
+            class="ca-navigation__sub-menu"
+          >
+            <li
+              v-for="(subcategory, subindex) in getSubLevelCategories(
+                category.categoryId
+              )"
+              :key="subindex"
+              class="ca-navigation__sub-menu-item"
+            >
+              <NuxtLink :to="'/c/' + subcategory.alias">
+                {{ subcategory.name }}
+              </NuxtLink>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
     <CaSearch v-if="!$store.getters.viewportLaptop" :opened="searchOpened" />
   </div>
 </template>
 <script>
+import gql from 'graphql-tag';
 import {
   CaContainer,
   CaIcon,
+  CaIconAndText,
   CaLogo,
   CaMiniCart,
   CaFavorites,
@@ -52,10 +79,31 @@ import CaTopBar from '@/components/organisms/CaTopBar/CaTopBar';
 
 export default {
   name: 'CaHeader',
+  apollo: {
+    categories: {
+      query: gql`
+        query categories($langCode: String!) {
+          categories(langCode: $langCode) {
+            alias
+            name
+            categoryId
+            parentCategoryId
+            activeProducts
+          }
+        }
+      `,
+      variables() {
+        return {
+          langCode: this.$i18n.locale
+        };
+      }
+    }
+  },
   components: {
     CaTopBar,
     CaContainer,
     CaIcon,
+    CaIconAndText,
     CaLogo,
     CaMiniCart,
     CaFavorites,
@@ -71,11 +119,25 @@ export default {
       return {
         'ca-header--scrolled': !this.$store.getters.siteIsAtTop
       };
+    },
+    activeCategories() {
+      return this.categories
+        ? this.categories.filter(item => item.activeProducts !== 0)
+        : [];
+    },
+    topLevelCategories() {
+      return this.categories
+        ? this.activeCategories.filter(i => i.parentCategoryId === 0)
+        : [];
     }
   },
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {
+    getSubLevelCategories(id) {
+      return this.activeCategories.filter(i => i.parentCategoryId === id);
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -136,10 +198,45 @@ export default {
 .ca-navigation {
   height: 40px;
   background: $c-header-bg;
-  @include flex-halign;
+  a {
+    display: block;
+  }
+  &__categories {
+    @include flex-halign;
+  }
   &__link {
     font-size: $font-size-m;
     padding: 0 $px32;
+  }
+
+  &__sub-menu {
+    opacity: 0;
+    pointer-events: none;
+    margin-top: -20px;
+    position: absolute;
+    width: 150px;
+    border-top: 0.9rem solid transparent;
+    transition: all 200ms ease;
+  }
+  &__item {
+    position: relative;
+    &:hover {
+      .ca-navigation__sub-menu {
+        pointer-events: initial;
+        margin-top: 0;
+        opacity: 1;
+      }
+    }
+  }
+  &__sub-menu-item {
+    background: $c-medium-gray;
+    padding: $px12;
+    &:not(:last-child) {
+      padding-bottom: $px4;
+    }
+    &:not(:first-child) {
+      padding-top: $px4;
+    }
   }
 }
 </style>

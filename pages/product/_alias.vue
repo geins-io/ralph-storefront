@@ -92,8 +92,8 @@ export default {
   apollo: {
     product: {
       query: gql`
-        query productByAlias($alias: String!, $langCode: String!) {
-          productByAlias(alias: $alias, langCode: $langCode) {
+        query product($alias: String!, $langCode: String!) {
+          product(alias: $alias, langCode: $langCode) {
             productId
             name
             brandName
@@ -113,7 +113,6 @@ export default {
           }
         }
       `,
-      update: data => data.productByAlias,
       variables() {
         return {
           alias: this.$route.params.alias,

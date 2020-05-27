@@ -100,13 +100,13 @@ export default {
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'product',
-        path: '/p/*/:product',
+        path: '/p/:alias*',
         component: resolve(__dirname, 'pages/product/_alias.vue')
       });
       routes.push({
         name: 'category',
-        path: '/c/*/:category',
-        component: resolve(__dirname, 'pages/list.vue')
+        path: '/c/:category',
+        component: resolve(__dirname, 'pages/list/_category.vue')
       });
       routes.push({
         name: 'brand',

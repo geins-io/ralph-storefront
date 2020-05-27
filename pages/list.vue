@@ -24,7 +24,7 @@
           <div class="ca-product-item__image-wrap">
             <NuxtLink
               class="ca-product-item__image-wrap"
-              :to="'/product/' + product.alias"
+              :to="'/p/' + product.alias"
             >
               <CaImage
                 v-if="product.images !== null"
@@ -168,50 +168,6 @@ export default {
     padding: $px32 0;
     display: flex;
     justify-content: space-between;
-  }
-}
-.ca-product-item {
-  position: relative;
-  width: calc(50% - (#{$default-spacing}/ 2));
-  &:nth-child(1n + 3) {
-    margin-top: $default-spacing;
-  }
-  @include bp(tablet) {
-    width: calc(33.33333% - (#{$default-spacing}));
-    &:nth-child(1n + 3) {
-      margin-top: 0;
-    }
-    &:nth-child(1n + 4) {
-      margin-top: $default-spacing;
-    }
-  }
-  @include bp(laptop) {
-    &:nth-child(1n + 4) {
-      margin-top: 0;
-    }
-    &:nth-child(1n + 6) {
-      margin-top: $default-spacing;
-    }
-    width: calc(20% - (#{$default-spacing}));
-  }
-  &__image-wrap {
-    line-height: 0;
-    position: relative;
-  }
-  &__info {
-    padding-top: $px12;
-    display: block;
-  }
-  &__price {
-    margin-top: $px4;
-  }
-
-  .ca-toggle-favorite {
-    width: 36px;
-    height: 36px;
-    top: auto;
-    right: $px12;
-    bottom: $px12;
   }
 }
 </style>
