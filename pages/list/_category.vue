@@ -1,16 +1,12 @@
 <template>
   <div class="ca-list-page ca-list-page--category">
-    <CaContainer>
+    <CaContainer v-if="currentCategory !== null">
       <CaListTop
-        v-if="currentCategory !== null"
         :title="currentCategory.name"
         :description="currentCategory.description"
         :sub-categories="subLevelCategories"
       />
-      <CaListSettings
-        v-if="currentCategory !== null"
-        :active-products="currentCategory.activeProducts"
-      />
+      <CaListSettings :active-products="currentCategory.activeProducts" />
       <div v-if="skip !== 0" class="ca-product-list__pagination">
         <div class="ca-product-list__showing">
           {{
