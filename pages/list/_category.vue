@@ -6,6 +6,9 @@
         :description="currentCategory.description"
         :sub-categories="subLevelCategories"
       />
+
+      <CaListFilters :filters="filters" :selection="selection" />
+
       <CaListSettings :active-products="currentCategory.activeProducts" />
       <div v-if="skip !== 0" class="ca-product-list__pagination">
         <div class="ca-product-list__showing">
@@ -57,6 +60,7 @@ import { CaContainer, CaButton } from '@ralph/ralph-ui';
 import CaProductCard from '@/components/organisms/CaProductCard/CaProductCard';
 import CaListTop from '@/components/organisms/CaListTop/CaListTop';
 import CaListSettings from '@/components/organisms/CaListSettings/CaListSettings';
+import CaListFilters from '@/components/organisms/CaListFilters/CaListFilters';
 
 export default {
   name: 'ProductPage',
@@ -65,7 +69,8 @@ export default {
     CaButton,
     CaProductCard,
     CaListTop,
-    CaListSettings
+    CaListSettings,
+    CaListFilters
   },
   apollo: {
     products: {
@@ -131,7 +136,67 @@ export default {
     return {
       skip: 0,
       take: 15,
-      pageSize: 15
+      pageSize: 15,
+      filters: {
+        categories: [
+          {
+            id: 123,
+            name: 'Mörk choklad'
+          },
+          {
+            id: 321,
+            name: 'Ljus choklad'
+          }
+        ],
+        brands: [
+          {
+            id: 123,
+            name: 'Marabou'
+          },
+          {
+            id: 321,
+            name: 'Lindt'
+          }
+        ],
+        price: {
+          lowest: 20.0,
+          highest: 599.0
+        },
+        discountCampaigns: [
+          {
+            id: 123,
+            name: '3 för 2 på ljus choklad'
+          }
+        ],
+        genders: null,
+        parameters: [
+          {
+            id: 123,
+            filterType: 'multi', // or "range"
+            name: 'Förpackning',
+            options: [
+              {
+                id: 123,
+                name: 'Påse'
+              },
+              {
+                id: 124,
+                name: 'Låda'
+              },
+              {
+                id: 125,
+                name: 'Burk'
+              }
+            ]
+          }
+        ]
+      },
+      selection: {
+        categories: [],
+        brands: [],
+        discountCampaigns: [],
+        parameters: []
+      }
     };
   },
   computed: {
@@ -155,7 +220,7 @@ export default {
         : [];
     },
     currentPage() {
-      return this.$route.query.page || 1;
+      return parseInt(this.$route.query.page) || 1;
     },
     allProductsLoaded() {
       return (
@@ -169,7 +234,7 @@ export default {
   },
   mounted() {
     if (this.$route.query.page) {
-      this.skip = (this.$route.query.page - 1) * this.pageSize;
+      this.skip = (parseInt(this.$route.query.page) - 1) * this.pageSize;
     }
   },
   methods: {

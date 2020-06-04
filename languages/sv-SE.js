@@ -27,5 +27,13 @@ export default {
   READ_LESS: 'Läs mindre',
   LOAD_MORE: 'Ladda fler',
   LOAD_PREVIOUS: 'Ladda föregående',
-  PAGINATION_SHOWING: 'Visar {sum} av {total}'
+  PAGINATION_SHOWING: 'Visar {sum} av {total}',
+  FILTER_LABEL_CATEGORIES: 'Kategorier',
+  FILTER_LABEL_BRANDS: 'Märken',
+  FILTER_LABEL_CAMPAIGNS: 'Kampanjer',
+  SORT_TITLE: 'Sortera på',
+  SORT_LABEL_LATEST: 'Senast inkomna',
+  SORT_LABEL_BESTSELLERS: 'Bästsäljare',
+  SORT_LABEL_LOWEST_PRICE: 'Lägsta pris',
+  SORT_LABEL_HIGHEST_PRICE: 'Högsta pris'
 };

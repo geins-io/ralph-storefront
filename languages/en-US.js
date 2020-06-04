@@ -27,5 +27,13 @@ export default {
   READ_LESS: 'Read less',
   LOAD_MORE: 'Load more',
   LOAD_PREVIOUS: 'Load previous',
-  PAGINATION_SHOWING: 'Showing {sum} of {total}'
+  PAGINATION_SHOWING: 'Showing {sum} of {total}',
+  FILTER_LABEL_CATEGORIES: 'Categories',
+  FILTER_LABEL_BRANDS: 'Brands',
+  FILTER_LABEL_CAMPAIGNS: 'Campaigns',
+  SORT_TITLE: 'Sort by',
+  SORT_LABEL_LATEST: 'New in',
+  SORT_LABEL_BESTSELLERS: 'Bestsellers',
+  SORT_LABEL_LOWEST_PRICE: 'Lowest price',
+  SORT_LABEL_HIGHEST_PRICE: 'Highest price'
 };
