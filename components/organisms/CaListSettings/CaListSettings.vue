@@ -21,32 +21,42 @@ export default {
     activeProducts: {
       type: Number,
       required: true
+    },
+    currentSort: {
+      type: String,
+      required: true
     }
   },
   data: vm => ({
     sortOptions: [
       {
         label: vm.$t('SORT_LABEL_LATEST'),
-        value: 'latest'
+        value: 'LATEST'
       },
       {
         label: vm.$t('SORT_LABEL_BESTSELLERS'),
-        value: 'bestsellers'
+        value: 'MOST_SOLD'
       },
       {
         label: vm.$t('SORT_LABEL_LOWEST_PRICE'),
-        value: 'priceASC'
+        value: 'PRICE'
       },
       {
         label: vm.$t('SORT_LABEL_HIGHEST_PRICE'),
-        value: 'priceDESC'
+        value: 'PRICE_DESC'
       }
     ],
-    sort: 'latest'
+    sort: 'LATEST'
   }),
   computed: {},
-  watch: {},
-  mounted() {},
+  watch: {
+    sort(val) {
+      this.$emit('sortchange', val);
+    }
+  },
+  mounted() {
+    this.sort = this.currentSort;
+  },
   methods: {}
 };
 </script>
@@ -55,6 +65,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: $default-spacing;
   &__title {
     text-transform: uppercase;
     font-weight: $font-weight-bold;

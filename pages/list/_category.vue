@@ -9,7 +9,11 @@
 
       <CaListFilters :filters="filters" :selection="selection" />
 
-      <CaListSettings :active-products="currentCategory.activeProducts" />
+      <CaListSettings
+        :active-products="currentCategory.activeProducts"
+        :current-sort="sort"
+        @sortchange="sort = $event"
+      />
       <div v-if="skip !== 0" class="ca-product-list__pagination">
         <div class="ca-product-list__showing">
           {{
@@ -80,12 +84,14 @@ export default {
           $take: Int!
           $langCode: String!
           $categoryAlias: String!
+          $sort: SortType!
         ) {
           products(
             skip: $skip
             take: $take
             langCode: $langCode
             categoryAlias: $categoryAlias
+            sort: $sort
           ) {
             active
             brandName
@@ -108,7 +114,8 @@ export default {
           skip: this.skip,
           take: this.take,
           langCode: this.$i18n.locale,
-          categoryAlias: this.$route.params.category
+          categoryAlias: this.$route.params.category,
+          sort: this.sort
         };
       }
     },
@@ -137,6 +144,7 @@ export default {
       skip: 0,
       take: 15,
       pageSize: 15,
+      sort: 'LATEST',
       filters: {
         categories: [
           {
@@ -252,7 +260,8 @@ export default {
         path: this.$route.params.category,
         query: { page: this.currentPage - 1 }
       });
-    }
+    },
+    sortChangeHandler(val) {}
   }
 };
 </script>
