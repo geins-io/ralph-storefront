@@ -66,27 +66,13 @@ export default {
 <style lang="scss" scoped>
 .ca-product-card {
   position: relative;
-  width: calc(50% - (#{$default-spacing}/ 2));
-  &:nth-child(1n + 3) {
-    margin-top: $default-spacing;
-  }
+  width: calc(50% - (#{$list-spacing * 2}));
+  margin: $list-spacing;
   @include bp(tablet) {
-    width: calc(33.33333% - (#{$default-spacing}));
-    &:nth-child(1n + 3) {
-      margin-top: 0;
-    }
-    &:nth-child(1n + 4) {
-      margin-top: $default-spacing;
-    }
+    width: calc(33.33333% - (#{$list-spacing * 2}));
   }
   @include bp(laptop) {
-    &:nth-child(1n + 4) {
-      margin-top: 0;
-    }
-    &:nth-child(1n + 6) {
-      margin-top: $default-spacing;
-    }
-    width: calc(20% - (#{$default-spacing}));
+    width: calc(20% - (#{$list-spacing * 2}));
   }
   &__image-wrap {
     line-height: 0;

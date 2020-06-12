@@ -1,16 +1,20 @@
 <template>
   <div class="ca-list-page ca-list-page--category">
-    <CaContainer v-if="currentCategory !== null">
+    <CaContainer v-if="category !== null">
       <CaListTop
-        :title="currentCategory.name"
-        :description="currentCategory.description"
-        :sub-categories="subLevelCategories"
+        :title="category.name"
+        :description="category.description"
+        :sub-categories="category.subCategories"
       />
 
-      <CaListFilters :filters="filters" :selection="selection" />
+      <CaListFilters
+        :filters="filters"
+        :selection="selection"
+        @selectionchange="selection = $event"
+      />
 
       <CaListSettings
-        :active-products="currentCategory.activeProducts"
+        :active-products="totalCount"
         :current-sort="sort"
         @sortchange="sort = $event"
       />
@@ -19,18 +23,18 @@
           {{
             $t('PAGINATION_SHOWING', {
               sum: showing,
-              total: currentCategory.activeProducts
+              total: totalCount
             })
           }}
-          {{ $tc('PRODUCT', currentCategory.activeProducts) }}
+          {{ $tc('PRODUCT', totalCount) }}
         </div>
         <CaButton class="ca-product-list__next" @clicked="loadPrev">
           {{ $t('LOAD_PREVIOUS') }}
         </CaButton>
       </div>
-      <ul v-if="products !== undefined" class="ca-product-list">
+      <ul v-if="productList.length" class="ca-product-list">
         <CaProductCard
-          v-for="(product, index) in activeProducts"
+          v-for="(product, index) in productList"
           :key="index"
           :product="product"
         >
@@ -41,10 +45,10 @@
           {{
             $t('PAGINATION_SHOWING', {
               sum: showing,
-              total: currentCategory.activeProducts
+              total: totalCount
             })
           }}
-          {{ $tc('PRODUCT', currentCategory.activeProducts) }}
+          {{ $tc('PRODUCT', totalCount) }}
         </div>
         <CaButton
           class="ca-product-list__next"
@@ -85,6 +89,7 @@ export default {
           $langCode: String!
           $categoryAlias: String!
           $sort: SortType!
+          $filter: FilterInputType!
         ) {
           products(
             skip: $skip
@@ -92,20 +97,41 @@ export default {
             langCode: $langCode
             categoryAlias: $categoryAlias
             sort: $sort
+            filter: $filter
           ) {
-            active
-            brandName
-            name
-            productId
-            alias
-            price {
-              isDiscounted
-              regularPriceIncVat
-              sellingPriceIncVat
-              regularPriceExVat
-              sellingPriceExVat
+            products {
+              brandName
+              name
+              productId
+              alias
+              price {
+                isDiscounted
+                regularPriceIncVat
+                sellingPriceIncVat
+                regularPriceExVat
+                sellingPriceExVat
+              }
+              images
             }
-            images
+            count
+            filters {
+              brands {
+                count
+                name
+              }
+              categories {
+                count
+                name
+              }
+              discountCampaigns {
+                count
+                name
+              }
+              price {
+                lowest
+                highest
+              }
+            }
           }
         }
       `,
@@ -115,32 +141,74 @@ export default {
           take: this.take,
           langCode: this.$i18n.locale,
           categoryAlias: this.$route.params.category,
-          sort: this.sort
+          sort: this.sort,
+          filter: this.selection
         };
+      },
+      deep: true,
+      result(result) {
+        this.productList = result.data.products.products;
+        this.totalCount = result.data.products.count;
+        this.filters = result.data.products.filters;
       }
     },
-    categories: {
+    listPageInfo: {
       query: gql`
-        query categories($langCode: String!) {
-          categories(langCode: $langCode) {
+        query listPageInfo($langCode: String!, $categoryAlias: String!) {
+          listPageInfo(langCode: $langCode, categoryAlias: $categoryAlias) {
             alias
+            primaryImage
             name
-            description
-            categoryId
-            parentCategoryId
-            activeProducts
+            primaryDescription
+            secondaryDescription
+            subCategories {
+              alias
+              activeProducts
+              name
+            }
+            filters {
+              brands {
+                count
+                name
+              }
+              categories {
+                count
+                name
+              }
+              discountCampaigns {
+                count
+                name
+              }
+              price {
+                lowest
+                highest
+              }
+            }
           }
         }
       `,
       variables() {
         return {
-          langCode: this.$i18n.locale
+          langCode: this.$i18n.locale,
+          categoryAlias: this.$route.params.category
         };
+      },
+      result(result) {
+        this.category = result.data.listPageInfo;
+        // this.filters = result.data.listPageInfo.filters;
       }
     }
   },
   data() {
     return {
+      category: {
+        name: '',
+        alias: '',
+        primaryDescription: '',
+        subCategories: {}
+      },
+      productList: [],
+      totalCount: 0,
       skip: 0,
       take: 15,
       pageSize: 15,
@@ -149,21 +217,25 @@ export default {
         categories: [
           {
             id: 123,
-            name: 'Mörk choklad'
+            name: 'Lakrits'
           },
           {
             id: 321,
-            name: 'Ljus choklad'
+            name: 'Kampanj'
           }
         ],
         brands: [
           {
             id: 123,
-            name: 'Marabou'
+            name: 'Godis.se'
           },
           {
             id: 321,
-            name: 'Lindt'
+            name: 'DeLafée'
+          },
+          {
+            id: 454,
+            name: 'Fazer'
           }
         ],
         price: {
@@ -201,43 +273,36 @@ export default {
       },
       selection: {
         categories: [],
-        brands: [],
-        discountCampaigns: [],
-        parameters: []
+        brands: []
       }
     };
   },
   computed: {
-    activeProducts() {
-      return this.products
-        ? this.products.filter(item => item.active === true && item.name !== '')
-        : [];
-    },
-    currentCategory() {
-      return this.categories
-        ? this.categories.filter(
-            item => item.alias === this.$route.params.category
-          )[0]
-        : null;
-    },
-    subLevelCategories() {
-      return this.categories
-        ? this.categories.filter(
-            item => item.parentCategoryId === this.currentCategory.categoryId
-          )
-        : [];
-    },
+    // currentCategory() {
+    //   return this.categories
+    //     ? this.categories.filter(
+    //         item => item.alias === this.$route.params.category
+    //       )[0]
+    //     : null;
+    // },
+    // subLevelCategories() {
+    //   return this.categories
+    //     ? this.categories.filter(
+    //         item => item.parentCategoryId === this.currentCategory.categoryId
+    //       )
+    //     : [];
+    // },
     currentPage() {
       return parseInt(this.$route.query.page) || 1;
     },
     allProductsLoaded() {
       return (
-        this.take >= this.currentCategory.activeProducts ||
-        this.currentPage * this.pageSize >= this.currentCategory.activeProducts
+        this.take >= this.totalCount ||
+        this.currentPage * this.pageSize >= this.totalCount
       );
     },
     showing() {
-      return this.skip + 1 + ' - ' + (this.skip + this.activeProducts.length);
+      return this.skip + 1 + ' - ' + (this.skip + this.productList.length);
     }
   },
   mounted() {
@@ -280,8 +345,9 @@ export default {
 }
 .ca-product-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  margin: -$list-spacing;
   &__pagination {
     padding: $px32 0;
     display: flex;

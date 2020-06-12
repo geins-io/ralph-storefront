@@ -14,7 +14,7 @@
           :key="index"
           class="ca-filter__value"
           :class="{ 'ca-filter__value--selected': value.selected }"
-          @click="toggleFilterValue(value.id, !value.selected)"
+          @click="toggleFilterValue(value.name, !value.selected)"
         >
           <CaIcon class="ca-filter__check" name="check" />
           {{ value.name }}
@@ -60,7 +60,7 @@ export default {
     valuesWithSelected() {
       if (this.values && this.values.length && this.selection) {
         return this.values.map(item => {
-          const isSelected = this.currentSelection.some(el => el === item.id);
+          const isSelected = this.currentSelection.some(el => el === item.name);
           this.$set(item, 'selected', isSelected);
           return item;
         });
@@ -72,11 +72,11 @@ export default {
     this.currentSelection = this.selection;
   },
   methods: {
-    toggleFilterValue(id, selected) {
+    toggleFilterValue(name, selected) {
       if (selected) {
-        this.currentSelection.push(id);
+        this.currentSelection.push(name);
       } else {
-        this.currentSelection.splice(this.currentSelection.indexOf(id), 1);
+        this.currentSelection.splice(this.currentSelection.indexOf(name), 1);
       }
       this.$emit('selectionchange', this.currentSelection);
     }
@@ -95,7 +95,7 @@ export default {
     transition: border-color 200ms ease;
     cursor: pointer;
     position: relative;
-    width: 165px;
+    width: 170px;
   }
   &__arrow {
     @include valign;
@@ -109,7 +109,7 @@ export default {
     z-index: 15;
     background: $c-lightest-gray;
     overflow: hidden;
-    width: 165px;
+    width: 170px;
     padding: $px12 $px24 $px12 $px12;
   }
   &__check {

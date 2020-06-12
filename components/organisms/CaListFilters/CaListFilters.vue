@@ -39,7 +39,14 @@ export default {
     currentSelection: {}
   }),
   computed: {},
-  watch: {},
+  watch: {
+    currentSelection: {
+      deep: true,
+      handler(val) {
+        this.$emit('selectionchange', val);
+      }
+    }
+  },
   mounted() {
     this.currentSelection = this.selection;
   },

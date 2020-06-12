@@ -7,7 +7,10 @@
         <div v-html="description"></div>
       </CaReadMore>
     </div>
-    <ul v-if="subCategories.length" class="ca-list-top__subcategories">
+    <ul
+      v-if="subCategories && subCategories.length"
+      class="ca-list-top__subcategories"
+    >
       <li
         v-for="(category, index) in activeCategories"
         :key="index"
