@@ -3,20 +3,29 @@
     <CaContainer v-if="category !== null">
       <CaListTop
         :title="category.name"
-        :description="category.description"
+        :description="category.primaryDescription"
         :sub-categories="category.subCategories"
+      />
+
+      <CaImage
+        v-if="category.primaryImage"
+        class="ca-list-page__image"
+        size="1280w"
+        type="categoryheader"
+        :filename="category.primaryImage"
+        :placeholder="category.primaryImage"
       />
 
       <CaListFilters
         :filters="filters"
         :selection="selection"
-        @selectionchange="selection = $event"
+        @selectionchange="filterChangeHandler($event)"
       />
 
       <CaListSettings
         :active-products="totalCount"
         :current-sort="sort"
-        @sortchange="sort = $event"
+        @sortchange="sortChangeHandler($event)"
       />
       <div v-if="skip !== 0" class="ca-product-list__pagination">
         <div class="ca-product-list__showing">
@@ -64,7 +73,7 @@
 
 <script>
 import gql from 'graphql-tag';
-import { CaContainer, CaButton } from '@ralph/ralph-ui';
+import { CaContainer, CaButton, CaImage } from '@ralph/ralph-ui';
 import CaProductCard from '@/components/organisms/CaProductCard/CaProductCard';
 import CaListTop from '@/components/organisms/CaListTop/CaListTop';
 import CaListSettings from '@/components/organisms/CaListSettings/CaListSettings';
@@ -78,7 +87,8 @@ export default {
     CaProductCard,
     CaListTop,
     CaListSettings,
-    CaListFilters
+    CaListFilters,
+    CaImage
   },
   apollo: {
     products: {
@@ -150,6 +160,10 @@ export default {
         this.productList = result.data.products.products;
         this.totalCount = result.data.products.count;
         this.filters = result.data.products.filters;
+        this.setInitPriceSelection(
+          result.data.products.filters.price.lowest,
+          result.data.products.filters.price.highest
+        );
       }
     },
     listPageInfo: {
@@ -166,24 +180,6 @@ export default {
               activeProducts
               name
             }
-            filters {
-              brands {
-                count
-                name
-              }
-              categories {
-                count
-                name
-              }
-              discountCampaigns {
-                count
-                name
-              }
-              price {
-                lowest
-                highest
-              }
-            }
           }
         }
       `,
@@ -195,7 +191,6 @@ export default {
       },
       result(result) {
         this.category = result.data.listPageInfo;
-        // this.filters = result.data.listPageInfo.filters;
       }
     }
   },
@@ -205,7 +200,7 @@ export default {
         name: '',
         alias: '',
         primaryDescription: '',
-        subCategories: {}
+        subCategories: []
       },
       productList: [],
       totalCount: 0,
@@ -213,85 +208,17 @@ export default {
       take: 15,
       pageSize: 15,
       sort: 'LATEST',
-      filters: {
-        categories: [
-          {
-            id: 123,
-            name: 'Lakrits'
-          },
-          {
-            id: 321,
-            name: 'Kampanj'
-          }
-        ],
-        brands: [
-          {
-            id: 123,
-            name: 'Godis.se'
-          },
-          {
-            id: 321,
-            name: 'DeLafée'
-          },
-          {
-            id: 454,
-            name: 'Fazer'
-          }
-        ],
-        price: {
-          lowest: 20.0,
-          highest: 599.0
-        },
-        discountCampaigns: [
-          {
-            id: 123,
-            name: '3 för 2 på ljus choklad'
-          }
-        ],
-        genders: null,
-        parameters: [
-          {
-            id: 123,
-            filterType: 'multi', // or "range"
-            name: 'Förpackning',
-            options: [
-              {
-                id: 123,
-                name: 'Påse'
-              },
-              {
-                id: 124,
-                name: 'Låda'
-              },
-              {
-                id: 125,
-                name: 'Burk'
-              }
-            ]
-          }
-        ]
-      },
+      defaultSort: 'LATEST',
+      filters: {},
       selection: {
         categories: [],
         brands: []
-      }
+      },
+      filterParamQuery: {},
+      queryPage: 1
     };
   },
   computed: {
-    // currentCategory() {
-    //   return this.categories
-    //     ? this.categories.filter(
-    //         item => item.alias === this.$route.params.category
-    //       )[0]
-    //     : null;
-    // },
-    // subLevelCategories() {
-    //   return this.categories
-    //     ? this.categories.filter(
-    //         item => item.parentCategoryId === this.currentCategory.categoryId
-    //       )
-    //     : [];
-    // },
     currentPage() {
       return parseInt(this.$route.query.page) || 1;
     },
@@ -303,45 +230,104 @@ export default {
     },
     showing() {
       return this.skip + 1 + ' - ' + (this.skip + this.productList.length);
+    },
+    filterQuery() {
+      const queryObj = {};
+      if (this.selection.categories && this.selection.categories.length) {
+        queryObj.categories = this.selection.categories.join();
+      }
+      if (this.selection.brands && this.selection.brands.length) {
+        queryObj.brands = this.selection.brands.join();
+      }
+      if (
+        this.selection.price &&
+        this.selection.price.lowest &&
+        this.selection.price.lowest !== this.filters.price.lowest
+      ) {
+        queryObj.priceLowest = this.selection.price.lowest;
+      }
+      if (
+        this.selection.price &&
+        this.selection.price.highest &&
+        this.selection.price.highest !== this.filters.price.highest
+      ) {
+        queryObj.priceHighest = this.selection.price.highest;
+      }
+      if (this.sort !== this.defaultSort) {
+        queryObj.sort = this.sort;
+      }
+      if (this.queryPage > 1) {
+        queryObj.page = this.queryPage;
+      }
+      return queryObj;
     }
   },
   mounted() {
-    if (this.$route.query.page) {
-      this.skip = (parseInt(this.$route.query.page) - 1) * this.pageSize;
-    }
+    this.readURLParams();
   },
   methods: {
     loadMore() {
       this.take += this.pageSize;
-      this.$router.push({
-        path: this.$route.params.category,
-        query: { page: this.currentPage + 1 }
-      });
+      this.queryPage = this.currentPage + 1;
+      this.pushURLParams();
     },
     loadPrev() {
       this.take += this.pageSize;
       this.skip -= this.pageSize;
+      this.queryPage = this.currentPage - 1;
+      this.pushURLParams();
+    },
+    setInitPriceSelection(lowest, highest) {
+      if (!this.selection.price) {
+        this.$set(this.selection, 'price', {});
+        this.$set(this.selection.price, 'lowest', lowest);
+        this.$set(this.selection.price, 'highest', highest);
+      }
+    },
+    sortChangeHandler(newVal) {
+      this.sort = newVal;
+      this.pushURLParams();
+    },
+    filterChangeHandler(newVal) {
+      this.selection = newVal;
+      this.pushURLParams();
+    },
+    pushURLParams() {
       this.$router.push({
         path: this.$route.params.category,
-        query: { page: this.currentPage - 1 }
+        query: this.filterQuery
       });
     },
-    sortChangeHandler(val) {}
+    readURLParams() {
+      if (this.$route.query.categories) {
+        this.selection.categories = this.$route.query.categories.split(',');
+      }
+      if (this.$route.query.brands) {
+        this.selection.brands = this.$route.query.brands.split(',');
+      }
+      if (this.$route.query.priceLowest) {
+        this.selection.price.lowest = this.$route.query.priceLowest;
+      }
+      if (this.$route.query.priceHighest) {
+        this.selection.price.highest = this.$route.query.priceHighest;
+      }
+      if (this.$route.query.sort) {
+        this.sort = this.$route.query.sort;
+      }
+      if (this.$route.query.page) {
+        this.queryPage = parseInt(this.$route.query.page);
+        this.skip = (parseInt(this.$route.query.page) - 1) * this.pageSize;
+      }
+    }
   }
 };
 </script>
 
 <style lang="scss">
-.site-title {
-  font-size: $font-size-xxl;
-  text-align: center;
-  font-weight: $font-weight-bold;
-}
-.site-preamble {
-  max-width: 450px;
-  margin: $px20 auto;
-  font-size: $font-size-l;
-  text-align: center;
+.ca-list-page {
+  &__image {
+    margin-bottom: $px32;
+  }
 }
 .ca-product-list {
   display: flex;

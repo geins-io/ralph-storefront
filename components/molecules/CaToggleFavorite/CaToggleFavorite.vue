@@ -49,9 +49,10 @@ export default {
   @include flex-calign;
   font-size: 18px;
   color: $c-text-secondary;
-  transition: color 200ms ease;
+  transition: all 150ms ease;
   &--active {
-    color: $c-sale;
+    color: $c-white;
+    background: $c-sale;
   }
 }
 </style>

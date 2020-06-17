@@ -2,35 +2,35 @@
   <div class="ca-filter" :class="modifiers">
     <div class="ca-filter__title" @click="() => (open = !open)">
       {{ title }}
-      <span v-if="currentSelection.length > 0" class="ca-filter__chosen-amount">
-        ({{ currentSelection.length }})
+      <span v-if="selectionMade && !typeRange" class="ca-filter__chosen-amount">
+        ({{ selection.length }})
       </span>
       <CaIcon class="ca-filter__arrow" name="chevron-down" />
     </div>
     <SlideUpDown class="ca-filter__values" :active="open" :duration="200">
-      <ul class="ca-filter__list">
-        <li
-          v-for="(value, index) in valuesWithSelected"
-          :key="index"
-          class="ca-filter__value"
-          :class="{ 'ca-filter__value--selected': value.selected }"
-          @click="toggleFilterValue(value.name, !value.selected)"
-        >
-          <CaIcon class="ca-filter__check" name="check" />
-          {{ value.name }}
-        </li>
-      </ul>
+      <CaFilterMulti
+        v-if="!typeRange"
+        :values="values"
+        :selection="selection"
+        @selectionchange="$emit('selectionchange', $event)"
+      />
+      <CaFilterRange
+        v-else
+        :values="values"
+        :selection="selection"
+        @selectionchange="$emit('selectionchange', $event)"
+      />
     </SlideUpDown>
   </div>
 </template>
 <script>
 import SlideUpDown from 'vue-slide-up-down';
-import { CaIcon } from '@ralph/ralph-ui';
+import { CaIcon, CaFilterMulti, CaFilterRange } from '@ralph/ralph-ui';
 // @group Molecules
 // @vuese
 export default {
   name: 'CaFilter',
-  components: { CaIcon, SlideUpDown },
+  components: { CaIcon, SlideUpDown, CaFilterMulti, CaFilterRange },
   mixins: [],
   props: {
     title: {
@@ -38,49 +38,49 @@ export default {
       required: true
     },
     values: {
-      type: Array,
+      type: [Array, Object],
       required: true
     },
     selection: {
-      type: Array,
+      type: [Array, Object],
       required: true
+    },
+    type: {
+      // 'multi', 'range'
+      type: String,
+      default: 'multi', // 'range'
+      validator(value) {
+        return ['multi', 'range'].includes(value);
+      }
     }
   },
   data: () => ({
-    currentSelection: [],
     open: false
   }),
   computed: {
     modifiers() {
       return {
         'ca-filter--open': this.open,
-        'ca-filter--chosen': this.currentSelection.length > 0
+        'ca-filter--chosen': this.selectionMade > 0
       };
     },
-    valuesWithSelected() {
-      if (this.values && this.values.length && this.selection) {
-        return this.values.map(item => {
-          const isSelected = this.currentSelection.some(el => el === item.name);
-          this.$set(item, 'selected', isSelected);
-          return item;
-        });
-      } else return [];
+    typeRange() {
+      return this.type === 'range';
+    },
+    selectionMade() {
+      if (this.typeRange) {
+        return (
+          this.values.lowest !== this.selection.lowest ||
+          this.values.highest !== this.selection.highest
+        );
+      } else {
+        return this.selection && this.selection.length > 0;
+      }
     }
   },
   watch: {},
-  mounted() {
-    this.currentSelection = this.selection;
-  },
-  methods: {
-    toggleFilterValue(name, selected) {
-      if (selected) {
-        this.currentSelection.push(name);
-      } else {
-        this.currentSelection.splice(this.currentSelection.indexOf(name), 1);
-      }
-      this.$emit('selectionchange', this.currentSelection);
-    }
-  }
+  mounted() {},
+  methods: {}
 };
 </script>
 <style lang="scss" scoped>
@@ -95,7 +95,7 @@ export default {
     transition: border-color 200ms ease;
     cursor: pointer;
     position: relative;
-    width: 170px;
+    width: 200px;
   }
   &__arrow {
     @include valign;
@@ -109,42 +109,49 @@ export default {
     z-index: 15;
     background: $c-lightest-gray;
     overflow: hidden;
-    width: 170px;
-    padding: $px12 $px24 $px12 $px12;
-  }
-  &__check {
-    opacity: 0;
-    @include valign;
-    left: 2px;
-    transition: opacity 200ms ease;
-    color: $c-success;
-  }
-  &__value {
-    padding-left: $px24;
-    position: relative;
-    line-height: 2;
-    cursor: pointer;
-    &:before {
-      width: 18px;
-      height: 18px;
-      content: '';
-      display: block;
-      background: $c-white;
-      border: $border-light;
-      @include valign;
-      left: 0;
-    }
-    &--selected {
-      font-weight: $font-weight-bold;
-      #{$block}__check {
-        opacity: 1;
-      }
-    }
+    width: 200px;
+    padding: $px12;
   }
 
   &--chosen & {
     &__title {
       font-weight: $font-weight-bold;
+    }
+  }
+
+  ::v-deep .ca-filter-multi {
+    &__value {
+      padding-left: $px24;
+      position: relative;
+      line-height: 2;
+      cursor: pointer;
+      &:before {
+        width: 18px;
+        height: 18px;
+        content: '';
+        display: block;
+        background: $c-white;
+        border: $border-light;
+        @include valign;
+        left: 0;
+      }
+      &--selected {
+        font-weight: $font-weight-bold;
+        .ca-filter-multi__check {
+          opacity: 1;
+        }
+      }
+      &--disabled {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    }
+    &__check {
+      opacity: 0;
+      @include valign;
+      left: 2px;
+      transition: opacity 200ms ease;
+      color: $c-success;
     }
   }
 }

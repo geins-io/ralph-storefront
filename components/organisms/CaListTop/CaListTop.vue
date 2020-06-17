@@ -69,9 +69,7 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: $border-light;
-    padding-bottom: $px32;
-    margin-bottom: $px24;
+    margin-bottom: $px32;
   }
   &__text {
     @include bp(laptop) {

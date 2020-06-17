@@ -1,20 +1,41 @@
 <template>
   <div class="ca-list-filters">
-    <CaFilter
-      class="ca-list-filters__filter"
-      :title="$t('FILTER_LABEL_CATEGORIES')"
-      :values="filters.categories"
-      :selection="selection.categories"
-      @selectionchange="currentSelection.categories = $event"
-    />
-
-    <CaFilter
-      class="ca-list-filters__filter"
-      :title="$t('FILTER_LABEL_BRANDS')"
-      :values="filters.brands"
-      :selection="selection.brands"
-      @selectionchange="currentSelection.brands = $event"
-    />
+    <h3 class="ca-list-filters__title">{{ $t('FILTERS') }}</h3>
+    <div class="ca-list-filters__filters">
+      <CaFilter
+        v-if="filters.categories && filters.categories.length"
+        class="ca-list-filters__filter"
+        :title="$t('FILTER_LABEL_CATEGORIES')"
+        :values="filters.categories"
+        :selection="selection.categories"
+        @selectionchange="currentSelection.categories = $event"
+      />
+      <CaFilter
+        v-if="filters.brands && filters.brands.length"
+        class="ca-list-filters__filter"
+        :title="$t('FILTER_LABEL_BRANDS')"
+        :values="filters.brands"
+        :selection="selection.brands"
+        @selectionchange="currentSelection.brands = $event"
+      />
+      <CaFilter
+        v-if="filters.price && selection.price"
+        class="ca-list-filters__filter"
+        type="range"
+        :title="$t('FILTER_LABEL_PRICE')"
+        :values="filters.price"
+        :selection="selection.price"
+        @selectionchange="currentSelection.price = $event"
+      />
+      <!-- <CaFilter
+        v-if="filters.discountCampaigns && filters.discountCampaigns.length"
+        class="ca-list-filters__filter"
+        :title="$t('FILTER_LABEL_CAMPAIGNS')"
+        :values="filters.discountCampaigns"
+        :selection="selection.discountCampaigns"
+        @selectionchange="currentSelection.discountCampaigns = $event"
+      /> -->
+    </div>
   </div>
 </template>
 <script>
@@ -55,10 +76,19 @@ export default {
 </script>
 <style lang="scss">
 .ca-list-filters {
-  position: relative;
-  display: flex;
-  width: 70%;
+  padding-top: $px24;
+  border-top: $border-light;
   margin-bottom: $px32;
+  &__title {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    margin-bottom: $px12;
+  }
+  &__filters {
+    position: relative;
+    display: flex;
+    width: 70%;
+  }
   &__filter {
     &:not(:last-child) {
       margin-right: $px20;

@@ -52,6 +52,9 @@ export default {
   watch: {
     sort(val) {
       this.$emit('sortchange', val);
+    },
+    currentSort() {
+      this.sort = this.currentSort;
     }
   },
   mounted() {
