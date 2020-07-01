@@ -3,7 +3,7 @@
     <h3 class="ca-list-filters__title">{{ $t('FILTERS') }}</h3>
     <div class="ca-list-filters__filters">
       <CaFilter
-        v-if="filters.categories && filters.categories.length"
+        v-if="filters.categories && filters.categories.length > 1"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_CATEGORIES')"
         :values="filters.categories"
@@ -11,7 +11,7 @@
         @selectionchange="currentSelection.categories = $event"
       />
       <CaFilter
-        v-if="filters.brands && filters.brands.length"
+        v-if="filters.brands && filters.brands.length > 1"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_BRANDS')"
         :values="filters.brands"
@@ -19,7 +19,11 @@
         @selectionchange="currentSelection.brands = $event"
       />
       <CaFilter
-        v-if="filters.price && selection.price"
+        v-if="
+          filters.price &&
+            selection.price &&
+            filters.price.lowest !== filters.price.highest
+        "
         class="ca-list-filters__filter"
         type="range"
         :title="$t('FILTER_LABEL_PRICE')"

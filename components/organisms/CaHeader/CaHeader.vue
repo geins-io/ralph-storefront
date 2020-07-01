@@ -82,8 +82,8 @@ export default {
   apollo: {
     categories: {
       query: gql`
-        query categories($langCode: String!) {
-          categories(langCode: $langCode) {
+        query categories($apiKey: String!) {
+          categories(apiKey: $apiKey) {
             alias
             name
             categoryId
@@ -94,7 +94,7 @@ export default {
       `,
       variables() {
         return {
-          langCode: this.$i18n.locale
+          apiKey: this.$store.getters.currentApiKey
         };
       }
     }

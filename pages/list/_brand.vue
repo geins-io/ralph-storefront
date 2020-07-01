@@ -1,6 +1,6 @@
 <template>
   <CaListPage
-    type="category"
+    type="brand"
     :info-query="infoQuery"
     :products-query="productsQuery"
     :current-alias="currentAlias"
@@ -9,20 +9,20 @@
 
 <script>
 import CaListPage from '@/components/organisms/CaListPage/CaListPage';
-import categoryInfoQuery from '@/graphql/page-info-category.graphql';
-import categoryProductsQuery from '@/graphql/products-category.graphql';
+import brandInfoQuery from '@/graphql/page-info-brand.graphql';
+import brandProductsQuery from '@/graphql/products-brand.graphql';
 
 export default {
-  name: 'CategoryListView',
+  name: 'BrandListView',
   components: { CaListPage },
   mixins: [],
   data: () => ({
-    infoQuery: categoryInfoQuery,
-    productsQuery: categoryProductsQuery
+    infoQuery: brandInfoQuery,
+    productsQuery: brandProductsQuery
   }),
   computed: {
     currentAlias() {
-      return this.$route.params.category;
+      return this.$route.params.brand;
     }
   },
   mounted() {},

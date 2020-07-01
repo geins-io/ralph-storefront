@@ -77,5 +77,8 @@ export const getters = {
   },
   isFavorite: state => prodId => {
     return state.favorites.includes(prodId);
+  },
+  currentApiKey() {
+    return '5324971256';
   }
 };

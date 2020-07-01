@@ -11,6 +11,7 @@
           <CaToggleFavorite :prod-id="product.productId" />
           <CaBrandAndName
             :brand="product.brandName"
+            :brand-alias="product.brandAlias"
             :name="product.name"
             name-tag="h1"
           />
@@ -92,11 +93,12 @@ export default {
   apollo: {
     product: {
       query: gql`
-        query product($alias: String!, $langCode: String!) {
-          product(alias: $alias, langCode: $langCode) {
+        query product($alias: String!, $apiKey: String!) {
+          product(alias: $alias, apiKey: $apiKey) {
             productId
             name
             brandName
+            brandAlias
             images
             categories {
               categoryId
@@ -116,7 +118,7 @@ export default {
       variables() {
         return {
           alias: this.$route.params.alias,
-          langCode: this.$i18n.locale
+          apiKey: this.$store.getters.currentApiKey
         };
       },
       error(error) {

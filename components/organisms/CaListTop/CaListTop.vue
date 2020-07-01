@@ -2,17 +2,20 @@
   <!--eslint-disable vue/no-v-html-->
   <div class="ca-list-top">
     <div class="ca-list-top__text">
-      <h1 class="ca-list-top__title">{{ title }}</h1>
-      <CaReadMore v-if="description !== ''" class="ca-list-top__description">
-        <div v-html="description"></div>
+      <h1 class="ca-list-top__title">{{ listInfo.name }}</h1>
+      <CaReadMore
+        v-if="listInfo.primaryDescription !== ''"
+        class="ca-list-top__description"
+      >
+        <div v-html="listInfo.primaryDescription"></div>
       </CaReadMore>
     </div>
     <ul
-      v-if="subCategories && subCategories.length"
+      v-if="listInfo.subCategories && listInfo.subCategories.length"
       class="ca-list-top__subcategories"
     >
       <li
-        v-for="(category, index) in activeCategories"
+        v-for="(category, index) in listInfo.subCategories"
         :key="index"
         class="ca-list-top__category-item"
       >
@@ -32,27 +35,17 @@ export default {
   components: { CaButton, CaReadMore },
   mixins: [],
   props: {
-    title: {
+    type: {
       type: String,
       required: true
     },
-    description: {
-      type: String,
-      default: ''
-    },
-    subCategories: {
-      type: Array,
-      default: () => []
+    listInfo: {
+      type: Object,
+      default: () => {}
     }
   },
   data: () => ({}),
-  computed: {
-    activeCategories() {
-      return this.subCategories
-        ? this.subCategories.filter(item => item.activeProducts !== 0)
-        : [];
-    }
-  },
+  computed: {},
   watch: {},
   mounted() {},
   methods: {}

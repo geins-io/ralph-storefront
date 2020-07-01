@@ -1,6 +1,17 @@
 <template>
   <div class="ca-brand-and-name">
-    <div v-if="brand !== ''" class="ca-brand-and-name__brand">{{ brand }}</div>
+    <div v-if="brand !== ''" class="ca-brand-and-name__brand">
+      <NuxtLink
+        v-if="brandAlias !== ''"
+        class="ca-brand-and-name__brand-link"
+        :to="'/b/' + brandAlias"
+      >
+        {{ brand }}
+      </NuxtLink>
+      <span v-else>
+        {{ brand }}
+      </span>
+    </div>
     <component :is="nameTag" class="ca-brand-and-name__name">
       {{ name }}
     </component>
@@ -13,6 +24,10 @@ export default {
   mixins: [],
   props: {
     brand: {
+      type: String,
+      default: ''
+    },
+    brandAlias: {
       type: String,
       default: ''
     },

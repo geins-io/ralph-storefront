@@ -28,6 +28,13 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [],
+  loaders: [
+    {
+      test: /\.(graphql|gql)$/,
+      exclude: /node_modules/,
+      loader: 'graphql-tag/loader'
+    }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -56,14 +63,16 @@ export default {
             iso: 'en-US',
             file: 'en-US.js',
             name: 'English',
-            flag: 'gb'
+            flag: 'gb',
+            apiKey: '5324971256'
           },
           {
             code: 'sv',
             iso: 'sv-SE',
             file: 'sv-SE.js',
             name: 'Svenska',
-            flag: 'se'
+            flag: 'se',
+            apiKey: '5324971256'
           }
         ],
         langDir: 'languages/',
@@ -90,7 +99,7 @@ export default {
     // required
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://ralphapi.azurewebsites.net/graphql',
+        httpEndpoint: 'https://ralphservice.azurewebsites.net/graphql',
         // Enable Automatic Query persisting with Apollo Engine
         persisting: false // try to enable this later
       }
@@ -110,8 +119,8 @@ export default {
       });
       routes.push({
         name: 'brand',
-        path: '/b/*/:brand',
-        component: resolve(__dirname, 'pages/list.vue')
+        path: '/b/:brand',
+        component: resolve(__dirname, 'pages/list/_brand.vue')
       });
     }
   },

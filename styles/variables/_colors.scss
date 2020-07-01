@@ -6,22 +6,25 @@ $c-medium-gray: #d8d8d8;
 $c-dark-gray: #adadad;
 $c-darkest-gray: #363636;
 
-// Text colors
+// Theme text colors
 $c-text-primary: #222222;
 $c-text-secondary: #878787;
 $c-text-inverse: #ffffff;
 
-//Overlay
+// Overlay
 $c-overlay: rgba(0, 0, 0, 0.3);
 
-//Feedback/Support
+// Feedback/Support
 $c-success: #60bf64;
 $c-error: #ec2424;
 
-//Border colors
+// Border colors
 $c-border-light: $c-light-gray;
 
-//Header
+// Backgrounds
+$c-main-bg: $c-white;
+
+// Header
 $c-topbar-bg: $c-medium-gray;
 $c-header-bg: $c-light-gray;
 $c-search-bg: $c-medium-gray;

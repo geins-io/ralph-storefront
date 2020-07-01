@@ -95,8 +95,8 @@ export default {
   apollo: {
     products: {
       query: gql`
-        query products($skip: Int!, $take: Int!, $langCode: String!) {
-          products(skip: $skip, take: $take, langCode: $langCode) {
+        query products($skip: Int!, $take: Int!, $apiKey: String!) {
+          products(skip: $skip, take: $take, apiKey: $apiKey) {
             active
             brandName
             name
@@ -117,7 +117,7 @@ export default {
         return {
           skip: this.skip,
           take: this.take,
-          langCode: this.$i18n.locale
+          apiKey: this.$store.getters.currentApiKey
         };
       }
     }
