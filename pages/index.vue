@@ -1,11 +1,7 @@
 <template>
   <div class="ca-front-page">
     <CaContainer>
-      <h1 class="site-title">ralph / front page</h1>
-      <p class="site-preamble">
-        This is the front page of Ralph. In a distant future, awesome front page
-        content will be displayed here.
-      </p>
+      <CaWidgetArea family="Frontpage" area-name="The front page area" />
     </CaContainer>
   </div>
 </template>
@@ -13,34 +9,21 @@
 <script>
 import { mapState } from 'vuex';
 // import Logo from '@/components/Logo.vue';
-import { CaContainer } from '@ralph/ralph-ui';
+import { CaContainer, CaWidgetArea } from '@ralph/ralph-ui';
 export default {
   name: 'FrontPage',
   components: {
-    CaContainer
+    CaContainer,
+    CaWidgetArea
   },
   fetch({ store }) {
     store.commit('increment');
   },
-  data() {
-    return {
-      message: process.env.VUE_APP_TITLE
-    };
-  },
+  data: () => ({}),
   computed: {
-    availableLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
-    },
     ...mapState(['counter'])
   },
-  methods: {
-    increment() {
-      this.$store.commit('increment');
-    },
-    getSubLevelCategories(id) {
-      return this.activeCategories.filter(i => i.parentCategoryId === id);
-    }
-  }
+  methods: {}
 };
 </script>
 

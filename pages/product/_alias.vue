@@ -61,6 +61,11 @@
           </div>
         </div>
       </div>
+      <CaWidgetArea
+        class="ca-product-page__widget-area"
+        family="Product"
+        area-name="Product detail page"
+      />
     </CaContainer>
   </div>
 </template>

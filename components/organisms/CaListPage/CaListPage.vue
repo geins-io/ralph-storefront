@@ -12,6 +12,12 @@
         :placeholder="listInfo.primaryImage"
       />
 
+      <CaWidgetArea
+        class="ca-list-page__widget-area"
+        family="Productlist"
+        area-name="The top part of the product list"
+      />
+
       <CaListFilters
         :filters="filters"
         :selection="selection"
@@ -23,6 +29,7 @@
         :current-sort="sort"
         @sortchange="sortChangeHandler($event)"
       />
+
       <CaListPagination
         v-if="skip !== 0"
         direction="prev"
@@ -31,7 +38,9 @@
         :all-products-loaded="allProductsLoaded"
         @loadPrev="loadPrev"
       />
+
       <CaProductList :products="productList" />
+
       <CaListPagination
         direction="next"
         :showing="showing"
@@ -39,11 +48,22 @@
         :all-products-loaded="allProductsLoaded"
         @loadMore="loadMore"
       />
+
+      <CaWidgetArea
+        class="ca-list-page__widget-area"
+        family="Productlist"
+        area-name="The bottom part of the product list"
+      />
     </CaContainer>
   </div>
 </template>
 <script>
-import { CaContainer, CaImage, MixListPageFunctions } from '@ralph/ralph-ui';
+import {
+  CaContainer,
+  CaImage,
+  MixListPageFunctions,
+  CaWidgetArea
+} from '@ralph/ralph-ui';
 import CaListTop from '@/components/organisms/CaListTop/CaListTop';
 import CaListFilters from '@/components/organisms/CaListFilters/CaListFilters';
 import CaListSettings from '@/components/organisms/CaListSettings/CaListSettings';
@@ -60,7 +80,8 @@ export default {
     CaListTop,
     CaListSettings,
     CaListFilters,
-    CaImage
+    CaImage,
+    CaWidgetArea
   },
   mixins: [MixListPageFunctions],
   apollo: {

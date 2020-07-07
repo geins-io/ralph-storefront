@@ -75,6 +75,9 @@ export const getters = {
   viewportLaptop(state) {
     return state.viewportWidth >= 1024;
   },
+  viewportMobile(state) {
+    return state.viewportWidth < 768;
+  },
   isFavorite: state => prodId => {
     return state.favorites.includes(prodId);
   },
