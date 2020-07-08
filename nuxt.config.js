@@ -130,6 +130,19 @@ export default {
    ** Build configuration
    */
   build: {
+    babel: {
+      presets({ isServer }) {
+        return [
+          [
+            require.resolve('@nuxt/babel-preset-app'),
+            // require.resolve('@nuxt/babel-preset-app-edge'), // For nuxt-edge users
+            {
+              corejs: { version: 3 }
+            }
+          ]
+        ];
+      }
+    },
     transpile: ['@ralph/ralph-ui'],
     /*
      ** You can extend webpack config here
@@ -140,7 +153,6 @@ export default {
       if (isDev) {
         config.devtool = 'source-map';
       }
-      console.log(config);
     }
   },
   dev: process.env.NODE_ENV !== 'production'
