@@ -51,8 +51,6 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Remove after release
-    'nuxt-basic-auth-module',
     // Doc: https://github.com/nuxt-community/pwa-module
     '@nuxtjs/pwa',
     [
@@ -91,12 +89,6 @@ export default {
     // Doc: https://github.com/nuxt-community/apollo-module
     '@nuxtjs/apollo'
   ],
-  basic: {
-    name: 'ralph',
-    pass: 'carismar',
-    enabled: process.env.NODE_ENV === 'production'
-  },
-
   styleResources: {
     scss: ['./styles/_variables.scss', './styles/_helpers.scss']
   },
