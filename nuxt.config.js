@@ -94,7 +94,7 @@ export default {
   basic: {
     name: 'ralph',
     pass: 'carismar',
-    enabled: process.env.NODE_ENV === 'production' // require boolean value(nullable)
+    enabled: process.env.NODE_ENV === 'production'
   },
 
   styleResources: {
