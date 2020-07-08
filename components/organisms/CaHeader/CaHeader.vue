@@ -66,16 +66,16 @@
 </template>
 <script>
 import gql from 'graphql-tag';
+import CaLogo from 'CaLogo';
+import CaIconAndText from 'CaIconAndText';
 import {
   CaContainer,
   CaIcon,
-  CaIconAndText,
-  CaLogo,
   CaMiniCart,
   CaFavorites,
   CaSearch
 } from '@ralph/ralph-ui';
-import CaTopBar from '@/components/organisms/CaTopBar/CaTopBar';
+import CaTopBar from 'CaTopBar';
 
 export default {
   name: 'CaHeader',

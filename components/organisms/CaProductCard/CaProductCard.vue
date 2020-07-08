@@ -37,9 +37,9 @@
 </template>
 <script>
 import { CaButton, CaImage } from '@ralph/ralph-ui';
-import CaBrandAndName from '@/components/atoms/CaBrandAndName';
-import CaPrice from '@/components/atoms/CaPrice/CaPrice';
-import CaToggleFavorite from '@/components/molecules/CaToggleFavorite/CaToggleFavorite';
+import CaBrandAndName from 'CaBrandAndName';
+import CaPrice from 'CaPrice';
+import CaToggleFavorite from 'CaToggleFavorite';
 // @group Organisms
 // @vuese
 export default {

@@ -64,11 +64,11 @@ import {
   MixListPageFunctions,
   CaWidgetArea
 } from '@ralph/ralph-ui';
-import CaListTop from '@/components/organisms/CaListTop/CaListTop';
-import CaListFilters from '@/components/organisms/CaListFilters/CaListFilters';
-import CaListSettings from '@/components/organisms/CaListSettings/CaListSettings';
-import CaListPagination from '@/components/molecules/CaListPagination/CaListPagination';
-import CaProductList from '@/components/organisms/CaProductList/CaProductList';
+import CaListPagination from 'CaListPagination';
+import CaListTop from 'CaListTop';
+import CaListFilters from 'CaListFilters';
+import CaListSettings from 'CaListSettings';
+import CaProductList from 'CaProductList';
 // @group Organisms
 // @vuese
 export default {

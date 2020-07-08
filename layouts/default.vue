@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import CaHeader from '@/components/organisms/CaHeader/CaHeader';
+import CaHeader from 'CaHeader';
 export default {
   components: {
     CaHeader

@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import { CaLogo } from '@ralph/ralph-ui';
+import { CaLogo } from ' CaLogo ';
 export default {
   name: 'Logo',
   mixins: [CaLogo]

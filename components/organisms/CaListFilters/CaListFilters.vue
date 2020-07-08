@@ -43,7 +43,7 @@
   </div>
 </template>
 <script>
-import CaFilter from '@/components/molecules/CaFilter/CaFilter';
+import CaFilter from 'CaFilter';
 // @group Organisms
 // @vuese
 export default {

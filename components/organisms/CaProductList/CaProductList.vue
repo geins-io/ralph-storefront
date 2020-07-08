@@ -9,7 +9,7 @@
   </ul>
 </template>
 <script>
-import CaProductCard from '@/components/organisms/CaProductCard/CaProductCard';
+import CaProductCard from 'CaProductCard';
 // @group Organisms
 // @vuese
 export default {

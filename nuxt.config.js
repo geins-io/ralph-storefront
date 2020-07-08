@@ -1,3 +1,4 @@
+import path from 'path';
 import DirectoryNamedWebpackPlugin from './scripts/directory-named-webpack-resolve';
 export default {
   mode: 'universal',
@@ -150,9 +151,37 @@ export default {
     extend(config, { isDev }) {
       config.resolve.extensions.unshift('.vue');
       config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
+      config.resolve.alias.atoms = path.resolve(__dirname, 'components/atoms/');
+      config.resolve.alias.molecules = path.resolve(
+        __dirname,
+        'components/molecules/'
+      );
+      config.resolve.alias.organisms = path.resolve(
+        __dirname,
+        'components/organisms/'
+      );
+      config.resolve.modules = [
+        path.resolve(__dirname, 'components/atoms/'),
+        path.resolve(__dirname, 'components/molecules/'),
+        path.resolve(__dirname, 'components/organisms/'),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/components/atoms/'
+        ),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/components/molecules/'
+        ),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/components/organisms/'
+        ),
+        path.resolve(__dirname, 'node_modules/')
+      ];
       if (isDev) {
         config.devtool = 'source-map';
       }
+      console.log(config.resolve);
     }
   },
   dev: process.env.NODE_ENV !== 'production'

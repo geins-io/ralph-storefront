@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import CaListPage from '@/components/organisms/CaListPage/CaListPage';
+import CaListPage from 'CaListPage';
 import brandInfoQuery from '@/graphql/page-info-brand.graphql';
 import brandProductsQuery from '@/graphql/products-brand.graphql';
 

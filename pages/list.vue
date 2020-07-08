@@ -78,9 +78,9 @@
 <script>
 import gql from 'graphql-tag';
 import { CaContainer, CaButton, CaImage } from '@ralph/ralph-ui';
-import CaBrandAndName from '@/components/atoms/CaBrandAndName';
-import CaPrice from '@/components/atoms/CaPrice';
-import CaToggleFavorite from '@/components/molecules/CaToggleFavorite';
+import CaBrandAndName from 'CaBrandAndName';
+import CaPrice from 'CaPrice';
+import CaToggleFavorite from 'CaToggleFavorite';
 
 export default {
   name: 'ProductPage',
