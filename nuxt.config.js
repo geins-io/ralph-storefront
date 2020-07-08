@@ -1,3 +1,4 @@
+import DirectoryNamedWebpackPlugin from './scripts/directory-named-webpack-resolve';
 export default {
   mode: 'universal',
   /*
@@ -134,9 +135,12 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, { isDev }) {
+      config.resolve.extensions.unshift('.vue');
+      config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
       if (isDev) {
         config.devtool = 'source-map';
       }
+      console.log(config);
     }
   },
   dev: process.env.NODE_ENV !== 'production'

@@ -79,9 +79,9 @@ import {
   CaIconAndText,
   CaProductMeta
 } from '@ralph/ralph-ui';
-import CaBrandAndName from '@/components/atoms/CaBrandAndName/CaBrandAndName';
-import CaPrice from '@/components/atoms/CaPrice/CaPrice';
-import CaToggleFavorite from '@/components/molecules/CaToggleFavorite/CaToggleFavorite';
+import CaBrandAndName from '@/components/atoms/CaBrandAndName';
+import CaPrice from '@/components/atoms/CaPrice';
+import CaToggleFavorite from '@/components/molecules/CaToggleFavorite';
 
 export default {
   name: 'ProductPage',

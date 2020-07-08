@@ -37,7 +37,7 @@
 </template>
 <script>
 import { CaButton, CaImage } from '@ralph/ralph-ui';
-import CaBrandAndName from '@/components/atoms/CaBrandAndName/CaBrandAndName';
+import CaBrandAndName from '@/components/atoms/CaBrandAndName';
 import CaPrice from '@/components/atoms/CaPrice/CaPrice';
 import CaToggleFavorite from '@/components/molecules/CaToggleFavorite/CaToggleFavorite';
 // @group Organisms
