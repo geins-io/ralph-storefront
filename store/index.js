@@ -3,7 +3,8 @@ export const state = () => ({
   favorites: [],
   VATincluded: true,
   scrollTop: 0,
-  viewportWidth: 0
+  viewportWidth: 0,
+  cartItems: []
 });
 
 export const mutations = {
@@ -26,6 +27,9 @@ export const mutations = {
   },
   setViewportWidth(state) {
     state.viewportWidth = window.innerWidth;
+  },
+  addToCart(state, product) {
+    state.cartItems.push(product);
   }
 };
 
@@ -83,5 +87,19 @@ export const getters = {
   },
   currentApiKey() {
     return '5324971256';
+  },
+  cartSum(state) {
+    return state.cartItems.length;
+  },
+  cartTotal(state) {
+    const cartItems = state.cartItems;
+    let total = 0;
+    for (let i = 0; i < cartItems.length; i++) {
+      const itemPrice = state.VATincluded
+        ? parseInt(cartItems[i].price.sellingPriceIncVat)
+        : parseInt(cartItems[i].price.sellingPriceExVat);
+      total += itemPrice;
+    }
+    return total;
   }
 };

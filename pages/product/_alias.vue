@@ -33,7 +33,7 @@
           <CaButton
             class="ca-product-page__buy-button"
             type="full-width"
-            @clicked="addToCart"
+            @clicked="$store.commit('addToCart', product)"
             >{{ $t('ADD_TO_CART') }}</CaButton
           >
           <div class="ca-product-page__usps">
