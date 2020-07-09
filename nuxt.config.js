@@ -156,6 +156,7 @@ export default {
         path.resolve(__dirname, 'components/atoms/'),
         path.resolve(__dirname, 'components/molecules/'),
         path.resolve(__dirname, 'components/organisms/'),
+        path.resolve(__dirname, 'components/mixins/'),
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/atoms/'
@@ -167,6 +168,10 @@ export default {
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/organisms/'
+        ),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/components/mixins/'
         ),
         path.resolve(__dirname, 'node_modules/')
       ];
