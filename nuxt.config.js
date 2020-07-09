@@ -93,6 +93,7 @@ export default {
   styleResources: {
     scss: ['./styles/_variables.scss', './styles/_helpers.scss']
   },
+  serverMiddleware: ['api/klarna-checkout-orders'],
   apollo: {
     // optional
     // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
@@ -136,7 +137,6 @@ export default {
         return [
           [
             require.resolve('@nuxt/babel-preset-app'),
-            // require.resolve('@nuxt/babel-preset-app-edge'), // For nuxt-edge users
             {
               corejs: { version: 3 }
             }
@@ -151,15 +151,7 @@ export default {
     extend(config, { isDev }) {
       config.resolve.extensions.unshift('.vue');
       config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
-      config.resolve.alias.atoms = path.resolve(__dirname, 'components/atoms/');
-      config.resolve.alias.molecules = path.resolve(
-        __dirname,
-        'components/molecules/'
-      );
-      config.resolve.alias.organisms = path.resolve(
-        __dirname,
-        'components/organisms/'
-      );
+      // Resolve modules first by checking Ralph components, then checking Ralph UI components, then node modules.
       config.resolve.modules = [
         path.resolve(__dirname, 'components/atoms/'),
         path.resolve(__dirname, 'components/molecules/'),
@@ -181,7 +173,6 @@ export default {
       if (isDev) {
         config.devtool = 'source-map';
       }
-      console.log(config.resolve);
     }
   },
   dev: process.env.NODE_ENV !== 'production'
