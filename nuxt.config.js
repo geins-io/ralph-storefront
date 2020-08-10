@@ -29,7 +29,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  // plugins: [{ src: '~/plugins/vuex-persist', ssr: false }],
   loaders: [
     {
       test: /\.(graphql|gql)$/,
@@ -93,7 +93,10 @@ export default {
   styleResources: {
     scss: ['./styles/_variables.scss', './styles/_helpers.scss']
   },
-  serverMiddleware: ['api/klarna-checkout-orders'],
+  serverMiddleware: [
+    'api/klarna-checkout-orders',
+    'api/klarna-checkout-confirm'
+  ],
   apollo: {
     // optional
     // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
@@ -153,6 +156,7 @@ export default {
       config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
       // Resolve modules first by checking Ralph components, then checking Ralph UI components, then node modules.
       config.resolve.modules = [
+        path.resolve(__dirname, 'node_modules/'),
         path.resolve(__dirname, 'components/atoms/'),
         path.resolve(__dirname, 'components/molecules/'),
         path.resolve(__dirname, 'components/organisms/'),
@@ -172,8 +176,7 @@ export default {
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/mixins/'
-        ),
-        path.resolve(__dirname, 'node_modules/')
+        )
       ];
       if (isDev) {
         config.devtool = 'source-map';

@@ -4,7 +4,8 @@ export const state = () => ({
   VATincluded: true,
   scrollTop: 0,
   viewportWidth: 0,
-  cartItems: []
+  cartItems: [],
+  cartId: ''
 });
 
 export const mutations = {
@@ -30,6 +31,9 @@ export const mutations = {
   },
   addToCart(state, product) {
     state.cartItems.push(product);
+  },
+  setCartId(state, id) {
+    state.cartId = id;
   }
 };
 
@@ -63,7 +67,7 @@ export const actions = {
         }
         // Setup the new requestAnimationFrame()
         timeout = window.requestAnimationFrame(function() {
-          // Run scroll functions
+          // Run resize functions
           context.commit('setViewportWidth');
         });
       },

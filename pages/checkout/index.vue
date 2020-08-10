@@ -1,18 +1,17 @@
 <template>
-  <div class="ca-checkout">
-    <!-- eslint-disable vue/no-v-html -->
-    <div v-html="klarnaResponse.html_snippet" />
+  <div class="ca-checkout-page">
+    <CaContainer>
+      <!-- eslint-disable vue/no-v-html -->
+      <div v-html="klarnaResponse.html_snippet" />
+    </CaContainer>
   </div>
 </template>
 
 <script>
-// import Logo from '@/components/Logo.vue';
+import { CaContainer } from '@ralph/ralph-ui';
 export default {
-  name: 'FrontPage',
-  components: {},
-  fetch({ store }) {
-    store.commit('increment');
-  },
+  name: 'CheckoutPage',
+  components: { CaContainer },
   asyncData() {
     return fetch('http://localhost:3000/api/klarna-checkout-orders/')
       .then(response => response.json())
@@ -26,6 +25,7 @@ export default {
 
   mounted() {
     this.initializeKlarnaScript();
+    this.$store.commit('setCartId', this.klarnaResponse.order_id);
   },
   methods: {
     fetchKlarnaData() {
@@ -52,22 +52,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.site-title {
-  font-size: $font-size-xxl;
-  text-align: center;
-  font-weight: $font-weight-bold;
-}
-.site-preamble {
-  max-width: 450px;
-  margin: $px20 auto;
-  font-size: $font-size-l;
-  text-align: center;
-}
-
-.categories {
-  ul {
-    margin-left: 10px;
-  }
-}
-</style>
+<style lang="scss"></style>
