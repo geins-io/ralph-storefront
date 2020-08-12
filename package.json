@@ -26,7 +26,7 @@
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.1",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@ralph/ralph-ui": "latest",
+    "@ralph/ralph-ui": "^1.0.11618",
     "express": "^4.17.1",
     "flag-icon-css": "^3.5.0",
     "graphql-tag": "^2.10.3",
