@@ -1,5 +1,5 @@
-import gql from 'graphql-tag';
-import apollo from '@nuxtjs/apollo';
+// import gql from 'graphql-tag';
+// import apollo from '@nuxtjs/apollo';
 
 export const state = () => ({
   counter: 0,
@@ -76,21 +76,21 @@ export const actions = {
       },
       { passive: true }
     );
-  },
-  async getCart(context) {
-    const response = await apollo.query({
-      query: gql`
-        query cart {
-          cart {
-            id
-          }
-        }
-      `
-    });
-    const data = response.data;
-    console.log(data);
-    context.commit('setCartId', data.cart.id);
   }
+  // async getCart(context) {
+  //   const response = await apollo.query({
+  //     query: gql`
+  //       query cart {
+  //         cart {
+  //           id
+  //         }
+  //       }
+  //     `
+  //   });
+  //   const data = response.data;
+  //   console.log(data);
+  //   context.commit('setCartId', data.cart.id);
+  // }
 };
 
 export const getters = {
