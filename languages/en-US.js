@@ -37,5 +37,7 @@ export default {
   SORT_LABEL_LATEST: 'New in',
   SORT_LABEL_BESTSELLERS: 'Bestsellers',
   SORT_LABEL_LOWEST_PRICE: 'Lowest price',
-  SORT_LABEL_HIGHEST_PRICE: 'Highest price'
+  SORT_LABEL_HIGHEST_PRICE: 'Highest price',
+  CONTINUE_SHOPPING: 'Continue shopping',
+  CHECKOUT: 'Checkout'
 };

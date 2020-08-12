@@ -3,6 +3,7 @@
     <CaContainer class="ca-top-bar__container">
       <NuxtLink
         v-for="locale in availableLocales"
+        v-show="!undistracted"
         :key="locale.code"
         class="ca-top-bar__lang-switcher only-desktop"
         :to="switchLocalePath(locale.code)"
@@ -15,6 +16,7 @@
         {{ locale.name }}
       </NuxtLink>
       <NuxtLink
+        v-show="!undistracted"
         class="ca-top-bar__link ca-top-bar__link--customer-service only-desktop"
         to="/"
       >
@@ -33,6 +35,7 @@
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
       <a
+        v-show="!undistracted"
         class="ca-top-bar__link ca-top-bar__link--login only-desktop"
         href="javascript:;"
       >
@@ -40,7 +43,7 @@
           {{ $t('LOG_IN_LINK') }}
         </CaIconAndText>
       </a>
-      <CaVatToggle class="only-desktop" />
+      <CaVatToggle v-show="!undistracted" class="only-desktop" />
     </CaContainer>
   </div>
 </template>
@@ -60,7 +63,12 @@ export default {
     CaContainer
   },
   mixins: [],
-  props: {},
+  props: {
+    undistracted: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: () => ({}),
   computed: {
     availableLocales() {

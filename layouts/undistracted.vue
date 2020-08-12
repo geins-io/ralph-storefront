@@ -1,16 +1,16 @@
 <template>
-  <div class="ca-layout-default">
-    <CaHeader />
+  <div class="ca-layout-undistracted">
+    <CaTopBar :undistracted="true" />
     <div class="ca-main">
       <Nuxt />
     </div>
   </div>
 </template>
 <script>
-import CaHeader from 'CaHeader';
+import CaTopBar from 'CaTopBar';
 export default {
   components: {
-    CaHeader
+    CaTopBar
   },
   mounted() {
     this.$store.dispatch('initScrollListener');
@@ -21,11 +21,18 @@ export default {
 };
 </script>
 <style lang="scss">
-.ca-layout-default {
+.ca-layout-undistracted {
+  background: $c-light-gray;
+  min-height: 100vh;
   .ca-main {
-    padding-top: $header-height + $default-spacing;
+    padding-top: rem-calc(15px);
     @include bp(laptop) {
-      padding-top: $header-height-desktop + $default-spacing * 2;
+      padding-top: $default-spacing * 2;
+    }
+  }
+  .ca-top-bar__usps {
+    @include bp(laptop) {
+      @include calign;
     }
   }
 }

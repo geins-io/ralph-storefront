@@ -33,6 +33,7 @@
     "node-fetch": "^2.6.0",
     "nuxt": "^2.13.3",
     "nuxt-i18n": "^6.13.1",
+    "vue-cookies": "^1.7.3",
     "vue-slide-up-down": "^2.0.1",
     "vue-slider-component": "^3.2.1"
   },
