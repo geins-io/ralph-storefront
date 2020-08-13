@@ -35,3 +35,7 @@ $c-sale: rgb(177, 0, 29);
 // Buttons
 $c-button-main-bg: $c-darkest-gray;
 $c-button-main-txt: $c-white;
+
+$c-button-secondary-bg: transparent;
+$c-button-secondary-txt: $c-text-primary;
+$c-button-secondary-border: 1px solid $c-darkest-gray;

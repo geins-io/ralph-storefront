@@ -2,7 +2,7 @@ import path from 'path';
 // eslint-disable-next-line no-console
 console.log('nodeversion', process.version);
 // eslint-disable-next-line import/first
-// import DirectoryNamedWebpackPlugin from './scripts/directory-named-webpack-resolve.js';
+import DirectoryNamedWebpackPlugin from './scripts/directory-named-webpack-resolve.js';
 export default {
   mode: 'universal',
   /*
@@ -32,7 +32,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['@/plugins/vue-cookies.js'],
   loaders: [
     {
       test: /\.(graphql|gql)$/,
@@ -96,6 +96,10 @@ export default {
   styleResources: {
     scss: ['./styles/_variables.scss', './styles/_helpers.scss']
   },
+  serverMiddleware: [
+    'api/klarna-checkout-orders',
+    'api/klarna-checkout-confirm'
+  ],
   apollo: {
     // optional
     // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
@@ -139,7 +143,6 @@ export default {
         return [
           [
             require.resolve('@nuxt/babel-preset-app'),
-            // require.resolve('@nuxt/babel-preset-app-edge'), // For nuxt-edge users
             {
               corejs: { version: 3 }
             }
@@ -153,21 +156,10 @@ export default {
      */
     extend(config, { isDev }) {
       config.resolve.extensions.unshift('.vue');
-      // config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
-      config.resolve.alias.atoms = path.resolve(__dirname, 'components/atoms/');
-      config.resolve.alias.molecules = path.resolve(
-        __dirname,
-        'components/molecules/'
-      );
-      config.resolve.alias.organisms = path.resolve(
-        __dirname,
-        'components/organisms/'
-      );
-      config.resolve.alias.organisms = path.resolve(
-        __dirname,
-        'components/mixins/'
-      );
+      config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
+      // Resolve modules first by checking Ralph components, then checking Ralph UI components, then node modules.
       config.resolve.modules = [
+        path.resolve(__dirname, 'node_modules/'),
         path.resolve(__dirname, 'components/atoms/'),
         path.resolve(__dirname, 'components/molecules/'),
         path.resolve(__dirname, 'components/organisms/'),
@@ -187,13 +179,11 @@ export default {
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/mixins/'
-        ),
-        path.resolve(__dirname, 'node_modules/')
+        )
       ];
       if (isDev) {
         config.devtool = 'source-map';
       }
-      console.log('nodeversion', process.version);
     }
   },
   dev: process.env.NODE_ENV !== 'production'

@@ -1,10 +1,14 @@
+// import gql from 'graphql-tag';
+// import apollo from '@nuxtjs/apollo';
+
 export const state = () => ({
   counter: 0,
   favorites: [],
   VATincluded: true,
   scrollTop: 0,
   viewportWidth: 0,
-  cartItems: []
+  cartItems: [],
+  cartId: ''
 });
 
 export const mutations = {
@@ -30,6 +34,9 @@ export const mutations = {
   },
   addToCart(state, product) {
     state.cartItems.push(product);
+  },
+  setCartId(state, id) {
+    state.cartId = id;
   }
 };
 
@@ -63,13 +70,27 @@ export const actions = {
         }
         // Setup the new requestAnimationFrame()
         timeout = window.requestAnimationFrame(function() {
-          // Run scroll functions
+          // Run resize functions
           context.commit('setViewportWidth');
         });
       },
       { passive: true }
     );
   }
+  // async getCart(context) {
+  //   const response = await apollo.query({
+  //     query: gql`
+  //       query cart {
+  //         cart {
+  //           id
+  //         }
+  //       }
+  //     `
+  //   });
+  //   const data = response.data;
+  //   console.log(data);
+  //   context.commit('setCartId', data.cart.id);
+  // }
 };
 
 export const getters = {

@@ -37,5 +37,7 @@ export default {
   SORT_LABEL_LATEST: 'Senast inkomna',
   SORT_LABEL_BESTSELLERS: 'Bästsäljare',
   SORT_LABEL_LOWEST_PRICE: 'Lägsta pris',
-  SORT_LABEL_HIGHEST_PRICE: 'Högsta pris'
+  SORT_LABEL_HIGHEST_PRICE: 'Högsta pris',
+  CONTINUE_SHOPPING: 'Fortsätt shoppa',
+  CHECKOUT: 'Kassan'
 };
