@@ -2,7 +2,7 @@ import path from 'path';
 // eslint-disable-next-line no-console
 console.log('nodeversion', process.version);
 // eslint-disable-next-line import/first
-import DirectoryNamedWebpackPlugin from './scripts/directory-named-webpack-resolve.js';
+import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 export default {
   mode: 'universal',
   /*
