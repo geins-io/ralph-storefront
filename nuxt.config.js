@@ -1,6 +1,6 @@
 import path from 'path';
 // eslint-disable-next-line no-console
-console.log(process.version);
+console.log('nodeversion', process.version);
 // eslint-disable-next-line import/first
 // import DirectoryNamedWebpackPlugin from './scripts/directory-named-webpack-resolve.js';
 export default {
@@ -193,7 +193,7 @@ export default {
       if (isDev) {
         config.devtool = 'source-map';
       }
-      console.log(config.resolve);
+      console.log('nodeversion', process.version);
     }
   },
   dev: process.env.NODE_ENV !== 'production'
