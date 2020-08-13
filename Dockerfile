@@ -22,5 +22,6 @@ ADD nuxt.config.js ./
 COPY --from=builder ./app/node_modules ./node_modules/
 COPY --from=builder ./app/.nuxt ./.nuxt/
 COPY --from=builder ./app/static ./static/
+COPY --from=builder ./app/scripts ./scripts/
 EXPOSE ${PORT}
 CMD ["npm", "run", "start"]
