@@ -1,5 +1,8 @@
 import path from 'path';
-import DirectoryNamedWebpackPlugin from './scripts/directory-named-webpack-resolve';
+// eslint-disable-next-line no-console
+console.log(process.version);
+// eslint-disable-next-line import/first
+// import DirectoryNamedWebpackPlugin from './scripts/directory-named-webpack-resolve.js';
 export default {
   mode: 'universal',
   /*
@@ -150,7 +153,7 @@ export default {
      */
     extend(config, { isDev }) {
       config.resolve.extensions.unshift('.vue');
-      config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
+      // config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
       config.resolve.alias.atoms = path.resolve(__dirname, 'components/atoms/');
       config.resolve.alias.molecules = path.resolve(
         __dirname,
