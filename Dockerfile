@@ -2,7 +2,7 @@ ARG HOST=0.0.0.0
 ARG PORT=80
 
 # Build the app on a separate "machine".
-FROM node:11.13.0-alpine as builder
+FROM node:14.8.0 as builder
 WORKDIR /app
 RUN apk add --no-cache curl git && \
     apk add --no-cache curl && \
@@ -12,7 +12,7 @@ RUN npm install && npm run build
 RUN node-prune
 
 # Grab the parts that makes our app work, and put them on a fresh linux image
-FROM node:11.13.0-alpine
+FROM node:14.8.0
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NUXT_HOST=${HOST}
