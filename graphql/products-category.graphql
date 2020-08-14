@@ -21,10 +21,10 @@ query products(
       alias
       price {
         isDiscounted
-        regularPriceIncVat
-        sellingPriceIncVat
-        regularPriceExVat
-        sellingPriceExVat
+        regularPriceIncVatFormatted
+        sellingPriceIncVatFormatted
+        regularPriceExVatFormatted
+        sellingPriceExVatFormatted
       }
       images
     }

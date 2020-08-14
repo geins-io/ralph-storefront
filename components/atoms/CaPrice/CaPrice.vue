@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import { MixPrice } from '@ralph/ralph-ui';
+import MixPrice from 'MixPrice';
 export default {
   name: 'CaPrice',
   mixins: [MixPrice]

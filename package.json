@@ -26,14 +26,14 @@
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.1",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@ralph/ralph-ui": "^1.0.11618",
+    "@ralph/ralph-ui": "latest",
+    "cookie-universal-nuxt": "^2.1.4",
     "express": "^4.17.1",
     "flag-icon-css": "^3.5.0",
     "graphql-tag": "^2.10.3",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.13.3",
     "nuxt-i18n": "^6.13.1",
-    "vue-cookies": "^1.7.3",
     "vue-slide-up-down": "^2.0.1",
     "vue-slider-component": "^3.2.1"
   },

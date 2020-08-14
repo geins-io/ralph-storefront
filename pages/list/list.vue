@@ -104,10 +104,10 @@ export default {
             alias
             price {
               isDiscounted
-              regularPriceIncVat
-              sellingPriceIncVat
-              regularPriceExVat
-              sellingPriceExVat
+              regularPriceIncVatFormatted
+              sellingPriceIncVatFormatted
+              regularPriceExVatFormatted
+              sellingPriceExVatFormatted
             }
             images
           }

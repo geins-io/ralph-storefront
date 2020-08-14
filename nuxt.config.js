@@ -32,7 +32,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/vue-cookies.js'],
+  plugins: [],
   loaders: [
     {
       test: /\.(graphql|gql)$/,
@@ -91,7 +91,9 @@ export default {
     // Doc: https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
     // Doc: https://github.com/nuxt-community/apollo-module
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    // Doc: https://www.npmjs.com/package/cookie-universal-nuxt
+    'cookie-universal-nuxt'
   ],
   styleResources: {
     scss: ['./styles/_variables.scss', './styles/_helpers.scss']

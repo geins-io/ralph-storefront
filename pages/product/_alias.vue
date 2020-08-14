@@ -33,7 +33,7 @@
           <CaButton
             class="ca-product-page__buy-button"
             type="full-width"
-            @clicked="$store.commit('addToCart', product)"
+            @clicked="addToCart($route.params.alias, 1)"
             >{{ $t('ADD_TO_CART') }}</CaButton
           >
           <div class="ca-product-page__usps">
@@ -77,7 +77,9 @@ import {
   CaProductGallery,
   CaButton,
   CaIconAndText,
-  CaProductMeta
+  CaProductMeta,
+  CaWidgetArea,
+  MixAddToCart
 } from '@ralph/ralph-ui';
 import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
@@ -93,8 +95,10 @@ export default {
     CaButton,
     CaIconAndText,
     CaProductMeta,
-    CaToggleFavorite
+    CaToggleFavorite,
+    CaWidgetArea
   },
+  mixins: [MixAddToCart],
   apollo: {
     product: {
       query: gql`
@@ -111,10 +115,10 @@ export default {
             }
             price {
               isDiscounted
-              regularPriceIncVat
-              sellingPriceIncVat
-              regularPriceExVat
-              sellingPriceExVat
+              regularPriceIncVatFormatted
+              sellingPriceIncVatFormatted
+              regularPriceExVatFormatted
+              sellingPriceExVatFormatted
             }
             shortText
           }
@@ -280,22 +284,7 @@ export default {
       return this.attributes.filter(item => item.type === 'item')[0].values;
     }
   },
-  methods: {
-    // getCurrentLang(localizedArray) {
-    //   const result = localizedArray.filter(
-    //     item =>
-    //       item.languageCode === this.$i18n.locale ||
-    //       item.languageCode === this.$i18n.fallbackLocale
-    //   );
-    //   return result[0].content;
-    // },
-    addToCart() {
-      // do sometinh
-    }
-    // getImageUrl(images, size) {
-    //   return images.filter(item => item.size === size)[0].url;
-    // }
-  }
+  methods: {}
 };
 </script>
 

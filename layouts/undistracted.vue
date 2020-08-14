@@ -8,16 +8,12 @@
 </template>
 <script>
 import CaTopBar from 'CaTopBar';
+import MixGlobalInit from 'MixGlobalInit';
 export default {
   components: {
     CaTopBar
   },
-  mounted() {
-    this.$store.dispatch('initScrollListener');
-
-    this.$store.commit('setViewportWidth');
-    this.$store.dispatch('initResizeListener');
-  }
+  mixins: [MixGlobalInit]
 };
 </script>
 <style lang="scss">
