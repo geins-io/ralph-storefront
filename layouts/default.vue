@@ -8,16 +8,12 @@
 </template>
 <script>
 import CaHeader from 'CaHeader';
+import MixGlobalInit from 'MixGlobalInit';
 export default {
   components: {
     CaHeader
   },
-  mounted() {
-    this.$store.dispatch('initScrollListener');
-
-    this.$store.commit('setViewportWidth');
-    this.$store.dispatch('initResizeListener');
-  }
+  mixins: [MixGlobalInit]
 };
 </script>
 <style lang="scss">

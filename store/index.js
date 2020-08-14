@@ -1,13 +1,10 @@
-// import gql from 'graphql-tag';
-// import apollo from '@nuxtjs/apollo';
-
 export const state = () => ({
   counter: 0,
   favorites: [],
   VATincluded: true,
   scrollTop: 0,
   viewportWidth: 0,
-  cartItems: [],
+  cart: {},
   cartId: ''
 });
 
@@ -32,8 +29,8 @@ export const mutations = {
   setViewportWidth(state) {
     state.viewportWidth = window.innerWidth;
   },
-  addToCart(state, product) {
-    state.cartItems.push(product);
+  updateCart(state, cart) {
+    state.cart = cart;
   },
   setCartId(state, id) {
     state.cartId = id;
@@ -77,20 +74,6 @@ export const actions = {
       { passive: true }
     );
   }
-  // async getCart(context) {
-  //   const response = await apollo.query({
-  //     query: gql`
-  //       query cart {
-  //         cart {
-  //           id
-  //         }
-  //       }
-  //     `
-  //   });
-  //   const data = response.data;
-  //   console.log(data);
-  //   context.commit('setCartId', data.cart.id);
-  // }
 };
 
 export const getters = {
@@ -110,17 +93,11 @@ export const getters = {
     return '5324971256';
   },
   cartSum(state) {
-    return state.cartItems.length;
+    return state.cart.items ? state.cart.items.length : 0;
   },
   cartTotal(state) {
-    const cartItems = state.cartItems;
-    let total = 0;
-    for (let i = 0; i < cartItems.length; i++) {
-      const itemPrice = state.VATincluded
-        ? parseInt(cartItems[i].price.sellingPriceIncVat)
-        : parseInt(cartItems[i].price.sellingPriceExVat);
-      total += itemPrice;
-    }
-    return total;
+    return state.VATincluded
+      ? state.cart.total.sellingPriceIncVatFormatted
+      : state.cart.total.sellingPriceExVatFormatted;
   }
 };
