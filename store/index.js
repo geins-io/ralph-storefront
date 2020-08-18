@@ -93,7 +93,13 @@ export const getters = {
     return '5324971256';
   },
   cartSum(state) {
-    return state.cart.items ? state.cart.items.length : 0;
+    if (state.cart && state.cart.items) {
+      let cartSum = 0;
+      for (let i = 0; i < state.cart.items.length; i++) {
+        cartSum += state.cart.items[i].quantity;
+      }
+      return cartSum;
+    } else return 0;
   },
   cartTotal(state) {
     return state.VATincluded

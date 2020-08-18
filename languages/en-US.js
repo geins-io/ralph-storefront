@@ -39,5 +39,7 @@ export default {
   SORT_LABEL_LOWEST_PRICE: 'Lowest price',
   SORT_LABEL_HIGHEST_PRICE: 'Highest price',
   CONTINUE_SHOPPING: 'Continue shopping',
-  CHECKOUT: 'Checkout'
+  CHECKOUT: 'Checkout',
+  CART: 'Cart',
+  COMPLETE_ORDER: 'Complete order'
 };
