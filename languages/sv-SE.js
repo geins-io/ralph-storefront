@@ -41,5 +41,6 @@ export default {
   CONTINUE_SHOPPING: 'Fortsätt shoppa',
   CHECKOUT: 'Kassan',
   CART: 'Kundvagn',
-  COMPLETE_ORDER: 'Slutför köp'
+  COMPLETE_ORDER: 'Slutför köp',
+  SHOP_AS: 'Handla som'
 };

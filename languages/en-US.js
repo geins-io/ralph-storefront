@@ -41,5 +41,6 @@ export default {
   CONTINUE_SHOPPING: 'Continue shopping',
   CHECKOUT: 'Checkout',
   CART: 'Cart',
-  COMPLETE_ORDER: 'Complete order'
+  COMPLETE_ORDER: 'Complete order',
+  SHOP_AS: 'Shop as'
 };

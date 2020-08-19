@@ -30,10 +30,16 @@
               {{ item.label }}
             </option>
           </select> -->
+          <CaProductQuantity
+            class="ca-product-page__quantity"
+            :quantity="quantity"
+            :max-quantity="10"
+            @changed="onQuantityChange"
+          />
           <CaButton
             class="ca-product-page__buy-button"
             type="full-width"
-            @clicked="addToCart($route.params.alias, 1)"
+            @clicked="addToCart($route.params.alias, quantity)"
             >{{ $t('ADD_TO_CART') }}</CaButton
           >
           <div class="ca-product-page__usps">
@@ -84,6 +90,7 @@ import {
 import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';
+import CaProductQuantity from 'CaProductQuantity';
 
 export default {
   name: 'ProductPage',
@@ -96,7 +103,8 @@ export default {
     CaIconAndText,
     CaProductMeta,
     CaToggleFavorite,
-    CaWidgetArea
+    CaWidgetArea,
+    CaProductQuantity
   },
   mixins: [MixAddToCart],
   apollo: {
@@ -137,6 +145,7 @@ export default {
   },
   data() {
     return {
+      quantity: 1,
       id: 1212,
       artNo: 2525,
       chosenItemID: 12345,
@@ -284,7 +293,11 @@ export default {
       return this.attributes.filter(item => item.type === 'item')[0].values;
     }
   },
-  methods: {}
+  methods: {
+    onQuantityChange(value) {
+      this.quantity = value;
+    }
+  }
 };
 </script>
 
@@ -316,6 +329,9 @@ export default {
     margin: $px4 0 $px8;
   }
   &__short-text {
+    margin-bottom: $px16;
+  }
+  &__quantity {
     margin-bottom: $px16;
   }
   &__buy-button {
