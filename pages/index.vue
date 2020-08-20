@@ -8,8 +8,8 @@
 
 <script>
 import { mapState } from 'vuex';
-// import Logo from '@/components/Logo.vue';
-import { CaContainer, CaWidgetArea } from '@ralph/ralph-ui';
+import CaContainer from 'CaContainer';
+import CaWidgetArea from 'CaWidgetArea';
 export default {
   name: 'FrontPage',
   components: {
@@ -27,22 +27,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.site-title {
-  font-size: $font-size-xxl;
-  text-align: center;
-  font-weight: $font-weight-bold;
-}
-.site-preamble {
-  max-width: 450px;
-  margin: $px20 auto;
-  font-size: $font-size-l;
-  text-align: center;
-}
-
-.categories {
-  ul {
-    margin-left: 10px;
-  }
-}
-</style>
+<style lang="scss"></style>

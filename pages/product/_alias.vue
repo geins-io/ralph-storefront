@@ -78,19 +78,19 @@
 
 <script>
 import gql from 'graphql-tag';
-import {
-  CaContainer,
-  CaProductGallery,
-  CaButton,
-  CaIconAndText,
-  CaProductMeta,
-  CaWidgetArea,
-  MixAddToCart
-} from '@ralph/ralph-ui';
+import CaContainer from 'CaContainer';
+import CaProductGallery from 'CaProductGallery';
+import CaButton from 'CaButton';
+import CaIconAndText from 'CaIconAndText';
+import CaProductMeta from 'CaProductMeta';
+import CaWidgetArea from 'CaWidgetArea';
+
 import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';
 import CaProductQuantity from 'CaProductQuantity';
+
+import MixAddToCart from 'MixAddToCart';
 
 export default {
   name: 'ProductPage',

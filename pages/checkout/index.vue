@@ -7,7 +7,9 @@
 </template>
 
 <script>
-import { CaContainer, CaCheckout } from '@ralph/ralph-ui';
+import CaContainer from 'CaContainer';
+import CaCheckout from 'CaCheckout';
+
 export default {
   name: 'CheckoutPage',
   layout: 'undistracted',

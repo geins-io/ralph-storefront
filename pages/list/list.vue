@@ -77,7 +77,9 @@
 
 <script>
 import gql from 'graphql-tag';
-import { CaContainer, CaButton, CaImage } from '@ralph/ralph-ui';
+import CaContainer from 'CaContainer';
+import CaButton from 'CaButton';
+import CaImage from 'CaImage';
 import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';

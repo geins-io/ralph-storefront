@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { CaContainer } from '@ralph/ralph-ui';
+import CaContainer from 'CaContainer';
 export default {
   name: 'CheckoutConfirmPage',
   components: { CaContainer },
