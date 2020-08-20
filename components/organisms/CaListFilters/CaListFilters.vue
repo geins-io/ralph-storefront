@@ -91,7 +91,11 @@ export default {
   &__filters {
     position: relative;
     display: flex;
-    width: 70%;
+    flex-wrap: wrap;
+
+    @include bp(laptop) {
+      width: 70%;
+    }
   }
   &__filter {
     &:not(:last-child) {
