@@ -68,13 +68,11 @@
 import gql from 'graphql-tag';
 import CaLogo from 'CaLogo';
 import CaIconAndText from 'CaIconAndText';
-import {
-  CaContainer,
-  CaIcon,
-  CaMiniCart,
-  CaFavorites,
-  CaSearch
-} from '@ralph/ralph-ui';
+import CaContainer from 'CaContainer';
+import CaIcon from 'CaIcon';
+import CaMiniCart from 'CaMiniCart';
+import CaFavorites from 'CaFavorites';
+import CaSearch from 'CaSearch';
 import CaTopBar from 'CaTopBar';
 
 export default {

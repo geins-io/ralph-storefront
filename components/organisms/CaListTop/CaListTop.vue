@@ -27,7 +27,8 @@
   </div>
 </template>
 <script>
-import { CaButton, CaReadMore } from '@ralph/ralph-ui';
+import CaButton from 'CaButton';
+import CaReadMore from 'CaReadMore';
 // @group Organisms
 // @vuese
 export default {

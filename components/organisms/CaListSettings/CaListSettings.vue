@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import { CaInputSelect } from '@ralph/ralph-ui';
+import CaInputSelect from 'CaInputSelect';
 // @group Organisms
 // @vuese
 export default {

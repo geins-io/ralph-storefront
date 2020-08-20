@@ -10,7 +10,7 @@
   />
 </template>
 <script>
-import { CaIconButton } from '@ralph/ralph-ui';
+import CaIconButton from 'CaIconButton';
 // @group Molecules
 // @vuese
 export default {

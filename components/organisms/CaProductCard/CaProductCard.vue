@@ -36,7 +36,8 @@
   </component>
 </template>
 <script>
-import { CaButton, CaImage } from '@ralph/ralph-ui';
+import CaButton from 'CaButton';
+import CaImage from 'CaImage';
 import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';

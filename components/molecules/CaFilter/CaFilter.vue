@@ -25,7 +25,10 @@
 </template>
 <script>
 import SlideUpDown from 'vue-slide-up-down';
-import { CaIcon, CaFilterMulti, CaFilterRange } from '@ralph/ralph-ui';
+import CaIcon from 'CaIcon';
+import CaFilterMulti from 'CaFilterMulti';
+import CaFilterRange from 'CaFilterRange';
+
 // @group Molecules
 // @vuese
 export default {

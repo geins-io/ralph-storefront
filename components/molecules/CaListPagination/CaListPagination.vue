@@ -11,19 +11,23 @@
     </div>
     <CaButton
       v-if="direction === 'next'"
-      class="ca-list-pagination__next"
+      class="ca-list-pagination__button ca-list-pagination__button--next"
       :disabled="allProductsLoaded"
-      @clicked="$emit('loadMore')"
+      @clicked="$emit('loadmore')"
     >
       {{ $t('LOAD_MORE') }}
     </CaButton>
-    <CaButton v-else class="ca-product-list__prev" @clicked="$emit('loadPrev')">
+    <CaButton
+      v-else
+      class="ca-product-list__button ca-list-pagination__button--prev"
+      @clicked="$emit('loadprev')"
+    >
       {{ $t('LOAD_PREVIOUS') }}
     </CaButton>
   </div>
 </template>
 <script>
-import { CaButton } from '@ralph/ralph-ui';
+import CaButton from 'CaButton';
 // @group Molecules
 // @vuese
 export default {
@@ -64,7 +68,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  &__button {
+    overflow-anchor: none;
+  }
   &__showing {
     margin-bottom: $px12;
   }

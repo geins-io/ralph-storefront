@@ -36,7 +36,7 @@
         :showing="showing"
         :total-count="totalCount"
         :all-products-loaded="allProductsLoaded"
-        @loadPrev="loadPrev"
+        @loadprev="loadPrev"
       />
 
       <CaProductList :products="productList" />
@@ -46,7 +46,7 @@
         :showing="showing"
         :total-count="totalCount"
         :all-products-loaded="allProductsLoaded"
-        @loadMore="loadMore"
+        @loadmore="loadMore"
       />
 
       <CaWidgetArea
@@ -58,17 +58,15 @@
   </div>
 </template>
 <script>
-import {
-  CaContainer,
-  CaImage,
-  MixListPageFunctions,
-  CaWidgetArea
-} from '@ralph/ralph-ui';
+import CaContainer from 'CaContainer';
+import CaImage from 'CaImage';
+import CaWidgetArea from 'CaWidgetArea';
 import CaListPagination from 'CaListPagination';
 import CaListTop from 'CaListTop';
 import CaListFilters from 'CaListFilters';
 import CaListSettings from 'CaListSettings';
 import CaProductList from 'CaProductList';
+import MixListPageFunctions from 'MixListPageFunctions';
 // @group Organisms
 // @vuese
 export default {
