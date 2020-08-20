@@ -140,6 +140,10 @@ export default {
    ** Build configuration
    */
   build: {
+    filenames: {
+      app: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
+      chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js')
+    },
     babel: {
       presets({ isServer }) {
         return [
