@@ -42,5 +42,7 @@ export default {
   CHECKOUT: 'Checkout',
   CART: 'Cart',
   COMPLETE_ORDER: 'Complete order',
-  SHOP_AS: 'Shop as'
+  SHOP_AS: 'Shop as',
+  CART_TOTAL: 'Total',
+  CART_EMPTY: 'Your cart is empty'
 };

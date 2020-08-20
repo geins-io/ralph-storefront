@@ -42,5 +42,7 @@ export default {
   CHECKOUT: 'Kassan',
   CART: 'Kundvagn',
   COMPLETE_ORDER: 'Slutför köp',
-  SHOP_AS: 'Handla som'
+  SHOP_AS: 'Handla som',
+  CART_TOTAL: 'Totalt',
+  CART_EMPTY: 'Din kundvagn är tom'
 };
