@@ -1,21 +1,45 @@
 <template>
   <div class="ca-list-settings">
+    <button
+      v-if="!$store.getters.viewportLaptop"
+      class="ca-list-settings__filter-toggle"
+      @click="$store.commit('contentpanel/open', 'filters')"
+    >
+      <CaIconAndText
+        class="ca-list-settings__icon-text"
+        icon-name="chevron-right"
+        icon-position="right"
+      >
+        Filter
+      </CaIconAndText>
+    </button>
+    <div class="ca-list-settings__sort">
+      <span
+        v-if="$store.getters.viewportLaptop"
+        class="ca-list-settings__title"
+      >
+        {{ $t('SORT_TITLE') }}:
+      </span>
+      <CaInputSelect
+        v-model="sort"
+        class="ca-list-settings__sort-select"
+        :options="sortOptions"
+      />
+    </div>
     <div class="ca-list-settings__active-products">
       <strong>{{ activeProducts }}</strong> {{ $tc('PRODUCT', activeProducts) }}
-    </div>
-    <div class="ca-list-settings__sort">
-      <span class="ca-list-settings__title">{{ $t('SORT_TITLE') }}:</span>
-      <CaInputSelect v-model="sort" :options="sortOptions" />
     </div>
   </div>
 </template>
 <script>
 import CaInputSelect from 'CaInputSelect';
+import CaIconAndText from 'CaIconAndText';
+
 // @group Organisms
 // @vuese
 export default {
   name: 'CaListSettings',
-  components: { CaInputSelect },
+  components: { CaInputSelect, CaIconAndText },
   mixins: [],
   props: {
     activeProducts: {
@@ -68,7 +92,22 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $default-spacing;
+  flex-wrap: wrap;
+  margin: 0 -#{$default-spacing/2} $default-spacing;
+  @include bp(laptop) {
+    margin: 0 0 $default-spacing;
+  }
+  &__filter-toggle {
+    width: 50%;
+    height: 46px;
+    border: $border-light;
+    background: $c-lightest-gray;
+    padding: 0 $px16;
+  }
+  &__icon-text {
+    width: 100%;
+    justify-content: space-between;
+  }
   &__title {
     text-transform: uppercase;
     font-weight: $font-weight-bold;
@@ -77,6 +116,28 @@ export default {
   &__sort {
     display: flex;
     align-items: center;
+    width: 50%;
+    @include bp(laptop) {
+      order: 2;
+      width: auto;
+    }
+  }
+
+  &__sort-select {
+    width: 100%;
+    .ca-input-select__select-wrap {
+      height: 46px;
+    }
+    @include bp(laptop) {
+      width: auto;
+    }
+  }
+  &__active-products {
+    margin-left: $default-spacing/2;
+    margin-top: $px12;
+    @include bp(laptop) {
+      order: 1;
+    }
   }
 }
 </style>

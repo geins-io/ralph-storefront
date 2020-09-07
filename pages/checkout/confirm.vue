@@ -3,55 +3,66 @@
     <CaContainer>
       <!-- eslint-disable vue/no-v-html -->
       <!-- <div v-html="klarnaResponse.html_snippet" /> -->
-      <client-only>
-        <h1>{{ $store.cartId }}</h1>
-      </client-only>
+      <CaCheckoutHeader :title="$t('ORDER_CONFIRM_TITLE')" />
+      <CaCheckoutSection :bottom-arrow="false">
+        <h1 class="ca-checkout-confirm-page__title">
+          {{ $t('ORDER_CONFIRM_THANKS') }}
+        </h1>
+      </CaCheckoutSection>
+      <CaCheckoutSection :bottom-arrow="false">
+        <template v-slot:title>
+          {{ $t('ORDER_SUMMARY_TITLE') }}
+        </template>
+        <CaCart v-if="orderCart" :cart="orderCart" mode="display" />
+      </CaCheckoutSection>
     </CaContainer>
   </div>
 </template>
 
 <script>
+import CaCheckoutHeader from 'CaCheckoutHeader';
 import CaContainer from 'CaContainer';
+import CaCart from 'CaCart';
+import CaCheckoutSection from 'CaCheckoutSection';
+
 export default {
   name: 'CheckoutConfirmPage',
-  components: { CaContainer },
-  // asyncData() {
-  //   return fetch('http://localhost:3000/api/klarna-checkout-confirm/')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       return { klarnaResponse: data };
-  //     });
-  // },
+  layout: 'undistracted',
+  components: { CaContainer, CaCart, CaCheckoutSection, CaCheckoutHeader },
   data: () => ({
-    klarnaResponse: {}
+    klarnaResponse: {},
+    orderCart: null
   }),
-
+  computed: {},
   mounted() {
-    // this.initializeKlarnaScript();
+    document.addEventListener(
+      'stateRehydrated',
+      e => {
+        this.resetCart();
+      },
+      false
+    );
   },
   methods: {
-    // fetchKlarnaData() {
-    //   // replace `getPost` with your data fetching util / API wrapper
-    //   fetch('http://localhost:3000/api/klarna-checkout-confirm/')
-    //     .then(response => response.json())
-    //     .then(data => (this.klarnaResponse = data));
-    // },
-    // initializeKlarnaScript() {
-    //   const checkoutContainer = document.getElementById(
-    //     'klarna-checkout-container'
-    //   );
-    //   const scriptsTags = checkoutContainer.getElementsByTagName('script');
-    //   for (let i = 0; i < scriptsTags.length; i++) {
-    //     const parentNode = scriptsTags[i].parentNode;
-    //     const newScriptTag = document.createElement('script');
-    //     newScriptTag.type = 'text/javascript';
-    //     newScriptTag.text = scriptsTags[i].text;
-    //     parentNode.removeChild(scriptsTags[i]);
-    //     parentNode.appendChild(newScriptTag);
-    //   }
-    // }
+    resetCart() {
+      if (this.orderCart === null) {
+        this.orderCart = this.$store.state.cart.data;
+        this.$cookies.remove('ralph-cart-id');
+        this.$store.dispatch('cart/reset');
+      }
+    }
   }
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.ca-checkout-confirm-page {
+  max-width: $checkout-width;
+  margin: 0 auto;
+  padding-bottom: $px32;
+  &__title {
+    font-size: $font-size-xl;
+    text-align: center;
+  }
+}
+</style>

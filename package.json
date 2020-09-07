@@ -27,6 +27,7 @@
     "@nuxtjs/apollo": "^4.0.1-rc.3",
     "@nuxtjs/pwa": "^3.0.1",
     "@ralph/ralph-ui": "latest",
+    "body-scroll-lock": "^3.0.3",
     "cookie-universal-nuxt": "^2.1.4",
     "express": "^4.17.1",
     "flag-icon-css": "^3.5.0",

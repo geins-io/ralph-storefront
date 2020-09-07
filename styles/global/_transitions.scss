@@ -1,0 +1,75 @@
+// Fade in / out
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.fade-enter,
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// Grow from center
+.grow-enter-active,
+.grow-leave-active {
+  transition: all 0.3s cubic-bezier(0.05, 0.21, 0.14, 1.77);
+}
+
+.grow-enter,
+.grow-enter-from,
+.grow-leave-to {
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+}
+
+// Pop from left
+.pop-from-left-enter-active,
+.pop-from-left-leave-active {
+  transition: all 0.15s ease-in-out;
+}
+
+.pop-from-left-enter,
+.pop-from-left-enter-from,
+.pop-from-left-leave-to {
+  transform: translateX(-100%);
+}
+
+// Pop from right
+.pop-from-right-enter-active,
+.pop-from-right-leave-active {
+  transition: all 0.15s ease-in-out;
+}
+
+.pop-from-right-enter,
+.pop-from-right-enter-from,
+.pop-from-right-leave-to {
+  transform: translateX(100%);
+}
+
+// Pop from bottom
+.pop-from-bottom-enter-active,
+.pop-from-bottom-leave-active {
+  transition: all 0.15s ease-in-out;
+}
+
+.pop-from-bottom-enter,
+.pop-from-bottom-enter-from,
+.pop-from-bottom-leave-to {
+  transform: translateY(100%);
+}
+
+// Slide
+.slide-enter-active {
+  transition: max-height 0.7s ease-in;
+}
+
+.slide-leave-active {
+  transition: max-height 0.3s ease-out;
+}
+
+.slide-enter,
+.slide-enter-from,
+.slide-leave-to {
+  max-height: 0 !important;
+}

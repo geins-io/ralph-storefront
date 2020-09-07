@@ -10,7 +10,12 @@ export default ({ store, isHMR }) => {
 
   window.onNuxtReady(nuxt => {
     createPersistedState({
-      key: 'ralph'
+      key: 'ralph',
+      rehydrated: store => {
+        const event = document.createEvent('Event');
+        event.initEvent('stateRehydrated', true, true);
+        document.dispatchEvent(event);
+      }
     })(store); // vuex plugins can be connected to store, even after creation
   });
 };

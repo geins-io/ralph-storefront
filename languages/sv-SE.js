@@ -44,5 +44,12 @@ export default {
   COMPLETE_ORDER: 'Slutför köp',
   SHOP_AS: 'Handla som',
   CART_TOTAL: 'Totalt',
-  CART_EMPTY: 'Din kundvagn är tom'
+  CART_EMPTY: 'Din kundvagn är tom',
+  QUANTITY: 'Antal',
+  ORDER_CONFIRM_TITLE: 'Orderbekräftelse',
+  ORDER_CONFIRM_THANKS: 'Tack för din order!',
+  ORDER_SUMMARY_TITLE: 'Du har beställt',
+  CLOSE: 'Stäng',
+  RESET_FILTER: 'Återställ',
+  APPLY_FILTER: 'Använd & stäng'
 };

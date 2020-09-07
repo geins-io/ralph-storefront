@@ -44,5 +44,12 @@ export default {
   COMPLETE_ORDER: 'Complete order',
   SHOP_AS: 'Shop as',
   CART_TOTAL: 'Total',
-  CART_EMPTY: 'Your cart is empty'
+  CART_EMPTY: 'Your cart is empty',
+  QUANTITY: 'Quantity',
+  ORDER_CONFIRM_TITLE: 'Order confirmation',
+  ORDER_CONFIRM_THANKS: 'Thanks for your order!',
+  ORDER_SUMMARY_TITLE: 'Order summary',
+  CLOSE: 'Close',
+  RESET_FILTER: 'Reset filter',
+  APPLY_FILTER: 'Apply & close'
 };

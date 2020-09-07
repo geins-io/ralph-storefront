@@ -22,6 +22,7 @@
         :filters="filters"
         :selection="selection"
         @selectionchange="filterChangeHandler($event)"
+        @reset="resetFilters"
       />
 
       <CaListSettings
@@ -67,6 +68,7 @@ import CaListFilters from 'CaListFilters';
 import CaListSettings from 'CaListSettings';
 import CaProductList from 'CaProductList';
 import MixListPageFunctions from 'MixListPageFunctions';
+
 // @group Organisms
 // @vuese
 export default {

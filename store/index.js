@@ -4,8 +4,7 @@ export const state = () => ({
   VATincluded: true,
   scrollTop: 0,
   viewportWidth: 0,
-  cart: {},
-  cartId: ''
+  loading: false
 });
 
 export const mutations = {
@@ -28,12 +27,6 @@ export const mutations = {
   },
   setViewportWidth(state) {
     state.viewportWidth = window.innerWidth;
-  },
-  updateCart(state, cart) {
-    state.cart = cart;
-  },
-  setCartId(state, id) {
-    state.cartId = id;
   }
 };
 
@@ -92,18 +85,14 @@ export const getters = {
   currentApiKey() {
     return '5324971256';
   },
-  cartSum(state) {
-    if (state.cart && state.cart.items) {
-      let cartSum = 0;
-      for (let i = 0; i < state.cart.items.length; i++) {
-        cartSum += state.cart.items[i].quantity;
-      }
-      return cartSum;
-    } else return 0;
-  },
-  cartTotal(state) {
+  getSellingPrice: state => price => {
     return state.VATincluded
-      ? state.cart.total.sellingPriceIncVatFormatted
-      : state.cart.total.sellingPriceExVatFormatted;
+      ? price.sellingPriceIncVatFormatted
+      : price.sellingPriceExVatFormatted;
+  },
+  getRegularPrice: state => price => {
+    return state.VATincluded
+      ? price.regularPriceIncVatFormatted
+      : price.regularPriceExVatFormatted;
   }
 };

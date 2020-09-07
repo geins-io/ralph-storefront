@@ -3,23 +3,67 @@
     <CaTopBar />
     <div class="ca-header__bar">
       <CaContainer class="ca-header__container">
-        <a href="javascript:;" class="ca-header__nav-toggle only-mobile">
-          <CaIcon class="ca-header__nav-toggle-icon" name="menu" />
-        </a>
-        <a
-          v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportLaptop"
-          href="javascript:;"
-          class="ca-header__search-toggle"
-          @click="() => (searchOpened = !searchOpened)"
+        <CaIconButton
+          class="ca-header__nav-toggle only-mobile"
+          icon-name="menu"
+          aria-label="Show menu"
+          @clicked="$store.commit('contentpanel/open', 'mobile-nav')"
+        />
+        <CaContentPanel
+          name="mobile-nav"
+          enter-from-mobile="left"
+          :only-mobile="true"
         >
-          <CaIcon class="ca-header__search-toggle-icon" name="search" />
-        </a>
+          <template v-slot:header>
+            <CaLogo class="ca-navigation-logo" :alt="$t('LOGO_ALT_TEXT')" />
+          </template>
+          <CaNavigationSlim
+            v-if="categories && categories.length"
+            :categories="categories"
+          />
+          <template v-slot:footer>
+            <ul class="secondary-nav">
+              <CaSecondaryNavItem>
+                <NuxtLink to="/">{{ $t('LOG_IN_LINK') }}</NuxtLink>
+              </CaSecondaryNavItem>
+              <CaSecondaryNavItem>
+                <NuxtLink to="/">
+                  {{ $t('FAVORITES_LABEL') }} ({{
+                    $store.state.favorites.length
+                  }})</NuxtLink
+                >
+              </CaSecondaryNavItem>
+              <CaSecondaryNavItem>
+                <NuxtLink
+                  v-for="locale in availableLocales"
+                  :key="locale.code"
+                  :to="switchLocalePath(locale.code)"
+                >
+                  <CaFlag
+                    class="ca-top-bar__flag"
+                    :country="locale.flag"
+                    shape="circle"
+                  />
+                  {{ locale.name }}
+                </NuxtLink>
+              </CaSecondaryNavItem>
+            </ul>
+          </template>
+        </CaContentPanel>
+        <CaIconButton
+          v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportLaptop"
+          class="ca-header__search-toggle"
+          icon-name="search"
+          aria-label="Show search"
+          @clicked="() => (searchOpened = !searchOpened)"
+        />
         <CaSearch class="only-desktop" />
-        <a href="/">
+        <NuxtLink to="/">
           <CaLogo class="ca-header__logo" :alt="$t('LOGO_ALT_TEXT')" />
-        </a>
+        </NuxtLink>
         <CaFavorites class="ca-header__favorites" />
         <CaMiniCart class="ca-header__cart" />
+        <CaDisplayCart />
       </CaContainer>
     </div>
     <nav class="ca-navigation only-desktop">
@@ -69,11 +113,17 @@ import gql from 'graphql-tag';
 import CaLogo from 'CaLogo';
 import CaIconAndText from 'CaIconAndText';
 import CaContainer from 'CaContainer';
-import CaIcon from 'CaIcon';
+import CaIconButton from 'CaIconButton';
 import CaMiniCart from 'CaMiniCart';
+import CaDisplayCart from 'CaDisplayCart';
 import CaFavorites from 'CaFavorites';
 import CaSearch from 'CaSearch';
 import CaTopBar from 'CaTopBar';
+import CaContentPanel from 'CaContentPanel';
+import CaSecondaryNavItem from 'CaSecondaryNavItem';
+import CaFlag from 'CaFlag';
+import CaNavigationSlim from 'CaNavigationSlim';
+import eventbus from '~/plugins/event-bus.js';
 
 export default {
   name: 'CaHeader',
@@ -100,17 +150,23 @@ export default {
   components: {
     CaTopBar,
     CaContainer,
-    CaIcon,
     CaIconAndText,
+    CaIconButton,
     CaLogo,
     CaMiniCart,
+    CaDisplayCart,
     CaFavorites,
-    CaSearch
+    CaSearch,
+    CaContentPanel,
+    CaSecondaryNavItem,
+    CaFlag,
+    CaNavigationSlim
   },
   mixins: [],
   props: {},
   data: () => ({
-    searchOpened: false
+    searchOpened: false,
+    subNavsOpen: []
   }),
   computed: {
     modifiers() {
@@ -127,6 +183,9 @@ export default {
       return this.categories
         ? this.activeCategories.filter(i => i.parentCategoryId === 0)
         : [];
+    },
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
     }
   },
   watch: {},
@@ -134,11 +193,25 @@ export default {
   methods: {
     getSubLevelCategories(id) {
       return this.activeCategories.filter(i => i.parentCategoryId === id);
+    },
+    navClickHandler() {
+      eventbus.$emit('close-content-panel');
+      this.subNavsOpen = [];
+    },
+    toggleSubNav(categoryId) {
+      if (this.subNavsOpen.includes(categoryId)) {
+        this.subNavsOpen.splice(this.subNavsOpen.indexOf(categoryId), 1);
+      } else this.subNavsOpen.push(categoryId);
+    },
+    getToggleIcon(categoryId) {
+      if (this.subNavsOpen.includes(categoryId)) {
+        return 'minus';
+      } else return 'plus';
     }
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .ca-header {
   position: fixed;
   width: 100%;
@@ -164,18 +237,13 @@ export default {
   &__nav-toggle {
     margin-right: auto;
     @include flex-valign;
-  }
-  &__nav-toggle-icon {
     font-size: 28px;
   }
 
   &__search-toggle {
     margin-right: auto;
-    @include flex-valign;
-  }
-
-  &__search-toggle-icon {
     font-size: 23px;
+    @include flex-valign;
   }
 
   &__logo {
@@ -189,8 +257,12 @@ export default {
     }
   }
 
-  ::v-deep .ca-notification-badge {
+  .ca-notification-badge {
     border: 1px solid $c-header-bg;
+  }
+
+  body[style='overflow: hidden;'] & {
+    padding-right: var(--scrollbar-width);
   }
 }
 .ca-navigation {
@@ -236,5 +308,9 @@ export default {
       padding-top: $px4;
     }
   }
+}
+
+.ca-navigation-logo {
+  width: 100px;
 }
 </style>

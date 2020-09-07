@@ -4,6 +4,9 @@
 $border-light: 1px solid $c-border-light;
 $border-dark: 1px solid $c-border-dark;
 
+// Box shadow
+$box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.4);
+
 // Z-index
 $z-index-header: 400;
 
@@ -12,7 +15,8 @@ $z-index-overlay: 1000;
 $z-index-search: 200;
 $z-index-search-desktop: 1200;
 
-$z-index-modal: 2000;
+$z-index-panel: 2000;
+$z-index-snackbar: 1500;
 
 // Top bar
 $top-bar-height: rem-calc(20px);

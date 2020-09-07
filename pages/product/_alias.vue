@@ -39,7 +39,8 @@
           <CaButton
             class="ca-product-page__buy-button"
             type="full-width"
-            @clicked="addToCart($route.params.alias, quantity)"
+            :loading="addToCartLoading"
+            @clicked="addToCartClick"
             >{{ $t('ADD_TO_CART') }}</CaButton
           >
           <div class="ca-product-page__usps">
@@ -296,6 +297,10 @@ export default {
   methods: {
     onQuantityChange(value) {
       this.quantity = value;
+    },
+    addToCartClick() {
+      this.addToCartLoading = true;
+      this.addToCart(this.$route.params.alias, this.quantity);
     }
   }
 };
