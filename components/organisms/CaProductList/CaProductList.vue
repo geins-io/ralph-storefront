@@ -4,6 +4,7 @@
       v-for="(product, index) in products"
       :key="index"
       :product="product"
+      :page-number="getPageNumber(index)"
     >
     </CaProductCard>
   </ul>
@@ -20,13 +21,26 @@ export default {
     products: {
       type: Array,
       required: true
+    },
+    pageSize: {
+      type: Number,
+      required: true
+    },
+    skip: {
+      type: Number,
+      required: true
     }
   },
   data: () => ({}),
   computed: {},
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {
+    getPageNumber(index) {
+      index++;
+      return Math.ceil((index + this.skip) / this.pageSize);
+    }
+  }
 };
 </script>
 <style lang="scss">

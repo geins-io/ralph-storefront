@@ -40,7 +40,11 @@
         @loadprev="loadPrev"
       />
 
-      <CaProductList :products="productList" />
+      <CaProductList
+        :skip="skip"
+        :page-size="pageSize"
+        :products="productList"
+      />
 
       <CaListPagination
         direction="next"
@@ -101,6 +105,12 @@ export default {
           result.data.products.filters.price.lowest,
           result.data.products.filters.price.highest
         );
+        if (this.$store.getters['list/relocateProduct']) {
+          this.relocateProduct();
+        }
+      },
+      skip() {
+        return this.skipProductsQuery;
       }
     },
     listPageInfo: {
@@ -175,7 +185,7 @@ export default {
   },
   watch: {},
   created() {
-    this.readURLParams();
+    this.initProductList();
   },
   methods: {}
 };

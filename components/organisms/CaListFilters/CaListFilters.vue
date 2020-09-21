@@ -163,9 +163,11 @@ export default {
 </script>
 <style lang="scss">
 .ca-list-filters {
-  padding-top: $px24;
-  border-top: $border-light;
-  margin-bottom: $px32;
+  @include bp(laptop) {
+    border-top: $border-light;
+    margin-bottom: $px32;
+    padding-top: $px24;
+  }
   &__title {
     font-weight: $font-weight-bold;
     text-transform: uppercase;

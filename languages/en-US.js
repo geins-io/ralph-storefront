@@ -45,11 +45,22 @@ export default {
   SHOP_AS: 'Shop as',
   CART_TOTAL: 'Total',
   CART_EMPTY: 'Your cart is empty',
+  CART_TO_CHECKOUT: 'Proceed to checkout',
+  CART_ITEM_ADDED: 'Your item was added to the cart',
   QUANTITY: 'Quantity',
   ORDER_CONFIRM_TITLE: 'Order confirmation',
   ORDER_CONFIRM_THANKS: 'Thanks for your order!',
   ORDER_SUMMARY_TITLE: 'Order summary',
   CLOSE: 'Close',
   RESET_FILTER: 'Reset filter',
-  APPLY_FILTER: 'Apply & close'
+  APPLY_FILTER: 'Apply & close',
+  KLARNA_FAIL:
+    'Something went wrong when creating your order with Klarna. Go back and try again',
+  KLARNA_FAIL_ERROR:
+    'Unable to create order. Possible causes for this could be that some of the products are out of stock or that there is an insufficient balance amount left in your account.',
+  KLARNA_FAIL_OUTOFSTOCK:
+    'Unfortunatley a product in your cart has run out of stock. Please review your cart and try again.',
+  KLARNA_FAIL_BLOCKED:
+    'Could not create order since your user is blocked by Klarna',
+  GO_BACK: 'Go back'
 };

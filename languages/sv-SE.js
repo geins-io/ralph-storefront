@@ -40,16 +40,27 @@ export default {
   SORT_LABEL_HIGHEST_PRICE: 'Högsta pris',
   CONTINUE_SHOPPING: 'Fortsätt shoppa',
   CHECKOUT: 'Kassan',
-  CART: 'Kundvagn',
+  CART: 'Varukorg',
   COMPLETE_ORDER: 'Slutför köp',
   SHOP_AS: 'Handla som',
   CART_TOTAL: 'Totalt',
-  CART_EMPTY: 'Din kundvagn är tom',
+  CART_EMPTY: 'Din varukorg är tom',
+  CART_TO_CHECKOUT: 'Gå till kassan',
+  CART_ITEM_ADDED: 'Din vara har lagts i varukorgen',
   QUANTITY: 'Antal',
   ORDER_CONFIRM_TITLE: 'Orderbekräftelse',
   ORDER_CONFIRM_THANKS: 'Tack för din order!',
   ORDER_SUMMARY_TITLE: 'Du har beställt',
   CLOSE: 'Stäng',
   RESET_FILTER: 'Återställ',
-  APPLY_FILTER: 'Använd & stäng'
+  APPLY_FILTER: 'Använd & stäng',
+  KLARNA_FAIL:
+    'Något gick fel när din order skulle skapas i Klarna, gå tillbaka för att försöka igen.',
+  KLARNA_FAIL_ERROR:
+    'Kunde inte skapa order. Möjliga orsaker till detta är att någon produkt är slut i lager eller att det inte finns tillräckligt med saldo på ditt konto.',
+  KLARNA_FAIL_OUTOFSTOCK:
+    'En produkt i din är varukorg är tyvärr slut i lager. Var vänlig se över din varukorg och försök igen.',
+  KLARNA_FAIL_BLOCKED:
+    'Kunde inte skapa order då din användare är blockerad hos Klarna',
+  GO_BACK: 'Gå tillbaka'
 };

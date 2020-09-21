@@ -10,7 +10,7 @@
         icon-name="chevron-right"
         icon-position="right"
       >
-        Filter
+        {{ $t('FILTERS') }}
       </CaIconAndText>
     </button>
     <div class="ca-list-settings__sort">
@@ -94,6 +94,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   margin: 0 -#{$default-spacing/2} $default-spacing;
+  margin-top: $px20;
   @include bp(laptop) {
     margin: 0 0 $default-spacing;
   }

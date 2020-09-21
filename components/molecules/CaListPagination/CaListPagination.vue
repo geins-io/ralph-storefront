@@ -19,7 +19,7 @@
     </CaButton>
     <CaButton
       v-else
-      class="ca-product-list__button ca-list-pagination__button--prev"
+      class="ca-list-pagination__button ca-list-pagination__button--prev"
       @clicked="$emit('loadprev')"
     >
       {{ $t('LOAD_PREVIOUS') }}

@@ -1,7 +1,11 @@
 <template>
-  <component :is="baseTag" class="ca-product-card">
+  <component :is="baseTag" class="ca-product-card" @click="productClickHandler">
     <div class="ca-product-card__image-wrap">
-      <NuxtLink class="ca-product-card__image-link" :to="'/p/' + product.alias">
+      <NuxtLink
+        class="ca-product-card__image-link"
+        :to="'/p/' + product.alias"
+        :data-alias="product.alias"
+      >
         <CaImage
           v-if="product.images !== null && product.images.length > 0"
           class="ca-product-card__image"
@@ -55,13 +59,22 @@ export default {
     product: {
       type: Object,
       required: true
+    },
+    pageNumber: {
+      type: Number,
+      required: true
     }
   },
   data: () => ({}),
   computed: {},
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {
+    productClickHandler() {
+      this.$store.commit('list/setRelocatePage', this.pageNumber);
+      this.$store.commit('list/setRelocateAlias', this.product.alias);
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -78,6 +91,10 @@ export default {
   &__image-wrap {
     line-height: 0;
     position: relative;
+  }
+
+  &__image-link {
+    display: block;
   }
   &__info {
     padding-top: $px12;
