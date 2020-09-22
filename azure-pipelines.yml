@@ -13,7 +13,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: "f89f2b61-fa2e-4553-aa16-ed18f3b095aa"
+  dockerRegistryServiceConnection: "3fab982c-55eb-4685-9acc-d265b6720a2c"
   imageRepository: "ralph-storefront"
   containerRegistry: "ralphregistry.azurecr.io"
   dockerfilePath: "$(Build.SourcesDirectory)/Dockerfile"
