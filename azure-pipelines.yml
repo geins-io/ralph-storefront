@@ -18,7 +18,6 @@ variables:
   containerRegistry: "ralphregistry.azurecr.io"
   dockerfilePath: "$(Build.SourcesDirectory)/Dockerfile"
   tag: "$(Build.BuildId)"
-  deploymentManifest: "deployment-*.yml"
 
   # Agent VM image name
   vmImageName: "ubuntu-latest"
@@ -41,20 +40,3 @@ stages:
               containerRegistry: $(dockerRegistryServiceConnection)
               tags: |
                 $(tag)
-          - task: PowerShell@2
-            displayName: "Replace ##BUILD_ID in deployment manifest"
-            inputs:
-              targetType: inline
-              script: |
-                $configFiles = Get-ChildItem .\k8s $(deploymentManifest) -rec
-                foreach ($file in $configFiles)
-                {
-                    (Get-Content $file.PSPath) |
-                    Foreach-Object { $_ -replace "##BUILD_ID", "$(tag)" } |
-                    Set-Content $file.PSPath
-                }
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: "$(Build.SourcesDirectory)/k8s"
-              ArtifactName: "drop"
-              publishLocation: "Container"
