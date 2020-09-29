@@ -28,5 +28,8 @@ export const getters = {
       }
       return quantity;
     } else return 0;
+  },
+  id(state) {
+    return state.data && state.data.id ? state.data.id : '';
   }
 };

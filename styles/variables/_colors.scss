@@ -29,6 +29,7 @@ $c-main-bg: $c-white;
 $c-topbar-bg: $c-medium-gray;
 $c-header-bg: $c-light-gray;
 $c-search-bg: $c-medium-gray;
+$c-cart-color: $c-text-primary;
 
 // Price
 $c-sale: rgb(177, 0, 29);
@@ -40,3 +41,7 @@ $c-button-main-txt: $c-white;
 $c-button-secondary-bg: transparent;
 $c-button-secondary-txt: $c-text-primary;
 $c-button-secondary-border: 1px solid $c-darkest-gray;
+
+// Content panel
+$c-content-panel-header-bg: $c-lightest-gray;
+$c-content-panel-header-txt: $c-text-primary;

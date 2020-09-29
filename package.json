@@ -2,7 +2,7 @@
   "name": "@ralph/ralph-storefront",
   "version": "1.0.0",
   "description": "E-commerce frontend by Carismar",
-  "author": "Lars Johansson",
+  "author": "Olivia Axelsson & Lars Johansson",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -24,7 +24,7 @@
     }
   },
   "dependencies": {
-    "@nuxtjs/apollo": "4.0.0-rc19",
+    "@nuxtjs/apollo": "4.0.1-rc.1",
     "@nuxtjs/pwa": "^3.0.2",
     "@ralph/ralph-ui": "latest",
     "body-scroll-lock": "^3.1.3",

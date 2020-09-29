@@ -122,6 +122,9 @@ export default {
               categoryId
               name
             }
+            items {
+              itemId
+            }
             price {
               isDiscounted
               regularPriceIncVatFormatted
@@ -300,7 +303,7 @@ export default {
     },
     addToCartClick() {
       this.addToCartLoading = true;
-      this.addToCart(this.$route.params.alias, this.quantity);
+      this.addToCart(this.product.items[0].itemId, this.quantity);
     }
   }
 };

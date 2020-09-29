@@ -5,9 +5,7 @@
       <!-- <div v-html="klarnaResponse.html_snippet" /> -->
       <CaCheckoutHeader :title="$t('ORDER_CONFIRM_TITLE')" />
       <CaCheckoutSection :bottom-arrow="false">
-        <h1 class="ca-checkout-confirm-page__title">
-          {{ $t('ORDER_CONFIRM_THANKS') }}
-        </h1>
+        <CaCheckoutKlarna :confirm="true" />
       </CaCheckoutSection>
       <CaCheckoutSection :bottom-arrow="false">
         <template v-slot:title>
@@ -24,13 +22,19 @@ import CaCheckoutHeader from 'CaCheckoutHeader';
 import CaContainer from 'CaContainer';
 import CaCart from 'CaCart';
 import CaCheckoutSection from 'CaCheckoutSection';
+import CaCheckoutKlarna from 'CaCheckoutKlarna';
 
 export default {
   name: 'CheckoutConfirmPage',
   layout: 'undistracted',
-  components: { CaContainer, CaCart, CaCheckoutSection, CaCheckoutHeader },
+  components: {
+    CaContainer,
+    CaCart,
+    CaCheckoutSection,
+    CaCheckoutHeader,
+    CaCheckoutKlarna
+  },
   data: () => ({
-    klarnaResponse: {},
     orderCart: null
   }),
   computed: {},

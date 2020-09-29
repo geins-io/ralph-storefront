@@ -32,7 +32,7 @@
       />
 
       <CaListPagination
-        v-if="skip !== 0"
+        v-if="currentMinCount > 1"
         direction="prev"
         :showing="showing"
         :total-count="totalCount"
@@ -41,7 +41,7 @@
       />
 
       <CaProductList
-        :skip="skip"
+        :skip="currentMinCount - 1"
         :page-size="pageSize"
         :products="productList"
       />
@@ -108,6 +108,9 @@ export default {
         if (this.$store.getters['list/relocateProduct']) {
           this.relocateProduct();
         }
+        if (this.currentMaxCount > this.totalCount) {
+          this.currentMaxCount = this.totalCount;
+        }
       },
       skip() {
         return this.skipProductsQuery;
@@ -169,7 +172,7 @@ export default {
     productsQueryVars() {
       const varsObj = {
         skip: this.skip,
-        take: this.take,
+        take: this.pageSize,
         apiKey: this.$store.getters.currentApiKey,
         sort: this.sort,
         filter: this.selection
@@ -180,6 +183,40 @@ export default {
       if (this.isBrand) {
         this.$set(varsObj, 'brandAlias', this.currentAlias);
       }
+      return varsObj;
+    },
+    loadMoreQueryVars() {
+      const varsObj = {
+        skip: this.currentMaxCount,
+        take: this.pageSize,
+        apiKey: this.$store.getters.currentApiKey,
+        sort: this.sort,
+        filter: this.selection
+      };
+      if (this.isCategory) {
+        this.$set(varsObj, 'categoryAlias', this.currentAlias);
+      }
+      if (this.isBrand) {
+        this.$set(varsObj, 'brandAlias', this.currentAlias);
+      }
+
+      return varsObj;
+    },
+    loadPrevQueryVars() {
+      const varsObj = {
+        skip: this.currentMinCount - 1 - this.pageSize,
+        take: this.pageSize,
+        apiKey: this.$store.getters.currentApiKey,
+        sort: this.sort,
+        filter: this.selection
+      };
+      if (this.isCategory) {
+        this.$set(varsObj, 'categoryAlias', this.currentAlias);
+      }
+      if (this.isBrand) {
+        this.$set(varsObj, 'brandAlias', this.currentAlias);
+      }
+
       return varsObj;
     }
   },

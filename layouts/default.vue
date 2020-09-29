@@ -22,6 +22,7 @@ import CaSpinner from 'CaSpinner';
 import CaSnackbar from 'CaSnackbar';
 
 export default {
+  name: 'CaDefaultLayout',
   components: {
     CaHeader,
     CaSpinner,

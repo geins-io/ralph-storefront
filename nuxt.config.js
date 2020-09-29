@@ -92,7 +92,8 @@ export default {
         lazy: true,
         vueI18n: {
           fallbackLocale: 'sv'
-        }
+        },
+        detectBrowserLanguage: false
       }
     ],
     // Doc: https://github.com/nuxt-community/style-resources-module
@@ -117,7 +118,7 @@ export default {
     // required
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://ralphservice.azurewebsites.net/graphql',
+        httpEndpoint: process.env.API_ENDPOINT,
         // Enable Automatic Query persisting with Apollo Engine
         persisting: false // try to enable this later
       }
