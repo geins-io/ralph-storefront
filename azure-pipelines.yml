@@ -2,9 +2,6 @@
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
-trigger:
-  - master
-
 resources:
   pipelines:
   - pipeline: RalphUI
@@ -24,6 +21,8 @@ variables:
 
 stages:
   - stage: Build
+    variables:
+    - group: BuildVars
     displayName: Build and push stage
     jobs:
       - job: Build
@@ -31,6 +30,20 @@ stages:
         pool:
           vmImage: $(vmImageName)
         steps:
+          - task: replacetokens@3
+            inputs:
+              targetFiles: |
+                **/Dockerfile
+                **/.env
+              encoding: 'utf-8'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              keepToken: false
+              tokenPrefix: '#{'
+              tokenSuffix: '}#'
+              useLegacyPattern: false
+              enableTelemetry: false
+
           - task: Docker@2
             displayName: Build and push an image to container registry
             inputs:
@@ -40,3 +53,5 @@ stages:
               containerRegistry: $(dockerRegistryServiceConnection)
               tags: |
                 $(tag)
+
+          

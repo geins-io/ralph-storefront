@@ -1,5 +1,8 @@
 ARG HOST=0.0.0.0
 ARG PORT=80
+ARG API_KEY=#{ApiKey}#
+ARG API_ENDPOINT=#{ApiEndpoint}#
+ARG IMAGE_SERVER=#{ImageServer}#
 
 # Build the app on a separate "machine".
 FROM node:14.8-alpine as builder
@@ -17,6 +20,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NUXT_HOST=${HOST}
 ENV NUXT_PORT=${PORT}
+ENV API_KEY=${API_KEY}
+ENV API_ENDPOINT=${API_ENDPOINT}
+ENV IMAGE_SERVER=${IMAGE_SERVER}
 ADD package.json ./
 ADD nuxt.config.js ./
 COPY --from=builder ./app/node_modules ./node_modules/
