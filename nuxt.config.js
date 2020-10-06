@@ -3,6 +3,9 @@ import path from 'path';
 console.log('nodeversion', process.version);
 // eslint-disable-next-line import/first
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
+
+require('dotenv').config();
+
 export default {
   mode: 'universal',
   /*
@@ -56,7 +59,10 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    [
+      '@nuxtjs/dotenv',
+      { filename: process.env.NODE_ENV === 'production' ? '.env' : '.env.dev' }
+    ]
   ],
   /*
    ** Nuxt.js modules
@@ -75,16 +81,14 @@ export default {
             iso: 'en-US',
             file: 'en-US.js',
             name: 'English',
-            flag: 'gb',
-            apiKey: '5324971256'
+            flag: 'gb'
           },
           {
             code: 'sv',
             iso: 'sv-SE',
             file: 'sv-SE.js',
             name: 'Svenska',
-            flag: 'se',
-            apiKey: '5324971256'
+            flag: 'se'
           }
         ],
         langDir: 'languages/',
@@ -193,7 +197,8 @@ export default {
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/mixins/'
-        )
+        ),
+        path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/')
       ];
       if (isDev) {
         config.devtool = 'source-map';
