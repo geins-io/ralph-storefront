@@ -182,6 +182,7 @@ export default {
         path.resolve(__dirname, 'components/molecules/'),
         path.resolve(__dirname, 'components/organisms/'),
         path.resolve(__dirname, 'components/mixins/'),
+        path.resolve(__dirname, 'styles/components/'),
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/atoms/'
@@ -198,7 +199,11 @@ export default {
           __dirname,
           'node_modules/@ralph/ralph-ui/components/mixins/'
         ),
-        path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/')
+        path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/'),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/styles/components/'
+        )
       ];
       if (isDev) {
         config.devtool = 'source-map';
