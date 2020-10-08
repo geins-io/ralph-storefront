@@ -70,7 +70,7 @@ export default {
         value: 'PRICE_DESC'
       }
     ],
-    sort: 'LATEST'
+    sort: vm.$config.productListDefaultSort
   }),
   computed: {},
   watch: {

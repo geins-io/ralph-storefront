@@ -142,7 +142,7 @@ export default {
       `,
       variables() {
         return {
-          apiKey: this.$store.getters.currentApiKey
+          apiKey: this.$config.apiKey.toString()
         };
       }
     }

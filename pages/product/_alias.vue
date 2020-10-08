@@ -139,7 +139,7 @@ export default {
       variables() {
         return {
           alias: this.$route.params.alias,
-          apiKey: this.$store.getters.currentApiKey
+          apiKey: this.$config.apiKey.toString()
         };
       },
       error(error) {

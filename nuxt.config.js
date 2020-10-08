@@ -4,8 +4,6 @@ console.log('nodeversion', process.version);
 // eslint-disable-next-line import/first
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 
-require('dotenv').config();
-
 export default {
   mode: 'universal',
   /*
@@ -34,7 +32,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#353797', height: '10px' },
+  loading: { color: '#353797', height: '5px' },
   /*
    ** Global CSS
    */
@@ -57,12 +55,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    [
-      '@nuxtjs/dotenv',
-      { filename: process.env.NODE_ENV === 'production' ? '.env' : '.env.dev' }
-    ]
+    '@nuxtjs/stylelint-module'
   ],
   /*
    ** Nuxt.js modules
@@ -110,10 +103,6 @@ export default {
   styleResources: {
     scss: ['./styles/_variables.scss', './styles/_helpers.scss']
   },
-  serverMiddleware: [
-    'api/klarna-checkout-orders',
-    'api/klarna-checkout-confirm'
-  ],
   apollo: {
     // optional
     // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
@@ -147,7 +136,16 @@ export default {
       });
     }
   },
-
+  /*
+   ** Runtime configs
+   */
+  publicRuntimeConfig: {
+    productListPageSize: 20,
+    productListDefaultSort: 'LATEST',
+    imageServer: process.env.IMAGE_SERVER,
+    apiKey: process.env.API_KEY
+  },
+  privateRuntimeConfig: {},
   /*
    ** Build configuration
    */
@@ -175,7 +173,7 @@ export default {
     extend(config, { isDev }) {
       config.resolve.extensions.unshift('.vue');
       config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
-      // Resolve modules first by checking Ralph components, then checking Ralph UI components, then node modules.
+      // Resolve modules first by checking node modules, then checking Ralph Storefront components, then Ralph UI components
       config.resolve.modules = [
         path.resolve(__dirname, 'node_modules/'),
         path.resolve(__dirname, 'components/atoms/'),
@@ -199,11 +197,11 @@ export default {
           __dirname,
           'node_modules/@ralph/ralph-ui/components/mixins/'
         ),
-        path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/'),
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/styles/components/'
-        )
+        ),
+        path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/')
       ];
       if (isDev) {
         config.devtool = 'source-map';

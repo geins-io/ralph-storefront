@@ -119,7 +119,7 @@ export default {
         return {
           skip: this.skip,
           take: this.take,
-          apiKey: this.$store.getters.currentApiKey
+          apiKey: this.$config.apiKey.toString()
         };
       }
     }
