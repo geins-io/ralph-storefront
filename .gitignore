@@ -87,4 +87,3 @@ sw.*
 *.swp
 
 .env
-.env.*

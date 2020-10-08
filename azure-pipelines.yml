@@ -7,25 +7,25 @@ trigger:
 
 resources:
   pipelines:
-  - pipeline: RalphUI
-    source: "Ralph-UI"
-    trigger: true
+    - pipeline: RalphUI
+      source: 'Ralph-UI'
+      trigger: true
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: "3fab982c-55eb-4685-9acc-d265b6720a2c"
-  imageRepository: "ralph-storefront"
-  containerRegistry: "ralphregistry.azurecr.io"
-  dockerfilePath: "$(Build.SourcesDirectory)/Dockerfile"
-  tag: "$(Build.BuildId)"
+  dockerRegistryServiceConnection: '3fab982c-55eb-4685-9acc-d265b6720a2c'
+  imageRepository: 'ralph-storefront'
+  containerRegistry: 'ralphregistry.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
 
   # Agent VM image name
-  vmImageName: "ubuntu-latest"
+  vmImageName: 'ubuntu-latest'
 
 stages:
   - stage: Build
     variables:
-    - group: BuildVars
+      - group: BuildVars
     displayName: Build and push stage
     jobs:
       - job: Build
@@ -37,7 +37,7 @@ stages:
             inputs:
               targetFiles: |
                 **/Dockerfile
-                **/.env
+                **/nuxt.config.js
               encoding: 'utf-8'
               writeBOM: true
               actionOnMissing: 'warn'
@@ -56,5 +56,3 @@ stages:
               containerRegistry: $(dockerRegistryServiceConnection)
               tags: |
                 $(tag)
-
-          

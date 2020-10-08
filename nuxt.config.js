@@ -4,6 +4,12 @@ console.log('nodeversion', process.version);
 // eslint-disable-next-line import/first
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 
+// Pipeline environment variables
+const inDev = process.env.NODE_ENV !== 'production';
+const ImageServer = inDev ? process.env.IMAGE_SERVER : '#{ImageServer}#';
+const ApiKey = inDev ? process.env.API_KEY : '#{ApiKey}#';
+const ApiEndpoint = inDev ? process.env.API_ENDPOINT : '#{ApiEndpoint}#';
+
 export default {
   mode: 'universal',
   /*
@@ -111,7 +117,7 @@ export default {
     // required
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.API_ENDPOINT,
+        httpEndpoint: ApiEndpoint,
         // Enable Automatic Query persisting with Apollo Engine
         persisting: false // try to enable this later
       }
@@ -142,8 +148,8 @@ export default {
   publicRuntimeConfig: {
     productListPageSize: 20,
     productListDefaultSort: 'LATEST',
-    imageServer: process.env.IMAGE_SERVER,
-    apiKey: process.env.API_KEY
+    imageServer: ImageServer,
+    apiKey: ApiKey
   },
   privateRuntimeConfig: {},
   /*
@@ -208,5 +214,5 @@ export default {
       }
     }
   },
-  dev: process.env.NODE_ENV !== 'production'
+  dev: inDev
 };
