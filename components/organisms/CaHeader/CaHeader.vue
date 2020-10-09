@@ -109,7 +109,6 @@
   </div>
 </template>
 <script>
-import gql from 'graphql-tag';
 import CaLogo from 'CaLogo';
 import CaIconAndText from 'CaIconAndText';
 import CaContainer from 'CaContainer';
@@ -123,23 +122,16 @@ import CaContentPanel from 'CaContentPanel';
 import CaSecondaryNavItem from 'CaSecondaryNavItem';
 import CaFlag from 'CaFlag';
 import CaNavigationSlim from 'CaNavigationSlim';
+
+import categoriesQuery from 'global/categories.graphql';
+
 import eventbus from '~/plugins/event-bus.js';
 
 export default {
   name: 'CaHeader',
   apollo: {
     categories: {
-      query: gql`
-        query categories($apiKey: String!) {
-          categories(apiKey: $apiKey) {
-            alias
-            name
-            categoryId
-            parentCategoryId
-            activeProducts
-          }
-        }
-      `,
+      query: categoriesQuery,
       variables() {
         return {
           apiKey: this.$config.apiKey.toString()

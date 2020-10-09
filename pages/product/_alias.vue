@@ -78,20 +78,20 @@
 </template>
 
 <script>
-import gql from 'graphql-tag';
 import CaContainer from 'CaContainer';
 import CaProductGallery from 'CaProductGallery';
 import CaButton from 'CaButton';
 import CaIconAndText from 'CaIconAndText';
 import CaProductMeta from 'CaProductMeta';
 import CaWidgetArea from 'CaWidgetArea';
-
 import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';
 import CaProductQuantity from 'CaProductQuantity';
 
 import MixAddToCart from 'MixAddToCart';
+
+import productQuery from 'product/product.graphql';
 
 export default {
   name: 'ProductPage',
@@ -110,32 +110,7 @@ export default {
   mixins: [MixAddToCart],
   apollo: {
     product: {
-      query: gql`
-        query product($alias: String!, $apiKey: String!) {
-          product(alias: $alias, apiKey: $apiKey) {
-            productId
-            name
-            brandName
-            brandAlias
-            images
-            categories {
-              categoryId
-              name
-            }
-            items {
-              itemId
-            }
-            price {
-              isDiscounted
-              regularPriceIncVatFormatted
-              sellingPriceIncVatFormatted
-              regularPriceExVatFormatted
-              sellingPriceExVatFormatted
-            }
-            shortText
-          }
-        }
-      `,
+      query: productQuery,
       variables() {
         return {
           alias: this.$route.params.alias,
@@ -150,140 +125,6 @@ export default {
   data() {
     return {
       quantity: 1,
-      id: 1212,
-      artNo: 2525,
-      chosenItemID: 12345,
-      images: [
-        'product-image-square.png',
-        'product-image-square.png',
-        'product-image-square.png',
-        'product-image-square.png',
-        'product-image-square.png'
-      ],
-      price: {
-        sale: false,
-        selling: '299 kr',
-        regular: '349 kr'
-      },
-      campaigns: ['Campaign name'],
-      userFeedback: [
-        {
-          name: 'User name',
-          grade: 4,
-          message: 'This is awesome!',
-          answer: 'Thanks, user!'
-        },
-        {
-          name: 'Other user name',
-          grade: 3,
-          message: 'This is mediocre!',
-          answer: ''
-        }
-      ],
-      sizes: [
-        { name: 'XS', stock: 5 },
-        { name: 'S', stock: 0 },
-        { name: 'M', stock: 5 },
-        { name: 'L', stock: 10 },
-        { name: 'XL', stock: 30 }
-      ],
-      infoShort: '',
-      infoLong: '',
-      infoOther: '',
-      parameters: [],
-      attributes: [
-        {
-          id: 11,
-          label: 'Color',
-          type: 'product',
-          values: [
-            {
-              id: 110032,
-              label: 'Gul',
-              hex: '#fc0',
-              url: '/110032'
-            },
-            {
-              id: 110033,
-              label: 'Röd',
-              hex: '#e8001c',
-              url: '/110033'
-            }
-          ]
-        },
-        {
-          id: 22,
-          label: 'Size',
-          type: 'item',
-          values: [
-            {
-              id: 'S',
-              label: 'S',
-              itemId: 12345
-            },
-            {
-              id: 'M',
-              label: 'M',
-              itemId: 11345
-            },
-            {
-              id: 'L',
-              label: 'L',
-              itemId: 22345
-            }
-          ]
-        }
-      ],
-      variants: [
-        {
-          variants: [{ 22: 'S' }],
-          productId: 110032,
-          stock: {
-            inStock: 10,
-            oversellable: 0
-          }
-        },
-        {
-          variant: [{ 22: 'M' }],
-          productId: 110032,
-          stock: {
-            inStock: 10,
-            oversellable: 0
-          }
-        },
-        {
-          variant: [{ 22: 'L' }],
-          productId: 110032,
-          stock: {
-            inStock: 15,
-            oversellable: 0
-          }
-        },
-        {
-          variant: [{ 22: 'S' }],
-          productId: 110033,
-          stock: {
-            inStock: 20,
-            oversellable: 0
-          }
-        },
-        {
-          variant: [{ 22: 'M' }],
-          productId: 110033,
-          stock: {
-            inStock: 0,
-            oversellable: 5
-          }
-        },
-        {
-          variant: [{ 22: 'L' }],
-          productId: 110033,
-          stock: {
-            inStock: 0,
-            oversellable: 0
-          }
-        }
-      ],
       error: null
     };
   },

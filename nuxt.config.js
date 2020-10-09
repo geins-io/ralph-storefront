@@ -179,34 +179,43 @@ export default {
     extend(config, { isDev }) {
       config.resolve.extensions.unshift('.vue');
       config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
-      // Resolve modules first by checking node modules, then checking Ralph Storefront components, then Ralph UI components
+      // Resolve modules by always checking storefront first to allow for overrides
       config.resolve.modules = [
         path.resolve(__dirname, 'node_modules/'),
-        path.resolve(__dirname, 'components/atoms/'),
-        path.resolve(__dirname, 'components/molecules/'),
-        path.resolve(__dirname, 'components/organisms/'),
-        path.resolve(__dirname, 'components/mixins/'),
+        // First check for scss styles
         path.resolve(__dirname, 'styles/components/'),
-        path.resolve(
-          __dirname,
-          'node_modules/@ralph/ralph-ui/components/atoms/'
-        ),
-        path.resolve(
-          __dirname,
-          'node_modules/@ralph/ralph-ui/components/molecules/'
-        ),
-        path.resolve(
-          __dirname,
-          'node_modules/@ralph/ralph-ui/components/organisms/'
-        ),
-        path.resolve(
-          __dirname,
-          'node_modules/@ralph/ralph-ui/components/mixins/'
-        ),
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/styles/components/'
         ),
+        // Then check for atom components
+        path.resolve(__dirname, 'components/atoms/'),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/components/atoms/'
+        ),
+        // Then for molecule components
+        path.resolve(__dirname, 'components/molecules/'),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/components/molecules/'
+        ),
+        // Then for organism components
+        path.resolve(__dirname, 'components/organisms/'),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/components/organisms/'
+        ),
+        // Then for mixins
+        path.resolve(__dirname, 'components/mixins/'),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/components/mixins/'
+        ),
+        // Then for graphql queries
+        path.resolve(__dirname, 'graphql/'),
+        path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/graphql/'),
+        // Then the UI store
         path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/')
       ];
       if (isDev) {
