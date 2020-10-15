@@ -39,13 +39,7 @@ export default {
   }),
   computed: {},
   mounted() {
-    document.addEventListener(
-      'stateRehydrated',
-      e => {
-        this.resetCart();
-      },
-      false
-    );
+    this.resetCart();
   },
   methods: {
     resetCart() {
