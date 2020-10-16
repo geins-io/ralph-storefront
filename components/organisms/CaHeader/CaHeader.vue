@@ -63,7 +63,6 @@
         </NuxtLink>
         <CaFavorites class="ca-header__favorites" />
         <CaMiniCart class="ca-header__cart" />
-        <CaDisplayCart />
       </CaContainer>
     </div>
     <nav class="ca-navigation only-desktop">
@@ -114,7 +113,6 @@ import CaIconAndText from 'CaIconAndText';
 import CaContainer from 'CaContainer';
 import CaIconButton from 'CaIconButton';
 import CaMiniCart from 'CaMiniCart';
-import CaDisplayCart from 'CaDisplayCart';
 import CaFavorites from 'CaFavorites';
 import CaSearch from 'CaSearch';
 import CaTopBar from 'CaTopBar';
@@ -124,8 +122,6 @@ import CaFlag from 'CaFlag';
 import CaNavigationSlim from 'CaNavigationSlim';
 
 import categoriesQuery from 'global/categories.graphql';
-
-import eventbus from '~/plugins/event-bus.js';
 
 export default {
   name: 'CaHeader',
@@ -146,7 +142,6 @@ export default {
     CaIconButton,
     CaLogo,
     CaMiniCart,
-    CaDisplayCart,
     CaFavorites,
     CaSearch,
     CaContentPanel,
@@ -185,10 +180,6 @@ export default {
   methods: {
     getSubLevelCategories(id) {
       return this.activeCategories.filter(i => i.parentCategoryId === id);
-    },
-    navClickHandler() {
-      eventbus.$emit('close-content-panel');
-      this.subNavsOpen = [];
     },
     toggleSubNav(categoryId) {
       if (this.subNavsOpen.includes(categoryId)) {

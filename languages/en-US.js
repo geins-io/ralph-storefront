@@ -9,6 +9,7 @@ export default {
   LOG_IN_LINK: 'Log in/Sign up',
   CUSTOMER_SERVICE: 'Customer service',
   FAVORITES_LABEL: 'My favorites',
+  SEARCH: 'Search',
   SEARCH_PLACEHOLDER: 'Search',
   SEARCH_SEE_ALL: 'See all search results',
   SEARCH_SEE_ALL_BRANDS: 'See all brands',

@@ -1,8 +1,6 @@
 <template>
   <div class="ca-checkout-confirm-page">
     <CaContainer>
-      <!-- eslint-disable vue/no-v-html -->
-      <!-- <div v-html="klarnaResponse.html_snippet" /> -->
       <CaCheckoutHeader :title="$t('ORDER_CONFIRM_TITLE')" />
       <CaCheckoutSection :bottom-arrow="false">
         <CaCheckoutKlarna :confirm="true" />

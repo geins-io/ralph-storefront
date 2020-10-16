@@ -9,6 +9,7 @@ export default {
   LOG_IN_LINK: 'Logga in/Bli medlem',
   CUSTOMER_SERVICE: 'Kundtjänst',
   FAVORITES_LABEL: 'Mina favoriter',
+  SEARCH: 'Sök',
   SEARCH_PLACEHOLDER: 'Sök',
   SEARCH_SEE_ALL: 'Se alla sökresultat',
   SEARCH_SEE_ALL_BRANDS: 'Se alla varumärken',

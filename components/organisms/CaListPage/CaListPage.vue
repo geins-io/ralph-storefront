@@ -8,6 +8,7 @@
         class="ca-list-page__image"
         size="1280w"
         type="categoryheader"
+        :alt="listInfo.name"
         :filename="listInfo.primaryImage"
         :placeholder="listInfo.primaryImage"
       />
@@ -37,6 +38,7 @@
         :showing="showing"
         :total-count="totalCount"
         :all-products-loaded="allProductsLoaded"
+        :loading="$apollo.queries.products.loading"
         @loadprev="loadPrev"
       />
 
@@ -51,6 +53,7 @@
         :showing="showing"
         :total-count="totalCount"
         :all-products-loaded="allProductsLoaded"
+        :loading="$apollo.queries.products.loading"
         @loadmore="loadMore"
       />
 

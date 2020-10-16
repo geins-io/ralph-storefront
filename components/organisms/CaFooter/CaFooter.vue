@@ -1,6 +1,6 @@
 <template>
   <div class="ca-footer">
-    <div class="ca-footer__section ca-footer__section--usps">
+    <section class="ca-footer__section ca-footer__section--usps">
       <CaContainer class="ca-footer__usps">
         <CaIconAndText
           class="ca-footer__usp"
@@ -24,18 +24,18 @@
           {{ $t('USP_3') }}
         </CaIconAndText>
       </CaContainer>
-    </div>
-    <div class="ca-footer__section ca-footer__section--newsletter">
+    </section>
+    <section class="ca-footer__section ca-footer__section--newsletter">
       <CaContainer>
         <div class="ca-footer__newsletter">
           Här kommer det snart gå att anmäla sig till nyhetsbrev
         </div>
       </CaContainer>
-    </div>
-    <div class="ca-footer__section ca-footer__section--content">
+    </section>
+    <section class="ca-footer__section ca-footer__section--content">
       <CaContainer class="ca-footer__content-holder">
-        <div class="ca-footer__column">
-          <h3 class="ca-footer__title">Kundtjänst</h3>
+        <section class="ca-footer__column">
+          <h2 class="ca-footer__title">Kundtjänst</h2>
           <div class="ca-footer__contact">
             <span class="ca-footer__contact-title">Mail:</span>
             <a class="ca-footer__contact-info" href="mailto:info@ralph.io">
@@ -48,11 +48,11 @@
               123234345
             </a>
           </div>
-          <h3 class="ca-footer__title">Shoppa som</h3>
+          <h2 class="ca-footer__title">Shoppa som</h2>
           <CaVatToggle class="ca-footer__vat-toggle" />
-        </div>
-        <div class="ca-footer__column">
-          <h3 class="ca-footer__title">Länkar</h3>
+        </section>
+        <section class="ca-footer__column">
+          <h2 class="ca-footer__title">Länkar</h2>
           <nav class="ca-footer__nav">
             <ul class="ca-footer__nav-list">
               <li class="ca-footer__nav-item">
@@ -77,9 +77,9 @@
               </li>
             </ul>
           </nav>
-        </div>
-        <div class="ca-footer__column">
-          <h3 class="ca-footer__title">Guider</h3>
+        </section>
+        <section class="ca-footer__column">
+          <h2 class="ca-footer__title">Guider</h2>
           <nav class="ca-footer__nav">
             <ul class="ca-footer__nav-list">
               <li class="ca-footer__nav-item">
@@ -104,37 +104,54 @@
               </li>
             </ul>
           </nav>
-        </div>
-        <div class="ca-footer__column">
-          <h3 class="ca-footer__title">Följ oss</h3>
+        </section>
+        <section class="ca-footer__column">
+          <h2 class="ca-footer__title">Följ oss</h2>
           <ul class="ca-footer__social">
             <li class="ca-footer__social-item">
-              <a class="ca-footer__social-link" href="#">
+              <a
+                class="ca-footer__social-link"
+                href="#"
+                target="_blank"
+                title="Facebook link"
+              >
                 <CaIcon name="facebook" class="ca-footer__social-icon" />
               </a>
             </li>
             <li class="ca-footer__social-item">
-              <a class="ca-footer__social-link" href="#">
+              <a
+                class="ca-footer__social-link"
+                href="#"
+                target="_blank"
+                title="Instagram link"
+              >
                 <CaIcon name="instagram" class="ca-footer__social-icon" />
               </a>
             </li>
           </ul>
-        </div>
+        </section>
       </CaContainer>
-    </div>
-    <div class="ca-footer__section ca-footer__section--bottom">
+    </section>
+    <section class="ca-footer__section ca-footer__section--bottom">
       <CaContainer class="ca-footer__bottom">
         <div class="ca-footer__bottom-column ca-footer__bottom-column--logos">
           <CaSvgAsset
             class="ca-footer__logo ca-footer__logo--first"
             folder="logos"
             filename="klarna"
+            alt="Klarna logo"
           />
-          <CaSvgAsset class="ca-footer__logo" folder="logos" filename="visa" />
+          <CaSvgAsset
+            class="ca-footer__logo"
+            folder="logos"
+            filename="visa"
+            alt="Visa logo"
+          />
           <CaSvgAsset
             class="ca-footer__logo"
             folder="logos"
             filename="mastercard"
+            alt="Mastercard logo"
           />
         </div>
         <div class="ca-footer__bottom-column ca-footer__bottom-column--logos">
@@ -142,13 +159,20 @@
             class="ca-footer__logo"
             folder="logos"
             filename="schenker"
+            alt="Schenker logo"
           />
           <CaSvgAsset
             class="ca-footer__logo"
             folder="logos"
             filename="postnord"
+            alt="Postnord logo"
           />
-          <CaSvgAsset class="ca-footer__logo" folder="logos" filename="dhl" />
+          <CaSvgAsset
+            class="ca-footer__logo"
+            folder="logos"
+            filename="dhl"
+            alt="DHL logo"
+          />
         </div>
         <div
           class="ca-footer__bottom-column ca-footer__bottom-column--copyright"
@@ -162,11 +186,12 @@
               class="ca-footer__carismar"
               folder="logos"
               filename="carismar-black"
+              alt="Carismar logo"
             />
           </div>
         </div>
       </CaContainer>
-    </div>
+    </section>
   </div>
 </template>
 <script>

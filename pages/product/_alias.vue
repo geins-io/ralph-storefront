@@ -4,8 +4,10 @@
     <CaContainer>
       <div class="ca-product-page__section">
         <CaProductGallery
+          v-if="product !== undefined"
           class="ca-product-page__gallery"
           :images="productImages"
+          :alt="product.brandName + ' ' + product.name"
         />
         <div v-if="product !== undefined" class="ca-product-page__main">
           <CaToggleFavorite :prod-id="product.productId" />

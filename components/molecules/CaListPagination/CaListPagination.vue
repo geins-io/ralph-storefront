@@ -13,6 +13,7 @@
       v-if="direction === 'next'"
       class="ca-list-pagination__button ca-list-pagination__button--next"
       :disabled="allProductsLoaded"
+      :loading="loading"
       @clicked="$emit('loadmore')"
     >
       {{ $t('LOAD_MORE') }}
@@ -20,6 +21,7 @@
     <CaButton
       v-else
       class="ca-list-pagination__button ca-list-pagination__button--prev"
+      :loading="loading"
       @clicked="$emit('loadprev')"
     >
       {{ $t('LOAD_PREVIOUS') }}
@@ -51,6 +53,10 @@ export default {
       required: true
     },
     allProductsLoaded: {
+      type: Boolean,
+      required: true
+    },
+    loading: {
       type: Boolean,
       required: true
     }

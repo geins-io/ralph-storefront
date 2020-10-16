@@ -14,11 +14,13 @@
         />
       </div>
     </transition>
+    <CaDisplayCart />
   </div>
 </template>
 <script>
 import CaHeader from 'CaHeader';
 import CaFooter from 'CaFooter';
+import CaDisplayCart from 'CaDisplayCart';
 import MixGlobalInit from 'MixGlobalInit';
 import CaSpinner from 'CaSpinner';
 import CaSnackbar from 'CaSnackbar';
@@ -29,7 +31,8 @@ export default {
     CaHeader,
     CaSpinner,
     CaSnackbar,
-    CaFooter
+    CaFooter,
+    CaDisplayCart
   },
   mixins: [MixGlobalInit]
 };
