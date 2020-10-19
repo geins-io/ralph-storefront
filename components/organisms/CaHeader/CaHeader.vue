@@ -1,5 +1,5 @@
 <template>
-  <div class="ca-header" :class="modifiers">
+  <header class="ca-header" :class="modifiers">
     <CaTopBar />
     <div class="ca-header__bar">
       <CaContainer class="ca-header__container">
@@ -105,7 +105,7 @@
       </ul>
     </nav>
     <CaSearch v-if="!$store.getters.viewportLaptop" :opened="searchOpened" />
-  </div>
+  </header>
 </template>
 <script>
 import CaLogo from 'CaLogo';

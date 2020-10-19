@@ -1,5 +1,5 @@
 <template>
-  <div class="ca-footer">
+  <footer class="ca-footer">
     <section class="ca-footer__section ca-footer__section--usps">
       <CaContainer class="ca-footer__usps">
         <CaIconAndText
@@ -192,7 +192,7 @@
         </div>
       </CaContainer>
     </section>
-  </div>
+  </footer>
 </template>
 <script>
 import CaIconAndText from 'CaIconAndText';
