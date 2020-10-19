@@ -6,8 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "set NODE_ENV=production&& nuxt start",
+    "build": "set NODE_ENV=production && nuxt build",
+    "build-local": "set NODE_ENV=development && nuxt build",
+    "start": "set NODE_ENV=production && nuxt start",
+    "start-local": "set NODE_ENV=development && nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
