@@ -1,5 +1,5 @@
 <template>
-  <div class="ca-header" :class="modifiers">
+  <header class="ca-header" :class="modifiers">
     <CaTopBar />
     <div class="ca-header__bar">
       <CaContainer class="ca-header__container">
@@ -63,7 +63,6 @@
         </NuxtLink>
         <CaFavorites class="ca-header__favorites" />
         <CaMiniCart class="ca-header__cart" />
-        <CaDisplayCart />
       </CaContainer>
     </div>
     <nav class="ca-navigation only-desktop">
@@ -106,16 +105,14 @@
       </ul>
     </nav>
     <CaSearch v-if="!$store.getters.viewportLaptop" :opened="searchOpened" />
-  </div>
+  </header>
 </template>
 <script>
-import gql from 'graphql-tag';
 import CaLogo from 'CaLogo';
 import CaIconAndText from 'CaIconAndText';
 import CaContainer from 'CaContainer';
 import CaIconButton from 'CaIconButton';
 import CaMiniCart from 'CaMiniCart';
-import CaDisplayCart from 'CaDisplayCart';
 import CaFavorites from 'CaFavorites';
 import CaSearch from 'CaSearch';
 import CaTopBar from 'CaTopBar';
@@ -123,26 +120,17 @@ import CaContentPanel from 'CaContentPanel';
 import CaSecondaryNavItem from 'CaSecondaryNavItem';
 import CaFlag from 'CaFlag';
 import CaNavigationSlim from 'CaNavigationSlim';
-import eventbus from '~/plugins/event-bus.js';
+
+import categoriesQuery from 'global/categories.graphql';
 
 export default {
   name: 'CaHeader',
   apollo: {
     categories: {
-      query: gql`
-        query categories($apiKey: String!) {
-          categories(apiKey: $apiKey) {
-            alias
-            name
-            categoryId
-            parentCategoryId
-            activeProducts
-          }
-        }
-      `,
+      query: categoriesQuery,
       variables() {
         return {
-          apiKey: this.$store.getters.currentApiKey
+          apiKey: this.$config.apiKey.toString()
         };
       }
     }
@@ -154,7 +142,6 @@ export default {
     CaIconButton,
     CaLogo,
     CaMiniCart,
-    CaDisplayCart,
     CaFavorites,
     CaSearch,
     CaContentPanel,
@@ -193,10 +180,6 @@ export default {
   methods: {
     getSubLevelCategories(id) {
       return this.activeCategories.filter(i => i.parentCategoryId === id);
-    },
-    navClickHandler() {
-      eventbus.$emit('close-content-panel');
-      this.subNavsOpen = [];
     },
     toggleSubNav(categoryId) {
       if (this.subNavsOpen.includes(categoryId)) {

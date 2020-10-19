@@ -1,8 +1,7 @@
 <template>
   <div class="ca-list-settings">
     <button
-      v-if="!$store.getters.viewportLaptop"
-      class="ca-list-settings__filter-toggle"
+      class="ca-list-settings__filter-toggle only-mobile"
       @click="$store.commit('contentpanel/open', 'filters')"
     >
       <CaIconAndText
@@ -14,10 +13,7 @@
       </CaIconAndText>
     </button>
     <div class="ca-list-settings__sort">
-      <span
-        v-if="$store.getters.viewportLaptop"
-        class="ca-list-settings__title"
-      >
+      <span class="ca-list-settings__title only-desktop">
         {{ $t('SORT_TITLE') }}:
       </span>
       <CaInputSelect
@@ -70,7 +66,7 @@ export default {
         value: 'PRICE_DESC'
       }
     ],
-    sort: 'LATEST'
+    sort: vm.$config.productListDefaultSort
   }),
   computed: {},
   watch: {

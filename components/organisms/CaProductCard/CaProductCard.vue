@@ -3,6 +3,7 @@
     <div class="ca-product-card__image-wrap">
       <NuxtLink
         class="ca-product-card__image-link"
+        tabindex="-1"
         :to="'/p/' + product.alias"
         :data-alias="product.alias"
       >
@@ -12,6 +13,7 @@
           type="product"
           size="300f300"
           :filename="product.images[0]"
+          :alt="product.brandName + ' ' + product.name"
           :placeholder="
             require('~/assets/placeholders/product-image-square.png')
           "

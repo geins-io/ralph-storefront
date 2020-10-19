@@ -5,6 +5,7 @@
     <div class="ca-main">
       <Nuxt />
     </div>
+    <CaFooter />
     <transition name="fade">
       <div v-if="$apollo.loading" class="ca-layout-default__loading">
         <CaSpinner
@@ -13,10 +14,13 @@
         />
       </div>
     </transition>
+    <CaDisplayCart />
   </div>
 </template>
 <script>
 import CaHeader from 'CaHeader';
+import CaFooter from 'CaFooter';
+import CaDisplayCart from 'CaDisplayCart';
 import MixGlobalInit from 'MixGlobalInit';
 import CaSpinner from 'CaSpinner';
 import CaSnackbar from 'CaSnackbar';
@@ -26,7 +30,9 @@ export default {
   components: {
     CaHeader,
     CaSpinner,
-    CaSnackbar
+    CaSnackbar,
+    CaFooter,
+    CaDisplayCart
   },
   mixins: [MixGlobalInit]
 };
