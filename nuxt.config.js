@@ -121,7 +121,8 @@ export default {
         // Enable Automatic Query persisting with Apollo Engine
         persisting: false // try to enable this later
       }
-    }
+    },
+    includeNodeModules: true
   },
   router: {
     extendRoutes(routes, resolve) {
