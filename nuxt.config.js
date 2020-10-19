@@ -3,6 +3,13 @@ import path from 'path';
 console.log('nodeversion', process.version);
 // eslint-disable-next-line import/first
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
+
+// Pipeline environment variables
+const inDev = process.env.NODE_ENV !== 'production';
+const ImageServer = inDev ? process.env.IMAGE_SERVER : '#{ImageServer}#';
+const ApiKey = inDev ? process.env.API_KEY : '#{ApiKey}#';
+const ApiEndpoint = inDev ? process.env.API_ENDPOINT : '#{ApiEndpoint}#';
+
 export default {
   mode: 'universal',
   /*
@@ -31,7 +38,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#353797', height: '10px' },
+  loading: { color: '#353797', height: '5px' },
   /*
    ** Global CSS
    */
@@ -39,7 +46,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/localStorage.js', ssr: false }],
+  plugins: [{ src: '~/plugins/persistedState.js' }],
   loaders: [
     {
       test: /\.(graphql|gql)$/,
@@ -54,9 +61,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/stylelint-module'
   ],
   /*
    ** Nuxt.js modules
@@ -75,16 +80,14 @@ export default {
             iso: 'en-US',
             file: 'en-US.js',
             name: 'English',
-            flag: 'gb',
-            apiKey: '5324971256'
+            flag: 'gb'
           },
           {
             code: 'sv',
             iso: 'sv-SE',
             file: 'sv-SE.js',
             name: 'Svenska',
-            flag: 'se',
-            apiKey: '5324971256'
+            flag: 'se'
           }
         ],
         langDir: 'languages/',
@@ -106,10 +109,6 @@ export default {
   styleResources: {
     scss: ['./styles/_variables.scss', './styles/_helpers.scss']
   },
-  serverMiddleware: [
-    'api/klarna-checkout-orders',
-    'api/klarna-checkout-confirm'
-  ],
   apollo: {
     // optional
     // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
@@ -118,7 +117,7 @@ export default {
     // required
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.API_ENDPOINT,
+        httpEndpoint: ApiEndpoint,
         // Enable Automatic Query persisting with Apollo Engine
         persisting: false // try to enable this later
       }
@@ -143,7 +142,16 @@ export default {
       });
     }
   },
-
+  /*
+   ** Runtime configs
+   */
+  publicRuntimeConfig: {
+    productListPageSize: 20,
+    productListDefaultSort: 'LATEST',
+    imageServer: ImageServer,
+    apiKey: ApiKey
+  },
+  privateRuntimeConfig: {},
   /*
    ** Build configuration
    */
@@ -171,34 +179,49 @@ export default {
     extend(config, { isDev }) {
       config.resolve.extensions.unshift('.vue');
       config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
-      // Resolve modules first by checking Ralph components, then checking Ralph UI components, then node modules.
+      // Resolve modules by always checking storefront first to allow for overrides
       config.resolve.modules = [
         path.resolve(__dirname, 'node_modules/'),
+        // First check for scss styles
+        path.resolve(__dirname, 'styles/components/'),
+        path.resolve(
+          __dirname,
+          'node_modules/@ralph/ralph-ui/styles/components/'
+        ),
+        // Then check for atom components
         path.resolve(__dirname, 'components/atoms/'),
-        path.resolve(__dirname, 'components/molecules/'),
-        path.resolve(__dirname, 'components/organisms/'),
-        path.resolve(__dirname, 'components/mixins/'),
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/atoms/'
         ),
+        // Then for molecule components
+        path.resolve(__dirname, 'components/molecules/'),
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/molecules/'
         ),
+        // Then for organism components
+        path.resolve(__dirname, 'components/organisms/'),
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/organisms/'
         ),
+        // Then for mixins
+        path.resolve(__dirname, 'components/mixins/'),
         path.resolve(
           __dirname,
           'node_modules/@ralph/ralph-ui/components/mixins/'
-        )
+        ),
+        // Then for graphql queries
+        path.resolve(__dirname, 'graphql/'),
+        path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/graphql/'),
+        // Then the UI store
+        path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/')
       ];
       if (isDev) {
         config.devtool = 'source-map';
       }
     }
   },
-  dev: process.env.NODE_ENV !== 'production'
+  dev: inDev
 };

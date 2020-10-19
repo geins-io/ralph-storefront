@@ -10,30 +10,20 @@
         <div v-html="listInfo.primaryDescription"></div>
       </CaReadMore>
     </div>
-    <ul
-      v-if="listInfo.subCategories && listInfo.subCategories.length"
+    <CaCategoryDisplay
       class="ca-list-top__subcategories"
-    >
-      <li
-        v-for="(category, index) in listInfo.subCategories"
-        :key="index"
-        class="ca-list-top__category-item"
-      >
-        <CaButton :href="'/c/' + category.alias" size="s">
-          {{ category.name }}
-        </CaButton>
-      </li>
-    </ul>
+      :categories="listInfo.subCategories"
+    />
   </div>
 </template>
 <script>
-import CaButton from 'CaButton';
+import CaCategoryDisplay from 'CaCategoryDisplay';
 import CaReadMore from 'CaReadMore';
 // @group Organisms
 // @vuese
 export default {
   name: 'CaListTop',
-  components: { CaButton, CaReadMore },
+  components: { CaCategoryDisplay, CaReadMore },
   mixins: [],
   props: {
     type: {
@@ -83,24 +73,10 @@ export default {
   &__subcategories {
     margin: $px20 -1.2rem $px32 0;
     max-width: 100%;
-    display: flex;
-    overflow: auto;
     @include bp(laptop) {
+      margin: -$px8;
       width: 40%;
       max-width: 525px;
-      margin: -$px8;
-      overflow: hidden;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-  }
-
-  &__category-item {
-    @include bp(laptop-down) {
-      margin-right: $px12;
-    }
-    @include bp(laptop) {
-      margin: $px8;
     }
   }
 }

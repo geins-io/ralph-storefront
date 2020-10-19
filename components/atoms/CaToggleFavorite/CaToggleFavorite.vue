@@ -38,8 +38,8 @@ export default {
 </script>
 <style lang="scss">
 .ca-toggle-favorite {
-  width: 40px;
-  height: 40px;
+  width: rem-calc(40px);
+  height: rem-calc(40px);
   border-radius: 50%;
   background: $c-white;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
@@ -47,7 +47,7 @@ export default {
   right: 0;
   top: 0;
   @include flex-calign;
-  font-size: 18px;
+  font-size: rem-calc(18px);
   color: $c-text-secondary;
   transition: all 150ms ease;
   &--active {

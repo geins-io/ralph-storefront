@@ -6,6 +6,8 @@ $c-medium-gray: #d8d8d8;
 $c-dark-gray: #adadad;
 $c-darkest-gray: #363636;
 
+$c-accent-color: $c-darkest-gray;
+
 // Theme text colors
 $c-text-primary: #222222;
 $c-text-secondary: #878787;
@@ -45,3 +47,7 @@ $c-button-secondary-border: 1px solid $c-darkest-gray;
 // Content panel
 $c-content-panel-header-bg: $c-lightest-gray;
 $c-content-panel-header-txt: $c-text-primary;
+
+// Notification badge
+$c-notification-badge-bg: $c-dark-gray;
+$c-notification-badge-txt: $c-text-inverse;

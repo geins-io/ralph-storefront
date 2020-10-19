@@ -9,8 +9,8 @@
 
 <script>
 import CaListPage from 'CaListPage';
-import categoryInfoQuery from '@/graphql/page-info-category.graphql';
-import categoryProductsQuery from '@/graphql/products-category.graphql';
+import categoryInfoQuery from 'productlist/category-page.graphql';
+import categoryProductsQuery from 'productlist/category-products.graphql';
 
 export default {
   name: 'CategoryListView',

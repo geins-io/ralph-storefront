@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import CaContainer from 'CaContainer';
 import CaWidgetArea from 'CaWidgetArea';
 export default {
@@ -16,13 +15,7 @@ export default {
     CaContainer,
     CaWidgetArea
   },
-  fetch({ store }) {
-    store.commit('increment');
-  },
   data: () => ({}),
-  computed: {
-    ...mapState(['counter'])
-  },
   methods: {}
 };
 </script>

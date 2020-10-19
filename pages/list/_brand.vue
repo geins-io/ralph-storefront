@@ -9,8 +9,8 @@
 
 <script>
 import CaListPage from 'CaListPage';
-import brandInfoQuery from '@/graphql/page-info-brand.graphql';
-import brandProductsQuery from '@/graphql/products-brand.graphql';
+import brandInfoQuery from 'productlist/brand-page.graphql';
+import brandProductsQuery from 'productlist/brand-products.graphql';
 
 export default {
   name: 'BrandListView',
