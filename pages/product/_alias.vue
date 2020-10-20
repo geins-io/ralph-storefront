@@ -7,31 +7,28 @@
           v-if="product !== undefined"
           class="ca-product-page__gallery"
           :images="productImages"
-          :alt="product.brandName + ' ' + product.name"
+          :alt="product.brand.name + ' ' + product.name"
         />
         <div v-if="product !== undefined" class="ca-product-page__main">
           <CaToggleFavorite :prod-id="product.productId" />
           <CaBrandAndName
-            :brand="product.brandName"
-            :brand-alias="product.brandAlias"
+            :brand="product.brand.name"
+            :brand-alias="product.brand.alias"
             :name="product.name"
             name-tag="h1"
           />
-          <CaPrice class="ca-product-page__price" :price="product.price" />
+          <CaPrice class="ca-product-page__price" :price="product.unitPrice" />
           <!-- eslint-disable vue/no-v-html -->
           <div
             class="ca-product-page__short-text"
             v-html="product.shortText"
           ></div>
-          <!-- <select v-model="chosenItemID" class="mar-bot-20">
-            <option
-              v-for="(item, index) in productItems"
-              :key="index"
-              :value="item.itemId"
-            >
-              {{ item.label }}
-            </option>
-          </select> -->
+
+          <CaColorPicker
+            :colors="colorVariants.values"
+            :current-color="currentVariant.value"
+            :aliases="colorProductAliases"
+          />
           <CaProductQuantity
             class="ca-product-page__quantity"
             :quantity="quantity"
@@ -90,8 +87,10 @@ import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';
 import CaProductQuantity from 'CaProductQuantity';
+import CaColorPicker from 'CaColorPicker';
 
 import MixAddToCart from 'MixAddToCart';
+import MixVariantHandler from 'MixVariantHandler';
 
 import productQuery from 'product/product.graphql';
 
@@ -107,9 +106,10 @@ export default {
     CaProductMeta,
     CaToggleFavorite,
     CaWidgetArea,
-    CaProductQuantity
+    CaProductQuantity,
+    CaColorPicker
   },
-  mixins: [MixAddToCart],
+  mixins: [MixAddToCart, MixVariantHandler],
   apollo: {
     product: {
       query: productQuery,
@@ -135,9 +135,6 @@ export default {
       return this.product && this.product.images && this.product.images.length
         ? this.product.images
         : [];
-    },
-    productItems() {
-      return this.attributes.filter(item => item.type === 'item')[0].values;
     }
   },
   methods: {
