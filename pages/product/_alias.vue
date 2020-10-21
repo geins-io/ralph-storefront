@@ -24,10 +24,15 @@
             v-html="product.shortText"
           ></div>
 
+          <p v-if="hasColorVariants" class="ca-product-page__variant-title">
+            {{ $t('PICK_COLOR') }}
+          </p>
           <CaColorPicker
+            v-if="hasColorVariants"
             :colors="colorVariants.values"
             :current-color="currentVariant.value"
             :aliases="colorProductAliases"
+            @change="replaceProduct"
           />
           <CaProductQuantity
             class="ca-product-page__quantity"
@@ -115,7 +120,7 @@ export default {
       query: productQuery,
       variables() {
         return {
-          alias: this.$route.params.alias,
+          alias: this.prodAlias,
           apiKey: this.$config.apiKey.toString()
         };
       },
@@ -127,7 +132,8 @@ export default {
   data() {
     return {
       quantity: 1,
-      error: null
+      error: null,
+      replaceAlias: null
     };
   },
   computed: {
@@ -135,6 +141,9 @@ export default {
       return this.product && this.product.images && this.product.images.length
         ? this.product.images
         : [];
+    },
+    prodAlias() {
+      return this.replaceAlias || this.$route.params.alias;
     }
   },
   methods: {
@@ -144,6 +153,10 @@ export default {
     addToCartClick() {
       this.addToCartLoading = true;
       this.addToCart(this.product.items[0].itemId, this.quantity);
+    },
+    replaceProduct(alias) {
+      this.replaceAlias = alias;
+      history.pushState(null, null, alias);
     }
   }
 };
@@ -178,6 +191,12 @@ export default {
   }
   &__short-text {
     margin-bottom: $px16;
+  }
+  &__variant-title {
+    text-transform: uppercase;
+    font-size: $font-size-m;
+    margin-bottom: $px8;
+    font-weight: $font-weight-bold;
   }
   &__quantity {
     margin-bottom: $px16;

@@ -63,5 +63,6 @@ export default {
     'Unfortunatley a product in your cart has run out of stock. Please review your cart and try again.',
   KLARNA_FAIL_BLOCKED:
     'Could not create order since your user is blocked by Klarna',
-  GO_BACK: 'Go back'
+  GO_BACK: 'Go back',
+  PICK_COLOR: 'Pick color'
 };
