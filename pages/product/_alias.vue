@@ -29,10 +29,22 @@
           </p>
           <CaColorPicker
             v-if="hasColorVariants"
+            class="ca-product-page__variant-picker"
             :colors="colorVariants.values"
             :current-color="currentVariant.value"
             :aliases="colorProductAliases"
             @change="replaceProduct"
+          />
+          <p v-if="hasSkuVariants" class="ca-product-page__variant-title">
+            {{ $t('PICK_SIZE') }}
+          </p>
+          <CaSizePicker
+            v-if="hasSkuVariants"
+            class="ca-product-page__variant-picker"
+            :sizes="skuVariants"
+            :chosen-sku="chosenSku"
+            @reset="resetSku"
+            @changed="sizeChangeHandler"
           />
           <CaProductQuantity
             class="ca-product-page__quantity"
@@ -44,6 +56,7 @@
             class="ca-product-page__buy-button"
             type="full-width"
             :loading="addToCartLoading"
+            :disabled="!chosenSku.id"
             @clicked="addToCartClick"
             >{{ $t('ADD_TO_CART') }}</CaButton
           >
@@ -93,6 +106,7 @@ import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';
 import CaProductQuantity from 'CaProductQuantity';
 import CaColorPicker from 'CaColorPicker';
+import CaSizePicker from 'CaSizePicker';
 
 import MixAddToCart from 'MixAddToCart';
 import MixVariantHandler from 'MixVariantHandler';
@@ -112,7 +126,8 @@ export default {
     CaToggleFavorite,
     CaWidgetArea,
     CaProductQuantity,
-    CaColorPicker
+    CaColorPicker,
+    CaSizePicker
   },
   mixins: [MixAddToCart, MixVariantHandler],
   apollo: {
@@ -152,11 +167,14 @@ export default {
     },
     addToCartClick() {
       this.addToCartLoading = true;
-      this.addToCart(this.product.items[0].itemId, this.quantity);
+      this.addToCart(this.chosenSku.id, this.quantity);
     },
     replaceProduct(alias) {
       this.replaceAlias = alias;
-      history.pushState(null, null, alias);
+      history.replaceState(null, null, alias);
+    },
+    sizeChangeHandler(data) {
+      this.setSku(data.id, data.value);
     }
   }
 };
@@ -197,6 +215,9 @@ export default {
     font-size: $font-size-m;
     margin-bottom: $px8;
     font-weight: $font-weight-bold;
+  }
+  &__variant-picker {
+    margin-bottom: $default-spacing;
   }
   &__quantity {
     margin-bottom: $px16;

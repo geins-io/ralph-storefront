@@ -64,5 +64,6 @@ export default {
   KLARNA_FAIL_BLOCKED:
     'Could not create order since your user is blocked by Klarna',
   GO_BACK: 'Go back',
-  PICK_COLOR: 'Pick color'
+  PICK_COLOR: 'Pick color',
+  PICK_SIZE: 'Pick size'
 };
