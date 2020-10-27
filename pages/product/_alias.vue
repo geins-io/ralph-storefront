@@ -139,6 +139,11 @@ export default {
           apiKey: this.$config.apiKey.toString()
         };
       },
+      result() {
+        if (!this.hasSkuVariants) {
+          this.setDefaultSku();
+        }
+      },
       error(error) {
         this.error = error.message;
       }
