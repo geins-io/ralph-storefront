@@ -49,7 +49,7 @@
           <CaProductQuantity
             class="ca-product-page__quantity"
             :quantity="quantity"
-            :max-quantity="10"
+            :max-quantity="currentStock"
             @changed="onQuantityChange"
           />
           <CaButton
@@ -60,6 +60,14 @@
             @clicked="addToCartClick"
             >{{ $t('ADD_TO_CART') }}</CaButton
           >
+          <div class="ca-product-page__actions">
+            <CaIconAndText
+              class="ca-product-page__stock-status"
+              icon-name="box"
+            >
+              {{ stockStatusText }}
+            </CaIconAndText>
+          </div>
           <div class="ca-product-page__usps">
             <CaIconAndText
               class="ca-product-page__usp"
@@ -110,8 +118,7 @@ import CaSizePicker from 'CaSizePicker';
 
 import MixAddToCart from 'MixAddToCart';
 import MixVariantHandler from 'MixVariantHandler';
-
-import productQuery from 'product/product.graphql';
+import MixProductPage from 'MixProductPage';
 
 export default {
   name: 'ProductPage',
@@ -129,59 +136,11 @@ export default {
     CaColorPicker,
     CaSizePicker
   },
-  mixins: [MixAddToCart, MixVariantHandler],
-  apollo: {
-    product: {
-      query: productQuery,
-      variables() {
-        return {
-          alias: this.prodAlias,
-          apiKey: this.$config.apiKey.toString()
-        };
-      },
-      result() {
-        if (!this.hasSkuVariants) {
-          this.setDefaultSku();
-        }
-      },
-      error(error) {
-        this.error = error.message;
-      }
-    }
-  },
-  data() {
-    return {
-      quantity: 1,
-      error: null,
-      replaceAlias: null
-    };
-  },
-  computed: {
-    productImages() {
-      return this.product && this.product.images && this.product.images.length
-        ? this.product.images
-        : [];
-    },
-    prodAlias() {
-      return this.replaceAlias || this.$route.params.alias;
-    }
-  },
-  methods: {
-    onQuantityChange(value) {
-      this.quantity = value;
-    },
-    addToCartClick() {
-      this.addToCartLoading = true;
-      this.addToCart(this.chosenSku.id, this.quantity);
-    },
-    replaceProduct(alias) {
-      this.replaceAlias = alias;
-      history.replaceState(null, null, alias);
-    },
-    sizeChangeHandler(data) {
-      this.setSku(data.id, data.value);
-    }
-  }
+  mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
+  data: () => ({}),
+  computed: {},
+  watch: {},
+  methods: {}
 };
 </script>
 
@@ -230,11 +189,18 @@ export default {
   &__buy-button {
     margin-bottom: $px20;
   }
+  &__stock-status {
+    font-size: $font-size-m;
+    font-weight: $font-weight-bold;
+  }
+  &__actions {
+    margin-bottom: $px24;
+  }
   &__usps {
     display: flex;
     justify-content: space-between;
     border-top: $border-light;
-    padding: $px16 0;
+    padding: $px16 0 $px40;
   }
   &__usp {
     padding: 0 $px4;
