@@ -31,9 +31,9 @@
             v-if="hasColorVariants"
             class="ca-product-page__variant-picker"
             :colors="colorVariants.values"
-            :current-color="currentVariant.value"
+            :current-color="product.currentProductVariant.value"
             :aliases="colorProductAliases"
-            @change="replaceProduct"
+            @changed="replaceProduct"
           />
           <p v-if="hasSkuVariants" class="ca-product-page__variant-title">
             {{ $t('PICK_SIZE') }}
