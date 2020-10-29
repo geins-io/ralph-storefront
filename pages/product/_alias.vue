@@ -7,44 +7,67 @@
           v-if="product !== undefined"
           class="ca-product-page__gallery"
           :images="productImages"
-          :alt="product.brandName + ' ' + product.name"
+          :alt="product.brand.name + ' ' + product.name"
         />
         <div v-if="product !== undefined" class="ca-product-page__main">
           <CaToggleFavorite :prod-id="product.productId" />
           <CaBrandAndName
-            :brand="product.brandName"
-            :brand-alias="product.brandAlias"
+            :brand="product.brand.name"
+            :brand-alias="product.brand.alias"
             :name="product.name"
             name-tag="h1"
           />
-          <CaPrice class="ca-product-page__price" :price="product.price" />
+          <CaPrice class="ca-product-page__price" :price="product.unitPrice" />
           <!-- eslint-disable vue/no-v-html -->
           <div
             class="ca-product-page__short-text"
             v-html="product.shortText"
           ></div>
-          <!-- <select v-model="chosenItemID" class="mar-bot-20">
-            <option
-              v-for="(item, index) in productItems"
-              :key="index"
-              :value="item.itemId"
-            >
-              {{ item.label }}
-            </option>
-          </select> -->
+
+          <p v-if="hasColorVariants" class="ca-product-page__variant-title">
+            {{ $t('PICK_COLOR') }}
+          </p>
+          <CaColorPicker
+            v-if="hasColorVariants"
+            class="ca-product-page__variant-picker"
+            :colors="colorVariants.values"
+            :current-color="product.currentProductVariant.value"
+            :aliases="colorProductAliases"
+            @changed="replaceProduct"
+          />
+          <p v-if="hasSkuVariants" class="ca-product-page__variant-title">
+            {{ $t('PICK_SIZE') }}
+          </p>
+          <CaSizePicker
+            v-if="hasSkuVariants"
+            class="ca-product-page__variant-picker"
+            :sizes="skuVariants"
+            :chosen-sku="chosenSku"
+            @reset="resetSku"
+            @changed="sizeChangeHandler"
+          />
           <CaProductQuantity
             class="ca-product-page__quantity"
             :quantity="quantity"
-            :max-quantity="10"
+            :max-quantity="currentStock"
             @changed="onQuantityChange"
           />
           <CaButton
             class="ca-product-page__buy-button"
             type="full-width"
             :loading="addToCartLoading"
+            :disabled="!chosenSku.id"
             @clicked="addToCartClick"
             >{{ $t('ADD_TO_CART') }}</CaButton
           >
+          <div class="ca-product-page__actions">
+            <CaIconAndText
+              class="ca-product-page__stock-status"
+              icon-name="box"
+            >
+              {{ stockStatusText }}
+            </CaIconAndText>
+          </div>
           <div class="ca-product-page__usps">
             <CaIconAndText
               class="ca-product-page__usp"
@@ -90,10 +113,12 @@ import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';
 import CaProductQuantity from 'CaProductQuantity';
+import CaColorPicker from 'CaColorPicker';
+import CaSizePicker from 'CaSizePicker';
 
 import MixAddToCart from 'MixAddToCart';
-
-import productQuery from 'product/product.graphql';
+import MixVariantHandler from 'MixVariantHandler';
+import MixProductPage from 'MixProductPage';
 
 export default {
   name: 'ProductPage',
@@ -107,48 +132,15 @@ export default {
     CaProductMeta,
     CaToggleFavorite,
     CaWidgetArea,
-    CaProductQuantity
+    CaProductQuantity,
+    CaColorPicker,
+    CaSizePicker
   },
-  mixins: [MixAddToCart],
-  apollo: {
-    product: {
-      query: productQuery,
-      variables() {
-        return {
-          alias: this.$route.params.alias,
-          apiKey: this.$config.apiKey.toString()
-        };
-      },
-      error(error) {
-        this.error = error.message;
-      }
-    }
-  },
-  data() {
-    return {
-      quantity: 1,
-      error: null
-    };
-  },
-  computed: {
-    productImages() {
-      return this.product && this.product.images && this.product.images.length
-        ? this.product.images
-        : [];
-    },
-    productItems() {
-      return this.attributes.filter(item => item.type === 'item')[0].values;
-    }
-  },
-  methods: {
-    onQuantityChange(value) {
-      this.quantity = value;
-    },
-    addToCartClick() {
-      this.addToCartLoading = true;
-      this.addToCart(this.product.items[0].itemId, this.quantity);
-    }
-  }
+  mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
+  data: () => ({}),
+  computed: {},
+  watch: {},
+  methods: {}
 };
 </script>
 
@@ -182,17 +174,33 @@ export default {
   &__short-text {
     margin-bottom: $px16;
   }
+  &__variant-title {
+    text-transform: uppercase;
+    font-size: $font-size-m;
+    margin-bottom: $px8;
+    font-weight: $font-weight-bold;
+  }
+  &__variant-picker {
+    margin-bottom: $default-spacing;
+  }
   &__quantity {
     margin-bottom: $px16;
   }
   &__buy-button {
     margin-bottom: $px20;
   }
+  &__stock-status {
+    font-size: $font-size-m;
+    font-weight: $font-weight-bold;
+  }
+  &__actions {
+    margin-bottom: $px24;
+  }
   &__usps {
     display: flex;
     justify-content: space-between;
     border-top: $border-light;
-    padding: $px16 0;
+    padding: $px16 0 $px40;
   }
   &__usp {
     padding: 0 $px4;

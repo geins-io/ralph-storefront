@@ -13,7 +13,7 @@
           type="product"
           size="300f300"
           :filename="product.images[0]"
-          :alt="product.brandName + ' ' + product.name"
+          :alt="product.brand.name + ' ' + product.name"
           :placeholder="
             require('~/assets/placeholders/product-image-square.png')
           "
@@ -32,11 +32,11 @@
     <div class="ca-product-card__info">
       <NuxtLink :to="'/p/' + product.alias">
         <CaBrandAndName
-          :brand="product.brandName"
+          :brand="product.brand.name"
           :name="product.name"
           name-tag="h2"
         />
-        <CaPrice class="ca-product-card__price" :price="product.price" />
+        <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
       </NuxtLink>
     </div>
   </component>

@@ -149,6 +149,7 @@ export default {
   publicRuntimeConfig: {
     productListPageSize: 20,
     productListDefaultSort: 'LATEST',
+    productStockFewLeftLimit: 6,
     imageServer: ImageServer,
     apiKey: ApiKey
   },

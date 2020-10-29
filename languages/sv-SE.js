@@ -63,5 +63,10 @@ export default {
     'En produkt i din är varukorg är tyvärr slut i lager. Var vänlig se över din varukorg och försök igen.',
   KLARNA_FAIL_BLOCKED:
     'Kunde inte skapa order då din användare är blockerad hos Klarna',
-  GO_BACK: 'Gå tillbaka'
+  GO_BACK: 'Gå tillbaka',
+  PICK_COLOR: 'Välj färg',
+  PICK_SIZE: 'Välj storlek',
+  STOCK_STATUS_IN_STOCK: 'I lager',
+  STOCK_STATUS_OUT_OF_STOCK: 'Slut i lager',
+  STOCK_STATUS_FEW_LEFT: 'Bara {quantity} kvar'
 };
