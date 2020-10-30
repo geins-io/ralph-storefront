@@ -19,10 +19,10 @@
           />
           <CaPrice class="ca-product-page__price" :price="product.unitPrice" />
           <!-- eslint-disable vue/no-v-html -->
-          <div
+          <!-- <div
             class="ca-product-page__short-text"
             v-html="product.shortText"
-          ></div>
+          ></div> -->
 
           <p v-if="hasColorVariants" class="ca-product-page__variant-title">
             {{ $t('PICK_COLOR') }}
@@ -50,13 +50,15 @@
             class="ca-product-page__quantity"
             :quantity="quantity"
             :max-quantity="currentStock"
+            :threshold="stockThreshold"
             @changed="onQuantityChange"
+            @thresholdReached="quantityThresholdHandler"
           />
           <CaButton
             class="ca-product-page__buy-button"
             type="full-width"
             :loading="addToCartLoading"
-            :disabled="!chosenSku.id"
+            :disabled="stockStatus === 'out-of-stock'"
             @clicked="addToCartClick"
             >{{ $t('ADD_TO_CART') }}</CaButton
           >

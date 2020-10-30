@@ -47,7 +47,8 @@ export default {
   CART_TOTAL: 'Totalt',
   CART_EMPTY: 'Din varukorg är tom',
   CART_TO_CHECKOUT: 'Gå till kassan',
-  CART_ITEM_ADDED: 'Din vara har lagts i varukorgen',
+  CART_ITEM_ADDED:
+    'Din vara har lagts i varukorgen | Dina varor har lagts i varukorgen',
   QUANTITY: 'Antal',
   ORDER_CONFIRM_TITLE: 'Orderbekräftelse',
   ORDER_CONFIRM_THANKS: 'Tack för din order!',
@@ -68,5 +69,9 @@ export default {
   PICK_SIZE: 'Välj storlek',
   STOCK_STATUS_IN_STOCK: 'I lager',
   STOCK_STATUS_OUT_OF_STOCK: 'Slut i lager',
-  STOCK_STATUS_FEW_LEFT: 'Bara {quantity} kvar'
+  STOCK_STATUS_FEW_LEFT: 'Bara {quantity} kvar',
+  MUST_CHOOSE_SIZE: 'Du måste välja storlek först',
+  CART_ADD_TOO_MANY: 'Du kan tyvärr inte lägga fler än {stock} i varukorgen',
+  QUANTITY_THRESHOLD_REACHED:
+    'Det finns tyvärr inga fler, då du redan har denna i varukorgen'
 };
