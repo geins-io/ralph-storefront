@@ -70,7 +70,7 @@ export default {
   STOCK_STATUS_IN_STOCK: 'I lager',
   STOCK_STATUS_OUT_OF_STOCK: 'Slut i lager',
   STOCK_STATUS_FEW_LEFT: 'Bara {quantity} kvar',
-  MUST_CHOOSE_SIZE: 'Du måste välja storlek först',
+  MUST_CHOOSE_SKU: 'Du måste välja storlek först',
   CART_ADD_TOO_MANY: 'Du kan tyvärr inte lägga fler än {stock} i varukorgen',
   QUANTITY_THRESHOLD_REACHED:
     'Det finns tyvärr inga fler, då du redan har denna i varukorgen'

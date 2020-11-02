@@ -70,7 +70,7 @@ export default {
   STOCK_STATUS_IN_STOCK: 'In stock',
   STOCK_STATUS_OUT_OF_STOCK: 'Out of stock',
   STOCK_STATUS_FEW_LEFT: 'Only {quantity} left',
-  MUST_CHOOSE_SIZE: 'You have to pick a size first',
+  MUST_CHOOSE_SKU: 'You have to pick a size first',
   CART_ADD_TOO_MANY:
     'Unfortunately you can not add more than {stock} to the cart',
   QUANTITY_THRESHOLD_REACHED:
