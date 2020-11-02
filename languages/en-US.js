@@ -47,7 +47,8 @@ export default {
   CART_TOTAL: 'Total',
   CART_EMPTY: 'Your cart is empty',
   CART_TO_CHECKOUT: 'Proceed to checkout',
-  CART_ITEM_ADDED: 'Your item was added to the cart',
+  CART_ITEM_ADDED:
+    'Your item was added to the cart | Your items was added to the cart',
   QUANTITY: 'Quantity',
   ORDER_CONFIRM_TITLE: 'Order confirmation',
   ORDER_CONFIRM_THANKS: 'Thanks for your order!',
@@ -68,5 +69,10 @@ export default {
   PICK_SIZE: 'Pick size',
   STOCK_STATUS_IN_STOCK: 'In stock',
   STOCK_STATUS_OUT_OF_STOCK: 'Out of stock',
-  STOCK_STATUS_FEW_LEFT: 'Only {quantity} left'
+  STOCK_STATUS_FEW_LEFT: 'Only {quantity} left',
+  MUST_CHOOSE_SKU: 'You have to pick a size first',
+  CART_ADD_TOO_MANY:
+    'Unfortunately you can not add more than {stock} to the cart',
+  QUANTITY_THRESHOLD_REACHED:
+    'Stock limit reached, since you have already added this item to your cart'
 };

@@ -104,7 +104,7 @@
         </li>
       </ul>
     </nav>
-    <CaSearch v-if="!$store.getters.viewportLaptop" :opened="searchOpened" />
+    <CaSearch class="only-mobile" :opened="searchOpened" />
   </header>
 </template>
 <script>

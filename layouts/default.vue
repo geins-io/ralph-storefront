@@ -1,20 +1,23 @@
 <template>
   <div class="ca-layout-default">
     <CaHeader />
-    <CaSnackbar />
     <div class="ca-main">
       <Nuxt />
     </div>
     <CaFooter />
     <transition name="fade">
-      <div v-if="$apollo.loading" class="ca-layout-default__loading">
+      <div
+        v-if="$apollo.loading || $store.state.loading"
+        class="ca-layout-default__loading"
+      >
         <CaSpinner
           class="ca-layout-default__spinner"
-          :loading="$apollo.loading"
+          :loading="$apollo.loading || $store.state.loading"
         />
       </div>
     </transition>
     <CaDisplayCart />
+    <CaSnackbar />
   </div>
 </template>
 <script>
@@ -48,11 +51,14 @@ export default {
   &__loading {
     @include halign;
     position: fixed;
-    bottom: 20px;
+    top: $header-bar-height + $top-bar-height + $px12;
     z-index: $z-index-panel;
     background: $c-darkest-gray;
     padding: $px8;
     border-radius: 50%;
+    @include bp(laptop) {
+      top: $header-height-desktop + $default-spacing;
+    }
   }
 }
 </style>
