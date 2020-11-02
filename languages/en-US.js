@@ -72,7 +72,13 @@ export default {
   STOCK_STATUS_FEW_LEFT: 'Only {quantity} left',
   MUST_CHOOSE_SKU: 'You have to pick a size first',
   CART_ADD_TOO_MANY:
-    'Unfortunately you can not add more than {stock} to the cart',
+    'Unfortunately you can not add any more of this to your cart. Only {stock} left in stock',
   QUANTITY_THRESHOLD_REACHED:
-    'Stock limit reached, since you have already added this item to your cart'
+    'You can not add any more since you already have {quantity} in your cart',
+  PRODUCT_DESCRIPTION: 'Product description',
+  NO_PRODUCT_DESCRIPTION:
+    'Unfortunately there is no product description available for this product.',
+  PRODUCT_SPECIFICATION: 'Specification',
+  NO_PRODUCT_SPECIFICATION:
+    'Unfortunately there are no specifications available for this product.'
 };

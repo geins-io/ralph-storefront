@@ -71,7 +71,14 @@ export default {
   STOCK_STATUS_OUT_OF_STOCK: 'Slut i lager',
   STOCK_STATUS_FEW_LEFT: 'Bara {quantity} kvar',
   MUST_CHOOSE_SKU: 'Du måste välja storlek först',
-  CART_ADD_TOO_MANY: 'Du kan tyvärr inte lägga fler än {stock} i varukorgen',
+  CART_ADD_TOO_MANY:
+    'Du kan tyvärr inte lägga fler i varukorgen. Endast {stock} kvar på lager',
   QUANTITY_THRESHOLD_REACHED:
-    'Det finns tyvärr inga fler, då du redan har denna i varukorgen'
+    'Du kan inte addera flera då du redan har {quantity} i varukorgen',
+  PRODUCT_DESCRIPTION: 'Produktbeskrivning',
+  NO_PRODUCT_DESCRIPTION:
+    'Det finns tyvärr ingen produktbeskrivning att visa för denna produkt.',
+  PRODUCT_SPECIFICATION: 'Specifikation',
+  NO_PRODUCT_SPECIFICATION:
+    'Det finns tyvärr inga specifikationer att visa för denna produkt.'
 };
