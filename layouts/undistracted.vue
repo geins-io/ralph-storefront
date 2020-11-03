@@ -1,9 +1,9 @@
 <template>
   <div class="ca-layout-undistracted">
     <CaTopBar :undistracted="true" />
-    <div class="ca-main">
+    <main class="ca-main">
       <Nuxt />
-    </div>
+    </main>
   </div>
 </template>
 <script>
