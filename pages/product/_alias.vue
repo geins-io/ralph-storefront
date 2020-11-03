@@ -2,7 +2,7 @@
   <div class="ca-product-page">
     <CaProductMeta v-if="product !== undefined" :product="product" />
     <CaContainer>
-      <div class="ca-product-page__section">
+      <section class="ca-product-page__section">
         <CaProductGallery
           v-if="product !== undefined"
           class="ca-product-page__gallery"
@@ -19,10 +19,11 @@
           />
           <CaPrice class="ca-product-page__price" :price="product.unitPrice" />
           <!-- eslint-disable vue/no-v-html -->
-          <!-- <div
-            class="ca-product-page__short-text"
-            v-html="product.shortText"
-          ></div> -->
+          <div
+            v-if="product !== undefined && product.texts.text1"
+            class="ca-product-page__product-summary"
+            v-html="product.texts.text1"
+          ></div>
 
           <p v-if="hasColorVariants" class="ca-product-page__variant-title">
             {{ $t('PICK_COLOR') }}
@@ -94,12 +95,33 @@
             </CaIconAndText>
           </div>
         </div>
-      </div>
-      <CaWidgetArea
-        class="ca-product-page__widget-area"
-        family="Product"
-        area-name="Product detail page"
-      />
+      </section>
+      <section class="ca-product-page__section">
+        <CaProductAccordion
+          v-if="product !== undefined"
+          class="ca-product-page__accordion"
+          :product="product"
+        />
+        <div class="ca-product-page__specifications-box only-desktop">
+          <h2 class="ca-product-page__specifications-title">
+            {{ $t('PRODUCT_SPECIFICATION') }}
+          </h2>
+          <CaSpecifications
+            v-if="product !== undefined && product.parameterGroups !== null"
+            :specification-groups="product.parameterGroups"
+          />
+          <p v-else>
+            {{ $t('NO_PRODUCT_SPECIFICATION') }}
+          </p>
+        </div>
+      </section>
+      <section class="ca-product-page__section">
+        <CaWidgetArea
+          class="ca-product-page__widget-area"
+          family="Product"
+          area-name="Product detail page"
+        />
+      </section>
     </CaContainer>
   </div>
 </template>
@@ -117,6 +139,8 @@ import CaToggleFavorite from 'CaToggleFavorite';
 import CaProductQuantity from 'CaProductQuantity';
 import CaColorPicker from 'CaColorPicker';
 import CaSizePicker from 'CaSizePicker';
+import CaSpecifications from 'CaSpecifications';
+import CaProductAccordion from 'CaProductAccordion';
 
 import MixAddToCart from 'MixAddToCart';
 import MixVariantHandler from 'MixVariantHandler';
@@ -136,7 +160,9 @@ export default {
     CaWidgetArea,
     CaProductQuantity,
     CaColorPicker,
-    CaSizePicker
+    CaSizePicker,
+    CaSpecifications,
+    CaProductAccordion
   },
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
   data: () => ({}),
@@ -147,11 +173,15 @@ export default {
 </script>
 
 <style lang="scss">
+$column-width: 48.2%;
 .ca-product-page {
   &__section {
+    margin-bottom: $px20;
     @include bp(laptop) {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: $px56;
     }
   }
   &__main {
@@ -167,13 +197,14 @@ export default {
     @include bp(laptop) {
       display: flex;
       justify-content: space-between;
-      width: 49.6%;
+      width: $column-width;
+      margin-right: $px48;
     }
   }
   &__price {
     margin: $px4 0 $px8;
   }
-  &__short-text {
+  &__product-summary {
     margin-bottom: $px16;
   }
   &__variant-title {
@@ -202,7 +233,7 @@ export default {
     display: flex;
     justify-content: space-between;
     border-top: $border-light;
-    padding: $px16 0 $px40;
+    padding: $px16 0 0;
   }
   &__usp {
     padding: 0 $px4;
@@ -210,6 +241,25 @@ export default {
     .ca-icon {
       margin-bottom: $px4;
     }
+  }
+  &__accordion {
+    margin: 0 -#{$default-spacing/2} $default-spacing;
+    @include bp(laptop) {
+      margin: 0;
+      width: $column-width;
+    }
+  }
+  &__specifications-box {
+    @include bp(laptop) {
+      width: $column-width;
+      background: $c-lightest-gray;
+      padding: 0 $px24 $px16;
+    }
+  }
+  &__specifications-title {
+    font-size: $font-size-l;
+    font-weight: $font-weight-bold;
+    padding: 1rem 0;
   }
 }
 </style>

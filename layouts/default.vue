@@ -1,9 +1,9 @@
 <template>
   <div class="ca-layout-default">
     <CaHeader />
-    <div class="ca-main">
+    <main class="ca-main">
       <Nuxt />
-    </div>
+    </main>
     <CaFooter />
     <transition name="fade">
       <div
