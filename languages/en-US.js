@@ -80,5 +80,6 @@ export default {
     'Unfortunately there is no product description available for this product.',
   PRODUCT_SPECIFICATION: 'Specification',
   NO_PRODUCT_SPECIFICATION:
-    'Unfortunately there are no specifications available for this product.'
+    'Unfortunately there are no specifications available for this product.',
+  RESET_FILTERS: 'Reset filters'
 };

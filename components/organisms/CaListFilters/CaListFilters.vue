@@ -41,6 +41,15 @@
         :selection="selection.discountCampaigns"
         @selectionchange="currentSelection.discountCampaigns = $event"
       /> -->
+      <button
+        v-if="selectionActive"
+        class="ca-list-filters__reset"
+        @click="resetFilters"
+      >
+        <CaIconAndText class="ca-list-filters__reset-text" icon-name="x-circle">
+          {{ $t('RESET_FILTERS') }}
+        </CaIconAndText>
+      </button>
     </div>
     <CaContentPanel
       name="filters"
@@ -88,6 +97,7 @@
             color="secondary"
             size="l"
             type="full-width"
+            :disabled="!selectionActive"
             @clicked="resetFilters"
           >
             {{ $t('RESET_FILTER') }}
@@ -112,6 +122,7 @@ import CaFilterRange from 'CaFilterRange';
 import CaContentPanel from 'CaContentPanel';
 import CaButton from 'CaButton';
 import CaAccordionItem from 'CaAccordionItem';
+import CaIconAndText from 'CaIconAndText';
 import eventbus from '~/plugins/event-bus.js';
 // @group Organisms
 // @vuese
@@ -123,7 +134,8 @@ export default {
     CaButton,
     CaAccordionItem,
     CaFilterMulti,
-    CaFilterRange
+    CaFilterRange,
+    CaIconAndText
   },
   mixins: [],
   props: {
@@ -133,6 +145,10 @@ export default {
     },
     selection: {
       type: Object,
+      required: true
+    },
+    selectionActive: {
+      type: Boolean,
       required: true
     }
   },
@@ -165,7 +181,7 @@ export default {
 .ca-list-filters {
   @include bp(laptop) {
     border-top: $border-light;
-    margin-bottom: $px32;
+    margin-bottom: $px24;
     padding-top: $px24;
   }
   &__title {
@@ -176,16 +192,19 @@ export default {
   &__filters {
     position: relative;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-
-    @include bp(laptop) {
-      width: 70%;
-    }
   }
   &__filter {
     &:not(:last-child) {
       margin-right: $px20;
     }
+  }
+  &__active {
+    margin-top: $px16;
+  }
+  &__reset {
+    text-decoration: underline;
   }
   &__wrapper {
     padding: $px16;

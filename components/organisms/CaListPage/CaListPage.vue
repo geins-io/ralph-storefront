@@ -22,6 +22,7 @@
       <CaListFilters
         :filters="filters"
         :selection="selection"
+        :selection-active="filterSelectionActive"
         @selectionchange="filterChangeHandler($event)"
         @reset="resetFilters"
       />

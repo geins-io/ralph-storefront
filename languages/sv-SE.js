@@ -80,5 +80,6 @@ export default {
     'Det finns tyvärr ingen produktbeskrivning att visa för denna produkt.',
   PRODUCT_SPECIFICATION: 'Specifikation',
   NO_PRODUCT_SPECIFICATION:
-    'Det finns tyvärr inga specifikationer att visa för denna produkt.'
+    'Det finns tyvärr inga specifikationer att visa för denna produkt.',
+  RESET_FILTERS: 'Återställ filter'
 };
