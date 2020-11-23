@@ -5,24 +5,37 @@
     </h3>
     <div v-if="$store.getters.viewportLaptop" class="ca-list-filters__filters">
       <CaFilter
-        v-if="filters.categories && filters.categories.length > 1"
+        v-if="filters && filters.categories && filters.categories.length > 1"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_CATEGORIES')"
         :values="filters.categories"
         :selection="selection.categories"
         @selectionchange="currentSelection.categories = $event"
       />
+      <CaSkeleton
+        v-else-if="!filters"
+        class="ca-list-filters__filter"
+        width="200px"
+        height="40px"
+      />
       <CaFilter
-        v-if="filters.brands && filters.brands.length > 1"
+        v-if="filters && filters.brands && filters.brands.length > 1"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_BRANDS')"
         :values="filters.brands"
         :selection="selection.brands"
         @selectionchange="currentSelection.brands = $event"
       />
+      <CaSkeleton
+        v-else-if="!filters"
+        class="ca-list-filters__filter"
+        width="200px"
+        height="40px"
+      />
       <CaFilter
         v-if="
-          filters.price &&
+          filters &&
+            filters.price &&
             selection.price &&
             filters.price.lowest !== filters.price.highest
         "
@@ -32,6 +45,12 @@
         :values="filters.price"
         :selection="selection.price"
         @selectionchange="currentSelection.price = $event"
+      />
+      <CaSkeleton
+        v-else-if="!filters"
+        class="ca-list-filters__filter"
+        width="200px"
+        height="40px"
       />
       <!-- <CaFilter
         v-if="filters.discountCampaigns && filters.discountCampaigns.length"
@@ -52,6 +71,7 @@
       </button>
     </div>
     <CaContentPanel
+      v-if="filters"
       name="filters"
       enter-from-mobile="left"
       :only-mobile="true"
@@ -123,6 +143,7 @@ import CaContentPanel from 'CaContentPanel';
 import CaButton from 'CaButton';
 import CaAccordionItem from 'CaAccordionItem';
 import CaIconAndText from 'CaIconAndText';
+import CaSkeleton from 'CaSkeleton';
 import eventbus from '~/plugins/event-bus.js';
 // @group Organisms
 // @vuese
@@ -135,7 +156,8 @@ export default {
     CaAccordionItem,
     CaFilterMulti,
     CaFilterRange,
-    CaIconAndText
+    CaIconAndText,
+    CaSkeleton
   },
   mixins: [],
   props: {

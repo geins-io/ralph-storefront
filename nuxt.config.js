@@ -11,7 +11,6 @@ const ApiKey = inDev ? process.env.API_KEY : '#{ApiKey}#';
 const ApiEndpoint = inDev ? process.env.API_ENDPOINT : '#{ApiEndpoint}#';
 
 export default {
-  mode: 'universal',
   /*
    ** Headers of the page
    */
@@ -150,6 +149,7 @@ export default {
     productListPageSize: 20,
     productListDefaultSort: 'LATEST',
     productStockFewLeftLimit: 6,
+    productImageRatio: 1 / 1,
     imageServer: ImageServer,
     apiKey: ApiKey
   },

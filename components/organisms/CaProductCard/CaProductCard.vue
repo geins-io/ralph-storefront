@@ -12,11 +12,9 @@
           class="ca-product-card__image"
           type="product"
           size="300f300"
+          :ratio="$config.productImageRatio"
           :filename="product.images[0]"
           :alt="product.brand.name + ' ' + product.name"
-          :placeholder="
-            require('~/assets/placeholders/product-image-square.png')
-          "
         />
         <img
           v-else

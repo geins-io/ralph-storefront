@@ -2,15 +2,22 @@
   <!--eslint-disable vue/no-v-html-->
   <div class="ca-list-top">
     <div class="ca-list-top__text">
-      <h1 class="ca-list-top__title">{{ listInfo.name }}</h1>
+      <h1 v-if="listInfo" class="ca-list-top__title">{{ listInfo.name }}</h1>
+      <CaSkeleton v-else class="ca-list-top__title" width="30%" />
       <CaReadMore
-        v-if="listInfo.primaryDescription !== ''"
+        v-if="listInfo && listInfo.primaryDescription !== ''"
         class="ca-list-top__description"
       >
         <div v-html="listInfo.primaryDescription"></div>
       </CaReadMore>
+      <div v-else-if="!listInfo" class="ca-list-top__description">
+        <CaSkeleton width="70%" />
+        <CaSkeleton />
+        <CaSkeleton width="60%" />
+      </div>
     </div>
     <CaCategoryDisplay
+      v-if="listInfo"
       class="ca-list-top__subcategories"
       :categories="listInfo.subCategories"
     />
@@ -19,11 +26,12 @@
 <script>
 import CaCategoryDisplay from 'CaCategoryDisplay';
 import CaReadMore from 'CaReadMore';
+import CaSkeleton from 'CaSkeleton';
 // @group Organisms
 // @vuese
 export default {
   name: 'CaListTop',
-  components: { CaCategoryDisplay, CaReadMore },
+  components: { CaCategoryDisplay, CaReadMore, CaSkeleton },
   mixins: [],
   props: {
     type: {
