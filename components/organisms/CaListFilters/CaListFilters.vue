@@ -5,7 +5,11 @@
     </h3>
     <div v-if="$store.getters.viewportLaptop" class="ca-list-filters__filters">
       <CaFilter
-        v-if="filters && filters.categories && filters.categories.length > 1"
+        v-if="
+          filtersPopulated &&
+            filters.categories &&
+            filters.categories.length > 1
+        "
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_CATEGORIES')"
         :values="filters.categories"
@@ -13,13 +17,13 @@
         @selectionchange="currentSelection.categories = $event"
       />
       <CaSkeleton
-        v-else-if="!filters"
+        v-else-if="!filtersPopulated"
         class="ca-list-filters__filter"
         width="200px"
         height="40px"
       />
       <CaFilter
-        v-if="filters && filters.brands && filters.brands.length > 1"
+        v-if="filtersPopulated && filters.brands && filters.brands.length > 1"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_BRANDS')"
         :values="filters.brands"
@@ -27,14 +31,14 @@
         @selectionchange="currentSelection.brands = $event"
       />
       <CaSkeleton
-        v-else-if="!filters"
+        v-else-if="!filtersPopulated"
         class="ca-list-filters__filter"
         width="200px"
         height="40px"
       />
       <CaFilter
         v-if="
-          filters &&
+          filtersPopulated &&
             filters.price &&
             selection.price &&
             filters.price.lowest !== filters.price.highest
@@ -47,7 +51,7 @@
         @selectionchange="currentSelection.price = $event"
       />
       <CaSkeleton
-        v-else-if="!filters"
+        v-else-if="!filtersPopulated"
         class="ca-list-filters__filter"
         width="200px"
         height="40px"
@@ -177,7 +181,14 @@ export default {
   data: () => ({
     currentSelection: {}
   }),
-  computed: {},
+  computed: {
+    filtersPopulated() {
+      return (
+        Object.keys(this.filters).length > 0 &&
+        this.filters.constructor === Object
+      );
+    }
+  },
   watch: {
     currentSelection: {
       deep: true,

@@ -53,9 +53,11 @@
         :skip="currentMinCount - 1"
         :page-size="pageSize"
         :products="productList"
+        :filters-active="filterSelectionActive"
       />
 
       <CaListPagination
+        v-if="productList.length"
         direction="next"
         :showing="showing"
         :total-count="totalCount"

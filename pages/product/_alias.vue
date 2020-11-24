@@ -115,7 +115,7 @@
           </p>
         </div>
       </section>
-      <section class="ca-product-page__section">
+      <section class="ca-product-page__widget-section">
         <CaWidgetArea
           class="ca-product-page__widget-area"
           family="Product"
