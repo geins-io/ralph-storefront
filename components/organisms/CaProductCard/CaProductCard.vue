@@ -16,10 +16,12 @@
           :filename="product.images[0]"
           :alt="product.brand.name + ' ' + product.name"
         />
-        <img
+        <CaImage
           v-else
           class="ca-product-card__image"
+          :ratio="$config.productImageRatio"
           :src="require('~/assets/placeholders/product-image-square.png')"
+          :alt="product.brand.name + ' ' + product.name"
         />
       </NuxtLink>
       <CaToggleFavorite

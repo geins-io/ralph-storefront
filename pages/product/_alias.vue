@@ -9,6 +9,42 @@
           :images="productImages"
           :alt="product.brand.name + ' ' + product.name"
         />
+        <div v-else class="ca-product-page__gallery ca-product-gallery">
+          <div class="ca-product-gallery__nav only-desktop">
+            <div class="ca-product-gallery__nav-slide">
+              <CaSkeleton
+                class="ca-product-gallery__nav-image"
+                :ratio="$config.productImageRatio"
+                :radius="false"
+              />
+            </div>
+            <div class="ca-product-gallery__nav-slide">
+              <CaSkeleton
+                class="ca-product-gallery__nav-image"
+                :ratio="$config.productImageRatio"
+                :radius="false"
+              />
+            </div>
+            <div class="ca-product-gallery__nav-slide">
+              <CaSkeleton
+                class="ca-product-gallery__nav-image"
+                :ratio="$config.productImageRatio"
+                :radius="false"
+              />
+            </div>
+          </div>
+          <div class="ca-product-gallery__slider">
+            <div
+              class="ca-product-gallery__slide ca-product-page__skeleton-main-slide"
+            >
+              <CaSkeleton
+                class="ca-product-gallery__image"
+                :ratio="$config.productImageRatio"
+                :radius="false"
+              />
+            </div>
+          </div>
+        </div>
         <div v-if="product !== undefined" class="ca-product-page__main">
           <CaToggleFavorite :prod-id="product.productId" />
           <CaBrandAndName
@@ -61,8 +97,9 @@
             :loading="addToCartLoading"
             :disabled="stockStatus === 'out-of-stock'"
             @clicked="addToCartClick"
-            >{{ $t('ADD_TO_CART') }}</CaButton
           >
+            {{ $t('ADD_TO_CART') }}
+          </CaButton>
           <div class="ca-product-page__actions">
             <CaIconAndText
               class="ca-product-page__stock-status"
@@ -94,6 +131,20 @@
               {{ $t('USP_3') }}
             </CaIconAndText>
           </div>
+        </div>
+        <div
+          v-else
+          class="ca-product-page__main ca-product-page__main--skeleton"
+        >
+          <CaSkeleton width="30%" />
+          <CaSkeleton width="50%" />
+          <CaSkeleton width="20%" />
+          <CaSkeleton width="70%" />
+          <CaSkeleton
+            class="ca-product-page__skeleton-button"
+            width="100%"
+            height="50px"
+          />
         </div>
       </section>
       <section class="ca-product-page__section">
@@ -141,6 +192,7 @@ import CaColorPicker from 'CaColorPicker';
 import CaSizePicker from 'CaSizePicker';
 import CaSpecifications from 'CaSpecifications';
 import CaProductAccordion from 'CaProductAccordion';
+import CaSkeleton from 'CaSkeleton';
 
 import MixAddToCart from 'MixAddToCart';
 import MixVariantHandler from 'MixVariantHandler';
@@ -162,7 +214,8 @@ export default {
     CaColorPicker,
     CaSizePicker,
     CaSpecifications,
-    CaProductAccordion
+    CaProductAccordion,
+    CaSkeleton
   },
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
   data: () => ({}),
@@ -201,6 +254,12 @@ $column-width: 48.2%;
       margin-right: $px48;
     }
   }
+  &__skeleton-main-slide {
+    @include bp(tablet-down) {
+      width: 69.5%;
+      margin: 0 auto;
+    }
+  }
   &__price {
     margin: $px4 0 $px8;
   }
@@ -218,6 +277,11 @@ $column-width: 48.2%;
   }
   &__quantity {
     margin-bottom: $px16;
+  }
+  &__skeleton-button {
+    .ca-skeleton + & {
+      margin-top: $px32;
+    }
   }
   &__buy-button {
     margin-bottom: $px20;
