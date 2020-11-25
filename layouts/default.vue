@@ -1,21 +1,23 @@
 <template>
-  <div class="ca-layout-default">
+  <div class="ca-layout-default" :class="modifiers">
     <CaHeader />
-    <main class="ca-main">
+    <main class="ca-layout-default__main">
       <Nuxt />
     </main>
     <CaFooter />
-    <transition name="fade">
-      <div
-        v-if="$apollo.loading || $store.state.loading"
-        class="ca-layout-default__loading"
-      >
-        <CaSpinner
-          class="ca-layout-default__spinner"
-          :loading="$apollo.loading || $store.state.loading"
-        />
-      </div>
-    </transition>
+    <client-only>
+      <transition name="fade">
+        <div
+          v-if="$apollo.loading || $store.state.loading.loading"
+          class="ca-layout-default__loading"
+        >
+          <CaSpinner
+            class="ca-layout-default__spinner"
+            :loading="$apollo.loading || $store.state.loading.loading"
+          />
+        </div>
+      </transition>
+    </client-only>
     <CaDisplayCart />
     <CaSnackbar />
   </div>
@@ -37,12 +39,21 @@ export default {
     CaFooter,
     CaDisplayCart
   },
-  mixins: [MixGlobalInit]
+  mixins: [MixGlobalInit],
+  computed: {
+    modifiers() {
+      return {
+        'ca-layout-default--loading': this.$store.state.loading.loading
+      };
+    }
+  },
+  mounted() {}
 };
 </script>
 <style lang="scss">
 .ca-layout-default {
-  .ca-main {
+  $block: &;
+  &__main {
     padding-top: $header-height + $default-spacing;
     @include bp(laptop) {
       padding-top: $header-height-desktop + $default-spacing * 2;
@@ -58,6 +69,11 @@ export default {
     border-radius: 50%;
     @include bp(laptop) {
       top: $header-height-desktop + $default-spacing;
+    }
+  }
+  &--loading {
+    #{$block}__main {
+      min-height: 100vh;
     }
   }
 }

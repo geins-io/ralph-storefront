@@ -71,7 +71,7 @@ export default {
           margin-right: $px24;
         }
       }
-      &:before {
+      &::before {
         content: '';
         width: 20px;
         height: 20px;
@@ -82,7 +82,7 @@ export default {
         margin-right: $px8;
       }
       &--active {
-        &:before {
+        &::before {
           background: $c-darkest-gray;
         }
       }

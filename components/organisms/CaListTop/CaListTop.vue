@@ -2,15 +2,29 @@
   <!--eslint-disable vue/no-v-html-->
   <div class="ca-list-top">
     <div class="ca-list-top__text">
-      <h1 class="ca-list-top__title">{{ listInfo.name }}</h1>
+      <h1 v-if="listInfo" class="ca-list-top__title">{{ listInfo.name }}</h1>
+      <CaSkeleton
+        v-else
+        class="ca-list-top__title ca-list-top__title--skeleton"
+        width="30%"
+      />
       <CaReadMore
-        v-if="listInfo.primaryDescription !== ''"
+        v-if="listInfo && listInfo.primaryDescription !== ''"
         class="ca-list-top__description"
       >
         <div v-html="listInfo.primaryDescription"></div>
       </CaReadMore>
+      <div
+        v-else-if="!listInfo"
+        class="ca-list-top__description ca-list-top__description--skeleton"
+      >
+        <CaSkeleton width="70%" />
+        <CaSkeleton />
+        <CaSkeleton width="60%" />
+      </div>
     </div>
     <CaCategoryDisplay
+      v-if="listInfo"
       class="ca-list-top__subcategories"
       :categories="listInfo.subCategories"
     />
@@ -19,11 +33,12 @@
 <script>
 import CaCategoryDisplay from 'CaCategoryDisplay';
 import CaReadMore from 'CaReadMore';
+import CaSkeleton from 'CaSkeleton';
 // @group Organisms
 // @vuese
 export default {
   name: 'CaListTop',
-  components: { CaCategoryDisplay, CaReadMore },
+  components: { CaCategoryDisplay, CaReadMore, CaSkeleton },
   mixins: [],
   props: {
     type: {
@@ -48,14 +63,15 @@ export default {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin: 0 0 $px32;
   @include bp(laptop) {
     text-align: left;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: $px32;
   }
   &__text {
+    width: 100%;
     @include bp(laptop) {
       width: 50%;
       max-width: 700px;
@@ -64,14 +80,30 @@ export default {
   &__title {
     font-size: $font-size-l;
     font-weight: $font-weight-bold;
-    margin-bottom: $px4;
+    margin: 0 0 $px4;
     @include bp(tablet) {
       font-size: $font-size-xxl;
-      margin-bottom: $px8;
+      margin: 0 0 $px8;
+    }
+    &--skeleton {
+      margin: 0 auto $px8;
+      @include bp(tablet) {
+        margin: 0 0 $px8;
+      }
+    }
+  }
+
+  &__description {
+    &--skeleton {
+      @include bp(tablet-down) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     }
   }
   &__subcategories {
-    margin: $px20 -1.2rem $px32 0;
+    margin: $px20 -1.2rem 0 0;
     max-width: 100%;
     @include bp(laptop) {
       margin: -$px8;

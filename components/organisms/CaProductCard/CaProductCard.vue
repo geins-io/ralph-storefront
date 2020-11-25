@@ -1,6 +1,6 @@
 <template>
   <component :is="baseTag" class="ca-product-card" @click="productClickHandler">
-    <div class="ca-product-card__image-wrap">
+    <div v-if="productPopulated" class="ca-product-card__image-wrap">
       <NuxtLink
         class="ca-product-card__image-link"
         tabindex="-1"
@@ -12,16 +12,16 @@
           class="ca-product-card__image"
           type="product"
           size="300f300"
+          :ratio="$config.productImageRatio"
           :filename="product.images[0]"
           :alt="product.brand.name + ' ' + product.name"
-          :placeholder="
-            require('~/assets/placeholders/product-image-square.png')
-          "
         />
-        <img
+        <CaImage
           v-else
           class="ca-product-card__image"
+          :ratio="$config.productImageRatio"
           :src="require('~/assets/placeholders/product-image-square.png')"
+          :alt="product.brand.name + ' ' + product.name"
         />
       </NuxtLink>
       <CaToggleFavorite
@@ -29,8 +29,15 @@
         :prod-id="product.productId"
       />
     </div>
+    <CaSkeleton
+      v-else
+      class="ca-product-card__image-wrap"
+      :ratio="$config.productImageRatio"
+      :radius="false"
+    />
+
     <div class="ca-product-card__info">
-      <NuxtLink :to="'/p/' + product.alias">
+      <NuxtLink v-if="productPopulated" :to="'/p/' + product.alias">
         <CaBrandAndName
           :brand="product.brand.name"
           :name="product.name"
@@ -38,6 +45,11 @@
         />
         <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
       </NuxtLink>
+      <div v-else>
+        <CaSkeleton width="30%" />
+        <CaSkeleton width="70%" />
+        <CaSkeleton width="50%" />
+      </div>
     </div>
   </component>
 </template>
@@ -47,11 +59,19 @@ import CaImage from 'CaImage';
 import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';
+import CaSkeleton from 'CaSkeleton';
 // @group Organisms
 // @vuese
 export default {
   name: 'CaProductCard',
-  components: { CaButton, CaImage, CaBrandAndName, CaPrice, CaToggleFavorite },
+  components: {
+    CaButton,
+    CaImage,
+    CaBrandAndName,
+    CaPrice,
+    CaToggleFavorite,
+    CaSkeleton
+  },
   mixins: [],
   props: {
     baseTag: {
@@ -68,7 +88,11 @@ export default {
     }
   },
   data: () => ({}),
-  computed: {},
+  computed: {
+    productPopulated() {
+      return Object.keys(this.product).length > 0;
+    }
+  },
   watch: {},
   mounted() {},
   methods: {

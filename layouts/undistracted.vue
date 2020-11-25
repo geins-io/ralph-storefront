@@ -1,7 +1,7 @@
 <template>
   <div class="ca-layout-undistracted">
     <CaTopBar :undistracted="true" />
-    <main class="ca-main">
+    <main class="ca-layout-undistracted__main">
       <Nuxt />
     </main>
   </div>
@@ -21,7 +21,7 @@ export default {
 .ca-layout-undistracted {
   background: $c-light-gray;
   min-height: 100vh;
-  .ca-main {
+  &__main {
     padding-top: rem-calc(15px);
     @include bp(laptop) {
       padding-top: $default-spacing * 2;

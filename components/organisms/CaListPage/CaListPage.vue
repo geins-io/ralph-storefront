@@ -1,16 +1,22 @@
 <template>
   <div class="ca-list-page" :class="modifier">
-    <CaContainer v-if="listInfo !== null">
+    <CaContainer>
       <CaListTop :type="type" :list-info="listInfo" />
 
       <CaImage
-        v-if="type === 'category' && listInfo.primaryImage"
+        v-if="type === 'category' && listInfo && listInfo.primaryImage"
         class="ca-list-page__image"
         size="1280w"
         type="categoryheader"
         :alt="listInfo.name"
         :filename="listInfo.primaryImage"
-        :placeholder="listInfo.primaryImage"
+        :ratio="271 / 1280"
+      />
+      <CaSkeleton
+        v-else-if="!listInfo"
+        class="ca-list-page__image"
+        :ratio="271 / 1280"
+        :radius="false"
       />
 
       <CaWidgetArea
@@ -47,9 +53,11 @@
         :skip="currentMinCount - 1"
         :page-size="pageSize"
         :products="productList"
+        :filters-active="filterSelectionActive"
       />
 
       <CaListPagination
+        v-if="productList.length"
         direction="next"
         :showing="showing"
         :total-count="totalCount"
@@ -76,6 +84,7 @@ import CaListFilters from 'CaListFilters';
 import CaListSettings from 'CaListSettings';
 import CaProductList from 'CaProductList';
 import MixListPage from 'MixListPage';
+import CaSkeleton from 'CaSkeleton';
 
 // @group Organisms
 // @vuese
@@ -89,7 +98,8 @@ export default {
     CaListSettings,
     CaListFilters,
     CaImage,
-    CaWidgetArea
+    CaWidgetArea,
+    CaSkeleton
   },
   mixins: [MixListPage],
 
@@ -104,7 +114,10 @@ export default {
 <style lang="scss">
 .ca-list-page {
   &__image {
-    margin-bottom: $px32;
+    margin: 0 0 $px32 0;
+  }
+  &__widget-area {
+    margin: 0 0 $px32 0;
   }
 }
 </style>
