@@ -82,5 +82,7 @@ export default {
   NO_PRODUCT_SPECIFICATION:
     'Unfortunately there are no specifications available for this product.',
   RESET_FILTERS: 'Reset filters',
-  NO_PRODUCTS_MATCH: 'No products are matching your selection'
+  NO_PRODUCTS_MATCH: 'No products are matching your selection',
+  SKU_NOT_CHOSEN: 'Not chosen',
+  SKU_LABEL: 'Size'
 };

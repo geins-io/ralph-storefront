@@ -6,7 +6,7 @@
         <CaCheckoutKlarna :confirm="true" />
       </CaCheckoutSection>
       <CaCheckoutSection :bottom-arrow="false">
-        <template v-slot:title>
+        <template #title>
           {{ $t('ORDER_SUMMARY_TITLE') }}
         </template>
         <CaCart v-if="orderCart" :cart="orderCart" mode="display" />

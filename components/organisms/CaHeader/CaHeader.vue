@@ -14,14 +14,14 @@
           enter-from-mobile="left"
           :only-mobile="true"
         >
-          <template v-slot:header>
+          <template #header>
             <CaLogo class="ca-navigation-logo" :alt="$t('LOGO_ALT_TEXT')" />
           </template>
           <CaNavigationSlim
             v-if="categories && categories.length"
             :categories="categories"
           />
-          <template v-slot:footer>
+          <template #footer>
             <ul class="secondary-nav">
               <CaSecondaryNavItem>
                 <NuxtLink to="/">{{ $t('LOG_IN_LINK') }}</NuxtLink>
@@ -132,6 +132,10 @@ export default {
         return {
           apiKey: this.$config.apiKey.toString()
         };
+      },
+      error(error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
       }
     }
   },

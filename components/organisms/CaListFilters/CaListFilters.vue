@@ -85,7 +85,7 @@
         v-if="filters.categories && filters.categories.length > 1"
         class="ca-list-filters__toggle"
       >
-        <template v-slot:toggle>{{ $t('FILTER_LABEL_CATEGORIES') }}</template>
+        <template #toggle>{{ $t('FILTER_LABEL_CATEGORIES') }}</template>
         <CaFilterMulti
           :values="filters.categories"
           :selection="selection.categories"
@@ -93,7 +93,7 @@
         />
       </CaAccordionItem>
       <CaAccordionItem v-if="filters.brands && filters.brands.length > 1">
-        <template v-slot:toggle>{{ $t('FILTER_LABEL_BRANDS') }}</template>
+        <template #toggle>{{ $t('FILTER_LABEL_BRANDS') }}</template>
         <CaFilterMulti
           :values="filters.brands"
           :selection="selection.brands"
@@ -107,14 +107,14 @@
             filters.price.lowest !== filters.price.highest
         "
       >
-        <template v-slot:toggle>{{ $t('FILTER_LABEL_PRICE') }}</template>
+        <template #toggle>{{ $t('FILTER_LABEL_PRICE') }}</template>
         <CaFilterRange
           :values="filters.price"
           :selection="selection.price"
           @selectionchange="currentSelection.price = $event"
         />
       </CaAccordionItem>
-      <template v-slot:footer>
+      <template #footer>
         <div class="ca-list-filters__buttons-wrap">
           <CaButton
             class="ca-list-filters__button-reset"
