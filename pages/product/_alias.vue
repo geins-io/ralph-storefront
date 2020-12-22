@@ -61,35 +61,14 @@
             v-html="product.texts.text1"
           ></div>
 
-          <!-- <p v-if="hasColorVariants" class="ca-product-page__variant-title">
-            {{ $t('PICK_COLOR') }}
-          </p> -->
-          <!-- <CaColorPicker
-            v-if="hasColorVariants"
-            class="ca-product-page__variant-picker"
-            :colors="colorVariants.values"
-            :current-color="product.currentProductVariant.value"
-            :aliases="colorProductAliases"
-            @changed="replaceProduct"
-          /> -->
-          <!-- <p v-if="hasSkuVariants" class="ca-product-page__variant-title">
-            {{ $t('PICK_SIZE') }}
-          </p> -->
-          <!-- <CaSizePicker
-            v-if="hasSkuVariants"
-            class="ca-product-page__variant-picker"
-            :sizes="product.skus"
-            :chosen-sku="chosenSku"
-            @reset="resetSku"
-            @changed="sizeChangeHandler"
-          /> -->
-
           <CaVariantPicker
             v-if="hasVariants"
             :variants="baseVariants"
             :variants-data="variantPickerData"
-            :title="$t('PICK_COLOR')"
-            type="color"
+            :title="
+              baseVariantType === 'Color' ? $t('PICK_COLOR') : 'Välj lådstorlek'
+            "
+            :type="baseVariantType === 'Color' ? 'color' : 'panel'"
             @replaceProduct="replaceProduct"
           />
 
@@ -106,8 +85,8 @@
             v-if="hasSkuVariants"
             :variants="skuVariants"
             :variants-data="variantPickerData"
-            :title="$t('PICK_SIZE')"
-            type="panel"
+            title="Med logga"
+            type="display"
             @changeSku="sizeChangeHandler"
           />
 
@@ -216,8 +195,6 @@ import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';
 import CaProductQuantity from 'CaProductQuantity';
-// import CaColorPicker from 'CaColorPicker';
-// import CaSizePicker from 'CaSizePicker';
 import CaVariantPicker from 'CaVariantPicker';
 import CaSpecifications from 'CaSpecifications';
 import CaProductAccordion from 'CaProductAccordion';
@@ -240,8 +217,6 @@ export default {
     CaToggleFavorite,
     CaWidgetArea,
     CaProductQuantity,
-    // CaColorPicker,
-    // CaSizePicker,
     CaVariantPicker,
     CaSpecifications,
     CaProductAccordion,
