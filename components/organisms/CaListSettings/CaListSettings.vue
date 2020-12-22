@@ -23,7 +23,8 @@
       />
     </div>
     <div class="ca-list-settings__active-products">
-      <strong>{{ activeProducts }}</strong> {{ $tc('PRODUCT', activeProducts) }}
+      <strong>{{ activeProducts }}</strong>
+      {{ $tc('PRODUCT_LOWERCASE', activeProducts) }}
     </div>
   </div>
 </template>

@@ -7,7 +7,7 @@
           total: totalCount
         })
       }}
-      {{ $tc('PRODUCT', totalCount) }}
+      {{ $tc('PRODUCT_LOWERCASE', totalCount) }}
     </div>
     <CaButton
       v-if="direction === 'next'"

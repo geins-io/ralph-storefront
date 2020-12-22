@@ -85,6 +85,9 @@ export default {
   font-size: $font-size-xs;
   z-index: $z-index-header;
   position: relative;
+  body[style='overflow: hidden;'] & {
+    padding-right: var(--scrollbar-width);
+  }
   &__container {
     height: $top-bar-height;
     line-height: $top-bar-height;

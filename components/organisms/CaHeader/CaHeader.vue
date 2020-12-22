@@ -209,6 +209,9 @@ export default {
     background: $c-header-bg;
     z-index: $z-index-header;
     position: relative;
+    body[style='overflow: hidden;'] & {
+      padding-right: var(--scrollbar-width);
+    }
   }
   &__container {
     height: $header-bar-height;
@@ -247,14 +250,13 @@ export default {
   .ca-notification-badge {
     border: 1px solid $c-header-bg;
   }
-
-  body[style='overflow: hidden;'] & {
-    padding-right: var(--scrollbar-width);
-  }
 }
 .ca-navigation {
   height: 40px;
   background: $c-header-bg;
+  body[style='overflow: hidden;'] & {
+    padding-right: var(--scrollbar-width);
+  }
   a {
     display: block;
   }

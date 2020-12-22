@@ -14,6 +14,7 @@ $z-index-overlay: 1000;
 
 $z-index-search: 200;
 $z-index-search-desktop: 1200;
+$z-index-search-overlay: 150;
 
 $z-index-panel: 2000;
 $z-index-snackbar: 1500;
@@ -30,7 +31,7 @@ $header-bar-height-desktop: rem-calc(80px);
 
 // Search
 $search-height: rem-calc(50px);
-$search-height-desktop: rem-calc(40px);
+$search-input-height: rem-calc(40px);
 
 // Checkout
 $checkout-width: rem-calc(700px);
