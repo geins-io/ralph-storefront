@@ -5,7 +5,7 @@
       base-tag="section"
       :open-on-init="true"
     >
-      <template v-slot:toggle>
+      <template #toggle>
         <h2>{{ $t('PRODUCT_DESCRIPTION') }}</h2>
       </template>
       <!-- eslint-disable vue/no-v-html -->
@@ -23,7 +23,7 @@
       class="ca-product-accordion__item only-mobile"
       base-tag="section"
     >
-      <template v-slot:toggle>
+      <template #toggle>
         <h2>{{ $t('PRODUCT_SPECIFICATION') }}</h2>
       </template>
       <div class="ca-product-accordion__item-content">
@@ -35,7 +35,7 @@
       class="ca-product-accordion__item"
       base-tag="section"
     >
-      <template v-slot:toggle>
+      <template #toggle>
         <h2>Ingredienser</h2>
       </template>
       <!-- eslint-disable vue/no-v-html -->

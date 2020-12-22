@@ -82,5 +82,7 @@ export default {
   NO_PRODUCT_SPECIFICATION:
     'Det finns tyvärr inga specifikationer att visa för denna produkt.',
   RESET_FILTERS: 'Återställ filter',
-  NO_PRODUCTS_MATCH: 'Inga produkter matchar ditt urval'
+  NO_PRODUCTS_MATCH: 'Inga produkter matchar ditt urval',
+  SKU_NOT_CHOSEN: 'Ej vald',
+  SKU_LABEL: 'Storlek'
 };

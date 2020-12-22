@@ -61,28 +61,35 @@
             v-html="product.texts.text1"
           ></div>
 
-          <p v-if="hasColorVariants" class="ca-product-page__variant-title">
-            {{ $t('PICK_COLOR') }}
-          </p>
-          <CaColorPicker
-            v-if="hasColorVariants"
-            class="ca-product-page__variant-picker"
-            :colors="colorVariants.values"
-            :current-color="product.currentProductVariant.value"
-            :aliases="colorProductAliases"
-            @changed="replaceProduct"
+          <CaVariantPicker
+            v-if="hasVariants"
+            :variants="baseVariants"
+            :variants-data="variantPickerData"
+            :title="
+              baseVariantType === 'Color' ? $t('PICK_COLOR') : 'Välj lådstorlek'
+            "
+            :type="baseVariantType === 'Color' ? 'color' : 'panel'"
+            @replaceProduct="replaceProduct"
           />
-          <p v-if="hasSkuVariants" class="ca-product-page__variant-title">
-            {{ $t('PICK_SIZE') }}
-          </p>
-          <CaSizePicker
+
+          <CaVariantPicker
+            v-if="hasMultipleDimensions"
+            :variants="secondDimensionVariants"
+            :variants-data="variantPickerData"
+            title="Välj lådstorlek"
+            type="panel"
+            @replaceProduct="replaceProduct"
+          />
+
+          <CaVariantPicker
             v-if="hasSkuVariants"
-            class="ca-product-page__variant-picker"
-            :sizes="skuVariants"
-            :chosen-sku="chosenSku"
-            @reset="resetSku"
-            @changed="sizeChangeHandler"
+            :variants="skuVariants"
+            :variants-data="variantPickerData"
+            title="Med logga"
+            type="display"
+            @changeSku="sizeChangeHandler"
           />
+
           <CaProductQuantity
             class="ca-product-page__quantity"
             :quantity="quantity"
@@ -188,8 +195,7 @@ import CaBrandAndName from 'CaBrandAndName';
 import CaPrice from 'CaPrice';
 import CaToggleFavorite from 'CaToggleFavorite';
 import CaProductQuantity from 'CaProductQuantity';
-import CaColorPicker from 'CaColorPicker';
-import CaSizePicker from 'CaSizePicker';
+import CaVariantPicker from 'CaVariantPicker';
 import CaSpecifications from 'CaSpecifications';
 import CaProductAccordion from 'CaProductAccordion';
 import CaSkeleton from 'CaSkeleton';
@@ -211,8 +217,7 @@ export default {
     CaToggleFavorite,
     CaWidgetArea,
     CaProductQuantity,
-    CaColorPicker,
-    CaSizePicker,
+    CaVariantPicker,
     CaSpecifications,
     CaProductAccordion,
     CaSkeleton
@@ -265,12 +270,6 @@ $column-width: 48.2%;
   }
   &__product-summary {
     margin-bottom: $px16;
-  }
-  &__variant-title {
-    text-transform: uppercase;
-    font-size: $font-size-m;
-    margin-bottom: $px8;
-    font-weight: $font-weight-bold;
   }
   &__variant-picker {
     margin-bottom: $default-spacing;
