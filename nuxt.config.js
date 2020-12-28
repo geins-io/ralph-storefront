@@ -147,6 +147,7 @@ export default {
    */
   publicRuntimeConfig: {
     productListPageSize: 20,
+    productListRowSize: 5,
     productListDefaultSort: 'LATEST',
     productStockFewLeftLimit: 6,
     productImageRatio: 1 / 1,

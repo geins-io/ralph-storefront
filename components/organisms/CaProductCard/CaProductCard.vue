@@ -84,7 +84,7 @@ export default {
     },
     pageNumber: {
       type: Number,
-      required: true
+      default: 0
     }
   },
   data: () => ({}),
@@ -97,8 +97,10 @@ export default {
   mounted() {},
   methods: {
     productClickHandler() {
-      this.$store.commit('list/setRelocatePage', this.pageNumber);
-      this.$store.commit('list/setRelocateAlias', this.product.alias);
+      if (this.pageNumber > 0) {
+        this.$store.commit('list/setRelocatePage', this.pageNumber);
+        this.$store.commit('list/setRelocateAlias', this.product.alias);
+      }
     }
   }
 };
@@ -106,14 +108,6 @@ export default {
 <style lang="scss" scoped>
 .ca-product-card {
   position: relative;
-  width: calc(50% - (#{$list-spacing * 2}));
-  margin: $list-spacing;
-  @include bp(tablet) {
-    width: calc(33.33333% - (#{$list-spacing * 2}));
-  }
-  @include bp(laptop) {
-    width: calc(20% - (#{$list-spacing * 2}));
-  }
   &__image-wrap {
     line-height: 0;
     position: relative;

@@ -284,6 +284,7 @@ $column-width: 48.2%;
   }
   &__buy-button {
     margin-bottom: $px20;
+    padding: 0.9em 2.15em;
   }
   &__stock-status {
     font-size: $font-size-m;

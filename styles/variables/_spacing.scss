@@ -3,6 +3,7 @@
 // Spacing
 $px4: rem-calc(4px);
 $px8: rem-calc(8px);
+$px10: rem-calc(10px);
 $px12: rem-calc(12px);
 $px16: rem-calc(16px);
 $px20: rem-calc(20px);
@@ -16,6 +17,23 @@ $px72: rem-calc(72px);
 $px80: rem-calc(80px);
 
 $default-spacing: $px20;
-$list-spacing: rem-calc(10px);
-$widget-spacing: rem-calc(10px);
-$widget-spacing-desktop: $px20;
+
+// List spacing
+$list-column-spacing: $px10;
+$list-row-spacing: $px20;
+$list-column-spacing-tablet: $px20;
+$list-row-spacing-tablet: $px32;
+$list-column-spacing-laptop: $px20;
+$list-row-spacing-laptop: $px32;
+
+// Widget spacing
+$widget-column-spacing: $px10;
+$widget-row-spacing: $px10;
+$widget-column-spacing-tablet: $px20;
+$widget-row-spacing-tablet: $px20;
+$widget-column-spacing-laptop: $px20;
+$widget-row-spacing-laptop: $px20;
+
+$widget-container-spacing: $px20;
+$widget-container-spacing-tablet: $px20;
+$widget-container-spacing-laptop: $px20;
