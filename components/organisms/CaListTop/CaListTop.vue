@@ -24,7 +24,7 @@
       </div>
     </div>
     <CaCategoryDisplay
-      v-if="listInfo"
+      v-if="listInfo && listInfo.subCategories"
       class="ca-list-top__subcategories"
       :categories="listInfo.subCategories"
     />

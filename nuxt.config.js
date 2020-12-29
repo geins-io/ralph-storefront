@@ -140,12 +140,19 @@ export default {
         path: '/b/:brand',
         component: resolve(__dirname, 'pages/list/_brand.vue')
       });
+      routes.push({
+        name: 'content',
+        path: '/:alias',
+        component: resolve(__dirname, 'pages/content/_alias.vue')
+      });
     }
   },
   /*
    ** Runtime configs
    */
   publicRuntimeConfig: {
+    bannerWidgetPrimaryColor: '#000000',
+    bannerWidgetSecondaryColor: '#FFFFFF',
     productListPageSize: 20,
     productListRowSize: 5,
     productListDefaultSort: 'LATEST',
