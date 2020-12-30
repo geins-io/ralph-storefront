@@ -103,7 +103,9 @@ export default {
     // Doc: https://github.com/nuxt-community/apollo-module
     '@nuxtjs/apollo',
     // Doc: https://www.npmjs.com/package/cookie-universal-nuxt
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    // Doc: https://www.npmjs.com/package/nuxt-user-agent
+    'nuxt-user-agent'
   ],
   styleResources: {
     scss: ['./styles/_variables.scss', './styles/_helpers.scss']
