@@ -34,15 +34,20 @@
         </CaIconAndText>
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
-      <a
+      <button
         v-show="!undistracted"
         class="ca-top-bar__link ca-top-bar__link--login only-desktop"
-        href="javascript:;"
+        @click="
+          $store.commit('contentpanel/open', {
+            name: 'account',
+            frame: 'login'
+          })
+        "
       >
         <CaIconAndText icon-name="user">
           {{ $t('LOG_IN_LINK') }}
         </CaIconAndText>
-      </a>
+      </button>
       <CaVatToggle v-show="!undistracted" class="only-desktop" />
     </CaContainer>
   </div>

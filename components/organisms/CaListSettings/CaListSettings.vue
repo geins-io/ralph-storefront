@@ -2,7 +2,11 @@
   <div class="ca-list-settings">
     <button
       class="ca-list-settings__filter-toggle only-mobile"
-      @click="$store.commit('contentpanel/open', 'filters')"
+      @click="
+        $store.commit('contentpanel/open', {
+          name: 'filters'
+        })
+      "
     >
       <CaIconAndText
         class="ca-list-settings__icon-text"

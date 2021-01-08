@@ -7,7 +7,11 @@
           class="ca-header__nav-toggle only-mobile"
           icon-name="menu"
           aria-label="Show menu"
-          @clicked="$store.commit('contentpanel/open', 'mobile-nav')"
+          @clicked="
+            $store.commit('contentpanel/open', {
+              name: 'mobile-nav'
+            })
+          "
         />
         <CaContentPanel
           name="mobile-nav"
@@ -24,7 +28,16 @@
           <template #footer>
             <ul class="secondary-nav">
               <CaSecondaryNavItem>
-                <NuxtLink to="/">{{ $t('LOG_IN_LINK') }}</NuxtLink>
+                <button
+                  @click="
+                    $store.commit('contentpanel/open', {
+                      name: 'account',
+                      frame: 'login'
+                    })
+                  "
+                >
+                  {{ $t('LOG_IN_LINK') }}
+                </button>
               </CaSecondaryNavItem>
               <CaSecondaryNavItem>
                 <NuxtLink to="/">
