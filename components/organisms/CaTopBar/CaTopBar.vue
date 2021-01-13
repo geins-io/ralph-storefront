@@ -45,7 +45,7 @@
         "
       >
         <CaIconAndText icon-name="user">
-          {{ $t('LOG_IN_LINK') }}
+          {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
         </CaIconAndText>
       </button>
       <CaVatToggle v-show="!undistracted" class="only-desktop" />

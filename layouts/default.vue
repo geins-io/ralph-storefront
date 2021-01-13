@@ -19,7 +19,7 @@
       </transition>
     </client-only>
     <CaDisplayCart />
-    <CaLoginPanel :init-mode="$store.state.contentpanel.accountMode" />
+    <CaAccountPanel :init-mode="$store.state.contentpanel.accountMode" />
     <CaSnackbar />
   </div>
 </template>
@@ -27,7 +27,7 @@
 import CaHeader from 'CaHeader';
 import CaFooter from 'CaFooter';
 import CaDisplayCart from 'CaDisplayCart';
-import CaLoginPanel from 'CaLoginPanel';
+import CaAccountPanel from 'CaAccountPanel';
 import MixGlobalInit from 'MixGlobalInit';
 import CaSpinner from 'CaSpinner';
 import CaSnackbar from 'CaSnackbar';
@@ -40,7 +40,7 @@ export default {
     CaSnackbar,
     CaFooter,
     CaDisplayCart,
-    CaLoginPanel
+    CaAccountPanel
   },
   mixins: [MixGlobalInit],
   computed: {

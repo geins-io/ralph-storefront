@@ -39,9 +39,11 @@
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.16.0",
     "nuxt-user-agent": "^1.2.2",
+    "vue-password-strength-meter": "^1.7.2",
     "vue-slide-up-down": "^2.0.1",
     "vue-slider-component": "^3.2.11",
-    "vuex-persistedstate": "^3.1.0"
+    "vuex-persistedstate": "^3.1.0",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "@babel/runtime-corejs3": "^7.12.5",
