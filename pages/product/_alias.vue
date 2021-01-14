@@ -10,7 +10,7 @@
           :alt="product.brand.name + ' ' + product.name"
         />
         <div v-else class="ca-product-page__gallery ca-product-gallery">
-          <div class="ca-product-gallery__nav only-desktop">
+          <div class="ca-product-gallery__nav only-computer">
             <div class="ca-product-gallery__nav-slide">
               <CaSkeleton
                 class="ca-product-gallery__nav-image"
@@ -160,7 +160,7 @@
           class="ca-product-page__accordion"
           :product="product"
         />
-        <div class="ca-product-page__specifications-box only-desktop">
+        <div class="ca-product-page__specifications-box only-computer">
           <h2 class="ca-product-page__specifications-title">
             {{ $t('PRODUCT_SPECIFICATION') }}
           </h2>
