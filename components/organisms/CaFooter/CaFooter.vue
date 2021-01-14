@@ -216,7 +216,7 @@ export default {
   data: () => ({}),
   computed: {
     uspLogoPlacement() {
-      return this.$store.getters.viewportMobile ? 'top' : 'left';
+      return this.$store.getters.viewport === 'mobile' ? 'top' : 'left';
     }
   },
   watch: {},

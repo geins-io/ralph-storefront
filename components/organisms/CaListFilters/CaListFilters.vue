@@ -1,9 +1,12 @@
 <template>
   <div class="ca-list-filters">
-    <h3 v-if="$store.getters.viewportLaptop" class="ca-list-filters__title">
+    <h3 v-if="$store.getters.viewportComputer" class="ca-list-filters__title">
       {{ $t('FILTERS') }}
     </h3>
-    <div v-if="$store.getters.viewportLaptop" class="ca-list-filters__filters">
+    <div
+      v-if="$store.getters.viewportComputer"
+      class="ca-list-filters__filters"
+    >
       <CaFilter
         v-if="
           filtersPopulated &&
