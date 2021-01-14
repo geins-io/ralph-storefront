@@ -95,7 +95,7 @@ export default {
   EMAIL_ERROR_NOT_VALID: 'Du måste ange en giltig email',
   PASSWORD: 'Lösenord',
   PASSWORD_CONFIRM: 'Bekräfta lösenord',
-  PASSWORD_ERROR_WEAK: 'Ditt lösenord är för svagt',
+  PASSWORD_ERROR_WEAK: 'Ditt lösenord måste innehålla minst 7 tecken',
   PASSWORD_ERROR_EMPTY: 'Du måste ange ett lösenord',
   PASSWORD_ERROR_NO_MATCH: 'Lösenorden matchar inte',
   REMEMBER_ME: 'Kom ihåg mig',
