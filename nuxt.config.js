@@ -158,7 +158,7 @@ export default {
     productListPageSize: 20,
     productListRowSize: 5,
     productListScrollSize: {
-      mobile: 2,
+      phone: 2,
       tablet: 3,
       laptop: 5,
       desktop: 5
