@@ -13,11 +13,7 @@
             })
           "
         />
-        <CaContentPanel
-          name="mobile-nav"
-          enter-from-mobile="left"
-          :only-mobile="true"
-        >
+        <CaContentPanel name="mobile-nav" enter-from="left">
           <template #header>
             <CaLogo class="ca-navigation-logo" :alt="$t('LOGO_ALT_TEXT')" />
           </template>
@@ -36,7 +32,7 @@
                     })
                   "
                 >
-                  {{ $t('LOG_IN_LINK') }}
+                  {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
                 </button>
               </CaSecondaryNavItem>
               <CaSecondaryNavItem>

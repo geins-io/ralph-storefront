@@ -80,8 +80,7 @@
     <CaContentPanel
       v-if="filters"
       name="filters"
-      enter-from-mobile="left"
-      :only-mobile="true"
+      enter-from="left"
       :title="$t('FILTERS')"
     >
       <CaAccordionItem
