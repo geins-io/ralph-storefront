@@ -64,13 +64,13 @@
           </template>
         </CaContentPanel>
         <CaIconButton
-          v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportLaptop"
+          v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportComputer"
           class="ca-header__search-toggle"
           icon-name="search"
           aria-label="Show search"
           @clicked="() => (searchOpened = !searchOpened)"
         />
-        <CaSearch class="only-desktop" />
+        <CaSearch class="only-computer" />
         <NuxtLink to="/">
           <CaLogo class="ca-header__logo" :alt="$t('LOGO_ALT_TEXT')" />
         </NuxtLink>
@@ -78,7 +78,7 @@
         <CaMiniCart class="ca-header__cart" />
       </CaContainer>
     </div>
-    <nav class="ca-navigation only-desktop">
+    <nav class="ca-navigation only-computer">
       <ul
         v-if="topLevelCategories && topLevelCategories.length > 0"
         class="ca-navigation__categories"
@@ -233,7 +233,7 @@ export default {
 
     @include bp(laptop) {
       justify-content: flex-end;
-      height: $header-bar-height-desktop;
+      height: $header-bar-height-computer;
     }
   }
 

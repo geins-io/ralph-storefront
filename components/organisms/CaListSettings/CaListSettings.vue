@@ -17,7 +17,7 @@
       </CaIconAndText>
     </button>
     <div class="ca-list-settings__sort">
-      <span class="ca-list-settings__title only-desktop">
+      <span class="ca-list-settings__title only-computer">
         {{ $t('SORT_TITLE') }}:
       </span>
       <CaInputSelect

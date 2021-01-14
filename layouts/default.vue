@@ -59,7 +59,7 @@ export default {
   &__main {
     padding-top: $header-height + $default-spacing;
     @include bp(laptop) {
-      padding-top: $header-height-desktop + $default-spacing * 2;
+      padding-top: $header-height-computer + $default-spacing * 2;
     }
   }
   &__loading {
@@ -71,7 +71,7 @@ export default {
     padding: $px8;
     border-radius: 50%;
     @include bp(laptop) {
-      top: $header-height-desktop + $default-spacing;
+      top: $header-height-computer + $default-spacing;
     }
   }
   &--loading {

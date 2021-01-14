@@ -5,7 +5,7 @@
         v-for="locale in availableLocales"
         v-show="!undistracted"
         :key="locale.code"
-        class="ca-top-bar__lang-switcher only-desktop"
+        class="ca-top-bar__lang-switcher only-computer"
         :to="switchLocalePath(locale.code)"
       >
         <CaFlag
@@ -17,12 +17,12 @@
       </NuxtLink>
       <NuxtLink
         v-show="!undistracted"
-        class="ca-top-bar__link ca-top-bar__link--customer-service only-desktop"
+        class="ca-top-bar__link ca-top-bar__link--customer-service only-computer"
         to="/"
       >
         {{ $t('CUSTOMER_SERVICE') }}
       </NuxtLink>
-      <div class="ca-usp-block ca-top-bar__usps only-desktop">
+      <div class="ca-usp-block ca-top-bar__usps only-computer">
         <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
           {{ $t('USP_1') }}
         </CaIconAndText>
@@ -36,7 +36,7 @@
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
       <button
         v-show="!undistracted"
-        class="ca-top-bar__link ca-top-bar__link--login only-desktop"
+        class="ca-top-bar__link ca-top-bar__link--login only-computer"
         @click="
           $store.commit('contentpanel/open', {
             name: 'account',
@@ -48,7 +48,7 @@
           {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
         </CaIconAndText>
       </button>
-      <CaVatToggle v-show="!undistracted" class="only-desktop" />
+      <CaVatToggle v-show="!undistracted" class="only-computer" />
     </CaContainer>
   </div>
 </template>
@@ -98,8 +98,8 @@ export default {
     line-height: $top-bar-height;
     @include flex-halign;
     @include bp(laptop) {
-      height: $top-bar-height-desktop;
-      line-height: $top-bar-height-desktop;
+      height: $top-bar-height-computer;
+      line-height: $top-bar-height-computer;
       justify-content: space-between;
     }
   }
