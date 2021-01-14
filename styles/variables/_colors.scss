@@ -19,6 +19,7 @@ $c-overlay: rgba(0, 0, 0, 0.3);
 // Feedback/Support
 $c-success: #428363;
 $c-error: #ca4a4a;
+$c-info: $c-accent-color;
 
 // Border colors
 $c-border-light: $c-light-gray;
@@ -38,11 +39,19 @@ $c-sale: rgb(177, 0, 29);
 
 // Buttons
 $c-button-main-bg: $c-darkest-gray;
+$c-button-main-bg-hover: lighten($c-button-main-bg, 3%);
 $c-button-main-txt: $c-white;
+$c-button-main-border: transparent;
 
-$c-button-secondary-bg: transparent;
+$c-button-secondary-bg: $c-white;
+$c-button-secondary-bg-hover: darken($c-button-secondary-bg, 3%);
 $c-button-secondary-txt: $c-text-primary;
-$c-button-secondary-border: 1px solid $c-darkest-gray;
+$c-button-secondary-border: $c-darkest-gray;
+
+// Inputs
+$c-input-focused-border: $c-accent-color;
+$c-input-background: $c-white;
+$c-input-checkbox-checked-bg: $c-accent-color;
 
 // Content panel
 $c-content-panel-header-bg: $c-lightest-gray;

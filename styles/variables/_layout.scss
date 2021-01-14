@@ -3,6 +3,9 @@
 // Borders
 $border-light: 1px solid $c-border-light;
 $border-dark: 1px solid $c-border-dark;
+$button-main-border: none;
+$button-secondary-border: 1px solid $c-button-secondary-border;
+$input-border: $border-dark;
 
 // Box shadow
 $box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.4);
