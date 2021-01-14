@@ -157,8 +157,19 @@ export default {
     bannerWidgetSecondaryColor: '#FFFFFF',
     productListPageSize: 20,
     productListRowSize: 5,
+    productListScrollSize: {
+      mobile: 2,
+      tablet: 3,
+      laptop: 5,
+      desktop: 5
+    },
     productListDefaultSort: 'LATEST',
     productStockFewLeftLimit: 6,
+    breakpoints: {
+      tablet: 768,
+      laptop: 1024,
+      desktop: 1200
+    },
     productImageRatio: 1 / 1,
     imageServer: ImageServer,
     apiKey: ApiKey
