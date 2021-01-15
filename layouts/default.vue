@@ -19,7 +19,7 @@
       </transition>
     </client-only>
     <CaDisplayCart />
-    <CaAccountPanel :init-mode="$store.state.contentpanel.accountMode" />
+    <CaAccountPanel />
     <CaSnackbar />
   </div>
 </template>

@@ -28,7 +28,7 @@
   "dependencies": {
     "@nuxtjs/apollo": "4.0.1-rc.4",
     "@nuxtjs/pwa": "^3.3.3",
-    "@ralph/ralph-ui": "^1.0.13583",
+    "@ralph/ralph-ui": "latest",
     "body-scroll-lock": "^3.1.5",
     "cookie": "^0.4.1",
     "cookie-universal-nuxt": "^2.1.4",
