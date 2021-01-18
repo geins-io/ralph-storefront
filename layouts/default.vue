@@ -26,11 +26,19 @@
 <script>
 import CaHeader from 'CaHeader';
 import CaFooter from 'CaFooter';
-import CaDisplayCart from 'CaDisplayCart';
-import CaAccountPanel from 'CaAccountPanel';
 import MixGlobalInit from 'MixGlobalInit';
-import CaSpinner from 'CaSpinner';
-import CaSnackbar from 'CaSnackbar';
+const CaDisplayCart = () => ({
+  component: import('CaDisplayCart')
+});
+const CaAccountPanel = () => ({
+  component: import('CaAccountPanel')
+});
+const CaSpinner = () => ({
+  component: import('CaSpinner')
+});
+const CaSnackbar = () => ({
+  component: import('CaSnackbar')
+});
 
 export default {
   name: 'CaDefaultLayout',

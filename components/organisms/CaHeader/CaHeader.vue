@@ -125,12 +125,13 @@ import CaMiniCart from 'CaMiniCart';
 import CaFavorites from 'CaFavorites';
 import CaSearch from 'CaSearch';
 import CaTopBar from 'CaTopBar';
-import CaContentPanel from 'CaContentPanel';
 import CaSecondaryNavItem from 'CaSecondaryNavItem';
 import CaFlag from 'CaFlag';
 import CaNavigationSlim from 'CaNavigationSlim';
-
 import categoriesQuery from 'global/categories.graphql';
+const CaContentPanel = () => ({
+  component: import('CaContentPanel')
+});
 
 export default {
   name: 'CaHeader',
