@@ -53,7 +53,7 @@ export default {
       loader: 'graphql-tag/loader'
     }
   ],
-
+  // See https://github.com/nuxt/components
   components: [
     { path: '~/components', extensions: ['vue'] },
     { path: '~/globalComponents', extensions: ['vue'], global: true },
