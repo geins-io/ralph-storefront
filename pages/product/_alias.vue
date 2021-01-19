@@ -178,6 +178,7 @@
           class="ca-product-page__widget-area"
           family="Product"
           area-name="Product detail page"
+          :filters="widgetAreaFilters"
         />
       </section>
     </CaContainer>
