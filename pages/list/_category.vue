@@ -8,13 +8,11 @@
 </template>
 
 <script>
-import CaListPage from 'CaListPage';
 import categoryInfoQuery from 'productlist/category-page.graphql';
 import categoryProductsQuery from 'productlist/category-products.graphql';
 
 export default {
   name: 'CategoryListView',
-  components: { CaListPage },
   mixins: [],
   data: () => ({
     infoQuery: categoryInfoQuery,

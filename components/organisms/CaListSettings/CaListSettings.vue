@@ -33,14 +33,10 @@
   </div>
 </template>
 <script>
-import CaInputSelect from 'CaInputSelect';
-import CaIconAndText from 'CaIconAndText';
-
 // @group Organisms
 // @vuese
 export default {
   name: 'CaListSettings',
-  components: { CaInputSelect, CaIconAndText },
   mixins: [],
   props: {
     activeProducts: {

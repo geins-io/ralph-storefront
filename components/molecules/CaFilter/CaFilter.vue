@@ -14,7 +14,7 @@
         :selection="selection"
         @selectionchange="$emit('selectionchange', $event)"
       />
-      <CaFilterRange
+      <LazyCaFilterRange
         v-else
         :values="values"
         :selection="selection"
@@ -25,15 +25,12 @@
 </template>
 <script>
 import SlideUpDown from 'vue-slide-up-down';
-import CaIcon from 'CaIcon';
-import CaFilterMulti from 'CaFilterMulti';
-import CaFilterRange from 'CaFilterRange';
 
 // @group Molecules
 // @vuese
 export default {
   name: 'CaFilter',
-  components: { CaIcon, SlideUpDown, CaFilterMulti, CaFilterRange },
+  components: { SlideUpDown },
   mixins: [],
   props: {
     title: {

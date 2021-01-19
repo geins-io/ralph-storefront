@@ -16,22 +16,9 @@
 </template>
 
 <script>
-import CaCheckoutHeader from 'CaCheckoutHeader';
-import CaContainer from 'CaContainer';
-import CaCart from 'CaCart';
-import CaCheckoutSection from 'CaCheckoutSection';
-import CaCheckoutKlarna from 'CaCheckoutKlarna';
-
 export default {
   name: 'CheckoutConfirmPage',
   layout: 'undistracted',
-  components: {
-    CaContainer,
-    CaCart,
-    CaCheckoutSection,
-    CaCheckoutHeader,
-    CaCheckoutKlarna
-  },
   data: () => ({
     orderCart: null
   }),

@@ -77,7 +77,7 @@
         </CaIconAndText>
       </button>
     </div>
-    <CaContentPanel
+    <LazyCaContentPanel
       v-if="filters"
       name="filters"
       enter-from="left"
@@ -110,7 +110,7 @@
         "
       >
         <template #toggle>{{ $t('FILTER_LABEL_PRICE') }}</template>
-        <CaFilterRange
+        <LazyCaFilterRange
           :values="filters.price"
           :selection="selection.price"
           @selectionchange="currentSelection.price = $event"
@@ -138,36 +138,17 @@
           </CaButton>
         </div>
       </template>
-    </CaContentPanel>
+    </LazyCaContentPanel>
   </div>
 </template>
 <script>
-import CaFilter from 'CaFilter';
-import CaFilterMulti from 'CaFilterMulti';
-import CaFilterRange from 'CaFilterRange';
-import CaButton from 'CaButton';
-import CaAccordionItem from 'CaAccordionItem';
-import CaIconAndText from 'CaIconAndText';
-import CaSkeleton from 'CaSkeleton';
 import eventbus from '~/plugins/event-bus.js';
-const CaContentPanel = () => ({
-  component: import('CaContentPanel')
-});
 
 // @group Organisms
 // @vuese
 export default {
   name: 'CaListFilters',
-  components: {
-    CaFilter,
-    CaContentPanel,
-    CaButton,
-    CaAccordionItem,
-    CaFilterMulti,
-    CaFilterRange,
-    CaIconAndText,
-    CaSkeleton
-  },
+
   mixins: [],
   props: {
     filters: {

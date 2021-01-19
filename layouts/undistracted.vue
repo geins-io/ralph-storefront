@@ -7,13 +7,9 @@
   </div>
 </template>
 <script>
-import CaTopBar from 'CaTopBar';
 import MixGlobalInit from 'MixGlobalInit';
 export default {
   name: 'CaUndistractedLayout',
-  components: {
-    CaTopBar
-  },
   mixins: [MixGlobalInit]
 };
 </script>

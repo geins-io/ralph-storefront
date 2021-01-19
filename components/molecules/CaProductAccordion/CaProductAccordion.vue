@@ -47,13 +47,10 @@
   </div>
 </template>
 <script>
-import CaAccordionItem from 'CaAccordionItem';
-import CaSpecifications from 'CaSpecifications';
 // @group Molecules
 // @vuese
 export default {
   name: 'CaProductAccordion',
-  components: { CaAccordionItem, CaSpecifications },
   mixins: [],
   props: {
     product: {

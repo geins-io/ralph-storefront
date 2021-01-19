@@ -25,23 +25,11 @@
   </div>
 </template>
 <script>
-import CaCheckoutHeader from 'CaCheckoutHeader';
-import CaCheckoutSection from 'CaCheckoutSection';
-import CaCart from 'CaCart';
-import CaCheckoutKlarna from 'CaCheckoutKlarna';
-import CaVatToggle from 'CaVatToggle';
 // @group Organisms
 // @vuese
 // Holds the different sections of the checkout
 export default {
   name: 'CaCheckout',
-  components: {
-    CaCheckoutHeader,
-    CaCheckoutSection,
-    CaCart,
-    CaCheckoutKlarna,
-    CaVatToggle
-  },
   mixins: [],
   props: {},
   data: () => ({}),

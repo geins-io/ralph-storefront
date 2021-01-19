@@ -75,32 +75,12 @@
   </div>
 </template>
 <script>
-import CaContainer from 'CaContainer';
-import CaImage from 'CaImage';
-import CaWidgetArea from 'CaWidgetArea';
-import CaListPagination from 'CaListPagination';
-import CaListTop from 'CaListTop';
-import CaListFilters from 'CaListFilters';
-import CaListSettings from 'CaListSettings';
-import CaProductList from 'CaProductList';
 import MixListPage from 'MixListPage';
-import CaSkeleton from 'CaSkeleton';
 
 // @group Organisms
 // @vuese
 export default {
   name: 'CaListPage',
-  components: {
-    CaContainer,
-    CaListPagination,
-    CaProductList,
-    CaListTop,
-    CaListSettings,
-    CaListFilters,
-    CaImage,
-    CaWidgetArea,
-    CaSkeleton
-  },
   mixins: [MixListPage],
 
   props: {},
