@@ -12,9 +12,15 @@
           class="ca-product-card__image"
           type="product"
           size="300f300"
+          :size-array="
+            $config.imageSizes.product.filter(
+              x => parseInt(x.width) < 1150 && parseInt(x.width) > 186
+            )
+          "
           :ratio="$config.productImageRatio"
           :filename="product.images[0]"
           :alt="product.brand.name + ' ' + product.name"
+          sizes="(min-width: 1360px) 248px, (min-width: 1024px) 18.23vw, (min-width: 768px) 30.73vw, 48vw"
         />
         <CaImage
           v-else

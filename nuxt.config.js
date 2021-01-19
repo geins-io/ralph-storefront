@@ -18,8 +18,7 @@ const csvStreamRead = new Promise(function(resolve) {
       const PartitionKey = row.PartitionKey.toLowerCase();
       const imageRow = {
         folder: row.Folder,
-        width: row.Width,
-        height: row.Height
+        width: row.Width + 'w'
       };
 
       if (imageSizeObject[PartitionKey]) {
@@ -34,7 +33,6 @@ const csvStreamRead = new Promise(function(resolve) {
 });
 async function getImageSizes() {
   const imageSizes = await csvStreamRead;
-  console.log(imageSizes);
   return imageSizes;
 }
 export default async () => {
