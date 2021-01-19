@@ -18,7 +18,7 @@ const csvStreamRead = new Promise(function(resolve) {
       const PartitionKey = row.PartitionKey.toLowerCase();
       const imageRow = {
         folder: row.Folder,
-        width: row.Width + 'w'
+        descriptor: row.Width + 'w'
       };
 
       if (imageSizeObject[PartitionKey]) {
