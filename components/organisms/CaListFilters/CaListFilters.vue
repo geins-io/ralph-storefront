@@ -145,12 +145,15 @@
 import CaFilter from 'CaFilter';
 import CaFilterMulti from 'CaFilterMulti';
 import CaFilterRange from 'CaFilterRange';
-import CaContentPanel from 'CaContentPanel';
 import CaButton from 'CaButton';
 import CaAccordionItem from 'CaAccordionItem';
 import CaIconAndText from 'CaIconAndText';
 import CaSkeleton from 'CaSkeleton';
 import eventbus from '~/plugins/event-bus.js';
+const CaContentPanel = () => ({
+  component: import('CaContentPanel')
+});
+
 // @group Organisms
 // @vuese
 export default {
