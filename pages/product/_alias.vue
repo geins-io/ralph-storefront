@@ -178,6 +178,7 @@
           class="ca-product-page__widget-area"
           family="Product"
           area-name="Product detail page"
+          :filters="widgetAreaFilters"
         />
       </section>
     </CaContainer>
@@ -185,43 +186,12 @@
 </template>
 
 <script>
-import CaContainer from 'CaContainer';
-import CaProductGallery from 'CaProductGallery';
-import CaButton from 'CaButton';
-import CaIconAndText from 'CaIconAndText';
-import CaProductMeta from 'CaProductMeta';
-import CaWidgetArea from 'CaWidgetArea';
-import CaBrandAndName from 'CaBrandAndName';
-import CaPrice from 'CaPrice';
-import CaToggleFavorite from 'CaToggleFavorite';
-import CaProductQuantity from 'CaProductQuantity';
-import CaVariantPicker from 'CaVariantPicker';
-import CaSpecifications from 'CaSpecifications';
-import CaProductAccordion from 'CaProductAccordion';
-import CaSkeleton from 'CaSkeleton';
-
 import MixAddToCart from 'MixAddToCart';
 import MixVariantHandler from 'MixVariantHandler';
 import MixProductPage from 'MixProductPage';
 
 export default {
   name: 'ProductPage',
-  components: {
-    CaContainer,
-    CaProductGallery,
-    CaBrandAndName,
-    CaPrice,
-    CaButton,
-    CaIconAndText,
-    CaProductMeta,
-    CaToggleFavorite,
-    CaWidgetArea,
-    CaProductQuantity,
-    CaVariantPicker,
-    CaSpecifications,
-    CaProductAccordion,
-    CaSkeleton
-  },
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
   data: () => ({}),
   computed: {},

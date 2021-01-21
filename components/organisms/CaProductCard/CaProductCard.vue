@@ -61,24 +61,10 @@
   </component>
 </template>
 <script>
-import CaButton from 'CaButton';
-import CaImage from 'CaImage';
-import CaBrandAndName from 'CaBrandAndName';
-import CaPrice from 'CaPrice';
-import CaToggleFavorite from 'CaToggleFavorite';
-import CaSkeleton from 'CaSkeleton';
 // @group Organisms
 // @vuese
 export default {
   name: 'CaProductCard',
-  components: {
-    CaButton,
-    CaImage,
-    CaBrandAndName,
-    CaPrice,
-    CaToggleFavorite,
-    CaSkeleton
-  },
   mixins: [],
   props: {
     baseTag: {

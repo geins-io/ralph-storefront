@@ -29,12 +29,10 @@
   </div>
 </template>
 <script>
-import CaButton from 'CaButton';
 // @group Molecules
 // @vuese
 export default {
   name: 'CaListPagination',
-  components: { CaButton },
   mixins: [],
   props: {
     direction: {

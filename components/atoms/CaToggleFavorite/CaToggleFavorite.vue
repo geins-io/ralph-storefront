@@ -10,12 +10,10 @@
   />
 </template>
 <script>
-import CaIconButton from 'CaIconButton';
 // @group Molecules
 // @vuese
 export default {
   name: 'CaToggleFavorite',
-  components: { CaIconButton },
   mixins: [],
   props: {
     prodId: {

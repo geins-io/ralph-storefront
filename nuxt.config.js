@@ -69,6 +69,23 @@ export default async () => {
      ** Global CSS
      */
     css: ['@/styles/main.scss'],
+    // See https://github.com/nuxt/components
+    components: [
+      { path: '~/components', extensions: ['vue'] },
+      { path: '~/globalComponents', extensions: ['vue'], global: true },
+      {
+        path: '~/node_modules/@ralph/ralph-ui/components',
+        extensions: ['vue'],
+        level: 1
+      },
+      {
+        path: '~/node_modules/@ralph/ralph-ui/globalComponents',
+        extensions: ['vue'],
+        level: 1,
+        global: true
+      }
+    ],
+
     /*
      ** Plugins to load before mounting the App
      */
@@ -227,7 +244,6 @@ export default async () => {
       /*
        ** You can extend webpack config here
        */
-
       extend(config, { isDev }) {
         config.resolve.extensions.unshift('.vue');
         config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
@@ -239,24 +255,6 @@ export default async () => {
           path.resolve(
             __dirname,
             'node_modules/@ralph/ralph-ui/styles/components/'
-          ),
-          // Then check for atom components
-          path.resolve(__dirname, 'components/atoms/'),
-          path.resolve(
-            __dirname,
-            'node_modules/@ralph/ralph-ui/components/atoms/'
-          ),
-          // Then for molecule components
-          path.resolve(__dirname, 'components/molecules/'),
-          path.resolve(
-            __dirname,
-            'node_modules/@ralph/ralph-ui/components/molecules/'
-          ),
-          // Then for organism components
-          path.resolve(__dirname, 'components/organisms/'),
-          path.resolve(
-            __dirname,
-            'node_modules/@ralph/ralph-ui/components/organisms/'
           ),
           // Then for mixins
           path.resolve(__dirname, 'components/mixins/'),

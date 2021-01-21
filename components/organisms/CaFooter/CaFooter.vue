@@ -195,22 +195,10 @@
   </footer>
 </template>
 <script>
-import CaIconAndText from 'CaIconAndText';
-import CaIcon from 'CaIcon';
-import CaVatToggle from 'CaVatToggle';
-import CaContainer from 'CaContainer';
-import CaSvgAsset from 'CaSvgAsset';
 // @group Organisms
 // @vuese
 export default {
   name: 'CaFooter',
-  components: {
-    CaIconAndText,
-    CaIcon,
-    CaVatToggle,
-    CaContainer,
-    CaSvgAsset
-  },
   mixins: [],
   props: {},
   data: () => ({}),

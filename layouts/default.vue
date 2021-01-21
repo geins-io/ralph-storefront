@@ -18,38 +18,16 @@
         </div>
       </transition>
     </client-only>
-    <CaDisplayCart />
-    <CaAccountPanel />
-    <CaSnackbar />
+    <LazyCaDisplayCart />
+    <LazyCaAccountPanel />
+    <LazyCaSnackbar />
   </div>
 </template>
 <script>
-import CaHeader from 'CaHeader';
-import CaFooter from 'CaFooter';
 import MixGlobalInit from 'MixGlobalInit';
-const CaDisplayCart = () => ({
-  component: import('CaDisplayCart')
-});
-const CaAccountPanel = () => ({
-  component: import('CaAccountPanel')
-});
-const CaSpinner = () => ({
-  component: import('CaSpinner')
-});
-const CaSnackbar = () => ({
-  component: import('CaSnackbar')
-});
 
 export default {
   name: 'CaDefaultLayout',
-  components: {
-    CaHeader,
-    CaSpinner,
-    CaSnackbar,
-    CaFooter,
-    CaDisplayCart,
-    CaAccountPanel
-  },
   mixins: [MixGlobalInit],
   computed: {
     modifiers() {

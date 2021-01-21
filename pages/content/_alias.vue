@@ -10,14 +10,8 @@
 </template>
 
 <script>
-import CaContainer from 'CaContainer';
-import CaWidgetArea from 'CaWidgetArea';
 export default {
   name: 'ContentPage',
-  components: {
-    CaContainer,
-    CaWidgetArea
-  },
   data: () => ({}),
   methods: {}
 };

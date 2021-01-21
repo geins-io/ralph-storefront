@@ -13,7 +13,7 @@
             })
           "
         />
-        <CaContentPanel name="mobile-nav" enter-from="left">
+        <LazyCaContentPanel name="mobile-nav" enter-from="left">
           <template #header>
             <CaLogo class="ca-navigation-logo" :alt="$t('LOGO_ALT_TEXT')" />
           </template>
@@ -58,7 +58,7 @@
               </CaSecondaryNavItem>
             </ul>
           </template>
-        </CaContentPanel>
+        </LazyCaContentPanel>
         <CaIconButton
           v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportComputer"
           class="ca-header__search-toggle"
@@ -117,21 +117,7 @@
   </header>
 </template>
 <script>
-import CaLogo from 'CaLogo';
-import CaIconAndText from 'CaIconAndText';
-import CaContainer from 'CaContainer';
-import CaIconButton from 'CaIconButton';
-import CaMiniCart from 'CaMiniCart';
-import CaFavorites from 'CaFavorites';
-import CaSearch from 'CaSearch';
-import CaTopBar from 'CaTopBar';
-import CaSecondaryNavItem from 'CaSecondaryNavItem';
-import CaFlag from 'CaFlag';
-import CaNavigationSlim from 'CaNavigationSlim';
 import categoriesQuery from 'global/categories.graphql';
-const CaContentPanel = () => ({
-  component: import('CaContentPanel')
-});
 
 export default {
   name: 'CaHeader',
@@ -148,20 +134,6 @@ export default {
         console.log(error);
       }
     }
-  },
-  components: {
-    CaTopBar,
-    CaContainer,
-    CaIconAndText,
-    CaIconButton,
-    CaLogo,
-    CaMiniCart,
-    CaFavorites,
-    CaSearch,
-    CaContentPanel,
-    CaSecondaryNavItem,
-    CaFlag,
-    CaNavigationSlim
   },
   mixins: [],
   props: {},
