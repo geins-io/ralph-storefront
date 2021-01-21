@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import csv from 'csv-parser';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
-const filepath = './ImageSize.csv';
+const filepath = './static/ImageSize.csv';
 
 // Pipeline environment variables
 const inDev = process.env.NODE_ENV !== 'production';
