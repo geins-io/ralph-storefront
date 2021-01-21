@@ -7,13 +7,9 @@
 </template>
 
 <script>
-import CaContainer from 'CaContainer';
-import CaCheckout from 'CaCheckout';
-
 export default {
   name: 'CheckoutPage',
   layout: 'undistracted',
-  components: { CaContainer, CaCheckout },
   data: () => ({}),
   methods: {}
 };

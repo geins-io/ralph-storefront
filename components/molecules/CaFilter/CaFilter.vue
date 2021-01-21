@@ -1,5 +1,9 @@
 <template>
-  <div class="ca-filter" :class="modifiers">
+  <div
+    v-show="values.length > 1 || typeRange"
+    class="ca-filter"
+    :class="modifiers"
+  >
     <div class="ca-filter__title" @click="() => (open = !open)">
       {{ title }}
       <span v-if="selectionMade && !typeRange" class="ca-filter__chosen-amount">
@@ -8,13 +12,13 @@
       <CaIcon class="ca-filter__arrow" name="chevron-down" />
     </div>
     <SlideUpDown class="ca-filter__values" :active="open" :duration="200">
-      <CaFilterMulti
+      <LazyCaFilterMulti
         v-if="!typeRange"
         :values="values"
         :selection="selection"
         @selectionchange="$emit('selectionchange', $event)"
       />
-      <CaFilterRange
+      <LazyCaFilterRange
         v-else
         :values="values"
         :selection="selection"
@@ -25,15 +29,12 @@
 </template>
 <script>
 import SlideUpDown from 'vue-slide-up-down';
-import CaIcon from 'CaIcon';
-import CaFilterMulti from 'CaFilterMulti';
-import CaFilterRange from 'CaFilterRange';
 
 // @group Molecules
 // @vuese
 export default {
   name: 'CaFilter',
-  components: { CaIcon, SlideUpDown, CaFilterMulti, CaFilterRange },
+  components: { SlideUpDown },
   mixins: [],
   props: {
     title: {

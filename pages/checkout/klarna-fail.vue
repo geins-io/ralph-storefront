@@ -19,22 +19,9 @@
 </template>
 
 <script>
-import CaCheckoutHeader from 'CaCheckoutHeader';
-import CaContainer from 'CaContainer';
-import CaCheckoutSection from 'CaCheckoutSection';
-import CaIcon from 'CaIcon';
-import CaButton from 'CaButton';
-
 export default {
   name: 'KlarnaErrorPage',
   layout: 'undistracted',
-  components: {
-    CaContainer,
-    CaCheckoutHeader,
-    CaCheckoutSection,
-    CaIcon,
-    CaButton
-  },
   data: () => ({}),
   computed: {
     errorMessage() {

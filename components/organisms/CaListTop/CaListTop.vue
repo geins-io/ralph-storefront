@@ -31,14 +31,10 @@
   </div>
 </template>
 <script>
-import CaCategoryDisplay from 'CaCategoryDisplay';
-import CaReadMore from 'CaReadMore';
-import CaSkeleton from 'CaSkeleton';
 // @group Organisms
 // @vuese
 export default {
   name: 'CaListTop',
-  components: { CaCategoryDisplay, CaReadMore, CaSkeleton },
   mixins: [],
   props: {
     type: {

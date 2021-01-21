@@ -53,6 +53,22 @@ export default {
       loader: 'graphql-tag/loader'
     }
   ],
+  // See https://github.com/nuxt/components
+  components: [
+    { path: '~/components', extensions: ['vue'] },
+    { path: '~/globalComponents', extensions: ['vue'], global: true },
+    {
+      path: '~/node_modules/@ralph/ralph-ui/components',
+      extensions: ['vue'],
+      level: 1
+    },
+    {
+      path: '~/node_modules/@ralph/ralph-ui/globalComponents',
+      extensions: ['vue'],
+      level: 1,
+      global: true
+    }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -211,24 +227,6 @@ export default {
           __dirname,
           'node_modules/@ralph/ralph-ui/styles/components/'
         ),
-        // Then check for atom components
-        path.resolve(__dirname, 'components/atoms/'),
-        path.resolve(
-          __dirname,
-          'node_modules/@ralph/ralph-ui/components/atoms/'
-        ),
-        // Then for molecule components
-        path.resolve(__dirname, 'components/molecules/'),
-        path.resolve(
-          __dirname,
-          'node_modules/@ralph/ralph-ui/components/molecules/'
-        ),
-        // Then for organism components
-        path.resolve(__dirname, 'components/organisms/'),
-        path.resolve(
-          __dirname,
-          'node_modules/@ralph/ralph-ui/components/organisms/'
-        ),
         // Then for mixins
         path.resolve(__dirname, 'components/mixins/'),
         path.resolve(
@@ -244,6 +242,12 @@ export default {
       if (isDev) {
         config.devtool = 'source-map';
       }
+    },
+    splitChunks: {
+      chunks: 'all',
+      automaticNameDelimiter: '.',
+      name: false,
+      cacheGroups: {}
     }
   },
   dev: inDev

@@ -20,7 +20,6 @@
 <script>
 export default {
   name: 'CaBrandAndName',
-  components: {},
   mixins: [],
   props: {
     brand: {
@@ -53,8 +52,6 @@ export default {
     font-weight: $font-weight-bold;
     text-transform: uppercase;
     margin-bottom: $px4;
-  }
-  &__name {
   }
 }
 </style>

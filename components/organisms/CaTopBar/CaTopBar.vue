@@ -53,19 +53,8 @@
   </div>
 </template>
 <script>
-import CaIconAndText from 'CaIconAndText';
-import CaFlag from 'CaFlag';
-import CaVatToggle from 'CaVatToggle';
-import CaContainer from 'CaContainer';
-
 export default {
   name: 'CaTopBar',
-  components: {
-    CaIconAndText,
-    CaFlag,
-    CaVatToggle,
-    CaContainer
-  },
   mixins: [],
   props: {
     undistracted: {

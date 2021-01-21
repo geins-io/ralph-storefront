@@ -8,13 +8,11 @@
 </template>
 
 <script>
-import CaListPage from 'CaListPage';
 import brandInfoQuery from 'productlist/brand-page.graphql';
 import brandProductsQuery from 'productlist/brand-products.graphql';
 
 export default {
   name: 'BrandListView',
-  components: { CaListPage },
   mixins: [],
   data: () => ({
     infoQuery: brandInfoQuery,

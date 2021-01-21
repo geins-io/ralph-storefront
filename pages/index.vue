@@ -11,14 +11,8 @@
 </template>
 
 <script>
-import CaContainer from 'CaContainer';
-import CaWidgetArea from 'CaWidgetArea';
 export default {
   name: 'FrontPage',
-  components: {
-    CaContainer,
-    CaWidgetArea
-  },
   data: () => ({}),
   methods: {}
 };
