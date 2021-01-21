@@ -11,10 +11,11 @@
           v-if="product.images !== null && product.images.length > 0"
           class="ca-product-card__image"
           type="product"
-          size="300f300"
           :size-array="
             $config.imageSizes.product.filter(
-              x => parseInt(x.width) < 1150 && parseInt(x.width) > 186
+              item =>
+                parseInt(item.descriptor) < 1150 &&
+                parseInt(item.descriptor) > 186
             )
           "
           :ratio="$config.productImageRatio"
