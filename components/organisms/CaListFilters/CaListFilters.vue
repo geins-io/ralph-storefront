@@ -8,11 +8,7 @@
       class="ca-list-filters__filters"
     >
       <CaFilter
-        v-if="
-          filtersPopulated &&
-            filters.categories &&
-            filters.categories.length > 1
-        "
+        v-if="filtersPopulated"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_CATEGORIES')"
         :values="filters.categories"
@@ -20,13 +16,13 @@
         @selectionchange="currentSelection.categories = $event"
       />
       <CaSkeleton
-        v-else-if="!filtersPopulated"
+        v-else
         class="ca-list-filters__filter"
         width="200px"
         height="40px"
       />
       <CaFilter
-        v-if="filtersPopulated && filters.brands && filters.brands.length > 1"
+        v-if="filtersPopulated"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_BRANDS')"
         :values="filters.brands"
@@ -34,18 +30,13 @@
         @selectionchange="currentSelection.brands = $event"
       />
       <CaSkeleton
-        v-else-if="!filtersPopulated"
+        v-else
         class="ca-list-filters__filter"
         width="200px"
         height="40px"
       />
       <CaFilter
-        v-if="
-          filtersPopulated &&
-            filters.price &&
-            selection.price &&
-            filters.price.lowest !== filters.price.highest
-        "
+        v-if="filtersPopulated"
         class="ca-list-filters__filter"
         type="range"
         :title="$t('FILTER_LABEL_PRICE')"
@@ -54,7 +45,7 @@
         @selectionchange="currentSelection.price = $event"
       />
       <CaSkeleton
-        v-else-if="!filtersPopulated"
+        v-else
         class="ca-list-filters__filter"
         width="200px"
         height="40px"
@@ -88,7 +79,7 @@
         class="ca-list-filters__toggle"
       >
         <template #toggle>{{ $t('FILTER_LABEL_CATEGORIES') }}</template>
-        <CaFilterMulti
+        <LazyCaFilterMulti
           :values="filters.categories"
           :selection="selection.categories"
           @selectionchange="currentSelection.categories = $event"
@@ -96,7 +87,7 @@
       </CaAccordionItem>
       <CaAccordionItem v-if="filters.brands && filters.brands.length > 1">
         <template #toggle>{{ $t('FILTER_LABEL_BRANDS') }}</template>
-        <CaFilterMulti
+        <LazyCaFilterMulti
           :values="filters.brands"
           :selection="selection.brands"
           @selectionchange="currentSelection.brands = $event"

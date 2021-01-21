@@ -11,7 +11,7 @@
           v-if="$apollo.loading || $store.state.loading.loading"
           class="ca-layout-default__loading"
         >
-          <LazyCaSpinner
+          <CaSpinner
             class="ca-layout-default__spinner"
             :loading="$apollo.loading || $store.state.loading.loading"
           />
