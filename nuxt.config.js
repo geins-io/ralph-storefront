@@ -194,7 +194,13 @@ export default async () => {
       productImageRatio: 1 / 1,
       imageServer: ImageServer,
       apiKey: ApiKey,
-      imageSizes
+      imageSizes,
+      widgetImageSizes: {
+        full: '(min-width: 1360px) 1320px, 96vw',
+        half: '(min-width: 1360px) 650px, (min-width: 768px) 47vw, 96vw',
+        third: '(min-width: 1360px) 427px, (min-width: 768px) 31vw, 96vw',
+        quarter: '(min-width: 1360px) 315px, (min-width: 768px) 23vw, 96vw'
+      }
     },
     privateRuntimeConfig: {},
     /*
