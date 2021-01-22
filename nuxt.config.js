@@ -241,6 +241,16 @@ export default async () => {
         }
       },
       transpile: ['@ralph/ralph-ui'],
+      optimization: {
+        splitChunks: {
+          chunks: 'all',
+          automaticNameDelimiter: '.',
+          name: undefined,
+          cacheGroups: {},
+          minSize: 15000,
+          maxSize: 180000
+        }
+      },
       /*
        ** You can extend webpack config here
        */
