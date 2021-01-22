@@ -220,6 +220,16 @@ export default async () => {
       }
     },
     privateRuntimeConfig: {},
+    render: {
+      http2: {
+        push: true
+      }
+    },
+    server: {
+      timing: {
+        total: true
+      }
+    },
     /*
      ** Build configuration
      */
