@@ -237,8 +237,10 @@ export default async () => {
      */
     build: {
       filenames: {
-        app: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
-        chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js')
+        // app: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
+        // chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js')
+        app: () => '[name].app.js',
+        chunk: () => '[name].chunk.js'
       },
       babel: {
         presets({ isServer }) {
@@ -260,7 +262,7 @@ export default async () => {
           name: undefined,
           cacheGroups: {},
           minSize: 15000,
-          maxSize: 180000
+          maxSize: 260000
         }
       },
       /*
