@@ -143,7 +143,9 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/cookie-universal-nuxt
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
-      'nuxt-user-agent'
+      'nuxt-user-agent',
+      // Doc: https://www.npmjs.com/package/@nuxtjs/component-cache
+      ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }]
     ],
     styleResources: {
       scss: ['./styles/_variables.scss', './styles/_helpers.scss']
