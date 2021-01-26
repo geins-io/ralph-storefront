@@ -38,10 +38,10 @@ $c-cart-color: $c-text-primary;
 $c-sale: rgb(177, 0, 29);
 
 // Buttons
-$c-button-main-bg: $c-darkest-gray;
-$c-button-main-bg-hover: lighten($c-button-main-bg, 3%);
-$c-button-main-txt: $c-white;
-$c-button-main-border: transparent;
+$c-button-primary-bg: $c-darkest-gray;
+$c-button-primary-bg-hover: lighten($c-button-primary-bg, 3%);
+$c-button-primary-txt: $c-white;
+$c-button-primary-border: transparent;
 
 $c-button-secondary-bg: $c-white;
 $c-button-secondary-bg-hover: darken($c-button-secondary-bg, 3%);

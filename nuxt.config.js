@@ -22,7 +22,7 @@ const csvStreamRead = new Promise(function(resolve) {
       };
 
       if (imageSizeObject[PartitionKey]) {
-        imageSizeObject[row.PartitionKey].push(imageRow);
+        imageSizeObject[PartitionKey].push(imageRow);
       } else {
         imageSizeObject[PartitionKey] = [imageRow];
       }
