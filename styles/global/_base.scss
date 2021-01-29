@@ -13,6 +13,13 @@ html {
   box-sizing: inherit;
 }
 
+:focus {
+  outline: none;
+}
+:focus-visible {
+  box-shadow: 0 0 0 $focus-border;
+}
+
 body {
   font-size: $body-font-size;
   font-family: $body-font;

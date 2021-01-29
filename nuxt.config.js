@@ -147,7 +147,9 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
       // Doc: https://www.npmjs.com/package/@nuxtjs/component-cache
-      ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }]
+      ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
+      // Doc: https://www.npmjs.com/package/nuxt-polyfill
+      'nuxt-polyfill'
     ],
     styleResources: {
       scss: ['./styles/_variables.scss', './styles/_helpers.scss']
@@ -166,6 +168,13 @@ export default async () => {
         }
       },
       includeNodeModules: true
+    },
+    polyfill: {
+      features: [
+        {
+          require: 'focus-visible'
+        }
+      ]
     },
     router: {
       extendRoutes(routes, resolve) {
@@ -197,6 +206,7 @@ export default async () => {
     publicRuntimeConfig: {
       bannerWidgetPrimaryColor: '#000000',
       bannerWidgetSecondaryColor: '#FFFFFF',
+      productListWidgetArrowIconName: 'chevron',
       productListPageSize: 20,
       productListRowSize: 5,
       productListScrollSize: {

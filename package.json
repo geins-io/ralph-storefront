@@ -34,10 +34,12 @@
     "cookie": "^0.4.1",
     "cookie-universal-nuxt": "^2.1.4",
     "express": "^4.17.1",
+    "focus-visible": "^5.2.0",
     "graphql-tag": "^2.11.0",
     "node-fetch": "^2.6.1",
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.18.0",
+    "nuxt-polyfill": "^1.0.3",
     "nuxt-user-agent": "^1.2.2",
     "vue-slide-up-down": "^2.0.1",
     "vuex-persistedstate": "^3.2.0"
