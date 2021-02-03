@@ -44,18 +44,7 @@ export default async () => {
      ** Headers of the page
      */
     head: {
-      title: process.env.npm_package_name || '',
-      meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          hid: 'description',
-          name: 'description',
-          content: process.env.npm_package_description || ''
-        }
-      ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         {
           rel: 'stylesheet',
           href:
@@ -151,6 +140,14 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/nuxt-polyfill
       'nuxt-polyfill'
     ],
+    pwa: {
+      // Default metadata
+      meta: {
+        name: 'Meta name',
+        description: 'Default Metabeskrivning',
+        author: null
+      }
+    },
     styleResources: {
       scss: ['./styles/_variables.scss', './styles/_helpers.scss']
     },
