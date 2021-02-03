@@ -1,18 +1,32 @@
 import path from 'path';
 import fs from 'fs';
 import csv from 'csv-parser';
+import {
+  ApolloClient,
+  gql,
+  InMemoryCache,
+  HttpLink
+} from '@apollo/client/core';
+import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
-const filepath = './static/ImageSize.csv';
+const imageSizesFile = './static/ImageSize.csv';
 
 // Pipeline environment variables
 const inDev = process.env.NODE_ENV !== 'production';
 const ImageServer = inDev ? process.env.IMAGE_SERVER : '#{ImageServer}#';
 const ApiKey = inDev ? process.env.API_KEY : '#{ApiKey}#';
 const ApiEndpoint = inDev ? process.env.API_ENDPOINT : '#{ApiEndpoint}#';
-const csvStream = fs.createReadStream(filepath);
+const imageSizesStream = fs.createReadStream(imageSizesFile);
 const imageSizeObject = {};
-const csvStreamRead = new Promise(function(resolve) {
-  csvStream
+const apolloCache = new InMemoryCache({});
+const apolloClient = new ApolloClient({
+  cache: apolloCache,
+  link: new HttpLink({ uri: ApiEndpoint, fetch })
+});
+
+// Parse the imageSizesFile to get the image sizes
+const imageSizesStreamRead = new Promise(function(resolve) {
+  imageSizesStream
     .pipe(csv())
     .on('data', row => {
       // Get the value from the PartitionKey (Imate type) Column and make it lowercase (Because of input inconsistencies in the source document)
@@ -33,12 +47,26 @@ const csvStreamRead = new Promise(function(resolve) {
       resolve(imageSizeObject);
     });
 });
+
 async function getImageSizes() {
-  const imageSizes = await csvStreamRead;
+  const imageSizes = await imageSizesStreamRead;
   return imageSizes;
 }
 export default async () => {
   const imageSizes = await getImageSizes();
+  const defaultMetaQuery = await apolloClient.query({
+    query: gql`
+      query listPageInfo {
+        listPageInfo(apiKey: "devcarismar", alias: "frontpage") {
+          meta {
+            description
+            title
+          }
+        }
+      }
+    `
+  });
+  const defaultMeta = await defaultMetaQuery.data.listPageInfo.meta;
   return {
     /*
      ** Headers of the page
@@ -141,10 +169,10 @@ export default async () => {
       'nuxt-polyfill'
     ],
     pwa: {
-      // Default metadata
+      // Default metadata. Doc: https://pwa.nuxtjs.org/meta/
       meta: {
-        name: 'Meta name',
-        description: 'Default Metabeskrivning',
+        name: defaultMeta.title,
+        description: defaultMeta.description,
         author: null
       }
     },
@@ -152,16 +180,9 @@ export default async () => {
       scss: ['./styles/_variables.scss', './styles/_helpers.scss']
     },
     apollo: {
-      // optional
-      // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
-      // optional
-      // errorHandler: '~/plugins/apollo-error-handler.js',
-      // required
       clientConfigs: {
         default: {
-          httpEndpoint: ApiEndpoint,
-          // Enable Automatic Query persisting with Apollo Engine
-          persisting: false // try to enable this later
+          httpEndpoint: ApiEndpoint
         }
       },
       includeNodeModules: true
