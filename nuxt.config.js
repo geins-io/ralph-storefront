@@ -57,7 +57,7 @@ export default async () => {
   const defaultMetaQuery = await apolloClient.query({
     query: gql`
       query listPageInfo {
-        listPageInfo(apiKey: "devcarismar", alias: "frontpage") {
+        listPageInfo(apiKey: "${ApiKey}", alias: "frontpage") {
           meta {
             description
             title
