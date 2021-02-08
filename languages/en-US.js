@@ -106,6 +106,7 @@ export default {
   TERMS_AND_CONDITIONS: 'terms & conditions',
   PRIVACY_POLICY: 'privacy policy',
   LOG_IN: 'Log in',
+  LOG_OUT: 'Log out',
   CREATE_ACCOUNT: 'Create account',
   RESET_PASSWORD: 'Reset password',
   CHANGE_PASSWORD: 'Change password',

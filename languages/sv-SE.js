@@ -106,6 +106,7 @@ export default {
   TERMS_AND_CONDITIONS: 'allmänna villkor',
   PRIVACY_POLICY: 'integritetspolicy',
   LOG_IN: 'Logga in',
+  LOG_OUT: 'Logga ut',
   CREATE_ACCOUNT: 'Skapa konto',
   RESET_PASSWORD: 'Återställ lösenord',
   CHANGE_PASSWORD: 'Ändra lösenord',

@@ -1,0 +1,98 @@
+<template>
+  <div class="ca-account-header">
+    <div class="ca-account-header__title">
+      {{ title }}
+    </div>
+    <button class="ca-account-header__log-out">
+      <CaIconAndText icon-name="log-out">
+        {{ $t('LOG_OUT') }}
+      </CaIconAndText>
+    </button>
+    <nav class="ca-account-header__nav">
+      <NuxtLink
+        v-for="(item, index) in navItems"
+        :key="index"
+        :to="localePath(item.path)"
+        class="ca-account-header__nav-item"
+        :class="{
+          'ca-account-header__nav-item--current':
+            localePath(item.path) === $route.path
+        }"
+      >
+        {{ item.name }}
+      </NuxtLink>
+    </nav>
+  </div>
+</template>
+<script>
+// @group Molecules
+// @vuese
+export default {
+  name: 'CaAccountHeader',
+  mixins: [],
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    navItems: {
+      type: Array,
+      required: true
+    }
+  },
+  data: () => ({}),
+  computed: {},
+  watch: {},
+  mounted() {},
+  methods: {}
+};
+</script>
+<style lang="scss">
+.ca-account-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  &__title {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+  }
+  &__nav {
+    width: 100%;
+    margin: $px16 0 $px24;
+    display: flex;
+  }
+  &__nav-item {
+    display: inline-block;
+    padding: rem-calc(14px) rem-calc(25px);
+    margin: 0 $px20 0 0;
+    background: $c-lightest-gray;
+    font-size: $font-size-l;
+    border-radius: $default-radius;
+    border: 1px solid transparent;
+    transition: background 150ms ease, border 150ms ease;
+    &:hover {
+      background: $c-light-gray;
+    }
+    &--current {
+      border: 1px solid $c-accent-color;
+      background: $c-light-gray;
+      position: relative;
+      font-weight: $font-weight-bold;
+      &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid $c-accent-color;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 100%);
+      }
+    }
+  }
+}
+</style>

@@ -152,7 +152,22 @@ export default async () => {
           vueI18n: {
             fallbackLocale: 'sv'
           },
-          detectBrowserLanguage: false
+          detectBrowserLanguage: false,
+          parsePages: false,
+          pages: {
+            'checkout/index': {
+              sv: '/kassan',
+              en: '/checkout'
+            },
+            'account/orders': {
+              sv: '/mina-sidor/ordrar',
+              en: '/my-account/orders'
+            },
+            'account/settings': {
+              sv: '/mina-sidor/installningar',
+              en: '/my-account/settings'
+            }
+          }
         }
       ],
       // Doc: https://github.com/nuxt-community/style-resources-module
@@ -216,6 +231,7 @@ export default async () => {
           path: '/:alias',
           component: resolve(__dirname, 'pages/content/_alias.vue')
         });
+        // Adding routes with translated paths is done through nuxt-i18n config above
       }
     },
     /*
