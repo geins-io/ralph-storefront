@@ -1,6 +1,7 @@
 <template>
   <CaAccountPage>
-    Orders in progress
+    <h2>Pågående ordrar</h2>
+    <CaOrderSummary />
   </CaAccountPage>
 </template>
 
@@ -8,7 +9,6 @@
 export default {
   name: 'OrdersPage',
   transition: 'no-transition',
-  scrollToTop: false,
   data: () => ({}),
   methods: {}
 };

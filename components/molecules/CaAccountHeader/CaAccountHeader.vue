@@ -1,13 +1,13 @@
 <template>
   <div class="ca-account-header">
-    <div class="ca-account-header__title">
+    <h1 class="ca-account-header__title">
       {{ title }}
-    </div>
-    <button class="ca-account-header__log-out">
+    </h1>
+    <CaButton color="secondary" size="s" class="ca-account-header__log-out">
       <CaIconAndText icon-name="log-out">
         {{ $t('LOG_OUT') }}
       </CaIconAndText>
-    </button>
+    </CaButton>
     <nav class="ca-account-header__nav">
       <NuxtLink
         v-for="(item, index) in navItems"
@@ -55,7 +55,13 @@ export default {
   align-items: center;
   &__title {
     font-weight: $font-weight-bold;
-    font-size: $font-size-xl;
+    font-size: $font-size-l;
+    @include bp(tablet) {
+      font-size: $font-size-xl;
+    }
+  }
+  &__log-out {
+    line-height: 1;
   }
   &__nav {
     width: 100%;

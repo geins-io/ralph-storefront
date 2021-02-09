@@ -1,7 +1,9 @@
 <template>
   <div class="ca-account-page">
-    <CaContainer :width="$store.state.viewport === 'phone' ? 'full' : 'slim'">
+    <CaContainer width="slim">
       <CaAccountHeader :nav-items="accountMenu" :title="currentPageTitle" />
+    </CaContainer>
+    <CaContainer :width="$store.getters.viewport === 'phone' ? 'full' : 'slim'">
       <div class="ca-account-page__body">
         <div class="ca-account-page__content">
           <slot></slot>
@@ -12,14 +14,21 @@
             Vi finns här för att hjälpa dig. Hör av dig till oss om du har
             problem.
           </p>
-          <a class="ca-customer-service-box__contact" href="tel:123234345">
-            <CaIconAndText icon-name="phone">123234345</CaIconAndText>
+          <a
+            class="ca-customer-service-box__contact"
+            :href="'tel:' + $config.customerServicePhone"
+          >
+            <CaIconAndText icon-name="phone">{{
+              $config.customerServicePhone
+            }}</CaIconAndText>
           </a>
           <a
             class="ca-customer-service-box__contact"
-            href="mailto:info@ralph.io"
+            :href="'mailto:' + $config.customerServiceEmail"
           >
-            <CaIconAndText icon-name="mail">info@ralph.io</CaIconAndText>
+            <CaIconAndText icon-name="mail">{{
+              $config.customerServiceEmail
+            }}</CaIconAndText>
           </a>
         </div>
       </div>
@@ -47,15 +56,18 @@ export default {
   }),
   computed: {
     currentPageTitle() {
-      return (
-        'Mina sidor / ' +
-        this.accountMenu.find(i => this.localePath(i.path) === this.$route.path)
-          .name
+      const currentPage = this.accountMenu.find(
+        i => this.localePath(i.path) === this.$route.path
       );
+      return this.$store.getters.viewport === 'phone'
+        ? 'Mina sidor'
+        : 'Mina sidor / ' + currentPage?.name;
     }
   },
   watch: {},
-  mounted() {},
+  mounted() {
+    this.$store.dispatch('loading/end');
+  },
   methods: {}
 };
 </script>
@@ -65,6 +77,7 @@ export default {
     @include bp(tablet) {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
     }
   }
   &__content {
@@ -78,12 +91,28 @@ export default {
   }
 }
 .ca-customer-service-box {
-  width: 266px;
+  width: 300px;
   border: $border-light;
   background: $c-lightest-gray;
-  padding: $px20 $px16;
+  padding: $px16;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @include bp(tablet) {
     margin: 0 0 0 $px32;
+  }
+  &__title {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-l;
+  }
+  &__text {
+    margin: $px10 0 $px4;
+  }
+  &__contact {
+    margin: $px8 0 0;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-m;
   }
 }
 </style>

@@ -38,14 +38,20 @@
           <h2 class="ca-footer__title">Kundtjänst</h2>
           <div class="ca-footer__contact">
             <span class="ca-footer__contact-title">Mail:</span>
-            <a class="ca-footer__contact-info" href="mailto:info@ralph.io">
-              info@ralph.io
+            <a
+              class="ca-footer__contact-info"
+              :href="'mailto:' + $config.customerServiceEmail"
+            >
+              {{ $config.customerServiceEmail }}
             </a>
           </div>
           <div class="ca-footer__contact">
             <span class="ca-footer__contact-title">Telefon:</span>
-            <a class="ca-footer__contact-info" href="tel:123234345">
-              123234345
+            <a
+              class="ca-footer__contact-info"
+              :href="'tel:' + $config.customerServicePhone"
+            >
+              {{ $config.customerServicePhone }}
             </a>
           </div>
           <h2 class="ca-footer__title">Shoppa som</h2>

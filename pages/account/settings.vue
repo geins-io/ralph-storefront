@@ -8,7 +8,6 @@
 export default {
   name: 'SettingsPage',
   transition: 'no-transition',
-  scrollToTop: false,
   data: () => ({}),
   methods: {}
 };
