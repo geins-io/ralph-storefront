@@ -25,12 +25,12 @@ export default {
   },
   head() {
     return {
-      title: this.MetaReplacement(this.meta?.title),
+      title: this.metaReplacement(this.meta?.title),
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.MetaReplacement(this.meta?.description)
+          content: this.metaReplacement(this.meta?.description)
         },
         {
           hid: 'og:title',
