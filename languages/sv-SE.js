@@ -131,5 +131,8 @@ export default {
     'Vi finns här för att hjälpa dig. Hör av dig till oss om du har problem.',
   ACCOUNT_ORDERS_TITLE: 'Ordrar',
   ACCOUNT_SETTINGS_TITLE: 'Inställningar',
-  ACCOUNT_TITLE: 'Mina sidor'
+  ACCOUNT_TITLE: 'Mina sidor',
+  ACCOUNT_SETTINGS_CANCEL: 'Avbryt',
+  ACCOUNT_SETTINGS_EDIT: 'Ändra',
+  ACCOUNT_SETTINGS_SAVE: 'Spara ändringar'
 };

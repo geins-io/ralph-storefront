@@ -132,5 +132,8 @@ export default {
     'We are here to help you. Reach out to us if you have any problem',
   ACCOUNT_ORDERS_TITLE: 'Orders',
   ACCOUNT_SETTINGS_TITLE: 'Settings',
-  ACCOUNT_TITLE: 'My account'
+  ACCOUNT_TITLE: 'My account',
+  ACCOUNT_SETTINGS_CANCEL: 'Cancel',
+  ACCOUNT_SETTINGS_EDIT: 'Edit',
+  ACCOUNT_SETTINGS_SAVE: 'Save changes'
 };
