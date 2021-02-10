@@ -117,5 +117,19 @@ export default {
   ACCOUNT_FEEDBACK_PASSWORD_RESET:
     'Ett mail för återställning av lösenord har skickats till dig',
   ACCOUNT_FEEDBACK_PASSWORD_CHANGE: 'Ditt lösenord har ändrats',
-  ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Se till att alla fält är giltiga'
+  ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Se till att alla fält är giltiga',
+  ACCOUNT_VIEW_DETAILS: 'Se detaljer',
+  SHIPPING_METHOD: 'Leveranssätt',
+  PAYMENT_METHOD: 'Betalsätt',
+  TRACK_ORDER: 'Spåra paket',
+  BILLING_ADDRESS: 'Fakturaadress',
+  SHIPPING_ADDRESS: 'Leveransadress',
+  ACCOUNT_ORDERS_IN_PROGRESS: 'Pågående',
+  ACCOUNT_ORDER_HISTORY: 'Orderhistorik',
+  CUSTOMER_SERVICE_BOX_TITLE: 'Behöver du hjälp?',
+  CUSTOMER_SERVICE_BOX_TEXT:
+    'Vi finns här för att hjälpa dig. Hör av dig till oss om du har problem.',
+  ACCOUNT_ORDERS_TITLE: 'Ordrar',
+  ACCOUNT_SETTINGS_TITLE: 'Inställningar',
+  ACCOUNT_TITLE: 'Mina sidor'
 };

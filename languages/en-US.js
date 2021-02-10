@@ -118,5 +118,19 @@ export default {
   ACCOUNT_FEEDBACK_PASSWORD_RESET:
     'An email for resetting your password has been sent to you',
   ACCOUNT_FEEDBACK_PASSWORD_CHANGE: 'Your password has been changed',
-  ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Please make sure all fields are valid'
+  ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Please make sure all fields are valid',
+  ACCOUNT_VIEW_DETAILS: 'View details',
+  SHIPPING_METHOD: 'Shipping method',
+  PAYMENT_METHOD: 'Payment method',
+  TRACK_ORDER: 'Track order',
+  BILLING_ADDRESS: 'Billing address',
+  SHIPPING_ADDRESS: 'Shipping address',
+  ACCOUNT_ORDERS_IN_PROGRESS: 'In progress',
+  ACCOUNT_ORDER_HISTORY: 'Order history',
+  CUSTOMER_SERVICE_BOX_TITLE: 'Need help?',
+  CUSTOMER_SERVICE_BOX_TEXT:
+    'We are here to help you. Reach out to us if you have any problem',
+  ACCOUNT_ORDERS_TITLE: 'Orders',
+  ACCOUNT_SETTINGS_TITLE: 'Settings',
+  ACCOUNT_TITLE: 'My account'
 };

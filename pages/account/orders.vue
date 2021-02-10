@@ -1,6 +1,8 @@
 <template>
-  <CaAccountPage>
-    <h2>Pågående ordrar</h2>
+  <CaAccountPage class="ca-order-page">
+    <h2 class="ca-order-page__title">
+      {{ $t('ACCOUNT_ORDERS_IN_PROGRESS') }}
+    </h2>
     <CaOrderSummary />
   </CaAccountPage>
 </template>
@@ -14,4 +16,15 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.ca-order-page {
+  &__title {
+    font-size: $font-size-m;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $px10;
+    @include bp(tablet) {
+      font-size: $font-size-l;
+    }
+  }
+}
+</style>

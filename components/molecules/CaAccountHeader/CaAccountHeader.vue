@@ -65,20 +65,27 @@ export default {
   }
   &__nav {
     width: 100%;
-    margin: $px16 0 $px24;
+    margin: $px20 0 $px24;
     display: flex;
+    @include bp(tablet) {
+      margin: $px16 0 $px24;
+    }
   }
   &__nav-item {
     display: inline-block;
-    padding: rem-calc(14px) rem-calc(25px);
+    padding: $px10 rem-calc(15px);
     margin: 0 $px20 0 0;
     background: $c-lightest-gray;
-    font-size: $font-size-l;
+    font-size: $font-size-m;
     border-radius: $default-radius;
     border: 1px solid transparent;
     transition: background 150ms ease, border 150ms ease;
     &:hover {
       background: $c-light-gray;
+    }
+    @include bp(tablet) {
+      padding: rem-calc(14px) rem-calc(25px);
+      font-size: $font-size-l;
     }
     &--current {
       border: 1px solid $c-accent-color;

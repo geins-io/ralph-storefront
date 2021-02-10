@@ -9,10 +9,11 @@
           <slot></slot>
         </div>
         <div class="ca-customer-service-box">
-          <h2 class="ca-customer-service-box__title">Behöver du hjälp?</h2>
+          <h2 class="ca-customer-service-box__title">
+            {{ $t('CUSTOMER_SERVICE_BOX_TITLE') }}
+          </h2>
           <p class="ca-customer-service-box__text">
-            Vi finns här för att hjälpa dig. Hör av dig till oss om du har
-            problem.
+            {{ $t('CUSTOMER_SERVICE_BOX_TEXT') }}
           </p>
           <a
             class="ca-customer-service-box__contact"
@@ -42,14 +43,14 @@ export default {
   name: 'CaAccountPage',
   mixins: [],
   props: {},
-  data: () => ({
+  data: vm => ({
     accountMenu: [
       {
-        name: 'Ordrar',
+        name: vm.$t('ACCOUNT_ORDERS_TITLE'),
         path: 'account-orders'
       },
       {
-        name: 'Inställningar',
+        name: vm.$t('ACCOUNT_SETTINGS_TITLE'),
         path: 'account-settings'
       }
     ]
@@ -59,9 +60,10 @@ export default {
       const currentPage = this.accountMenu.find(
         i => this.localePath(i.path) === this.$route.path
       );
+      const accountTitle = this.$t('ACCOUNT_TITLE');
       return this.$store.getters.viewport === 'phone'
-        ? 'Mina sidor'
-        : 'Mina sidor / ' + currentPage?.name;
+        ? accountTitle
+        : accountTitle + ' / ' + currentPage?.name;
     }
   },
   watch: {},
@@ -91,7 +93,8 @@ export default {
   }
 }
 .ca-customer-service-box {
-  width: 300px;
+  max-width: rem-calc(300px);
+  width: 100%;
   border: $border-light;
   background: $c-lightest-gray;
   padding: $px16;
@@ -99,6 +102,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: $px20 auto 0;
   @include bp(tablet) {
     margin: 0 0 0 $px32;
   }
