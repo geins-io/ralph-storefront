@@ -111,6 +111,7 @@ export default {
   LOG_IN: 'Log in',
   LOG_OUT: 'Log out',
   CREATE_ACCOUNT: 'Create account',
+  DELETE_ACCOUNT: 'Delete account',
   RESET_PASSWORD: 'Reset password',
   CHANGE_PASSWORD: 'Change password',
   BACK_TO_LOGIN: 'Back to log in',
@@ -138,5 +139,24 @@ export default {
   ACCOUNT_TITLE: 'My account',
   ACCOUNT_SETTINGS_CANCEL: 'Cancel',
   ACCOUNT_SETTINGS_EDIT: 'Edit',
-  ACCOUNT_SETTINGS_SAVE: 'Save changes'
+  ACCOUNT_SETTINGS_SAVE: 'Save changes',
+  ACCOUNT_USER_INFO_TITLE: 'Personal information',
+  ACCOUNT_BILLING_SHIPPING_TITLE: 'Billing & Shipping',
+  ACCOUNT_NEWSLETTER_TITLE: 'Newsletter',
+  ACCOUNT_PRIVACY_TITLE: 'Privacy settings',
+  LABEL_FIRST_NAME: 'First name',
+  LABEL_LAST_NAME: 'Last name',
+  LABEL_PHONE_NUMBER: 'Phone number',
+  LABEL_GENDER: 'Gender',
+  LABEL_CARE_OF: 'C/O',
+  LABEL_ADDRESS: 'Street address',
+  LABEL_ADDRESS_2: 'Apartment no., building, floor, etc.',
+  LABEL_ZIP: 'Postal code',
+  LABEL_CITY: 'City',
+  LABEL_COUNTRY: 'Country',
+  LABEL_NEWSLETTER: 'Newsletter',
+  ACCOUNT_PERSONAL_INFO_REMOVAL:
+    'To delete only your personal information, you need to contact customer service.',
+  YES: 'Yes',
+  NO: 'No'
 };
