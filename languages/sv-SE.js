@@ -142,7 +142,7 @@ export default {
   ACCOUNT_USER_INFO_TITLE: 'Personlig information',
   ACCOUNT_BILLING_SHIPPING_TITLE: 'Leverans',
   ACCOUNT_NEWSLETTER_TITLE: 'Nyhetsbrev',
-  ACCOUNT_PRIVACY_TITLE: 'Skerhetsinställningar',
+  ACCOUNT_PRIVACY_TITLE: 'Säkerhetsinställningar',
   LABEL_FIRST_NAME: 'Förnamn',
   LABEL_LAST_NAME: 'Efternamn',
   LABEL_PHONE_NUMBER: 'Telefonnummer',

@@ -35,12 +35,12 @@ export default {
         {
           hid: 'og:title',
           name: 'og:title',
-          content: this.MetaReplacement(this.meta?.title)
+          content: this.metaReplacement(this.meta?.title)
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: this.MetaReplacement(this.meta?.description)
+          content: this.metaReplacement(this.meta?.description)
         }
       ]
     };
