@@ -97,6 +97,11 @@
   opacity: 0;
 }
 
+.no-transition-enter-active,
+.no-transition-leave-active {
+  transition: none;
+}
+
 .layout-enter-active,
 .layout-leave-active {
   transition: opacity 0.2s;

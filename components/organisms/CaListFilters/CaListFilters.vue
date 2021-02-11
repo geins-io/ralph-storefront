@@ -78,7 +78,7 @@
         v-if="filters.categories && filters.categories.length > 1"
         class="ca-list-filters__toggle"
       >
-        <template #toggle>{{ $t('FILTER_LABEL_CATEGORIES') }}</template>
+        <template #toggle-text>{{ $t('FILTER_LABEL_CATEGORIES') }}</template>
         <LazyCaFilterMulti
           :values="filters.categories"
           :selection="selection.categories"
@@ -86,7 +86,7 @@
         />
       </CaAccordionItem>
       <CaAccordionItem v-if="filters.brands && filters.brands.length > 1">
-        <template #toggle>{{ $t('FILTER_LABEL_BRANDS') }}</template>
+        <template #toggle-text>{{ $t('FILTER_LABEL_BRANDS') }}</template>
         <LazyCaFilterMulti
           :values="filters.brands"
           :selection="selection.brands"
@@ -100,7 +100,7 @@
             filters.price.lowest !== filters.price.highest
         "
       >
-        <template #toggle>{{ $t('FILTER_LABEL_PRICE') }}</template>
+        <template #toggle-text>{{ $t('FILTER_LABEL_PRICE') }}</template>
         <LazyCaFilterRange
           :values="filters.price"
           :selection="selection.price"
