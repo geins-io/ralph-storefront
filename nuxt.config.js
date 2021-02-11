@@ -287,13 +287,14 @@ export default async () => {
       filenames: {
         app: ({ isDev, isModern }) =>
           isDev
-            ? `[name]${isModern ? '.modern' : ''}.js`
-            : `[contenthash:7]${isModern ? '.modern' : ''}.js`,
+            ? `[name].[contenthash:4].${isModern ? '.mod' : ''}.js`
+            : `[contenthash:7]${isModern ? '.mod' : ''}.js`,
         chunk: ({ isDev, isModern }) =>
           isDev
-            ? `[name]${isModern ? '.modern' : ''}.js`
-            : `[contenthash:7]${isModern ? '.modern' : ''}.js`,
-        css: ({ isDev }) => (isDev ? '[name].css' : 'css/[contenthash:7].css'),
+            ? `[name].[contenthash:4].${isModern ? '.mod' : ''}.js`
+            : `[contenthash:7]${isModern ? '.mod' : ''}.js`,
+        css: ({ isDev }) =>
+          isDev ? '[name].[contenthash:4].css' : 'css/[contenthash:7].css',
         img: ({ isDev }) =>
           isDev ? '[path][name].[ext]' : 'img/[name].[contenthash:7].[ext]',
         font: ({ isDev }) =>
