@@ -5,7 +5,7 @@ ARG API_ENDPOINT=#{ApiEndpoint}#
 ARG IMAGE_SERVER=#{ImageServer}#
 
 # Build the app on a separate "machine".
-FROM node:14.8-alpine as builder
+FROM node:14.15.5-alpine as builder
 WORKDIR /app
 RUN apk add --no-cache curl git && \
     apk add --no-cache curl && \
@@ -15,7 +15,7 @@ RUN npm install && npm run build
 RUN node-prune
 
 # Grab the parts that makes our app work, and put them on a fresh linux image
-FROM node:14.8-alpine
+FROM node:14.15.5-alpine
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NUXT_HOST=${HOST}
