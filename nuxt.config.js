@@ -306,7 +306,7 @@ export default async () => {
       optimization: {
         splitChunks: {
           chunks: 'all',
-          automaticNameDelimiter: '.',
+          automaticNameDelimiter: 'a.',
           name: undefined,
           cacheGroups: {},
           minSize: 15000,
