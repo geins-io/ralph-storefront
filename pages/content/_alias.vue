@@ -10,8 +10,10 @@
 </template>
 
 <script>
+import MixMetaReplacement from 'MixMetaReplacement';
 export default {
   name: 'ContentPage',
+  mixins: [MixMetaReplacement],
   data: () => ({
     meta: undefined
   }),
@@ -23,22 +25,22 @@ export default {
   },
   head() {
     return {
-      title: this.meta?.title,
+      title: this.metaReplacement(this.meta?.title),
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.meta?.description
+          content: this.metaReplacement(this.meta?.description)
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: this.meta?.title
+          content: this.MetaReplacement(this.meta?.title)
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: this.meta?.description
+          content: this.MetaReplacement(this.meta?.description)
         }
       ]
     };
