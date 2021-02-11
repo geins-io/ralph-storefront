@@ -95,6 +95,9 @@ export default {
   EMAIL_ERROR_NOT_VALID: 'You have to enter a valid email',
   PASSWORD: 'Password',
   PASSWORD_CONFIRM: 'Confirm password',
+  NEW_PASSWORD: 'New password',
+  NEW_PASSWORD_CONFIRM: 'Confirm new password',
+  CURRENT_PASSWORD: 'Current password',
   PASSWORD_ERROR_WEAK: 'Your password is too weak',
   PASSWORD_ERROR_EMPTY: 'You have to enter a password',
   PASSWORD_ERROR_NO_MATCH: 'The passwords does not match',
@@ -117,7 +120,7 @@ export default {
   ACCOUNT_FEEDBACK_LOGGED_IN: 'You have been logged in',
   ACCOUNT_FEEDBACK_PASSWORD_RESET:
     'An email for resetting your password has been sent to you',
-  ACCOUNT_FEEDBACK_PASSWORD_CHANGE: 'Your password has been changed',
+  ACCOUNT_FEEDBACK_PASSWORD_CHANGED: 'Your password has been changed',
   ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Please make sure all fields are valid',
   ACCOUNT_VIEW_DETAILS: 'View details',
   SHIPPING_METHOD: 'Shipping method',
