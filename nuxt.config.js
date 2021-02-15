@@ -266,6 +266,12 @@ export default async () => {
         third: '(min-width: 1360px) 427px, (min-width: 768px) 31vw, 96vw',
         quarter: '(min-width: 1360px) 315px, (min-width: 768px) 23vw, 96vw'
       },
+      widgetImageSizesFullWidth: {
+        full: '100vw',
+        half: '(min-width: 768px) 49vw, 100vw',
+        third: '(min-width: 768px) 33vw, 100vw',
+        quarter: '(min-width: 768px) 24vw, 100vw'
+      },
       customerServiceEmail: 'info@ralph.io',
       customerServicePhone: '123234345'
     },
