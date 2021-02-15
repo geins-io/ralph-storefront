@@ -158,5 +158,8 @@ export default {
   ACCOUNT_PERSONAL_INFO_REMOVAL:
     'To delete only your personal information, you need to contact customer service.',
   YES: 'Yes',
-  NO: 'No'
+  NO: 'No',
+  ERROR_PAGE_TITLE: 'Uh oh, something went wrong',
+  ERROR_PAGE_404_TITLE: 'The page you are looking for cannot be found',
+  ERROR_PAGE_BUTTON: 'Till startsidan'
 };

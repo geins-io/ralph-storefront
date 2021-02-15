@@ -284,24 +284,6 @@ export default async () => {
      ** Build configuration
      */
     build: {
-      filenames: {
-        app: ({ isDev, isModern }) =>
-          isDev
-            ? `[name].[contenthash:4].${isModern ? '.mod' : ''}.js`
-            : `[contenthash:7]${isModern ? '.mod' : ''}.js`,
-        chunk: ({ isDev, isModern }) =>
-          isDev
-            ? `[name].[contenthash:4].${isModern ? '.mod' : ''}.js`
-            : `[contenthash:7]${isModern ? '.mod' : ''}.js`,
-        css: ({ isDev }) =>
-          isDev ? '[name].[contenthash:4].css' : 'css/[contenthash:7].css',
-        img: ({ isDev }) =>
-          isDev ? '[path][name].[ext]' : 'img/[name].[contenthash:7].[ext]',
-        font: ({ isDev }) =>
-          isDev ? '[path][name].[ext]' : 'fonts/[name].[contenthash:7].[ext]',
-        video: ({ isDev }) =>
-          isDev ? '[path][name].[ext]' : 'videos/[name].[contenthash:7].[ext]'
-      },
       babel: {
         presets({ isServer }) {
           return [

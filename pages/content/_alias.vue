@@ -18,9 +18,12 @@ export default {
     meta: undefined
   }),
   methods: {
-    onDataFetched(meta) {
+    onDataFetched(data) {
+      if (data.widgetArea === null && !process.server) {
+        this.$nuxt.error({ statusCode: 404, message: '' });
+      }
       this.$store.dispatch('loading/end');
-      this.meta = meta;
+      this.meta = data.meta;
     }
   },
   head() {

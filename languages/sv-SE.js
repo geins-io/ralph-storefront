@@ -157,5 +157,8 @@ export default {
   ACCOUNT_PERSONAL_INFO_REMOVAL:
     'För att enbart ta bort personlig information, kontakta kundservice.',
   YES: 'Ja',
-  NO: 'Nej'
+  NO: 'Nej',
+  ERROR_PAGE_TITLE: 'Oj, något gick visst fel',
+  ERROR_PAGE_404_TITLE: 'Sidan du söker kunde tyvärr inte hittas',
+  ERROR_PAGE_BUTTON: 'Till startsidan'
 };
