@@ -1,5 +1,8 @@
 <template>
   <header class="ca-header" :class="modifiers">
+    <CaGlobalMessage v-if="$store.state.ancientBrowser">
+      {{ $t('ANCIENT_BROWSER_MESSAGE') }}
+    </CaGlobalMessage>
     <CaTopBar />
     <div class="ca-header__bar">
       <CaContainer class="ca-header__container">

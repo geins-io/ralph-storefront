@@ -166,5 +166,7 @@ export default {
     'We use third-party cookies to personalize content, ads, and analyze site traffic.',
   COOKIE_CONSENT_LEARN_MORE: 'Learn more',
   COOKIE_CONSENT_ALLOW: 'Allow all cookies',
-  COOKIE_CONSENT_DECLINE: 'Only necessary cookies'
+  COOKIE_CONSENT_DECLINE: 'Only necessary cookies',
+  ANCIENT_BROWSER_MESSAGE:
+    'This website will not function properly since you are using an outdated browser. We recommend you to switch before moving on to make your experience more pleasant.'
 };

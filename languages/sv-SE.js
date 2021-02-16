@@ -165,5 +165,7 @@ export default {
     'Vi använder tredjeparts-cookies för att anpassa innehåll, annonser och för att analysera sidtrafik.',
   COOKIE_CONSENT_LEARN_MORE: 'Läs mer',
   COOKIE_CONSENT_ALLOW: 'Tillåt alla cookies',
-  COOKIE_CONSENT_DECLINE: 'Tillåt endast nödvändiga'
+  COOKIE_CONSENT_DECLINE: 'Tillåt endast nödvändiga',
+  ANCIENT_BROWSER_MESSAGE:
+    'Denna webbsida kommer ej fungera optimalt då du använder en utdaterad browser. Vi rekommenderar att du byter innan du går vidare för att din upplevelse ska bli bättre.'
 };
