@@ -18,6 +18,7 @@
         </div>
       </transition>
     </client-only>
+    <CaCookieConsent ref="cookieConsent" />
     <LazyCaDisplayCart />
     <LazyCaAccountPanel />
     <LazyCaSnackbar />

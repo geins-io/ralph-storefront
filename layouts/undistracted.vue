@@ -4,6 +4,7 @@
     <main class="ca-layout-undistracted__main">
       <Nuxt />
     </main>
+    <CaCookieConsent ref="cookieConsent" />
   </div>
 </template>
 <script>

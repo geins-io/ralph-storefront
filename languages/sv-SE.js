@@ -160,5 +160,10 @@ export default {
   NO: 'Nej',
   ERROR_PAGE_TITLE: 'Oj, något gick visst fel',
   ERROR_PAGE_404_TITLE: 'Sidan du söker kunde tyvärr inte hittas',
-  ERROR_PAGE_BUTTON: 'Till startsidan'
+  ERROR_PAGE_BUTTON: 'Till startsidan',
+  COOKIE_CONSENT_TEXT:
+    'Vi använder tredjeparts-cookies för att anpassa innehåll, annonser och för att analysera sidtrafik.',
+  COOKIE_CONSENT_LEARN_MORE: 'Läs mer',
+  COOKIE_CONSENT_ALLOW: 'Tillåt alla cookies',
+  COOKIE_CONSENT_DECLINE: 'Tillåt endast nödvändiga'
 };

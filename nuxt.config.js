@@ -238,28 +238,28 @@ export default async () => {
      ** Runtime configs
      */
     publicRuntimeConfig: {
-      bannerWidgetPrimaryColor: '#000000',
-      bannerWidgetSecondaryColor: '#FFFFFF',
-      productListWidgetArrowIconName: 'chevron',
-      productListPageSize: 20,
-      productListRowSize: 5,
-      productListScrollSize: {
-        phone: 2,
-        tablet: 3,
-        laptop: 5,
-        desktop: 5
+      /* ***************** */
+      /* **** GLOBAL ***** */
+      /* ***************** */
+      imageServer: ImageServer,
+      apiKey: ApiKey,
+      gtm: {
+        id: ''
       },
-      productListDefaultSort: 'LATEST',
-      productStockFewLeftLimit: 6,
+      customerServiceEmail: 'info@ralph.io',
+      customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
         tablet: 768,
         laptop: 1024,
         desktop: 1200
       },
-      productImageRatio: 1 / 1,
-      imageServer: ImageServer,
-      apiKey: ApiKey,
-      imageSizes,
+      /* ****************** */
+      /* **** WIDGETS ***** */
+      /* ****************** */
+      bannerWidgetPrimaryColor: '#000000',
+      bannerWidgetSecondaryColor: '#FFFFFF',
+      productListWidgetArrowIconName: 'chevron',
+      productListRowSize: 5,
       widgetImageSizes: {
         full: '(min-width: 1360px) 1320px, 96vw',
         half: '(min-width: 1360px) 650px, (min-width: 768px) 47vw, 96vw',
@@ -272,8 +272,26 @@ export default async () => {
         third: '(min-width: 768px) 33vw, 100vw',
         quarter: '(min-width: 768px) 24vw, 100vw'
       },
-      customerServiceEmail: 'info@ralph.io',
-      customerServicePhone: '123234345'
+      /* *********************** */
+      /* **** PRODUCT LIST ***** */
+      /* *********************** */
+      productListDefaultSort: 'LATEST',
+      productListPageSize: 20,
+      productListScrollSize: {
+        phone: 2,
+        tablet: 3,
+        laptop: 5,
+        desktop: 5
+      },
+      /* ****************** */
+      /* **** PRODUCT ***** */
+      /* ****************** */
+      productStockFewLeftLimit: 6,
+      /* ****************** */
+      /* **** IMAGES ***** */
+      /* ****************** */
+      productImageRatio: 1 / 1,
+      imageSizes
     },
     privateRuntimeConfig: {},
     render: {

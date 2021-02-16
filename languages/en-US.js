@@ -161,5 +161,10 @@ export default {
   NO: 'No',
   ERROR_PAGE_TITLE: 'Uh oh, something went wrong',
   ERROR_PAGE_404_TITLE: 'The page you are looking for cannot be found',
-  ERROR_PAGE_BUTTON: 'Till startsidan'
+  ERROR_PAGE_BUTTON: 'Go to the start page',
+  COOKIE_CONSENT_TEXT:
+    'We use third-party cookies to personalize content, ads, and analyze site traffic.',
+  COOKIE_CONSENT_LEARN_MORE: 'Learn more',
+  COOKIE_CONSENT_ALLOW: 'Allow all cookies',
+  COOKIE_CONSENT_DECLINE: 'Only necessary cookies'
 };
