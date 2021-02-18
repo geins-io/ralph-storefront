@@ -168,5 +168,14 @@ export default {
   COOKIE_CONSENT_ALLOW: 'Allow all cookies',
   COOKIE_CONSENT_DECLINE: 'Only necessary cookies',
   ANCIENT_BROWSER_MESSAGE:
-    'This website will not function properly since you are using an outdated browser. We recommend you to switch before moving on to make your experience more pleasant.'
+    'This website will not function properly since you are using an outdated browser. We recommend you to switch before moving on to make your experience more pleasant.',
+  PROMO_CODE_TITLE: 'Gift card or promo code?',
+  PROMO_CODE_LABEL: 'Write your code here',
+  PROMO_CODE_BUTTON: 'Activate',
+  PROMO_CODE_ACTIVATED: 'Your code is now active',
+  PROMO_CODE_ERROR_REQUIREMENTS:
+    'You have not met the requirements for this code',
+  PROMO_CODE_ERROR_INVALID: 'This code is not valid',
+  PROMO_CODE_ACTIVE: 'The code {0} is activated. {1}',
+  PROMO_CODE_REMOVE: 'Remove'
 };
