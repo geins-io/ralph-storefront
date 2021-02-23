@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  middleware: 'authenticated',
   name: 'SettingsPage',
   transition: 'no-transition',
   data: () => ({

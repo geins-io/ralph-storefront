@@ -28,6 +28,7 @@
             <ul class="secondary-nav">
               <CaSecondaryNavItem>
                 <button
+                  v-if="!$store.getters['auth/isAuthenticated']"
                   @click="
                     $store.commit('contentpanel/open', {
                       name: 'account',
@@ -37,6 +38,9 @@
                 >
                   {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
                 </button>
+                <NuxtLink v-else :to="localePath('account-orders')">
+                  {{ $t('ACCOUNT_TITLE') }}
+                </NuxtLink>
               </CaSecondaryNavItem>
               <CaSecondaryNavItem>
                 <NuxtLink to="/">

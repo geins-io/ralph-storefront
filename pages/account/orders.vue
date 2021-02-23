@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  middleware: 'authenticated',
   name: 'OrdersPage',
   transition: 'no-transition',
   data: () => ({}),
