@@ -123,6 +123,7 @@ export default {
     'An email for resetting your password has been sent to you',
   ACCOUNT_FEEDBACK_PASSWORD_CHANGED: 'Your password has been changed',
   ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Please make sure all fields are valid',
+  ACCOUNT_FEEDBACK_ALREADY_EXISTS: 'An account with this email already exists',
   ACCOUNT_VIEW_DETAILS: 'View details',
   SHIPPING_METHOD: 'Shipping method',
   PAYMENT_METHOD: 'Payment method',

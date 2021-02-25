@@ -122,6 +122,7 @@ export default {
     'Ett mail för återställning av lösenord har skickats till dig',
   ACCOUNT_FEEDBACK_PASSWORD_CHANGED: 'Ditt lösenord har ändrats',
   ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Se till att alla fält är giltiga',
+  ACCOUNT_FEEDBACK_ALREADY_EXISTS: 'Ett konto med denna email existerar redan',
   ACCOUNT_VIEW_DETAILS: 'Se detaljer',
   SHIPPING_METHOD: 'Leveranssätt',
   PAYMENT_METHOD: 'Betalsätt',

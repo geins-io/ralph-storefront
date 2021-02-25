@@ -1,33 +1,54 @@
 <template>
   <CaAccountPage class="ca-settings-page">
-    <CaAccountSettings :user="user" :genders="genders" />
+    <CaAccountSettings
+      v-if="user"
+      :user="user"
+      :genders="genders"
+      @save="user = $event"
+    />
   </CaAccountPage>
 </template>
 
 <script>
+import getUserQuery from 'user/user.graphql';
 export default {
   middleware: 'authenticated',
   name: 'SettingsPage',
   transition: 'no-transition',
-  data: () => ({
-    user: {
-      firstName: 'Olivia',
-      lastName: 'Axelsson',
-      email: 'olivia.axelsson@gmail.com',
-      phone: '0709538601',
-      gender: 'woman',
-      newsletter: true,
-      address: {
-        shipping: {
-          co: '',
-          address: 'Gamla Huddingevägen 442',
-          address2: '',
-          zip: '125 42',
-          city: 'Älvsjö',
-          country: 'Sweden'
-        }
+  apollo: {
+    getUser: {
+      query: getUserQuery,
+      variables() {
+        return {
+          apiKey: this.$config.apiKey.toString()
+        };
+      },
+      context() {
+        return {
+          headers: this.$store.state.auth.headers
+        };
+      },
+      errorPolicy: 'all',
+      result(result) {
+        this.user = result.data.getUser;
+        // if (result.errors?.length) {
+        //   this.refreshToken().then(result => {
+        //     if (result) {
+        //       this.$apollo.queries.getUser.refetch();
+        //     }
+        //   });
+        // } else {
+        //   this.user = result.data.getUser;
+        // }
+      },
+      error(error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
       }
-    },
+    }
+  },
+  data: () => ({
+    user: null,
     genders: [
       {
         value: 'unspecified',
@@ -43,7 +64,11 @@ export default {
       }
     ]
   }),
-  methods: {}
+  methods: {
+    refreshToken() {
+      return this.$store.dispatch('auth/refreshToken');
+    }
+  }
 };
 </script>
 
