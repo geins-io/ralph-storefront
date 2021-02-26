@@ -177,5 +177,13 @@ export default {
     'You have not met the requirements for this code',
   PROMO_CODE_ERROR_INVALID: 'This code is not valid',
   PROMO_CODE_ACTIVE: 'The code {0} is activated. {1}',
-  PROMO_CODE_REMOVE: 'Remove'
+  PROMO_CODE_REMOVE: 'Remove',
+  NEWSLETTER_TITLE: 'Newsletter',
+  NEWSLETTER_TEXT:
+    'Register for our newslater and keep updated with our latest news.',
+  NEWSLETTER_PLACEHOLDER: 'your@email.com',
+  NEWSLETTER_LABEL: '',
+  NEWSLETTER_BUTTON: 'Register',
+  NEWSLETTER_FEEDBACK_SUCCESS: 'Thanks! You are now registered',
+  NEWSLETTER_FEEDBACK_ERROR: 'Something went wrong, please try again'
 };
