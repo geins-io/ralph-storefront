@@ -167,5 +167,13 @@ export default {
   COOKIE_CONSENT_ALLOW: 'Tillåt alla cookies',
   COOKIE_CONSENT_DECLINE: 'Tillåt endast nödvändiga',
   ANCIENT_BROWSER_MESSAGE:
-    'Denna webbsida kommer ej fungera optimalt då du använder en utdaterad browser. Vi rekommenderar att du byter innan du går vidare för att din upplevelse ska bli bättre.'
+    'Denna webbsida kommer ej fungera optimalt då du använder en utdaterad browser. Vi rekommenderar att du byter innan du går vidare för att din upplevelse ska bli bättre.',
+  PROMO_CODE_TITLE: 'Presentkort eller rabattkod?',
+  PROMO_CODE_LABEL: 'Skriv in koden här',
+  PROMO_CODE_BUTTON: 'Aktivera',
+  PROMO_CODE_ACTIVATED: 'Din kod är nu aktiverad',
+  PROMO_CODE_ERROR_REQUIREMENTS: 'Du har inte uppfyllt kraven för denna kod',
+  PROMO_CODE_ERROR_INVALID: 'Koden är ej giltig',
+  PROMO_CODE_ACTIVE: 'Koden {0} är aktiverad. {1}',
+  PROMO_CODE_REMOVE: 'Ta bort'
 };
