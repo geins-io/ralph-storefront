@@ -10,22 +10,21 @@ $input-border: $border-dark;
 $default-radius: 0;
 $input-border-radius: 0;
 $textarea-border-radius: $default-radius;
-$focus-border: 3px $c-info;
+$focus-border: 3px $c-ok;
 
 // Box shadow
 $box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.4);
 
 // Z-index
-$z-index-header: 400;
-
-$z-index-overlay: 1000;
-
-$z-index-search: 200;
-$z-index-search-computer: 1200;
-$z-index-search-overlay: 150;
-
-$z-index-panel: 2000;
-$z-index-snackbar: 1500;
+$z-index-header: 100;
+$z-index-cookie-consent: $z-index-header + 1;
+$z-index-search-overlay: $z-index-cookie-consent + 1;
+$z-index-search: $z-index-search-overlay + 1;
+$z-index-overlay: $z-index-search + 1;
+$z-index-search-computer: $z-index-overlay + 1;
+$z-index-snackbar: $z-index-search-computer + 1;
+$z-index-panel: $z-index-snackbar + 1;
+$z-index-modal: $z-index-panel + 1;
 
 // Top bar
 $top-bar-height: rem-calc(20px);

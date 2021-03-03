@@ -90,18 +90,23 @@ export default async () => {
     css: ['@/styles/main.scss'],
     // See https://github.com/nuxt/components
     components: [
-      { path: '~/components', extensions: ['vue'] },
-      { path: '~/globalComponents', extensions: ['vue'], global: true },
+      { path: '~/components/atoms', extensions: ['vue'] },
+      { path: '~/components/molecules', extensions: ['vue'] },
+      { path: '~/components/organisms', extensions: ['vue'] },
       {
-        path: '~/node_modules/@ralph/ralph-ui/components',
+        path: '~/node_modules/@ralph/ralph-ui/components/atoms',
         extensions: ['vue'],
         level: 1
       },
       {
-        path: '~/node_modules/@ralph/ralph-ui/globalComponents',
+        path: '~/node_modules/@ralph/ralph-ui/components/molecules',
         extensions: ['vue'],
-        level: 1,
-        global: true
+        level: 1
+      },
+      {
+        path: '~/node_modules/@ralph/ralph-ui/components/organisms',
+        extensions: ['vue'],
+        level: 1
       }
     ],
 
