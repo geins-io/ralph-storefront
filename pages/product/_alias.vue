@@ -173,15 +173,15 @@
           </p>
         </div>
       </section>
-      <section class="ca-product-page__widget-section">
-        <CaWidgetArea
-          class="ca-product-page__widget-area"
-          family="Product"
-          area-name="Product detail page"
-          :filters="widgetAreaFilters"
-        />
-      </section>
     </CaContainer>
+    <section class="ca-product-page__widget-section">
+      <CaWidgetArea
+        class="ca-product-page__widget-area"
+        family="Product"
+        area-name="Product detail page"
+        :filters="widgetAreaFilters"
+      />
+    </section>
   </div>
 </template>
 
