@@ -19,14 +19,14 @@
         :ratio="271 / 1280"
         :radius="false"
       />
-
-      <CaWidgetArea
-        class="ca-list-page__widget-area"
-        family="Productlist"
-        area-name="The top part of the product list"
-        :filters="widgetAreaFilters"
-      />
-
+    </CaContainer>
+    <CaWidgetArea
+      class="ca-list-page__widget-area"
+      family="Productlist"
+      area-name="The top part of the product list"
+      :filters="widgetAreaFilters"
+    />
+    <CaContainer>
       <CaListFilters
         :filters="filters"
         :selection="selection"
@@ -67,14 +67,13 @@
         :loading="$apollo.queries.products.loading"
         @loadmore="loadMore"
       />
-
-      <CaWidgetArea
-        class="ca-list-page__widget-area"
-        family="Productlist"
-        area-name="The bottom part of the product list"
-        :filters="widgetAreaFilters"
-      />
     </CaContainer>
+    <CaWidgetArea
+      class="ca-list-page__widget-area"
+      family="Productlist"
+      area-name="The bottom part of the product list"
+      :filters="widgetAreaFilters"
+    />
   </div>
 </template>
 <script>

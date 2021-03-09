@@ -18,10 +18,11 @@
         </div>
       </transition>
     </client-only>
-    <CaCookieConsent ref="cookieConsent" />
+    <CaCookieConsent />
     <LazyCaDisplayCart />
     <LazyCaAccountPanel />
     <LazyCaSnackbar />
+    <LazyCaModal />
   </div>
 </template>
 <script>

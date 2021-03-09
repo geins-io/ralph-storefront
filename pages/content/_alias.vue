@@ -1,11 +1,9 @@
 <template>
   <div class="ca-content-page">
-    <CaContainer>
-      <CaWidgetArea
-        :alias="this.$route.params.alias"
-        @dataFetched="onDataFetched"
-      />
-    </CaContainer>
+    <CaWidgetArea
+      :alias="this.$route.params.alias"
+      @dataFetched="onDataFetched"
+    />
   </div>
 </template>
 

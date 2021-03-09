@@ -28,7 +28,13 @@
     <section class="ca-footer__section ca-footer__section--newsletter">
       <CaContainer>
         <div class="ca-footer__newsletter">
-          Här kommer det snart gå att anmäla sig till nyhetsbrev
+          <h3 class="ca-footer__newsletter-title">
+            {{ $t('NEWSLETTER_TITLE') }}
+          </h3>
+          <p class="ca-footer__newsletter-text">
+            {{ $t('NEWSLETTER_TEXT') }}
+          </p>
+          <CaNewsletter class="ca-footer__newsletter-form" />
         </div>
       </CaContainer>
     </section>
@@ -266,15 +272,24 @@ export default {
   }
 
   &__newsletter {
-    background: $c-light-gray;
     padding: $px16 $px12;
     text-align: center;
-    font-size: $font-size-l;
     max-width: 500px;
     margin: 0 auto;
     @include bp(tablet) {
-      padding: $px20 $px48;
+      background: $c-light-gray;
+      padding: $px20 $px48 $px24;
     }
+  }
+
+  &__newsletter-title {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+    margin: 0 0 $px8;
+  }
+
+  &__newsletter-text {
+    margin: 0 0 $px16;
   }
 
   &__content-holder {
