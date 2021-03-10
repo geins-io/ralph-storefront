@@ -1,6 +1,7 @@
 export default function({ store, redirect }) {
-  const checkIfRefreshed = async () => {
-    const refreshed = await store.dispatch('auth/refreshToken');
+  const refresh = async () => {
+    const refreshed = await store.dispatch('auth/initClient');
+    console.log('refreshed', refreshed);
     if (!refreshed) {
       return redirect('/');
     }
@@ -8,10 +9,6 @@ export default function({ store, redirect }) {
 
   // If the user is not authenticated
   if (!store.getters['auth/isAuthenticated']) {
-    if (store.getters['auth/needsRefresh']) {
-      checkIfRefreshed();
-    } else {
-      return redirect('/');
-    }
+    refresh();
   }
 }

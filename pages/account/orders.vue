@@ -28,13 +28,13 @@ export default {
       },
       errorPolicy: 'all',
       result(result) {
-        if (result.errors?.length) {
-          this.refreshToken().then(result => {
-            if (result) {
-              this.$apollo.queries.getOrders.refetch();
-            }
-          });
-        }
+        // if (result.errors?.length) {
+        //   this.refreshToken().then(result => {
+        //     if (result) {
+        //       this.$apollo.queries.getOrders.refetch();
+        //     }
+        //   });
+        // }
       },
       error(error) {
         // eslint-disable-next-line no-console

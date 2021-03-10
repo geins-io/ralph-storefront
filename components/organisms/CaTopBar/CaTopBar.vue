@@ -35,8 +35,7 @@
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
       <button
-        v-if="!$store.getters['auth/isAuthenticated']"
-        v-show="!undistracted"
+        v-show="!undistracted && !$store.getters['auth/isAuthenticated']"
         class="ca-top-bar__link ca-top-bar__link--login only-computer"
         @click="
           $store.commit('contentpanel/open', {
@@ -50,8 +49,7 @@
         </CaIconAndText>
       </button>
       <NuxtLink
-        v-else
-        v-show="!undistracted"
+        v-show="!undistracted && $store.getters['auth/isAuthenticated']"
         class="ca-top-bar__link ca-top-bar__link--login only-computer"
         :to="localePath('account-orders')"
       >
