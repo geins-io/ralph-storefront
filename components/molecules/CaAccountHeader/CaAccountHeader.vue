@@ -51,9 +51,7 @@ export default {
   mounted() {},
   methods: {
     logout() {
-      this.$cookies.remove('ralph-auth');
-      this.$cookies.remove('ralph-auth-refresh');
-      this.$store.dispatch('auth/setAuth', null);
+      this.$store.dispatch('auth/logout');
       this.$router.push({ path: '/' });
     }
   }

@@ -26,16 +26,6 @@ export default {
           headers: this.$store.state.auth.headers
         };
       },
-      errorPolicy: 'all',
-      result(result) {
-        // if (result.errors?.length) {
-        //   this.refreshToken().then(result => {
-        //     if (result) {
-        //       this.$apollo.queries.getOrders.refetch();
-        //     }
-        //   });
-        // }
-      },
       error(error) {
         // eslint-disable-next-line no-console
         console.log(error);
@@ -44,11 +34,7 @@ export default {
   },
   data: () => ({}),
   created() {},
-  methods: {
-    refreshToken() {
-      return this.$store.dispatch('auth/refreshToken');
-    }
-  }
+  methods: {}
 };
 </script>
 

@@ -10,6 +10,55 @@ export default class AuthClient {
   login(username, password, newUser) {
     this.token = false;
     this.maxAge = false;
+    //   const credentials = { username };
+    //   const url = this.authpoint + (newUser ? 'register' : 'login');
+    //   const isRefresh = !(username && password);
+    //   const fetchOptions = {
+    //     method: isRefresh ? 'GET' : 'POST',
+    //     cache: 'no-cache',
+    //     credentials: 'include',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   };
+    //   const addCredentials = async sign => {
+    //     credentials.signature = await this.signaccount(sign);
+    //     credentials.password = await this.digest(password);
+    //     fetchOptions.body = JSON.stringify(credentials);
+    //   };
+
+    //   if (!isRefresh) {
+    //     fetchOptions.body = JSON.stringify(credentials);
+    //   }
+
+    //   return fetch(url, fetchOptions).then(response => {
+    //     response.json().then(data => {
+    //       if (data.sign) {
+    //         addCredentials(data.sign).then(() => {
+    //           fetch(url, fetchOptions).then(response => {
+    //             response.json().then(data => {
+    //               if (data.token) {
+    //                 this.token = data.token;
+    //                 this.maxAge = data.maxAge;
+    //                 console.log(data.token);
+    //                 console.log(data.maxAge);
+    //               } else {
+    //                 console.log('no token for you');
+    //               }
+    //             });
+    //           });
+    //         });
+    //       } else if (data.token) {
+    //         this.token = data.token;
+    //         this.maxAge = data.maxAge;
+    //         console.log(data.token);
+    //         console.log(data.maxAge);
+    //       } else {
+    //         console.log('no sign');
+    //       }
+    //     });
+    //   });
+
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       const data = { username };
@@ -30,9 +79,6 @@ export default class AuthClient {
           if (response.token) {
             this.token = response.token;
             this.maxAge = response.maxAge;
-            // setTimeout(() => {
-            //   if (this.authorized) this.login().catch(() => {});
-            // }, response.maxAge * 900);
             resolve();
             return;
           }
@@ -80,20 +126,6 @@ export default class AuthClient {
     xhr.withCredentials = true;
     xhr.open('get', this.authpoint + 'logout');
     xhr.send();
-  }
-
-  setGlobalAuthHeader(enabled) {
-    if (enabled) {
-      const _this = this;
-      XMLHttpRequest.prototype.origOpen = XMLHttpRequest.prototype.open;
-      XMLHttpRequest.prototype.open = function() {
-        this.origOpen.apply(this, arguments);
-        this.setRequestHeader('Authorization', 'Bearer ' + _this.token);
-      };
-    } else if (XMLHttpRequest.prototype.origOpen !== undefined) {
-      XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.origOpen;
-      delete XMLHttpRequest.prototype.origOpen;
-    }
   }
 
   async digest(password) {

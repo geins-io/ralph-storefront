@@ -1,16 +1,11 @@
 <template>
   <CaAccountPage class="ca-settings-page">
-    <CaAccountSettings
-      v-if="user"
-      :user="user"
-      :genders="genders"
-      @save="user = $event"
-    />
+    <CaAccountSettings :user="user" :genders="genders" @save="user = $event" />
   </CaAccountPage>
 </template>
 
 <script>
-import getUserQuery from 'user/user.graphql';
+import getUserQuery from 'user/get-user.graphql';
 export default {
   middleware: 'authenticated',
   name: 'SettingsPage',
@@ -51,15 +46,15 @@ export default {
     user: null,
     genders: [
       {
-        value: 'unspecified',
+        value: 'UNSPECIFIED',
         label: 'Ospecificerat'
       },
       {
-        value: 'woman',
+        value: 'WOMAN',
         label: 'Kvinna'
       },
       {
-        value: 'man',
+        value: 'MAN',
         label: 'Man'
       }
     ]
