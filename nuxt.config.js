@@ -13,9 +13,9 @@ const imageSizesFile = './static/ImageSize.csv';
 
 // Pipeline environment variables
 const inDev = process.env.NODE_ENV !== 'production';
-const ImageServer = inDev ? process.env.IMAGE_SERVER : '#{ImageServer}#';
-const ApiKey = inDev ? process.env.API_KEY : '#{ApiKey}#';
-const ApiEndpoint = inDev ? process.env.API_ENDPOINT : '#{ApiEndpoint}#';
+const ImageServer = process.env.IMAGE_SERVER;
+const ApiKey = process.env.API_KEY;
+const ApiEndpoint = process.env.API_ENDPOINT;
 const imageSizesStream = fs.createReadStream(imageSizesFile);
 const imageSizeObject = {};
 const apolloCache = new InMemoryCache({});
