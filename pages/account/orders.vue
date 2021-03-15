@@ -21,11 +21,7 @@ export default {
           apiKey: this.$config.apiKey.toString()
         };
       },
-      context() {
-        return {
-          headers: this.$store.state.auth.headers
-        };
-      },
+      fetchPolicy: 'cache-and-network',
       error(error) {
         // eslint-disable-next-line no-console
         console.log(error);

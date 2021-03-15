@@ -1,6 +1,12 @@
 <template>
   <CaAccountPage class="ca-settings-page">
-    <CaAccountSettings :user="user" :genders="genders" @save="user = $event" />
+    <CaAccountSettings
+      v-if="user"
+      :user="user"
+      :genders="genders"
+      @save="user = $event"
+    />
+    <CaSpinner :loading="!user" />
   </CaAccountPage>
 </template>
 
@@ -18,23 +24,9 @@ export default {
           apiKey: this.$config.apiKey.toString()
         };
       },
-      context() {
-        return {
-          headers: this.$store.state.auth.headers
-        };
-      },
-      errorPolicy: 'all',
+      fetchPolicy: 'cache-and-network',
       result(result) {
         this.user = result.data.getUser;
-        // if (result.errors?.length) {
-        //   this.refreshToken().then(result => {
-        //     if (result) {
-        //       this.$apollo.queries.getUser.refetch();
-        //     }
-        //   });
-        // } else {
-        //   this.user = result.data.getUser;
-        // }
       },
       error(error) {
         // eslint-disable-next-line no-console
@@ -44,6 +36,7 @@ export default {
   },
   data: () => ({
     user: null,
+    loading: false,
     genders: [
       {
         value: 'UNSPECIFIED',
@@ -59,15 +52,13 @@ export default {
       }
     ]
   }),
-  methods: {
-    refreshToken() {
-      return this.$store.dispatch('auth/refreshToken');
-    }
-  }
+  methods: {}
 };
 </script>
 
 <style lang="scss">
 .ca-settings-page {
+  &__spinner {
+  }
 }
 </style>

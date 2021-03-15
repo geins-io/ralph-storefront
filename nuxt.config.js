@@ -206,7 +206,13 @@ export default async () => {
     apollo: {
       clientConfigs: {
         default: {
-          httpEndpoint: ApiEndpoint
+          httpEndpoint: ApiEndpoint,
+          httpLinkOptions: {
+            headers: {
+              apikey: ApiKey
+            }
+          },
+          tokenName: 'ralph-auth'
         }
       },
       includeNodeModules: true

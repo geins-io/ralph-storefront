@@ -7,7 +7,7 @@ export default class AuthClient {
     this.signaccount = signpoint;
   }
 
-  login(username, password, newUser) {
+  login(username, password, action = 'login') {
     this.token = false;
     this.maxAge = false;
     //   const credentials = { username };
@@ -69,9 +69,13 @@ export default class AuthClient {
           console.log('response', response);
           if (response.sign) {
             data.signature = await this.signaccount(response.sign);
-            data.password = await this.digest(password);
-
-            xhr.open('post', this.authpoint + (newUser ? 'register' : 'login'));
+            if (action === 'password') {
+              data.password = await this.digest(password.password);
+              data.newPassword = await this.digest(password.newPassword);
+            } else {
+              data.password = await this.digest(password);
+            }
+            xhr.open('post', this.authpoint + action);
             xhr.send(JSON.stringify(data));
             return;
           }
@@ -88,7 +92,7 @@ export default class AuthClient {
       };
 
       if (username && password) {
-        xhr.open('post', this.authpoint + (newUser ? 'register' : 'login'));
+        xhr.open('post', this.authpoint + action);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(data));
       } else {
@@ -117,7 +121,11 @@ export default class AuthClient {
   }
 
   register(username, password) {
-    return this.login(username, password, true);
+    return this.login(username, password, 'register');
+  }
+
+  changePassword(username, password, newPassword) {
+    return this.login(username, { password, newPassword }, 'password');
   }
 
   logout() {
