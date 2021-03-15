@@ -7,99 +7,67 @@ export default class AuthClient {
     this.signaccount = signpoint;
   }
 
-  login(username, password, action = 'login') {
+  connect(username, password, action = 'login') {
     this.token = false;
     this.maxAge = false;
-    //   const credentials = { username };
-    //   const url = this.authpoint + (newUser ? 'register' : 'login');
-    //   const isRefresh = !(username && password);
-    //   const fetchOptions = {
-    //     method: isRefresh ? 'GET' : 'POST',
-    //     cache: 'no-cache',
-    //     credentials: 'include',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   };
-    //   const addCredentials = async sign => {
-    //     credentials.signature = await this.signaccount(sign);
-    //     credentials.password = await this.digest(password);
-    //     fetchOptions.body = JSON.stringify(credentials);
-    //   };
 
-    //   if (!isRefresh) {
-    //     fetchOptions.body = JSON.stringify(credentials);
-    //   }
-
-    //   return fetch(url, fetchOptions).then(response => {
-    //     response.json().then(data => {
-    //       if (data.sign) {
-    //         addCredentials(data.sign).then(() => {
-    //           fetch(url, fetchOptions).then(response => {
-    //             response.json().then(data => {
-    //               if (data.token) {
-    //                 this.token = data.token;
-    //                 this.maxAge = data.maxAge;
-    //                 console.log(data.token);
-    //                 console.log(data.maxAge);
-    //               } else {
-    //                 console.log('no token for you');
-    //               }
-    //             });
-    //           });
-    //         });
-    //       } else if (data.token) {
-    //         this.token = data.token;
-    //         this.maxAge = data.maxAge;
-    //         console.log(data.token);
-    //         console.log(data.maxAge);
-    //       } else {
-    //         console.log('no sign');
-    //       }
-    //     });
-    //   });
-
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      const data = { username };
-      xhr.withCredentials = true;
-      xhr.onload = async e => {
-        if (e.target.responseText) {
-          const response = JSON.parse(e.target.responseText);
-          console.log('response', response);
-          if (response.sign) {
-            data.signature = await this.signaccount(response.sign);
-            if (action === 'password') {
-              data.password = await this.digest(password.password);
-              data.newPassword = await this.digest(password.newPassword);
-            } else {
-              data.password = await this.digest(password);
-            }
-            xhr.open('post', this.authpoint + action);
-            xhr.send(JSON.stringify(data));
-            return;
-          }
-
-          if (response.token) {
-            this.token = response.token;
-            this.maxAge = response.maxAge;
-            resolve();
-            return;
-          }
-
-          reject(e.target.responseText);
-        } else reject();
-      };
-
-      if (username && password) {
-        xhr.open('post', this.authpoint + action);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(data));
-      } else {
-        xhr.open('get', this.authpoint + 'login');
-        xhr.send();
+    const credentials = { username };
+    const url = this.authpoint + action;
+    const isRefresh = !(username && password);
+    const fetchOptions = {
+      method: isRefresh ? 'GET' : 'POST',
+      cache: 'no-cache',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
       }
-    });
+    };
+
+    if (!isRefresh) {
+      fetchOptions.body = JSON.stringify(credentials);
+    }
+
+    const addCredentials = async sign => {
+      credentials.signature = await this.signaccount(sign);
+      if (action === 'password') {
+        credentials.password = await this.digest(password.password);
+        credentials.newPassword = await this.digest(password.newPassword);
+      } else {
+        credentials.password = await this.digest(password);
+      }
+      fetchOptions.body = JSON.stringify(credentials);
+    };
+
+    const authConnect = async () => {
+      let data = await fetch(url, fetchOptions)
+        .then(response => response.json())
+        .catch(() => {});
+      if (data?.sign) {
+        console.log('is signed');
+        await addCredentials(data.sign);
+        data = await fetch(url, fetchOptions)
+          .then(response => response.json())
+          .catch(() => {});
+        if (data?.token) {
+          this.setToken(data);
+          console.log('token in second');
+        } else {
+          console.log('no token for you');
+        }
+      } else if (data?.token) {
+        this.setToken(data);
+        console.log('token in first');
+      } else {
+        console.log('no sign');
+      }
+    };
+
+    return authConnect();
+  }
+
+  setToken(data) {
+    this.token = data.token;
+    this.maxAge = data.maxAge;
   }
 
   elevate(message) {
@@ -116,24 +84,29 @@ export default class AuthClient {
     xhr.send(message);
   }
 
+  login(username, password) {
+    return this.connect(username, password);
+  }
+
   refresh() {
-    return this.login().catch(() => {});
+    return this.connect().catch(() => {});
   }
 
   register(username, password) {
-    return this.login(username, password, 'register');
+    return this.connect(username, password, 'register');
   }
 
   changePassword(username, password, newPassword) {
-    return this.login(username, { password, newPassword }, 'password');
+    return this.connect(username, { password, newPassword }, 'password');
   }
 
   logout() {
-    this.token = false;
-    const xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.open('get', this.authpoint + 'logout');
-    xhr.send();
+    return fetch(this.authpoint + 'logout', {
+      cache: 'no-cache',
+      credentials: 'include'
+    }).then(() => {
+      this.token = false;
+    });
   }
 
   async digest(password) {

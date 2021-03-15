@@ -16,56 +16,6 @@
             })
           "
         />
-        <LazyCaContentPanel name="mobile-nav" enter-from="left">
-          <template #header>
-            <CaLogo class="ca-navigation-logo" :alt="$t('LOGO_ALT_TEXT')" />
-          </template>
-          <CaNavigationSlim
-            v-if="categories && categories.length"
-            :categories="categories"
-          />
-          <template #footer>
-            <ul class="secondary-nav">
-              <CaSecondaryNavItem>
-                <button
-                  v-if="!$store.getters['auth/isAuthenticated']"
-                  @click="
-                    $store.commit('contentpanel/open', {
-                      name: 'account',
-                      frame: 'login'
-                    })
-                  "
-                >
-                  {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
-                </button>
-                <NuxtLink v-else :to="localePath('account-orders')">
-                  {{ $t('ACCOUNT_TITLE') }}
-                </NuxtLink>
-              </CaSecondaryNavItem>
-              <CaSecondaryNavItem>
-                <NuxtLink to="/">
-                  {{ $t('FAVORITES_LABEL') }} ({{
-                    $store.state.favorites.length
-                  }})</NuxtLink
-                >
-              </CaSecondaryNavItem>
-              <CaSecondaryNavItem>
-                <NuxtLink
-                  v-for="locale in availableLocales"
-                  :key="locale.code"
-                  :to="switchLocalePath(locale.code)"
-                >
-                  <CaFlag
-                    class="ca-top-bar__flag"
-                    :country="locale.flag"
-                    shape="circle"
-                  />
-                  {{ locale.name }}
-                </NuxtLink>
-              </CaSecondaryNavItem>
-            </ul>
-          </template>
-        </LazyCaContentPanel>
         <CaIconButton
           v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportComputer"
           class="ca-header__search-toggle"
@@ -121,6 +71,56 @@
       </ul>
     </nav>
     <CaSearch class="only-mobile" :opened="searchOpened" />
+    <LazyCaContentPanel name="mobile-nav" enter-from="left">
+      <template #header>
+        <CaLogo class="ca-navigation-logo" :alt="$t('LOGO_ALT_TEXT')" />
+      </template>
+      <CaNavigationSlim
+        v-if="categories && categories.length"
+        :categories="categories"
+      />
+      <template #footer>
+        <ul class="secondary-nav">
+          <CaSecondaryNavItem>
+            <button
+              v-if="!$store.getters['auth/isAuthenticated']"
+              @click="
+                $store.commit('contentpanel/open', {
+                  name: 'account',
+                  frame: 'login'
+                })
+              "
+            >
+              {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
+            </button>
+            <NuxtLink v-else :to="localePath('account-orders')">
+              {{ $t('ACCOUNT_TITLE') }}
+            </NuxtLink>
+          </CaSecondaryNavItem>
+          <CaSecondaryNavItem>
+            <NuxtLink to="/">
+              {{ $t('FAVORITES_LABEL') }} ({{
+                $store.state.favorites.length
+              }})</NuxtLink
+            >
+          </CaSecondaryNavItem>
+          <CaSecondaryNavItem>
+            <NuxtLink
+              v-for="locale in availableLocales"
+              :key="locale.code"
+              :to="switchLocalePath(locale.code)"
+            >
+              <CaFlag
+                class="ca-top-bar__flag"
+                :country="locale.flag"
+                shape="circle"
+              />
+              {{ locale.name }}
+            </NuxtLink>
+          </CaSecondaryNavItem>
+        </ul>
+      </template>
+    </LazyCaContentPanel>
   </header>
 </template>
 <script>

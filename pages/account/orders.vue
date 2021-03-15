@@ -1,9 +1,31 @@
 <template>
-  <CaAccountPage class="ca-order-page">
-    <h2 class="ca-order-page__title">
-      {{ $t('ACCOUNT_ORDERS_IN_PROGRESS') }}
-    </h2>
-    <CaOrderSummary v-for="order in getOrders" :key="order.id" :order="order" />
+  <CaAccountPage class="ca-orders-page">
+    <div v-if="ordersInProgress.length" class="ca-orders-page__in-progress">
+      <h2 class="ca-orders-page__title">
+        {{ $t('ACCOUNT_ORDERS_IN_PROGRESS') }} ({{ ordersInProgress.length }})
+      </h2>
+      <CaOrderSummary
+        v-for="order in ordersInProgress"
+        :key="order.id"
+        class="ca-orders-page__order"
+        :order="order"
+      />
+    </div>
+    <div v-if="orderHistory.length" class="ca-orders-page__history">
+      <h2 class="ca-orders-page__title">
+        {{ $t('ACCOUNT_ORDER_HISTORY') }} ({{ orderHistory.length }})
+      </h2>
+      <CaOrderSummary
+        v-for="order in orderHistory"
+        :key="order.id"
+        class="ca-orders-page__order"
+        :order="order"
+      />
+    </div>
+    <div v-if="orders && orders.length === 0" class="ca-orders-page__empty">
+      Du har inte lagt några ordrar än
+    </div>
+    <CaSpinner class="ca-orders-page__spinner" :loading="orders === null" />
   </CaAccountPage>
 </template>
 
@@ -21,27 +43,106 @@ export default {
           apiKey: this.$config.apiKey.toString()
         };
       },
-      fetchPolicy: 'cache-and-network',
+      fetchPolicy: 'no-cache',
+      result(result) {
+        if (result.data) {
+          this.orders = result.data.getOrders;
+        }
+      },
       error(error) {
         // eslint-disable-next-line no-console
         console.log(error);
       }
     }
   },
-  data: () => ({}),
+  data: () => ({
+    orders: null,
+    inProgressStatuses: ['received', 'processed'],
+    historyStatuses: ['cancelled', 'completed']
+  }),
+  computed: {
+    ordersInProgress() {
+      return this.splitOrders(this.inProgressStatuses);
+    },
+    orderHistory() {
+      return this.splitOrders(this.historyStatuses);
+    }
+  },
   created() {},
-  methods: {}
+  methods: {
+    mapStatus(status) {
+      switch (status) {
+        case 'pending':
+        case 'pending-payment':
+          return 'received';
+        case 'on-hold':
+        case 'partial':
+        case 'backorder':
+          return 'processed';
+        case 'cancelled':
+        case 'inactive':
+        case 'out-of-stock':
+          return 'cancelled';
+        case 'completed':
+        case 'refunded':
+          return 'completed';
+        default:
+          return status;
+      }
+    },
+    splitOrders(statusArray) {
+      const arr = this.orders
+        ? this.orders.map(i => {
+            i.status = this.mapStatus(i.status);
+            return i;
+          })
+        : [];
+      return arr.filter(i => statusArray.includes(i.status));
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-.ca-order-page {
+.ca-orders-page {
   &__title {
     font-size: $font-size-m;
     font-weight: $font-weight-bold;
     margin: 0 0 $px10;
-    @include bp(tablet) {
+    @include bp(laptop) {
       font-size: $font-size-l;
+    }
+  }
+  &__spinner.ca-spinner {
+    margin: 48px auto;
+    width: 40px;
+    height: 40px;
+    border-color: #333;
+  }
+  &__empty {
+    font-size: $font-size-l;
+    text-align: center;
+    color: $c-text-secondary;
+    margin: 55px auto;
+  }
+  &__history {
+    &:not(:first-child) {
+      margin: $px16 0 0;
+    }
+    @include bp(laptop) {
+      &:not(:first-child) {
+        margin: $px24 0 0;
+      }
+    }
+  }
+  &__order {
+    &:not(:first-child) {
+      margin: $px10 0 0;
+    }
+    @include bp(laptop) {
+      &:not(:first-child) {
+        margin: $px16 0 0;
+      }
     }
   }
 }

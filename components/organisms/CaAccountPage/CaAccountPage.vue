@@ -76,7 +76,7 @@ export default {
 <style lang="scss">
 .ca-account-page {
   &__body {
-    @include bp(tablet) {
+    @include bp(laptop) {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -86,9 +86,10 @@ export default {
     width: 100%;
     background: $c-lightest-gray;
     padding: $px16 $px12;
-    @include bp(tablet) {
+    @include bp(laptop) {
       border: $border-light;
       padding: $px20 $px40;
+      min-height: rem-calc(180px);
     }
   }
 }
@@ -103,7 +104,7 @@ export default {
   flex-direction: column;
   align-items: center;
   margin: $px20 auto 0;
-  @include bp(tablet) {
+  @include bp(laptop) {
     margin: 0 0 0 $px32;
   }
   &__title {

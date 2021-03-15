@@ -6,7 +6,7 @@
       :genders="genders"
       @save="user = $event"
     />
-    <CaSpinner :loading="!user" />
+    <CaSpinner class="ca-settings-page__spinner" :loading="!user" />
   </CaAccountPage>
 </template>
 
@@ -24,9 +24,11 @@ export default {
           apiKey: this.$config.apiKey.toString()
         };
       },
-      fetchPolicy: 'cache-and-network',
+      fetchPolicy: 'no-cache',
       result(result) {
-        this.user = result.data.getUser;
+        if (result.data) {
+          this.user = result.data.getUser;
+        }
       },
       error(error) {
         // eslint-disable-next-line no-console
@@ -58,7 +60,11 @@ export default {
 
 <style lang="scss">
 .ca-settings-page {
-  &__spinner {
+  &__spinner.ca-spinner {
+    margin: 48px auto;
+    width: 40px;
+    height: 40px;
+    border-color: #333;
   }
 }
 </style>
