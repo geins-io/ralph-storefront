@@ -1,4 +1,3 @@
-/* eslint-disable prefer-promise-reject-errors */
 export default class AuthClient {
   constructor(signpoint, authpoint) {
     if (!signpoint || !authpoint)
@@ -12,7 +11,7 @@ export default class AuthClient {
     this.maxAge = data.maxAge;
   }
 
-  connect(username, password, action = 'login') {
+  async connect(username, password, action = 'login') {
     this.setTokenData({ token: false, maxAge: false });
 
     const credentials = { username };
@@ -42,35 +41,31 @@ export default class AuthClient {
       fetchOptions.body = JSON.stringify(credentials);
     };
 
-    const authConnect = async () => {
-      let data = await fetch(url, fetchOptions)
+    let data = await fetch(url, fetchOptions)
+      .then(response => response.json())
+      .catch(() => {});
+
+    if (data?.sign) {
+      await addCredentials(data.sign);
+
+      data = await fetch(url, fetchOptions)
         .then(response => response.json())
         .catch(() => {});
 
-      if (data?.sign) {
-        await addCredentials(data.sign);
-
-        data = await fetch(url, fetchOptions)
-          .then(response => response.json())
-          .catch(() => {});
-
-        if (data?.token) {
-          this.setTokenData(data);
-        }
-      } else if (data?.token) {
+      if (data?.token) {
         this.setTokenData(data);
       }
-    };
-
-    return authConnect();
-  }
-
-  login(username, password) {
-    return this.connect(username, password);
+    } else if (data?.token) {
+      this.setTokenData(data);
+    }
   }
 
   refresh() {
     return this.connect();
+  }
+
+  login(username, password) {
+    return this.connect(username, password);
   }
 
   register(username, password) {
@@ -81,13 +76,12 @@ export default class AuthClient {
     return this.connect(username, { password, newPassword }, 'password');
   }
 
-  logout() {
-    return fetch(this.authpoint + 'logout', {
+  async logout() {
+    await fetch(this.authpoint + 'logout', {
       cache: 'no-cache',
       credentials: 'include'
-    }).then(() => {
-      this.setTokenData({ token: false, maxAge: false });
     });
+    this.setTokenData({ token: false, maxAge: false });
   }
 
   async digest(password) {
@@ -121,18 +115,17 @@ export default class AuthClient {
     return this.sendRequest('GET', endpoint);
   }
 
-  sendRequest(method, endpoint) {
-    return fetch(endpoint, {
-      method,
-      cache: 'no-cache'
-    })
-      .then(response => response.json())
-      .then(data => {
-        return data;
-      })
-      .catch(err => {
-        // eslint-disable-next-line no-console
-        console.log(err);
+  async sendRequest(method, endpoint) {
+    try {
+      const response = await fetch(endpoint, {
+        method,
+        cache: 'no-cache'
       });
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(err);
+    }
   }
 }

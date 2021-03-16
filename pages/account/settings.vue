@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import getUserQuery from 'user/get-user.graphql';
+import getUserQuery from 'user/get.graphql';
 export default {
   middleware: 'authenticated',
   name: 'SettingsPage',
