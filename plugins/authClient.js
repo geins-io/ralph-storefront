@@ -7,9 +7,13 @@ export default class AuthClient {
     this.signaccount = signpoint;
   }
 
+  setTokenData(data) {
+    this.token = data.token;
+    this.maxAge = data.maxAge;
+  }
+
   connect(username, password, action = 'login') {
-    this.token = false;
-    this.maxAge = false;
+    this.setTokenData({ token: false, maxAge: false });
 
     const credentials = { username };
     const url = this.authpoint + action;
@@ -42,46 +46,23 @@ export default class AuthClient {
       let data = await fetch(url, fetchOptions)
         .then(response => response.json())
         .catch(() => {});
+
       if (data?.sign) {
-        console.log('is signed');
         await addCredentials(data.sign);
+
         data = await fetch(url, fetchOptions)
           .then(response => response.json())
           .catch(() => {});
+
         if (data?.token) {
-          this.setToken(data);
-          console.log('token in second');
-        } else {
-          console.log('no token for you');
+          this.setTokenData(data);
         }
       } else if (data?.token) {
-        this.setToken(data);
-        console.log('token in first');
-      } else {
-        console.log('no sign');
+        this.setTokenData(data);
       }
     };
 
     return authConnect();
-  }
-
-  setToken(data) {
-    this.token = data.token;
-    this.maxAge = data.maxAge;
-  }
-
-  elevate(message) {
-    this.token = false;
-    const xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.onload = e => {
-      if (e.target.responseText) {
-        const response = JSON.parse(e.target.responseText);
-        if (response.token) this.token = response.token;
-      }
-    };
-    xhr.open('post', this.authpoint + 'authorize');
-    xhr.send(message);
   }
 
   login(username, password) {
@@ -89,7 +70,7 @@ export default class AuthClient {
   }
 
   refresh() {
-    return this.connect().catch(() => {});
+    return this.connect();
   }
 
   register(username, password) {
@@ -105,7 +86,7 @@ export default class AuthClient {
       cache: 'no-cache',
       credentials: 'include'
     }).then(() => {
-      this.token = false;
+      this.setTokenData({ token: false, maxAge: false });
     });
   }
 
@@ -137,43 +118,21 @@ export default class AuthClient {
   }
 
   get(endpoint) {
-    return this.sendRequest('get', endpoint);
+    return this.sendRequest('GET', endpoint);
   }
 
-  put(endpoint, data) {
-    return this.sendRequest('put', endpoint, data);
-  }
-
-  post(endpoint, data) {
-    return this.sendRequest('post', endpoint, data);
-  }
-
-  sendRequest(method, endpoint, data) {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.withCredentials = false;
-      xhr.open(method, endpoint);
-
-      if (this.authorized && !XMLHttpRequest.prototype.origOpen)
-        xhr.setRequestHeader('Authorization', 'Bearer ' + this.token);
-
-      xhr.onload = () => {
-        let payload = xhr.responseText;
-        try {
-          payload = JSON.parse(payload);
-        } catch {}
-
-        if (xhr.getAllResponseHeaders().includes('authorization'))
-          this.elevate(xhr.getResponseHeader('authorization'));
-
-        if (xhr.status === 200) resolve(payload);
-        reject(payload);
-      };
-
-      if (data) {
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(data));
-      } else xhr.send();
-    });
+  sendRequest(method, endpoint) {
+    return fetch(endpoint, {
+      method,
+      cache: 'no-cache'
+    })
+      .then(response => response.json())
+      .then(data => {
+        return data;
+      })
+      .catch(err => {
+        // eslint-disable-next-line no-console
+        console.log(err);
+      });
   }
 }
