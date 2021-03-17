@@ -36,21 +36,21 @@ export default {
       }
     }
   },
-  data: () => ({
+  data: vm => ({
     user: null,
     loading: false,
     genders: [
       {
         value: 'UNSPECIFIED',
-        label: 'Ospecificerat'
+        label: vm.$t('ACCOUNT_GENDER_UNSPECIFIED')
       },
       {
         value: 'WOMAN',
-        label: 'Kvinna'
+        label: vm.$t('ACCOUNT_GENDER_WOMAN')
       },
       {
         value: 'MAN',
-        label: 'Man'
+        label: vm.$t('ACCOUNT_GENDER_MAN')
       }
     ]
   }),
@@ -64,7 +64,7 @@ export default {
     margin: 48px auto;
     width: 40px;
     height: 40px;
-    border-color: #333;
+    border-color: $c-accent-color;
   }
 }
 </style>

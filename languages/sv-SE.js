@@ -144,6 +144,24 @@ export default {
   ACCOUNT_BILLING_SHIPPING_TITLE: 'Leverans',
   ACCOUNT_NEWSLETTER_TITLE: 'Nyhetsbrev',
   ACCOUNT_PRIVACY_TITLE: 'Säkerhetsinställningar',
+  ACCOUNT_GENDER_UNSPECIFIED: 'Ospecifierat',
+  ACCOUNT_GENDER_WOMAN: 'Kvinna',
+  ACCOUNT_GENDER_MAN: 'Man',
+  ACCOUNT_ORDERS_EMPTY: 'Du har inte lagt några ordrar än',
+  ACCOUNT_ORDER_STATUS_RECEIVED: 'Mottagen',
+  ACCOUNT_ORDER_STATUS_PROCESSING: 'Behandlas',
+  ACCOUNT_ORDER_STATUS_COMPLETED: 'Slutförd',
+  ACCOUNT_ORDER_STATUS_CANCELLED: 'Avbruten',
+  ACCOUNT_DELETE_PROMPT_TITLE: 'Radera konto?',
+  ACCOUNT_DELETE_PROMPT_TEXT:
+    'Vill du verkligen radera ditt konto? Denna handling kan ej ångras. Om du fortsätter kommer ditt konto att raderas och du loggas ut.',
+  ACCOUNT_DELETE_PROMPT_BUTTON: 'Radera konto',
+  ACCOUNT_DELETE_FEEDBACK: 'Ditt konto är nu raderat',
+  ACCOUNT_SAVE_FEEDBACK: 'Dina ändringar har sparats',
+  ACCOUNT_CHANGE_PASSWORD_ERROR:
+    'Du angav fel lösenord och har loggats ut av säkerhetsskäl',
+  FEEDBACK_ERROR:
+    'Något gick tyvärr fel. Försök gärna igen och kontakta kundtjänst om problemet kvarstår.',
   LABEL_FIRST_NAME: 'Förnamn',
   LABEL_LAST_NAME: 'Efternamn',
   LABEL_PHONE_NUMBER: 'Telefonnummer',
@@ -183,6 +201,5 @@ export default {
   NEWSLETTER_PLACEHOLDER: 'din@email.com',
   NEWSLETTER_LABEL: '',
   NEWSLETTER_BUTTON: 'Registrera',
-  NEWSLETTER_FEEDBACK_SUCCESS: 'Tack! Du är nu registrerad',
-  NEWSLETTER_FEEDBACK_ERROR: 'Något gick fel, försök gärna igen'
+  NEWSLETTER_FEEDBACK_SUCCESS: 'Tack! Du är nu registrerad'
 };

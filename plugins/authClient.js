@@ -1,44 +1,48 @@
 export default class AuthClient {
-  constructor(signpoint, authpoint) {
-    if (!signpoint || !authpoint)
+  constructor(signEndpoint, authEndpoint) {
+    if (!signEndpoint || !authEndpoint)
       throw new Error('An endpoint that can verify identities is required');
-    this.authpoint = authpoint;
-    this.signaccount = signpoint;
+    this.authEndpoint = authEndpoint;
+    this.signAccount = signEndpoint;
   }
 
+  // Sets token and token max age
   setTokenData(data) {
     this.token = data.token;
     this.maxAge = data.maxAge;
   }
 
-  async connect(username, password, action = 'login') {
+  // Connects to auth endpoint with selected action. If no credentials or action is passed, a token refresh is made
+  async connect(credentials, action = 'login') {
     this.setTokenData({ token: false, maxAge: false });
 
-    const credentials = { username };
-    const url = this.authpoint + action;
-    const isRefresh = !(username && password);
+    const url = this.authEndpoint + action;
+    const getSign = !!credentials;
+    const auth = { username: credentials?.username };
+
     const fetchOptions = {
-      method: isRefresh ? 'GET' : 'POST',
+      method: getSign ? 'POST' : 'GET',
       cache: 'no-cache',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       }
     };
-
-    if (!isRefresh) {
-      fetchOptions.body = JSON.stringify(credentials);
+    if (getSign) {
+      fetchOptions.body = JSON.stringify(auth);
     }
 
+    // Function that adds signature, password and other options to auth request body
     const addCredentials = async sign => {
-      credentials.signature = await this.signaccount(sign);
+      auth.signature = await this.signAccount(sign);
+      auth.password = await this.digest(credentials.password);
       if (action === 'password') {
-        credentials.password = await this.digest(password.password);
-        credentials.newPassword = await this.digest(password.newPassword);
-      } else {
-        credentials.password = await this.digest(password);
+        auth.newPassword = await this.digest(credentials.newPassword);
       }
-      fetchOptions.body = JSON.stringify(credentials);
+      if (!credentials.rememberUser) {
+        auth.sessionLifetime = 30;
+      }
+      fetchOptions.body = JSON.stringify(auth);
     };
 
     let data = await fetch(url, fetchOptions)
@@ -58,30 +62,6 @@ export default class AuthClient {
     } else if (data?.token) {
       this.setTokenData(data);
     }
-  }
-
-  refresh() {
-    return this.connect();
-  }
-
-  login(username, password) {
-    return this.connect(username, password);
-  }
-
-  register(username, password) {
-    return this.connect(username, password, 'register');
-  }
-
-  changePassword(username, password, newPassword) {
-    return this.connect(username, { password, newPassword }, 'password');
-  }
-
-  async logout() {
-    await fetch(this.authpoint + 'logout', {
-      cache: 'no-cache',
-      credentials: 'include'
-    });
-    this.setTokenData({ token: false, maxAge: false });
   }
 
   async digest(password) {

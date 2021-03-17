@@ -23,7 +23,7 @@
       />
     </div>
     <div v-if="orders && orders.length === 0" class="ca-orders-page__empty">
-      Du har inte lagt några ordrar än
+      {{ $t('ACCOUNT_ORDERS_EMPTY') }}
     </div>
     <CaSpinner class="ca-orders-page__spinner" :loading="orders === null" />
   </CaAccountPage>
@@ -74,13 +74,13 @@ export default {
       switch (status) {
         case 'pending':
         case 'pending-payment':
-          return 'received';
-        case 'on-hold':
-        case 'partial':
         case 'backorder':
-          return 'processed';
-        case 'cancelled':
+          return 'received';
+        case 'partial':
         case 'inactive':
+        case 'on-hold':
+          return 'processing';
+        case 'cancelled':
         case 'out-of-stock':
           return 'cancelled';
         case 'completed':
@@ -117,7 +117,7 @@ export default {
     margin: 48px auto;
     width: 40px;
     height: 40px;
-    border-color: #333;
+    border-color: $c-accent-color;
   }
   &__empty {
     font-size: $font-size-l;
