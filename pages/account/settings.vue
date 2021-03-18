@@ -1,44 +1,56 @@
 <template>
   <CaAccountPage class="ca-settings-page">
-    <CaAccountSettings :user="user" :genders="genders" />
+    <CaAccountSettings
+      v-if="user"
+      :user="user"
+      :genders="genders"
+      @save="user = $event"
+    />
+    <CaSpinner class="ca-settings-page__spinner" :loading="!user" />
   </CaAccountPage>
 </template>
 
 <script>
+import getUserQuery from 'user/get.graphql';
 export default {
+  middleware: 'authenticated',
   name: 'SettingsPage',
   transition: 'no-transition',
-  data: () => ({
-    user: {
-      firstName: 'Olivia',
-      lastName: 'Axelsson',
-      email: 'olivia.axelsson@gmail.com',
-      phone: '0709538601',
-      gender: 'woman',
-      newsletter: true,
-      address: {
-        shipping: {
-          co: '',
-          address: 'Gamla Huddingevägen 442',
-          address2: '',
-          zip: '125 42',
-          city: 'Älvsjö',
-          country: 'Sweden'
+  apollo: {
+    getUser: {
+      query: getUserQuery,
+      variables() {
+        return {
+          apiKey: this.$config.apiKey.toString()
+        };
+      },
+      fetchPolicy: 'no-cache',
+      result(result) {
+        if (result.data) {
+          this.user = result.data.getUser;
         }
+      },
+      error(error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
       }
-    },
+    }
+  },
+  data: vm => ({
+    user: null,
+    loading: false,
     genders: [
       {
-        value: 'unspecified',
-        label: 'Ospecificerat'
+        value: 'UNSPECIFIED',
+        label: vm.$t('ACCOUNT_GENDER_UNSPECIFIED')
       },
       {
-        value: 'woman',
-        label: 'Kvinna'
+        value: 'WOMAN',
+        label: vm.$t('ACCOUNT_GENDER_WOMAN')
       },
       {
-        value: 'man',
-        label: 'Man'
+        value: 'MAN',
+        label: vm.$t('ACCOUNT_GENDER_MAN')
       }
     ]
   }),
@@ -48,5 +60,11 @@ export default {
 
 <style lang="scss">
 .ca-settings-page {
+  &__spinner.ca-spinner {
+    margin: 48px auto;
+    width: 40px;
+    height: 40px;
+    border-color: $c-accent-color;
+  }
 }
 </style>

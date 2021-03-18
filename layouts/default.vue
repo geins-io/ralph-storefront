@@ -11,10 +11,7 @@
           v-if="$apollo.loading || $store.state.loading.loading"
           class="ca-layout-default__loading"
         >
-          <CaSpinner
-            class="ca-layout-default__spinner"
-            :loading="$apollo.loading || $store.state.loading.loading"
-          />
+          <CaSpinner class="ca-layout-default__spinner" />
         </div>
       </transition>
     </client-only>
@@ -57,6 +54,8 @@ export default {
     z-index: $z-index-panel;
     background: $c-darkest-gray;
     padding: $px8;
+    width: rem-calc(36px);
+    height: rem-calc(36px);
     border-radius: 50%;
     @include bp(laptop) {
       top: $header-height-computer + $default-spacing;

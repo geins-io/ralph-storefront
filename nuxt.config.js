@@ -11,17 +11,12 @@ import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 const imageSizesFile = './static/ImageSize.csv';
 
-// Pipeline environment variables
-const inDev = process.env.NODE_ENV !== 'production';
-const ImageServer = process.env.IMAGE_SERVER;
-const ApiKey = process.env.API_KEY;
-const ApiEndpoint = process.env.API_ENDPOINT;
 const imageSizesStream = fs.createReadStream(imageSizesFile);
 const imageSizeObject = {};
 const apolloCache = new InMemoryCache({});
 const apolloClient = new ApolloClient({
   cache: apolloCache,
-  link: new HttpLink({ uri: ApiEndpoint, fetch })
+  link: new HttpLink({ uri: process.env.API_ENDPOINT, fetch })
 });
 
 // Parse the imageSizesFile to get the image sizes
@@ -54,10 +49,11 @@ async function getImageSizes() {
 }
 export default async () => {
   const imageSizes = await getImageSizes();
+  const apiKey = process.env.API_KEY;
   const defaultMetaQuery = await apolloClient.query({
     query: gql`
       query listPageInfo {
-        listPageInfo(apiKey: "${ApiKey}", alias: "frontpage") {
+        listPageInfo(apiKey: "${apiKey}", alias: "frontpage") {
           meta {
             description
             title
@@ -202,7 +198,13 @@ export default async () => {
     apollo: {
       clientConfigs: {
         default: {
-          httpEndpoint: ApiEndpoint
+          httpEndpoint: process.env.API_ENDPOINT,
+          httpLinkOptions: {
+            headers: {
+              apikey: process.env.API_KEY
+            }
+          },
+          tokenName: 'ralph-auth'
         }
       },
       includeNodeModules: true
@@ -246,8 +248,10 @@ export default async () => {
       /* ***************** */
       /* **** GLOBAL ***** */
       /* ***************** */
-      imageServer: ImageServer,
-      apiKey: ApiKey,
+      imageServer: process.env.IMAGE_SERVER,
+      apiKey: process.env.API_KEY,
+      authEndpoint: process.env.AUTH_ENDPOINT,
+      signEndpoint: process.env.SIGN_ENDPOINT,
       gtm: {
         id: ''
       },
@@ -368,6 +372,6 @@ export default async () => {
         }
       }
     },
-    dev: inDev
+    dev: process.env.NODE_ENV !== 'production'
   };
 };

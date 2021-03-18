@@ -3,7 +3,12 @@
     <h1 class="ca-account-header__title">
       {{ title }}
     </h1>
-    <CaButton color="secondary" size="s" class="ca-account-header__log-out">
+    <CaButton
+      color="secondary"
+      size="s"
+      class="ca-account-header__log-out"
+      @clicked="logout"
+    >
       <CaIconAndText icon-name="log-out">
         {{ $t('LOG_OUT') }}
       </CaIconAndText>
@@ -44,7 +49,12 @@ export default {
   computed: {},
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {
+    logout() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push({ path: '/' });
+    }
+  }
 };
 </script>
 <style lang="scss">

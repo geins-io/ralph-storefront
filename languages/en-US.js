@@ -123,6 +123,7 @@ export default {
     'An email for resetting your password has been sent to you',
   ACCOUNT_FEEDBACK_PASSWORD_CHANGED: 'Your password has been changed',
   ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Please make sure all fields are valid',
+  ACCOUNT_FEEDBACK_ALREADY_EXISTS: 'An account with this email already exists',
   ACCOUNT_VIEW_DETAILS: 'View details',
   SHIPPING_METHOD: 'Shipping method',
   PAYMENT_METHOD: 'Payment method',
@@ -144,6 +145,24 @@ export default {
   ACCOUNT_BILLING_SHIPPING_TITLE: 'Billing & Shipping',
   ACCOUNT_NEWSLETTER_TITLE: 'Newsletter',
   ACCOUNT_PRIVACY_TITLE: 'Privacy settings',
+  ACCOUNT_GENDER_UNSPECIFIED: 'Unspecified',
+  ACCOUNT_GENDER_WOMAN: 'Woman',
+  ACCOUNT_GENDER_MAN: 'Man',
+  ACCOUNT_ORDERS_EMPTY: 'You have not placed any orders yet',
+  ACCOUNT_ORDER_STATUS_RECEIVED: 'Received',
+  ACCOUNT_ORDER_STATUS_PROCESSING: 'Processing',
+  ACCOUNT_ORDER_STATUS_COMPLETED: 'Completed',
+  ACCOUNT_ORDER_STATUS_CANCELLED: 'Cancelled',
+  ACCOUNT_DELETE_PROMPT_TITLE: 'Delete account?',
+  ACCOUNT_DELETE_PROMPT_TEXT:
+    'Do you really want to delete your account? You can not regret this action. If you go through with this your account will be deleted and you will be logged out.',
+  ACCOUNT_DELETE_PROMPT_BUTTON: 'Delete account',
+  ACCOUNT_DELETE_FEEDBACK: 'Your account is now deleted',
+  ACCOUNT_SAVE_FEEDBACK: 'Your changes has been saved',
+  ACCOUNT_CHANGE_PASSWORD_ERROR:
+    'You entered the wrong password and have therefore been logged out for security reasons',
+  FEEDBACK_ERROR:
+    'We are sorry, but something went wrong. Please try again and contact our customer service if the problem persists.',
   LABEL_FIRST_NAME: 'First name',
   LABEL_LAST_NAME: 'Last name',
   LABEL_PHONE_NUMBER: 'Phone number',
@@ -184,6 +203,5 @@ export default {
   NEWSLETTER_PLACEHOLDER: 'your@email.com',
   NEWSLETTER_LABEL: '',
   NEWSLETTER_BUTTON: 'Register',
-  NEWSLETTER_FEEDBACK_SUCCESS: 'Thanks! You are now registered',
-  NEWSLETTER_FEEDBACK_ERROR: 'Something went wrong, please try again'
+  NEWSLETTER_FEEDBACK_SUCCESS: 'Thanks! You are now registered'
 };

@@ -35,6 +35,7 @@
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
       <button
+        v-if="!$store.getters['auth/authenticated']"
         v-show="!undistracted"
         class="ca-top-bar__link ca-top-bar__link--login only-computer"
         @click="
@@ -48,6 +49,16 @@
           {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
         </CaIconAndText>
       </button>
+      <NuxtLink
+        v-else
+        v-show="!undistracted"
+        class="ca-top-bar__link ca-top-bar__link--login only-computer"
+        :to="localePath('account-orders')"
+      >
+        <CaIconAndText icon-name="user">
+          {{ $t('ACCOUNT_TITLE') }}
+        </CaIconAndText>
+      </NuxtLink>
       <CaVatToggle v-show="!undistracted" class="only-computer" />
     </CaContainer>
   </div>
