@@ -118,7 +118,9 @@ export default async () => {
       // Doc: https://github.com/nuxt-community/eslint-module
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/stylelint-module
-      '@nuxtjs/stylelint-module'
+      '@nuxtjs/stylelint-module',
+      // Doc: https://html-validator.nuxtjs.org/
+      '@nuxtjs/html-validator'
     ],
     /*
      ** Nuxt.js modules
@@ -184,6 +186,15 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/nuxt-polyfill
       'nuxt-polyfill'
     ],
+    htmlValidator: {
+      usePrettier: true,
+      options: {
+        rules: {
+          'input-missing-label': 'off',
+          'prefer-native-element': 'off'
+        }
+      }
+    },
     pwa: {
       // Default metadata. Doc: https://pwa.nuxtjs.org/meta/
       meta: {
@@ -262,6 +273,18 @@ export default async () => {
         laptop: 1024,
         desktop: 1200
       },
+      socialMediaLinks: [
+        {
+          icon: 'facebook',
+          title: 'Facebook',
+          link: 'https://www.facebook.com'
+        },
+        {
+          icon: 'instagram',
+          title: 'Instagram',
+          link: 'https://www.instagram.com'
+        }
+      ],
       /* ****************** */
       /* **** WIDGETS ***** */
       /* ****************** */

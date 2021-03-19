@@ -1,8 +1,8 @@
 <template>
   <div class="ca-list-filters">
-    <h3 v-if="$store.getters.viewportComputer" class="ca-list-filters__title">
+    <h2 v-if="$store.getters.viewportComputer" class="ca-list-filters__title">
       {{ $t('FILTERS') }}
-    </h3>
+    </h2>
     <div
       v-if="$store.getters.viewportComputer"
       class="ca-list-filters__filters"
@@ -60,6 +60,7 @@
       /> -->
       <button
         v-if="selectionActive"
+        type="button"
         class="ca-list-filters__reset"
         @click="resetFilters"
       >

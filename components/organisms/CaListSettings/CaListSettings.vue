@@ -1,6 +1,7 @@
 <template>
   <div class="ca-list-settings">
     <button
+      type="button"
       class="ca-list-settings__filter-toggle only-mobile"
       @click="
         $store.commit('contentpanel/open', {

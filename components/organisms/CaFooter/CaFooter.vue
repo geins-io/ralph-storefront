@@ -120,25 +120,17 @@
         <section class="ca-footer__column">
           <h2 class="ca-footer__title">Följ oss</h2>
           <ul class="ca-footer__social">
-            <li class="ca-footer__social-item">
-              <a
+            <li
+              v-for="(link, index) in $config.socialMediaLinks"
+              :key="index"
+              class="ca-footer__social-item"
+            >
+              <CaIconButton
                 class="ca-footer__social-link"
-                href="#"
-                target="_blank"
-                title="Facebook link"
-              >
-                <CaIcon name="facebook" class="ca-footer__social-icon" />
-              </a>
-            </li>
-            <li class="ca-footer__social-item">
-              <a
-                class="ca-footer__social-link"
-                href="#"
-                target="_blank"
-                title="Instagram link"
-              >
-                <CaIcon name="instagram" class="ca-footer__social-icon" />
-              </a>
+                :href="link.link"
+                :icon-name="link.icon"
+                :aria-label="link.title"
+              />
             </li>
           </ul>
         </section>
@@ -339,13 +331,10 @@ export default {
   }
 
   &__social-item {
+    font-size: 30px;
     &:not(:last-child) {
       margin-right: $px20;
     }
-  }
-
-  &__social-icon {
-    font-size: 30px;
   }
 
   &__bottom {
