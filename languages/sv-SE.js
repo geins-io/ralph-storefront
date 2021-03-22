@@ -123,6 +123,8 @@ export default {
   ACCOUNT_FEEDBACK_PASSWORD_CHANGED: 'Ditt lösenord har ändrats',
   ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Se till att alla fält är giltiga',
   ACCOUNT_FEEDBACK_ALREADY_EXISTS: 'Ett konto med denna email existerar redan',
+  ACCOUNT_FEEDBACK_RESET_KEY_NOT_VALID:
+    'Giltighetstiden för denna återställning har gått ut. För att kunna återställa ditt lösenord måste du begära lösenordsåterställning på nytt.',
   ACCOUNT_VIEW_DETAILS: 'Se detaljer',
   SHIPPING_METHOD: 'Leveranssätt',
   PAYMENT_METHOD: 'Betalsätt',
@@ -160,6 +162,7 @@ export default {
   ACCOUNT_SAVE_FEEDBACK: 'Dina ändringar har sparats',
   ACCOUNT_CHANGE_PASSWORD_ERROR:
     'Du angav fel lösenord och har loggats ut av säkerhetsskäl',
+  ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Ange ett nytt lösenord för ditt konto',
   FEEDBACK_ERROR:
     'Något gick tyvärr fel. Försök gärna igen och kontakta kundtjänst om problemet kvarstår.',
   LABEL_FIRST_NAME: 'Förnamn',

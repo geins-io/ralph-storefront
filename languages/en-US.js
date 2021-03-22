@@ -124,6 +124,8 @@ export default {
   ACCOUNT_FEEDBACK_PASSWORD_CHANGED: 'Your password has been changed',
   ACCOUNT_FEEDBACK_FIELDS_NOT_VALID: 'Please make sure all fields are valid',
   ACCOUNT_FEEDBACK_ALREADY_EXISTS: 'An account with this email already exists',
+  ACCOUNT_FEEDBACK_RESET_KEY_NOT_VALID:
+    'This password reset link has expired. To reset your password you need to request another password reset.',
   ACCOUNT_VIEW_DETAILS: 'View details',
   SHIPPING_METHOD: 'Shipping method',
   PAYMENT_METHOD: 'Payment method',
@@ -161,6 +163,7 @@ export default {
   ACCOUNT_SAVE_FEEDBACK: 'Your changes has been saved',
   ACCOUNT_CHANGE_PASSWORD_ERROR:
     'You entered the wrong password and have therefore been logged out for security reasons',
+  ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Enter a new password for your account',
   FEEDBACK_ERROR:
     'We are sorry, but something went wrong. Please try again and contact our customer service if the problem persists.',
   LABEL_FIRST_NAME: 'First name',

@@ -28,9 +28,9 @@
     <section class="ca-footer__section ca-footer__section--newsletter">
       <CaContainer>
         <div class="ca-footer__newsletter">
-          <h3 class="ca-footer__newsletter-title">
+          <h2 class="ca-footer__newsletter-title">
             {{ $t('NEWSLETTER_TITLE') }}
-          </h3>
+          </h2>
           <p class="ca-footer__newsletter-text">
             {{ $t('NEWSLETTER_TEXT') }}
           </p>
