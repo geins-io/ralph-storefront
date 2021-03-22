@@ -18,9 +18,9 @@ $box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.4);
 // Z-index
 $z-index-cookie-consent: 100;
 $z-index-search-overlay: $z-index-cookie-consent + 1;
-$z-index-header: $z-index-search-overlay + 1;
-$z-index-search: $z-index-header + 1;
-$z-index-overlay: $z-index-search + 1;
+$z-index-search: $z-index-search-overlay + 1;
+$z-index-header: $z-index-search + 1;
+$z-index-overlay: $z-index-header + 1;
 $z-index-search-computer: $z-index-overlay + 1;
 $z-index-snackbar: $z-index-search-computer + 1;
 $z-index-panel: $z-index-snackbar + 1;

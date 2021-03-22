@@ -37,6 +37,7 @@
       <button
         v-if="!$store.getters['auth/authenticated']"
         v-show="!undistracted"
+        type="button"
         class="ca-top-bar__link ca-top-bar__link--login only-computer"
         @click="
           $store.commit('contentpanel/open', {
