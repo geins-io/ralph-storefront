@@ -54,6 +54,7 @@ export default {
   ORDER_CONFIRM_TITLE: 'Orderbekräftelse',
   ORDER_CONFIRM_THANKS: 'Tack för din order!',
   ORDER_SUMMARY_TITLE: 'Du har beställt',
+  ORDER_SUMMARY_NO_CART: 'Det finns ingen varukorg att visa',
   CLOSE: 'Stäng',
   RESET_FILTER: 'Återställ',
   APPLY_FILTER: 'Använd & stäng',

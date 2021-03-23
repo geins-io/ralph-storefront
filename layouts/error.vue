@@ -4,9 +4,12 @@
       {{ $t('ERROR_PAGE_404_TITLE') }}
     </h1>
     <h1 v-else class="ca-error-page__title">{{ $t('ERROR_PAGE_TITLE') }}</h1>
-    <CaButton class="ca-error-page__button" href="/">
+    <a
+      class="ca-button ca-button--primary ca-error-page__button"
+      :href="homeHref"
+    >
       {{ $t('ERROR_PAGE_BUTTON') }}
-    </CaButton>
+    </a>
   </CaContainer>
 </template>
 
@@ -16,6 +19,11 @@ export default {
     error: {
       type: Object,
       default: () => {}
+    }
+  },
+  computed: {
+    homeHref() {
+      return window?.location.origin;
     }
   },
   created() {

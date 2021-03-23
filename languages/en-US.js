@@ -54,6 +54,7 @@ export default {
   ORDER_CONFIRM_TITLE: 'Order confirmation',
   ORDER_CONFIRM_THANKS: 'Thanks for your order!',
   ORDER_SUMMARY_TITLE: 'Order summary',
+  ORDER_SUMMARY_NO_CART: 'There is no cart to show',
   CLOSE: 'Close',
   RESET_FILTER: 'Reset filter',
   APPLY_FILTER: 'Apply & close',
