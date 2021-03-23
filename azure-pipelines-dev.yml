@@ -32,10 +32,6 @@ stages:
         pool:
           vmImage: $(vmImageName)
         steps:
-          - task: DownloadSecureFile@1
-            inputs:
-              secureFile: '.npmrc'
-
           - task: replacetokens@3
             inputs:
               targetFiles: |
