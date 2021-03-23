@@ -21,7 +21,6 @@ variables:
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
-
 stages:
   - stage: Build
     variables:
@@ -33,6 +32,10 @@ stages:
         pool:
           vmImage: $(vmImageName)
         steps:
+          - task: DownloadSecureFile@1
+            inputs:
+              secureFile: '.npmrc'
+
           - task: replacetokens@3
             inputs:
               targetFiles: |
