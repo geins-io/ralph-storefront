@@ -7,7 +7,6 @@ export default ({ store, req, app }) => {
     paths: [
       'favorites',
       'VATincluded',
-      'cart.data',
       'list.relocateAlias',
       'list.relocatePage'
     ],
