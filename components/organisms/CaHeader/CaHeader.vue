@@ -83,7 +83,7 @@
         <ul class="secondary-nav">
           <CaSecondaryNavItem>
             <button
-              v-if="!$store.getters['auth/isAuthenticated']"
+              v-if="!$store.getters['auth/authenticated']"
               type="button"
               @click="
                 $store.commit('contentpanel/open', {
