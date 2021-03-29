@@ -12,6 +12,7 @@
           :type="currentFeedback.type"
           :message="currentFeedback.message"
         />
+        <input v-show="false" id="email" type="text" />
         <CaInputText
           id="password"
           ref="inputPassword"
@@ -19,6 +20,7 @@
           type="password"
           :label="$t('NEW_PASSWORD')"
           validate="passwordStrength"
+          autocomplete="new-password"
           :error-message="$t('PASSWORD_ERROR_WEAK')"
           @validation="checkValid"
           @keyup.enter="commitReset"
@@ -30,6 +32,7 @@
           type="password"
           :label="$t('NEW_PASSWORD_CONFIRM')"
           validate="passwordMatch"
+          autocomplete="new-password"
           :password-to-match="password"
           :error-message="$t('PASSWORD_ERROR_NO_MATCH')"
           @validation="checkValid"
@@ -86,19 +89,22 @@ export default {
     this.resetKey = this.$route.query.resetKey;
   },
   methods: {
-    commitReset() {
+    async commitReset() {
       if (
         this.$refs.inputPassword.validateInput() &&
         this.$refs.inputPasswordConfirm.validateInput()
       ) {
         this.loading = true;
+        const password = await this.$store.state.auth.client.digest(
+          this.password
+        );
         this.$apollo
           .mutate({
             mutation: commitResetMutation,
             variables: {
               apiKey: this.$config.apiKey.toString(),
               resetKey: this.resetKey,
-              password: this.password
+              password
             },
             errorPolicy: 'all',
             fetchPolicy: 'no-cache'
