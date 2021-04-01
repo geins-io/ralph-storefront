@@ -31,7 +31,6 @@ export default {
       query: confirmCartQuery,
       variables() {
         return {
-          apiKey: this.$config.apiKey.toString(),
           id: this.cartId
         };
       },
@@ -72,7 +71,6 @@ export default {
         .mutate({
           mutation: completeCartMutation,
           variables: {
-            apiKey: this.$config.apiKey.toString(),
             id: this.cartId
           },
           fetchPolicy: 'no-cache'

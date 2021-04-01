@@ -132,11 +132,6 @@ export default {
   apollo: {
     categories: {
       query: categoriesQuery,
-      variables() {
-        return {
-          apiKey: this.$config.apiKey.toString()
-        };
-      },
       error(error) {
         // eslint-disable-next-line no-console
         console.log(error);

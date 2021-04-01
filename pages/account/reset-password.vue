@@ -102,7 +102,6 @@ export default {
           .mutate({
             mutation: commitResetMutation,
             variables: {
-              apiKey: this.$config.apiKey.toString(),
               resetKey: this.resetKey,
               password
             },

@@ -38,11 +38,6 @@ export default {
   apollo: {
     getOrders: {
       query: getOrdersQuery,
-      variables() {
-        return {
-          apiKey: this.$config.apiKey.toString()
-        };
-      },
       fetchPolicy: 'no-cache',
       result(result) {
         if (result.data) {

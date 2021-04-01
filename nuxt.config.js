@@ -49,18 +49,22 @@ async function getImageSizes() {
 }
 export default async () => {
   const imageSizes = await getImageSizes();
-  const apiKey = process.env.API_KEY;
   const defaultMetaQuery = await apolloClient.query({
     query: gql`
       query listPageInfo {
-        listPageInfo(apiKey: "${apiKey}", alias: "frontpage") {
+        listPageInfo(alias: "frontpage") {
           meta {
             description
             title
           }
         }
       }
-    `
+    `,
+    context: {
+      headers: {
+        'X-ApiKey': process.env.API_KEY
+      }
+    }
   });
   const defaultMeta = await defaultMetaQuery.data.listPageInfo.meta;
   return {
@@ -212,7 +216,7 @@ export default async () => {
           httpEndpoint: process.env.API_ENDPOINT,
           httpLinkOptions: {
             headers: {
-              apikey: process.env.API_KEY
+              'X-ApiKey': process.env.API_KEY
             }
           },
           tokenName: 'ralph-auth'
@@ -260,9 +264,11 @@ export default async () => {
       /* **** GLOBAL ***** */
       /* ***************** */
       imageServer: process.env.IMAGE_SERVER,
-      apiKey: process.env.API_KEY,
       authEndpoint: process.env.AUTH_ENDPOINT,
-      signEndpoint: process.env.SIGN_ENDPOINT,
+      signEndpoint: process.env.SIGN_ENDPOINT.replace(
+        '{API_KEY}',
+        process.env.API_KEY
+      ),
       gtm: {
         id: ''
       },
