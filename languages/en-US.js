@@ -165,6 +165,7 @@ export default {
   ACCOUNT_CHANGE_PASSWORD_ERROR:
     'You entered the wrong password and have therefore been logged out for security reasons',
   ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Enter a new password for your account',
+  ACCOUNT_LOGGING_IN_AS_USER: 'You are being logged in as user..',
   FEEDBACK_ERROR:
     'We are sorry, but something went wrong. Please try again and contact our customer service if the problem persists.',
   LABEL_FIRST_NAME: 'First name',

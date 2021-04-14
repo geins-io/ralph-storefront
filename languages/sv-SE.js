@@ -164,6 +164,7 @@ export default {
   ACCOUNT_CHANGE_PASSWORD_ERROR:
     'Du angav fel lösenord och har loggats ut av säkerhetsskäl',
   ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Ange ett nytt lösenord för ditt konto',
+  ACCOUNT_LOGGING_IN_AS_USER: 'Du loggas in som användare..',
   FEEDBACK_ERROR:
     'Något gick tyvärr fel. Försök gärna igen och kontakta kundtjänst om problemet kvarstår.',
   LABEL_FIRST_NAME: 'Förnamn',

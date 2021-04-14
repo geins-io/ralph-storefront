@@ -1,5 +1,7 @@
-export default function({ store, redirect }) {
+export default function({ store, redirect, route }) {
   if (!store.getters['auth/authenticated']) {
-    return redirect('/');
+    if (!route.query.loginToken) {
+      return redirect('/');
+    }
   }
 }
