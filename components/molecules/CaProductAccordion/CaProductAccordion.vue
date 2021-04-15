@@ -8,12 +8,11 @@
       <template #toggle-text>
         <h2>{{ $t('PRODUCT_DESCRIPTION') }}</h2>
       </template>
-      <!-- eslint-disable vue/no-v-html -->
-      <div
+      <CaHtml
         v-if="product.texts.text2"
         class="ca-product-accordion__item-content"
-        v-html="product.texts.text2"
-      ></div>
+        :content="product.texts.text2"
+      />
       <div v-else class="ca-product-accordion__item-content">
         {{ $t('NO_PRODUCT_DESCRIPTION') }}
       </div>
@@ -38,11 +37,10 @@
       <template #toggle-text>
         <h2>Ingredienser</h2>
       </template>
-      <!-- eslint-disable vue/no-v-html -->
-      <div
+      <CaHtml
         class="ca-product-accordion__item-content"
-        v-html="product.texts.text3"
-      ></div>
+        :content="product.texts.text3"
+      />
     </CaAccordionItem>
   </div>
 </template>

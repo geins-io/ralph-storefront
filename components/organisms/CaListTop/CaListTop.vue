@@ -1,5 +1,4 @@
 <template>
-  <!--eslint-disable vue/no-v-html-->
   <div class="ca-list-top">
     <div class="ca-list-top__text">
       <h1 v-if="listInfo" class="ca-list-top__title">{{ listInfo.name }}</h1>
@@ -12,7 +11,7 @@
         v-if="listInfo && listInfo.primaryDescription !== ''"
         class="ca-list-top__description"
       >
-        <div v-html="listInfo.primaryDescription"></div>
+        <CaHtml :content="listInfo.primaryDescription" />
       </CaReadMore>
       <div
         v-else-if="!listInfo"

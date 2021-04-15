@@ -1,5 +1,5 @@
 export default {
-  VAT_TOGGLE_LABEL_INC: 'Privat (ink. moms)',
+  VAT_TOGGLE_LABEL_INC: 'Privat (inkl. moms)',
   VAT_TOGGLE_LABEL_EX: 'Företag (ex. moms)',
   USP_1: 'Bäst i världen',
   USP_2: 'Snabbast leverans',
@@ -18,6 +18,7 @@ export default {
   PRODUCT_LIST: 'Produktlistning',
   ADD_TO_CART: 'Lägg i varukorgen',
   ADD_FAVORITE: 'Lägg till som favorit',
+  ADD: 'Lägg till',
   REMOVE_FAVORITE: 'Ta bort från favoriter',
   LOGO_ALT_TEXT: 'Logga',
   EX_VAT: 'ex. moms',
@@ -91,7 +92,7 @@ export default {
   NO_PRODUCTS_MATCH: 'Inga produkter matchar ditt urval',
   SKU_NOT_CHOSEN: 'Ej vald',
   SKU_LABEL: 'Storlek',
-  INPUT_OPTIONAL: 'frivillig',
+  INPUT_OPTIONAL: 'frivilligt',
   EMAIL: 'Email',
   EMAIL_ERROR_NOT_VALID: 'Du måste ange en giltig email',
   PASSWORD: 'Lösenord',
@@ -167,6 +168,8 @@ export default {
   ACCOUNT_LOGGING_IN_AS_USER: 'Du loggas in som användare..',
   FEEDBACK_ERROR:
     'Något gick tyvärr fel. Försök gärna igen och kontakta kundtjänst om problemet kvarstår.',
+  FEEDBACK_REQUIRED_FIELD: 'Detta fält är obligatoriskt',
+  FEEDBACK_PERSONAL_ID_NOT_VALID: 'Du måste ange ett giltigt personnummer',
   LABEL_FIRST_NAME: 'Förnamn',
   LABEL_LAST_NAME: 'Efternamn',
   LABEL_PHONE_NUMBER: 'Telefonnummer',
@@ -178,6 +181,9 @@ export default {
   LABEL_CITY: 'Ort',
   LABEL_COUNTRY: 'Land',
   LABEL_NEWSLETTER: 'Nyhetsbrev',
+  LABEL_PERSONAL_ID: 'Personnummer',
+  LABEL_ORDER_MESSAGE: 'Meddelande',
+  LABEL_ENTRY_CODE: 'Portkod',
   ACCOUNT_PERSONAL_INFO_REMOVAL:
     'För att enbart ta bort personlig information, kontakta kundservice.',
   YES: 'Ja',
@@ -206,5 +212,36 @@ export default {
   NEWSLETTER_PLACEHOLDER: 'din@email.com',
   NEWSLETTER_LABEL: '',
   NEWSLETTER_BUTTON: 'Registrera',
-  NEWSLETTER_FEEDBACK_SUCCESS: 'Tack! Du är nu registrerad'
+  NEWSLETTER_FEEDBACK_SUCCESS: 'Tack! Du är nu registrerad',
+  CHECKOUT_YOUR_INFORMATION: 'Dina uppgifter',
+  CHECKOUT_SUBTITLE_COUNTRY_INFO: 'Adressen ska vara i',
+  CHECKOUT_ADD_SHIPPING_ADDRESS: 'Skicka till annan adress',
+  CHECKOUT_MESSAGE_FIELD_DESCRIPTION:
+    'Här kan du lämna ett meddelande till butiken',
+  CHECKOUT_CONSENTS_TITLE: 'Hantering av personuppgifter',
+  CHECKOUT_CONSENTS_TEXT:
+    'För oss är det viktigt att dina uppgifter inte används till annat än det du gett tillstånd till. Nedan kan du se vad vi kan använda uppgifterna till och vad du får för fördelar av det.',
+  CHECKOUT_CONSENT_ORDER: 'Jag har läst och godkänner {0}',
+  CHECKOUT_CONSENT_NEWSLETTER:
+    'Ja tack, jag vill få nyhetsbrev med spännande erbjudanden',
+  CHECKOUT_CONSENT_SMS: 'Ja tack, jag vill få SMS med spännande erbjudanden',
+  CHECKOUT_TERMS: 'köpvillkoren',
+  CHECKOUT_TOTAL: 'Totalbelopp inkl. moms',
+  CHECKOUT_SHOW_SUMMARY: 'Visa detaljer',
+  CHECKOUT_HIDE_SUMMARY: 'Dölj detaljer',
+  CHECKOUT_CONFIRM_TITLE: 'Tack för din order!',
+  CHECKOUT_CONFIRM_TEXT:
+    'Inom kort kommer du få en orderbekräftelse skickad till {email} med all information gällande din order.',
+  CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
+    'Se till att alla fält är korrekt ifyllda',
+  CHECKOUT_FEEDBACK_TERMS_NOT_ACCEPTED:
+    'Du måste godkänna köpvillkoren innan du slutför ditt köp',
+  ORDER_NUMBER: 'Ordernummer',
+  CART_SUMMARY_SUBTOTAL: 'Delsumma',
+  CART_SUMMARY_DISCOUNT: 'Rabatt',
+  CART_SUMMARY_SHIPPING_FEE: 'Fraktavgift',
+  CART_SUMMARY_REGULAR_PRICE: 'Ordinarie pris',
+  CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'kvar till fri frakt',
+  FREE_SHIPPING: 'Fri frakt',
+  SWEDEN: 'Sverige'
 };

@@ -60,8 +60,8 @@
               {{ $config.customerServicePhone }}
             </a>
           </div>
-          <h2 class="ca-footer__title">Shoppa som</h2>
-          <CaVatToggle class="ca-footer__vat-toggle" />
+          <!-- <h2 class="ca-footer__title">Shoppa som</h2>
+          <CaVatToggle class="ca-footer__vat-toggle" /> -->
         </section>
         <section class="ca-footer__column">
           <h2 class="ca-footer__title">Länkar</h2>

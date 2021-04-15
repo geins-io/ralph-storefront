@@ -60,7 +60,7 @@
           {{ $t('ACCOUNT_TITLE') }}
         </CaIconAndText>
       </NuxtLink>
-      <CaVatToggle v-show="!undistracted" class="only-computer" />
+      <!-- <CaVatToggle v-show="!undistracted" class="only-computer" /> -->
     </CaContainer>
   </div>
 </template>
@@ -120,7 +120,7 @@ export default {
   }
   &__link {
     &--login {
-      margin: 0 $px24 0 auto;
+      margin: 0 0 0 auto;
     }
     &--customer-service {
       margin: 0 auto 0 $px24;

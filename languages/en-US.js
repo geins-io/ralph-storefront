@@ -18,6 +18,7 @@ export default {
   PRODUCT_LIST: 'Product list',
   ADD_TO_CART: 'Add to bag',
   ADD_FAVORITE: 'Add to favorites',
+  ADD: 'Add',
   REMOVE_FAVORITE: 'Remove from favorites',
   LOGO_ALT_TEXT: 'Logo',
   EX_VAT: 'ex. VAT',
@@ -168,6 +169,8 @@ export default {
   ACCOUNT_LOGGING_IN_AS_USER: 'You are being logged in as user..',
   FEEDBACK_ERROR:
     'We are sorry, but something went wrong. Please try again and contact our customer service if the problem persists.',
+  FEEDBACK_REQUIRED_FIELD: 'This field is required',
+  FEEDBACK_PERSONAL_ID_NOT_VALID: 'You have to enter a valid personal ID',
   LABEL_FIRST_NAME: 'First name',
   LABEL_LAST_NAME: 'Last name',
   LABEL_PHONE_NUMBER: 'Phone number',
@@ -179,6 +182,9 @@ export default {
   LABEL_CITY: 'City',
   LABEL_COUNTRY: 'Country',
   LABEL_NEWSLETTER: 'Newsletter',
+  LABEL_PERSONAL_ID: 'Personal ID',
+  LABEL_ORDER_MESSAGE: 'Message',
+  LABEL_ENTRY_CODE: 'Entry code',
   ACCOUNT_PERSONAL_INFO_REMOVAL:
     'To delete only your personal information, you need to contact customer service.',
   YES: 'Yes',
@@ -208,5 +214,36 @@ export default {
   NEWSLETTER_PLACEHOLDER: 'your@email.com',
   NEWSLETTER_LABEL: '',
   NEWSLETTER_BUTTON: 'Register',
-  NEWSLETTER_FEEDBACK_SUCCESS: 'Thanks! You are now registered'
+  NEWSLETTER_FEEDBACK_SUCCESS: 'Thanks! You are now registered',
+  CHECKOUT_YOUR_INFORMATION: 'Your information',
+  CHECKOUT_SUBTITLE_COUNTRY_INFO: 'The address must be located in',
+  CHECKOUT_ADD_SHIPPING_ADDRESS: 'Ship to another address',
+  CHECKOUT_MESSAGE_FIELD_DESCRIPTION:
+    'Here you can leave a message to the store',
+  CHECKOUT_CONSENTS_TITLE: 'Handling your personal data',
+  CHECKOUT_CONSENTS_TEXT: 'CHECKOUT_CONSENTS_TEXT',
+  CHECKOUT_CONSENT_ORDER: 'I have read and I accept the {0}',
+  CHECKOUT_CONSENT_NEWSLETTER:
+    'Yes, I want to receive the newsletter with a lot of exciting offers',
+  CHECKOUT_CONSENT_SMS:
+    'Yes, I want to recieve text messages with a lot of exciting offers',
+  CHECKOUT_TERMS: 'terms of purchase',
+  CHECKOUT_TOTAL: 'Total amount inc. VAT',
+  CHECKOUT_SHOW_SUMMARY: 'Show details',
+  CHECKOUT_HIDE_SUMMARY: 'Hide details',
+  CHECKOUT_CONFIRM_TITLE: 'Thank you for your order!',
+  CHECKOUT_CONFIRM_TEXT:
+    'Shortly you will receive an order confirmation at {email} with all information regarding your order.',
+  CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
+    'Make sure all fields are valid before you place your order',
+  CHECKOUT_FEEDBACK_TERMS_NOT_ACCEPTED:
+    'You have to accept the terms of purchase before you can place your order',
+  ORDER_NUMBER: 'Order number',
+  CART_SUMMARY_SUBTOTAL: 'Subtotal',
+  CART_SUMMARY_DISCOUNT: 'Discount',
+  CART_SUMMARY_SHIPPING_FEE: 'Shipping fee',
+  CART_SUMMARY_REGULAR_PRICE: 'Regular price',
+  CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'left to free shipping',
+  FREE_SHIPPING: 'Free shipping',
+  SWEDEN: 'Sweden'
 };

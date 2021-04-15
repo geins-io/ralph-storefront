@@ -329,7 +329,16 @@ export default async () => {
       /* **** IMAGES ***** */
       /* ****************** */
       productImageRatio: 1 / 1,
-      imageSizes
+      imageSizes,
+      /* ******************** */
+      /* ***** CHECKOUT ***** */
+      /* ******************** */
+      checkout: {
+        shippingAddress: true,
+        identityNumber: true,
+        entryCode: true,
+        message: true
+      }
     },
     privateRuntimeConfig: {},
     render: {

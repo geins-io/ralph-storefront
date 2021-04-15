@@ -54,13 +54,12 @@
             name-tag="h1"
           />
           <CaPrice class="ca-product-page__price" :price="product.unitPrice" />
-          <!-- eslint-disable vue/no-v-html -->
-          <div
+
+          <CaHtml
             v-if="product !== undefined && product.texts.text1"
             class="ca-product-page__product-summary"
-            v-html="product.texts.text1"
-          ></div>
-
+            :content="product.texts.text1"
+          />
           <CaVariantPicker
             v-if="hasVariants"
             :variants="baseVariants"

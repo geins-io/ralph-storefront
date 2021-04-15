@@ -1,36 +1,48 @@
 <template>
   <div class="ca-checkout">
     <CaCheckoutHeader :title="$t('CHECKOUT')" />
-    <CaCheckoutSection>
+    <!-- <CaCheckoutSection>
       <template #title>
         {{ $t('SHOP_AS') }}
       </template>
       <CaVatToggle class="ca-checkout__vat-toggle" />
-    </CaCheckoutSection>
-    <CaCheckoutSection :bottom-arrow="$store.getters['cart/totalQuantity'] > 0">
+    </CaCheckoutSection> -->
+    <CaCheckoutSection
+      :bottom-arrow="$store.getters['cart/totalQuantity'] > 0"
+      :loading="cartLoading"
+    >
       <template #title>
         {{ $t('CART') }} ({{ $store.getters['cart/totalQuantity'] }})
       </template>
-      <CaCart :cart="$store.state.cart.data" />
+      <CaCart :cart="cart.data" @loading="cartLoading = $event" />
     </CaCheckoutSection>
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
       :bottom-arrow="false"
+      :loading="!checkout.paymentMode || checkoutLoading"
     >
       <template #title>
         {{ $t('COMPLETE_ORDER') }}
       </template>
-      <CaCheckoutKlarna />
+      <CaCheckoutKlarna v-if="checkout.paymentMode === 'Klarna'" />
+      <CaCheckoutCarismar
+        v-else-if="checkout.paymentMode === 'SIMPLE'"
+        ref="checkoutCarismar"
+        :checkout="checkout"
+        @update="updateCheckoutData"
+        @place-order="placeOrder"
+      />
     </CaCheckoutSection>
   </div>
 </template>
 <script>
+import MixCheckout from 'MixCheckout';
 // @group Organisms
 // @vuese
 // Holds the different sections of the checkout
 export default {
   name: 'CaCheckout',
-  mixins: [],
+  mixins: [MixCheckout],
   props: {},
   data: () => ({}),
   computed: {},
