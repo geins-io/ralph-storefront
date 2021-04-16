@@ -1,12 +1,14 @@
 <template>
   <CaAccountPage class="ca-settings-page">
-    <CaAccountSettings
-      v-if="user"
-      :user="user"
-      :genders="genders"
-      @save="user = $event"
-    />
-    <CaSpinner class="ca-settings-page__spinner" :loading="!user" />
+    <client-only>
+      <CaAccountSettings
+        v-if="user"
+        :user="user"
+        :genders="genders"
+        @save="user = $event"
+      />
+      <CaSpinner class="ca-settings-page__spinner" :loading="!user" />
+    </client-only>
   </CaAccountPage>
 </template>
 
