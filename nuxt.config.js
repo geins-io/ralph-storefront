@@ -326,7 +326,7 @@ export default async () => {
       /* ****************** */
       productStockFewLeftLimit: 6,
       /* ****************** */
-      /* **** IMAGES ***** */
+      /* ***** IMAGES ***** */
       /* ****************** */
       productImageRatio: 1 / 1,
       imageSizes,
@@ -338,6 +338,13 @@ export default async () => {
         identityNumber: true,
         entryCode: true,
         message: true
+      },
+      /* ******************** */
+      /* ******* USER ******* */
+      /* ******************** */
+      user: {
+        gender: false, // If set to true, gender must be added to user.graphql
+        country: false
       }
     },
     privateRuntimeConfig: {},
