@@ -54,7 +54,7 @@ export default {
   },
   data: () => ({
     orders: null,
-    inProgressStatuses: ['received', 'processed'],
+    inProgressStatuses: ['received', 'processing'],
     historyStatuses: ['cancelled', 'completed']
   }),
   computed: {

@@ -334,6 +334,7 @@ export default async () => {
       /* ***** CHECKOUT ***** */
       /* ******************** */
       checkout: {
+        promoCodes: true,
         shippingAddress: true,
         identityNumber: true,
         entryCode: true,
