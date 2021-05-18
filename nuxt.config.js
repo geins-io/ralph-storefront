@@ -270,7 +270,8 @@ export default async () => {
         process.env.API_KEY
       ),
       gtm: {
-        id: ''
+        id: '',
+        debug: process.env.NODE_ENV !== 'production'
       },
       customerServiceEmail: 'info@ralph.io',
       customerServicePhone: '+46 123 23 43 45',

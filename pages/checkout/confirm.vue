@@ -43,9 +43,11 @@
 <script>
 import confirmCartQuery from 'cart/confirm.graphql';
 import completeCartMutation from 'cart/complete.graphql';
+import MixDatalayerConfirm from 'MixDatalayerConfirm';
 export default {
   name: 'CheckoutConfirmPage',
   layout: 'undistracted',
+  mixins: [MixDatalayerConfirm],
   apollo: {
     getCart: {
       query: confirmCartQuery,
@@ -84,9 +86,12 @@ export default {
       return this.cartId === '' && this.orderCart === null;
     }
   },
-  mounted() {},
+  mounted() {
+    this.mounted = true;
+  },
   methods: {
     completeCart() {
+      this.datalayerConfirm();
       this.$apollo
         .mutate({
           mutation: completeCartMutation,
@@ -97,6 +102,7 @@ export default {
         })
         .then(() => {
           this.$store.dispatch('cart/reset');
+          this.cartCompleted = true;
         })
         .catch(error => {
           // eslint-disable-next-line no-console
