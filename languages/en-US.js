@@ -239,10 +239,23 @@ export default {
     'Make sure all fields are valid before you place your order',
   CHECKOUT_FEEDBACK_TERMS_NOT_ACCEPTED:
     'You have to accept the terms of purchase before you can place your order',
+  CHECKOUT_PERSONAL_ID_DESCRIPTION:
+    'Your personal id is needed to create the invoice',
+  CHECKOUT_INVOICE_INFORMATION:
+    'We will send an invoice by email to the email address provided above',
+  CHECKOUT_CHOOSE_SHIPPING: 'Choose shipping',
+  CHECKOUT_SHOW_SHIPPING_OPTIONS: 'Show options',
+  CHECKOUT_PAYMENT_GUARD:
+    'Enter your postal code above and see to that no fields are empty before you can continue.',
+  CHECKOUT_NO_SHIPPING_OPTIONS:
+    'Could not find any shipping options for the postal code provided',
+  CHECKOUT_ENTER_ZIP: 'Enter your postal code to show available options',
+  CHECKOUT_ZIP_PLACEHOLDER: 'Your postal code',
   ORDER_NUMBER: 'Order number',
   CART_SUMMARY_SUBTOTAL: 'Subtotal',
   CART_SUMMARY_DISCOUNT: 'Discount',
   CART_SUMMARY_SHIPPING_FEE: 'Shipping fee',
+  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Estimated shipping fee',
   CART_SUMMARY_REGULAR_PRICE: 'Regular price',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'left to free shipping',
   FREE_SHIPPING: 'Free shipping',

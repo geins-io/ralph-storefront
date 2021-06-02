@@ -380,12 +380,16 @@ export default async () => {
       optimization: {
         splitChunks: {
           chunks: 'all',
-          automaticNameDelimiter: 'a.',
+          automaticNameDelimiter: 'ca.',
           name: undefined,
           cacheGroups: {},
           minSize: 15000,
           maxSize: 260000
         }
+      },
+      loaders: {
+        vue: { cacheBusting: false },
+        scss: { sourceMap: false }
       },
       /*
        ** You can extend webpack config here

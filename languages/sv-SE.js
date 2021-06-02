@@ -237,10 +237,24 @@ export default {
     'Se till att alla fält är korrekt ifyllda',
   CHECKOUT_FEEDBACK_TERMS_NOT_ACCEPTED:
     'Du måste godkänna köpvillkoren innan du slutför ditt köp',
+  CHECKOUT_PERSONAL_ID_DESCRIPTION:
+    'Ditt personnummer behövs för att kunna skapa din faktura',
+  CHECKOUT_INVOICE_INFORMATION:
+    'Vi skickar en faktura digitalt till den email du angivit ovan.',
+  CHECKOUT_CHOOSE_SHIPPING: 'Välj fraktsätt',
+  CHECKOUT_SHOW_SHIPPING_OPTIONS: 'Visa fraktsätt',
+  CHECKOUT_PAYMENT_GUARD:
+    'Fyll i ditt postnummer ovan och välj fraktsätt, samt se till att alla fält är ifyllda innan du kan slutföra köpet.',
+  CHECKOUT_NO_SHIPPING_OPTIONS:
+    'Hittade inga fraktalternativ för angivet postnummer',
+  CHECKOUT_ENTER_ZIP:
+    'Ange ditt postnummer för att visa tillgängliga fraktsätt',
+  CHECKOUT_ZIP_PLACEHOLDER: 'Ditt postnummer',
   ORDER_NUMBER: 'Ordernummer',
   CART_SUMMARY_SUBTOTAL: 'Delsumma',
   CART_SUMMARY_DISCOUNT: 'Rabatt',
   CART_SUMMARY_SHIPPING_FEE: 'Fraktavgift',
+  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Estimerad fraktavgift',
   CART_SUMMARY_REGULAR_PRICE: 'Ordinarie pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'kvar till fri frakt',
   FREE_SHIPPING: 'Fri frakt',

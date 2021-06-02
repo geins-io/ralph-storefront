@@ -18,8 +18,25 @@
     </CaCheckoutSection>
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
+      :loading="shippingLoading"
+    >
+      <template #title>
+        {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
+      </template>
+      <CaUdc
+        ref="udc"
+        :shipping-data="checkout.shippingData"
+        :zip="currentZip"
+        @init="initUDC"
+        @changed="setUDCdata"
+        @validation="udcValid = $event"
+      />
+    </CaCheckoutSection>
+    <CaCheckoutSection
+      v-if="$store.getters['cart/totalQuantity'] > 0"
       :bottom-arrow="false"
       :loading="!checkout.paymentMode || checkoutLoading"
+      :blocked="!udcValid"
     >
       <template #title>
         {{ $t('COMPLETE_ORDER') }}
@@ -32,6 +49,9 @@
         @update="updateCheckoutData"
         @place-order="placeOrder"
       />
+      <template #guard>
+        {{ $t('CHECKOUT_PAYMENT_GUARD') }}
+      </template>
     </CaCheckoutSection>
   </div>
 </template>
