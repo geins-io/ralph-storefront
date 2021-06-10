@@ -88,6 +88,10 @@ export default {
   SEARCH_RESULTS_SEE_ALL: 'See all search results',
   YOUR_RECENT_SEARCHES: 'Your recent searches',
   TOP_SEARCHES: 'Top searches',
+  SEARCH_NO_SUGGESTIONS: 'You have not searched for anything yet',
+  SEARCH_NO_RESULTS:
+    'Unfortunately we could not find any matches for your search',
+  SEARCH_RESULTS_PAGE_TITLE: 'Search results for: {search}',
   RESET_FILTERS: 'Reset filters',
   NO_PRODUCTS_MATCH: 'No products are matching your selection',
   SKU_NOT_CHOSEN: 'Not chosen',

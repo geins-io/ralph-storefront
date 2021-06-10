@@ -28,6 +28,7 @@
     />
     <CaContainer>
       <CaListFilters
+        v-if="showControls"
         :filters="filters"
         :selection="selection"
         :selection-active="filterSelectionActive"
@@ -36,6 +37,7 @@
       />
 
       <CaListSettings
+        v-if="showControls"
         :active-products="totalCount"
         :current-sort="sort"
         @sortchange="sortChangeHandler($event)"
@@ -59,7 +61,7 @@
       />
 
       <CaListPagination
-        v-if="productList.length"
+        v-if="showControls"
         direction="next"
         :showing="showing"
         :total-count="totalCount"

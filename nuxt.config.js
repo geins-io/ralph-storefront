@@ -122,9 +122,9 @@ export default async () => {
       // Doc: https://github.com/nuxt-community/eslint-module
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/stylelint-module
-      '@nuxtjs/stylelint-module',
+      '@nuxtjs/stylelint-module'
       // Doc: https://html-validator.nuxtjs.org/
-      '@nuxtjs/html-validator'
+      // '@nuxtjs/html-validator'
     ],
     /*
      ** Nuxt.js modules
@@ -247,6 +247,11 @@ export default async () => {
           name: 'brand',
           path: '/b/:brand',
           component: resolve(__dirname, 'pages/list/_brand.vue')
+        });
+        routes.push({
+          name: 'search',
+          path: '/s/:search',
+          component: resolve(__dirname, 'pages/list/_search.vue')
         });
         routes.push({
           name: 'content',

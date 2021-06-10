@@ -33,5 +33,9 @@
     @media screen and (min-width: $break-desktop) {
       @content;
     }
+  } @else if $media == desktop-down {
+    @media screen and (max-width: $site-width - 1) {
+      @content;
+    }
   }
 }
