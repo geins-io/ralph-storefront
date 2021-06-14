@@ -4,7 +4,7 @@
       <NuxtLink
         class="ca-product-card__image-link"
         tabindex="-1"
-        :to="'/p/' + product.alias"
+        :to="$config.routePaths.product + product.alias"
         :data-alias="product.alias"
       >
         <CaImage
@@ -44,7 +44,10 @@
     />
 
     <div class="ca-product-card__info">
-      <NuxtLink v-if="productPopulated" :to="'/p/' + product.alias">
+      <NuxtLink
+        v-if="productPopulated"
+        :to="$config.routePaths.product + product.alias"
+      >
         <CaBrandAndName
           :brand="product.brand.name"
           :name="product.name"

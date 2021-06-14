@@ -9,6 +9,14 @@ import {
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
+
+const routePaths = {
+  category: '/c/',
+  brand: '/b/',
+  product: '/p/',
+  search: '/s/'
+};
+
 const imageSizesFile = './static/ImageSize.csv';
 
 const imageSizesStream = fs.createReadStream(imageSizesFile);
@@ -190,15 +198,15 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/nuxt-polyfill
       'nuxt-polyfill'
     ],
-    htmlValidator: {
-      usePrettier: true,
-      options: {
-        rules: {
-          'input-missing-label': 'off',
-          'prefer-native-element': 'off'
-        }
-      }
-    },
+    // htmlValidator: {
+    //   usePrettier: true,
+    //   options: {
+    //     rules: {
+    //       'input-missing-label': 'off',
+    //       'prefer-native-element': 'off'
+    //     }
+    //   }
+    // },
     pwa: {
       // Default metadata. Doc: https://pwa.nuxtjs.org/meta/
       meta: {
@@ -235,22 +243,22 @@ export default async () => {
       extendRoutes(routes, resolve) {
         routes.push({
           name: 'product',
-          path: '/p/:alias*',
+          path: routePaths.product + ':alias*',
           component: resolve(__dirname, 'pages/product/_alias.vue')
         });
         routes.push({
           name: 'category',
-          path: '/c/:category',
+          path: routePaths.category + ':category',
           component: resolve(__dirname, 'pages/list/_category.vue')
         });
         routes.push({
           name: 'brand',
-          path: '/b/:brand',
+          path: routePaths.brand + ':brand',
           component: resolve(__dirname, 'pages/list/_brand.vue')
         });
         routes.push({
           name: 'search',
-          path: '/s/:search',
+          path: routePaths.product + ':search',
           component: resolve(__dirname, 'pages/list/_search.vue')
         });
         routes.push({
@@ -268,6 +276,7 @@ export default async () => {
       /* ***************** */
       /* **** GLOBAL ***** */
       /* ***************** */
+      baseUrl: process.env.BASE_URL,
       imageServer: process.env.IMAGE_SERVER,
       authEndpoint: process.env.AUTH_ENDPOINT,
       signEndpoint: process.env.SIGN_ENDPOINT.replace(
@@ -297,6 +306,7 @@ export default async () => {
           link: 'https://www.instagram.com'
         }
       ],
+      routePaths,
       /* ****************** */
       /* **** WIDGETS ***** */
       /* ****************** */

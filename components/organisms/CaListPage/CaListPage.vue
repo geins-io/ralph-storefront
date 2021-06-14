@@ -1,6 +1,8 @@
 <template>
   <div class="ca-list-page" :class="modifier">
     <CaContainer>
+      <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
+
       <CaListTop :type="type" :list-info="listInfo" />
 
       <CaImage

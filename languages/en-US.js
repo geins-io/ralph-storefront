@@ -263,5 +263,6 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Regular price',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'left to free shipping',
   FREE_SHIPPING: 'Free shipping',
-  SWEDEN: 'Sweden'
+  SWEDEN: 'Sweden',
+  BREADCRUMBS_HOME: 'Home'
 };

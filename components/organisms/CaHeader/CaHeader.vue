@@ -41,7 +41,10 @@
           :key="index"
           class="ca-navigation__item"
         >
-          <NuxtLink class="ca-navigation__link" :to="'/c/' + category.alias">
+          <NuxtLink
+            class="ca-navigation__link"
+            :to="$config.routePaths.category + category.alias"
+          >
             <CaIconAndText
               v-if="getSubLevelCategories(category.categoryId).length"
               icon-name="chevron-down"
@@ -62,7 +65,7 @@
               :key="subindex"
               class="ca-navigation__sub-menu-item"
             >
-              <NuxtLink :to="'/c/' + subcategory.alias">
+              <NuxtLink :to="$config.routePaths.category + subcategory.alias">
                 {{ subcategory.name }}
               </NuxtLink>
             </li>
@@ -132,6 +135,9 @@ export default {
   apollo: {
     categories: {
       query: categoriesQuery,
+      result(result) {
+        this.$store.commit('setCategoryTree', result.data.categories);
+      },
       error(error) {
         // eslint-disable-next-line no-console
         console.log(error);

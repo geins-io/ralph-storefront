@@ -42,9 +42,9 @@ export default {
 .ca-layout-default {
   $block: &;
   &__main {
-    padding-top: $header-height + $default-spacing;
+    padding-top: $header-height + $px12;
     @include bp(laptop) {
-      padding-top: $header-height-computer + $default-spacing * 2;
+      padding-top: $header-height-computer + $default-spacing;
     }
   }
   &__loading {

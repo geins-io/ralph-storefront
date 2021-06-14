@@ -261,5 +261,6 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Ordinarie pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'kvar till fri frakt',
   FREE_SHIPPING: 'Fri frakt',
-  SWEDEN: 'Sverige'
+  SWEDEN: 'Sverige',
+  BREADCRUMBS_HOME: 'Hem'
 };

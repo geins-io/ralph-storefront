@@ -2,6 +2,11 @@
   <div class="ca-product-page">
     <CaProductMeta v-if="product !== undefined" :product="product" />
     <CaContainer>
+      <CaBreadcrumbs
+        v-if="product !== undefined"
+        :current="breadcrumbsCurrent"
+        :product-name="product.name"
+      />
       <section class="ca-product-page__section">
         <CaProductGallery
           v-if="product !== undefined"
