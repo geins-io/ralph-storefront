@@ -30,19 +30,19 @@
     />
     <CaContainer>
       <CaListFilters
-        v-if="showControls"
+        v-if="showControls && selection"
         :filters="filters"
         :selection="selection"
         :selection-active="filterSelectionActive"
-        @selectionchange="filterChangeHandler($event)"
+        @selectionchange="filterChangeHandler"
         @reset="resetFilters"
       />
 
       <CaListSettings
         v-if="showControls"
         :active-products="totalCount"
-        :current-sort="sort"
-        @sortchange="sortChangeHandler($event)"
+        :current-sort="selection.sort"
+        @sortchange="sortChangeHandler"
       />
 
       <CaListPagination

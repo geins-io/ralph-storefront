@@ -1,13 +1,9 @@
 <template>
-  <div
-    v-show="values.length > 1 || typeRange"
-    class="ca-filter"
-    :class="modifiers"
-  >
+  <div class="ca-filter" :class="modifiers">
     <div class="ca-filter__title" @click="() => (open = !open)">
       {{ title }}
-      <span v-if="selectionMade && !typeRange" class="ca-filter__chosen-amount">
-        ({{ selection.length }})
+      <span v-if="selectionMade" class="ca-filter__chosen-amount">
+        ({{ currentSelection.length }})
       </span>
       <CaIcon class="ca-filter__arrow" name="chevron-down" />
     </div>
@@ -15,13 +11,7 @@
       <LazyCaFilterMulti
         v-if="!typeRange"
         :values="values"
-        :selection="selection"
-        @selectionchange="$emit('selectionchange', $event)"
-      />
-      <LazyCaFilterRange
-        v-else
-        :values="values"
-        :selection="selection"
+        :selection="currentSelection"
         @selectionchange="$emit('selectionchange', $event)"
       />
     </SlideUpDown>
@@ -46,7 +36,7 @@ export default {
       required: true
     },
     selection: {
-      type: [Array, Object],
+      type: [Array],
       required: true
     },
     type: {
@@ -59,37 +49,43 @@ export default {
     }
   },
   data: () => ({
-    open: false
+    open: false,
+    currentSelection: []
   }),
   computed: {
     modifiers() {
       return {
         'ca-filter--open': this.open,
-        'ca-filter--chosen': this.selectionMade > 0
+        'ca-filter--chosen': this.selectionMade
       };
     },
     typeRange() {
       return this.type === 'range';
     },
     selectionMade() {
-      if (this.typeRange) {
-        return (
-          this.values.lowest !== this.selection.lowest ||
-          this.values.highest !== this.selection.highest
-        );
-      } else {
-        return this.selection && this.selection.length > 0;
+      return this.currentSelection.length > 0;
+    }
+  },
+  watch: {
+    selection: {
+      deep: true,
+      handler(newVal, oldVal) {
+        if (newVal !== oldVal) {
+          this.currentSelection = this.selection;
+        }
       }
     }
   },
-  watch: {},
-  mounted() {},
+  mounted() {
+    this.currentSelection = this.selection;
+  },
   methods: {}
 };
 </script>
 <style lang="scss" scoped>
 .ca-filter {
   $block: &;
+  position: relative;
   &__title {
     padding: 0px 43px 0px 15px;
     line-height: 38px;
@@ -99,7 +95,6 @@ export default {
     transition: border-color 200ms ease;
     cursor: pointer;
     position: relative;
-    width: 200px;
   }
   &__arrow {
     @include valign;
@@ -113,7 +108,7 @@ export default {
     z-index: 15;
     background: $c-lightest-gray;
     overflow: hidden;
-    width: 200px;
+    width: 100%;
     padding: $px12;
   }
 

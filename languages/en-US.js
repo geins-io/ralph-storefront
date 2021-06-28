@@ -36,6 +36,7 @@ export default {
   FILTER_LABEL_BRANDS: 'Brands',
   FILTER_LABEL_PRICE: 'Price',
   FILTER_LABEL_CAMPAIGNS: 'Campaigns',
+  FILTER_LABEL_SKUS: 'Sizes',
   SORT_TITLE: 'Sort by',
   SORT_LABEL_LATEST: 'New in',
   SORT_LABEL_BESTSELLERS: 'Bestsellers',

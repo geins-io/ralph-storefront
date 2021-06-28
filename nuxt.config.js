@@ -258,7 +258,7 @@ export default async () => {
         });
         routes.push({
           name: 'search',
-          path: routePaths.product + ':search',
+          path: routePaths.search + ':search',
           component: resolve(__dirname, 'pages/list/_search.vue')
         });
         routes.push({

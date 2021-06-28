@@ -13,7 +13,7 @@
         :title="$t('FILTER_LABEL_CATEGORIES')"
         :values="filters.categories"
         :selection="selection.categories"
-        @selectionchange="currentSelection.categories = $event"
+        @selectionchange="updateSelection($event, 'categories')"
       />
       <CaSkeleton
         v-else
@@ -27,7 +27,7 @@
         :title="$t('FILTER_LABEL_BRANDS')"
         :values="filters.brands"
         :selection="selection.brands"
-        @selectionchange="currentSelection.brands = $event"
+        @selectionchange="updateSelection($event, 'brands')"
       />
       <CaSkeleton
         v-else
@@ -38,11 +38,10 @@
       <CaFilter
         v-if="filtersPopulated"
         class="ca-list-filters__filter"
-        type="range"
-        :title="$t('FILTER_LABEL_PRICE')"
-        :values="filters.price"
-        :selection="selection.price"
-        @selectionchange="currentSelection.price = $event"
+        :title="$t('FILTER_LABEL_SKUS')"
+        :values="filters.skus"
+        :selection="selection.skus"
+        @selectionchange="updateSelection($event, 'skus')"
       />
       <CaSkeleton
         v-else
@@ -50,14 +49,22 @@
         width="200px"
         height="40px"
       />
-      <!-- <CaFilter
-        v-if="filters.discountCampaigns && filters.discountCampaigns.length"
+      <div
+        v-for="(filter, index) in filters.parameters"
+        :key="index"
         class="ca-list-filters__filter"
-        :title="$t('FILTER_LABEL_CAMPAIGNS')"
-        :values="filters.discountCampaigns"
-        :selection="selection.discountCampaigns"
-        @selectionchange="currentSelection.discountCampaigns = $event"
-      /> -->
+      >
+        <CaFilter
+          v-if="filtersPopulated"
+          :title="filter.label"
+          :values="filter.values"
+          :selection="getParameterSelection(filter.filterId)"
+          @selectionchange="
+            updateSelection($event, 'parameters', filter.filterId)
+          "
+        />
+        <CaSkeleton v-else width="200px" height="40px" />
+      </div>
       <button
         v-if="selectionActive"
         type="button"
@@ -65,10 +72,11 @@
         @click="resetFilters"
       >
         <CaIconAndText class="ca-list-filters__reset-text" icon-name="x-circle">
-          {{ $t('RESET_FILTERS') }}
+          {{ $t('RESET_FILTER') }}
         </CaIconAndText>
       </button>
     </div>
+    <div class="ca-list-filters__selection"></div>
     <LazyCaContentPanel
       v-if="filters"
       name="filters"
@@ -83,7 +91,7 @@
         <LazyCaFilterMulti
           :values="filters.categories"
           :selection="selection.categories"
-          @selectionchange="currentSelection.categories = $event"
+          @selectionchange="updateSelection($event, 'categories')"
         />
       </CaAccordionItem>
       <CaAccordionItem v-if="filters.brands && filters.brands.length > 1">
@@ -91,21 +99,15 @@
         <LazyCaFilterMulti
           :values="filters.brands"
           :selection="selection.brands"
-          @selectionchange="currentSelection.brands = $event"
+          @selectionchange="updateSelection($event, 'brands')"
         />
       </CaAccordionItem>
-      <CaAccordionItem
-        v-if="
-          filters.price &&
-            selection.price &&
-            filters.price.lowest !== filters.price.highest
-        "
-      >
-        <template #toggle-text>{{ $t('FILTER_LABEL_PRICE') }}</template>
-        <LazyCaFilterRange
-          :values="filters.price"
-          :selection="selection.price"
-          @selectionchange="currentSelection.price = $event"
+      <CaAccordionItem v-if="filters.skus && filters.skus.length > 1">
+        <template #toggle-text>{{ $t('FILTER_LABEL_SKUS') }}</template>
+        <LazyCaFilterMulti
+          :values="filters.skus"
+          :selection="selection.skus"
+          @selectionchange="updateSelection($event, 'skus')"
         />
       </CaAccordionItem>
       <template #footer>
@@ -167,14 +169,7 @@ export default {
       );
     }
   },
-  watch: {
-    currentSelection: {
-      deep: true,
-      handler(val) {
-        this.$emit('selectionchange', val);
-      }
-    }
-  },
+  watch: {},
   mounted() {
     this.currentSelection = this.selection;
   },
@@ -184,6 +179,31 @@ export default {
     },
     closeContentPanel() {
       eventbus.$emit('close-content-panel');
+    },
+    updateSelection(selection, type, group = null) {
+      const selectionData = {
+        type,
+        selection: null
+      };
+
+      if (group) {
+        const obj = this.currentSelection.parameters;
+        if (obj[group]) {
+          obj[group] = selection;
+        } else {
+          this.$set(obj, group, selection);
+        }
+        this.$set(this.currentSelection, 'parameters', obj);
+        selectionData.type = group;
+      } else {
+        this.currentSelection[type] = selection;
+      }
+      selectionData.selection = this.currentSelection;
+      this.$emit('selectionchange', selectionData);
+    },
+    getParameterSelection(group) {
+      const selection = this.selection.parameters[group];
+      return selection || [];
     }
   }
 };
@@ -202,20 +222,19 @@ export default {
   }
   &__filters {
     position: relative;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: rem-calc(20px);
+    row-gap: rem-calc(20px);
   }
   &__filter {
-    &:not(:last-child) {
-      margin-right: $px20;
-    }
   }
   &__active {
     margin-top: $px16;
   }
   &__reset {
     text-decoration: underline;
+    text-align: left;
   }
   &__wrapper {
     padding: $px16;
