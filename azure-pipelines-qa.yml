@@ -14,7 +14,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'ef801ea2-070c-4b76-a077-75d5da592047'
-  imageRepository: 'ralph-storefront'
+  imageRepository: 'ralph-storefront-qa'
   containerRegistry: 'carismarappregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
