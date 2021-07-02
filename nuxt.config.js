@@ -5,7 +5,7 @@ import {
   ApolloClient,
   gql,
   InMemoryCache,
-  HttpLink
+  HttpLink,
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
@@ -14,7 +14,7 @@ const routePaths = {
   category: '/c/',
   brand: '/b/',
   product: '/p/',
-  search: '/s/'
+  search: '/s/',
 };
 
 const imageSizesFile = './static/ImageSize.csv';
@@ -24,20 +24,20 @@ const imageSizeObject = {};
 const apolloCache = new InMemoryCache({});
 const apolloClient = new ApolloClient({
   cache: apolloCache,
-  link: new HttpLink({ uri: process.env.API_ENDPOINT, fetch })
+  link: new HttpLink({ uri: process.env.API_ENDPOINT, fetch }),
 });
 
 // Parse the imageSizesFile to get the image sizes
-const imageSizesStreamRead = new Promise(function(resolve) {
+const imageSizesStreamRead = new Promise(function (resolve) {
   imageSizesStream
     .pipe(csv())
-    .on('data', row => {
+    .on('data', (row) => {
       // Get the value from the PartitionKey (Imate type) Column and make it lowercase (Because of input inconsistencies in the source document)
       const PartitionKey = row.PartitionKey.toLowerCase();
       // Create the data for this row
       const imageRow = {
         folder: row.Folder,
-        descriptor: row.Width + 'w'
+        descriptor: row.Width + 'w',
       };
       // Check if the imagesizeobject has the current image tyoe already, if so add to it, otherwise create it
       if (imageSizeObject[PartitionKey]) {
@@ -70,9 +70,9 @@ export default async () => {
     `,
     context: {
       headers: {
-        'X-ApiKey': process.env.API_KEY
-      }
-    }
+        'X-ApiKey': process.env.API_KEY,
+      },
+    },
   });
   const defaultMeta = await defaultMetaQuery.data.listPageInfo.meta;
   return {
@@ -84,9 +84,9 @@ export default async () => {
         {
           rel: 'stylesheet',
           href:
-            'https://fonts.googleapis.com/css?family=Roboto:400,400i,500&display=swap'
-        }
-      ]
+            'https://fonts.googleapis.com/css?family=Roboto:400,400i,500&display=swap',
+        },
+      ],
     },
     /*
      ** Customize the progress-bar color
@@ -104,18 +104,18 @@ export default async () => {
       {
         path: '~/node_modules/@ralph/ralph-ui/components/atoms',
         extensions: ['vue'],
-        level: 1
+        level: 1,
       },
       {
         path: '~/node_modules/@ralph/ralph-ui/components/molecules',
         extensions: ['vue'],
-        level: 1
+        level: 1,
       },
       {
         path: '~/node_modules/@ralph/ralph-ui/components/organisms',
         extensions: ['vue'],
-        level: 1
-      }
+        level: 1,
+      },
     ],
 
     /*
@@ -130,7 +130,7 @@ export default async () => {
       // Doc: https://github.com/nuxt-community/eslint-module
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/stylelint-module
-      '@nuxtjs/stylelint-module'
+      '@nuxtjs/stylelint-module',
       // Doc: https://html-validator.nuxtjs.org/
       // '@nuxtjs/html-validator'
     ],
@@ -151,39 +151,39 @@ export default async () => {
               iso: 'en-US',
               file: 'en-US.js',
               name: 'English',
-              flag: 'gb'
+              flag: 'gb',
             },
             {
               code: 'sv',
               iso: 'sv-SE',
               file: 'sv-SE.js',
               name: 'Svenska',
-              flag: 'se'
-            }
+              flag: 'se',
+            },
           ],
           langDir: 'languages/',
           defaultLocale: 'sv',
           lazy: true,
           vueI18n: {
-            fallbackLocale: 'sv'
+            fallbackLocale: 'sv',
           },
           detectBrowserLanguage: false,
           parsePages: false,
           pages: {
             'checkout/index': {
               sv: '/kassan',
-              en: '/checkout'
+              en: '/checkout',
             },
             'account/orders': {
               sv: '/mina-sidor/ordrar',
-              en: '/my-account/orders'
+              en: '/my-account/orders',
             },
             'account/settings': {
               sv: '/mina-sidor/installningar',
-              en: '/my-account/settings'
-            }
-          }
-        }
+              en: '/my-account/settings',
+            },
+          },
+        },
       ],
       // Doc: https://github.com/nuxt-community/style-resources-module
       '@nuxtjs/style-resources',
@@ -196,7 +196,7 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/component-cache
       ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
       // Doc: https://www.npmjs.com/package/nuxt-polyfill
-      'nuxt-polyfill'
+      'nuxt-polyfill',
     ],
     // htmlValidator: {
     //   usePrettier: true,
@@ -212,11 +212,11 @@ export default async () => {
       meta: {
         name: defaultMeta.title,
         description: defaultMeta.description,
-        author: null
-      }
+        author: null,
+      },
     },
     styleResources: {
-      scss: ['./styles/_variables.scss', './styles/_helpers.scss']
+      scss: ['./styles/_variables.scss', './styles/_helpers.scss'],
     },
     apollo: {
       clientConfigs: {
@@ -224,50 +224,50 @@ export default async () => {
           httpEndpoint: process.env.API_ENDPOINT,
           httpLinkOptions: {
             headers: {
-              'X-ApiKey': process.env.API_KEY
-            }
+              'X-ApiKey': process.env.API_KEY,
+            },
           },
-          tokenName: 'ralph-auth'
-        }
+          tokenName: 'ralph-auth',
+        },
       },
-      includeNodeModules: true
+      includeNodeModules: true,
     },
     polyfill: {
       features: [
         {
-          require: 'focus-visible'
-        }
-      ]
+          require: 'focus-visible',
+        },
+      ],
     },
     router: {
       extendRoutes(routes, resolve) {
         routes.push({
           name: 'product',
-          path: routePaths.product + ':alias*',
-          component: resolve(__dirname, 'pages/product/_alias.vue')
+          path: routePaths.product + ':alias+',
+          component: resolve(__dirname, 'pages/product/_alias.vue'),
         });
         routes.push({
           name: 'category',
           path: routePaths.category + ':category',
-          component: resolve(__dirname, 'pages/list/_category.vue')
+          component: resolve(__dirname, 'pages/list/_category.vue'),
         });
         routes.push({
           name: 'brand',
           path: routePaths.brand + ':brand',
-          component: resolve(__dirname, 'pages/list/_brand.vue')
+          component: resolve(__dirname, 'pages/list/_brand.vue'),
         });
         routes.push({
           name: 'search',
           path: routePaths.search + ':search',
-          component: resolve(__dirname, 'pages/list/_search.vue')
+          component: resolve(__dirname, 'pages/list/_search.vue'),
         });
         routes.push({
           name: 'content',
           path: '/:alias',
-          component: resolve(__dirname, 'pages/content/_alias.vue')
+          component: resolve(__dirname, 'pages/content/_alias.vue'),
         });
         // Adding routes with translated paths is done through nuxt-i18n config above
-      }
+      },
     },
     /*
      ** Runtime configs
@@ -285,26 +285,26 @@ export default async () => {
       ),
       gtm: {
         id: '',
-        debug: process.env.NODE_ENV !== 'production'
+        debug: process.env.NODE_ENV !== 'production',
       },
       customerServiceEmail: 'info@ralph.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
         tablet: 768,
         laptop: 1024,
-        desktop: 1200
+        desktop: 1200,
       },
       socialMediaLinks: [
         {
           icon: 'facebook',
           title: 'Facebook',
-          link: 'https://www.facebook.com'
+          link: 'https://www.facebook.com',
         },
         {
           icon: 'instagram',
           title: 'Instagram',
-          link: 'https://www.instagram.com'
-        }
+          link: 'https://www.instagram.com',
+        },
       ],
       routePaths,
       /* ****************** */
@@ -318,13 +318,13 @@ export default async () => {
         full: '(min-width: 1360px) 1320px, 96vw',
         half: '(min-width: 1360px) 650px, (min-width: 768px) 47vw, 96vw',
         third: '(min-width: 1360px) 427px, (min-width: 768px) 31vw, 96vw',
-        quarter: '(min-width: 1360px) 315px, (min-width: 768px) 23vw, 96vw'
+        quarter: '(min-width: 1360px) 315px, (min-width: 768px) 23vw, 96vw',
       },
       widgetImageSizesFullWidth: {
         full: '100vw',
         half: '(min-width: 768px) 49vw, 100vw',
         third: '(min-width: 768px) 33vw, 100vw',
-        quarter: '(min-width: 768px) 24vw, 100vw'
+        quarter: '(min-width: 768px) 24vw, 100vw',
       },
       /* *********************** */
       /* **** PRODUCT LIST ***** */
@@ -335,12 +335,20 @@ export default async () => {
         phone: 2,
         tablet: 3,
         laptop: 5,
-        desktop: 5
+        desktop: 5,
       },
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
       productStockFewLeftLimit: 6,
+      productSchemaOptions: {
+        productSkuLabelIsSize: false,
+        productDescriptionField: 'text1',
+        schemaImageSize: '700f700', //Make sure this is a valid product image size
+        extraOfferProperties: {
+          itemCondition: 'https://schema.org/NewCondition',
+        },
+      },
       /* ****************** */
       /* ***** IMAGES ***** */
       /* ****************** */
@@ -354,26 +362,26 @@ export default async () => {
         shippingAddress: true,
         identityNumber: true,
         entryCode: true,
-        message: true
+        message: true,
       },
       /* ******************** */
       /* ******* USER ******* */
       /* ******************** */
       user: {
         gender: false, // If set to true, gender must be added to user.graphql
-        country: false
-      }
+        country: false,
+      },
     },
     privateRuntimeConfig: {},
     render: {
       http2: {
-        push: true
-      }
+        push: true,
+      },
     },
     server: {
       timing: {
-        total: true
-      }
+        total: true,
+      },
     },
     /*
      ** Build configuration
@@ -385,11 +393,11 @@ export default async () => {
             [
               require.resolve('@nuxt/babel-preset-app'),
               {
-                corejs: { version: 3 }
-              }
-            ]
+                corejs: { version: 3 },
+              },
+            ],
           ];
-        }
+        },
       },
       transpile: ['@ralph/ralph-ui'],
       optimization: {
@@ -399,12 +407,12 @@ export default async () => {
           name: undefined,
           cacheGroups: {},
           minSize: 15000,
-          maxSize: 260000
-        }
+          maxSize: 260000,
+        },
       },
       loaders: {
-        vue: { cacheBusting: false },
-        scss: { sourceMap: false }
+        vue: { cacheBusting: false, prettify: false },
+        scss: { sourceMap: false },
       },
       /*
        ** You can extend webpack config here
@@ -431,13 +439,13 @@ export default async () => {
           path.resolve(__dirname, 'graphql/'),
           path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/graphql/'),
           // Then the UI store
-          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/')
+          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/'),
         ];
         if (isDev) {
           config.devtool = 'source-map';
         }
-      }
+      },
     },
-    dev: process.env.NODE_ENV !== 'production'
+    dev: process.env.NODE_ENV !== 'production',
   };
 };
