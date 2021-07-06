@@ -33,7 +33,20 @@
         v-if="showControls && selection"
         :filters="filters"
         :selection="selection"
+      />
+      <CaActiveFilters
+        v-if="showControls && selection && $store.getters.viewportComputer"
+        :selection="selection"
         :selection-active="filterSelectionActive"
+        @selectionchange="filterChangeHandler"
+        @reset="resetFilters"
+      />
+      <LazyCaFilterPanel
+        :filters="filters"
+        :selection="selection"
+        :selection-active="filterSelectionActive"
+        :total-products="totalCount"
+        :total-filters-active="totalFiltersActive"
         @selectionchange="filterChangeHandler"
         @reset="resetFilters"
       />
@@ -41,6 +54,7 @@
       <CaListSettings
         v-if="showControls"
         :active-products="totalCount"
+        :active-filters="totalFiltersActive"
         :current-sort="selection.sort"
         @sortchange="sortChangeHandler"
       />

@@ -14,7 +14,14 @@
         icon-name="chevron-right"
         icon-position="right"
       >
-        {{ $t('FILTERS') }}
+        <span class="ca-list-settings__filter-button-wrap">
+          {{ $t('FILTERS') }}
+          <CaNotificationBadge
+            :number="activeFilters"
+            :positioned="false"
+            class="ca-list-settings__active-filters"
+          />
+        </span>
       </CaIconAndText>
     </button>
     <div class="ca-list-settings__sort">
@@ -46,6 +53,10 @@ export default {
     },
     currentSort: {
       type: String,
+      required: true
+    },
+    activeFilters: {
+      type: Number,
       required: true
     }
   },
@@ -107,6 +118,12 @@ export default {
     width: 100%;
     justify-content: space-between;
   }
+  &__filter-button-wrap {
+    display: flex;
+  }
+  &__active-filters {
+    margin: 0 0 0 rem-calc(6px);
+  }
   &__title {
     text-transform: uppercase;
     font-weight: $font-weight-bold;
@@ -122,13 +139,13 @@ export default {
     }
   }
 
-  &__sort-select {
+  &__sort-select.ca-input-select {
     width: 100%;
     .ca-input-select__select-wrap {
       height: 46px;
     }
     @include bp(laptop) {
-      width: auto;
+      width: 165px;
     }
   }
   &__active-products {

@@ -37,6 +37,7 @@ export default {
   FILTER_LABEL_PRICE: 'Pris',
   FILTER_LABEL_CAMPAIGNS: 'Kampanjer',
   FILTER_LABEL_SKUS: 'Storlekar',
+  FILTERS_ACTIVE: 'aktivt filter | aktiva filter',
   SORT_TITLE: 'Sortera på',
   SORT_LABEL_LATEST: 'Senast inkomna',
   SORT_LABEL_BESTSELLERS: 'Bästsäljare',
