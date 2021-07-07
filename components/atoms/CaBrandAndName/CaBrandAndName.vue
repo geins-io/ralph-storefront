@@ -4,7 +4,7 @@
       <NuxtLink
         v-if="brandAlias !== ''"
         class="ca-brand-and-name__brand-link"
-        :to="$config.routePaths.brand + brandAlias"
+        :to="brandAlias"
       >
         {{ brand }}
       </NuxtLink>

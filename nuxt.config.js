@@ -11,10 +11,10 @@ import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 
 const routePaths = {
-  category: '/c/',
-  brand: '/b/',
-  product: '/p/',
-  search: '/s/'
+  category: '/c',
+  brand: '/b',
+  product: '/p',
+  search: '/s'
 };
 
 const imageSizesFile = './static/ImageSize.csv';
@@ -243,22 +243,22 @@ export default async () => {
       extendRoutes(routes, resolve) {
         routes.push({
           name: 'product',
-          path: routePaths.product + ':alias+',
+          path: routePaths.product + '/:alias+',
           component: resolve(__dirname, 'pages/product/_alias.vue')
         });
         routes.push({
           name: 'category',
-          path: routePaths.category + ':category',
+          path: routePaths.category + '/:category+',
           component: resolve(__dirname, 'pages/list/_category.vue')
         });
         routes.push({
           name: 'brand',
-          path: routePaths.brand + ':brand',
+          path: routePaths.brand + '/:brand+',
           component: resolve(__dirname, 'pages/list/_brand.vue')
         });
         routes.push({
           name: 'search',
-          path: routePaths.search + ':search',
+          path: routePaths.search + '/:search',
           component: resolve(__dirname, 'pages/list/_search.vue')
         });
         routes.push({

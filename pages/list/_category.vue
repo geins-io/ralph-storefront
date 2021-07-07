@@ -44,7 +44,7 @@ export default {
   }),
   computed: {
     currentAlias() {
-      return this.$route.params.category;
+      return this.$route.params.category.split('/').pop();
     },
     filtersLoaded() {
       return Object.keys(this.baseFilters).length > 0;

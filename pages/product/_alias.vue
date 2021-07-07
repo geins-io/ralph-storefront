@@ -54,7 +54,7 @@
           <CaToggleFavorite :prod-id="product.productId" />
           <CaBrandAndName
             :brand="product.brand.name"
-            :brand-alias="product.brand.alias"
+            :brand-alias="product.brand.canonicalUrl"
             :name="product.name"
             name-tag="h1"
           />

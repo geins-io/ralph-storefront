@@ -41,10 +41,7 @@
           :key="index"
           class="ca-navigation__item"
         >
-          <NuxtLink
-            class="ca-navigation__link"
-            :to="$config.routePaths.category + category.alias"
-          >
+          <NuxtLink class="ca-navigation__link" :to="category.canonicalUrl">
             <CaIconAndText
               v-if="getSubLevelCategories(category.categoryId).length"
               icon-name="chevron-down"
@@ -65,7 +62,7 @@
               :key="subindex"
               class="ca-navigation__sub-menu-item"
             >
-              <NuxtLink :to="$config.routePaths.category + subcategory.alias">
+              <NuxtLink :to="subcategory.canonicalUrl">
                 {{ subcategory.name }}
               </NuxtLink>
             </li>
