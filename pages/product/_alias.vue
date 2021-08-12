@@ -1,15 +1,15 @@
 <template>
   <div class="ca-product-page">
-    <CaProductMeta v-if="product !== undefined" :product="product" />
+    <CaProductMeta v-if="product" :product="product" />
     <CaContainer>
       <CaBreadcrumbs
-        v-if="product !== undefined"
+        v-if="product"
         :current="breadcrumbsCurrent"
         :product-name="product.name"
       />
       <section class="ca-product-page__section">
         <CaProductGallery
-          v-if="product !== undefined"
+          v-if="product"
           class="ca-product-page__gallery"
           :images="productImages"
           :alt="product.brand.name + ' ' + product.name"
@@ -50,7 +50,7 @@
             </div>
           </div>
         </div>
-        <div v-if="product !== undefined" class="ca-product-page__main">
+        <div v-if="product" class="ca-product-page__main">
           <CaToggleFavorite :prod-id="product.productId" />
           <CaBrandAndName
             :brand="product.brand.name"
@@ -61,7 +61,7 @@
           <CaPrice class="ca-product-page__price" :price="product.unitPrice" />
 
           <CaHtml
-            v-if="product !== undefined && product.texts.text1"
+            v-if="product && product.texts.text1"
             class="ca-product-page__product-summary"
             :content="product.texts.text1"
           />
@@ -160,7 +160,7 @@
       </section>
       <section class="ca-product-page__section">
         <CaProductAccordion
-          v-if="product !== undefined"
+          v-if="product"
           class="ca-product-page__accordion"
           :product="product"
         />
@@ -169,7 +169,7 @@
             {{ $t('PRODUCT_SPECIFICATION') }}
           </h2>
           <CaSpecifications
-            v-if="product !== undefined && product.parameterGroups !== null"
+            v-if="product && product.parameterGroups !== null"
             :specification-groups="product.parameterGroups"
           />
           <p v-else>

@@ -29,6 +29,7 @@
         {{ $t('SORT_TITLE') }}:
       </span>
       <CaInputSelect
+        v-if="sort"
         v-model="sort"
         class="ca-list-settings__sort-select"
         :options="sortOptions"
@@ -79,12 +80,14 @@ export default {
         value: 'PRICE_DESC'
       }
     ],
-    sort: vm.$config.productListDefaultSort
+    sort: null
   }),
   computed: {},
   watch: {
-    sort(val) {
-      this.$emit('sortchange', val);
+    sort(newVal, oldVal) {
+      if (oldVal !== null) {
+        this.$emit('sortchange', newVal);
+      }
     },
     currentSort() {
       this.sort = this.currentSort;

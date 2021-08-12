@@ -61,24 +61,19 @@
         width="200px"
         height="40px"
       />
-      <div
-        v-for="(filter, index) in filters.parameters"
+      <CaFilterTrigger
+        v-for="(filter, index) in allParameters"
         :key="index"
+        :title="filter.label"
         class="ca-list-filters__filter"
-      >
-        <CaFilterTrigger
-          v-if="filtersPopulated"
-          :title="filter.label"
-          :selection="getParameterSelection(filter.filterId)"
-          @clicked="
-            $store.commit('contentpanel/open', {
-              name: 'filters',
-              frame: filter.filterId
-            })
-          "
-        />
-        <CaSkeleton v-else width="200px" height="40px" />
-      </div>
+        :selection="getParameterSelection(filter.filterId)"
+        @clicked="
+          $store.commit('contentpanel/open', {
+            name: 'filters',
+            frame: filter.filterId
+          })
+        "
+      />
     </div>
   </div>
 </template>
@@ -87,7 +82,6 @@
 // @vuese
 export default {
   name: 'CaListFilters',
-
   mixins: [],
   props: {
     filters: {
@@ -99,17 +93,30 @@ export default {
       required: true
     }
   },
-  data: () => ({}),
+  data: () => ({
+    allParameters: []
+  }),
   computed: {
     filtersPopulated() {
       return (
         Object.keys(this.filters).length > 0 &&
         this.filters.constructor === Object
       );
+    },
+    parameters() {
+      return this.filters?.parameters || null;
     }
   },
-  watch: {},
-  mounted() {},
+  watch: {
+    parameters(newVal, oldVal) {
+      if (oldVal === null && newVal.length) {
+        this.allParameters = newVal;
+      }
+    }
+  },
+  mounted() {
+    this.allParameters = this.parameters?.length ? this.parameters : [];
+  },
   methods: {
     getParameterSelection(group) {
       const selection = this.selection.parameters[group];

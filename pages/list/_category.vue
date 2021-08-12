@@ -27,7 +27,11 @@ export default {
         };
       },
       result(result) {
-        this.baseFilters = result.data.products.filters;
+        if (result.data.products.filters.facets.length > 0) {
+          this.baseFilters = result.data.products.filters;
+        } else if (!process.server) {
+          this.$nuxt.error({ statusCode: 404, message: '' });
+        }
       },
       skip() {
         return this.filtersLoaded;

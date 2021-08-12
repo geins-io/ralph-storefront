@@ -395,8 +395,8 @@ export default {
   }
 
   &__carismar {
-    height: 10px;
-    margin-left: $px4;
+    height: 16px;
+    margin-left: rem-calc(6);
     width: auto;
   }
 }
