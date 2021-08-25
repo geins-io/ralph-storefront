@@ -51,8 +51,7 @@ export default {
   CART_TOTAL: 'Totalt',
   CART_EMPTY: 'Din varukorg är tom',
   CART_TO_CHECKOUT: 'Gå till kassan',
-  CART_ITEM_ADDED:
-    'Din vara har lagts i varukorgen | Dina varor har lagts i varukorgen',
+  CART_ITEM_ADDED: 'Tillagd i varukorgen | Tillagda i varukorgen',
   QUANTITY: 'Antal',
   ORDER_CONFIRM_TITLE: 'Orderbekräftelse',
   ORDER_CONFIRM_THANKS: 'Tack för din order!',

@@ -51,8 +51,7 @@ export default {
   CART_TOTAL: 'Total',
   CART_EMPTY: 'Your cart is empty',
   CART_TO_CHECKOUT: 'Proceed to checkout',
-  CART_ITEM_ADDED:
-    'Your item was added to the cart | Your items was added to the cart',
+  CART_ITEM_ADDED: 'Added to the cart | Added to the cart',
   QUANTITY: 'Quantity',
   ORDER_CONFIRM_TITLE: 'Order confirmation',
   ORDER_CONFIRM_THANKS: 'Thanks for your order!',

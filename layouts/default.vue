@@ -20,6 +20,7 @@
     <LazyCaAccountPanel />
     <LazyCaSnackbar />
     <LazyCaModal />
+    <LazyCaAddedToCart />
   </div>
 </template>
 <script>

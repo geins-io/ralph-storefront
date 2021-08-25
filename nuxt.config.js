@@ -294,6 +294,7 @@ export default async () => {
         laptop: 1024,
         desktop: 1200
       },
+      siteTopThreshold: 10,
       socialMediaLinks: [
         {
           icon: 'facebook',
