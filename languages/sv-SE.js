@@ -254,6 +254,8 @@ export default {
   CHECKOUT_ENTER_ZIP:
     'Ange ditt postnummer för att visa tillgängliga fraktsätt',
   CHECKOUT_ZIP_PLACEHOLDER: 'Ditt postnummer',
+  CHECKOUT_PAY: 'Betala',
+  CHECKOUT_CHOOSE_PAYMENT: 'Välj betalsätt',
   ORDER_NUMBER: 'Ordernummer',
   CART_SUMMARY_SUBTOTAL: 'Delsumma',
   CART_SUMMARY_DISCOUNT: 'Rabatt',

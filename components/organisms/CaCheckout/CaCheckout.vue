@@ -12,7 +12,10 @@
       :loading="cartLoading"
     >
       <template #title>
-        {{ $t('CART') }} ({{ $store.getters['cart/totalQuantity'] }})
+        {{ $t('CART') }}
+        <span v-if="cart.data.items">
+          ({{ $store.getters['cart/totalQuantity'] }})
+        </span>
       </template>
       <CaCart :cart="cart.data" @loading="cartLoading = $event" />
     </CaCheckoutSection>
@@ -35,15 +38,36 @@
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
       :bottom-arrow="false"
-      :loading="!checkout.paymentMode || checkoutLoading"
+      :loading="!checkout || (checkoutLoading && paymentType === 'STANDARD')"
       :blocked="!udcValid"
     >
       <template #title>
-        {{ $t('COMPLETE_ORDER') }}
+        {{ hasPaymentOptions ? $t('CHECKOUT_PAY') : $t('COMPLETE_ORDER') }}
       </template>
-      <CaCheckoutKlarna v-if="checkout.paymentMode === 'Klarna'" />
+      <h3 v-if="hasPaymentOptions" class="ca-checkout__sub-heading">
+        <span class="ca-checkout__sub-heading--inner">
+          {{ $t('CHECKOUT_CHOOSE_PAYMENT') }}
+        </span>
+      </h3>
+      <CaPaymentOptions
+        v-if="hasPaymentOptions"
+        class="ca-checkout__payment-options"
+        :options="checkout.paymentOptions"
+        @selection="paymentSelectionHandler"
+      />
+      <h3 v-if="hasPaymentOptions" class="ca-checkout__sub-heading">
+        <span class="ca-checkout__sub-heading--inner">
+          {{ $t('COMPLETE_ORDER') }}
+        </span>
+      </h3>
+      <CaCheckoutKlarna
+        v-if="paymentType === 'KLARNA'"
+        ref="klarna"
+        :data="selectedPaymentOption.paymentData"
+        :new-checkout-session="selectedPaymentOption.newCheckoutSession"
+      />
       <CaCheckoutCarismar
-        v-else-if="checkout.paymentMode === 'SIMPLE'"
+        v-else
         ref="checkoutCarismar"
         :checkout="checkout"
         @update="updateCheckoutData"
@@ -76,6 +100,34 @@ export default {
   max-width: $checkout-width;
   margin: 0 auto;
   padding-bottom: $px32;
+  &__sub-heading {
+    font-size: $font-size-m;
+    font-weight: $font-weight-bold;
+    margin: 0 0 rem-calc(20);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    &::before {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      @include valign;
+      background: $c-border-dark;
+      z-index: -2;
+    }
+    &--inner {
+      display: inline-block;
+      background: $c-white;
+      padding: $px4 rem-calc(26);
+    }
+    @include bp(laptop) {
+      font-size: $font-size-l;
+    }
+  }
+  &__payment-options {
+    margin: 0 0 rem-calc(20);
+  }
   &__vat-toggle {
     justify-content: center;
     .ca-vat-toggle__link {

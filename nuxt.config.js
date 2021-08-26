@@ -363,7 +363,8 @@ export default async () => {
         shippingAddress: true,
         identityNumber: true,
         entryCode: true,
-        message: true
+        message: true,
+        defaultPaymentId: 23
       },
       /* ******************** */
       /* ******* USER ******* */

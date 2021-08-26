@@ -256,6 +256,8 @@ export default {
     'Could not find any shipping options for the postal code provided',
   CHECKOUT_ENTER_ZIP: 'Enter your postal code to show available options',
   CHECKOUT_ZIP_PLACEHOLDER: 'Your postal code',
+  CHECKOUT_PAY: 'Pay',
+  CHECKOUT_CHOOSE_PAYMENT: 'Choose payment option',
   ORDER_NUMBER: 'Order number',
   CART_SUMMARY_SUBTOTAL: 'Subtotal',
   CART_SUMMARY_DISCOUNT: 'Discount',
