@@ -8,6 +8,7 @@
       <Nuxt />
     </main>
     <CaCookieConsent ref="cookieConsent" />
+    <LazyCaAccountPanel />
   </div>
 </template>
 <script>

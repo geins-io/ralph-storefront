@@ -1,6 +1,19 @@
 <template>
   <div class="ca-checkout">
     <CaCheckoutHeader :title="$t('CHECKOUT')" />
+    <button
+      v-if="!$store.getters['auth/authenticated']"
+      type="button"
+      class="ca-checkout__login"
+      @click="
+        $store.commit('contentpanel/open', {
+          name: 'account',
+          frame: 'login'
+        })
+      "
+    >
+      {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
+    </button>
     <!-- <CaCheckoutSection>
       <template #title>
         {{ $t('SHOP_AS') }}
@@ -100,6 +113,11 @@ export default {
   max-width: $checkout-width;
   margin: 0 auto;
   padding-bottom: $px32;
+  &__login {
+    margin: 0 auto rem-calc(-14);
+    text-decoration: underline;
+    display: table;
+  }
   &__sub-heading {
     font-size: $font-size-m;
     font-weight: $font-weight-bold;

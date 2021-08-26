@@ -1,5 +1,5 @@
 <template>
-  <div class="ca-top-bar">
+  <div class="ca-top-bar" :class="{ 'ca-top-bar--undistracted': undistracted }">
     <CaContainer class="ca-top-bar__container">
       <NuxtLink
         v-for="locale in availableLocales"
@@ -91,7 +91,7 @@ export default {
   font-size: $font-size-xs;
   z-index: $z-index-header;
   position: relative;
-  body[style='overflow: hidden;'] & {
+  body[style='overflow: hidden;'] &:not(.ca-top-bar--undistracted) {
     padding-right: var(--scrollbar-width);
   }
   &__container {
