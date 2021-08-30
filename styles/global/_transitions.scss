@@ -2,6 +2,7 @@
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.15s ease;
+  pointer-events: none !important;
 }
 
 .fade-enter,

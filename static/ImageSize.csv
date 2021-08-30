@@ -35,5 +35,7 @@ product,Product.400f400,2020-03-23T10:46:57.892Z,400f400,Edm.String,400,Edm.Int3
 product,Product.500f500,2020-03-23T10:46:56.445Z,500f500,Edm.String,500,Edm.Int32,3,Edm.Int32,false,Edm.Boolean,80,Edm.Int32,false,Edm.Boolean,500,Edm.Int32
 product,Product.600f600,2020-03-23T10:46:55.771Z,600f600,Edm.String,600,Edm.Int32,3,Edm.Int32,false,Edm.Boolean,80,Edm.Int32,false,Edm.Boolean,600,Edm.Int32
 product,Product.700f700,2020-03-23T10:46:54.663Z,700f700,Edm.String,700,Edm.Int32,3,Edm.Int32,false,Edm.Boolean,80,Edm.Int32,false,Edm.Boolean,700,Edm.Int32
+product,Product.1000f1000,2020-03-23T10:46:54.663Z,1000f1000,Edm.String,1000,Edm.Int32,3,Edm.Int32,false,Edm.Boolean,80,Edm.Int32,false,Edm.Boolean,1000,Edm.Int32
+product,Product.2000f2000,2020-03-23T10:46:54.663Z,2000f2000,Edm.String,2000,Edm.Int32,3,Edm.Int32,false,Edm.Boolean,80,Edm.Int32,false,Edm.Boolean,2000,Edm.Int32
 product,Product.85f85,2020-03-23T10:47:02.464Z,85f85,Edm.String,85,Edm.Int32,3,Edm.Int32,false,Edm.Boolean,80,Edm.Int32,false,Edm.Boolean,85,Edm.Int32
 product,Product.90f90,2020-03-23T10:47:02.464Z,90f90,Edm.String,85,Edm.Int32,3,Edm.Int32,false,Edm.Boolean,80,Edm.Int32,false,Edm.Boolean,90,Edm.Int32
