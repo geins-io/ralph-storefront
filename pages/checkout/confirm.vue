@@ -80,7 +80,7 @@ export default {
   }),
   computed: {
     cartId() {
-      return this.$route.query.cid ?? '';
+      return this.$route.query.cartid ?? '';
     },
     noCart() {
       return this.cartId === '' && this.orderCart === null;
