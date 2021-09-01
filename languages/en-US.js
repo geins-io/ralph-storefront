@@ -267,5 +267,12 @@ export default {
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'left to free shipping',
   FREE_SHIPPING: 'Free shipping',
   SWEDEN: 'Sweden',
-  BREADCRUMBS_HOME: 'Home'
+  BREADCRUMBS_HOME: 'Home',
+  NOTIFY_PANEL_TITLE: 'Notify me about',
+  NOTIFY_PANEL_DESCRIPTION:
+    'Enter your email in the field below and we will send you an email when this product is back in stock',
+  NOTIFY_PANEL_BUTTON: 'Notify me',
+  NOTIFY_PANEL_SUCCESS:
+    'Thank you! You will be notified when this product is back in stock',
+  NOTIFY_ME: 'Notify me'
 };

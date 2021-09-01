@@ -265,5 +265,12 @@ export default {
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'kvar till fri frakt',
   FREE_SHIPPING: 'Fri frakt',
   SWEDEN: 'Sverige',
-  BREADCRUMBS_HOME: 'Hem'
+  BREADCRUMBS_HOME: 'Hem',
+  NOTIFY_PANEL_TITLE: 'Bevaka',
+  NOTIFY_PANEL_DESCRIPTION:
+    'Fyll i din e-postadress i fältet nedan för att få en avisering när produkten är tillbaka i lager igen.',
+  NOTIFY_PANEL_BUTTON: 'Bevaka produkt',
+  NOTIFY_PANEL_SUCCESS:
+    'Din bevakning är registrerad. Du kommer att få ett mail när din produkt åter finns i lager',
+  NOTIFY_ME: 'Bevaka'
 };

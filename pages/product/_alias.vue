@@ -74,6 +74,7 @@
             "
             :type="baseVariantType === 'Color' ? 'color' : 'panel'"
             @replaceProduct="replaceProduct"
+            @notify="notifyHandler"
           />
 
           <CaVariantPicker
@@ -83,6 +84,7 @@
             title="Välj lådstorlek"
             type="panel"
             @replaceProduct="replaceProduct"
+            @notify="notifyHandler"
           />
 
           <CaVariantPicker
@@ -92,6 +94,12 @@
             title="Med logga"
             type="display"
             @changeSku="sizeChangeHandler"
+            @notify="notifyHandler"
+          />
+
+          <LazyCaNotifyPanel
+            :product="product"
+            :variant="currentNotifyVariant"
           />
 
           <CaProductQuantity
