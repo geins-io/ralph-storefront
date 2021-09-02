@@ -268,6 +268,11 @@ export default async () => {
           component: resolve(__dirname, 'pages/list/_search.vue')
         });
         routes.push({
+          name: 'preview-widgets',
+          path: '/preview-widgets',
+          component: resolve(__dirname, 'pages/widgets/_preview.vue')
+        });
+        routes.push({
           name: 'content',
           path: '/:alias',
           component: resolve(__dirname, 'pages/content/_alias.vue')

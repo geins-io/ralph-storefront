@@ -1,0 +1,35 @@
+<template>
+  <CaWidgetArea
+    v-if="isAuthenticated"
+    preview
+    @dataFetched="$store.dispatch('loading/end')"
+  />
+</template>
+
+<script>
+import { mapState } from 'vuex';
+export default {
+  middleware: 'authenticated',
+  name: 'WidgetPreview',
+  data: () => ({
+    isAuthenticated: false
+  }),
+  computed: {
+    ...mapState(['auth'])
+  },
+  watch: {
+    'auth.client'(val) {
+      if (val && this.$route.query.loginToken) {
+        this.auth.client.setTokenData({
+          token: this.$route.query.loginToken,
+          maxAge: 3600
+        });
+        this.$store.dispatch('auth/update', 'spoofed-user@carismar.com');
+        if (this.$route.query.redirect) this.$router.push('/');
+        else this.isAuthenticated = true;
+      }
+    }
+  },
+  methods: {}
+};
+</script>
