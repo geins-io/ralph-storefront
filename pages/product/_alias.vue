@@ -110,7 +110,18 @@
             @changed="onQuantityChange"
             @thresholdReached="quantityThresholdHandler"
           />
+
           <CaButton
+            v-if="stockStatus === 'out-of-stock' && !hasSkuVariants"
+            class="ca-product-page__buy-button"
+            type="full-width"
+            color="secondary"
+            @clicked="notifyHandler(skuVariants[0])"
+          >
+            {{ $t('NOTIFY_PANEL_BUTTON') }}
+          </CaButton>
+          <CaButton
+            v-else
             class="ca-product-page__buy-button"
             type="full-width"
             :loading="addToCartLoading"
