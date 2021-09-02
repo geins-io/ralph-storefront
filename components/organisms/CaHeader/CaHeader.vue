@@ -176,12 +176,16 @@ export default {
     toggleSubNav(categoryId) {
       if (this.subNavsOpen.includes(categoryId)) {
         this.subNavsOpen.splice(this.subNavsOpen.indexOf(categoryId), 1);
-      } else this.subNavsOpen.push(categoryId);
+      } else {
+        this.subNavsOpen.push(categoryId);
+      }
     },
     getToggleIcon(categoryId) {
       if (this.subNavsOpen.includes(categoryId)) {
         return 'minus';
-      } else return 'plus';
+      } else {
+        return 'plus';
+      }
     }
   }
 };

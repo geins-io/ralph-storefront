@@ -12,7 +12,8 @@ module.exports = {
   rules: {
     'linebreak-style': 0,
     quotes: ['error', 'single'],
-    'vue/no-unused-components': 1
+    'vue/no-unused-components': 1,
+    curly: 2
   },
   ignorePatterns: [
     'node_modules',

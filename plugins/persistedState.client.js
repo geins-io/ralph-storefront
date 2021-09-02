@@ -6,7 +6,7 @@ export default ({ store, isHMR }) => {
   // Also nuxtReady event fires for HMR as well, which results multiple registration of
   // vuex-persistedstate plugin
   // Found solution here: https://github.com/nuxt/nuxt.js/issues/972
-  if (isHMR) return;
+  if (isHMR) {return;}
 
   window.onNuxtReady(nuxt => {
     createPersistedState({
