@@ -25,8 +25,11 @@ export default {
           maxAge: 3600
         });
         this.$store.dispatch('auth/update', 'spoofed-user@carismar.com');
-        if (this.$route.query.redirect) this.$router.push('/');
-        else this.isAuthenticated = true;
+        if (this.$route.query.redirect) {
+          this.$router.push('/');
+        } else {
+          this.isAuthenticated = true;
+        }
       }
     }
   },
