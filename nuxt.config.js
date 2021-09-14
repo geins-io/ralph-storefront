@@ -122,7 +122,17 @@ export default async () => {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: [{ src: '~/plugins/persistedState.js' }],
+    plugins: [
+      { src: '~/plugins/persistedState.js' },
+      {
+        src: '~/node_modules/@ralph/ralph-ui/plugins/appInsights.client.js',
+        mode: 'client'
+      },
+      {
+        src: '~/node_modules/@ralph/ralph-ui/plugins/appInsights.server.js',
+        mode: 'server'
+      }
+    ],
 
     /*
      ** Nuxt.js dev-modules
@@ -197,7 +207,9 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/component-cache
       ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
       // Doc: https://www.npmjs.com/package/nuxt-polyfill
-      'nuxt-polyfill'
+      'nuxt-polyfill',
+      // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
+      '@nuxtjs/applicationinsights'
     ],
     // htmlValidator: {
     //   usePrettier: true,
@@ -294,6 +306,7 @@ export default async () => {
         '{API_KEY}',
         process.env.API_KEY
       ),
+      apiKey: process.env.API_KEY,
       gtm: {
         id: '',
         debug: process.env.NODE_ENV !== 'production'
@@ -459,6 +472,15 @@ export default async () => {
         }
       }
     },
-    dev: process.env.NODE_ENV !== 'production'
+    dev: process.env.NODE_ENV !== 'production',
+    appInsights: {
+      instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY,
+      serverConfig: {
+        excludedFileEndings: ['.js', '.map', '.json', '.png', '.svg']
+      },
+      clientConfig: {
+        enableAutoRouteTracking: true
+      }
+    }
   };
 };
