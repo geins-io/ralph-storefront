@@ -86,4 +86,10 @@ sw.*
 # Vim swap files
 *.swp
 
+# environment file
+
 .env
+
+# Snippets file
+
+!\*.code-snippets

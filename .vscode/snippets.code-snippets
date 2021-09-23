@@ -1,0 +1,72 @@
+{
+  // Place your workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  "Add breakpoint": {
+    "scope": "scss, vue",
+    "prefix": "!bp",
+    "body": [
+      "@include bp(${1|phone-only,tablet,tablet-down,tablet-only,laptop,laptop-down,laptop-only,desktop,desktop-down|}) {",
+      "$0",
+      "}"
+    ],
+    "description": "Add a css breakpoint"
+  },
+  "Rem-Calc": {
+    "scope": "scss, vue",
+    "prefix": "!px",
+    "body": ["rem-calc($1)"],
+    "description": "Calculate rem from px"
+  },
+  "valign": {
+    "scope": "scss, vue",
+    "prefix": "!valign",
+    "body": ["@include valign"],
+    "description": "Vertical align mixin"
+  },
+  "halign": {
+    "scope": "scss, vue",
+    "prefix": "!halign",
+    "body": ["@include halign"],
+    "description": "Horisontal align mixin"
+  },
+  "calign": {
+    "scope": "scss, vue",
+    "prefix": "!calign",
+    "body": ["@include calign"],
+    "description": "Center align mixin"
+  },
+  "Flex valign": {
+    "scope": "scss, vue",
+    "prefix": "!fvalign",
+    "body": ["@include flex-valign"],
+    "description": "Flexbox vertical align mixin"
+  },
+  "Flex halign": {
+    "scope": "scss, vue",
+    "prefix": "!fhalign",
+    "body": ["@include flex-halign"],
+    "description": "Flexbox horisontal align mixin"
+  },
+  "Flex calign": {
+    "scope": "scss, vue",
+    "prefix": "!fcalign",
+    "body": ["@include flex-calign"],
+    "description": "Flexbox center align mixin"
+  },
+  "Sass self": {
+    "scope": "scss, vue",
+    "prefix": "!self",
+    "body": ["$${1|block,element|}: &; $0"],
+    "description": "Self referential SASS variable"
+  },
+  "Sass reference": {
+    "scope": "scss, vue",
+    "prefix": "!ref",
+    "body": ["#{$${1|block,element|}}$0"],
+    "description": "Use referential SASS variable"
+  }
+}
