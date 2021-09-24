@@ -20,6 +20,18 @@ export default {
   },
   created() {
     this.$store.dispatch('loading/end');
+    this.report404();
+  },
+  methods: {
+    report404() {
+      this.$appInsights?.trackPageView({
+        name: '404 error',
+        pageType: 'errorPage',
+        properties: {
+          responseCode: 404
+        }
+      });
+    }
   }
 };
 </script>
