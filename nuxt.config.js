@@ -226,6 +226,15 @@ export default async () => {
         name: defaultMeta.title,
         description: defaultMeta.description,
         author: null
+      },
+      manifest: {
+        name: 'Ralph',
+        short_name: 'Ralph',
+        description: defaultMeta.description,
+        theme_color: '#363636'
+      },
+      icon: {
+        purpose: 'any'
       }
     },
     styleResources: {
