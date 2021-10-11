@@ -153,14 +153,13 @@ export default {
         'ca-header--scrolled': !this.$store.getters.siteIsAtTop
       };
     },
-    activeCategories() {
-      return this.categories
-        ? this.categories.filter(item => item.activeProducts !== 0)
-        : [];
-    },
     topLevelCategories() {
       return this.categories
-        ? this.activeCategories.filter(i => i.parentCategoryId === 0)
+        ? this.categories
+            .filter(i => i.parentCategoryId === 0)
+            .sort((a, b) => {
+              return a.order - b.order;
+            })
         : [];
     },
     availableLocales() {
@@ -171,7 +170,11 @@ export default {
   mounted() {},
   methods: {
     getSubLevelCategories(id) {
-      return this.activeCategories.filter(i => i.parentCategoryId === id);
+      return this.categories
+        .filter(i => i.parentCategoryId === id)
+        .sort((a, b) => {
+          return a.order - b.order;
+        });
     },
     toggleSubNav(categoryId) {
       if (this.subNavsOpen.includes(categoryId)) {
