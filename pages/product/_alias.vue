@@ -51,7 +51,7 @@
           </div>
         </div>
         <div v-if="product" class="ca-product-page__main">
-          <CaToggleFavorite :prod-id="product.productId" />
+          <CaToggleFavorite :prod-alias="prodAlias" />
           <CaBrandAndName
             :brand="product.brand.name"
             :brand-alias="product.brand.canonicalUrl"

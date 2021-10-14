@@ -2,11 +2,11 @@
   <CaIconButton
     class="ca-toggle-favorite"
     :class="{
-      'ca-toggle-favorite--active': $store.getters.isFavorite(prodId)
+      'ca-toggle-favorite--active': $store.getters.isFavorite(prodAlias)
     }"
     :aria-label="ariaLabel"
     icon-name="heart"
-    @clicked="$store.commit('toggleFavorite', prodId)"
+    @clicked="$store.commit('toggleFavorite', prodAlias)"
   />
 </template>
 <script>
@@ -16,15 +16,15 @@ export default {
   name: 'CaToggleFavorite',
   mixins: [],
   props: {
-    prodId: {
-      type: Number,
+    prodAlias: {
+      type: String,
       required: true
     }
   },
   data: () => ({}),
   computed: {
     ariaLabel() {
-      return this.$store.getters.isFavorite(this.prodId)
+      return this.$store.getters.isFavorite(this.prodAlias)
         ? this.$t('REMOVE_FAVORITE')
         : this.$t('ADD_FAVORITE');
     }

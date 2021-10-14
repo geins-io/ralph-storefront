@@ -7,6 +7,7 @@ export default {
   USP_TEXT: 'Gratis och fri frakt!',
   CUSTOMER_SERVICE: 'Kundtjänst',
   FAVORITES_LABEL: 'Mina favoriter',
+  FAVORITES_EMPTY: 'Du har inga favoriter sparade',
   SEARCH: 'Sök',
   SEARCH_PLACEHOLDER: 'Sök',
   SEARCH_SEE_ALL: 'Se alla sökresultat',

@@ -192,6 +192,10 @@ export default async () => {
             'account/settings': {
               sv: '/mina-sidor/installningar',
               en: '/my-account/settings'
+            },
+            'favorites/index': {
+              sv: '/favoriter',
+              en: '/favorites'
             }
           }
         }

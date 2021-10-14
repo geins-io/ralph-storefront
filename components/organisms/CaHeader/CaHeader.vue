@@ -99,11 +99,9 @@
             </NuxtLink>
           </CaSecondaryNavItem>
           <CaSecondaryNavItem>
-            <NuxtLink to="/">
-              {{ $t('FAVORITES_LABEL') }} ({{
-                $store.state.favorites.length
-              }})</NuxtLink
-            >
+            <NuxtLink :to="localePath('favorites')">
+              {{ $t('FAVORITES_LABEL') }} ({{ $store.state.favorites.length }})
+            </NuxtLink>
           </CaSecondaryNavItem>
           <CaSecondaryNavItem>
             <NuxtLink

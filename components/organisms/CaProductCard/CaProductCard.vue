@@ -33,7 +33,7 @@
       </NuxtLink>
       <CaToggleFavorite
         class="ca-product-card__favorite"
-        :prod-id="product.productId"
+        :prod-alias="product.alias"
       />
     </div>
     <CaSkeleton

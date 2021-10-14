@@ -7,6 +7,7 @@ export default {
   USP_TEXT: 'Free and fast delivery!',
   CUSTOMER_SERVICE: 'Customer service',
   FAVORITES_LABEL: 'My favorites',
+  FAVORITES_EMPTY: 'You have no favorites saved',
   SEARCH: 'Search',
   SEARCH_PLACEHOLDER: 'Search',
   SEARCH_SEE_ALL: 'See all search results',
