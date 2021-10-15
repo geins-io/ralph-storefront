@@ -18,7 +18,8 @@ export default {
   methods: {
     onDataFetched(data) {
       if (data.widgetArea === null && !process.server) {
-        this.$nuxt.error({ statusCode: 404, message: '' });
+        this.$nuxt.error({ statusCode: 404, message: 'Page not found' });
+        this.$store.dispatch('redirect404');
       }
       this.$store.dispatch('loading/end');
       this.meta = data.meta;
