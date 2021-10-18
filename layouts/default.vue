@@ -7,10 +7,7 @@
     <CaFooter />
     <client-only>
       <transition name="fade">
-        <div
-          v-if="$apollo.loading || $store.state.loading.loading"
-          class="ca-layout-default__loading"
-        >
+        <div v-if="globalLoading" class="ca-layout-default__loading">
           <CaSpinner class="ca-layout-default__spinner" />
         </div>
       </transition>
