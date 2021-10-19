@@ -50,7 +50,13 @@
           :name="product.name"
           name-tag="h2"
         />
+
         <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
+        <CaCampaigns
+          v-if="product.discountCampaigns"
+          class="ca-product-card__campaigns"
+          :campaigns="product.discountCampaigns"
+        />
       </NuxtLink>
       <div v-else>
         <CaSkeleton width="30%" />
@@ -115,6 +121,9 @@ export default {
   }
   &__price {
     margin-top: $px4;
+  }
+  &__campaigns {
+    margin: rem-calc(5) 0 0;
   }
 
   ::v-deep .ca-toggle-favorite {

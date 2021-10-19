@@ -65,6 +65,11 @@
             class="ca-product-page__product-summary"
             :content="product.texts.text1"
           />
+          <CaCampaigns
+            v-if="product.discountCampaigns"
+            class="ca-product-page__campaigns"
+            :campaigns="product.discountCampaigns"
+          />
           <CaVariantPicker
             v-if="hasVariants"
             :variants="baseVariants"
@@ -263,6 +268,9 @@ $column-width: 48.2%;
   }
   &__product-summary {
     margin-bottom: $px16;
+  }
+  &__campaigns {
+    margin: 0 0 rem-calc(16);
   }
   &__variant-picker {
     margin-bottom: $default-spacing;
