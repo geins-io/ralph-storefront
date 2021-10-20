@@ -30,6 +30,7 @@ export default {
       },
       result(result) {
         this.baseFilters = result.data.products.filters;
+        this.$store.dispatch('loading/end');
       },
       skip() {
         return this.filtersLoaded;

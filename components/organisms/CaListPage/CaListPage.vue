@@ -73,7 +73,6 @@
         :skip="currentMinCount - 1"
         :page-size="pageSize"
         :products="productList"
-        :filters-active="filterSelectionActive"
       />
 
       <CaListPagination

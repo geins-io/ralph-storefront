@@ -28,9 +28,6 @@ export default {
       result(result) {
         if (result.data.products.filters.facets.length > 0) {
           this.baseFilters = result.data.products.filters;
-        } else if (!process.server) {
-          this.$nuxt.error({ statusCode: 404, message: 'Page not found' });
-          this.$store.dispatch('redirect404');
         }
       },
       skip() {
