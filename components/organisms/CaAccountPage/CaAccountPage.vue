@@ -1,9 +1,11 @@
 <template>
   <div class="ca-account-page">
-    <CaContainer width="slim">
+    <CaContainer>
       <CaAccountHeader :nav-items="accountMenu" :title="currentPageTitle" />
     </CaContainer>
-    <CaContainer :width="$store.getters.viewport === 'phone' ? 'full' : 'slim'">
+    <CaContainer
+      :design="$store.getters.viewport === 'phone' ? 'full-width' : 'default'"
+    >
       <div class="ca-account-page__body">
         <div class="ca-account-page__content">
           <slot></slot>
@@ -19,17 +21,17 @@
             class="ca-customer-service-box__contact"
             :href="'tel:' + $config.customerServicePhone"
           >
-            <CaIconAndText icon-name="phone">{{
-              $config.customerServicePhone
-            }}</CaIconAndText>
+            <CaIconAndText icon-name="phone">
+              {{ $config.customerServicePhone }}
+            </CaIconAndText>
           </a>
           <a
             class="ca-customer-service-box__contact"
             :href="'mailto:' + $config.customerServiceEmail"
           >
-            <CaIconAndText icon-name="mail">{{
-              $config.customerServiceEmail
-            }}</CaIconAndText>
+            <CaIconAndText icon-name="mail">
+              {{ $config.customerServiceEmail }}
+            </CaIconAndText>
           </a>
         </div>
       </div>
