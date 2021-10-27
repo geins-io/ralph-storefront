@@ -152,9 +152,10 @@ export default async () => {
       // Doc: https://github.com/nuxt-community/pwa-module
       '@nuxtjs/pwa',
       [
-        // Doc: https://github.com/nuxt-community/nuxt-i18n
-        'nuxt-i18n',
+        // Doc: https://github.com/nuxt-community/i18n-module
+        '@nuxtjs/i18n',
         {
+          baseUrl: process.env.BASE_URL,
           seo: false,
           locales: [
             {
