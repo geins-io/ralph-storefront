@@ -1,6 +1,9 @@
 <template>
   <div class="ca-list-top">
-    <div v-if="type !== 'search'" class="ca-list-top__text">
+    <div v-if="type === 'search' || type === 'all'" class="ca-list-top__text">
+      <h1 class="ca-list-top__title">{{ listInfo.name }}</h1>
+    </div>
+    <div v-else class="ca-list-top__text">
       <h1 v-if="listInfo" class="ca-list-top__title">{{ listInfo.name }}</h1>
       <CaSkeleton
         v-else
@@ -21,9 +24,6 @@
         <CaSkeleton />
         <CaSkeleton width="60%" />
       </div>
-    </div>
-    <div v-else class="ca-list-top__text">
-      <h1 class="ca-list-top__title">{{ listInfo.name }}</h1>
     </div>
     <CaCategoryDisplay
       v-if="listInfo && listInfo.subCategories"

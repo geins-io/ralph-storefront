@@ -275,5 +275,6 @@ export default {
   NOTIFY_PANEL_BUTTON: 'Notify me',
   NOTIFY_PANEL_SUCCESS:
     'Thank you! You will be notified when this product is back in stock',
-  NOTIFY_ME: 'Notify me'
+  NOTIFY_ME: 'Notify me',
+  ALL_PAGE_TITLE: 'All products'
 };

@@ -15,7 +15,8 @@ const routePaths = {
   brand: '/b',
   product: '/p',
   search: '/s',
-  discountCampaign: '/dc'
+  discountCampaign: '/dc',
+  all: '/allt'
 };
 
 const imageSizesFile = './static/ImageSize.csv';
@@ -272,6 +273,11 @@ export default async () => {
           name: 'product',
           path: routePaths.product + '/:alias+',
           component: resolve(__dirname, 'pages/product/_alias.vue')
+        });
+        routes.push({
+          name: 'all',
+          path: routePaths.all,
+          component: resolve(__dirname, 'pages/list/_all.vue')
         });
         routes.push({
           name: 'category',

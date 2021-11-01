@@ -273,5 +273,6 @@ export default {
   NOTIFY_PANEL_BUTTON: 'Bevaka produkt',
   NOTIFY_PANEL_SUCCESS:
     'Din bevakning är registrerad. Du kommer att få ett mail när din produkt åter finns i lager',
-  NOTIFY_ME: 'Bevaka'
+  NOTIFY_ME: 'Bevaka',
+  ALL_PAGE_TITLE: 'Alla produkter'
 };
