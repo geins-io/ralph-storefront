@@ -270,47 +270,47 @@ export default async () => {
     router: {
       extendRoutes(routes, resolve) {
         routes.push({
-          name: 'product',
+          name: 'pdp',
           path: routePaths.product + '/:alias',
           component: resolve(__dirname, 'pages/product/_alias.vue')
         });
         routes.push({
-          name: 'product-category',
+          name: 'pdp-level',
           path: routePaths.product + '/(.*)/:alias',
           component: resolve(__dirname, 'pages/product/_alias.vue')
         });
         routes.push({
-          name: 'product-sub-category',
+          name: 'pdp-sub-level',
           path: routePaths.product + '/(.*)/(.*)/:alias',
           component: resolve(__dirname, 'pages/product/_alias.vue')
         });
         routes.push({
-          name: 'all',
+          name: 'plp-all',
           path: routePaths.all,
           component: resolve(__dirname, 'pages/list/_all.vue')
         });
         routes.push({
-          name: 'category',
+          name: 'plp-category',
           path: routePaths.category + '/:category',
           component: resolve(__dirname, 'pages/list/_category.vue')
         });
         routes.push({
-          name: 'sub-category',
+          name: 'plp-sub-category',
           path: routePaths.category + '/(.*)/:category',
           component: resolve(__dirname, 'pages/list/_category.vue')
         });
         routes.push({
-          name: 'brand',
+          name: 'plp-brand',
           path: routePaths.brand + '/:brand+',
           component: resolve(__dirname, 'pages/list/_brand.vue')
         });
         routes.push({
-          name: 'discountCampaign',
+          name: 'plp-discount-campaign',
           path: routePaths.discountCampaign + '/:discountCampaign+',
           component: resolve(__dirname, 'pages/list/_discountCampaign.vue')
         });
         routes.push({
-          name: 'search',
+          name: 'plp-search',
           path: routePaths.search + '/:search',
           component: resolve(__dirname, 'pages/list/_search.vue')
         });
