@@ -1,9 +1,8 @@
 <template>
   <div class="ca-list-settings">
-    <button
-      type="button"
+    <CaClickable
       class="ca-list-settings__filter-toggle only-mobile"
-      @click="
+      @clicked="
         $store.commit('contentpanel/open', {
           name: 'filters'
         })
@@ -13,17 +12,18 @@
         class="ca-list-settings__icon-text"
         icon-name="chevron-right"
         icon-position="right"
+        base-element="div"
       >
-        <span class="ca-list-settings__filter-button-wrap">
+        <div class="ca-list-settings__filter-button-wrap">
           {{ $t('FILTERS') }}
           <CaNotificationBadge
             :number="activeFilters"
             :positioned="false"
             class="ca-list-settings__active-filters"
           />
-        </span>
+        </div>
       </CaIconAndText>
-    </button>
+    </CaClickable>
     <div class="ca-list-settings__sort">
       <span class="ca-list-settings__title only-computer">
         {{ $t('SORT_TITLE') }}:

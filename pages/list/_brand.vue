@@ -12,6 +12,7 @@ import brandInfoQuery from 'productlist/brand-page.graphql';
 import filtersQuery from 'productlist/products-filter.graphql';
 
 export default {
+  middleware: 'list-page-routing',
   name: 'BrandListView',
   mixins: [],
   apollo: {

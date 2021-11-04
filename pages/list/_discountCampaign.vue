@@ -12,6 +12,7 @@ import discountCampaignInfoQuery from 'productlist/discountCampaign-page.graphql
 import filtersQuery from 'productlist/products-filter.graphql';
 
 export default {
+  middleware: 'list-page-routing',
   name: 'DiscountCampaignListView',
   mixins: [],
   apollo: {

@@ -271,7 +271,17 @@ export default async () => {
       extendRoutes(routes, resolve) {
         routes.push({
           name: 'product',
-          path: routePaths.product + '/:alias+',
+          path: routePaths.product + '/:alias',
+          component: resolve(__dirname, 'pages/product/_alias.vue')
+        });
+        routes.push({
+          name: 'product-category',
+          path: routePaths.product + '/(.*)/:alias',
+          component: resolve(__dirname, 'pages/product/_alias.vue')
+        });
+        routes.push({
+          name: 'product-sub-category',
+          path: routePaths.product + '/(.*)/(.*)/:alias',
           component: resolve(__dirname, 'pages/product/_alias.vue')
         });
         routes.push({
@@ -281,7 +291,12 @@ export default async () => {
         });
         routes.push({
           name: 'category',
-          path: routePaths.category + '/:category+',
+          path: routePaths.category + '/:category',
+          component: resolve(__dirname, 'pages/list/_category.vue')
+        });
+        routes.push({
+          name: 'sub-category',
+          path: routePaths.category + '/(.*)/:category',
           component: resolve(__dirname, 'pages/list/_category.vue')
         });
         routes.push({
@@ -302,7 +317,7 @@ export default async () => {
         routes.push({
           name: 'preview-widgets',
           path: '/preview-widgets',
-          component: resolve(__dirname, 'pages/widgets/_preview.vue')
+          component: resolve(__dirname, 'pages/content/_preview.vue')
         });
         routes.push({
           name: 'content',
@@ -485,7 +500,9 @@ export default async () => {
           path.resolve(__dirname, 'graphql/'),
           path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/graphql/'),
           // Then the UI store
-          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/')
+          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/'),
+          // Then the UI middleware
+          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/middleware/')
         ];
         if (isDev) {
           config.devtool = 'source-map';

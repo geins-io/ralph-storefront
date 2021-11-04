@@ -23,6 +23,7 @@
       />
     </CaContainer>
     <CaWidgetArea
+      v-if="listInfo"
       class="ca-list-page__widget-area"
       family="Productlist"
       area-name="The top part of the product list"
@@ -60,7 +61,7 @@
       />
 
       <CaListPagination
-        v-if="currentMinCount > 1"
+        v-if="pagingStateSet && currentMinCount > 1"
         direction="prev"
         :showing="showing"
         :total-count="totalCount"
@@ -86,6 +87,7 @@
       />
     </CaContainer>
     <CaWidgetArea
+      v-if="listInfo"
       class="ca-list-page__widget-area"
       family="Productlist"
       area-name="The bottom part of the product list"

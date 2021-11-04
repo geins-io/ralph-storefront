@@ -12,6 +12,7 @@ import categoryInfoQuery from 'productlist/category-page.graphql';
 import filtersQuery from 'productlist/products-filter.graphql';
 
 export default {
+  middleware: 'list-page-routing',
   name: 'SearchListView',
   mixins: [],
   apollo: {
