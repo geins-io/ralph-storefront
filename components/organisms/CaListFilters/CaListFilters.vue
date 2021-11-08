@@ -8,7 +8,7 @@
       class="ca-list-filters__filters"
     >
       <CaFilterTrigger
-        v-if="filtersPopulated"
+        v-if="filtersPopulated && filters.categories.length > 1"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_CATEGORIES')"
         :selection="selection.categories"
@@ -20,13 +20,13 @@
         "
       />
       <CaSkeleton
-        v-else
+        v-else-if="filters.categories.length > 1"
         class="ca-list-filters__filter"
         width="200px"
         height="40px"
       />
       <CaFilterTrigger
-        v-if="filtersPopulated"
+        v-if="filtersPopulated && filters.brands.length > 1"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_BRANDS')"
         :selection="selection.brands"
@@ -38,13 +38,13 @@
         "
       />
       <CaSkeleton
-        v-else
+        v-else-if="filters.brands.length > 1"
         class="ca-list-filters__filter"
         width="200px"
         height="40px"
       />
       <CaFilterTrigger
-        v-if="filtersPopulated"
+        v-if="filtersPopulated && filters.skus.length > 1"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_SKUS')"
         :selection="selection.skus"
@@ -56,7 +56,7 @@
         "
       />
       <CaSkeleton
-        v-else
+        v-else-if="filters.skus.length > 1"
         class="ca-list-filters__filter"
         width="200px"
         height="40px"

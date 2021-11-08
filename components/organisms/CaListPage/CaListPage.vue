@@ -61,7 +61,7 @@
       />
 
       <CaListPagination
-        v-if="pagingStateSet && currentMinCount > 1"
+        v-show="currentMinCount > 1"
         direction="prev"
         :showing="showing"
         :total-count="totalCount"
