@@ -204,6 +204,7 @@
     </CaContainer>
     <section class="ca-product-page__widget-section">
       <CaWidgetArea
+        v-if="product"
         class="ca-product-page__widget-area"
         family="Product"
         area-name="Product detail page"

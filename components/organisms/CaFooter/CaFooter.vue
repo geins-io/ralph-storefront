@@ -185,13 +185,15 @@
             Copyright &copy; Ralph Storefront
           </div>
           <div class="ca-footer__powered-by">
-            Powered by
-            <CaSvgAsset
-              class="ca-footer__carismar"
-              folder="logos"
-              filename="carismar-black"
-              alt="Carismar logo"
-            />
+            <a href="https://www.carismar.com" target="_blank">
+              Powered by
+              <CaSvgAsset
+                class="ca-footer__carismar"
+                folder="logos"
+                filename="carismar-black"
+                alt="Carismar logo"
+              />
+            </a>
           </div>
         </div>
       </CaContainer>
