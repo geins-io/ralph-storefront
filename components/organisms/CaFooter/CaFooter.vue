@@ -184,17 +184,19 @@
           <div class="ca-footer__copyright">
             Copyright &copy; Ralph Storefront
           </div>
-          <div class="ca-footer__powered-by">
-            <a href="https://www.carismar.com" target="_blank">
-              Powered by
-              <CaSvgAsset
-                class="ca-footer__carismar"
-                folder="logos"
-                filename="carismar-black"
-                alt="Carismar logo"
-              />
-            </a>
-          </div>
+          <a
+            class="ca-footer__powered-by"
+            href="https://www.carismar.com"
+            target="_blank"
+          >
+            Powered by
+            <CaSvgAsset
+              class="ca-footer__carismar"
+              folder="logos"
+              filename="carismar-black"
+              alt="Carismar logo"
+            />
+          </a>
         </div>
       </CaContainer>
     </section>
@@ -394,6 +396,7 @@ export default {
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    padding: rem-calc(2) 0 0;
   }
 
   &__carismar {
