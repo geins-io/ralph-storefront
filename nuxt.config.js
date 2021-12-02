@@ -426,6 +426,13 @@ export default async () => {
         defaultPaymentId: 23
       },
       /* ******************** */
+      /* ******* CART ******* */
+      /* ******************** */
+      cart: {
+        hiddenSkuValues: ['-', 'One size'],
+        quantityChangerType: 'default'
+      },
+      /* ******************** */
       /* ******* USER ******* */
       /* ******************** */
       user: {

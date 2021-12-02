@@ -86,9 +86,7 @@ export default {
       return this.cartId === '' && this.orderCart === null;
     }
   },
-  mounted() {
-    this.mounted = true;
-  },
+  mounted() {},
   methods: {
     completeCart() {
       this.datalayerConfirm();

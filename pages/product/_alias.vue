@@ -252,8 +252,6 @@ $column-width: 48.2%;
   }
   &__gallery {
     @include bp(laptop) {
-      display: flex;
-      justify-content: space-between;
       width: $column-width;
       margin-right: $px48;
     }
