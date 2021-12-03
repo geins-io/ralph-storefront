@@ -22,7 +22,7 @@ export default {
         this.$store.dispatch('redirect404');
       }
       this.$store.dispatch('loading/end');
-      this.meta = data.meta;
+      this.meta = data.widgetArea.meta;
     }
   },
   head() {
