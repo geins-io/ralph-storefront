@@ -214,6 +214,8 @@ export default async () => {
       ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
       // Doc: https://www.npmjs.com/package/nuxt-polyfill
       'nuxt-polyfill',
+      // Doc: https://www.npmjs.com/package/@nuxtjs/gtm
+      '@nuxtjs/gtm',
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
@@ -327,6 +329,11 @@ export default async () => {
         // Adding routes with translated paths is done through nuxt-i18n config above
       }
     },
+    gtm: {
+      id: process.env.GTM_ID,
+      debug: false,
+      respectDoNotTrack: false
+    },
     /*
      ** Runtime configs
      */
@@ -342,10 +349,6 @@ export default async () => {
         process.env.API_KEY
       ),
       apiKey: process.env.API_KEY,
-      gtm: {
-        id: '',
-        debug: process.env.NODE_ENV !== 'production'
-      },
       customerServiceEmail: 'info@ralph.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
