@@ -5,6 +5,7 @@ ARG IMAGE_SERVER=#{ImageServer}#
 ARG AUTH_ENDPOINT=#{AuthEndpoint}#
 ARG SIGN_ENDPOINT=#{SignEndpoint}#
 ARG BASE_URL=#{BaseUrl}#
+ARG GTM_ID=#{GtmId}#
 ARG APPINSIGHTS_INSTRUMENTATION_KEY=#{AppinsightsInstrumentationKey}#
 
 # Build the app on a separate "machine".
