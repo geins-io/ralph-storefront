@@ -331,7 +331,7 @@ export default async () => {
     },
     gtm: {
       id: process.env.GTM_ID,
-      debug: false,
+      debug: process.env.NODE_ENV !== 'production',
       respectDoNotTrack: false
     },
     /*
