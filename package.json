@@ -33,7 +33,7 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/i18n": "^7.1.0",
     "@nuxtjs/pwa": "^3.3.5",
-    "@ralph/ralph-ui": "7.2.1",
+    "@ralph/ralph-ui": "7.3.2",
     "cookie": "^0.4.1",
     "cookie-universal-nuxt": "^2.1.4",
     "express": "^4.17.1",
