@@ -61,7 +61,7 @@ export default {
       result(result) {
         if (result.data && result.data.getCart) {
           this.orderCart = result.data.getCart;
-          if (!this.orderCart.isCompleted) {
+          if (!this.orderCart.isCompleted && !process.server) {
             this.completeCart();
           }
         }
