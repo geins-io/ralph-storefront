@@ -26,11 +26,15 @@
     >
       <template #title>
         {{ $t('CART') }}
-        <span v-if="cart.data.items">
+        <span v-if="cart.data && cart.data.items">
           ({{ $store.getters['cart/totalQuantity'] }})
         </span>
       </template>
-      <CaCart :cart="cart.data" @loading="cartLoading = $event" />
+      <CaCart
+        v-if="cart.data"
+        :cart="cart.data"
+        @loading="cartLoading = $event"
+      />
     </CaCheckoutSection>
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
