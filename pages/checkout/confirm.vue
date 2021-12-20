@@ -3,7 +3,11 @@
     <CaContainer>
       <CaCheckoutHeader :title="$t('ORDER_CONFIRM_TITLE')" />
       <CaCheckoutSection :bottom-arrow="false">
-        <CaCheckoutKlarna v-if="$route.query.kid" :confirm="true" />
+        <CaCheckoutExternal
+          v-if="$route.query.kid || $route.query.sid"
+          :type="$route.query.sid ? 'SVEA' : 'KLARNA'"
+          :confirm="true"
+        />
         <div v-else class="ca-checkout-confirm">
           <CaIcon class="ca-checkout-confirm__icon" name="check-circle" />
           <h2 class="ca-checkout-confirm__title">

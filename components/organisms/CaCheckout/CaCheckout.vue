@@ -55,7 +55,11 @@
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
       :bottom-arrow="false"
-      :loading="!checkout || (checkoutLoading && paymentType === 'STANDARD')"
+      :loading="
+        !checkout ||
+          (checkoutLoading && paymentType === 'STANDARD') ||
+          frameLoading
+      "
       :blocked="!udcValid"
     >
       <template #title>
@@ -77,11 +81,12 @@
           {{ $t('COMPLETE_ORDER') }}
         </span>
       </h3>
-      <CaCheckoutKlarna
-        v-if="paymentType === 'KLARNA'"
-        ref="klarna"
+      <CaCheckoutExternal
+        v-if="paymentType === 'KLARNA' || paymentType === 'SVEA'"
+        ref="externalcheckout"
         :data="selectedPaymentOption.paymentData"
         :new-checkout-session="selectedPaymentOption.newCheckoutSession"
+        :type="paymentType"
       />
       <CaCheckoutCarismar
         v-else
