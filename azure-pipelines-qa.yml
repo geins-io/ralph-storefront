@@ -2,25 +2,16 @@
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
-trigger:
-  - release*
-
-resources:
-  pipelines:
-    - pipeline: RalphUI
-      source: 'Ralph-UI'
-      trigger: true
-
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'ef801ea2-070c-4b76-a077-75d5da592047'
-  imageRepository: 'ralph-storefront-qa'
-  containerRegistry: 'carismarappregistry.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  dockerRegistryServiceConnection: "ef801ea2-070c-4b76-a077-75d5da592047"
+  imageRepository: "ralph-storefront-qa"
+  containerRegistry: "carismarappregistry.azurecr.io"
+  dockerfilePath: "$(Build.SourcesDirectory)/Dockerfile"
+  tag: "$(Build.BuildId)"
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: "ubuntu-latest"
 
 stages:
   - stage: Build
@@ -37,13 +28,12 @@ stages:
             inputs:
               targetFiles: |
                 **/Dockerfile
-                **/nuxt.config.js
-              encoding: 'utf-8'
+              encoding: "utf-8"
               writeBOM: true
-              actionOnMissing: 'warn'
+              actionOnMissing: "warn"
               keepToken: false
-              tokenPrefix: '#{'
-              tokenSuffix: '}#'
+              tokenPrefix: "#{"
+              tokenSuffix: "}#"
               useLegacyPattern: false
               enableTelemetry: false
 
