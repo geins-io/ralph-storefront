@@ -23,7 +23,6 @@
       />
     </CaContainer>
     <CaWidgetArea
-      v-if="listInfo"
       class="ca-list-page__widget-area"
       family="Productlist"
       area-name="The top part of the product list"
@@ -88,7 +87,6 @@
       />
     </CaContainer>
     <CaWidgetArea
-      v-if="listInfo"
       class="ca-list-page__widget-area"
       family="Productlist"
       area-name="The bottom part of the product list"
