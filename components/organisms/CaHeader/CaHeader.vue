@@ -131,7 +131,9 @@ export default {
     categories: {
       query: categoriesQuery,
       result(result) {
-        this.$store.commit('setCategoryTree', result.data.categories);
+        if (result.data && result.data.categories) {
+          this.$store.commit('setCategoryTree', result.data.categories);
+        }
       },
       error(error) {
         // eslint-disable-next-line no-console
