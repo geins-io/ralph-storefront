@@ -30,7 +30,9 @@ export default {
         };
       },
       result(result) {
-        this.baseFilters = result.data.products.filters;
+        if (result?.data?.products?.filters.facets.length > 0) {
+          this.baseFilters = result.data.products.filters;
+        }
         this.$store.dispatch('loading/end');
       },
       skip() {

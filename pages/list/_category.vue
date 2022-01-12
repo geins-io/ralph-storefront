@@ -28,7 +28,7 @@ export default {
         };
       },
       result(result) {
-        if (result.data.products.filters.facets.length > 0) {
+        if (result?.data?.products?.filters.facets.length > 0) {
           this.baseFilters = result.data.products.filters;
         }
       },
