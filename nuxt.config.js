@@ -332,7 +332,9 @@ export default async () => {
     gtm: {
       id: process.env.GTM_ID,
       debug: process.env.NODE_ENV !== 'production',
-      respectDoNotTrack: false
+      respectDoNotTrack: false,
+      pageViewEventName: 'Page Impression',
+      pageTracking: true
     },
     /*
      ** Runtime configs
