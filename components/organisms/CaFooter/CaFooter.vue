@@ -64,58 +64,10 @@
           <CaVatToggle class="ca-footer__vat-toggle" /> -->
         </section>
         <section class="ca-footer__column">
-          <h2 class="ca-footer__title">Länkar</h2>
-          <nav class="ca-footer__nav">
-            <ul class="ca-footer__nav-list">
-              <li class="ca-footer__nav-item">
-                <a href="#" class="ca-footer__nav-link">
-                  Köpvillkor
-                </a>
-              </li>
-              <li class="ca-footer__nav-item">
-                <a href="#" class="ca-footer__nav-link">
-                  Köpvillkor
-                </a>
-              </li>
-              <li class="ca-footer__nav-item">
-                <a href="#" class="ca-footer__nav-link">
-                  Köpvillkor
-                </a>
-              </li>
-              <li class="ca-footer__nav-item">
-                <a href="#" class="ca-footer__nav-link">
-                  Köpvillkor
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <CaFooterNavigation menu-location-id="footer-first" />
         </section>
         <section class="ca-footer__column">
-          <h2 class="ca-footer__title">Guider</h2>
-          <nav class="ca-footer__nav">
-            <ul class="ca-footer__nav-list">
-              <li class="ca-footer__nav-item">
-                <a href="#" class="ca-footer__nav-link">
-                  Guider
-                </a>
-              </li>
-              <li class="ca-footer__nav-item">
-                <a href="#" class="ca-footer__nav-link">
-                  Guider
-                </a>
-              </li>
-              <li class="ca-footer__nav-item">
-                <a href="#" class="ca-footer__nav-link">
-                  Guider
-                </a>
-              </li>
-              <li class="ca-footer__nav-item">
-                <a href="#" class="ca-footer__nav-link">
-                  Guider
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <CaFooterNavigation menu-location-id="footer-second" />
         </section>
         <section class="ca-footer__column">
           <h2 class="ca-footer__title">Följ oss</h2>

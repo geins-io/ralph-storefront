@@ -275,5 +275,6 @@ export default {
     'Din bevakning är registrerad. Du kommer att få ett mail när din produkt åter finns i lager',
   NOTIFY_ME: 'Bevaka',
   ALL_PAGE_TITLE: 'Alla produkter',
-  NAVIGATION_ALL_IN: 'Visa allt'
+  NAVIGATION_ALL_IN: 'Visa allt inom',
+  NAVIGATION_GO_TO: 'Gå till'
 };

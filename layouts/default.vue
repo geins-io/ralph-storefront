@@ -15,6 +15,7 @@
     <CaCookieConsent />
     <LazyCaDisplayCart />
     <LazyCaAccountPanel />
+    <LazyCaMenuPanel menu-location-id="main-mobile" />
     <LazyCaSnackbar />
     <LazyCaModal />
     <LazyCaAddedToCart />

@@ -1,6 +1,23 @@
 <template>
   <div class="ca-top-bar" :class="{ 'ca-top-bar--undistracted': undistracted }">
     <CaContainer class="ca-top-bar__container">
+      <CaTopBarNavigation
+        v-show="!undistracted"
+        class="only-computer"
+        menu-location-id="top-bar"
+      />
+      <div class="ca-usp-block ca-top-bar__usps only-computer">
+        <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
+          {{ $t('USP_1') }}
+        </CaIconAndText>
+        <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
+          {{ $t('USP_2') }}
+        </CaIconAndText>
+        <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
+          {{ $t('USP_3') }}
+        </CaIconAndText>
+      </div>
+      <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
       <NuxtLink
         v-for="locale in availableLocales"
         v-show="!undistracted"
@@ -15,25 +32,6 @@
         />
         {{ locale.name }}
       </NuxtLink>
-      <NuxtLink
-        v-show="!undistracted"
-        class="ca-top-bar__link ca-top-bar__link--customer-service only-computer"
-        to="/"
-      >
-        {{ $t('CUSTOMER_SERVICE') }}
-      </NuxtLink>
-      <div class="ca-usp-block ca-top-bar__usps only-computer">
-        <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
-          {{ $t('USP_1') }}
-        </CaIconAndText>
-        <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
-          {{ $t('USP_2') }}
-        </CaIconAndText>
-        <CaIconAndText class="ca-top-bar__usp" icon-name="check-circle">
-          {{ $t('USP_3') }}
-        </CaIconAndText>
-      </div>
-      <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
       <button
         v-if="!$store.getters['auth/authenticated']"
         v-show="!undistracted"
@@ -60,6 +58,7 @@
           {{ $t('ACCOUNT_TITLE') }}
         </CaIconAndText>
       </NuxtLink>
+
       <!-- <CaVatToggle v-show="!undistracted" class="only-computer" /> -->
     </CaContainer>
   </div>
@@ -118,13 +117,8 @@ export default {
       margin: 0 $px16;
     }
   }
-  &__link {
-    &--login {
-      margin: 0 0 0 auto;
-    }
-    &--customer-service {
-      margin: 0 auto 0 $px24;
-    }
+  &__lang-switcher {
+    margin: 0 $px20 0 auto;
   }
 }
 </style>

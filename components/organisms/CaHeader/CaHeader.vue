@@ -12,7 +12,7 @@
           aria-label="Show menu"
           @clicked="
             $store.commit('contentpanel/open', {
-              name: 'mobile-nav'
+              name: 'menu-panel'
             })
           "
         />
@@ -31,121 +31,17 @@
         <CaMiniCart class="ca-header__cart" />
       </CaContainer>
     </div>
-    <nav class="ca-navigation only-computer">
-      <ul
-        v-if="topLevelCategories && topLevelCategories.length > 0"
-        class="ca-navigation__categories"
-      >
-        <li
-          v-for="(category, index) in topLevelCategories"
-          :key="index"
-          class="ca-navigation__item"
-        >
-          <NuxtLink class="ca-navigation__link" :to="category.canonicalUrl">
-            <CaIconAndText
-              v-if="getSubLevelCategories(category.categoryId).length"
-              icon-name="chevron-down"
-              icon-position="right"
-            >
-              {{ category.name }}
-            </CaIconAndText>
-            <span v-else>{{ category.name }}</span>
-          </NuxtLink>
-          <ul
-            v-if="getSubLevelCategories(category.categoryId).length"
-            class="ca-navigation__sub-menu"
-          >
-            <li
-              v-for="(subcategory, subindex) in getSubLevelCategories(
-                category.categoryId
-              )"
-              :key="subindex"
-              class="ca-navigation__sub-menu-item"
-            >
-              <NuxtLink :to="subcategory.canonicalUrl">
-                {{ subcategory.name }}
-              </NuxtLink>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+    <CaHeaderNavigation class="only-computer" menu-location-id="main-desktop" />
     <CaSearch class="only-mobile" :opened="searchOpened" />
-    <LazyCaContentPanel name="mobile-nav" enter-from="left">
-      <template #header>
-        <CaLogo class="ca-navigation-logo" :alt="$t('LOGO_ALT_TEXT')" />
-      </template>
-      <CaNavigationSlim
-        v-if="categories && categories.length"
-        :categories="categories"
-      />
-      <template #footer>
-        <ul class="secondary-nav">
-          <CaSecondaryNavItem>
-            <button
-              v-if="!$store.getters['auth/authenticated']"
-              type="button"
-              @click="
-                $store.commit('contentpanel/open', {
-                  name: 'account',
-                  frame: 'login'
-                })
-              "
-            >
-              {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
-            </button>
-            <NuxtLink v-else :to="localePath('account-orders')">
-              {{ $t('ACCOUNT_TITLE') }}
-            </NuxtLink>
-          </CaSecondaryNavItem>
-          <CaSecondaryNavItem>
-            <NuxtLink :to="localePath('favorites')">
-              {{ $t('FAVORITES_LABEL') }} ({{ $store.state.favorites.length }})
-            </NuxtLink>
-          </CaSecondaryNavItem>
-          <CaSecondaryNavItem>
-            <NuxtLink
-              v-for="locale in availableLocales"
-              :key="locale.code"
-              :to="switchLocalePath(locale.code)"
-            >
-              <CaFlag
-                class="ca-top-bar__flag"
-                :country="locale.flag"
-                shape="circle"
-              />
-              {{ locale.name }}
-            </NuxtLink>
-          </CaSecondaryNavItem>
-        </ul>
-      </template>
-    </LazyCaContentPanel>
   </header>
 </template>
 <script>
-import categoriesQuery from 'global/categories.graphql';
-
 export default {
   name: 'CaHeader',
-  apollo: {
-    categories: {
-      query: categoriesQuery,
-      result(result) {
-        if (result.data && result.data.categories) {
-          this.$store.commit('setCategoryTree', result.data.categories);
-        }
-      },
-      error(error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      }
-    }
-  },
   mixins: [],
   props: {},
   data: () => ({
-    searchOpened: false,
-    subNavsOpen: []
+    searchOpened: false
   }),
   computed: {
     modifiers() {
@@ -153,44 +49,13 @@ export default {
         'ca-header--scrolled': !this.$store.getters.siteIsAtTop
       };
     },
-    topLevelCategories() {
-      return this.categories
-        ? this.categories
-            .filter(i => i.parentCategoryId === 0)
-            .sort((a, b) => {
-              return a.order - b.order;
-            })
-        : [];
-    },
     availableLocales() {
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
     }
   },
   watch: {},
   mounted() {},
-  methods: {
-    getSubLevelCategories(id) {
-      return this.categories
-        .filter(i => i.parentCategoryId === id)
-        .sort((a, b) => {
-          return a.order - b.order;
-        });
-    },
-    toggleSubNav(categoryId) {
-      if (this.subNavsOpen.includes(categoryId)) {
-        this.subNavsOpen.splice(this.subNavsOpen.indexOf(categoryId), 1);
-      } else {
-        this.subNavsOpen.push(categoryId);
-      }
-    },
-    getToggleIcon(categoryId) {
-      if (this.subNavsOpen.includes(categoryId)) {
-        return 'minus';
-      } else {
-        return 'plus';
-      }
-    }
-  }
+  methods: {}
 };
 </script>
 <style lang="scss">
@@ -245,56 +110,5 @@ export default {
   .ca-notification-badge {
     border: 1px solid $c-header-bg;
   }
-}
-.ca-navigation {
-  height: 40px;
-  background: $c-header-bg;
-  body[style='overflow: hidden;'] & {
-    padding-right: var(--scrollbar-width);
-  }
-  a {
-    display: block;
-  }
-  &__categories {
-    @include flex-halign;
-  }
-  &__link {
-    font-size: $font-size-m;
-    padding: 0 $px32;
-  }
-
-  &__sub-menu {
-    opacity: 0;
-    pointer-events: none;
-    margin-top: -20px;
-    position: absolute;
-    width: 150px;
-    border-top: 0.9rem solid transparent;
-    transition: all 200ms ease;
-  }
-  &__item {
-    position: relative;
-    &:hover {
-      .ca-navigation__sub-menu {
-        pointer-events: initial;
-        margin-top: 0;
-        opacity: 1;
-      }
-    }
-  }
-  &__sub-menu-item {
-    background: $c-medium-gray;
-    padding: $px12;
-    &:not(:last-child) {
-      padding-bottom: $px4;
-    }
-    &:not(:first-child) {
-      padding-top: $px4;
-    }
-  }
-}
-
-.ca-navigation-logo {
-  width: 100px;
 }
 </style>
