@@ -1,6 +1,6 @@
 export default {
-  VAT_TOGGLE_LABEL_INC: 'Personal (inc. VAT)',
-  VAT_TOGGLE_LABEL_EX: 'Business (ex. VAT)',
+  CUSTOMER_TYPE_PERSON: 'Person',
+  CUSTOMER_TYPE_ORGANIZATION: 'Company',
   USP_1: 'Best in the world',
   USP_2: 'Fastest delivery',
   USP_3: 'Free delivery if you`re nice',
@@ -23,6 +23,7 @@ export default {
   REMOVE_FAVORITE: 'Remove from favorites',
   LOGO_ALT_TEXT: 'Logo',
   EX_VAT: 'ex. VAT',
+  INC_VAT: 'inc. VAT',
   NEXT: 'Next',
   PREVIOUS: 'Previous',
   READ_MORE: 'Read more',
@@ -151,7 +152,9 @@ export default {
   ACCOUNT_SETTINGS_CANCEL: 'Cancel',
   ACCOUNT_SETTINGS_EDIT: 'Edit',
   ACCOUNT_SETTINGS_SAVE: 'Save changes',
+  ACCOUNT_ACCOUNT_SETTINGS_TITLE: 'Account settings',
   ACCOUNT_USER_INFO_TITLE: 'Personal information',
+  ACCOUNT_ORGANIZATION_INFO_TITLE: 'Company information',
   ACCOUNT_BILLING_SHIPPING_TITLE: 'Billing & Shipping',
   ACCOUNT_NEWSLETTER_TITLE: 'Newsletter',
   ACCOUNT_PRIVACY_TITLE: 'Privacy settings',
@@ -192,6 +195,9 @@ export default {
   LABEL_PERSONAL_ID: 'Personal ID',
   LABEL_ORDER_MESSAGE: 'Message',
   LABEL_ENTRY_CODE: 'Entry code',
+  LABEL_CUSTOMER_TYPE: 'Customer type',
+  LABEL_ORGANIZATION_ID: 'Organization ID',
+  LABEL_COMPANY: 'Company name',
   ACCOUNT_PERSONAL_INFO_REMOVAL:
     'To delete only your personal information, you need to contact customer service.',
   YES: 'Yes',
@@ -247,6 +253,8 @@ export default {
     'You have to accept the terms of purchase before you can place your order',
   CHECKOUT_PERSONAL_ID_DESCRIPTION:
     'Your personal id is needed to create the invoice',
+  CHECKOUT_ORGANIZATION_ID_DESCRIPTION:
+    'Your organization id is needed to create the invoice',
   CHECKOUT_INVOICE_INFORMATION:
     'We will send an invoice by email to the email address provided above',
   CHECKOUT_CHOOSE_SHIPPING: 'Choose shipping',
@@ -259,6 +267,7 @@ export default {
   CHECKOUT_ZIP_PLACEHOLDER: 'Your postal code',
   CHECKOUT_PAY: 'Pay',
   CHECKOUT_CHOOSE_PAYMENT: 'Choose payment option',
+  CHECKOUT_ACTIVE_CAMPAIGNS: 'Active campaigns',
   ORDER_NUMBER: 'Order number',
   CART_SUMMARY_SUBTOTAL: 'Subtotal',
   CART_SUMMARY_DISCOUNT: 'Discount',
@@ -266,6 +275,7 @@ export default {
   CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Estimated shipping fee',
   CART_SUMMARY_REGULAR_PRICE: 'Regular price',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'left to free shipping',
+  CART_SUMMARY_VAT: 'VAT',
   FREE_SHIPPING: 'Free shipping',
   SWEDEN: 'Sweden',
   BREADCRUMBS_HOME: 'Home',

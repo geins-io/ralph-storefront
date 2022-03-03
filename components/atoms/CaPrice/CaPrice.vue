@@ -4,7 +4,7 @@
     <span v-if="price.isDiscounted" class="ca-price__regular">
       {{ regularPrice }}
     </span>
-    <span v-if="!this.$store.state.VATincluded" class="ca-price__ex-vat">
+    <span v-if="!vatIncluded" class="ca-price__ex-vat">
       {{ $t('EX_VAT') }}
     </span>
   </div>

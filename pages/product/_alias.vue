@@ -209,6 +209,8 @@
         family="Product"
         area-name="Product detail page"
         :filters="widgetAreaFilters"
+        :is-parent-loaded="isInitialRequest"
+        :loaded-data="widgetData.widgetArea_0"
       />
     </section>
   </div>
@@ -223,7 +225,23 @@ export default {
   name: 'ProductPage',
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
   data: () => ({}),
-  computed: {},
+  computed: {
+    widgetAreaVars() {
+      const obj = {
+        family: 'Product',
+        areaName: 'Product detail page',
+        alias: '',
+        preview: false
+      };
+      obj.filters = this.widgetAreaFilters;
+      obj.customerType = this.$store.state.customerType;
+      obj.displaySetting =
+        this.$store.getters.viewport === 'phone' ? 'mobile' : 'desktop';
+      const array = [];
+      array.push(obj);
+      return array;
+    }
+  },
   watch: {},
   methods: {}
 };
@@ -250,7 +268,7 @@ $column-width: 48.2%;
       margin: $px32 auto 0;
     }
   }
-  &__gallery {
+  &__gallery.ca-product-gallery {
     @include bp(laptop) {
       width: $column-width;
       margin-right: $px48;
@@ -282,7 +300,7 @@ $column-width: 48.2%;
       margin-top: $px32;
     }
   }
-  &__buy-button {
+  &__buy-button.ca-button {
     margin-bottom: $px20;
     padding: 0.9em 2.15em;
   }

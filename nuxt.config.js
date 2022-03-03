@@ -126,6 +126,10 @@ export default async () => {
     plugins: [
       { src: '~/plugins/persistedState.js' },
       {
+        src: '~/node_modules/@ralph/ralph-ui/plugins/broadcastChannel.js',
+        mode: 'client'
+      },
+      {
         src: '~/node_modules/@ralph/ralph-ui/plugins/appInsights.client.js',
         mode: 'client'
       },
@@ -369,6 +373,19 @@ export default async () => {
           icon: 'instagram',
           title: 'Instagram',
           link: 'https://www.instagram.com'
+        }
+      ],
+      customerTypesToggle: true,
+      customerTypes: [
+        {
+          type: 'PERSON',
+          vat: true,
+          default: true
+        },
+        {
+          type: 'ORGANIZATION',
+          vat: false,
+          default: false
         }
       ],
       routePaths,

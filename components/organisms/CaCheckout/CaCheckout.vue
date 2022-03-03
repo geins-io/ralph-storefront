@@ -14,12 +14,25 @@
     >
       {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
     </button>
-    <!-- <CaCheckoutSection>
+    <div v-else-if="$config.customerTypesToggle" class="ca-checkout__logout">
+      <CaCustomerTypeToggle />
+      <CaClickable
+        class="ca-checkout__logout-button"
+        @clicked="$store.dispatch('auth/logout')"
+      >
+        {{ $t('LOG_OUT') }}
+      </CaClickable>
+    </div>
+    <CaCheckoutSection
+      v-if="
+        !$store.getters['auth/authenticated'] && $config.customerTypesToggle
+      "
+    >
       <template #title>
         {{ $t('SHOP_AS') }}
       </template>
-      <CaVatToggle class="ca-checkout__vat-toggle" />
-    </CaCheckoutSection> -->
+      <CaCustomerTypeToggle class="ca-checkout__vat-toggle" />
+    </CaCheckoutSection>
     <CaCheckoutSection
       :bottom-arrow="$store.getters['cart/totalQuantity'] > 0"
       :loading="cartLoading"
@@ -127,6 +140,14 @@ export default {
     text-decoration: underline;
     display: table;
   }
+  &__logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__logout-button {
+    text-decoration: underline;
+  }
   &__sub-heading {
     font-size: $font-size-m;
     font-weight: $font-weight-bold;
@@ -156,8 +177,13 @@ export default {
     margin: 0 0 rem-calc(20);
   }
   &__vat-toggle {
-    justify-content: center;
-    .ca-vat-toggle__link {
+    .ca-customer-type-toggle__toggles {
+      justify-content: center;
+      align-items: center;
+      height: 4rem;
+    }
+
+    .ca-customer-type-toggle__link {
       display: flex;
       align-items: center;
       font-size: $font-size-xs;
@@ -167,7 +193,7 @@ export default {
       &:first-child {
         margin-right: $px16;
         @include bp(tablet) {
-          margin-right: $px24;
+          margin-right: $px32;
         }
       }
       &::before {
@@ -175,14 +201,14 @@ export default {
         width: 20px;
         height: 20px;
         box-shadow: 0 0 0 1px $c-medium-gray;
-        border: 5px solid $c-white;
+        border: 4px solid $c-white;
         background: $c-white;
         border-radius: 50%;
-        margin-right: $px8;
+        margin-right: $px10;
       }
       &--active {
         &::before {
-          background: $c-darkest-gray;
+          background: $c-accent-color;
         }
       }
     }

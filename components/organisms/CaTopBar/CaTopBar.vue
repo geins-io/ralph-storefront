@@ -59,7 +59,11 @@
         </CaIconAndText>
       </NuxtLink>
 
-      <!-- <CaVatToggle v-show="!undistracted" class="only-computer" /> -->
+      <CaCustomerTypeToggle
+        v-if="$config.customerTypesToggle"
+        v-show="!undistracted"
+        class="ca-top-bar__customer-type-toggle only-computer"
+      />
     </CaContainer>
   </div>
 </template>
@@ -119,6 +123,9 @@ export default {
   }
   &__lang-switcher {
     margin: 0 $px20 0 auto;
+  }
+  &__customer-type-toggle {
+    margin: 0 0 0 $px20;
   }
 }
 </style>

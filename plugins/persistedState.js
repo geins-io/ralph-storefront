@@ -6,7 +6,7 @@ export default ({ store, req, app }) => {
     key: 'ralph',
     paths: [
       'favorites',
-      'VATincluded',
+      'customerType',
       'list.relocateAlias',
       'list.relocatePage'
     ],

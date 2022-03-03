@@ -27,6 +27,8 @@
       family="Productlist"
       area-name="The top part of the product list"
       :filters="widgetAreaFilters"
+      :is-parent-loaded="isInitialRequest"
+      :loaded-data="widgetData.widgetArea_0"
     />
     <CaContainer>
       <CaListFilters
@@ -102,10 +104,25 @@ import MixListPage from 'MixListPage';
 export default {
   name: 'CaListPage',
   mixins: [MixListPage],
-
   props: {},
   data: () => ({}),
-  computed: {},
+  computed: {
+    widgetAreaVars() {
+      const obj = {
+        family: 'Productlist',
+        areaName: 'The top part of the product list',
+        alias: '',
+        preview: false
+      };
+      obj.filters = this.widgetAreaFilters;
+      obj.customerType = this.$store.state.customerType;
+      obj.displaySetting =
+        this.$store.getters.viewport === 'phone' ? 'mobile' : 'desktop';
+      const array = [];
+      array.push(obj);
+      return array;
+    }
+  },
   watch: {},
   created() {},
   methods: {}

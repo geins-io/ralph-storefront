@@ -1,6 +1,6 @@
 export default {
-  VAT_TOGGLE_LABEL_INC: 'Privat (inkl. moms)',
-  VAT_TOGGLE_LABEL_EX: 'Företag (ex. moms)',
+  CUSTOMER_TYPE_PERSON: 'Privatperson',
+  CUSTOMER_TYPE_ORGANIZATION: 'Företag',
   USP_1: 'Bäst i världen',
   USP_2: 'Snabbast leverans',
   USP_3: 'Fri frakt om du är snäll',
@@ -22,7 +22,8 @@ export default {
   ADD: 'Lägg till',
   REMOVE_FAVORITE: 'Ta bort från favoriter',
   LOGO_ALT_TEXT: 'Logga',
-  EX_VAT: 'ex. moms',
+  EX_VAT: 'exkl. moms',
+  INC_VAT: 'inkl. moms',
   NEXT: 'Nästa',
   PREVIOUS: 'Föregående',
   READ_MORE: 'Läs mer',
@@ -149,7 +150,9 @@ export default {
   ACCOUNT_SETTINGS_CANCEL: 'Avbryt',
   ACCOUNT_SETTINGS_EDIT: 'Ändra',
   ACCOUNT_SETTINGS_SAVE: 'Spara ändringar',
+  ACCOUNT_ACCOUNT_SETTINGS_TITLE: 'Kontoinställningar',
   ACCOUNT_USER_INFO_TITLE: 'Personlig information',
+  ACCOUNT_ORGANIZATION_INFO_TITLE: 'Företagsinformation',
   ACCOUNT_BILLING_SHIPPING_TITLE: 'Leverans',
   ACCOUNT_NEWSLETTER_TITLE: 'Nyhetsbrev',
   ACCOUNT_PRIVACY_TITLE: 'Säkerhetsinställningar',
@@ -190,6 +193,9 @@ export default {
   LABEL_PERSONAL_ID: 'Personnummer',
   LABEL_ORDER_MESSAGE: 'Meddelande',
   LABEL_ENTRY_CODE: 'Portkod',
+  LABEL_CUSTOMER_TYPE: 'Kundtyp',
+  LABEL_ORGANIZATION_ID: 'Organisationsnummer',
+  LABEL_COMPANY: 'Företagsnamn',
   ACCOUNT_PERSONAL_INFO_REMOVAL:
     'För att enbart ta bort personlig information, kontakta kundservice.',
   YES: 'Ja',
@@ -244,6 +250,8 @@ export default {
     'Du måste godkänna köpvillkoren innan du slutför ditt köp',
   CHECKOUT_PERSONAL_ID_DESCRIPTION:
     'Ditt personnummer behövs för att kunna skapa din faktura',
+  CHECKOUT_ORGANIZATION_ID_DESCRIPTION:
+    'Ditt organisationsnummer behövs för att kunna skapa din faktura',
   CHECKOUT_INVOICE_INFORMATION:
     'Vi skickar en faktura digitalt till den email du angivit ovan.',
   CHECKOUT_CHOOSE_SHIPPING: 'Välj fraktsätt',
@@ -257,6 +265,7 @@ export default {
   CHECKOUT_ZIP_PLACEHOLDER: 'Ditt postnummer',
   CHECKOUT_PAY: 'Betala',
   CHECKOUT_CHOOSE_PAYMENT: 'Välj betalsätt',
+  CHECKOUT_ACTIVE_CAMPAIGNS: 'Aktiva kampanjer',
   ORDER_NUMBER: 'Ordernummer',
   CART_SUMMARY_SUBTOTAL: 'Delsumma',
   CART_SUMMARY_DISCOUNT: 'Rabatt',
@@ -264,6 +273,7 @@ export default {
   CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Estimerad fraktavgift',
   CART_SUMMARY_REGULAR_PRICE: 'Ordinarie pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'kvar till fri frakt',
+  CART_SUMMARY_VAT: 'Moms',
   FREE_SHIPPING: 'Fri frakt',
   SWEDEN: 'Sverige',
   BREADCRUMBS_HOME: 'Hem',
