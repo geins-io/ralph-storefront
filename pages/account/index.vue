@@ -9,6 +9,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import getUserQuery from 'user/get.graphql';
 export default {
   middleware: 'authenticated',
   name: 'AccountPage',
@@ -29,7 +30,30 @@ export default {
           maxAge: 3600
         });
         this.$store.dispatch('auth/update', 'spoofed-user@carismar.com');
-        this.$router.replace(this.localePath('account-orders'));
+        if (this.$config.customerTypesToggle) {
+          this.$store.dispatch('loading/start');
+          this.$apollo
+            .query({
+              query: getUserQuery,
+              errorPolicy: 'all',
+              fetchPolicy: 'no-cache'
+            })
+            .then(result => {
+              this.$store.dispatch('loading/end');
+              if (!result.errors) {
+                const type = result.data?.getUser?.customerType;
+                this.$store.dispatch('changeCustomerType', type);
+                this.$store.dispatch('setCustomerTypeCookie', type);
+                this.$router.replace(this.localePath('account-orders'));
+              }
+            })
+            .catch(error => {
+              // eslint-disable-next-line no-console
+              console.log(error);
+            });
+        } else {
+          this.$router.replace(this.localePath('account-orders'));
+        }
       }
     }
   },
