@@ -539,6 +539,19 @@ export default async () => {
         }
       }
     },
+    hooks: {
+      render: {
+        errorMiddleware(app) {
+          // eslint-disable-next-line
+          app.use((error, req, res, next) => {
+            res.writeHead(307, {
+              Location: '/',
+            })
+            res.end()
+          })
+        },
+      },
+    },
     dev: process.env.NODE_ENV !== 'production',
     appInsights: {
       instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY,
