@@ -27,8 +27,9 @@
       family="Productlist"
       area-name="The top part of the product list"
       :filters="widgetAreaFilters"
-      :is-parent-loaded="isInitialRequest"
+      :is-parent-loaded="!isWidgetSmartQuery"
       :loaded-data="widgetData.widgetArea_0"
+      @variables-change="isWidgetSmartQuery = true"
     />
     <CaContainer>
       <CaListFilters
@@ -105,7 +106,7 @@ export default {
   name: 'CaListPage',
   mixins: [MixListPage],
   props: {},
-  data: () => ({}),
+  data: () => ({isWidgetSmartQuery: false}),
   computed: {
     widgetAreaVars() {
       const obj = {
