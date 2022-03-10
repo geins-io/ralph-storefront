@@ -7,14 +7,11 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build --modern=server",
-    "build-local": "nuxt build --modern=server",
     "start": "nuxt start --modern=server",
-    "start-local": "nuxt start --modern=server",
     "generate": "nuxt generate",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
     "create-component": "node ./scripts/create-component.cjs",
-    "create-index-files": "node ./scripts/create-index-files.cjs",
     "stats": "set NODE_ENV=development && yarn nuxt build --modern=server --analyze"
   },
   "lint-staged": {
@@ -33,12 +30,11 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/i18n": "^7.2.0",
     "@nuxtjs/pwa": "^3.3.5",
-    "@ralph/ralph-ui": "^10.1.0",
+    "@ralph/ralph-ui": "10.1.0",
     "cookie": "^0.4.2",
     "cookie-universal-nuxt": "^2.1.5",
     "express": "^4.17.2",
     "focus-visible": "^5.2.0",
-    "graphql-combine-query": "^1.2.3",
     "node-fetch": "^2.6.7",
     "nuxt": "^2.15.8",
     "nuxt-polyfill": "^1.0.3",

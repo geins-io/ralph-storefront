@@ -1,17 +1,14 @@
 <template>
-  <div class="ca-list-filters">
-    <h2 v-if="$store.getters.viewportComputer" class="ca-list-filters__title">
+  <div v-show="$store.getters.viewportComputer" class="ca-list-filters">
+    <h2 class="ca-list-filters__title">
       {{ $t('FILTERS') }}
     </h2>
-    <div
-      v-if="$store.getters.viewportComputer"
-      class="ca-list-filters__filters"
-    >
+    <div v-show="filtersPopulated" class="ca-list-filters__filters">
       <CaFilterTrigger
-        v-if="filtersPopulated && hasOptions(filters.categories)"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_CATEGORIES')"
         :selection="selection.categories"
+        :filters="getFilters(filters.categories)"
         @clicked="
           $store.commit('contentpanel/open', {
             name: 'filters',
@@ -19,17 +16,11 @@
           })
         "
       />
-      <CaSkeleton
-        v-else-if="!filtersPopulated"
-        class="ca-list-filters__filter"
-        width="200px"
-        height="40px"
-      />
       <CaFilterTrigger
-        v-if="filtersPopulated && hasOptions(filters.brands)"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_BRANDS')"
         :selection="selection.brands"
+        :filters="getFilters(filters.brands)"
         @clicked="
           $store.commit('contentpanel/open', {
             name: 'filters',
@@ -37,29 +28,17 @@
           })
         "
       />
-      <CaSkeleton
-        v-else-if="!filtersPopulated"
-        class="ca-list-filters__filter"
-        width="200px"
-        height="40px"
-      />
       <CaFilterTrigger
-        v-if="filtersPopulated && hasOptions(filters.skus)"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_SKUS')"
         :selection="selection.skus"
+        :filters="getFilters(filters.skus)"
         @clicked="
           $store.commit('contentpanel/open', {
             name: 'filters',
             frame: 'skus'
           })
         "
-      />
-      <CaSkeleton
-        v-else-if="!filtersPopulated"
-        class="ca-list-filters__filter"
-        width="200px"
-        height="40px"
       />
       <CaFilterTrigger
         v-for="(filter, index) in allParameters"
@@ -74,6 +53,11 @@
           })
         "
       />
+    </div>
+    <div v-show="!filtersPopulated" class="ca-list-filters__filters">
+      <CaSkeleton class="ca-list-filters__filter" width="200px" height="40px" />
+      <CaSkeleton class="ca-list-filters__filter" width="200px" height="40px" />
+      <CaSkeleton class="ca-list-filters__filter" width="200px" height="40px" />
     </div>
   </div>
 </template>
@@ -122,8 +106,8 @@ export default {
       const selection = this.selection.parameters[group];
       return selection || [];
     },
-    hasOptions(array) {
-      return array?.length > 1;
+    getFilters(array) {
+      return array ?? [];
     }
   }
 };
