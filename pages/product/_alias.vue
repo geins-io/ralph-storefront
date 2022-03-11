@@ -166,6 +166,18 @@
               {{ $t('USP_3') }}
             </CaIconAndText>
           </div>
+          <div
+            v-if="$config.productShowRelated && relatedProductsRelated.length"
+            class="ca-product-page__related"
+          >
+            <h3 class="ca-product-page__related-title">
+              {{ $t('RELATED_PRODUCTS') }}
+            </h3>
+            <CaQuickAddProducts
+              class="ca-product-page__related-products"
+              :products="relatedProductsRelated"
+            />
+          </div>
         </div>
         <div
           v-else
@@ -209,8 +221,6 @@
         family="Product"
         area-name="Product detail page"
         :filters="widgetAreaFilters"
-        :is-parent-loaded="isInitialRequest"
-        :loaded-data="widgetData.widgetArea_0"
       />
     </section>
   </div>
@@ -225,23 +235,7 @@ export default {
   name: 'ProductPage',
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
   data: () => ({}),
-  computed: {
-    widgetAreaVars() {
-      const obj = {
-        family: 'Product',
-        areaName: 'Product detail page',
-        alias: '',
-        preview: false
-      };
-      obj.filters = this.widgetAreaFilters;
-      obj.customerType = this.$store.state.customerType;
-      obj.displaySetting =
-        this.$store.getters.viewport === 'phone' ? 'mobile' : 'desktop';
-      const array = [];
-      array.push(obj);
-      return array;
-    }
-  },
+  computed: {},
   watch: {},
   methods: {}
 };
@@ -342,6 +336,15 @@ $column-width: 48.2%;
     font-size: $font-size-l;
     font-weight: $font-weight-bold;
     padding: 1rem 0;
+  }
+
+  &__related {
+    margin: $px32 0 $px20;
+  }
+  &__related-title {
+    font-size: $font-size-l;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $px20;
   }
 }
 </style>

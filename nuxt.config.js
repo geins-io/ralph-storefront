@@ -431,6 +431,7 @@ export default async () => {
           itemCondition: 'https://schema.org/NewCondition'
         }
       },
+      productShowRelated: true,
       /* ****************** */
       /* ***** IMAGES ***** */
       /* ****************** */
@@ -545,12 +546,12 @@ export default async () => {
           // eslint-disable-next-line
           app.use((error, req, res, next) => {
             res.writeHead(307, {
-              Location: '/',
-            })
-            res.end()
-          })
-        },
-      },
+              Location: '/'
+            });
+            res.end();
+          });
+        }
+      }
     },
     dev: process.env.NODE_ENV !== 'production',
     appInsights: {

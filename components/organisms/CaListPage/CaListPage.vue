@@ -24,8 +24,8 @@
     </CaContainer>
     <CaWidgetArea
       class="ca-list-page__widget-area"
-      family="Productlist"
-      area-name="The top part of the product list"
+      :family="widgetAreaVars[0].family"
+      :area-name="widgetAreaVars[0].areaName"
       :filters="widgetAreaFilters"
       :is-parent-loaded="!isWidgetSmartQuery"
       :loaded-data="widgetData.widgetArea_0"

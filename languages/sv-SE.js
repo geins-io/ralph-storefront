@@ -286,5 +286,6 @@ export default {
   NOTIFY_ME: 'Bevaka',
   ALL_PAGE_TITLE: 'Alla produkter',
   NAVIGATION_ALL_IN: 'Visa allt inom',
-  NAVIGATION_GO_TO: 'Gå till'
+  NAVIGATION_GO_TO: 'Gå till',
+  RELATED_PRODUCTS: 'Relaterad produkter'
 };

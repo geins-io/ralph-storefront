@@ -288,5 +288,6 @@ export default {
   NOTIFY_ME: 'Notify me',
   ALL_PAGE_TITLE: 'All products',
   NAVIGATION_ALL_IN: 'Show all in',
-  NAVIGATION_GO_TO: 'Go to'
+  NAVIGATION_GO_TO: 'Go to',
+  RELATED_PRODUCTS: 'Related products'
 };
