@@ -134,6 +134,7 @@ export default {
   ACCOUNT_FEEDBACK_RESET_KEY_NOT_VALID:
     'Giltighetstiden för denna återställning har gått ut. För att kunna återställa ditt lösenord måste du begära lösenordsåterställning på nytt.',
   ACCOUNT_VIEW_DETAILS: 'Se detaljer',
+  ACCOUNT_LOGGED_IN_AS: 'Inloggad som',
   SHIPPING_METHOD: 'Leveranssätt',
   PAYMENT_METHOD: 'Betalsätt',
   TRACK_ORDER: 'Spåra paket',

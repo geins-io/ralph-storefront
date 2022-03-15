@@ -24,7 +24,10 @@ export default {
           token: this.$route.query.loginToken,
           maxAge: 3600
         });
-        this.$store.dispatch('auth/update', 'spoofed-user@carismar.com');
+        this.$store.dispatch('auth/update', {
+          username: 'preview-user@carismar.com',
+          rememberUser: false
+        });
         if (this.$route.query.redirect) {
           this.$router.push('/');
         } else {

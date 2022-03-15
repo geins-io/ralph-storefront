@@ -29,7 +29,10 @@ export default {
           token: this.$route.query.loginToken,
           maxAge: 3600
         });
-        this.$store.dispatch('auth/update', 'spoofed-user@carismar.com');
+        this.$store.dispatch('auth/update', {
+          username: 'spoofed-user@carismar.com',
+          rememberUser: false
+        });
         if (this.$config.customerTypesToggle) {
           this.$store.dispatch('loading/start');
           this.$apollo

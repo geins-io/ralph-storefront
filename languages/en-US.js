@@ -136,6 +136,7 @@ export default {
   ACCOUNT_FEEDBACK_RESET_KEY_NOT_VALID:
     'This password reset link has expired. To reset your password you need to request another password reset.',
   ACCOUNT_VIEW_DETAILS: 'View details',
+  ACCOUNT_LOGGED_IN_AS: 'Logged in as',
   SHIPPING_METHOD: 'Shipping method',
   PAYMENT_METHOD: 'Payment method',
   TRACK_ORDER: 'Track order',
