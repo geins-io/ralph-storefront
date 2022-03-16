@@ -116,6 +116,8 @@ export default {
     border: $border-light;
     background: $c-lightest-gray;
     padding: 0 $px16;
+    display: flex;
+    align-items: center;
   }
   &__icon-text {
     width: 100%;

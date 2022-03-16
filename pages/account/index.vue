@@ -23,8 +23,11 @@ export default {
     ...mapState(['auth'])
   },
   watch: {
-    'auth.client'(val) {
+    async 'auth.client'(val) {
       if (val && this.$route.query.loginToken) {
+        if (this.$store.getters['auth/authenticated']) {
+          await this.$store.dispatch('auth/logout');
+        }
         this.auth.client.setTokenData({
           token: this.$route.query.loginToken,
           maxAge: 3600
@@ -34,7 +37,6 @@ export default {
           rememberUser: false
         });
         if (this.$config.customerTypesToggle) {
-          this.$store.dispatch('loading/start');
           this.$apollo
             .query({
               query: getUserQuery,
@@ -42,7 +44,6 @@ export default {
               fetchPolicy: 'no-cache'
             })
             .then(result => {
-              this.$store.dispatch('loading/end');
               if (!result.errors) {
                 const type = result.data?.getUser?.customerType;
                 this.$store.dispatch('changeCustomerType', type);

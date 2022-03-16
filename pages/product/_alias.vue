@@ -15,29 +15,6 @@
           :alt="product.brand.name + ' ' + product.name"
         />
         <div v-else class="ca-product-page__gallery ca-product-gallery">
-          <div class="ca-product-gallery__nav only-computer">
-            <div class="ca-product-gallery__nav-slide">
-              <CaSkeleton
-                class="ca-product-gallery__nav-image"
-                :ratio="$config.productImageRatio"
-                :radius="false"
-              />
-            </div>
-            <div class="ca-product-gallery__nav-slide">
-              <CaSkeleton
-                class="ca-product-gallery__nav-image"
-                :ratio="$config.productImageRatio"
-                :radius="false"
-              />
-            </div>
-            <div class="ca-product-gallery__nav-slide">
-              <CaSkeleton
-                class="ca-product-gallery__nav-image"
-                :ratio="$config.productImageRatio"
-                :radius="false"
-              />
-            </div>
-          </div>
           <div class="ca-product-gallery__slider">
             <div
               class="ca-product-gallery__slide ca-product-page__skeleton-main-slide"
