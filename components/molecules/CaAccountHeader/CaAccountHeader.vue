@@ -51,8 +51,13 @@ export default {
   mounted() {},
   methods: {
     logout() {
+      this.$store.dispatch('loading/start');
       this.$store.dispatch('auth/logout');
-      this.$router.push({ path: '/' });
+      if (this.$config.user.priceLists) {
+        window.location = '/';
+      } else {
+        this.$router.push({ path: '/' });
+      }
     }
   }
 };

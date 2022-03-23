@@ -461,7 +461,8 @@ export default async () => {
       /* ******************** */
       user: {
         gender: false, // If set to true, gender must be added to user.graphql
-        country: false
+        country: false,
+        priceLists: true // Set to true if using different price lists for different users
       }
     },
     privateRuntimeConfig: {},

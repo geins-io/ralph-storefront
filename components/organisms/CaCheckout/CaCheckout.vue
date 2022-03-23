@@ -16,10 +16,7 @@
     </button>
     <div v-else-if="$config.customerTypesToggle" class="ca-checkout__logout">
       <CaCustomerTypeToggle />
-      <CaClickable
-        class="ca-checkout__logout-button"
-        @clicked="$store.dispatch('auth/logout')"
-      >
+      <CaClickable class="ca-checkout__logout-button" @clicked="logout">
         {{ $t('LOG_OUT') }}
       </CaClickable>
     </div>
@@ -127,7 +124,15 @@ export default {
   computed: {},
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {
+    logout() {
+      this.$store.dispatch('auth/logout');
+      if (this.$config.user.priceLists) {
+        this.checkoutLoading = true;
+        location.reload();
+      }
+    }
+  }
 };
 </script>
 <style lang="scss">

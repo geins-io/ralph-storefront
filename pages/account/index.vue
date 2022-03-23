@@ -48,7 +48,7 @@ export default {
                 const type = result.data?.getUser?.customerType;
                 this.$store.dispatch('changeCustomerType', type);
                 this.$store.dispatch('setCustomerTypeCookie', type);
-                this.$router.replace(this.localePath('account-orders'));
+                this.routeToAccount();
               }
             })
             .catch(error => {
@@ -56,7 +56,7 @@ export default {
               console.log(error);
             });
         } else {
-          this.$router.replace(this.localePath('account-orders'));
+          this.routeToAccount();
         }
       }
     }
@@ -67,7 +67,18 @@ export default {
       this.$router.replace(this.localePath('account-orders'));
     }
   },
-  methods: {}
+  methods: {
+    routeToAccount() {
+      this.$router.replace(this.localePath('account-orders'));
+      // This would fix the price lists cache problem for login as, but since we right now have a bug that logs you out on reload, let's keep it like this for now
+
+      // if (this.$config.user.priceLists) {
+      //   window.location = this.localePath('account-orders');
+      // } else {
+      //   this.$router.replace(this.localePath('account-orders'));
+      // }
+    }
+  }
 };
 </script>
 
