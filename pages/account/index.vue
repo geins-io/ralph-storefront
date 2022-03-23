@@ -70,13 +70,6 @@ export default {
   methods: {
     routeToAccount() {
       this.$router.replace(this.localePath('account-orders'));
-      // This would fix the price lists cache problem for login as, but since we right now have a bug that logs you out on reload, let's keep it like this for now
-
-      // if (this.$config.user.priceLists) {
-      //   window.location = this.localePath('account-orders');
-      // } else {
-      //   this.$router.replace(this.localePath('account-orders'));
-      // }
     }
   }
 };

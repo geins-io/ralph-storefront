@@ -125,8 +125,8 @@ export default {
   watch: {},
   mounted() {},
   methods: {
-    logout() {
-      this.$store.dispatch('auth/logout');
+    async logout() {
+      await this.$store.dispatch('auth/logout');
       if (this.$config.user.priceLists) {
         this.checkoutLoading = true;
         location.reload();

@@ -50,11 +50,11 @@ export default {
   watch: {},
   mounted() {},
   methods: {
-    logout() {
+    async logout() {
       this.$store.dispatch('loading/start');
-      this.$store.dispatch('auth/logout');
+      await this.$store.dispatch('auth/logout');
       if (this.$config.user.priceLists) {
-        window.location = '/';
+        location.reload();
       } else {
         this.$router.push({ path: '/' });
       }
