@@ -51,9 +51,9 @@ export default {
   mounted() {},
   methods: {
     async logout() {
-      this.$store.dispatch('loading/start');
       await this.$store.dispatch('auth/logout');
       if (this.$config.user.priceLists) {
+        this.$store.dispatch('loading/start');
         location.reload();
       } else {
         this.$router.push({ path: '/' });
