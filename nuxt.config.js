@@ -379,13 +379,11 @@ export default async () => {
       customerTypes: [
         {
           type: 'PERSON',
-          vat: true,
-          default: true
+          vat: true
         },
         {
           type: 'ORGANIZATION',
-          vat: false,
-          default: false
+          vat: false
         }
       ],
       routePaths,

@@ -57,6 +57,7 @@
         ref="udc"
         :shipping-data="checkout.shippingData"
         :zip="currentZip"
+        :parent-loading="shippingLoading"
         @init="initUDC"
         @changed="setUDCdata"
         @validation="udcValid = $event"

@@ -45,73 +45,15 @@
 </template>
 
 <script>
-import confirmCartQuery from 'cart/confirm.graphql';
-import completeCartMutation from 'cart/complete.graphql';
-import MixDatalayerConfirm from 'MixDatalayerConfirm';
+import MixConfirmPage from 'MixConfirmPage';
 export default {
   name: 'CheckoutConfirmPage',
   layout: 'undistracted',
-  mixins: [MixDatalayerConfirm],
-  apollo: {
-    getCart: {
-      query: confirmCartQuery,
-      variables() {
-        return {
-          id: this.cartId
-        };
-      },
-      errorPolicy: 'all',
-      fetchPolicy: 'no-cache',
-      result(result) {
-        if (result.data && result.data.getCart) {
-          this.orderCart = result.data.getCart;
-          if (!this.orderCart.isCompleted && !process.server) {
-            this.completeCart();
-          }
-        }
-      },
-      skip() {
-        return this.cartId === '' || this.orderCart !== null;
-      },
-      error(error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      }
-    }
-  },
-  data: () => ({
-    orderCart: null
-  }),
-  computed: {
-    cartId() {
-      return this.$route.query.cartid ?? '';
-    },
-    noCart() {
-      return this.cartId === '' && this.orderCart === null;
-    }
-  },
+  mixins: [MixConfirmPage],
+  data: () => ({}),
+  computed: {},
   mounted() {},
-  methods: {
-    completeCart() {
-      this.datalayerConfirm();
-      this.$apollo
-        .mutate({
-          mutation: completeCartMutation,
-          variables: {
-            id: this.cartId
-          },
-          fetchPolicy: 'no-cache'
-        })
-        .then(() => {
-          this.$store.dispatch('cart/reset');
-          this.cartCompleted = true;
-        })
-        .catch(error => {
-          // eslint-disable-next-line no-console
-          console.log(error);
-        });
-    }
-  }
+  methods: {}
 };
 </script>
 

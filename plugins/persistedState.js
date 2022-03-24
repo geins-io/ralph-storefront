@@ -7,6 +7,7 @@ export default ({ store, req, app }) => {
     paths: [
       'favorites',
       'customerType',
+      'vatIncluded',
       'list.relocateAlias',
       'list.relocatePage'
     ],
