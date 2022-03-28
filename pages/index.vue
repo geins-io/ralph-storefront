@@ -12,7 +12,10 @@
 export default {
   name: 'FrontPage',
   data: () => ({}),
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Front Page'
+  }
 };
 </script>
 

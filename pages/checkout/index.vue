@@ -11,7 +11,10 @@ export default {
   name: 'CheckoutPage',
   layout: 'undistracted',
   data: () => ({}),
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Checkout Page'
+  },
 };
 </script>
 

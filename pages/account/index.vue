@@ -67,6 +67,9 @@ export default {
       this.$router.replace(this.localePath('account-orders'));
     }
   },
+  meta: {
+    pageType: 'Account Page'
+  },
   methods: {
     routeToAccount() {
       this.$router.replace(this.localePath('account-orders'));

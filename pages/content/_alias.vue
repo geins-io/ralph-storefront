@@ -49,7 +49,10 @@ export default {
         }
       ]
     };
-  }
+  },
+  meta: {
+    pageType: 'Product Page'
+  },
 };
 </script>
 

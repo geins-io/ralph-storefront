@@ -148,7 +148,10 @@ export default {
       this.password = '';
       this.passwordConfirm = '';
     }
-  }
+  },
+  meta: {
+    pageType: 'Reset password Page'
+  },
 };
 </script>
 

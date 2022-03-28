@@ -39,6 +39,9 @@ export default {
       }
     }
   },
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Preview Page'
+  },
 };
 </script>

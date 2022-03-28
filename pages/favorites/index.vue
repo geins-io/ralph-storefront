@@ -50,7 +50,10 @@ export default {
       return { facets, sort };
     }
   },
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Favorite Page'
+  },
 };
 </script>
 

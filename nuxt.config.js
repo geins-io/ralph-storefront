@@ -262,6 +262,7 @@ export default async () => {
       ]
     },
     router: {
+      middleware: ['default'],
       extendRoutes(routes, resolve) {
         routes.push({
           name: 'pdp',
@@ -326,7 +327,7 @@ export default async () => {
       debug: process.env.NODE_ENV !== 'production',
       respectDoNotTrack: false,
       pageViewEventName: 'Page Impression',
-      pageTracking: true
+      pageTracking: false,
     },
     /*
      ** Runtime configs

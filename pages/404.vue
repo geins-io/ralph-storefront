@@ -9,6 +9,9 @@ export default {
   beforeCreate() {
     this.$nuxt.error({ statusCode: 404, message: 'Page not found' });
   },
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Error Page'
+  }
 };
 </script>

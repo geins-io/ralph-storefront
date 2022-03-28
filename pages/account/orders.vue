@@ -96,7 +96,10 @@ export default {
         : [];
       return arr.filter(i => statusArray.includes(i.status));
     }
-  }
+  },
+  meta: {
+    pageType: 'Orders Page'
+  },
 };
 </script>
 

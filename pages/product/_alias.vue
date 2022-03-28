@@ -214,7 +214,10 @@ export default {
   data: () => ({}),
   computed: {},
   watch: {},
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Product Page'
+  }
 };
 </script>
 

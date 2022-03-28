@@ -22,6 +22,9 @@ export default {
     },
   },
   mounted() {},
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Products Page'
+  },
 };
 </script>
