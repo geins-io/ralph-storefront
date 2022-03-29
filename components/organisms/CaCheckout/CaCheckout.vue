@@ -128,10 +128,6 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout');
-      if (this.$config.user.priceLists) {
-        this.checkoutLoading = true;
-        location.reload();
-      }
     }
   }
 };
