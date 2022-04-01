@@ -51,7 +51,10 @@ export default {
       }
     ]
   }),
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Settings Page'
+  },
 };
 </script>
 

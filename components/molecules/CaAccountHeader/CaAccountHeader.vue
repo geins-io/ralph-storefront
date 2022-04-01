@@ -52,12 +52,7 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout');
-      if (this.$config.user.priceLists) {
-        this.$store.dispatch('loading/start');
-        location.reload();
-      } else {
-        this.$router.push({ path: '/' });
-      }
+      this.$router.push({ path: '/' });
     }
   }
 };

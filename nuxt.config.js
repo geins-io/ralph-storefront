@@ -79,18 +79,6 @@ export default async () => {
   const defaultMeta = await defaultMetaQuery.data.listPageInfo.meta;
   return {
     /*
-     ** Headers of the page
-     */
-    head: {
-      link: [
-        {
-          rel: 'stylesheet',
-          href:
-            'https://fonts.googleapis.com/css?family=Roboto:400,400i,500&display=swap'
-        }
-      ]
-    },
-    /*
      ** Customize the progress-bar color
      */
     loading: { color: '#353797', height: '5px' },
@@ -274,6 +262,7 @@ export default async () => {
       ]
     },
     router: {
+      middleware: ['default'],
       extendRoutes(routes, resolve) {
         routes.push({
           name: 'pdp',
@@ -338,7 +327,7 @@ export default async () => {
       debug: process.env.NODE_ENV !== 'production',
       respectDoNotTrack: false,
       pageViewEventName: 'Page Impression',
-      pageTracking: true
+      pageTracking: false,
     },
     /*
      ** Runtime configs

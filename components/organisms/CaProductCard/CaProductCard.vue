@@ -67,41 +67,19 @@
   </component>
 </template>
 <script>
+import MixProductCard from 'MixProductCard';
+
 // @group Organisms
 // @vuese
 export default {
   name: 'CaProductCard',
-  mixins: [],
-  props: {
-    baseTag: {
-      type: String,
-      default: 'li'
-    },
-    product: {
-      type: Object,
-      required: true
-    },
-    pageNumber: {
-      type: Number,
-      default: 0
-    }
-  },
+  mixins: [MixProductCard],
+  props: {},
   data: () => ({}),
-  computed: {
-    productPopulated() {
-      return Object.keys(this.product).length > 0;
-    }
-  },
+  computed: {},
   watch: {},
-  mounted() {},
-  methods: {
-    productClickHandler() {
-      if (this.pageNumber > 0) {
-        this.$store.commit('list/setRelocatePage', this.pageNumber);
-        this.$store.commit('list/setRelocateAlias', this.product.alias);
-      }
-    }
-  }
+  created() {},
+  methods: {}
 };
 </script>
 <style lang="scss" scoped>

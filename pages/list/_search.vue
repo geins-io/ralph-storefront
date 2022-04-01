@@ -32,6 +32,9 @@ export default {
     },
   },
   mounted() {},
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Search Page'
+  },
 };
 </script>

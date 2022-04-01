@@ -29,6 +29,9 @@ export default {
     }
   },
   mounted() {},
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Discount Campaign Page'
+  },
 };
 </script>

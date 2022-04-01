@@ -53,7 +53,10 @@ export default {
   data: () => ({}),
   computed: {},
   mounted() {},
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Confirm Page'
+  }
 };
 </script>
 

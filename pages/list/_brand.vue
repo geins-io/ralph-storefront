@@ -30,6 +30,9 @@ export default {
     }
   },
   mounted() {},
-  methods: {}
+  methods: {},
+  meta: {
+    pageType: 'Brand Page'
+  }
 };
 </script>
