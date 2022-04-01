@@ -1,10 +1,10 @@
-import createPersistedState from 'vuex-persistedstate';
+import VuexPersistence from 'vuex-persist'
 import cookie from 'cookie';
 
 export default ({ store, req, app }) => {
-  createPersistedState({
+  new VuexPersistence({
     key: 'ralph',
-    paths: [
+    modules: [
       'favorites',
       'customerType',
       'vatIncluded',
@@ -30,5 +30,5 @@ export default ({ store, req, app }) => {
         }),
       removeItem: key => app.$cookies.remove(key)
     }
-  })(store);
+  }).plugin(store);
 };

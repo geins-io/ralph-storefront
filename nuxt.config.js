@@ -112,7 +112,7 @@ export default async () => {
      ** Plugins to load before mounting the App
      */
     plugins: [
-      { src: '~/plugins/persistedState.js' },
+      { src: '~/plugins/persistedState.js', mode: 'client' },
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/broadcastChannel.js',
         mode: 'client'
