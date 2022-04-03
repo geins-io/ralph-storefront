@@ -1,9 +1,9 @@
 export default {
   CUSTOMER_TYPE_PERSON: 'Person',
   CUSTOMER_TYPE_ORGANIZATION: 'Company',
-  USP_1: 'Best in the world',
-  USP_2: 'Fastest delivery',
-  USP_3: 'Free delivery if you`re nice',
+  USP_1: 'Free shipping over 49$',
+  USP_2: 'Next day delivery',
+  USP_3: 'Free returns',
   USP_TEXT: 'Free and fast delivery!',
   CUSTOMER_SERVICE: 'Customer service',
   FAVORITES_LABEL: 'My favorites',
