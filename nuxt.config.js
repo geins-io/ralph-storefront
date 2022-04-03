@@ -344,7 +344,7 @@ export default async () => {
         process.env.API_KEY
       ),
       apiKey: process.env.API_KEY,
-      customerServiceEmail: 'info@ralph.io',
+      customerServiceEmail: 'info@carismar.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
         tablet: 768,
