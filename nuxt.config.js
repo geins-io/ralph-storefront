@@ -124,7 +124,11 @@ export default async () => {
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/appInsights.server.js',
         mode: 'server'
-      }
+      },
+      {
+        src: '~/node_modules/@ralph/ralph-ui/plugins/headersControl.js',
+        mode: 'server'
+      },
     ],
 
     /*
@@ -242,15 +246,7 @@ export default async () => {
     },
     apollo: {
       clientConfigs: {
-        default: {
-          httpEndpoint: process.env.API_ENDPOINT,
-          httpLinkOptions: {
-            headers: {
-              'X-ApiKey': process.env.API_KEY
-            }
-          },
-          tokenName: 'ralph-auth'
-        }
+        default: '~/plugins/apollo-config.js',
       },
       includeNodeModules: true
     },
@@ -344,6 +340,7 @@ export default async () => {
         process.env.API_KEY
       ),
       apiKey: process.env.API_KEY,
+      apiEndpoint: process.env.API_ENDPOINT,
       customerServiceEmail: 'info@carismar.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
