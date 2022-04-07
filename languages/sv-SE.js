@@ -76,6 +76,13 @@ export default {
   STOCK_STATUS_IN_STOCK: 'I lager',
   STOCK_STATUS_OUT_OF_STOCK: 'Slut i lager',
   STOCK_STATUS_FEW_LEFT: 'Bara {quantity} kvar',
+  STOCK_STATUS_OVERSELLABLE: 'Beställningsvara',
+  STOCK_STATUS_DELIVERY_TIME_IN_STOCK: 'Normal leveranstid',
+  STOCK_STATUS_DELIVERY_TIME_OUT_OF_STOCK: 'Lite längre leveranstid',
+  STOCK_STATUS_DELIVERY_TIME_FEW_LEFT: 'Normal leveranstid',
+  STOCK_STATUS_DELIVERY_TIME_OVERSELLABLE: 'Lite längre leveranstid',
+  OVERSELLABLE_CART_MESSAGE:
+    'Din varukorg innehåller en eller flera varor som är beställningsvaror, vilket kan påverka leveranstiden för denna order.',
   MUST_CHOOSE_SKU: 'Du måste välja storlek först',
   CART_ADD_TOO_MANY:
     'Du kan tyvärr inte lägga fler i varukorgen. Endast {stock} kvar på lager',

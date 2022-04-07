@@ -57,6 +57,10 @@
           class="ca-product-card__campaigns"
           :campaigns="product.discountCampaigns"
         />
+        <CaStockDisplay
+          class="ca-product-card__stock-display"
+          :stock="product.totalStock"
+        />
       </NuxtLink>
       <div v-else>
         <CaSkeleton width="30%" />
@@ -102,6 +106,10 @@ export default {
   }
   &__campaigns {
     margin: rem-calc(5) 0 0;
+  }
+  &__stock-display {
+    font-size: $font-size-xs;
+    margin: $px10 0 0;
   }
 
   ::v-deep .ca-toggle-favorite {
