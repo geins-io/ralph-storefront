@@ -53,7 +53,7 @@
       <template #title>
         {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
       </template>
-      <CaUdc
+      <!-- <CaUdc
         ref="udc"
         :shipping-data="checkout.shippingData"
         :zip="currentZip"
@@ -61,6 +61,12 @@
         @init="initUDC"
         @changed="setUDCdata"
         @validation="udcValid = $event"
+      /> -->
+      <CaShippingOptions
+        v-if="checkout.shippingOptions"
+        class="ca-checkout__shipping-options"
+        :options="checkout.shippingOptions"
+        @selection="shippingSelectionHandler"
       />
     </CaCheckoutSection>
     <CaCheckoutSection
@@ -71,7 +77,7 @@
           (checkoutLoading && paymentType === 'STANDARD') ||
           frameLoading
       "
-      :blocked="!udcValid"
+      :blocked="$refs.udc && !udcValid"
     >
       <template #title>
         {{ hasPaymentOptions ? $t('CHECKOUT_PAY') : $t('COMPLETE_ORDER') }}

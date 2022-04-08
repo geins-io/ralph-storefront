@@ -77,10 +77,12 @@ export default {
   STOCK_STATUS_OUT_OF_STOCK: 'Out of stock',
   STOCK_STATUS_FEW_LEFT: 'Only {quantity} left',
   STOCK_STATUS_OVERSELLABLE: 'Order item',
+  STOCK_STATUS_STATIC: 'In stock',
   STOCK_STATUS_DELIVERY_TIME_IN_STOCK: 'Normal delivery time',
   STOCK_STATUS_DELIVERY_TIME_OUT_OF_STOCK: 'Longer delivery time',
   STOCK_STATUS_DELIVERY_TIME_FEW_LEFT: 'Normal delivery time',
   STOCK_STATUS_DELIVERY_TIME_OVERSELLABLE: 'Longer delivery time',
+  STOCK_STATUS_DELIVERY_TIME_STATIC: 'Normal delivery time',
   OVERSELLABLE_CART_MESSAGE:
     'Your cart includes one or more products that are order items. This might effect your delivery time for this order.',
   MUST_CHOOSE_SKU: 'You have to pick a size first',

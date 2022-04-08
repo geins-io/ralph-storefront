@@ -7,6 +7,7 @@
         :current="breadcrumbsCurrent"
         :product-name="product.name"
       />
+      <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
       <section class="ca-product-page__section">
         <CaProductGallery
           v-if="product"

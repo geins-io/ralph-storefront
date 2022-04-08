@@ -128,7 +128,7 @@ export default async () => {
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/headersControl.js',
         mode: 'server'
-      },
+      }
     ],
 
     /*
@@ -246,7 +246,7 @@ export default async () => {
     },
     apollo: {
       clientConfigs: {
-        default: '~/plugins/apollo-config.js',
+        default: '~/plugins/apollo-config.js'
       },
       includeNodeModules: true
     },
@@ -323,7 +323,7 @@ export default async () => {
       debug: process.env.NODE_ENV !== 'production',
       respectDoNotTrack: false,
       pageViewEventName: 'Page Impression',
-      pageTracking: false,
+      pageTracking: false
     },
     /*
      ** Runtime configs
@@ -431,7 +431,7 @@ export default async () => {
         entryCode: true,
         message: true,
         defaultPaymentId: 23,
-        defaultShippingId: null
+        defaultShippingId: 17
       },
       /* ******************** */
       /* ******* CART ******* */
