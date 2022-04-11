@@ -62,6 +62,13 @@
         @changed="setUDCdata"
         @validation="udcValid = $event"
       />
+      <!-- IF NOT UDC/NSHIFT, REMOVE COMPONENT ABOVE AND USE THIS BELOW -->
+      <!-- <CaShippingOptions
+        v-if="checkout.shippingOptions"
+        class="ca-checkout__shipping-options"
+        :options="checkout.shippingOptions"
+        @selection="shippingSelectionHandler"
+      /> -->
     </CaCheckoutSection>
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
@@ -71,7 +78,7 @@
           (checkoutLoading && paymentType === 'STANDARD') ||
           frameLoading
       "
-      :blocked="!udcValid"
+      :blocked="$refs.udc && !udcValid"
     >
       <template #title>
         {{ hasPaymentOptions ? $t('CHECKOUT_PAY') : $t('COMPLETE_ORDER') }}

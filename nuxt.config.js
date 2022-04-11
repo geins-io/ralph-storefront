@@ -112,7 +112,7 @@ export default async () => {
      ** Plugins to load before mounting the App
      */
     plugins: [
-      { src: '~/plugins/persistedState.js' },
+      { src: '~/plugins/persistedState.js', mode: 'client' },
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/broadcastChannel.js',
         mode: 'client'
@@ -123,6 +123,10 @@ export default async () => {
       },
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/appInsights.server.js',
+        mode: 'server'
+      },
+      {
+        src: '~/node_modules/@ralph/ralph-ui/plugins/headersControl.js',
         mode: 'server'
       }
     ],
@@ -242,15 +246,7 @@ export default async () => {
     },
     apollo: {
       clientConfigs: {
-        default: {
-          httpEndpoint: process.env.API_ENDPOINT,
-          httpLinkOptions: {
-            headers: {
-              'X-ApiKey': process.env.API_KEY
-            }
-          },
-          tokenName: 'ralph-auth'
-        }
+        default: '~/plugins/apollo-config.js'
       },
       includeNodeModules: true
     },
@@ -327,7 +323,7 @@ export default async () => {
       debug: process.env.NODE_ENV !== 'production',
       respectDoNotTrack: false,
       pageViewEventName: 'Page Impression',
-      pageTracking: false,
+      pageTracking: false
     },
     /*
      ** Runtime configs
@@ -344,7 +340,8 @@ export default async () => {
         process.env.API_KEY
       ),
       apiKey: process.env.API_KEY,
-      customerServiceEmail: 'info@ralph.io',
+      apiEndpoint: process.env.API_ENDPOINT,
+      customerServiceEmail: 'info@carismar.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
         tablet: 768,

@@ -7,6 +7,7 @@
         :current="breadcrumbsCurrent"
         :product-name="product.name"
       />
+      <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
       <section class="ca-product-page__section">
         <CaProductGallery
           v-if="product"
@@ -87,14 +88,14 @@
           <CaProductQuantity
             class="ca-product-page__quantity"
             :quantity="quantity"
-            :max-quantity="currentStock"
+            :max-quantity="currentStock.totalStock"
             :threshold="stockThreshold"
             @changed="onQuantityChange"
             @thresholdReached="quantityThresholdHandler"
           />
 
           <CaButton
-            v-if="stockStatus === 'out-of-stock' && !hasSkuVariants"
+            v-if="outOfStock && !hasSkuVariants"
             class="ca-product-page__buy-button"
             type="full-width"
             color="secondary"
@@ -107,18 +108,18 @@
             class="ca-product-page__buy-button"
             type="full-width"
             :loading="addToCartLoading"
-            :disabled="stockStatus === 'out-of-stock'"
+            :disabled="outOfStock"
             @clicked="addToCartClick"
           >
             {{ $t('ADD_TO_CART') }}
           </CaButton>
           <div class="ca-product-page__actions">
-            <CaIconAndText
-              class="ca-product-page__stock-status"
-              icon-name="box"
-            >
-              {{ stockStatusText }}
-            </CaIconAndText>
+            <CaStockDisplay
+              class="ca-product-page__stock-display"
+              :stock="currentStock"
+              :product-quantity="quantity"
+              :show-delivery-time="true"
+            />
           </div>
           <div class="ca-product-page__usps">
             <CaIconAndText
@@ -278,9 +279,8 @@ $column-width: 48.2%;
     margin-bottom: $px20;
     padding: 0.9em 2.15em;
   }
-  &__stock-status {
+  &__stock-display {
     font-size: $font-size-m;
-    font-weight: $font-weight-bold;
   }
   &__actions {
     margin-bottom: $px24;

@@ -2,9 +2,8 @@
   <div class="ca-list-page" :class="modifier">
     <CaContainer>
       <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
-
+      <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
       <CaListTop :type="type" :list-info="listInfo" />
-
       <CaImage
         v-if="type === 'category' && listInfo && listInfo.primaryImage"
         class="ca-list-page__image"
@@ -106,7 +105,7 @@ export default {
   name: 'CaListPage',
   mixins: [MixListPage],
   props: {},
-  data: () => ({isWidgetSmartQuery: false}),
+  data: () => ({ isWidgetSmartQuery: false }),
   computed: {
     widgetAreaVars() {
       const obj = {

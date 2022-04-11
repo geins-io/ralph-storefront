@@ -1,9 +1,9 @@
 export default {
   CUSTOMER_TYPE_PERSON: 'Person',
   CUSTOMER_TYPE_ORGANIZATION: 'Company',
-  USP_1: 'Best in the world',
-  USP_2: 'Fastest delivery',
-  USP_3: 'Free delivery if you`re nice',
+  USP_1: 'Free shipping over 49$',
+  USP_2: 'Next day delivery',
+  USP_3: 'Free returns',
   USP_TEXT: 'Free and fast delivery!',
   CUSTOMER_SERVICE: 'Customer service',
   FAVORITES_LABEL: 'My favorites',
@@ -76,6 +76,15 @@ export default {
   STOCK_STATUS_IN_STOCK: 'In stock',
   STOCK_STATUS_OUT_OF_STOCK: 'Out of stock',
   STOCK_STATUS_FEW_LEFT: 'Only {quantity} left',
+  STOCK_STATUS_OVERSELLABLE: 'Order item',
+  STOCK_STATUS_STATIC: 'In stock',
+  STOCK_STATUS_DELIVERY_TIME_IN_STOCK: 'Normal delivery time',
+  STOCK_STATUS_DELIVERY_TIME_OUT_OF_STOCK: 'Longer delivery time',
+  STOCK_STATUS_DELIVERY_TIME_FEW_LEFT: 'Normal delivery time',
+  STOCK_STATUS_DELIVERY_TIME_OVERSELLABLE: 'Longer delivery time',
+  STOCK_STATUS_DELIVERY_TIME_STATIC: 'Normal delivery time',
+  OVERSELLABLE_CART_MESSAGE:
+    'Your cart includes one or more products that are order items. This might effect your delivery time for this order.',
   MUST_CHOOSE_SKU: 'You have to pick a size first',
   CART_ADD_TOO_MANY:
     'Unfortunately you can not add any more of this to your cart. Only {stock} left in stock',
