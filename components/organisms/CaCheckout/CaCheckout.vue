@@ -53,7 +53,7 @@
       <template #title>
         {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
       </template>
-      <!-- <CaUdc
+      <CaUdc
         ref="udc"
         :shipping-data="checkout.shippingData"
         :zip="currentZip"
@@ -61,13 +61,14 @@
         @init="initUDC"
         @changed="setUDCdata"
         @validation="udcValid = $event"
-      /> -->
-      <CaShippingOptions
+      />
+      <!-- IF NOT UDC/NSHIFT, REMOVE COMPONENT ABOVE AND USE THIS BELOW -->
+      <!-- <CaShippingOptions
         v-if="checkout.shippingOptions"
         class="ca-checkout__shipping-options"
         :options="checkout.shippingOptions"
         @selection="shippingSelectionHandler"
-      />
+      /> -->
     </CaCheckoutSection>
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"

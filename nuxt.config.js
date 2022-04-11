@@ -431,7 +431,7 @@ export default async () => {
         entryCode: true,
         message: true,
         defaultPaymentId: 23,
-        defaultShippingId: 17
+        defaultShippingId: null
       },
       /* ******************** */
       /* ******* CART ******* */
