@@ -148,6 +148,8 @@ export default async () => {
     modules: [
       // Doc: https://github.com/nuxt-community/pwa-module
       '@nuxtjs/pwa',
+      'nuxt-speedkit',
+      'nuxt-multi-cache',
       [
         // Doc: https://github.com/nuxt-community/i18n-module
         '@nuxtjs/i18n',
@@ -215,6 +217,72 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
+
+    speedkit: {
+      detection: {
+        performance: false,
+        browserSupport: false
+      },
+
+      fonts: [
+        {
+          family: 'Roboto',
+          locals: ['Roboto'],
+          fallback: ['Roboto', 'sans-serif'],
+          variances: [
+            {
+              style: 'normal',
+              weight: 400,
+              sources: [
+                { src: '@/assets/fonts/Roboto-Regular.ttf', type: 'ttf' }
+              ]
+            },
+            {
+              style: 'italic',
+              weight: 400,
+              sources: [
+                { src: '@/assets/fonts/Roboto-Italic.ttf', type: 'ttf' }
+              ]
+            },
+            {
+              style: 'normal',
+              weight: 500,
+              sources: [
+                { src: '@/assets/fonts/Roboto-Medium.ttf', type: 'ttf' }
+              ]
+            }
+          ]
+        }
+      ],
+      componentAutoImport: false,
+      componentPrefix: undefined
+    },
+
+    image: {
+      screens: {
+        default: 320,
+        xxs: 480,
+        xs: 576,
+        sm: 768,
+        md: 996,
+        lg: 1200,
+        xl: 1367,
+        xxl: 1600,
+        '4k': 1921
+      },
+      domains: [
+        'img.youtube.com',
+        'i.vimeocdn.com',
+        'player.vimeo.com',
+        'fresnel.vimeocdn.com',
+        'player-telemetry.vimeo.com'
+      ],
+      alias: {
+        youtube: 'https://img.youtube.com',
+        vimeo: 'https://i.vimeocdn.com'
+      }
+    },
+
     // htmlValidator: {
     //   usePrettier: true,
     //   options: {
@@ -224,6 +292,25 @@ export default async () => {
     //     }
     //   }
     // },
+    multiCache: {
+      enabled: true,
+      outputDir: '~/cache',
+      server: {
+        auth: {
+          username: 'admin',
+          password: 'hunter2'
+        }
+      },
+      pageCache: {
+        enabled: false
+      },
+      componentCache: {
+        enabled: true
+      },
+      dataCache: {
+        enabled: false
+      }
+    },
     pwa: {
       // Default metadata. Doc: https://pwa.nuxtjs.org/meta/
       meta: {

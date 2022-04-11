@@ -4,28 +4,36 @@
     <main class="ca-layout-default__main">
       <Nuxt />
     </main>
-    <CaFooter />
-    <client-only>
-      <transition name="fade">
-        <div v-if="globalLoading" class="ca-layout-default__loading">
-          <CaSpinner class="ca-layout-default__spinner" />
-        </div>
-      </transition>
-    </client-only>
-    <CaCookieConsent />
-    <LazyCaDisplayCart />
-    <LazyCaAccountPanel />
-    <LazyCaMenuPanel menu-location-id="main-mobile" />
-    <LazyCaSnackbar />
-    <LazyCaModal />
-    <LazyCaAddedToCart />
+    <LazyHydrate when-visible>
+      <div>
+        <CaFooter />
+        <client-only>
+          <transition name="fade">
+            <div v-if="globalLoading" class="ca-layout-default__loading">
+              <CaSpinner class="ca-layout-default__spinner" />
+            </div>
+          </transition>
+        </client-only>
+        <CaCookieConsent />
+        <LazyCaDisplayCart />
+        <LazyCaAccountPanel />
+        <LazyCaMenuPanel menu-location-id="main-mobile" />
+        <LazyCaSnackbar />
+        <LazyCaModal />
+        <LazyCaAddedToCart />
+      </div>
+    </LazyHydrate>
   </div>
 </template>
 <script>
 import MixGlobalInit from 'MixGlobalInit';
+import LazyHydrate from 'vue-lazy-hydration';
 
 export default {
   name: 'CaDefaultLayout',
+  components: {
+    LazyHydrate
+  },
   mixins: [MixGlobalInit],
   computed: {
     modifiers() {
