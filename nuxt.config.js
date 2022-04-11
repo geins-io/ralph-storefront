@@ -148,7 +148,6 @@ export default async () => {
     modules: [
       // Doc: https://github.com/nuxt-community/pwa-module
       '@nuxtjs/pwa',
-      'nuxt-speedkit',
       'nuxt-multi-cache',
       [
         // Doc: https://github.com/nuxt-community/i18n-module
@@ -217,46 +216,6 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
-
-    speedkit: {
-      detection: {
-        performance: false,
-        browserSupport: false
-      },
-
-      fonts: [
-        {
-          family: 'Roboto',
-          locals: ['Roboto'],
-          fallback: ['Roboto', 'sans-serif'],
-          variances: [
-            {
-              style: 'normal',
-              weight: 400,
-              sources: [
-                { src: '@/assets/fonts/Roboto-Regular.ttf', type: 'ttf' }
-              ]
-            },
-            {
-              style: 'italic',
-              weight: 400,
-              sources: [
-                { src: '@/assets/fonts/Roboto-Italic.ttf', type: 'ttf' }
-              ]
-            },
-            {
-              style: 'normal',
-              weight: 500,
-              sources: [
-                { src: '@/assets/fonts/Roboto-Medium.ttf', type: 'ttf' }
-              ]
-            }
-          ]
-        }
-      ],
-      componentAutoImport: false,
-      componentPrefix: undefined
-    },
 
     image: {
       screens: {
