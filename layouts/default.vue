@@ -4,25 +4,25 @@
     <main class="ca-layout-default__main">
       <Nuxt />
     </main>
-    <LazyHydrate when-visible>
-      <div>
+    <div>
+      <LazyHydrate when-visible>
         <CaFooter />
-        <client-only>
-          <transition name="fade">
-            <div v-if="globalLoading" class="ca-layout-default__loading">
-              <CaSpinner class="ca-layout-default__spinner" />
-            </div>
-          </transition>
-        </client-only>
-        <CaCookieConsent />
-        <LazyCaDisplayCart />
-        <LazyCaAccountPanel />
-        <LazyCaMenuPanel menu-location-id="main-mobile" />
-        <LazyCaSnackbar />
-        <LazyCaModal />
-        <LazyCaAddedToCart />
-      </div>
-    </LazyHydrate>
+      </LazyHydrate>
+      <client-only>
+        <transition name="fade">
+          <div v-if="globalLoading" class="ca-layout-default__loading">
+            <CaSpinner class="ca-layout-default__spinner" />
+          </div>
+        </transition>
+      </client-only>
+      <CaCookieConsent />
+      <LazyCaDisplayCart />
+      <LazyCaAccountPanel />
+      <LazyCaMenuPanel menu-location-id="main-mobile" />
+      <LazyCaSnackbar />
+      <LazyCaModal />
+      <LazyCaAddedToCart />
+    </div>
   </div>
 </template>
 <script>
