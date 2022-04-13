@@ -252,7 +252,7 @@ export default async () => {
     //   }
     // },
     multiCache: {
-      enabled: true,
+      enabled: false,
       outputDir: '~/cache',
       server: {
         auth: {
