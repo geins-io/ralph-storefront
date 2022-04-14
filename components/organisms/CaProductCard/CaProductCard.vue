@@ -67,6 +67,18 @@
         <CaSkeleton width="70%" />
         <CaSkeleton width="50%" />
       </div>
+      <CaButton
+        class="ca-product-card__buy-button"
+        type="full-width"
+        :loading="addToCartLoading"
+        @clicked="addToCartClick"
+      >
+        {{
+          skuId && product.totalStock.totalStock > 0
+            ? $t('ADD')
+            : $t('READ_MORE')
+        }}
+      </CaButton>
     </div>
   </component>
 </template>
@@ -110,6 +122,9 @@ export default {
   &__stock-display {
     font-size: $font-size-xs;
     margin: $px10 0 0;
+  }
+  &__buy-button {
+    margin: $px16 0 0;
   }
 
   ::v-deep .ca-toggle-favorite {
