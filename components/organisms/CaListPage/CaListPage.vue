@@ -35,62 +35,62 @@
     <LazyHydrate when-visible>
       <div>
         <CaContainer>
-        <CaListFilters
-          v-if="showControls && selection"
-          :filters="filters"
-          :selection="selection"
-        />
-        <CaActiveFilters
-          v-if="showControls && selection && $store.getters.viewportComputer"
-          :selection="selection"
-          :selection-active="filterSelectionActive"
-          @selectionchange="filterChangeHandler"
-          @reset="resetFilters"
-        />
-        <LazyCaFilterPanel
-          :filters="filters"
-          :selection="selection"
-          :selection-active="filterSelectionActive"
-          :total-products="totalCount"
-          :total-filters-active="totalFiltersActive"
-          @selectionchange="filterChangeHandler"
-          @reset="resetFilters"
-        />
+          <CaListFilters
+            v-if="showControls && selection"
+            :filters="filters"
+            :selection="selection"
+          />
+          <CaActiveFilters
+            v-if="showControls && selection && $store.getters.viewportComputer"
+            :selection="selection"
+            :selection-active="filterSelectionActive"
+            @selectionchange="filterChangeHandler"
+            @reset="resetFilters"
+          />
+          <LazyCaFilterPanel
+            :filters="filters"
+            :selection="selection"
+            :selection-active="filterSelectionActive"
+            :total-products="totalCount"
+            :total-filters-active="totalFiltersActive"
+            @selectionchange="filterChangeHandler"
+            @reset="resetFilters"
+          />
 
-        <CaListSettings
-          v-if="showControls"
-          :active-products="totalCount"
-          :active-filters="totalFiltersActive"
-          :current-sort="selection.sort"
-          @sortchange="sortChangeHandler"
-        />
+          <CaListSettings
+            v-if="showControls"
+            :active-products="totalCount"
+            :active-filters="totalFiltersActive"
+            :current-sort="selection.sort"
+            @sortchange="sortChangeHandler"
+          />
 
-        <CaListPagination
-          v-show="currentMinCount > 1"
-          direction="prev"
-          :showing="showing"
-          :total-count="totalCount"
-          :all-products-loaded="allProductsLoaded"
-          :loading="$apollo.queries.products.loading"
-          @loadprev="loadPrev"
-        />
+          <CaListPagination
+            v-show="currentMinCount > 1"
+            direction="prev"
+            :showing="showing"
+            :total-count="totalCount"
+            :all-products-loaded="allProductsLoaded"
+            :loading="$apollo.queries.products.loading"
+            @loadprev="loadPrev"
+          />
 
-        <CaProductList
-          :skip="currentMinCount - 1"
-          :page-size="pageSize"
-          :products="productList"
-          :products-fetched="productsFetched"
-        />
+          <CaProductList
+            :skip="currentMinCount - 1"
+            :page-size="pageSize"
+            :products="productList"
+            :products-fetched="productsFetched"
+          />
 
-        <CaListPagination
-          v-if="showControls"
-          direction="next"
-          :showing="showing"
-          :total-count="totalCount"
-          :all-products-loaded="allProductsLoaded"
-          :loading="$apollo.queries.products.loading"
-          @loadmore="loadMore"
-        />
+          <CaListPagination
+            v-if="showControls"
+            direction="next"
+            :showing="showing"
+            :total-count="totalCount"
+            :all-products-loaded="allProductsLoaded"
+            :loading="$apollo.queries.products.loading"
+            @loadmore="loadMore"
+          />
         </CaContainer>
         <CaWidgetArea
           class="ca-list-page__widget-area"

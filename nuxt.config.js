@@ -142,6 +142,14 @@ export default async () => {
       // Doc: https://html-validator.nuxtjs.org/
       // '@nuxtjs/html-validator'
     ],
+
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern: 'https://demoimages.carismar.io/.*'
+        }
+      ]
+    },
     /*
      ** Nuxt.js modules
      */
@@ -217,31 +225,6 @@ export default async () => {
       '@nuxtjs/applicationinsights'
     ],
 
-    image: {
-      screens: {
-        default: 320,
-        xxs: 480,
-        xs: 576,
-        sm: 768,
-        md: 996,
-        lg: 1200,
-        xl: 1367,
-        xxl: 1600,
-        '4k': 1921
-      },
-      domains: [
-        'img.youtube.com',
-        'i.vimeocdn.com',
-        'player.vimeo.com',
-        'fresnel.vimeocdn.com',
-        'player-telemetry.vimeo.com'
-      ],
-      alias: {
-        youtube: 'https://img.youtube.com',
-        vimeo: 'https://i.vimeocdn.com'
-      }
-    },
-
     // htmlValidator: {
     //   usePrettier: true,
     //   options: {
@@ -252,7 +235,7 @@ export default async () => {
     //   }
     // },
     multiCache: {
-      enabled: false,
+      enabled: true,
       outputDir: '~/cache',
       server: {
         auth: {
