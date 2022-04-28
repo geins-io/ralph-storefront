@@ -4,13 +4,17 @@ import cookie from 'cookie';
 export default ({ store, req, app }) => {
   new VuexPersistence({
     key: 'ralph',
-    modules: [
-      'favorites',
-      'customerType',
-      'vatIncluded',
-      'list.relocateAlias',
-      'list.relocatePage'
-    ],
+    reducer: (state) => {
+      return {
+        favorites: state.favorites,
+        customerType: state.customerType,
+        vatIncluded: state.vatIncluded,
+        list: {
+          relocateAlias: state.list.relocateAlias,
+          relocatePage: state.list.relocatePage
+        },
+      }
+    },
     storage: {
       getItem: key => {
         // See https://nuxtjs.org/guide/plugins/#using-process-flags
