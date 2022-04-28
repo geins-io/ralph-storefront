@@ -235,7 +235,7 @@ export default async () => {
     //   }
     // },
     multiCache: {
-      enabled: true,
+      enabled: process.env.NODE_ENV === 'production',
       outputDir: '~/cache',
       server: {
         auth: {
