@@ -146,7 +146,7 @@ export default async () => {
     workbox: {
       runtimeCaching: [
         {
-          urlPattern: 'https://demoimages.carismar.io/.*'
+          urlPattern: process.env.IMAGE_SERVER + '/.*'
         }
       ]
     },
