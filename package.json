@@ -1,8 +1,8 @@
 {
   "name": "@ralph/ralph-storefront",
   "version": "1.0.0",
-  "description": "E-commerce frontend by Carismar",
-  "author": "Olivia Axelsson & Lars Johansson",
+  "description": "PWA frontend for Carismar Commerce",
+  "author": "Carismar Commerce",
   "private": true,
   "scripts": {
     "dev": "nuxt",
