@@ -142,12 +142,21 @@ export default async () => {
       // Doc: https://html-validator.nuxtjs.org/
       // '@nuxtjs/html-validator'
     ],
+
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern: process.env.IMAGE_SERVER + '/.*'
+        }
+      ]
+    },
     /*
      ** Nuxt.js modules
      */
     modules: [
       // Doc: https://github.com/nuxt-community/pwa-module
       '@nuxtjs/pwa',
+      'nuxt-multi-cache',
       [
         // Doc: https://github.com/nuxt-community/i18n-module
         '@nuxtjs/i18n',
@@ -215,6 +224,7 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
+
     // htmlValidator: {
     //   usePrettier: true,
     //   options: {
@@ -224,6 +234,25 @@ export default async () => {
     //     }
     //   }
     // },
+    multiCache: {
+      enabled: process.env.NODE_ENV === 'production',
+      outputDir: '~/cache',
+      server: {
+        auth: {
+          username: 'admin',
+          password: 'hunter2'
+        }
+      },
+      pageCache: {
+        enabled: false
+      },
+      componentCache: {
+        enabled: true
+      },
+      dataCache: {
+        enabled: false
+      }
+    },
     pwa: {
       // Default metadata. Doc: https://pwa.nuxtjs.org/meta/
       meta: {
