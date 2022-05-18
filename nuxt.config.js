@@ -224,7 +224,6 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
-
     // htmlValidator: {
     //   usePrettier: true,
     //   options: {
