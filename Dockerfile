@@ -13,7 +13,7 @@ FROM node:14.15.5-alpine as builder
 WORKDIR /app
 RUN apk add --no-cache curl git && \
     apk add --no-cache curl && \
-    curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | /bin/sh -s -- -b /usr/local/bin
+    curl -sf https://gobinaries.com/tj/node-prune | /bin/sh -s -- -b /usr/local/bin
 COPY . .
 # Re-initialize the argument D:
 ARG API_ENDPOINT
