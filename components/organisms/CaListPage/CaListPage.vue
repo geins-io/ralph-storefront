@@ -3,7 +3,7 @@
     <CaContainer>
       <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
       <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
-      <CaListTop :type="type" :list-info="listInfo" />
+      <CaListTop v-if="!hideListInfo" :type="type" :list-info="listInfo" />
       <CaImage
         v-if="type === 'category' && listInfo && listInfo.primaryImage"
         class="ca-list-page__image"
