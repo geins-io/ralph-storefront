@@ -14,9 +14,7 @@
       />
       <CaReadMore
         v-if="
-          listInfo &&
-            listInfo.primaryDescription !== '' &&
-            !listInfo.hideDescription
+          listInfo && !!listInfo.primaryDescription && !listInfo.hideDescription
         "
         class="ca-list-top__description"
       >

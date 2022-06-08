@@ -9,7 +9,7 @@ import {
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
-
+import channelSettings from './config/channel-settings';
 const routePaths = {
   category: '/c',
   brand: '/b',
@@ -161,7 +161,12 @@ export default async () => {
         // Doc: https://github.com/nuxt-community/i18n-module
         '@nuxtjs/i18n',
         {
-          baseUrl: process.env.BASE_URL,
+          baseUrl: ({ store, $config }) => {
+            return (
+              $config.baseUrl[store.state.channelId] ||
+              process.env.FALLBACK_BASE_URL
+            );
+          },
           seo: false,
           locales: [
             {
@@ -169,14 +174,16 @@ export default async () => {
               iso: 'en-US',
               file: 'en-US.js',
               name: 'English',
-              flag: 'gb'
+              flag: 'gb',
+              domain: channelSettings.find(i => i.locale === 'en').domain
             },
             {
               code: 'sv',
               iso: 'sv-SE',
               file: 'sv-SE.js',
               name: 'Svenska',
-              flag: 'se'
+              flag: 'se',
+              domain: channelSettings.find(i => i.locale === 'sv').domain
             }
           ],
           langDir: 'languages/',
@@ -186,6 +193,7 @@ export default async () => {
             fallbackLocale: 'sv'
           },
           detectBrowserLanguage: false,
+          differentDomains: process.env.NODE_ENV === 'production',
           parsePages: false,
           pages: {
             'checkout/index': {

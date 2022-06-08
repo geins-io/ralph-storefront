@@ -18,12 +18,12 @@
         </CaIconAndText>
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
-      <NuxtLink
+      <a
         v-for="locale in availableLocales"
         v-show="!undistracted"
         :key="locale.code"
         class="ca-top-bar__lang-switcher only-computer"
-        :to="switchLocalePath(locale.code)"
+        :href="switchLocalePath(locale.code)"
       >
         <CaFlag
           class="ca-top-bar__flag"
@@ -31,7 +31,7 @@
           shape="circle"
         />
         {{ locale.name }}
-      </NuxtLink>
+      </a>
       <button
         v-if="!$store.getters['auth/authenticated']"
         v-show="!undistracted"

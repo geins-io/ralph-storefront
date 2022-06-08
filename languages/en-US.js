@@ -1,7 +1,7 @@
 export default {
   CUSTOMER_TYPE_PERSON: 'Person',
   CUSTOMER_TYPE_ORGANIZATION: 'Company',
-  USP_1: 'Free shipping over 49$',
+  USP_1: 'Free shipping over €49',
   USP_2: 'Next day delivery',
   USP_3: 'Free returns',
   USP_TEXT: 'Free and fast delivery!',
