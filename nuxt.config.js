@@ -9,7 +9,8 @@ import {
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
-import channelSettings from './config/channel-settings';
+import channelSettings from './static/channel-settings';
+
 const routePaths = {
   category: '/c',
   brand: '/b',
@@ -161,12 +162,7 @@ export default async () => {
         // Doc: https://github.com/nuxt-community/i18n-module
         '@nuxtjs/i18n',
         {
-          baseUrl: ({ store, $config }) => {
-            return (
-              $config.baseUrl[store.state.channelId] ||
-              process.env.FALLBACK_BASE_URL
-            );
-          },
+          baseUrl: process.env.BASE_URL,
           seo: false,
           locales: [
             {
