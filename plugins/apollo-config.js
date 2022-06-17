@@ -25,10 +25,16 @@ export default ctx => {
     }
 
     if (ctx.store.getters.channelId) {
-      operation.variables.channelId = ctx.store.getters.channelId;
+      operation.variables = {
+        ...operation.variables,
+        channelId: ctx.store.getters.channelId
+      };
     }
     if (ctx.i18n.localeProperties.iso) {
-      operation.variables.languageId = ctx.i18n.localeProperties.iso;
+      operation.variables = {
+        ...operation.variables,
+        languageId: ctx.i18n.localeProperties.iso
+      };
     }
 
     return forward(operation);
