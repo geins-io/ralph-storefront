@@ -100,7 +100,11 @@
         </span>
       </h3>
       <CaCheckoutExternal
-        v-if="paymentType === 'KLARNA' || paymentType === 'SVEA'"
+        v-if="
+          paymentType === 'KLARNA' ||
+            paymentType === 'SVEA' ||
+            paymentType === 'WALLEY'
+        "
         ref="externalcheckout"
         :data="selectedPaymentOption.paymentData"
         :new-checkout-session="selectedPaymentOption.newCheckoutSession"
