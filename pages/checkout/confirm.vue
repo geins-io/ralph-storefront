@@ -8,6 +8,11 @@
           :type="$route.query.sid ? 'SVEA' : 'KLARNA'"
           :confirm="true"
         />
+        <CaCheckoutExternal
+          v-if="$route.query.wid"
+          :type="'WALLEY'"
+          :confirm="true"
+        />
         <div v-else class="ca-checkout-confirm">
           <CaIcon class="ca-checkout-confirm__icon" name="check-circle" />
           <h2 class="ca-checkout-confirm__title">
