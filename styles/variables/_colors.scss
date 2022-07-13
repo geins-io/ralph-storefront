@@ -1,5 +1,6 @@
 // Theme colors
 $c-white: #ffffff;
+$c-black: #000000;
 $c-lightest-gray: #f8f8f8;
 $c-light-gray: #ececec;
 $c-medium-gray: #d8d8d8;
@@ -59,8 +60,13 @@ $c-button-secondary-border: $c-darkest-gray;
 // Inputs
 $c-input-focused-border: $c-accent-color;
 $c-input-background: $c-white;
-$c-input-checkbox-checked-bg: $c-accent-color;
-$c-input-radio-checked-bg: $c-accent-color;
+
+$c-input-checkbox-text: $c-text-secondary;
+$c-input-checkbox-bg: $c-white;
+$c-input-checkbox-checked-bg: $c-white;
+$c-input-checkbox-checked-border: $c-dark-gray;
+
+$c-input-radio-checked-bg: $c-dark-gray;
 
 // Content panel
 $c-content-panel-header-bg: $c-light-gray;

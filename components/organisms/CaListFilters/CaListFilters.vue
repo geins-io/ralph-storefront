@@ -5,6 +5,7 @@
     </h2>
     <div v-show="filtersPopulated" class="ca-list-filters__filters">
       <CaFilterTrigger
+        v-if="$config.showCategoryFilter"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_CATEGORIES')"
         :selection="selection.categories"
@@ -17,6 +18,7 @@
         "
       />
       <CaFilterTrigger
+        v-if="$config.showBrandsFilter"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_BRANDS')"
         :selection="selection.brands"
@@ -29,6 +31,7 @@
         "
       />
       <CaFilterTrigger
+        v-if="$config.showSkuFilter"
         class="ca-list-filters__filter"
         :title="$t('FILTER_LABEL_SKUS')"
         :selection="selection.skus"
@@ -37,6 +40,19 @@
           $store.commit('contentpanel/open', {
             name: 'filters',
             frame: 'skus'
+          })
+        "
+      />
+      <CaFilterTrigger
+        v-if="$config.showPriceFilter"
+        class="ca-list-filters__filter"
+        :title="$t('FILTER_LABEL_PRICE')"
+        :selection="selection.price"
+        :filters="getFilters(filters.price)"
+        @clicked="
+          $store.commit('contentpanel/open', {
+            name: 'filters',
+            frame: 'price'
           })
         "
       />

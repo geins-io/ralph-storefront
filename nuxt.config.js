@@ -17,6 +17,7 @@ const routePaths = {
   product: '/p',
   search: '/s',
   discountCampaign: '/dc',
+  list: '/l',
   all: '/allt'
 };
 
@@ -308,6 +309,11 @@ export default async () => {
           component: resolve(__dirname, 'pages/product/_alias.vue')
         });
         routes.push({
+          name: 'plp',
+          path: routePaths.list + '/*',
+          component: resolve(__dirname, 'pages/list/_list.vue')
+        });
+        routes.push({
           name: 'plp-all',
           path: routePaths.all,
           component: resolve(__dirname, 'pages/list/_all.vue')
@@ -435,6 +441,10 @@ export default async () => {
         laptop: 5,
         desktop: 5
       },
+      showCategoryFilter: true,
+      showBrandsFilter: true,
+      showSkuFilter: true,
+      showPricefilter: true,
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */

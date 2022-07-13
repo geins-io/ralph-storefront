@@ -12,7 +12,8 @@
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
     "create-component": "node ./scripts/create-component.cjs",
-    "stats": "set NODE_ENV=development && yarn nuxt build --modern=server --analyze"
+    "stats": "set NODE_ENV=development && yarn nuxt build --modern=server --analyze",
+    "link-ralph": "npm link @ralph/ralph-ui"
   },
   "lint-staged": {
     "*.{js,vue}": "npm run lint",
@@ -30,7 +31,7 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/i18n": "^7.2.0",
     "@nuxtjs/pwa": "^3.3.5",
-    "@ralph/ralph-ui": "13.1.18",
+    "@ralph/ralph-ui": "14.0.0",
     "apollo-link": "^1.2.14",
     "cookie": "^0.4.2",
     "cookie-universal-nuxt": "^2.1.5",
