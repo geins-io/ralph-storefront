@@ -208,6 +208,10 @@ export default async () => {
             'favorites/index': {
               sv: '/favoriter',
               en: '/favorites'
+            },
+            'brands/index': {
+              sv: '/varumarken',
+              en: '/brands'
             }
           }
         }

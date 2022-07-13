@@ -66,7 +66,6 @@ export default {
     }
   },
   data: () => ({
-    allBrands: [],
     brandsTree: [],
     isGroupFilter: false,
     activeGroupFilter: ''
