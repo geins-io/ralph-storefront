@@ -110,24 +110,6 @@ export default {
 
       return getBrands.filter(item => item.alias.substring(0, 1) === character);
     },
-    getAllBrandsByNumericInitial(character) {
-      const getBrands = [...this.sortedBrands];
-
-      return getBrands.filter(item => {
-        if (item.alias.substring(0, 1) === character && isNaN(character)) {
-          return true;
-        }
-      });
-    },
-    getAllBrandsByAlphabeticalInitial(character) {
-      const getBrands = [...this.sortedBrands];
-
-      return getBrands.filter(item => {
-        if (item.alias.substring(0, 1) === character && !isNaN(character)) {
-          return true;
-        }
-      });
-    },
     createBrandsTree() {
       const initialCharacters = this.getAllInitialCharacters;
 
