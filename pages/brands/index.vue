@@ -56,7 +56,7 @@ export default {
       query: brandsQuery,
       result(result) {
         if (result.data && result.data.brands) {
-          this.createBrandsTree();
+          this.isBrandsLoaded = true;
         }
       },
       error(error) {
@@ -66,6 +66,7 @@ export default {
     }
   },
   data: () => ({
+    isBrandsLoaded: false,
     brandsTree: [],
     isGroupFilter: false,
     activeGroupFilter: ''
@@ -104,6 +105,13 @@ export default {
       return brands.map(item => item.alias.substring(0, 1));
     }
   },
+  watch: {
+    isBrandsLoaded() {
+      if (this.isBrandsLoaded) {
+        this.createBrandsTree();
+      }
+    }
+  },
   methods: {
     getAllBrandsByInitial(character) {
       const getBrands = [...this.sortedBrands];
@@ -119,8 +127,6 @@ export default {
           brands: this.getAllBrandsByInitial(character)
         });
       });
-
-      return this.brandsTree;
     },
     setGroupFilter(group) {
       this.isGroupFilter = true;
