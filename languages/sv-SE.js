@@ -8,6 +8,8 @@ export default {
   CUSTOMER_SERVICE: 'Kundtjänst',
   FAVORITES_LABEL: 'Mina favoriter',
   FAVORITES_EMPTY: 'Du har inga favoriter sparade',
+  BRANDS_TITLE: 'Alla varumärken',
+  BRANDS_EMPTY: 'Inga varumärken finns tillgängliga',
   SEARCH: 'Sök',
   SEARCH_PLACEHOLDER: 'Sök',
   SEARCH_SEE_ALL: 'Se alla sökresultat',

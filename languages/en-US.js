@@ -8,6 +8,8 @@ export default {
   CUSTOMER_SERVICE: 'Customer service',
   FAVORITES_LABEL: 'My favorites',
   FAVORITES_EMPTY: 'You have no favorites saved',
+  BRANDS_TITLE: 'All brands',
+  BRANDS_EMPTY: 'No brands available',
   SEARCH: 'Search',
   SEARCH_PLACEHOLDER: 'Search',
   SEARCH_SEE_ALL: 'See all search results',
