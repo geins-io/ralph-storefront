@@ -1,9 +1,20 @@
 <template>
   <div class="ca-content-page">
-    <CaWidgetArea
-      :alias="this.$route.params.alias"
-      @dataFetched="onDataFetched"
-    />
+    <CaContainer
+      class="ca-content-page__container"
+      :class="{ 'ca-content-page__container--has-menu': hasMenu }"
+      :design="hasMenu ? 'default' : 'full-width'"
+    >
+      <CaInfoPageMenu
+        v-if="hasMenu"
+        class="ca-content-page__sidebar"
+        menu-location-id="info-pages"
+      />
+      <CaWidgetArea
+        :alias="this.$route.params.alias"
+        @dataFetched="onDataFetched"
+      />
+    </CaContainer>
   </div>
 </template>
 
@@ -13,7 +24,8 @@ export default {
   name: 'ContentPage',
   mixins: [MixMetaReplacement],
   data: () => ({
-    meta: undefined
+    meta: undefined,
+    hasMenu: false
   }),
   methods: {
     onDataFetched(data) {
@@ -25,6 +37,7 @@ export default {
         this.$store.dispatch('redirect404');
       }
       this.meta = data?.widgetArea?.meta;
+      this.hasMenu = data?.widgetArea?.tags.includes('menu');
       this.$store.dispatch('loading/end');
     }
   },
@@ -52,8 +65,33 @@ export default {
   },
   meta: {
     pageType: 'Product Page'
-  },
+  }
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.ca-content-page {
+  &__container {
+    &--has-menu {
+      .ca-container {
+        width: 100%;
+      }
+
+      @include bp(tablet) {
+        display: flex;
+        column-gap: $px32;
+      }
+    }
+  }
+  &__sidebar {
+    @include bp(tablet) {
+      width: rem-calc(200);
+      flex-shrink: 0;
+    }
+    @include bp(laptop) {
+      width: rem-calc(300);
+      flex-shrink: 0;
+    }
+  }
+}
+</style>
