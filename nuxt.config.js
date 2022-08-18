@@ -446,6 +446,7 @@ export default async () => {
         desktop: 5
       },
       showCategoryFilter: true,
+      showCategoryTreeViewFilter: true,
       showBrandsFilter: true,
       showSkuFilter: true,
       showPricefilter: true,
