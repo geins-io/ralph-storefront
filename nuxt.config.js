@@ -85,6 +85,7 @@ export default async () => {
     //   script: (process.env.NOSTO_ACCOUNT_ID && process.env.NOSTO_ACCOUNT_ID.length) && [
     //     {
     //       src: '/js/nosto.js',
+    //       async: true
     //       ssr: false
     //     },
     //     {
