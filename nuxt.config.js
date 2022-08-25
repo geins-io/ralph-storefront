@@ -80,6 +80,20 @@ export default async () => {
   });
   const defaultMeta = await defaultMetaQuery.data.listPageInfo.meta;
   return {
+    // Leaving this here for reference when building a store front for a client that requires Nosto
+    // head: {
+    //   script: (process.env.NOSTO_ACCOUNT_ID && process.env.NOSTO_ACCOUNT_ID.length) && [
+    //     {
+    //       src: '/js/nosto.js',
+    //       ssr: false
+    //     },
+    //     {
+    //       src: `//connect.nosto.com/include/${process.env.NOSTO_ACCOUNT_ID}`,
+    //       async: true,
+    //       ssr: false
+    //     }
+    //   ]
+    // },
     /*
      ** Customize the progress-bar color
      */
