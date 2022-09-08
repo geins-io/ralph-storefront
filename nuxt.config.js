@@ -220,6 +220,10 @@ export default async () => {
               sv: '/mina-sidor/installningar',
               en: '/my-account/settings'
             },
+            'account/balance': {
+              sv: '/mina-sidor/saldo',
+              en: '/my-account/balance'
+            },
             'favorites/index': {
               sv: '/favoriter',
               en: '/favorites'

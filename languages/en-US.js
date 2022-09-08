@@ -160,6 +160,8 @@ export default {
     'We are here to help you. Reach out to us if you have any problem',
   ACCOUNT_ORDERS_TITLE: 'Orders',
   ACCOUNT_SETTINGS_TITLE: 'Settings',
+  ACCOUNT_BALANCE_TITLE: 'Balance',
+  ACCOUNT_BALANCE_PAGE_TITLE: 'Current balance',
   ACCOUNT_TITLE: 'My account',
   ACCOUNT_SETTINGS_CANCEL: 'Cancel',
   ACCOUNT_SETTINGS_EDIT: 'Edit',
