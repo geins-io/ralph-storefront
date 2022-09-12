@@ -97,6 +97,7 @@
           family="Productlist"
           area-name="The bottom part of the product list"
           :filters="widgetAreaFilters"
+          :list-page-url="currentPath"
         />
       </div>
     </LazyHydrate>
