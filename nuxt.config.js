@@ -156,6 +156,8 @@ export default async () => {
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/stylelint-module
       '@nuxtjs/stylelint-module'
+      // Doc: https://html-validator.nuxtjs.org/
+      // '@nuxtjs/html-validator'
     ],
     /*
      ** Nuxt.js modules
@@ -237,6 +239,15 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
+    // htmlValidator: {
+    //   usePrettier: true,
+    //   options: {
+    //     rules: {
+    //       'input-missing-label': 'off',
+    //       'prefer-native-element': 'off'
+    //     }
+    //   }
+    // },
     pwa: {
       // Default metadata. Doc: https://pwa.nuxtjs.org/meta/
       meta: {
