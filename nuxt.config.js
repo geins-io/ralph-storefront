@@ -156,24 +156,13 @@ export default async () => {
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/stylelint-module
       '@nuxtjs/stylelint-module'
-      // Doc: https://html-validator.nuxtjs.org/
-      // '@nuxtjs/html-validator'
     ],
-
-    workbox: {
-      runtimeCaching: [
-        {
-          urlPattern: process.env.IMAGE_SERVER + '/.*'
-        }
-      ]
-    },
     /*
      ** Nuxt.js modules
      */
     modules: [
       // Doc: https://github.com/nuxt-community/pwa-module
       '@nuxtjs/pwa',
-      'nuxt-multi-cache',
       [
         // Doc: https://github.com/nuxt-community/i18n-module
         '@nuxtjs/i18n',
@@ -243,43 +232,11 @@ export default async () => {
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
-      // Doc: https://www.npmjs.com/package/@nuxtjs/component-cache
-      ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
-      // Doc: https://www.npmjs.com/package/nuxt-polyfill
-      'nuxt-polyfill',
       // Doc: https://www.npmjs.com/package/@nuxtjs/gtm
       '@nuxtjs/gtm',
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
-    // htmlValidator: {
-    //   usePrettier: true,
-    //   options: {
-    //     rules: {
-    //       'input-missing-label': 'off',
-    //       'prefer-native-element': 'off'
-    //     }
-    //   }
-    // },
-    multiCache: {
-      enabled: process.env.NODE_ENV === 'production',
-      outputDir: '~/cache',
-      server: {
-        auth: {
-          username: 'admin',
-          password: 'hunter2'
-        }
-      },
-      pageCache: {
-        enabled: false
-      },
-      componentCache: {
-        enabled: true
-      },
-      dataCache: {
-        enabled: false
-      }
-    },
     pwa: {
       // Default metadata. Doc: https://pwa.nuxtjs.org/meta/
       meta: {
@@ -545,12 +502,25 @@ export default async () => {
       transpile: ['@ralph/ralph-ui'],
       optimization: {
         splitChunks: {
-          chunks: 'all',
           automaticNameDelimiter: 'ca.',
-          name: undefined,
-          cacheGroups: {},
-          minSize: 15000,
-          maxSize: 260000
+          chunks: 'async',
+          minSize: 20000,
+          minChunks: 1,
+          maxAsyncRequests: 30,
+          maxInitialRequests: 30,
+          enforceSizeThreshold: 50000,
+          cacheGroups: {
+            defaultVendors: {
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+              reuseExistingChunk: true
+            },
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true
+            }
+          }
         }
       },
       loaders: {
