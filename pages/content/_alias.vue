@@ -59,12 +59,17 @@ export default {
           hid: 'og:description',
           name: 'og:description',
           content: this.metaReplacement(this.meta?.description)
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.$config.baseUrl + '/meta-image-fallback.jpg'
         }
       ]
     };
   },
   meta: {
-    pageType: 'Product Page'
+    pageType: 'Content Page'
   }
 };
 </script>
