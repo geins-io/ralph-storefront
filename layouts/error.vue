@@ -1,50 +1,28 @@
 <template>
-  <CaContainer class="ca-error-page" width="slim">
-    <h1 v-if="error.statusCode === 404" class="ca-error-page__title">
-      {{ $t('ERROR_PAGE_404_TITLE') }}
-    </h1>
-    <h1 v-else class="ca-error-page__title">{{ $t('ERROR_PAGE_TITLE') }}</h1>
-    <a class="ca-button ca-button--primary ca-error-page__button" href="/">
-      {{ $t('ERROR_PAGE_BUTTON') }}
-    </a>
-  </CaContainer>
+  <component :is="errorPage" :error="error" />
 </template>
 
 <script>
 export default {
+  name: 'CaErrorLayout',
   props: {
     error: {
       type: Object,
       default: () => {}
     }
   },
+  computed: {
+    errorPage() {
+      if (this.error.statusCode === 404) {
+        return 'CaError404';
+      }
+      // catch everything else
+      return 'CaError';
+    }
+  },
   created() {
     this.$store.dispatch('loading/end');
-    this.report404();
-  },
-  methods: {
-    report404() {
-      this.$appInsights?.trackPageView({
-        name: '404 error',
-        pageType: 'errorPage',
-        properties: {
-          responseCode: 404
-        }
-      });
-    }
   }
 };
 </script>
-<style lang="scss">
-.ca-error-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 0 $px40;
-  &__title {
-    font-size: $font-size-xxl;
-    font-weight: $font-weight-bold;
-    margin: $px10 0 $px20;
-  }
-}
-</style>
+<style lang="scss"></style>

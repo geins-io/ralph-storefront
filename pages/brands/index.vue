@@ -9,7 +9,8 @@
             :key="index"
             :class="{
               'is-active': brandGroup.group === activeGroupFilter,
-              'is-passive': brandGroup.group != activeGroupFilter && isGroupFilter
+              'is-passive':
+                brandGroup.group != activeGroupFilter && isGroupFilter
             }"
             class="ca-brands-page__filter-item"
           >
@@ -22,10 +23,14 @@
           <li
             v-for="(brandGroup, index) in brandsTree"
             :key="index"
-            :aria-hidden="[brandGroup.group != activeGroupFilter && isGroupFilter]"
+            :aria-hidden="[
+              brandGroup.group != activeGroupFilter && isGroupFilter
+            ]"
             class="ca-brands-page__group-item"
           >
-            <span class="ca-brands-page__group-label">{{ brandGroup.group }}</span>
+            <span class="ca-brands-page__group-label">{{
+              brandGroup.group
+            }}</span>
             <ul class="ca-brands-page__list">
               <li
                 v-for="(brand, i) in brandGroup.brands"
@@ -60,8 +65,8 @@ export default {
         }
       },
       error(error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
+        // pass the error response to the error component
+        this.$nuxt.error({ statusCode: 500, message: error });
       }
     }
   },
@@ -142,7 +147,7 @@ export default {
   },
   meta: {
     pageType: 'Brands Page'
-  },
+  }
 };
 </script>
 
@@ -184,7 +189,7 @@ export default {
     margin-top: rem-calc(20);
     border-top: $border-light;
 
-    &[aria-hidden="true"] {
+    &[aria-hidden='true'] {
       display: none;
     }
   }
