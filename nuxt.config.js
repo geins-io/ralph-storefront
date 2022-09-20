@@ -572,6 +572,19 @@ export default async () => {
         }
       }
     },
+    // This can be used to log errors that happen before render
+    // hooks: {
+    //   render: {
+    //     errorMiddleware(app) {
+    //       app.use((error, next) => {
+    //         if (error) {
+    //           console.log('Logged in errorMiddleware', error);
+    //         }
+    //         next(error);
+    //       });
+    //     }
+    //   }
+    // },
     dev: process.env.NODE_ENV !== 'production',
     appInsights: {
       instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY,
