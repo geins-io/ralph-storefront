@@ -59,13 +59,13 @@ export default {
   apollo: {
     brands: {
       query: brandsQuery,
+      errorPolicy: 'all',
       result(result) {
         if (result.data && result.data.brands) {
           this.isBrandsLoaded = true;
         }
       },
       error(error) {
-        // pass the error response to the error component
         this.$nuxt.error({ statusCode: 500, message: error });
       }
     }

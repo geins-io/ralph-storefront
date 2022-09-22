@@ -28,11 +28,11 @@ export default {
           take: this.$store.state.favorites.length
         };
       },
+      errorPolicy: 'all',
       result() {
         this.$store.dispatch('loading/end');
       },
       error(error) {
-        // pass the error response to the error component
         this.$nuxt.error({ statusCode: 500, message: error });
       }
     }

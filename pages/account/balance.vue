@@ -23,6 +23,7 @@ export default {
   apollo: {
     getUser: {
       query: getUserQuery,
+      errorPolicy: 'all',
       fetchPolicy: 'no-cache',
       result(result) {
         if (result.data) {
@@ -30,7 +31,6 @@ export default {
         }
       },
       error(error) {
-        // pass the error response to the error component
         this.$nuxt.error({ statusCode: 500, message: error });
       }
     }
