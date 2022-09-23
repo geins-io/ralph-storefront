@@ -33,8 +33,10 @@ export default {
         (data?.widgetArea === null || data?.widgetArea === undefined) &&
         !process.server
       ) {
-        this.$nuxt.error({ statusCode: 404, message: 'Page not found' });
-        this.$store.dispatch('redirect404');
+        this.$nuxt.error({
+          statusCode: 404,
+          message: 'Page not found'
+        });
       }
       this.meta = data?.widgetArea?.meta;
       this.hasMenu = data?.widgetArea?.tags.includes('menu');
