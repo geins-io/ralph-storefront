@@ -190,13 +190,13 @@ export default async () => {
             }
           ],
           langDir: 'languages/',
-          defaultLocale: 'sv',
+          defaultLocale: process.env.DEFAULT_LOCALE,
           lazy: true,
           vueI18n: {
-            fallbackLocale: 'sv'
+            fallbackLocale: process.env.DEFAULT_LOCALE
           },
           detectBrowserLanguage: false,
-          differentDomains: process.env.NODE_ENV === 'production',
+          differentDomains: false,
           parsePages: false,
           pages: {
             'checkout/index': {
