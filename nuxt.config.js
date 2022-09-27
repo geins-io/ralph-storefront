@@ -436,7 +436,7 @@ export default async () => {
       showCategoryTreeViewFilter: true,
       showBrandsFilter: true,
       showSkuFilter: true,
-      showPricefilter: true,
+      showPriceFilter: true,
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
