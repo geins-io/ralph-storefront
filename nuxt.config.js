@@ -437,6 +437,7 @@ export default async () => {
       showBrandsFilter: true,
       showSkuFilter: true,
       showPriceFilter: true,
+      showDiscountFilter: true,
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
