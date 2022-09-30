@@ -178,6 +178,7 @@ export default async () => {
               file: 'en-US.js',
               name: 'English',
               flag: 'gb',
+              currency: 'EUR',
               domain: channelSettings.find(i => i.locale === 'en').domain
             },
             {
@@ -186,6 +187,7 @@ export default async () => {
               file: 'sv-SE.js',
               name: 'Svenska',
               flag: 'se',
+              currency: 'SEK',
               domain: channelSettings.find(i => i.locale === 'sv').domain
             }
           ],
