@@ -179,7 +179,8 @@ export default async () => {
               name: 'English',
               flag: 'gb',
               currency: 'EUR',
-              domain: channelSettings.find(i => i.locale === 'en').domain
+              domain: channelSettings.find(i => i.locale === 'en').domain,
+              channelId: '2|en'
             },
             {
               code: 'sv',
@@ -188,7 +189,8 @@ export default async () => {
               name: 'Svenska',
               flag: 'se',
               currency: 'SEK',
-              domain: channelSettings.find(i => i.locale === 'sv').domain
+              domain: channelSettings.find(i => i.locale === 'sv').domain,
+              channelId: '1|se'
             }
           ],
           langDir: 'languages/',
@@ -470,6 +472,7 @@ export default async () => {
         defaultPaymentId: 23,
         defaultShippingId: null
       },
+      showMultipleMarkets: false,
       /* ******************** */
       /* ******* CART ******* */
       /* ******************** */

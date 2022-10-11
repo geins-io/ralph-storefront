@@ -269,6 +269,7 @@ export default {
   CHECKOUT_INVOICE_INFORMATION:
     'Vi skickar en faktura digitalt till den email du angivit ovan.',
   CHECKOUT_CHOOSE_SHIPPING: 'Välj fraktsätt',
+  CHECKOUT_CHOOSE_COUNTRY: 'Välj ditt land',
   CHECKOUT_SHOW_SHIPPING_OPTIONS: 'Visa fraktsätt',
   CHECKOUT_PAYMENT_GUARD:
     'Fyll i ditt postnummer ovan och välj fraktsätt, samt se till att alla fält är ifyllda innan du kan slutföra köpet.',
@@ -301,5 +302,6 @@ export default {
   ALL_PAGE_TITLE: 'Alla produkter',
   NAVIGATION_ALL_IN: 'Visa allt inom',
   NAVIGATION_GO_TO: 'Gå till',
-  RELATED_PRODUCTS: 'Relaterad produkter'
+  RELATED_PRODUCTS: 'Relaterad produkter',
+  CHOOSE: 'Välj'
 };
