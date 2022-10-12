@@ -273,7 +273,8 @@ export default {
   CHECKOUT_SHOW_SHIPPING_OPTIONS: 'Visa fraktsätt',
   CHECKOUT_PAYMENT_GUARD:
     'Fyll i ditt postnummer ovan och välj fraktsätt, samt se till att alla fält är ifyllda innan du kan slutföra köpet.',
-  CHECKOUT_LOCATION_GUARD: '',
+  CHECKOUT_LOCATION_GUARD:
+    'Välj det land du handlar från ovan för att se tillgängliga fraktsätt',
   CHECKOUT_NO_SHIPPING_OPTIONS:
     'Hittade inga fraktalternativ för angivet postnummer',
   CHECKOUT_ENTER_ZIP:

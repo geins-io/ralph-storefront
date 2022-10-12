@@ -31,7 +31,7 @@
       <CaCustomerTypeToggle class="ca-checkout__vat-toggle" />
     </CaCheckoutSection>
     <CaCheckoutSection
-      :bottom-arrow="$store.getters['cart/totalQuantity']"
+      :bottom-arrow="$store.getters['cart/totalQuantity'] > 0"
       :loading="cartLoading"
     >
       <template #title>
@@ -61,7 +61,7 @@
     </CaCheckoutSection>
 
     <CaCheckoutSection
-      v-if="$store.getters['cart/totalQuantity']"
+      v-if="$store.getters['cart/totalQuantity'] > 0"
       :loading="shippingLoading"
       :blocked="this.$config.showMultipleMarkets && !marketId"
     >
@@ -89,7 +89,7 @@
       /> -->
     </CaCheckoutSection>
     <CaCheckoutSection
-      v-if="$store.getters['cart/totalQuantity']"
+      v-if="$store.getters['cart/totalQuantity'] > 0"
       :bottom-arrow="false"
       :loading="
         !checkout ||
