@@ -31,7 +31,7 @@
       <CaCustomerTypeToggle class="ca-checkout__vat-toggle" />
     </CaCheckoutSection>
     <CaCheckoutSection
-      :bottom-arrow="$store.getters['cart/totalQuantity'] > 0"
+      :bottom-arrow="$store.getters['cart/totalQuantity']"
       :loading="cartLoading"
     >
       <template #title>
@@ -51,19 +51,25 @@
       v-if="
         $store.getters['cart/totalQuantity'] &&
           this.$config.showMultipleMarkets &&
-          markets && markets.length > 1
+          markets &&
+          markets.length > 1
       "
+      :loading="cartLoading"
     >
       <template #title>{{ $t('CHECKOUT_CHOOSE_COUNTRY') }}</template>
       <CaCountrySelector :data="markets" @input="setMarketId($event)" />
     </CaCheckoutSection>
 
     <CaCheckoutSection
-      v-if="$store.getters['cart/totalQuantity'] > 0"
+      v-if="$store.getters['cart/totalQuantity']"
       :loading="shippingLoading"
+      :blocked="this.$config.showMultipleMarkets && !marketId"
     >
       <template #title>
         {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
+      </template>
+      <template #guard>
+        {{ $t('CHECKOUT_LOCATION_GUARD') }}
       </template>
       <CaUdc
         ref="udc"
@@ -83,7 +89,7 @@
       /> -->
     </CaCheckoutSection>
     <CaCheckoutSection
-      v-if="$store.getters['cart/totalQuantity'] > 0"
+      v-if="$store.getters['cart/totalQuantity']"
       :bottom-arrow="false"
       :loading="
         !checkout ||

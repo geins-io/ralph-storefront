@@ -276,6 +276,7 @@ export default {
   CHECKOUT_SHOW_SHIPPING_OPTIONS: 'Show options',
   CHECKOUT_PAYMENT_GUARD:
     'Enter your postal code above and see to that no fields are empty before you can continue.',
+  CHECKOUT_LOCATION_GUARD: '',
   CHECKOUT_NO_SHIPPING_OPTIONS:
     'Could not find any shipping options for the postal code provided',
   CHECKOUT_ENTER_ZIP: 'Enter your postal code to show available options',

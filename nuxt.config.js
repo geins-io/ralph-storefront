@@ -472,7 +472,7 @@ export default async () => {
         defaultPaymentId: 23,
         defaultShippingId: null
       },
-      showMultipleMarkets: false,
+      showMultipleMarkets: true,
       /* ******************** */
       /* ******* CART ******* */
       /* ******************** */
