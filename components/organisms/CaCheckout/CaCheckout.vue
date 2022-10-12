@@ -48,7 +48,11 @@
     </CaCheckoutSection>
 
     <CaCheckoutSection
-      v-if="this.$config.showMultipleMarkets || (markets && markets.length)"
+      v-if="
+        $store.getters['cart/totalQuantity'] &&
+          this.$config.showMultipleMarkets &&
+          markets && markets.length > 1
+      "
     >
       <template #title>{{ $t('CHECKOUT_CHOOSE_COUNTRY') }}</template>
       <CaCountrySelector :data="markets" @input="setMarketId($event)" />
