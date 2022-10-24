@@ -47,11 +47,5 @@ export default {
 };
 </script>
 <style lang="scss">
-.ca-brand-and-name {
-  &__brand {
-    font-weight: $font-weight-bold;
-    text-transform: uppercase;
-    margin-bottom: $px4;
-  }
-}
+  @import 'atoms/ca-brand-and-name';
 </style>

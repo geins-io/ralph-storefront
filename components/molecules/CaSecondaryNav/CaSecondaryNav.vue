@@ -57,6 +57,5 @@ export default {
 };
 </script>
 <style lang="scss">
-.ca-secondary-nav {
-}
+  @import 'molecules/ca-secondary-nav';
 </style>

@@ -17,24 +17,5 @@ export default {
 };
 </script>
 <style lang="scss">
-.ca-price {
-  &__selling {
-    font-size: 1.2em;
-    font-weight: $font-weight-bold;
-  }
-  &__regular {
-    text-decoration: line-through;
-    color: $c-text-secondary;
-    margin-left: $px4;
-  }
-  &__ex-vat {
-    margin-left: $px4;
-    color: $c-text-secondary;
-  }
-  &--sale & {
-    &__selling {
-      color: $c-sale;
-    }
-  }
-}
+  @import 'atoms/ca-price';
 </style>

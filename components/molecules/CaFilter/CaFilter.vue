@@ -82,40 +82,6 @@ export default {
   methods: {}
 };
 </script>
-<style lang="scss" scoped>
-.ca-filter {
-  $block: &;
-  position: relative;
-  &__title {
-    padding: 0px 43px 0px 15px;
-    line-height: 38px;
-    height: 40px;
-    border: $border-light;
-    background: $c-lightest-gray;
-    transition: border-color 200ms ease;
-    cursor: pointer;
-    position: relative;
-  }
-  &__arrow {
-    @include valign;
-    right: 14px;
-    font-size: 16px;
-  }
-  &__values {
-    border: $border-light;
-    position: absolute;
-    margin-top: 2px;
-    z-index: 15;
-    background: $c-lightest-gray;
-    overflow: hidden;
-    width: 100%;
-    padding: $px12;
-  }
-
-  &--chosen & {
-    &__title {
-      font-weight: $font-weight-bold;
-    }
-  }
-}
+<style lang="scss">
+  @import 'molecules/ca-filter';
 </style>
