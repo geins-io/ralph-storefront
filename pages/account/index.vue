@@ -79,22 +79,5 @@ export default {
 </script>
 
 <style lang="scss">
-.ca-account-page {
-  &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 0 $px40;
-  }
-  &__title {
-    font-size: $font-size-xxl;
-    font-weight: $font-weight-bold;
-    margin: 0 0 $px40;
-  }
-  &__spinner.ca-spinner {
-    width: 60px;
-    height: 60px;
-    border-color: $c-accent-color;
-  }
-}
+  @import 'organisms/ca-account-page';
 </style>

@@ -1,0 +1,55 @@
+.ca-brands-page {
+  &__filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem-calc(5);
+    margin-top: rem-calc(20);
+  }
+
+  &__filter-item {
+    font-family: $heading-font;
+    font-size: $font-size-l;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+    &.is-passive {
+      color: $c-text-secondary;
+    }
+
+    &.is-active {
+      text-decoration: underline;
+    }
+  }
+
+  &__group-label {
+    font-family: $heading-font;
+    font-size: $font-size-xxl;
+    font-weight: $font-weight-bold;
+    line-height: 1em;
+  }
+
+  &__group-item {
+    display: flex;
+    gap: rem-calc(20);
+    padding-top: rem-calc(20);
+    margin-top: rem-calc(20);
+    border-top: $border-light;
+
+    &[aria-hidden='true'] {
+      display: none;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    column-count: 1;
+
+    @include bp(tablet) {
+      column-count: 3;
+    }
+
+    @include bp(desktop) {
+      column-count: 4;
+    }
+  }
+}

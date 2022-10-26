@@ -46,32 +46,5 @@ export default {
 };
 </script>
 <style lang="scss">
-.ca-layout-default {
-  $block: &;
-  &__main {
-    padding-top: $header-height + $px12;
-    @include bp(laptop) {
-      padding-top: $header-height-computer + $default-spacing;
-    }
-  }
-  &__loading {
-    @include halign;
-    position: fixed;
-    top: $header-bar-height + $top-bar-height + $px12;
-    z-index: $z-index-panel;
-    background: $c-darkest-gray;
-    padding: $px8;
-    width: rem-calc(36px);
-    height: rem-calc(36px);
-    border-radius: 50%;
-    @include bp(laptop) {
-      top: $header-height-computer + $default-spacing;
-    }
-  }
-  &--loading {
-    #{$block}__main {
-      min-height: 100vh;
-    }
-  }
-}
+  @import 'organisms/ca-layout-default';
 </style>
