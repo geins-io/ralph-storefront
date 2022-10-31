@@ -10,6 +10,12 @@ import {
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 import channelSettings from './static/channel-settings';
+import localeSettings from './static/locales';
+const defaultLocale = process.env.DEFAULT_LOCALE
+
+const currentLocaleSettings = localeSettings.find(
+  i => i.code === defaultLocale
+);
 
 const routePaths = {
   category: '/c',
@@ -183,14 +189,14 @@ export default async () => {
               channelId: '2|en'
             },
             {
-              code: 'sv',
-              iso: 'sv-SE',
-              file: 'sv-SE.js',
-              name: 'Svenska',
-              flag: 'se',
-              currency: 'SEK',
-              domain: channelSettings.find(i => i.locale === 'sv').domain,
-              channelId: '1|se'
+              code: currentLocaleSettings.code,
+              iso: currentLocaleSettings.iso,
+              file: currentLocaleSettings.file,
+              name: currentLocaleSettings.name,
+              flag: currentLocaleSettings.flag,
+              channelId: process.env.FALLBACK_CHANNEL_ID,
+              currency: currentLocaleSettings.currency,
+              domain: channelSettings.find(i => i.locale === defaultLocale).domain
             }
           ],
           langDir: 'languages/',
