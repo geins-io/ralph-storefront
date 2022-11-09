@@ -26,7 +26,7 @@
       <NuxtLink
         v-for="locale in availableLocales"
         :key="locale.code"
-        :to="switchLocalePath(locale.code)"
+        :href="$i18n.defaultLocale === locale.code ? '/' : '/' + locale.code"
       >
         <CaFlag
           class="ca-top-bar__flag"

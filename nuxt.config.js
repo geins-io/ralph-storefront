@@ -11,7 +11,7 @@ import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 import channelSettings from './static/channel-settings';
 import localeSettings from './static/locales';
-const defaultLocale = process.env.DEFAULT_LOCALE
+const defaultLocale = process.env.DEFAULT_LOCALE;
 
 const currentLocaleSettings = localeSettings.find(
   i => i.code === defaultLocale
@@ -196,11 +196,13 @@ export default async () => {
               flag: currentLocaleSettings.flag,
               channelId: process.env.FALLBACK_CHANNEL_ID,
               currency: currentLocaleSettings.currency,
-              domain: channelSettings.find(i => i.locale === defaultLocale).domain
+              domain: channelSettings.find(i => i.locale === defaultLocale)
+                .domain
             }
           ],
           langDir: 'languages/',
           defaultLocale: process.env.DEFAULT_LOCALE,
+          strategy: 'prefix_and_default',
           lazy: true,
           vueI18n: {
             fallbackLocale: process.env.DEFAULT_LOCALE

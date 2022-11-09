@@ -23,7 +23,7 @@
         v-show="!undistracted"
         :key="locale.code"
         class="ca-top-bar__lang-switcher only-computer"
-        :href="switchLocalePath(locale.code)"
+        :href="$i18n.defaultLocale === locale.code ? '/' : '/' + locale.code"
       >
         <CaFlag
           class="ca-top-bar__flag"
