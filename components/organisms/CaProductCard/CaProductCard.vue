@@ -98,41 +98,6 @@ export default {
   methods: {}
 };
 </script>
-<style lang="scss" scoped>
-.ca-product-card {
-  position: relative;
-  &__image-wrap {
-    line-height: 0;
-    position: relative;
-  }
-
-  &__image-link {
-    display: block;
-  }
-  &__info {
-    padding-top: $px12;
-    display: block;
-  }
-  &__price {
-    margin-top: $px4;
-  }
-  &__campaigns {
-    margin: rem-calc(5) 0 0;
-  }
-  &__stock-display {
-    font-size: $font-size-xs;
-    margin: $px10 0 0;
-  }
-  &__buy-button {
-    margin: $px16 0 0;
-  }
-
-  ::v-deep .ca-toggle-favorite {
-    width: 36px;
-    height: 36px;
-    top: auto;
-    right: $px12;
-    bottom: $px12;
-  }
-}
+<style lang="scss">
+  @import 'organisms/ca-product-card';
 </style>

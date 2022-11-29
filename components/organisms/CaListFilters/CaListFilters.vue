@@ -129,23 +129,5 @@ export default {
 };
 </script>
 <style lang="scss">
-.ca-list-filters {
-  @include bp(laptop) {
-    border-top: $border-light;
-    margin-bottom: $px24;
-    padding-top: $px24;
-  }
-  &__title {
-    font-weight: $font-weight-bold;
-    text-transform: uppercase;
-    margin-bottom: $px12;
-  }
-  &__filters {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    column-gap: rem-calc(20px);
-    row-gap: rem-calc(20px);
-  }
-}
+  @import 'organisms/ca-list-filters';
 </style>

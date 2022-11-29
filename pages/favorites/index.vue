@@ -58,31 +58,5 @@ export default {
 </script>
 
 <style lang="scss">
-.ca-favorites-page {
-  &__title {
-    font-size: $font-size-l;
-    font-weight: $font-weight-bold;
-    margin: rem-calc(10) 0 rem-calc(24);
-    @include bp(tablet) {
-      font-size: $font-size-xxl;
-      margin: rem-calc(20) 0 rem-calc(36);
-    }
-  }
-  &__list {
-    margin: 0 0 rem-calc(30);
-    @include bp(tablet) {
-      margin: 0 0 rem-calc(60);
-    }
-  }
-  &__empty {
-    min-height: rem-calc(200);
-    @include flex-calign;
-    font-size: $font-size-xl;
-    color: $c-text-secondary;
-    @include bp(tablet) {
-      min-height: rem-calc(300);
-      margin: 0 0 rem-calc(80);
-    }
-  }
-}
+  @import 'organisms/ca-favorites-page';
 </style>

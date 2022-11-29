@@ -52,10 +52,5 @@ export default {
 </script>
 
 <style lang="scss">
-.ca-balance-page {
-  &__balance {
-    font-weight: $font-weight-bold;
-    font-size: $font-size-xxl;
-  }
-}
+  @import 'organisms/ca-balance-page';
 </style>

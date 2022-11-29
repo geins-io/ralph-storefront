@@ -88,44 +88,6 @@ export default {
   methods: {}
 };
 </script>
-<style lang="scss" scoped>
-.ca-top-bar {
-  background: $c-topbar-bg;
-  font-size: $font-size-xs;
-  z-index: $z-index-header;
-  position: relative;
-  body[style='overflow: hidden;'] &:not(.ca-top-bar--undistracted) {
-    padding-right: var(--scrollbar-width);
-  }
-  &__container {
-    height: $top-bar-height;
-    line-height: $top-bar-height;
-    @include flex-halign;
-    @include bp(laptop) {
-      height: $top-bar-height-computer;
-      line-height: $top-bar-height-computer;
-      justify-content: space-between;
-    }
-  }
-  &__flag {
-    margin-right: $px4;
-    font-size: 15px;
-  }
-  &__usps {
-    @include bp(desktop) {
-      @include calign;
-    }
-  }
-  &__usp {
-    @include bp(laptop) {
-      margin: 0 $px16;
-    }
-  }
-  &__lang-switcher {
-    margin: 0 $px20 0 auto;
-  }
-  &__customer-type-toggle {
-    margin: 0 0 0 $px20;
-  }
-}
+<style lang="scss">
+  @import 'organisms/ca-top-bar';
 </style>
