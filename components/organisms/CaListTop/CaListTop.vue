@@ -1,7 +1,9 @@
 <template>
   <div class="ca-list-top">
     <div v-if="type === 'search' || type === 'all'" class="ca-list-top__text">
-      <h1 class="ca-list-top__title">{{ listInfo.name }}</h1>
+      <h1 v-if="listInfo && listInfo.name" class="ca-list-top__title">
+        {{ listInfo.name }}
+      </h1>
     </div>
     <div v-else class="ca-list-top__text">
       <h1 v-if="listInfo && !listInfo.hideTitle" class="ca-list-top__title">
@@ -60,5 +62,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-list-top';
+@import 'organisms/ca-list-top';
 </style>
