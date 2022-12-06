@@ -304,5 +304,6 @@ export default {
   NAVIGATION_ALL_IN: 'Näytä kaikki sisällä',
   NAVIGATION_GO_TO: 'Mene',
   RELATED_PRODUCTS: 'Liittyvät tuotteet',
-  CHOOSE: 'Valita'
+  CHOOSE: 'Valita',
+  CHOOSE_YOUR_COUNTRY: 'Valitse maa'
 };

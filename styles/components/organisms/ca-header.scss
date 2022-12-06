@@ -4,7 +4,7 @@
   left: 0;
   top: 0;
   z-index: $z-index-header;
-  
+
   &__bar {
     background: $c-header-bg;
     z-index: $z-index-header;
@@ -28,7 +28,7 @@
 
   &__nav-toggle {
     margin-right: auto;
-    
+
     @include flex-valign;
     font-size: 28px;
   }
@@ -52,5 +52,11 @@
 
   .ca-notification-badge {
     border: 1px solid $c-header-bg;
+  }
+
+  &.county-selector-visible {
+    @include bp(laptop) {
+      top: 43px;
+    }
   }
 }

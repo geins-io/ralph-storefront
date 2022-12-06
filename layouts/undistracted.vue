@@ -13,11 +13,38 @@
 </template>
 <script>
 import MixGlobalInit from 'MixGlobalInit';
+import listPageInfo from 'global/list-page-info.graphql';
 export default {
   name: 'CaUndistractedLayout',
-  mixins: [MixGlobalInit]
+  mixins: [MixGlobalInit],
+  apollo: {
+    listPageInfo: {
+      query: listPageInfo,
+      errorPolicy: 'all',
+      result(result) {
+        if (result && result.data.length) {
+          this.listPageInfo = result.data;
+        }
+      }
+    }
+  },
+  data: () => ({
+    listPageInfo: null
+  }),
+  head() {
+    return {
+      title: this.listPageInfo.meta.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.listPageInfo.meta.description
+        }
+      ]
+    };
+  }
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-layout-undistracted';
+@import 'organisms/ca-layout-undistracted';
 </style>

@@ -3,12 +3,18 @@
 
   &__main {
     padding-top: $header-height + $px12;
-    
+
     @include bp(laptop) {
       padding-top: $header-height-computer + $default-spacing;
     }
+
+    &.county-selector-visible {
+      @include bp(laptop) {
+        padding-top: $header-height-computer + $default-spacing + 2rem;
+      }
+    }
   }
-  
+
   &__loading {
     @include halign;
     position: fixed;
@@ -19,12 +25,12 @@
     width: rem-calc(36px);
     height: rem-calc(36px);
     border-radius: 50%;
-    
+
     @include bp(laptop) {
       top: $header-height-computer + $default-spacing;
     }
   }
-  
+
   &--loading {
     #{$block}__main {
       min-height: 100vh;

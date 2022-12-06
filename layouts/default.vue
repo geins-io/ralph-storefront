@@ -1,7 +1,17 @@
 <template>
   <div class="ca-layout-default" :class="modifiers">
-    <CaHeader />
-    <main class="ca-layout-default__main">
+    <CaCountrySelectorPanel v-if="$config.countrySelectorPanelVisible" />
+    <CaHeader
+      :class="{
+        'county-selector-visible': $config.countrySelectorPanelVisible
+      }"
+    />
+    <main
+      class="ca-layout-default__main"
+      :class="{
+        'county-selector-visible': $config.countrySelectorPanelVisible
+      }"
+    >
       <Nuxt />
     </main>
     <div>

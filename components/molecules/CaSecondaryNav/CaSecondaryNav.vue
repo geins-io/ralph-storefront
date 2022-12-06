@@ -23,7 +23,10 @@
       </NuxtLink>
     </CaSecondaryNavItem>
     <CaSecondaryNavItem>
-      <NuxtLink
+      <CaCountrySelectorPanel />
+    </CaSecondaryNavItem>
+    <CaSecondaryNavItem>
+      <a
         v-for="locale in availableLocales"
         :key="locale.code"
         :href="$i18n.defaultLocale === locale.code ? '/' : '/' + locale.code"
@@ -34,7 +37,7 @@
           shape="circle"
         />
         {{ locale.name }}
-      </NuxtLink>
+      </a>
     </CaSecondaryNavItem>
   </ul>
 </template>
@@ -57,5 +60,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'molecules/ca-secondary-nav';
+@import 'molecules/ca-secondary-nav';
 </style>

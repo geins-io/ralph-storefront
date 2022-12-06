@@ -414,6 +414,7 @@ export default async () => {
         }
       ],
       routePaths,
+      countrySelectorPanelVisible: true,
       /* ****************** */
       /* **** WIDGETS ***** */
       /* ****************** */
