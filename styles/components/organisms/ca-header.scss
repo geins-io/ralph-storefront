@@ -53,10 +53,4 @@
   .ca-notification-badge {
     border: 1px solid $c-header-bg;
   }
-
-  &.county-selector-visible {
-    @include bp(laptop) {
-      top: 43px;
-    }
-  }
 }

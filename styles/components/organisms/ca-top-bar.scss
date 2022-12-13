@@ -1,7 +1,7 @@
 .ca-top-bar {
   background: $c-topbar-bg;
   font-size: $font-size-xs;
-  z-index: $z-index-header;
+  z-index: $z-index-header + 1;
   position: relative;
 
   body[style='overflow: hidden;'] &:not(.ca-top-bar--undistracted) {
@@ -40,7 +40,7 @@
   &__lang-switcher {
     margin: 0 $px20 0 auto;
   }
-  
+
   &__customer-type-toggle {
     margin: 0 0 0 $px20;
   }

@@ -10,11 +10,7 @@
           class="ca-header__nav-toggle only-mobile"
           icon-name="menu"
           aria-label="Show menu"
-          @clicked="
-            $store.commit('contentpanel/open', {
-              name: 'menu-panel'
-            })
-          "
+          @clicked="$store.commit('contentpanel/open', { name: 'menu-panel' })"
         />
         <CaIconButton
           v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportComputer"
@@ -24,7 +20,7 @@
           @clicked="() => (searchOpened = !searchOpened)"
         />
         <CaSearch class="only-computer" />
-        <NuxtLink to="/">
+        <NuxtLink :to="'/' + $store.state.language">
           <CaLogo class="ca-header__logo" :alt="$t('LOGO_ALT_TEXT')" />
         </NuxtLink>
         <CaFavorites class="ca-header__favorites" />
@@ -59,5 +55,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-header';
+@import 'organisms/ca-header';
 </style>

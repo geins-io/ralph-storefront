@@ -7,12 +7,6 @@
     @include bp(laptop) {
       padding-top: $header-height-computer + $default-spacing;
     }
-
-    &.county-selector-visible {
-      @include bp(laptop) {
-        padding-top: $header-height-computer + $default-spacing + 2rem;
-      }
-    }
   }
 
   &__loading {

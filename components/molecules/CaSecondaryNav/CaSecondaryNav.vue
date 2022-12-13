@@ -25,7 +25,7 @@
     <CaSecondaryNavItem>
       <CaCountrySelectorPanel />
     </CaSecondaryNavItem>
-    <CaSecondaryNavItem>
+    <!-- <CaSecondaryNavItem>
       <a
         v-for="locale in availableLocales"
         :key="locale.code"
@@ -38,7 +38,7 @@
         />
         {{ locale.name }}
       </a>
-    </CaSecondaryNavItem>
+    </CaSecondaryNavItem> -->
   </ul>
 </template>
 <script>

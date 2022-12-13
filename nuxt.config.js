@@ -11,6 +11,7 @@ import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 import channelSettings from './static/channel-settings';
 import localeSettings from './static/locales';
+const fallbackChannelId = process.env.FALLBACK_CHANNEL_ID;
 const defaultLocale = process.env.DEFAULT_LOCALE;
 
 const currentLocaleSettings = localeSettings.find(
@@ -70,7 +71,7 @@ export default async () => {
   const defaultMetaQuery = await apolloClient.query({
     query: gql`
       query listPageInfo {
-        listPageInfo(alias: "frontpage") {
+        listPageInfo(alias: "frontpage", channelId: "${fallbackChannelId}") {
           meta {
             description
             title
