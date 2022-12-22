@@ -25,7 +25,8 @@ export default {
       variables() {
         return {
           filter: this.filter,
-          take: this.$store.state.favorites.length
+          take: this.$store.state.favorites.length,
+          marketId: this.$store.state.marketId
         };
       },
       errorPolicy: 'all',
@@ -58,5 +59,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-favorites-page';
+@import 'organisms/ca-favorites-page';
 </style>

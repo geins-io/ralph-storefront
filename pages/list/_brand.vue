@@ -25,7 +25,8 @@ export default {
       return {
         categoryAlias: null,
         brandAlias: this.currentAlias,
-        filter: null
+        filter: null,
+        marketId: this.$store.state.marketId
       };
     }
   },

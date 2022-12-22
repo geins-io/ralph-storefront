@@ -24,7 +24,8 @@ export default {
     filtersVars() {
       return {
         discountCampaignAlias: this.currentAlias,
-        filter: null
+        filter: null,
+        marketId: this.$store.state.marketId
       };
     }
   },
@@ -32,6 +33,6 @@ export default {
   methods: {},
   meta: {
     pageType: 'Discount Campaign Page'
-  },
+  }
 };
 </script>

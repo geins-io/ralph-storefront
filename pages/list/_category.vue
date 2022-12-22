@@ -28,7 +28,8 @@ export default {
       return {
         categoryAlias: this.currentAlias,
         brandAlias: null,
-        filter: null
+        filter: null,
+        marketId: this.$store.state.marketId
       };
     }
   },
@@ -36,6 +37,6 @@ export default {
   methods: {},
   meta: {
     pageType: 'Category Page'
-  },
+  }
 };
 </script>

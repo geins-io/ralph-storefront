@@ -26,7 +26,8 @@ export default {
     filtersVars() {
       return {
         listPageUrl: this.currentPath,
-        filter: null
+        filter: null,
+        marketId: this.$store.state.marketId
       };
     }
   },

@@ -416,6 +416,7 @@ export default async () => {
       ],
       routePaths,
       countrySelectorPanelVisible: true,
+      isMultiLanguage: true,
       /* ****************** */
       /* **** WIDGETS ***** */
       /* ****************** */
