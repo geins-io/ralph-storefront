@@ -119,7 +119,9 @@ export default {
             if (result.data.commitReset) {
               this.resetFields();
               this.showFeedback(this.feedback.passwordChanged);
-              window.location.replace(this.localePath('/?action=login'));
+              setTimeout(() => {
+                window.location.replace(this.localePath('/?action=login'));
+              }, 1000);
               return;
             }
             // wrong key uuid
