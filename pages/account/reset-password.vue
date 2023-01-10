@@ -110,14 +110,22 @@ export default {
           })
           .then(result => {
             this.loading = false;
+
             if (result.errors) {
               this.showFeedback(this.feedback.error);
-            } else if (result.data.commitReset) {
+              return;
+            }
+
+            if (result.data.commitReset) {
               this.resetFields();
               this.showFeedback(this.feedback.passwordChanged);
-            } else {
-              this.showFeedback(this.feedback.resetKeyNotValid);
+              setTimeout(() => {
+                window.location.replace(this.localePath('/?action=login'));
+              }, 1000);
+              return;
             }
+            // wrong key uuid
+            this.showFeedback(this.feedback.resetKeyNotValid);
           })
           .catch(error => {
             // pass the error response to the error component
