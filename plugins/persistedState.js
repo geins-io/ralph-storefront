@@ -1,10 +1,15 @@
-import VuexPersistence from 'vuex-persist'
+import VuexPersistence from 'vuex-persist';
 import cookie from 'cookie';
 
 export default ({ store, req, app }) => {
+  const defaultConfigCookie = {
+    path: '/',
+    secure: false
+  };
+
   new VuexPersistence({
     key: 'ralph',
-    reducer: (state) => {
+    reducer: state => {
       return {
         favorites: state.favorites,
         customerType: state.customerType,
@@ -12,8 +17,8 @@ export default ({ store, req, app }) => {
         list: {
           relocateAlias: state.list.relocateAlias,
           relocatePage: state.list.relocatePage
-        },
-      }
+        }
+      };
     },
     storage: {
       getItem: key => {
@@ -27,12 +32,13 @@ export default ({ store, req, app }) => {
         }
       },
       // Please see https://github.com/js-cookie/js-cookie#json, on how to handle JSON.
-      setItem: (key, value) =>
+      setItem: (key, value) => {
         app.$cookies.set(key, value, {
-          expires: new Date(new Date().getTime() + 31536000000),
-          secure: false
-        }),
-      removeItem: key => app.$cookies.remove(key)
+          ...defaultConfigCookie,
+          expires: new Date(new Date().getTime() + 31536000000)
+        });
+      },
+      removeItem: key => app.$cookies.remove(key, defaultConfigCookie)
     }
   }).plugin(store);
 };
