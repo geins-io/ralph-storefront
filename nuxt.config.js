@@ -493,6 +493,12 @@ export default async () => {
         gender: false, // If set to true, gender must be added to user.graphql
         country: false,
         priceLists: true // Set to true if using different price lists for different users
+      },
+      /* ******************** */
+      /* ******* GTM ******* */
+      /* ******************** */
+      gtm: {
+        isProductsKeyItems: false
       }
     },
     privateRuntimeConfig: {},
