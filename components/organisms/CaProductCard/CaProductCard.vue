@@ -34,6 +34,7 @@
       <CaToggleFavorite
         class="ca-product-card__favorite"
         :prod-alias="product.alias"
+        :prod-id="product.productId"
       />
     </div>
     <CaSkeleton
@@ -99,5 +100,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-product-card';
+@import 'organisms/ca-product-card';
 </style>

@@ -18,16 +18,13 @@
         </CaIconAndText>
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
-      <!-- <CaCountrySelectorPanel
-        v-if="$config.countrySelectorPanelVisible"
-        class="ca-top-bar__lang-switcher only-computer"
-      /> -->
-      <a
+      <CaCountrySelectorPanel class="ca-top-bar__lang-switcher only-computer" />
+      <!-- <a
         v-for="locale in availableLocales"
         v-show="!undistracted"
         :key="locale.code"
         class="ca-top-bar__lang-switcher only-computer"
-        :href="$i18n.defaultLocale === locale.code ? '/' : '/' + locale.code"
+        :href="'/' + locale.code"
       >
         <CaFlag
           class="ca-top-bar__flag"
@@ -35,7 +32,7 @@
           shape="circle"
         />
         {{ locale.name }}
-      </a>
+      </a> -->
       <button
         v-if="!$store.getters['auth/authenticated']"
         v-show="!undistracted"

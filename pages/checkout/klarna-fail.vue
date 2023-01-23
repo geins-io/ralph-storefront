@@ -10,7 +10,11 @@
         <h1 class="ca-klarna-error-page__title">
           {{ errorMessage }}
         </h1>
-        <CaButton class="ca-klarna-error-page__button" size="l" href="/">
+        <CaButton
+          class="ca-klarna-error-page__button"
+          size="l"
+          :href="localePath('index')"
+        >
           {{ $t('GO_BACK') }}
         </CaButton>
       </CaCheckoutSection>
@@ -45,5 +49,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-klarna-error-page';
+@import 'organisms/ca-klarna-error-page';
 </style>

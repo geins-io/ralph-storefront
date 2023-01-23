@@ -24,8 +24,7 @@ export default {
     filtersVars() {
       return {
         discountCampaignAlias: this.currentAlias,
-        filter: null,
-        marketId: this.$store.state.marketId
+        filter: null
       };
     }
   },

@@ -20,7 +20,7 @@
           @clicked="() => (searchOpened = !searchOpened)"
         />
         <CaSearch class="only-computer" />
-        <NuxtLink :to="'/' + $store.state.language">
+        <NuxtLink class="ca-header__logo-link" :to="localePath('index')">
           <CaLogo class="ca-header__logo" :alt="$t('LOGO_ALT_TEXT')" />
         </NuxtLink>
         <CaFavorites class="ca-header__favorites" />

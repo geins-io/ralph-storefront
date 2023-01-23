@@ -27,8 +27,7 @@ export default {
         brandAlias: null,
         filter: {
           searchText: this.currentAlias
-        },
-        marketId: this.$store.state.marketId
+        }
       };
     }
   },

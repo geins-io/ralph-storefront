@@ -32,7 +32,7 @@ export default {
           rememberUser: false
         });
         if (this.$route.query.redirect) {
-          this.$router.push('/');
+          this.$router.push(this.localePath('index'));
         } else {
           this.isAuthenticated = true;
         }
@@ -42,6 +42,6 @@ export default {
   methods: {},
   meta: {
     pageType: 'Preview Page'
-  },
+  }
 };
 </script>

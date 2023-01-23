@@ -29,7 +29,10 @@
           </div>
         </div>
         <div v-if="product" class="ca-product-page__main">
-          <CaToggleFavorite :prod-alias="prodAlias" />
+          <CaToggleFavorite
+            :prod-alias="prodAlias"
+            :prod-id="product.productId"
+          />
           <CaBrandAndName
             :brand="product.brand.name"
             :brand-alias="product.brand.canonicalUrl"
@@ -223,5 +226,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-product-page';
+@import 'organisms/ca-product-page';
 </style>

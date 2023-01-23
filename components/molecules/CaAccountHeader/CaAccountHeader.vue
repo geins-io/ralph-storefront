@@ -52,11 +52,11 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout');
-      this.$router.push({ path: '/' });
+      this.$router.push({ path: this.localePath('index') });
     }
   }
 };
 </script>
 <style lang="scss">
-  @import 'molecules/ca-account-header';
+@import 'molecules/ca-account-header';
 </style>

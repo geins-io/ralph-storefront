@@ -50,7 +50,7 @@
     <CaCheckoutSection
       v-if="
         $store.getters['cart/totalQuantity'] &&
-          this.$config.showMultipleMarkets &&
+          $config.checkout.showMultipleMarkets &&
           markets &&
           markets.length > 1
       "
@@ -63,7 +63,7 @@
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
       :loading="shippingLoading"
-      :blocked="this.$config.showMultipleMarkets && !marketId"
+      :blocked="$config.checkout.showMultipleMarkets && !marketId"
     >
       <template #title>
         {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
