@@ -27,7 +27,9 @@ export default {
       if (val && this.$route.query.loginToken) {
         if (this.$store.getters['auth/authenticated']) {
           await this.$store.dispatch('auth/logout');
-        }
+        } 
+        // remove cart for new spoofed user
+        this.$store.dispatch('cart/reset');
         this.auth.client.setTokenData({
           token: this.$route.query.loginToken,
           maxAge: 3600
@@ -64,7 +66,7 @@ export default {
   created() {},
   mounted() {
     if (!this.$route.query.loginToken) {
-      this.$router.replace(this.localePath('account-orders'));
+      this.routeToAccount();
     }
   },
   meta: {
