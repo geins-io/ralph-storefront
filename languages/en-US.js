@@ -1,13 +1,15 @@
 export default {
   CUSTOMER_TYPE_PERSON: 'Person',
   CUSTOMER_TYPE_ORGANIZATION: 'Company',
-  USP_1: 'Free shipping over 49$',
+  USP_1: 'Free shipping over €49',
   USP_2: 'Next day delivery',
   USP_3: 'Free returns',
   USP_TEXT: 'Free and fast delivery!',
   CUSTOMER_SERVICE: 'Customer service',
   FAVORITES_LABEL: 'My favorites',
   FAVORITES_EMPTY: 'You have no favorites saved',
+  BRANDS_TITLE: 'All brands',
+  BRANDS_EMPTY: 'No brands available',
   SEARCH: 'Search',
   SEARCH_PLACEHOLDER: 'Search',
   SEARCH_SEE_ALL: 'See all search results',
@@ -158,6 +160,8 @@ export default {
     'We are here to help you. Reach out to us if you have any problem',
   ACCOUNT_ORDERS_TITLE: 'Orders',
   ACCOUNT_SETTINGS_TITLE: 'Settings',
+  ACCOUNT_BALANCE_TITLE: 'Balance',
+  ACCOUNT_BALANCE_PAGE_TITLE: 'Current balance',
   ACCOUNT_TITLE: 'My account',
   ACCOUNT_SETTINGS_CANCEL: 'Cancel',
   ACCOUNT_SETTINGS_EDIT: 'Edit',
@@ -268,9 +272,12 @@ export default {
   CHECKOUT_INVOICE_INFORMATION:
     'We will send an invoice by email to the email address provided above',
   CHECKOUT_CHOOSE_SHIPPING: 'Choose shipping',
+  CHECKOUT_CHOOSE_COUNTRY: 'Choose your country',
   CHECKOUT_SHOW_SHIPPING_OPTIONS: 'Show options',
   CHECKOUT_PAYMENT_GUARD:
     'Enter your postal code above and see to that no fields are empty before you can continue.',
+  CHECKOUT_LOCATION_GUARD:
+    'Choose your country above to see available shipping methods.',
   CHECKOUT_NO_SHIPPING_OPTIONS:
     'Could not find any shipping options for the postal code provided',
   CHECKOUT_ENTER_ZIP: 'Enter your postal code to show available options',
@@ -299,5 +306,6 @@ export default {
   ALL_PAGE_TITLE: 'All products',
   NAVIGATION_ALL_IN: 'Show all in',
   NAVIGATION_GO_TO: 'Go to',
-  RELATED_PRODUCTS: 'Related products'
+  RELATED_PRODUCTS: 'Related products',
+  CHOOSE: 'Choose'
 };

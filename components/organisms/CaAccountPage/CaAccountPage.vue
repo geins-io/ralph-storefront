@@ -54,6 +54,10 @@ export default {
       {
         name: vm.$t('ACCOUNT_SETTINGS_TITLE'),
         path: 'account-settings'
+      },
+      {
+        name: vm.$t('ACCOUNT_BALANCE_TITLE'),
+        path: 'account-balance'
       }
     ]
   }),

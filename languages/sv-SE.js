@@ -8,6 +8,8 @@ export default {
   CUSTOMER_SERVICE: 'Kundtjänst',
   FAVORITES_LABEL: 'Mina favoriter',
   FAVORITES_EMPTY: 'Du har inga favoriter sparade',
+  BRANDS_TITLE: 'Alla varumärken',
+  BRANDS_EMPTY: 'Inga varumärken finns tillgängliga',
   SEARCH: 'Sök',
   SEARCH_PLACEHOLDER: 'Sök',
   SEARCH_SEE_ALL: 'Se alla sökresultat',
@@ -156,6 +158,8 @@ export default {
     'Vi finns här för att hjälpa dig. Hör av dig till oss om du har problem.',
   ACCOUNT_ORDERS_TITLE: 'Ordrar',
   ACCOUNT_SETTINGS_TITLE: 'Inställningar',
+  ACCOUNT_BALANCE_TITLE: 'Saldo',
+  ACCOUNT_BALANCE_PAGE_TITLE: 'Aktuellt saldo',
   ACCOUNT_TITLE: 'Mina sidor',
   ACCOUNT_SETTINGS_CANCEL: 'Avbryt',
   ACCOUNT_SETTINGS_EDIT: 'Ändra',
@@ -265,9 +269,12 @@ export default {
   CHECKOUT_INVOICE_INFORMATION:
     'Vi skickar en faktura digitalt till den email du angivit ovan.',
   CHECKOUT_CHOOSE_SHIPPING: 'Välj fraktsätt',
+  CHECKOUT_CHOOSE_COUNTRY: 'Välj ditt land',
   CHECKOUT_SHOW_SHIPPING_OPTIONS: 'Visa fraktsätt',
   CHECKOUT_PAYMENT_GUARD:
     'Fyll i ditt postnummer ovan och välj fraktsätt, samt se till att alla fält är ifyllda innan du kan slutföra köpet.',
+  CHECKOUT_LOCATION_GUARD:
+    'Välj det land du handlar från ovan för att se tillgängliga fraktsätt',
   CHECKOUT_NO_SHIPPING_OPTIONS:
     'Hittade inga fraktalternativ för angivet postnummer',
   CHECKOUT_ENTER_ZIP:
@@ -297,5 +304,6 @@ export default {
   ALL_PAGE_TITLE: 'Alla produkter',
   NAVIGATION_ALL_IN: 'Visa allt inom',
   NAVIGATION_GO_TO: 'Gå till',
-  RELATED_PRODUCTS: 'Relaterad produkter'
+  RELATED_PRODUCTS: 'Relaterad produkter',
+  CHOOSE: 'Välj'
 };

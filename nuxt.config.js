@@ -9,6 +9,13 @@ import {
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
+import channelSettings from './static/channel-settings';
+import localeSettings from './static/locales';
+const defaultLocale = process.env.DEFAULT_LOCALE
+
+const currentLocaleSettings = localeSettings.find(
+  i => i.code === defaultLocale
+);
 
 const routePaths = {
   category: '/c',
@@ -16,6 +23,7 @@ const routePaths = {
   product: '/p',
   search: '/s',
   discountCampaign: '/dc',
+  list: '/l',
   all: '/allt'
 };
 
@@ -78,6 +86,21 @@ export default async () => {
   });
   const defaultMeta = await defaultMetaQuery.data.listPageInfo.meta;
   return {
+    // Leaving this here for reference when building a store front for a client that requires Nosto
+    // head: {
+    //   script: (process.env.NOSTO_ACCOUNT_ID && process.env.NOSTO_ACCOUNT_ID.length) && [
+    //     {
+    //       src: '/js/nosto.js',
+    //       async: true
+    //       ssr: false
+    //     },
+    //     {
+    //       src: `//connect.nosto.com/include/${process.env.NOSTO_ACCOUNT_ID}`,
+    //       async: true,
+    //       ssr: false
+    //     }
+    //   ]
+    // },
     /*
      ** Customize the progress-bar color
      */
@@ -142,21 +165,12 @@ export default async () => {
       // Doc: https://html-validator.nuxtjs.org/
       // '@nuxtjs/html-validator'
     ],
-
-    workbox: {
-      runtimeCaching: [
-        {
-          urlPattern: process.env.IMAGE_SERVER + '/.*'
-        }
-      ]
-    },
     /*
      ** Nuxt.js modules
      */
     modules: [
       // Doc: https://github.com/nuxt-community/pwa-module
       '@nuxtjs/pwa',
-      'nuxt-multi-cache',
       [
         // Doc: https://github.com/nuxt-community/i18n-module
         '@nuxtjs/i18n',
@@ -169,23 +183,30 @@ export default async () => {
               iso: 'en-US',
               file: 'en-US.js',
               name: 'English',
-              flag: 'gb'
+              flag: 'gb',
+              currency: 'EUR',
+              domain: channelSettings.find(i => i.locale === 'en').domain,
+              channelId: '2|en'
             },
             {
-              code: 'sv',
-              iso: 'sv-SE',
-              file: 'sv-SE.js',
-              name: 'Svenska',
-              flag: 'se'
+              code: currentLocaleSettings.code,
+              iso: currentLocaleSettings.iso,
+              file: currentLocaleSettings.file,
+              name: currentLocaleSettings.name,
+              flag: currentLocaleSettings.flag,
+              channelId: process.env.FALLBACK_CHANNEL_ID,
+              currency: currentLocaleSettings.currency,
+              domain: channelSettings.find(i => i.locale === defaultLocale).domain
             }
           ],
           langDir: 'languages/',
-          defaultLocale: 'sv',
+          defaultLocale: process.env.DEFAULT_LOCALE,
           lazy: true,
           vueI18n: {
-            fallbackLocale: 'sv'
+            fallbackLocale: process.env.DEFAULT_LOCALE
           },
           detectBrowserLanguage: false,
+          differentDomains: false,
           parsePages: false,
           pages: {
             'checkout/index': {
@@ -200,9 +221,17 @@ export default async () => {
               sv: '/mina-sidor/installningar',
               en: '/my-account/settings'
             },
+            'account/balance': {
+              sv: '/mina-sidor/saldo',
+              en: '/my-account/balance'
+            },
             'favorites/index': {
               sv: '/favoriter',
               en: '/favorites'
+            },
+            'brands/index': {
+              sv: '/varumarken',
+              en: '/brands'
             }
           }
         }
@@ -215,16 +244,11 @@ export default async () => {
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
-      // Doc: https://www.npmjs.com/package/@nuxtjs/component-cache
-      ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
-      // Doc: https://www.npmjs.com/package/nuxt-polyfill
-      'nuxt-polyfill',
       // Doc: https://www.npmjs.com/package/@nuxtjs/gtm
       '@nuxtjs/gtm',
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
-
     // htmlValidator: {
     //   usePrettier: true,
     //   options: {
@@ -234,25 +258,6 @@ export default async () => {
     //     }
     //   }
     // },
-    multiCache: {
-      enabled: process.env.NODE_ENV === 'production',
-      outputDir: '~/cache',
-      server: {
-        auth: {
-          username: 'admin',
-          password: 'hunter2'
-        }
-      },
-      pageCache: {
-        enabled: false
-      },
-      componentCache: {
-        enabled: true
-      },
-      dataCache: {
-        enabled: false
-      }
-    },
     pwa: {
       // Default metadata. Doc: https://pwa.nuxtjs.org/meta/
       meta: {
@@ -303,6 +308,11 @@ export default async () => {
           name: 'pdp-sub-level',
           path: routePaths.product + '/(.*)/(.*)/:alias',
           component: resolve(__dirname, 'pages/product/_alias.vue')
+        });
+        routes.push({
+          name: 'plp',
+          path: routePaths.list + '/*',
+          component: resolve(__dirname, 'pages/list/_list.vue')
         });
         routes.push({
           name: 'plp-all',
@@ -432,6 +442,12 @@ export default async () => {
         laptop: 5,
         desktop: 5
       },
+      showCategoryFilter: true,
+      showCategoryTreeViewFilter: true,
+      showBrandsFilter: true,
+      showSkuFilter: true,
+      showPriceFilter: true,
+      showDiscountFilter: true,
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
@@ -462,6 +478,7 @@ export default async () => {
         defaultPaymentId: 23,
         defaultShippingId: null
       },
+      showMultipleMarkets: true,
       /* ******************** */
       /* ******* CART ******* */
       /* ******************** */
@@ -508,12 +525,25 @@ export default async () => {
       transpile: ['@ralph/ralph-ui'],
       optimization: {
         splitChunks: {
-          chunks: 'all',
           automaticNameDelimiter: 'ca.',
-          name: undefined,
-          cacheGroups: {},
-          minSize: 15000,
-          maxSize: 260000
+          chunks: 'async',
+          minSize: 20000,
+          minChunks: 1,
+          maxAsyncRequests: 30,
+          maxInitialRequests: 30,
+          enforceSizeThreshold: 50000,
+          cacheGroups: {
+            defaultVendors: {
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+              reuseExistingChunk: true
+            },
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true
+            }
+          }
         }
       },
       loaders: {
@@ -551,19 +581,6 @@ export default async () => {
         ];
         if (isDev) {
           config.devtool = 'source-map';
-        }
-      }
-    },
-    hooks: {
-      render: {
-        errorMiddleware(app) {
-          // eslint-disable-next-line
-          app.use((error, req, res, next) => {
-            res.writeHead(307, {
-              Location: '/'
-            });
-            res.end();
-          });
         }
       }
     },

@@ -4,14 +4,18 @@
       <h1 class="ca-list-top__title">{{ listInfo.name }}</h1>
     </div>
     <div v-else class="ca-list-top__text">
-      <h1 v-if="listInfo" class="ca-list-top__title">{{ listInfo.name }}</h1>
+      <h1 v-if="listInfo && !listInfo.hideTitle" class="ca-list-top__title">
+        {{ listInfo.name }}
+      </h1>
       <CaSkeleton
-        v-else
+        v-else-if="!listInfo"
         class="ca-list-top__title ca-list-top__title--skeleton"
         width="30%"
       />
       <CaReadMore
-        v-if="listInfo && listInfo.primaryDescription !== ''"
+        v-if="
+          listInfo && !!listInfo.primaryDescription && !listInfo.hideDescription
+        "
         class="ca-list-top__description"
       >
         <CaHtml :content="listInfo.primaryDescription" />

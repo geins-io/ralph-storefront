@@ -21,6 +21,7 @@ export default {
   apollo: {
     getUser: {
       query: getUserQuery,
+      errorPolicy: 'all',
       fetchPolicy: 'no-cache',
       result(result) {
         if (result.data) {
@@ -28,8 +29,7 @@ export default {
         }
       },
       error(error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
+        this.$nuxt.error({ statusCode: 500, message: error });
       }
     }
   },
@@ -54,7 +54,7 @@ export default {
   methods: {},
   meta: {
     pageType: 'Settings Page'
-  },
+  }
 };
 </script>
 

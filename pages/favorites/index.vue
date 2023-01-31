@@ -28,12 +28,12 @@ export default {
           take: this.$store.state.favorites.length
         };
       },
+      errorPolicy: 'all',
       result() {
         this.$store.dispatch('loading/end');
       },
       error(error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
+        this.$nuxt.error({ statusCode: 500, message: error });
       }
     }
   },
@@ -53,7 +53,7 @@ export default {
   methods: {},
   meta: {
     pageType: 'Favorite Page'
-  },
+  }
 };
 </script>
 
