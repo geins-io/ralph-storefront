@@ -1,0 +1,43 @@
+.ca-checkout-confirm-page {
+  max-width: $checkout-width;
+  margin: 0 auto;
+  padding-bottom: $px32;
+  
+  &__title {
+    font-size: $font-size-xl;
+    text-align: center;
+  }
+
+  &__no-cart {
+    text-align: center;
+    color: $c-text-secondary;
+  }
+}
+
+.ca-checkout-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  &__icon {
+    font-size: 40px;
+    color: $c-success;
+  }
+  
+  &__title {
+    margin: $px20 0;
+    font-size: $font-size-xxl;
+    font-weight: $font-weight-bold;
+  }
+  
+  &__text {
+    font-size: $font-size-m;
+    text-align: center;
+    margin: 0 0 $px20;
+  }
+  
+  &__id {
+    font-size: $font-size-xl;
+    color: $c-text-secondary;
+  }
+}

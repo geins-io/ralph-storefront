@@ -64,26 +64,5 @@ export default {
 };
 </script>
 <style lang="scss">
-.ca-product-accordion {
-  border-top: $border-light;
-  @include bp(laptop) {
-    border-left: $border-light;
-    border-right: $border-light;
-    .ca-accordion-item__toggle {
-      font-size: $font-size-l;
-    }
-  }
-  @include bp(tablet-down) {
-    .ca-accordion-item__toggle {
-      padding: 1rem ($default-spacing / 2);
-    }
-  }
-
-  &__item-content {
-    padding: $default-spacing / 2;
-    @include bp(laptop) {
-      padding: $px16;
-    }
-  }
-}
+  @import 'molecules/ca-product-accordion';
 </style>

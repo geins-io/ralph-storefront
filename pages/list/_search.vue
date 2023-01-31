@@ -15,7 +15,7 @@ export default {
   name: 'SearchListView',
   mixins: [],
   data: () => ({
-    infoQuery: categoryInfoQuery,
+    infoQuery: categoryInfoQuery
   }),
   computed: {
     currentAlias() {
@@ -28,13 +28,13 @@ export default {
         filter: {
           searchText: this.currentAlias
         }
-      }
-    },
+      };
+    }
   },
   mounted() {},
   methods: {},
   meta: {
     pageType: 'Search Page'
-  },
+  }
 };
 </script>

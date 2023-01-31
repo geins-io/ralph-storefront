@@ -32,6 +32,6 @@ export default {
   methods: {},
   meta: {
     pageType: 'Discount Campaign Page'
-  },
+  }
 };
 </script>
