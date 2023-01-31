@@ -73,6 +73,7 @@
         :shipping-data="checkout.shippingData"
         :zip="currentZip"
         :parent-loading="shippingLoading"
+        :data-is-set="udcDataSet"
         @init="initUDC"
         @changed="setUDCdata"
         @validation="udcValid = $event"
