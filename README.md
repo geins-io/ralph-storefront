@@ -4,9 +4,16 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm install
+
+# point to local version of Ralph-UI for hot reload
+# (run this command whenever dependencies changed)
+$ npm run link-ralph
+
+# serve the documentation (open url in the browser) and serve the app
+$ npm run ralph
 
 # serve with hot reload at localhost:3000
 $ npm run dev

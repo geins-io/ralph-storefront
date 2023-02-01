@@ -103,6 +103,16 @@ export default async () => {
     //   ]
     // },
     /*
+     ** Append documentation URL to output cli banner
+     */
+    cli: {
+      badgeMessages: [
+        'Ralph-UI docs: http://localhost:6001/#/undefined',
+        '',
+        '* Keep in mind that if port will be occupied, then it will run on a different port.'
+      ]
+    },
+    /*
      ** Customize the progress-bar color
      */
     loading: { color: '#353797', height: '5px' },
