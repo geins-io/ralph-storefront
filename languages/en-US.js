@@ -307,6 +307,5 @@ export default {
   NAVIGATION_ALL_IN: 'Show all in',
   NAVIGATION_GO_TO: 'Go to',
   RELATED_PRODUCTS: 'Related products',
-  CHOOSE: 'Choose',
-  CHOOSE_YOUR_COUNTRY: 'Choose country'
+  CHOOSE: 'Choose'
 };

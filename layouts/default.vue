@@ -5,7 +5,9 @@
       <Nuxt />
     </main>
     <div>
-      <CaFooter />
+      <LazyHydrate when-visible>
+        <CaFooter />
+      </LazyHydrate>
       <client-only>
         <transition name="fade">
           <div v-if="globalLoading" class="ca-layout-default__loading">
@@ -25,21 +27,51 @@
 </template>
 <script>
 import MixGlobalInit from 'MixGlobalInit';
+import LazyHydrate from 'vue-lazy-hydration';
 
 export default {
   name: 'CaDefaultLayout',
+  components: {
+    LazyHydrate
+  },
   mixins: [MixGlobalInit],
-  apollo: {},
-  data: () => ({}),
   computed: {
     modifiers() {
       return {
         'ca-layout-default--loading': this.$store.state.loading.loading
       };
     }
-  }
+  },
+  mounted() {}
 };
 </script>
 <style lang="scss">
-@import 'organisms/ca-layout-default';
+.ca-layout-default {
+  $block: &;
+  &__main {
+    padding-top: $header-height + $px12;
+    @include bp(laptop) {
+      padding-top: $header-height-computer + $default-spacing;
+    }
+  }
+  &__loading {
+    @include halign;
+    position: fixed;
+    top: $header-bar-height + $top-bar-height + $px12;
+    z-index: $z-index-panel;
+    background: $c-darkest-gray;
+    padding: $px8;
+    width: rem-calc(36px);
+    height: rem-calc(36px);
+    border-radius: 50%;
+    @include bp(laptop) {
+      top: $header-height-computer + $default-spacing;
+    }
+  }
+  &--loading {
+    #{$block}__main {
+      min-height: 100vh;
+    }
+  }
+}
 </style>

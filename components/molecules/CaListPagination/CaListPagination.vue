@@ -67,5 +67,16 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'molecules/ca-list-pagination';
+.ca-list-pagination {
+  padding: $px32 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__button {
+    overflow-anchor: none;
+  }
+  &__showing {
+    margin-bottom: $px12;
+  }
+}
 </style>

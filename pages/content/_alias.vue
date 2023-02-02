@@ -76,5 +76,28 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-content-page';
+.ca-content-page {
+  &__container {
+    &--has-menu {
+      .ca-container {
+        width: 100%;
+      }
+
+      @include bp(tablet) {
+        display: flex;
+        column-gap: $px32;
+      }
+    }
+  }
+  &__sidebar {
+    @include bp(tablet) {
+      width: rem-calc(200);
+      flex-shrink: 0;
+    }
+    @include bp(laptop) {
+      width: rem-calc(300);
+      flex-shrink: 0;
+    }
+  }
+}
 </style>
