@@ -5,7 +5,15 @@ export default [
     file: 'en-US.js',
     name: 'English',
     flag: 'gb',
-    currency: 'GBP'
+    currency: 'EUR'
+  },
+  {
+    code: 'fi',
+    iso: 'fi-FI',
+    file: 'fi-FI.js',
+    name: 'Suomalainen',
+    flag: 'fi',
+    currency: 'EUR'
   },
   {
     code: 'nb',

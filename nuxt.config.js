@@ -10,13 +10,13 @@ import {
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 // import channelSettings from './static/channel-settings';
-// import localeSettings from './static/locales';
+import localeSettings from './static/locales';
 const fallbackChannelId = process.env.FALLBACK_CHANNEL_ID;
 const fallbackMarketId = process.env.FALLBACK_MARKET_ID;
 
-// const currentLocaleSettings = localeSettings.find(
-//   i => i.code === defaultLocale
-// );
+const currentLocaleSettings = localeSettings.find(
+  i => i.code === process.env.DEFAULT_LOCALE
+);
 
 const routePaths = {
   category: '/c',
@@ -180,35 +180,28 @@ export default async () => {
           seo: false,
           locales: [
             {
-              code: 'en',
-              iso: 'en-US',
-              file: 'en-US.js',
-              name: 'English',
-              flag: 'gb',
-              currency: 'EUR'
-            },
-            {
-              code: 'sv',
-              iso: 'sv-SE',
-              file: 'sv-SE.js',
-              name: 'Swedish',
-              flag: 'se',
-              currency: 'SEK'
+              code: currentLocaleSettings.code,
+              iso: currentLocaleSettings.iso,
+              file: currentLocaleSettings.file,
+              name: currentLocaleSettings.name,
+              flag: currentLocaleSettings.flag,
+              currency: currentLocaleSettings.currency,              
             }
           ],
           langDir: 'languages/',
           defaultLocale: process.env.DEFAULT_LOCALE,
-          strategy: 'prefix',
+          strategy: 'no_prefix',
           lazy: true,
           vueI18n: {
             fallbackLocale: process.env.DEFAULT_LOCALE
           },
-          detectBrowserLanguage: {
-            useCookie: true,
-            cookieKey: 'language_redirected',
-            redirectOn: 'root',
-            cookieAge: 365
-          },
+          detectBrowserLanguage: false,
+          // {
+          //  useCookie: true,
+          //  cookieKey: 'language_redirected',
+          //  redirectOn: 'root',
+          //  cookieAge: 365
+          // },
           differentDomains: false,
           parsePages: false,
           pages: {
@@ -385,7 +378,7 @@ export default async () => {
       apiEndpoint: process.env.API_ENDPOINT,
       fallbackChannelId,
       fallbackMarketId,
-      isMultiLanguage: true,
+      isMultiLanguage: false,
       customerServiceEmail: 'info@carismar.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
