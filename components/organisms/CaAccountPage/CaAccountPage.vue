@@ -64,7 +64,7 @@ export default {
   computed: {
     currentPageTitle() {
       const currentPage = this.accountMenu.find(
-        i => this.localePath(i.path) === this.$route.path
+        i => this.$getPath(i.path) === this.$route.path
       );
       const accountTitle = this.$t('ACCOUNT_TITLE');
       return this.$store.getters.viewport === 'phone'
@@ -80,5 +80,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-account-page';
+@import 'organisms/ca-account-page';
 </style>

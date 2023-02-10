@@ -18,21 +18,10 @@
         </CaIconAndText>
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
-      <CaCountrySelectorPanel class="ca-top-bar__lang-switcher only-computer" />
-      <!-- <a
-        v-for="locale in availableLocales"
+      <CaCountrySelectorPanel
         v-show="!undistracted"
-        :key="locale.code"
         class="ca-top-bar__lang-switcher only-computer"
-        :href="'/' + locale.code"
-      >
-        <CaFlag
-          class="ca-top-bar__flag"
-          :country="locale.flag"
-          shape="circle"
-        />
-        {{ locale.name }}
-      </a> -->
+      />
       <button
         v-if="!$store.getters['auth/authenticated']"
         v-show="!undistracted"
@@ -53,7 +42,7 @@
         v-else
         v-show="!undistracted"
         class="ca-top-bar__link ca-top-bar__link--login only-computer"
-        :to="localePath('account-orders')"
+        :to="$getPath('account-orders')"
       >
         <CaIconAndText icon-name="user">
           {{ $t('ACCOUNT_TITLE') }}

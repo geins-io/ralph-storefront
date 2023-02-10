@@ -13,7 +13,7 @@
         <CaButton
           class="ca-klarna-error-page__button"
           size="l"
-          :href="localePath('index')"
+          :href="$getPath('index')"
         >
           {{ $t('GO_BACK') }}
         </CaButton>

@@ -148,6 +148,9 @@ export default async () => {
     plugins: [
       { src: '~/plugins/persistedState.js', mode: 'client' },
       {
+        src: '~/node_modules/@ralph/ralph-ui/plugins/get-path.js'
+      },
+      {
         src: '~/node_modules/@ralph/ralph-ui/plugins/broadcastChannel.js',
         mode: 'client'
       },
@@ -169,6 +172,14 @@ export default async () => {
      ** Nuxt.js dev-modules
      */
     buildModules: [
+      // Doc: https://www.npmjs.com/package/@nuxtjs/router
+      [
+        '@nuxtjs/router',
+        {
+          path: 'node_modules/@ralph/ralph-ui/plugins',
+          keepDefaultRouter: true
+        }
+      ],
       // Doc: https://github.com/nuxt-community/eslint-module
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/stylelint-module
@@ -213,12 +224,7 @@ export default async () => {
           vueI18n: {
             fallbackLocale: process.env.DEFAULT_LOCALE
           },
-          detectBrowserLanguage: {
-            useCookie: true,
-            cookieKey: 'language_redirected',
-            redirectOn: 'root',
-            cookieAge: 365
-          },
+          detectBrowserLanguage: false,
           differentDomains: false,
           parsePages: false,
           pages: {
@@ -396,6 +402,8 @@ export default async () => {
       fallbackChannelId,
       fallbackMarketId,
       isMultiLanguage: true,
+      marketInPath: true,
+      useStartPage: false,
       customerServiceEmail: 'info@carismar.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
