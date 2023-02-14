@@ -194,6 +194,11 @@
           </p>
         </div>
       </section>
+      <section v-if="$config.showProductReviewSection" class="ca-product-page__section-review">
+        <CaReviewsList
+          v-if="product" :product-alias="prodAlias" />
+        <CaReviewForm :product-alias="prodAlias" />
+      </section>
     </CaContainer>
     <section class="ca-product-page__widget-section">
       <CaWidgetArea
@@ -217,11 +222,10 @@ export default {
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
   data: () => ({}),
   computed: {},
-  watch: {},
   methods: {},
   meta: {
     pageType: 'Product Page'
-  }
+  },
 };
 </script>
 

@@ -487,6 +487,8 @@ export default async () => {
         }
       },
       productShowRelated: true,
+      showProductReviewSection: true,
+      showStarsInProductReviewForm: true, // it requires showProductReviewSection to be true
       /* ****************** */
       /* ***** IMAGES ***** */
       /* ****************** */

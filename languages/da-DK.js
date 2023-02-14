@@ -308,5 +308,19 @@ export default {
   PAYMENT_PANEL_HEADING: 'Betalingsinformation',
   DELIVERY_PANEL_HEADING: 'Leverings information',
   RECOMMENDED_PRICE: 'Rec. Pris',
-  CHOOSE_YOUR_COUNTRY: 'Vælg land'
+  CHOOSE_YOUR_COUNTRY: 'Vælg land',
+  // !start english placeholders - please update DK translations
+  REVIEW_WRITE: 'Write a review',
+  REVIEW_IN_ACCEPTANCE: 'Thank you! Your review will be added shortly.',
+  REVIEW_NEED_LOG_IN: 'You need to log in to be able to write a review.',
+  REVIEW_NAME_PLACEHOLDER: 'Your name',
+  REVIEW_COMMENT_PLACEHOLDER: 'Review text',
+  SEND: 'Send',
+  FEEDBACK_ALL_INPUTS_REVIEW:
+    'Please fill all necessary information to submit a review .',
+  PRODUCT_REVIEWS: 'Product reviews',
+  REVIEW_WRITTEN_BY: 'Written by:',
+  REVIEWS_LIST_EMPTY: 'This product dosen´t have any reviews yet.',
+  REVIEW_FEEDBACK_RATE_REQUIRED: 'Please use stars to rate the product'
+  // !end english placeholders - please update DK translations
 };
