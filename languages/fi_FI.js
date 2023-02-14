@@ -306,18 +306,19 @@ export default {
   RELATED_PRODUCTS: 'Liittyvät tuotteet',
   CHOOSE: 'Valita',
   CHOOSE_YOUR_COUNTRY: 'Valitse maa',
-  // !start english placeholders - please update FI translations
-  REVIEW_WRITE: 'Write a review',
-  REVIEW_IN_ACCEPTANCE: 'Thank you! Your review will be added shortly.',
-  REVIEW_NEED_LOG_IN: 'You need to log in to be able to write a review.',
-  REVIEW_NAME_PLACEHOLDER: 'Your name',
-  REVIEW_COMMENT_PLACEHOLDER: 'Review text',
-  SEND: 'Send',
+  // !start FI translations from Google translet - please checkk if valid
+  REVIEW_WRITE: 'Kirjoita arvostelu',
+  REVIEW_IN_ACCEPTANCE: 'Kiitos! Arvostelusi lisätään pian.',
+  REVIEW_NEED_LOG_IN:
+    'Sinun on kirjauduttava sisään voidaksesi kirjoittaa arvostelun.',
+  REVIEW_NAME_PLACEHOLDER: 'Sinun nimesi',
+  REVIEW_COMMENT_PLACEHOLDER: 'Tarkista teksti',
+  SEND: 'Lähettää',
   FEEDBACK_ALL_INPUTS_REVIEW:
-    'Please fill all necessary information to submit a review .',
-  PRODUCT_REVIEWS: 'Product reviews',
-  REVIEW_WRITTEN_BY: 'Written by:',
-  REVIEWS_LIST_EMPTY: 'This product dosen´t have any reviews yet.',
-  REVIEW_FEEDBACK_RATE_REQUIRED: 'Please use stars to rate the product'
-  // !end english placeholders - please update FI translations
+    'Täytä kaikki tarvittavat tiedot lähettääksesi arvostelun.',
+  PRODUCT_REVIEWS: 'Tuotearvostelut',
+  REVIEW_WRITTEN_BY: 'Kirjoittanut:',
+  REVIEWS_LIST_EMPTY: 'Tällä tuotteella ei ole vielä yhtään arvostelua.',
+  REVIEW_FEEDBACK_RATE_REQUIRED: 'Käytä tähtiä tuotteen arvioimiseen'
+  // !end FI translations from Google translet - please checkk if valid
 };

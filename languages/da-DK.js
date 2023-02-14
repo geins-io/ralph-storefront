@@ -309,18 +309,20 @@ export default {
   DELIVERY_PANEL_HEADING: 'Leverings information',
   RECOMMENDED_PRICE: 'Rec. Pris',
   CHOOSE_YOUR_COUNTRY: 'Vælg land',
-  // !start english placeholders - please update DK translations
-  REVIEW_WRITE: 'Write a review',
-  REVIEW_IN_ACCEPTANCE: 'Thank you! Your review will be added shortly.',
-  REVIEW_NEED_LOG_IN: 'You need to log in to be able to write a review.',
-  REVIEW_NAME_PLACEHOLDER: 'Your name',
-  REVIEW_COMMENT_PLACEHOLDER: 'Review text',
-  SEND: 'Send',
+  // !start DK translations from Google translet - please checkk if valid
+  REVIEW_WRITE: 'Skrive en anmeldelse',
+  REVIEW_IN_ACCEPTANCE:
+    'Tak skal du have! Din anmeldelse vil blive tilføjet snart.',
+  REVIEW_NEED_LOG_IN: 'Du skal logge ind for at kunne skrive en anmeldelse.',
+  REVIEW_NAME_PLACEHOLDER: 'Dit navn',
+  REVIEW_COMMENT_PLACEHOLDER: 'Gennemgå tekst',
+  SEND: 'Sende',
   FEEDBACK_ALL_INPUTS_REVIEW:
-    'Please fill all necessary information to submit a review .',
-  PRODUCT_REVIEWS: 'Product reviews',
-  REVIEW_WRITTEN_BY: 'Written by:',
-  REVIEWS_LIST_EMPTY: 'This product dosen´t have any reviews yet.',
-  REVIEW_FEEDBACK_RATE_REQUIRED: 'Please use stars to rate the product'
-  // !end english placeholders - please update DK translations
+    'Udfyld venligst alle nødvendige oplysninger for at indsende en anmeldelse.',
+  PRODUCT_REVIEWS: 'Produktanmeldelser',
+  REVIEW_WRITTEN_BY: 'Skrevet af:',
+  REVIEWS_LIST_EMPTY: 'Dette produkt har endnu ingen anmeldelser.',
+  REVIEW_FEEDBACK_RATE_REQUIRED:
+    'Brug venligst stjerner til at bedømme produktet'
+  // !end DK translations from Google translet - please checkk if valid
 };

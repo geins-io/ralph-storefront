@@ -316,9 +316,9 @@ export default {
   REVIEW_COMMENT_PLACEHOLDER: 'Review text',
   SEND: 'Send',
   FEEDBACK_ALL_INPUTS_REVIEW:
-    'Please fill all necessary information to submit a review .',
+    'Please fill all necessary information to submit a review.',
   PRODUCT_REVIEWS: 'Product reviews',
   REVIEW_WRITTEN_BY: 'Written by:',
-  REVIEWS_LIST_EMPTY: 'This product dosen´t have any reviews yet.',
+  REVIEWS_LIST_EMPTY: 'This product doesn´t have any reviews yet.',
   REVIEW_FEEDBACK_RATE_REQUIRED: 'Please use stars to rate the product'
 };
