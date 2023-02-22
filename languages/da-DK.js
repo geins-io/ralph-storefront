@@ -1,10 +1,10 @@
 export default {
   CUSTOMER_TYPE_PERSON: 'Privat person',
   CUSTOMER_TYPE_ORGANIZATION: 'Forretning',
-  USP_1: 'Gratis fragt over 499',
+  USP_1: 'Hurtig levering',
   USP_2: 'Levering næste dag',
   USP_3: 'Gratis retur',
-  USP_TEXT: 'Altid gratis fragt over 499',
+  USP_TEXT: 'Hurtig levering - Gratis fragt ved køb over 799',
   CUSTOMER_SERVICE: 'Kunde service',
   FAVORITES_LABEL: 'Mine favoritter',
   FAVORITES_EMPTY: 'Du har ingen markerede favoritprodukter',

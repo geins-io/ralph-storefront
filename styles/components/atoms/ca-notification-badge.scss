@@ -1,0 +1,18 @@
+.ca-notification-badge {
+  @include flex-calign;
+  background-color: $c-notification-badge-bg;
+  color: $c-notification-badge-txt;
+  border-radius: 50%;
+  width: 1.5em;
+  aspect-ratio: 1;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-xs;
+  line-height: 1;
+
+  &--positioned {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(40%, -20%);
+  }
+}

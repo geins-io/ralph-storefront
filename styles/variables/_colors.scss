@@ -6,8 +6,12 @@ $c-light-gray: #ececec;
 $c-medium-gray: #d8d8d8;
 $c-dark-gray: #adadad;
 $c-darkest-gray: #363636;
+$c-light-pink: #fdf6f7;
+$c-pale-pink: #e59797;
+$c-pink: #ffdce0;
 
-$c-accent-color: $c-darkest-gray;
+$c-accent-color: $c-pink;
+$c-accent-bg: $c-pink;
 
 // Theme text colors
 $c-text-primary: #222222;
@@ -33,13 +37,14 @@ $c-static-stock: $c-in-stock;
 // Border colors
 $c-border-light: $c-light-gray;
 $c-border-dark: $c-medium-gray;
+$c-border-pink: $c-accent-bg;
 
 // Backgrounds
 $c-main-bg: $c-white;
 
 // Header
-$c-topbar-bg: $c-medium-gray;
-$c-header-bg: $c-light-gray;
+$c-topbar-bg: $c-accent-bg;
+$c-header-bg: $c-white;
 $c-search-bg: $c-medium-gray;
 $c-cart-color: $c-text-primary;
 
@@ -73,7 +78,7 @@ $c-content-panel-header-bg: $c-light-gray;
 $c-content-panel-header-txt: $c-text-primary;
 
 // Notification badge
-$c-notification-badge-bg: $c-dark-gray;
+$c-notification-badge-bg: $c-pale-pink;
 $c-notification-badge-txt: $c-text-inverse;
 
 // Skeletons

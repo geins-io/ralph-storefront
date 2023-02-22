@@ -1,22 +1,39 @@
 @font-face {
-  font-family: 'Roboto';
-  src: url('@/assets/fonts/Roboto-Regular.ttf') format('truetype');
-  font-weight: 400;
+  font-family: 'Poppins';
+  src: url('@/assets/fonts/Poppins-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('@/assets/fonts/Roboto-Italic.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('@/assets/fonts/Poppins-regular.woff2') format('woff2');
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('@/assets/fonts/Roboto-Medium.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('@/assets/fonts/Poppins-medium.woff2') format('woff2');
   font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('@/assets/fonts/Poppins-semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('@/assets/fonts/Poppins-bold.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }

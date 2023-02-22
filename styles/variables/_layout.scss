@@ -3,6 +3,7 @@
 // Borders
 $border-light: 1px solid $c-border-light;
 $border-dark: 1px solid $c-border-dark;
+$border-pink: 1px solid $c-border-pink;
 $button-primary-border: none;
 $button-secondary-border: 1px solid $c-button-secondary-border;
 $input-border: $border-dark;
@@ -33,7 +34,7 @@ $top-bar-height-computer: rem-calc(36px);
 
 // Search
 $search-height: rem-calc(50px);
-$search-input-height: rem-calc(40px);
+$search-input-height: rem-calc(38px);
 
 // Header
 $header-bar-height: rem-calc(50px);

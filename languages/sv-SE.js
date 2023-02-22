@@ -1,10 +1,10 @@
 export default {
   CUSTOMER_TYPE_PERSON: 'Privatperson',
   CUSTOMER_TYPE_ORGANIZATION: 'Företag',
-  USP_1: 'Fri frakt över 499:-',
+  USP_1: 'Snabb leverans',
   USP_2: 'Nästa dag leverans',
   USP_3: 'Fria returer',
-  USP_TEXT: 'Alltid fri frakt över 499:-',
+  USP_TEXT: 'Snabb leverans - Fri frakt vid köp över 799 kr',
   CUSTOMER_SERVICE: 'Kundtjänst',
   FAVORITES_LABEL: 'Mina favoriter',
   FAVORITES_EMPTY: 'Du har inga favoriter sparade',

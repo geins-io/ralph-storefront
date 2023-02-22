@@ -1,8 +1,8 @@
 .ca-top-bar {
-  background: $c-topbar-bg;
+  background-color: $c-topbar-bg;
   font-size: $font-size-xs;
-  z-index: $z-index-header + 1;
   position: relative;
+  z-index: $z-index-header;
 
   body[style='overflow: hidden;'] &:not(.ca-top-bar--undistracted) {
     padding-right: var(--scrollbar-width);
@@ -11,12 +11,12 @@
   &__container {
     height: $top-bar-height;
     line-height: $top-bar-height;
-    @include flex-halign;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
 
     @include bp(laptop) {
       height: $top-bar-height-computer;
       line-height: $top-bar-height-computer;
-      justify-content: space-between;
     }
   }
 
@@ -26,22 +26,16 @@
   }
 
   &__usps {
-    @include bp(desktop) {
-      @include calign;
-    }
-  }
-
-  &__usp {
-    @include bp(laptop) {
-      margin: 0 $px16;
-    }
-  }
-
-  &__lang-switcher {
-    margin: 0 $px20 0 auto;
+    grid-column-start: 2;
+    display: flex;
+    column-gap: $px16;
   }
 
   &__customer-type-toggle {
     margin: 0 0 0 $px20;
+  }
+
+  &__lang-switcher {
+    justify-self: end;
   }
 }

@@ -6,51 +6,56 @@
   z-index: $z-index-header;
 
   &__bar {
-    background: $c-header-bg;
+    background-color: $c-header-bg;
     z-index: $z-index-header;
     position: relative;
+
     body[style='overflow: hidden;'] & {
       padding-right: var(--scrollbar-width);
     }
   }
 
   &__container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: $px24;
+    align-items: center;
     height: $header-bar-height;
 
-    @include flex-valign;
-    justify-content: space-between;
-
     @include bp(laptop) {
-      justify-content: flex-end;
+      grid-template-columns: 1fr auto 1fr;
       height: $header-bar-height-computer;
     }
   }
 
-  &__nav-toggle {
-    margin-right: auto;
+  &__actions {
+    line-height: 1;
+    display: flex;
+    column-gap: clamp(#{rem-calc(14px)}, 2vw, #{rem-calc(24px)});
+    align-items: flex-start;
+    justify-self: end;
+  }
 
+  &__actions {
+    --icon-size: 1.31rem;
+  }
+
+  &__link .ca-icon-and-text__text {
+    @include visually-hidden;
+  }
+
+  &__nav-toggle {
     @include flex-valign;
     font-size: 28px;
   }
 
   &__search-toggle {
+    @include flex-valign;
     margin-right: auto;
     font-size: 23px;
-    @include flex-valign;
   }
 
   &__logo {
-    @include calign;
-    width: 120px;
-  }
-
-  &--scrolled & {
-    &__nav-toggle {
-      margin-right: $px20;
-    }
-  }
-
-  .ca-notification-badge {
-    border: 1px solid $c-header-bg;
+    width: clamp(#{rem-calc(126px)}, 18vw, #{rem-calc(208px)});
   }
 }

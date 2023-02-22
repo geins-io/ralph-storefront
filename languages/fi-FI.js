@@ -1,7 +1,7 @@
 export default {
   CUSTOMER_TYPE_PERSON: 'Yksityishenkilö',
   CUSTOMER_TYPE_ORGANIZATION: 'Liiketoimintaa',
-  USP_1: 'Usp 1',
+  USP_1: 'Pikatoimitus',
   USP_2: 'Usp 2',
   USP_3: 'Usp 3',
   USP_TEXT: 'Usp text',
