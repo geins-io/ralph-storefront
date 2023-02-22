@@ -309,6 +309,9 @@ export default {
   DELIVERY_PANEL_HEADING: 'Leverings information',
   RECOMMENDED_PRICE: 'Rec. Pris',
   CHOOSE_YOUR_COUNTRY: 'Vælg land',
+  MARKET_PANEL_TITLE: 'Vælg region',
+  MARKET_GROUP_SCANDINAVIA: 'Skandinavien',
+  MARKET_GROUP_EU: 'Europa',
   // !start DK translations from Google translet - please checkk if valid
   REVIEW_WRITE: 'Skrive en anmeldelse',
   REVIEW_IN_ACCEPTANCE:

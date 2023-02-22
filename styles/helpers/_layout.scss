@@ -39,3 +39,28 @@
     box-shadow: 0 0 0 $focus-border;
   }
 }
+
+@mixin scrollbarStyle($color: $c-medium-gray, $hover: $c-darkest-gray) {
+  padding-block: 0.3em;
+  scrollbar-color: $color transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: $px16 * 0.35;
+    height: $px16 * 0.35;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 100vw;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 100vw;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $hover;
+  }
+}

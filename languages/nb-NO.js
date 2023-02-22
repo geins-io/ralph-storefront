@@ -309,6 +309,9 @@ export default {
   DELIVERY_PANEL_HEADING: 'Leverings information',
   RECOMMENDED_PRICE: 'Rec. Pris',
   CHOOSE_YOUR_COUNTRY: 'Velg land',
+  MARKET_PANEL_TITLE: 'Velg region',
+  MARKET_GROUP_SCANDINAVIA: 'Skandinavia',
+  MARKET_GROUP_EU: 'Europa',
   // !start NO translations from Google translet - please checkk if valid
   REVIEW_WRITE: 'Skrive en omtale',
   REVIEW_IN_ACCEPTANCE:

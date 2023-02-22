@@ -12,7 +12,7 @@ import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolv
 // import channelSettings from './static/channel-settings';
 // import localeSettings from './static/locales';
 const fallbackChannelId = process.env.FALLBACK_CHANNEL_ID;
-const fallbackMarketId = process.env.FALLBACK_MARKET_ID;
+const fallbackMarketAlias = process.env.FALLBACK_MARKET_ALIAS;
 
 // const currentLocaleSettings = localeSettings.find(
 //   i => i.code === defaultLocale
@@ -68,10 +68,11 @@ async function getImageSizes() {
 }
 export default async () => {
   const imageSizes = await getImageSizes();
+  // Get default meta
   const defaultMetaQuery = await apolloClient.query({
     query: gql`
       query listPageInfo {
-        listPageInfo(alias: "frontpage", channelId: "${fallbackChannelId}", marketId: "${fallbackMarketId}") {
+        listPageInfo(alias: "frontpage", channelId: "${fallbackChannelId}", marketId: "${fallbackMarketAlias}") {
           meta {
             description
             title
@@ -86,6 +87,45 @@ export default async () => {
     }
   });
   const defaultMeta = await defaultMetaQuery.data.listPageInfo.meta;
+
+  // Get fallback markets
+  const getMarketsQuery = await apolloClient.query({
+    query: gql`
+      query channel {
+        channel(channelId: "${fallbackChannelId}") {
+          defaultMarketId
+          markets {
+            id
+            defaultLanguageId
+            alias
+            virtual
+            onlyDisplayInCheckout
+            groupKey
+            allowedLanguages {
+              id
+              name
+              code
+            }
+            country {
+              name
+              code
+            }
+            currency {
+              name
+              code
+            }
+          }
+        }
+      }
+    `,
+    context: {
+      headers: {
+        'X-ApiKey': process.env.API_KEY
+      }
+    }
+  });
+  const markets = await getMarketsQuery.data.channel.markets;
+
   return {
     // Leaving this here for reference when building a store front for a client that requires Nosto
     // head: {
@@ -204,17 +244,37 @@ export default async () => {
               code: 'en',
               iso: 'en-US',
               file: 'en-US.js',
-              name: 'English',
-              flag: 'gb',
-              currency: 'EUR'
+              name: 'English'
             },
             {
               code: 'sv',
               iso: 'sv-SE',
               file: 'sv-SE.js',
-              name: 'Swedish',
-              flag: 'se',
-              currency: 'SEK'
+              name: 'Swedish'
+            },
+            {
+              code: 'nb',
+              iso: 'nb-NO',
+              file: 'nb-NO.js',
+              name: 'Norsk'
+            },
+            {
+              code: 'nn',
+              iso: 'nn-NO',
+              file: 'nb-NO.js',
+              name: 'Norsk'
+            },
+            {
+              code: 'da',
+              iso: 'da-DK',
+              file: 'da-DK.js',
+              name: 'Dansk'
+            },
+            {
+              code: 'fi',
+              iso: 'fi-FI',
+              file: 'fi-FI.js',
+              name: 'Finska'
             }
           ],
           langDir: 'languages/',
@@ -400,10 +460,11 @@ export default async () => {
       apiKey: process.env.API_KEY,
       apiEndpoint: process.env.API_ENDPOINT,
       fallbackChannelId,
-      fallbackMarketId,
+      fallbackMarketAlias,
       isMultiLanguage: true,
       marketInPath: true,
       useStartPage: false,
+      markets,
       customerServiceEmail: 'info@carismar.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {

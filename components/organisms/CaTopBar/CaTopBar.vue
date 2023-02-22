@@ -18,7 +18,7 @@
         </CaIconAndText>
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
-      <CaCountrySelectorPanel
+      <CaMarketSelectorButton
         v-show="!undistracted"
         class="ca-top-bar__lang-switcher only-computer"
       />
