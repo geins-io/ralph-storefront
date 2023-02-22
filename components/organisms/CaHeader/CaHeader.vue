@@ -13,7 +13,7 @@
           @clicked="$store.commit('contentpanel/open', { name: 'menu-panel' })"
         />
 
-        <NuxtLink class="ca-header__logo-link" :to="localePath('index')">
+        <NuxtLink class="ca-header__logo-link" :to="$getPath('index')">
           <CaLogo class="ca-header__logo" :alt="$t('LOGO_ALT_TEXT')" />
         </NuxtLink>
 

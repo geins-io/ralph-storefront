@@ -27,7 +27,7 @@ export default {
       if (val && this.$route.query.loginToken) {
         if (this.$store.getters['auth/authenticated']) {
           await this.$store.dispatch('auth/logout');
-        } 
+        }
         // remove cart for new spoofed user
         this.$store.dispatch('cart/reset');
         this.auth.client.setTokenData({
@@ -74,12 +74,12 @@ export default {
   },
   methods: {
     routeToAccount() {
-      this.$router.replace(this.localePath('account-orders'));
+      this.$router.replace(this.$getPath('account-orders'));
     }
   }
 };
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-account-page';
+@import 'organisms/ca-account-page';
 </style>

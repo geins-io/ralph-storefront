@@ -120,7 +120,7 @@ export default {
               this.resetFields();
               this.showFeedback(this.feedback.passwordChanged);
               setTimeout(() => {
-                window.location.replace(this.localePath('/?action=login'));
+                window.location.replace(this.$getPath('/?action=login'));
               }, 1000);
               return;
             }
@@ -164,5 +164,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-reset-password';
+@import 'organisms/ca-reset-password';
 </style>

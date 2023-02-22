@@ -308,5 +308,21 @@ export default {
   PAYMENT_PANEL_HEADING: 'Betalingsinformation',
   DELIVERY_PANEL_HEADING: 'Leverings information',
   RECOMMENDED_PRICE: 'Rec. Pris',
-  CHOOSE_YOUR_COUNTRY: 'Vælg land'
+  CHOOSE_YOUR_COUNTRY: 'Vælg land',
+  // !start DK translations from Google translet - please checkk if valid
+  REVIEW_WRITE: 'Skrive en anmeldelse',
+  REVIEW_IN_ACCEPTANCE:
+    'Tak skal du have! Din anmeldelse vil blive tilføjet snart.',
+  REVIEW_NEED_LOG_IN: 'Du skal logge ind for at kunne skrive en anmeldelse.',
+  REVIEW_NAME_PLACEHOLDER: 'Dit navn',
+  REVIEW_COMMENT_PLACEHOLDER: 'Gennemgå tekst',
+  SEND: 'Sende',
+  FEEDBACK_ALL_INPUTS_REVIEW:
+    'Udfyld venligst alle nødvendige oplysninger for at indsende en anmeldelse.',
+  PRODUCT_REVIEWS: 'Produktanmeldelser',
+  REVIEW_WRITTEN_BY: 'Skrevet af:',
+  REVIEWS_LIST_EMPTY: 'Dette produkt har endnu ingen anmeldelser.',
+  REVIEW_FEEDBACK_RATE_REQUIRED:
+    'Brug venligst stjerner til at bedømme produktet'
+  // !end DK translations from Google translet - please checkk if valid
 };

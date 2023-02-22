@@ -34,7 +34,7 @@ export default {
           rememberUser: false
         });
         if (this.$route.query.redirect) {
-          this.$router.push(this.localePath('index'));
+          this.$router.push(this.$getPath('index'));
         } else {
           this.isAuthenticated = true;
         }

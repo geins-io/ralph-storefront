@@ -103,6 +103,16 @@ export default async () => {
     //   ]
     // },
     /*
+     ** Append documentation URL to output cli banner
+     */
+    cli: {
+      badgeMessages: [
+        'Ralph-UI docs: http://localhost:6001/#/undefined',
+        '',
+        '* Keep in mind that if port will be occupied, then it will run on a different port.'
+      ]
+    },
+    /*
      ** Customize the progress-bar color
      */
     loading: { color: '#353797', height: '5px' },
@@ -138,6 +148,9 @@ export default async () => {
     plugins: [
       { src: '~/plugins/persistedState.js', mode: 'client' },
       {
+        src: '~/node_modules/@ralph/ralph-ui/plugins/get-path.js'
+      },
+      {
         src: '~/node_modules/@ralph/ralph-ui/plugins/broadcastChannel.js',
         mode: 'client'
       },
@@ -159,6 +172,14 @@ export default async () => {
      ** Nuxt.js dev-modules
      */
     buildModules: [
+      // Doc: https://www.npmjs.com/package/@nuxtjs/router
+      [
+        '@nuxtjs/router',
+        {
+          path: 'node_modules/@ralph/ralph-ui/plugins',
+          keepDefaultRouter: true
+        }
+      ],
       // Doc: https://github.com/nuxt-community/eslint-module
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/stylelint-module
@@ -196,12 +217,6 @@ export default async () => {
             fallbackLocale: process.env.DEFAULT_LOCALE
           },
           detectBrowserLanguage: false,
-          // {
-          //  useCookie: true,
-          //  cookieKey: 'language_redirected',
-          //  redirectOn: 'root',
-          //  cookieAge: 365
-          // },
           differentDomains: false,
           parsePages: false,
           pages: {
@@ -379,6 +394,8 @@ export default async () => {
       fallbackChannelId,
       fallbackMarketId,
       isMultiLanguage: false,
+      marketInPath: false,
+      useStartPage: false,
       customerServiceEmail: 'info@carismar.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
@@ -400,7 +417,7 @@ export default async () => {
           link: 'https://www.instagram.com'
         }
       ],
-      customerTypesToggle: true,
+      customerTypesToggle: false,
       customerTypes: [
         {
           type: 'PERSON',
@@ -462,6 +479,8 @@ export default async () => {
         }
       },
       productShowRelated: true,
+      showProductReviewSection: false,
+      showStarsInProductReviewForm: false, // it requires showProductReviewSection to be true
       /* ****************** */
       /* ***** IMAGES ***** */
       /* ****************** */

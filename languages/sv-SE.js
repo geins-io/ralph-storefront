@@ -306,5 +306,19 @@ export default {
   NAVIGATION_GO_TO: 'Gå till',
   RELATED_PRODUCTS: 'Relaterad produkter',
   CHOOSE: 'Välj',
-  CHOOSE_YOUR_COUNTRY: 'Välj land'
+  CHOOSE_YOUR_COUNTRY: 'Välj land',
+  // !start SV translations from Google translet - please checkk if valid
+  REVIEW_WRITE: 'Skriva en recension',
+  REVIEW_IN_ACCEPTANCE: 'Tack! Din recension kommer att läggas till inom kort.',
+  REVIEW_NEED_LOG_IN: 'Du måste logga in för att kunna skriva en recension.',
+  REVIEW_NAME_PLACEHOLDER: 'Ditt namn',
+  REVIEW_COMMENT_PLACEHOLDER: 'Granska text',
+  SEND: 'Skicka',
+  FEEDBACK_ALL_INPUTS_REVIEW:
+    'Vänligen fyll i all nödvändig information för att skicka en recension.',
+  PRODUCT_REVIEWS: 'Produktrecensioner',
+  REVIEW_WRITTEN_BY: 'Skriven av:',
+  REVIEWS_LIST_EMPTY: 'Denna produkt har inga recensioner ännu.',
+  REVIEW_FEEDBACK_RATE_REQUIRED: 'Använd stjärnor för att betygsätta produkten'
+  // !start SV translations from Google translet - please checkk if valid
 };

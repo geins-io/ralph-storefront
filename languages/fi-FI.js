@@ -305,5 +305,20 @@ export default {
   NAVIGATION_GO_TO: 'Mene',
   RELATED_PRODUCTS: 'Liittyvät tuotteet',
   CHOOSE: 'Valita',
-  CHOOSE_YOUR_COUNTRY: 'Valitse maa'
+  CHOOSE_YOUR_COUNTRY: 'Valitse maa',
+  // !start FI translations from Google translet - please checkk if valid
+  REVIEW_WRITE: 'Kirjoita arvostelu',
+  REVIEW_IN_ACCEPTANCE: 'Kiitos! Arvostelusi lisätään pian.',
+  REVIEW_NEED_LOG_IN:
+    'Sinun on kirjauduttava sisään voidaksesi kirjoittaa arvostelun.',
+  REVIEW_NAME_PLACEHOLDER: 'Sinun nimesi',
+  REVIEW_COMMENT_PLACEHOLDER: 'Tarkista teksti',
+  SEND: 'Lähettää',
+  FEEDBACK_ALL_INPUTS_REVIEW:
+    'Täytä kaikki tarvittavat tiedot lähettääksesi arvostelun.',
+  PRODUCT_REVIEWS: 'Tuotearvostelut',
+  REVIEW_WRITTEN_BY: 'Kirjoittanut:',
+  REVIEWS_LIST_EMPTY: 'Tällä tuotteella ei ole vielä yhtään arvostelua.',
+  REVIEW_FEEDBACK_RATE_REQUIRED: 'Käytä tähtiä tuotteen arvioimiseen'
+  // !end FI translations from Google translet - please checkk if valid
 };

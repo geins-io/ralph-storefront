@@ -17,11 +17,11 @@
       <NuxtLink
         v-for="(item, index) in navItems"
         :key="index"
-        :to="localePath(item.path)"
+        :to="$getPath(item.path)"
         class="ca-account-header__nav-item"
         :class="{
           'ca-account-header__nav-item--current':
-            localePath(item.path) === $route.path
+            $getPath(item.path) === $route.path
         }"
       >
         {{ item.name }}
@@ -52,7 +52,7 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout');
-      this.$router.push({ path: this.localePath('index') });
+      this.$router.push({ path: this.$getPath('index') });
     }
   }
 };
