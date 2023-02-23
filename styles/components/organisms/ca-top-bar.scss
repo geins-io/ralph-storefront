@@ -1,6 +1,9 @@
 .ca-top-bar {
   background-color: $c-topbar-bg;
   font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   position: relative;
   z-index: $z-index-header;
 

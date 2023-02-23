@@ -1,113 +1,162 @@
 .ca-footer {
+  background-color: $c-light-pink;
+  font-size: $font-size-xs;
+  font-weight: 300;
   margin-top: $default-spacing;
+  padding-bottom: rem-calc(30px);
   
   &__section {
     &--usps {
-      background: $c-light-gray;
-      padding: $px8 0;
+      padding: rem-calc(30px) 0 rem-calc(30px);
     }
     
     &--newsletter {
-      background: $c-lightest-gray;
-      padding: $px20 0;
-      @include bp(tablet) {
-        padding: $px32 0;
-      }
+      background-color: $c-pink;
+      padding: $px24 $px16 $px16;
     }
     
     &--content {
-      background: $c-light-gray;
-      padding: $px24 0 $px32;
+      padding: 0 0 $px32;
+    }
+
+    &--logos {
+      border-bottom: $border-medium;
+      padding-bottom: rem-calc(30px);
     }
 
     &--bottom {
-      background: $c-medium-gray;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: $px48;
+      margin: 0 auto;
     }
   }
 
   &__usps {
-    display: flex;
-    text-align: center;
-    justify-content: space-around;
-    
-    @include bp(tablet) {
-      justify-content: center;
-    }
+    display: grid;
+    grid-template-columns: repeat(var(--cell, 2), max-content);
+    column-gap: $px24;
+    justify-content: center;
   }
 
   &__usp {
-    padding: 0 $px4;
-    
-    @include bp(tablet) {
-      padding: 0 $px32;
-    }
+    column-gap: rem-calc(8px);
+    text-transform: uppercase;
 
-    .ca-icon-and-text__icon {
-      margin-bottom: $px4;
-      
-      @include bp(tablet) {
-        margin-bottom: 0;
-      }
+    &.ca-icon-and-text {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    
+    .ca-icon-and-text__text {
+      margin: 0;
     }
   }
 
   &__newsletter {
-    padding: $px16 $px12;
     text-align: center;
     max-width: 500px;
     margin: 0 auto;
-    
-    @include bp(tablet) {
-      background: $c-light-gray;
-      padding: $px20 $px48 $px24;
-    }
   }
 
   &__newsletter-title {
-    font-weight: $font-weight-bold;
-    font-size: $font-size-xl;
-    margin: 0 0 $px8;
+    @include visually-hidden;
   }
 
   &__newsletter-text {
-    margin: 0 0 $px16;
+    font-size: $font-size-xs;
   }
 
-  &__content-holder {
-    @include bp(tablet) {
-      display: flex;
-    }
+  &__newsletter-logo {
+    width: 32px;
+    margin: 0 auto $px16;
+  }
+  
+  &__newsletter-offer {
+    font-size: $font-size-s;
+    font-weight: $font-weight-semibold;
   }
 
-  &__column {
-    margin-bottom: $px20;
-    line-height: 1.6;
-    
-    @include bp(tablet) {
-      width: 25%;
-    }
+  &__newsletter-policy {
+    font-size: rem-calc(8px);
   }
 
   &__title {
-    font-size: $font-size-l;
-    margin-bottom: $px12;
+    font-size: $font-size-s;
     font-weight: $font-weight-bold;
-    
-    &:not(:first-child) {
-      margin-top: $px20;
-    }
-    
-    @include bp(tablet) {
-      font-size: $font-size-xl;
-    }
+    margin-bottom: $px20;
+  }
+
+  &__title--social,
+  &__title--logos {
+    @include visually-hidden;
   }
 
   &__contact-title {
-    font-weight: $font-weight-bold;
+    @include visually-hidden;
   }
 
   &__contact-info {
     text-decoration: underline;
+  }
+
+  &__logo-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: #{rem-calc(10px)} $px40;
+  }
+  
+  &__logo-options-item {
+    height: 1.2rem;
+    width: auto;
+  }
+
+  &__cert {
+    justify-self: end;
+    display: flex;
+    column-gap: $px20;
+  }
+
+  &__cert-tryggehandel {
+    width: rem-calc(60px);
+  }
+
+  &__cert-hallbarehandel {
+    width: rem-calc(68px);
+  }
+
+  &__main-logo {
+    width: 114px;
+    margin-bottom: clamp(#{rem-calc(20px)}, 2vw, #{rem-calc(30px)});
+  }
+
+  &__corp {
+    line-height: 1.5;
+    white-space: pre-line;
+  }
+
+  &__social {
+    align-self: end;
+  }
+
+  &__social-inner {
+    display: flex;
+    gap: $px12;
+  }
+
+  &__social-link {
+    --icon-size: 20px;
+
+    background-color: $c-darker-gray;
+    border-radius: 50vw;
+    width: $px40;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem-calc(8px);
   }
 
   &__vat-toggle {
@@ -118,76 +167,24 @@
     text-decoration: underline;
   }
 
-  &__social {
-    display: flex;
-  }
-
-  &__social-item {
-    font-size: 30px;
-    &:not(:last-child) {
-      margin-right: $px20;
-    }
-  }
-
   &__bottom {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-    @include bp(tablet) {
-      justify-content: space-between;
-    }
+    display: grid;
+    grid-template-columns: repeat(var(--cell, 1), 1fr);
+    row-gap: var(--rg, #{rem-calc(60px)});
   }
 
-  &__bottom-column {
-    &--logos {
-      display: flex;
-      justify-content: space-between;
-      margin: $px20 0;
-    }
-
-    &--copyright {
-      width: 74%;
-      padding: $px12 0;
-      margin: 0 auto;
-      border-top: $border-light;
-      text-align: center;
-      font-size: $font-size-xs;
-      color: $c-text-secondary;
-
-      @include bp(tablet) {
-        border: none;
-        text-align: right;
-        width: auto;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-      }
-    }
+  &__disclaimer {
+    font-size: rem-calc(10px);
+    margin: $px20 0 rem-calc(14px);
   }
 
-  &__logo {
-    height: 15px;
-    width: auto;
-    padding: 0 $px4;
-
-    @include bp(tablet) {
-      height: 20px;
-      padding: 0 $px16;
-      
-      &--first {
-        padding-left: 0;
-      }
-    }
+  &__copyright {
+    grid-column: 1 / -1;
+    justify-self: start;
   }
 
   &__powered-by {
     display: flex;
-    align-items: center;
-    justify-content: center;
     white-space: nowrap;
     padding: rem-calc(2) 0 0;
   }
@@ -196,5 +193,77 @@
     height: 16px;
     margin-left: rem-calc(6);
     width: auto;
+  }
+
+  .ca-accordion-item__toggle {
+    padding: rem-calc(20px) rem-calc(24px);
+  }
+
+  &__accordion-about .ca-accordion-item__icon-wrap.ca-icon-and-text {
+    @include accordionIconBeforeTitle('about', 16px, 19px);
+  }
+  
+  &__accordion-support .ca-accordion-item__icon-wrap.ca-icon-and-text {
+    @include accordionIconBeforeTitle('support', 16px, 19px);
+  }
+
+  @include bp(phone-only) {
+    &__content-holder {
+      width: 100%;
+    }
+
+    &__bottom,
+    &__cert {
+      margin-right: rem-calc(24px);
+      margin-left: rem-calc(24px);
+    }
+
+    &__cert {
+      margin-top: rem-calc(20px);
+    }
+  }
+
+  @include bp(tablet) {
+    &__section--content {
+      padding-top: rem-calc(50px);
+    }
+
+    &__section--bottom {
+      padding-top: rem-calc(68px);
+    }
+
+    &__usps {
+      --cell: 4;
+      justify-content: center;
+    }
+
+    &__content-holder {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: $px20;
+    }
+
+    .ca-footer__main-logo {
+      margin-left: auto;
+    }
+
+    .ca-footer__corp-info {
+      text-align: right;
+    }
+
+    &__bottom {
+      --rg: 0;
+      --cell: 2;
+      justify-content: space-between;
+    }
+
+    &__copyright {
+      justify-self: end;
+      margin-top: $px20;
+    }
+
+    &__powered-by {
+      justify-content: flex-end;
+    }
   }
 }

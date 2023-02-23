@@ -1,0 +1,16 @@
+.ca-footer-navigation-accordion {
+  &__list {
+    border-top: $border-medium;
+    padding: rem-calc(4px) rem-calc(24px);
+  }
+
+  &__list--contact {
+    padding-top: $px10;
+  }
+
+  &__link {
+    text-decoration: underline;
+    display: block;
+    margin: rem-calc(8px) 0;
+  }
+}

@@ -2,6 +2,7 @@
 
 // Borders
 $border-light: 1px solid $c-border-light;
+$border-medium: 1px solid $c-border-medium;
 $border-dark: 1px solid $c-border-dark;
 $border-pink: 1px solid $c-border-pink;
 $button-primary-border: none;
@@ -29,7 +30,7 @@ $z-index-panel: $z-index-snackbar + 1;
 $z-index-modal: $z-index-panel + 1;
 
 // Top bar
-$top-bar-height: rem-calc(20px);
+$top-bar-height: rem-calc(25px);
 $top-bar-height-computer: rem-calc(36px);
 
 // Search

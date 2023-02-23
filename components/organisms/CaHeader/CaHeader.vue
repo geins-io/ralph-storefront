@@ -28,8 +28,6 @@
             @clicked="() => (searchOpened = !searchOpened)"
           />
 
-          <CaFavorites class="ca-header__favorites" />
-
           <button
             v-if="!$store.getters['auth/authenticated']"
             type="button"
@@ -54,6 +52,8 @@
               {{ $t('ACCOUNT_TITLE') }}
             </CaIconAndText>
           </NuxtLink>
+
+          <CaFavorites class="ca-header__favorites" />
 
           <CaMiniCart class="ca-header__cart" />
         </div>

@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -16,8 +16,14 @@ html {
 :focus {
   outline: none;
 }
+
 :focus-visible {
   box-shadow: 0 0 0 $focus-border;
+}
+
+::selection {
+  background-color: $c-pink;
+  color: $c-black;
 }
 
 body {
@@ -85,6 +91,7 @@ select,
 textarea {
   -moz-appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   border: none;
   border-radius: none;
   background: none;

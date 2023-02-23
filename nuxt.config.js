@@ -396,8 +396,8 @@ export default async () => {
       isMultiLanguage: false,
       marketInPath: false,
       useStartPage: false,
-      customerServiceEmail: 'info@carismar.io',
-      customerServicePhone: '+46 123 23 43 45',
+      customerServiceEmail: 'kundservice@bubbleroom.se',
+      customerServicePhone: '08-411 17 17',
       breakpoints: {
         tablet: 768,
         laptop: 1024,
@@ -405,17 +405,42 @@ export default async () => {
         desktopBig: 1440
       },
       siteTopThreshold: 10,
+      paymentAndDeliveryLogos: [
+        { name: 'paypal' },
+        { name: 'visa' },
+        { name: 'mastercard' },
+        { name: 'avarda' },
+        { name: 'swish' },
+        { name: 'budbee' },
+        { name: 'postnord' },
+        { name: 'instabox' },
+      ],
       socialMediaLinks: [
-        {
-          icon: 'facebook',
-          title: 'Facebook',
-          link: 'https://www.facebook.com'
-        },
         {
           icon: 'instagram',
           title: 'Instagram',
-          link: 'https://www.instagram.com'
-        }
+          link: 'https://instagram.com/bubbleroom'
+        },
+        {
+          icon: 'tiktok',
+          title: 'TikTok',
+          link: 'https://www.tiktok.com/@bubbleroom'
+        },
+        {
+          icon: 'facebook',
+          title: 'Facebook',
+          link: 'https://www.facebook.com/bubbleroom'
+        },
+        {
+          icon: 'youtube',
+          title: 'Youtube',
+          link: 'https://www.youtube.com/user/BubbleroomVideo'
+        },
+        {
+          icon: 'linkedin',
+          title: 'LinkedIn',
+          link: 'https://www.linkedin.com/company/bubbleroom/'
+        },
       ],
       customerTypesToggle: false,
       customerTypes: [

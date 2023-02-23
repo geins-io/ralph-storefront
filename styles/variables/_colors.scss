@@ -3,8 +3,9 @@ $c-white: #ffffff;
 $c-black: #000000;
 $c-lightest-gray: #f8f8f8;
 $c-light-gray: #ececec;
-$c-medium-gray: #d8d8d8;
+$c-medium-gray: #ded5d5;
 $c-dark-gray: #adadad;
+$c-darker-gray: #2a2b35;
 $c-darkest-gray: #363636;
 $c-light-pink: #fdf6f7;
 $c-pale-pink: #e59797;
@@ -14,7 +15,7 @@ $c-accent-color: $c-pink;
 $c-accent-bg: $c-pink;
 
 // Theme text colors
-$c-text-primary: #222222;
+$c-text-primary: #202020;
 $c-text-secondary: #878787;
 $c-text-inverse: #ffffff;
 
@@ -36,6 +37,7 @@ $c-static-stock: $c-in-stock;
 
 // Border colors
 $c-border-light: $c-light-gray;
+$c-border-medium: $c-medium-gray;
 $c-border-dark: $c-medium-gray;
 $c-border-pink: $c-accent-bg;
 

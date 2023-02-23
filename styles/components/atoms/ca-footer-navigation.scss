@@ -1,0 +1,20 @@
+.ca-footer-navigation {
+  &__title {
+    font-size: $font-size-s;
+    font-weight: $font-weight-bold;
+    margin-bottom: $px20;
+  }
+
+  &__item {
+    text-decoration: underline;
+  }
+
+  &__link {
+    display: block;
+    margin: rem-calc(8px) 0;
+  }
+
+  &-accordion.ca-accordion-item--styled {
+    border-color: $c-medium-gray;
+  }
+}

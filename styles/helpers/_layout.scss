@@ -26,16 +26,37 @@
 }
 
 @mixin iconCircle {
-  background: $c-white;
+  @include flex-calign;
+  background-color: $c-white;
   width: 36px;
   height: 36px;
-  @include flex-calign;
   transition: all 200ms ease;
   border-radius: 50%;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
   border: $border-light;
   font-size: $font-size-m;
+
   &:focus-visible {
     box-shadow: 0 0 0 $focus-border;
+  }
+}
+
+@mixin accordionIconBeforeTitle($icon-name, $width, $height) {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  column-gap: $px12;
+
+  .ca-icon {
+    order: 2;
+  }
+
+  &::before {
+    content: '';
+    background-image: url("./assets/icons/#{$icon-name}.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: $width;
+    height: $height;
   }
 }

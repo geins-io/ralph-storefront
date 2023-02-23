@@ -29,15 +29,13 @@
   }
 
   &__actions {
+    --icon-size: 1.2rem;
+
     line-height: 1;
     display: flex;
     column-gap: clamp(#{rem-calc(14px)}, 2vw, #{rem-calc(24px)});
     align-items: flex-start;
     justify-self: end;
-  }
-
-  &__actions {
-    --icon-size: 1.31rem;
   }
 
   &__link .ca-icon-and-text__text {
