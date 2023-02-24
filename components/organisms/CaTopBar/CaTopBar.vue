@@ -4,7 +4,10 @@
       <div class="ca-usp-block ca-top-bar__usps">
         <div class="ca-top-bar__usp">{{ $t('USP_TEXT') }}</div>
       </div>
-      <CaCountrySelectorPanel class="ca-top-bar__lang-switcher only-computer" />
+      <CaMarketSelectorButton
+        v-show="!undistracted"
+        class="ca-top-bar__lang-switcher only-computer"
+      />
     </CaContainer>
   </div>
 </template>

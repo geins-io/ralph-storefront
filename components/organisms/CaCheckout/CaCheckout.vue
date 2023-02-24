@@ -51,19 +51,22 @@
       v-if="
         $store.getters['cart/totalQuantity'] &&
           $config.checkout.showMultipleMarkets &&
-          markets &&
-          markets.length > 1
+          selectableMarkets &&
+          selectableMarkets.length > 1
       "
       :loading="cartLoading"
     >
       <template #title>{{ $t('CHECKOUT_CHOOSE_COUNTRY') }}</template>
-      <CaCountrySelector :data="markets" @input="setMarketId($event)" />
+      <CaCountrySelector
+        :data="selectableMarkets"
+        @input="setCheckoutMarket($event)"
+      />
     </CaCheckoutSection>
 
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
       :loading="shippingLoading"
-      :blocked="$config.checkout.showMultipleMarkets && !marketId"
+      :blocked="$config.checkout.showMultipleMarkets && !currentMarket"
     >
       <template #title>
         {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}

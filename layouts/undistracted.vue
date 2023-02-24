@@ -33,12 +33,12 @@ export default {
   }),
   head() {
     return {
-      title: this.listPageInfo.meta.title,
+      title: this.listPageInfo?.meta?.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.listPageInfo.meta.description
+          content: this.listPageInfo?.meta?.description
         }
       ]
     };

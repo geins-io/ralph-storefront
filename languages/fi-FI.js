@@ -306,6 +306,9 @@ export default {
   RELATED_PRODUCTS: 'Liittyvät tuotteet',
   CHOOSE: 'Valita',
   CHOOSE_YOUR_COUNTRY: 'Valitse maa',
+  MARKET_PANEL_TITLE: 'Valitse alue',
+  MARKET_GROUP_SCANDINAVIA: 'Scandinavia',
+  MARKET_GROUP_EU: 'Euroopassa',
   // !start FI translations from Google translet - please checkk if valid
   REVIEW_WRITE: 'Kirjoita arvostelu',
   REVIEW_IN_ACCEPTANCE: 'Kiitos! Arvostelusi lisätään pian.',

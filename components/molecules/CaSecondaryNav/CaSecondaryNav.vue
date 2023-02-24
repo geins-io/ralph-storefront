@@ -23,7 +23,7 @@
       </NuxtLink>
     </CaSecondaryNavItem>
     <CaSecondaryNavItem>
-      <CaCountrySelectorPanel />
+      <CaMarketSelectorButton />
     </CaSecondaryNavItem>
   </ul>
 </template>
