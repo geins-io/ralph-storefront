@@ -9,14 +9,9 @@ import {
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
-// import channelSettings from './static/channel-settings';
-// import localeSettings from './static/locales';
+
 const fallbackChannelId = process.env.FALLBACK_CHANNEL_ID;
 const fallbackMarketAlias = process.env.FALLBACK_MARKET_ALIAS;
-
-// const currentLocaleSettings = localeSettings.find(
-//   i => i.code === defaultLocale
-// );
 
 const routePaths = {
   category: '/c',
@@ -27,6 +22,57 @@ const routePaths = {
   list: '/l',
   all: '/allt'
 };
+
+// Set the domain settings and market settings based on if env-variable DOMAINS exists
+// Default settings for multi market / multi language
+// TODO: All this should come from channelSettings when we have a way to get channel settings from api
+let domainSettings = {
+  differentDomains: false,
+  strategy: 'prefix'
+};
+let domainUrls = null;
+
+// Default settings for market for publicRuntimeConfig
+let marketSettings = {
+  isMultiLanguage: true,
+  marketInPath: true
+};
+
+if (process.env.DOMAINS) {
+  const domains = process.env.DOMAINS.split(',');
+
+  domainUrls = domains
+    ?.map(domain => {
+      const domainArr = domain?.split('|');
+      return {
+        [domainArr[0]]: domainArr[1] || ''
+      };
+    })
+    .reduce((result, item) => {
+      const key = Object.keys(item)[0];
+      result[key] = item[key];
+      return result;
+    }, {});
+
+  // If using DOMAINS, turn off multilang and marketInPath
+  marketSettings = {
+    isMultiLanguage: false,
+    marketInPath: false
+  };
+
+  // If site should have only language prefix and no market prefix, remove the following declaration
+  domainSettings = {
+    differentDomains: false,
+    strategy: 'no_prefix'
+  };
+
+  if (domains.length > 1) {
+    // If more than one domain, set diffrentDomains to true
+    domainSettings = {
+      differentDomains: true
+    };
+  }
+}
 
 const imageSizesFile = './static/ImageSize.csv';
 
@@ -244,75 +290,98 @@ export default async () => {
               code: 'en',
               iso: 'en-US',
               file: 'en-US.js',
-              name: 'English'
+              name: 'English',
+              domain: domainUrls?.en || '' // Only matters if diffrentDomains are used
             },
             {
               code: 'sv',
               iso: 'sv-SE',
               file: 'sv-SE.js',
-              name: 'Swedish'
+              name: 'Swedish',
+              domain: domainUrls?.sv || '' // Only matters if diffrentDomains are used
             },
             {
               code: 'nb',
               iso: 'nb-NO',
               file: 'nb-NO.js',
-              name: 'Norsk'
+              name: 'Norsk',
+              domain: domainUrls?.nb || '' // Only matters if diffrentDomains are used
             },
             {
               code: 'nn',
               iso: 'nn-NO',
               file: 'nb-NO.js',
-              name: 'Norsk'
+              name: 'Norsk',
+              domain: domainUrls?.nn || '' // Only matters if diffrentDomains are used
             },
             {
               code: 'da',
               iso: 'da-DK',
               file: 'da-DK.js',
-              name: 'Dansk'
+              name: 'Dansk',
+              domain: domainUrls?.da || '' // Only matters if diffrentDomains are used
             },
             {
               code: 'fi',
               iso: 'fi-FI',
               file: 'fi-FI.js',
-              name: 'Finska'
+              name: 'Finska',
+              domain: domainUrls?.fi || '' // Only matters if diffrentDomains are used
             }
           ],
           langDir: 'languages/',
           defaultLocale: process.env.DEFAULT_LOCALE,
-          strategy: 'prefix',
           lazy: true,
           vueI18n: {
             fallbackLocale: process.env.DEFAULT_LOCALE
           },
           detectBrowserLanguage: false,
-          differentDomains: false,
           parsePages: false,
           pages: {
             'checkout/index': {
               sv: '/kassan',
-              en: '/checkout'
+              en: '/checkout',
+              da: '/kassen',
+              fi: '/kassa',
+              nb: '/kassen'
             },
             'account/orders': {
               sv: '/mina-sidor/ordrar',
-              en: '/my-account/orders'
+              en: '/my-account/orders',
+              da: '/min-konto/bestillinger',
+              fi: '/tilini/tilaukset',
+              nb: '/min-konto/bestillinger'
             },
             'account/settings': {
               sv: '/mina-sidor/installningar',
-              en: '/my-account/settings'
+              en: '/my-account/settings',
+              da: '/min-konto/indstillinger',
+              fi: '/tilini/asetukset',
+              nb: '/min-konto/innstillinger'
             },
             'account/balance': {
               sv: '/mina-sidor/saldo',
-              en: '/my-account/balance'
+              en: '/my-account/balance',
+              da: '/min-konto/saldo',
+              fi: '/tilini/saldo',
+              nb: '/min-konto/saldo'
             },
             'favorites/index': {
               sv: '/favoriter',
-              en: '/favorites'
+              en: '/favorites',
+              da: '/favoritter',
+              fi: '/suosikkeja',
+              nb: '/favoritter'
             },
             'brands/index': {
               sv: '/varumarken',
-              en: '/brands'
+              en: '/brands',
+              da: '/varemaerker',
+              fi: '/tavaramerkkeja',
+              nb: '/varemerker'
             }
-          }
+          },
+          ...domainSettings
         }
       ],
       // Doc: https://github.com/nuxt-community/style-resources-module
@@ -461,8 +530,7 @@ export default async () => {
       apiEndpoint: process.env.API_ENDPOINT,
       fallbackChannelId,
       fallbackMarketAlias,
-      isMultiLanguage: true,
-      marketInPath: true,
+      ...marketSettings,
       useStartPage: false,
       markets,
       customerServiceEmail: 'info@carismar.io',
