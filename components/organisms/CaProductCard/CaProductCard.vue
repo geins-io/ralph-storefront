@@ -84,10 +84,15 @@
   </component>
 </template>
 <script>
-import MixProductCard from 'MixProductCard';
+/*
+  CaProductCard is a reusable component that displays a product card.
+  It receives one prop:
+  - product: an object containing the product data
 
-// @group Organisms
-// @vuese
+  It emits an event when the product is clicked:
+  - productclick: an object containing the product data
+*/
+import MixProductCard from 'MixProductCard';
 export default {
   name: 'CaProductCard',
   mixins: [MixProductCard],

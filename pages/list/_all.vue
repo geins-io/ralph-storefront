@@ -7,6 +7,12 @@
 </template>
 
 <script>
+/*
+  Renders the all products page.
+
+  middleware: list-page-routing - handles the routing for the list pages
+
+*/
 import categoryInfoQuery from 'productlist/category-page.graphql';
 
 export default {
@@ -14,17 +20,17 @@ export default {
   name: 'AllListView',
   mixins: [],
   data: () => ({
-    infoQuery: categoryInfoQuery,
+    infoQuery: categoryInfoQuery
   }),
   computed: {
     currentAlias() {
       return 'all';
-    },
+    }
   },
   mounted() {},
   methods: {},
   meta: {
     pageType: 'Products Page'
-  },
+  }
 };
 </script>

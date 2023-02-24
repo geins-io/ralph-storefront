@@ -30,8 +30,13 @@
   </div>
 </template>
 <script>
-// @group Molecules
-// @vuese
+/*
+  CaAccountHeader is a reusable component that displays a title, a log out button and a navigation menu.
+  It receives two props:
+  - title: a string representing the title
+  - navItems: an array of objects representing the navigation items
+  It also dispatches the 'auth/logout' action when the log out button is clicked.
+*/
 export default {
   name: 'CaAccountHeader',
   mixins: [],

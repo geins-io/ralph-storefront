@@ -39,8 +39,18 @@
   </div>
 </template>
 <script>
-// @group Organisms
-// @vuese
+/*
+  CaAccountPage is a reusable component that displays the account header and the customer service box.
+  It receives no props.
+
+  It also dispatches the 'loading/end' action when the component is mounted.
+
+  It uses the following components:
+  - CaAccountHeader
+  - CaContainer
+  - CaIconAndText
+  - CaButton
+*/
 export default {
   name: 'CaAccountPage',
   mixins: [],

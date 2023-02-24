@@ -32,6 +32,9 @@
   </header>
 </template>
 <script>
+/*
+  Header component for the site.
+*/
 export default {
   name: 'CaHeader',
   mixins: [],

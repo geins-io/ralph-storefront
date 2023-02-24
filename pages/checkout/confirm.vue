@@ -50,6 +50,12 @@
 </template>
 
 <script>
+/*
+  Renders the checkout confirm page.
+
+  layout: undistracted - removes the header and footer
+
+*/
 import MixConfirmPage from 'MixConfirmPage';
 export default {
   name: 'CheckoutConfirmPage',

@@ -28,18 +28,15 @@
   </ul>
 </template>
 <script>
-// @group Molecules
-// @vuese
+/*
+  CaSecondaryNav is a reusable component that displays the links in the bottom of the mobile menu
+*/
 export default {
   name: 'CaSecondaryNav',
   mixins: [],
   props: {},
   data: () => ({}),
-  computed: {
-    availableLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
-    }
-  },
+  computed: {},
   watch: {},
   mounted() {},
   methods: {}

@@ -8,6 +8,15 @@
 </template>
 
 <script>
+/*
+  Renders the discount campaign page.
+  middleware: list-page-routing - handles the routing for the list pages
+  
+  computed:
+    currentAlias: The current alias of the discount campaign.
+    filtersVars: The variables for the filters query.
+
+*/
 import discountCampaignInfoQuery from 'productlist/discountCampaign-page.graphql';
 
 export default {

@@ -3,6 +3,9 @@
 </template>
 
 <script>
+/*
+  Renders the 404 page.
+*/
 export default {
   name: 'Error404Page',
   data: () => ({}),
