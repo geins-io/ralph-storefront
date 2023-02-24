@@ -78,8 +78,15 @@
   </div>
 </template>
 <script>
-// @group Organisms
-// @vuese
+/*
+  CaListFilters is a reusable component that displays a list of filters.
+  It receives two props:
+  - filters: an object containing the filters
+  - selection: an object containing the selected filters
+
+  It emits an event when the selection changes:
+  - selectionchange: an object containing the new selection 
+*/
 export default {
   name: 'CaListFilters',
   mixins: [],
@@ -129,5 +136,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-list-filters';
+@import 'organisms/ca-list-filters';
 </style>

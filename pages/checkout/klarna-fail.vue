@@ -23,6 +23,15 @@
 </template>
 
 <script>
+/*
+  Renders the klarna error page.
+
+  layout: undistracted - removes the header and footer
+
+  computed:
+    errorMessage: The error message to display.
+
+*/
 export default {
   name: 'KlarnaErrorPage',
   layout: 'undistracted',

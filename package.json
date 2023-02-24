@@ -14,7 +14,8 @@
     "create-component": "node ./scripts/create-component.cjs",
     "stats": "set NODE_ENV=development && yarn nuxt build --modern=server --analyze",
     "link-ralph": "npm link @ralph/ralph-ui",
-    "ralph": "npm explore @ralph/ralph-ui -- npm run documentation-serve & npm run dev"
+    "ralph": "npm explore @ralph/ralph-ui -- npm run documentation-serve & npm run dev",
+    "ralph-ride": "node ./scripts/ralph-ride.cjs"
   },
   "lint-staged": {
     "*.{js,vue}": "npm run lint",

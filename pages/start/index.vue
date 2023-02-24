@@ -9,6 +9,9 @@
 </template>
 
 <script>
+/*
+  Renders the front page.
+*/
 export default {
   name: 'FrontPage',
   data: () => ({}),

@@ -7,6 +7,13 @@
 </template>
 
 <script>
+/*
+
+  Renders the checkout page.
+
+  layout: undistracted - removes the header and footer
+
+*/
 export default {
   name: 'CheckoutPage',
   layout: 'undistracted',
@@ -14,7 +21,7 @@ export default {
   methods: {},
   meta: {
     pageType: 'Checkout Page'
-  },
+  }
 };
 </script>
 

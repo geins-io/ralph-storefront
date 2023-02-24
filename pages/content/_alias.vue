@@ -19,6 +19,18 @@
 </template>
 
 <script>
+/*
+  Renders a content page.
+
+  apollo:
+    widgetArea: The widget area query.
+
+  methods:
+    onDataFetched: Called when the widget area data is fetched.
+
+  head(): Sets the page title and meta tags.
+
+*/
 import MixMetaReplacement from 'MixMetaReplacement';
 export default {
   name: 'ContentPage',
@@ -76,5 +88,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-content-page';
+@import 'organisms/ca-content-page';
 </style>

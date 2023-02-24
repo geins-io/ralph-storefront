@@ -146,10 +146,25 @@
   </div>
 </template>
 <script>
+/* 
+  This component is the main checkout component. It holds the different sections of the checkout.
+  It also handles the different checkout steps and the different payment options.
+
+  The checkout is divided into 3 or 4 steps:
+  1. Cart
+  (2. Market/Country)
+  3. Shipping
+  4. Payment
+
+  The checkout has 4 different standard payment options:
+  1. Invoice
+  2. Klarna
+  3. Svea
+  4. Walley
+
+*/
+
 import MixCheckout from 'MixCheckout';
-// @group Organisms
-// @vuese
-// Holds the different sections of the checkout
 export default {
   name: 'CaCheckout',
   mixins: [MixCheckout],

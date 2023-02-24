@@ -8,6 +8,14 @@
 </template>
 
 <script>
+/*
+  Renders the account page.
+
+  middleware:
+    - authenticated
+
+*/
+
 import { mapState } from 'vuex';
 import getUserQuery from 'user/get.graphql';
 export default {
@@ -35,7 +43,7 @@ export default {
           maxAge: 3600
         });
         this.$store.dispatch('auth/update', {
-          username: 'spoofed-user@carismar.com',
+          username: 'spoofed-user@geins.io',
           rememberUser: false
         });
         if (this.$config.customerTypesToggle) {

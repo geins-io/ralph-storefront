@@ -18,6 +18,14 @@
   </div>
 </template>
 <script>
+/*
+  CaBrandAndName is a reusable component that displays a brand name and a product name.
+  It receives four props:
+  - brand: a string representing the brand name
+  - brandAlias: a string representing the canconical for the brand. If provided the brand name will be linked
+  - name: a required string representing the product name
+  - nameTag: a string representing the HTML tag to use when rendering the product name (defaults to 'h2')
+*/
 export default {
   name: 'CaBrandAndName',
   mixins: [],
@@ -47,5 +55,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'atoms/ca-brand-and-name';
+@import 'atoms/ca-brand-and-name';
 </style>

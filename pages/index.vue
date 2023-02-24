@@ -5,6 +5,9 @@
 </template>
 
 <script>
+/*
+  Renders the start page (redirects to front page).
+*/
 export default {
   name: 'StartPage',
   data: () => ({}),

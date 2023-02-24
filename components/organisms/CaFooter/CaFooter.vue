@@ -219,8 +219,9 @@
   </footer>
 </template>
 <script>
-// @group Organisms
-// @vuese
+/*
+  Footer component for the site.
+*/
 export default {
   name: 'CaFooter',
   mixins: [],
@@ -237,5 +238,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-footer';
+@import 'organisms/ca-footer';
 </style>

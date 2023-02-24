@@ -14,7 +14,7 @@
           :selected-tab="selectedTab"
           :title="tab.label"
           :panel-count="tabs.length"
-          >
+        >
           <CaHtml
             v-if="tab.panel"
             class="ca-tabs__panel-content"
@@ -26,8 +26,15 @@
   </div>
 </template>
 <script>
-// @group Molecules
-// @vuese
+/*
+  CaProductTabs is a reusable component that can be used to show all sorts of product information
+  It receives one prop:
+  - product: a required object representing the product
+  Computed properties:
+  - tabs: an array of objects representing the tabs
+  Methods:
+  - setSelectedTab: a method that sets the selected tab
+*/
 export default {
   name: 'CaProductTabs',
   mixins: [],
@@ -55,7 +62,7 @@ export default {
           label: 'Ingredienser',
           panel: this.product.texts.text3
         }
-      ]
+      ];
     }
   },
   watch: {},
@@ -68,5 +75,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'molecules/ca-product-tabs';
+@import 'molecules/ca-product-tabs';
 </style>

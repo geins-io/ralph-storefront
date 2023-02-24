@@ -12,6 +12,13 @@
   </div>
 </template>
 <script>
+/*
+  A top bar component that is used on all pages.
+
+  props:
+    undistracted: Boolean
+      If true, this is used by rthe undistrected layout and some elements might want to be hidden
+*/
 export default {
   name: 'CaTopBar',
   mixins: [],
@@ -22,11 +29,7 @@ export default {
     }
   },
   data: () => ({}),
-  computed: {
-    availableLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
-    }
-  },
+  computed: {},
   watch: {},
   mounted() {},
   methods: {}

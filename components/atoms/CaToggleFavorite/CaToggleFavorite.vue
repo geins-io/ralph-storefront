@@ -10,8 +10,12 @@
   />
 </template>
 <script>
-// @group Molecules
-// @vuese
+/*
+  CaToggleFavorite is a reusable component that displays a button to toggle a product as favorite.
+  It receives two props:
+  - prodAlias: a string representing the product alias (deprecated)
+  - prodId: a number representing the product id (use this!)
+*/
 export default {
   name: 'CaToggleFavorite',
   mixins: [],

@@ -39,8 +39,18 @@
   </div>
 </template>
 <script>
-// @group Organisms
-// @vuese
+/*
+  A component that displays the top of a list page.
+
+  Props:
+    type: String
+      The type of list page
+    listInfo: Object
+      The list info object. Contains the name, description and subcategories of the list.
+
+  Used in:
+    - CaListPage
+*/
 export default {
   name: 'CaListTop',
   mixins: [],

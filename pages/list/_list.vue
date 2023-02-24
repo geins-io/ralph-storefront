@@ -8,6 +8,16 @@
 </template>
 
 <script>
+/*
+  Renders the list page.
+  
+  middleware: list-page-routing - handles the routing for the list pages
+  
+  computed:
+    currentPath: The current path of the list page.
+    filtersVars: The variables for the filters query.
+
+*/
 import listInfoQuery from 'productlist/list-page.graphql';
 
 export default {
