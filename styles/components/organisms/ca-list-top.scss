@@ -5,13 +5,6 @@
   text-align: center;
   margin: 0 0 $px32;
 
-  @include bp(laptop) {
-    text-align: left;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
   &__text {
     width: 100%;
     
@@ -22,17 +15,13 @@
   }
 
   &__title {
-    font-size: $font-size-l;
-    font-weight: $font-weight-bold;
-    margin: 0 0 $px4;
-
-    @include bp(tablet) {
-      font-size: $font-size-xxl;
-      margin: 0 0 $px8;
-    }
+    font-size: $font-size-s;
+    font-weight: $font-weight-semibold;
+    margin: 0 0 rem-calc(14px);
 
     &--skeleton {
       margin: 0 auto $px8;
+
       @include bp(tablet) {
         margin: 0 0 $px8;
       }
@@ -40,6 +29,10 @@
   }
 
   &__description {
+    font-size: rem-calc(10px);
+    letter-spacing: $letter-spacing-4;
+    color: $c-semidark-gray;
+
     &--skeleton {
       @include bp(tablet-down) {
         display: flex;
@@ -50,13 +43,11 @@
   }
   
   &__subcategories {
-    margin: $px20 -1.2rem 0 0;
+    margin-top: clamp(#{rem-calc(22px)}, #{"-4vw + 4rem"}, #{rem-calc(30px)});
     max-width: 100%;
     
     @include bp(laptop) {
-      margin: -$px8;
-      width: 40%;
-      max-width: 525px;
+      max-width: 33rem;
     }
   }
 }

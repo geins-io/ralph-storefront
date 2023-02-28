@@ -41,8 +41,7 @@
   }
 }
 
-@mixin scrollbarStyle($color: $c-medium-gray, $hover: $c-darkest-gray) {
-  padding-block: 0.3em;
+@mixin scrollbarStyle($color: $c-pink, $hover: $c-darkest-gray) {
   scrollbar-color: $color transparent;
   scrollbar-width: thin;
 
@@ -63,6 +62,16 @@
 
   &::-webkit-scrollbar-thumb:hover {
     background-color: $hover;
+  }
+}
+
+@mixin hideScrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
 }
 

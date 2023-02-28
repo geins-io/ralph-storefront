@@ -1,0 +1,13 @@
+.ca-category-display {
+  display: flex;
+  column-gap: $px8;
+  overflow: auto;
+  @include hideScrollbar;
+
+  &__button {
+    background-color: transparent;
+    border: $border-dark;
+    font-size: $font-size-xs;
+    padding: $px10 rem-calc(13px);
+  }
+}

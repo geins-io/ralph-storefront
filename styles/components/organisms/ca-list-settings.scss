@@ -11,18 +11,20 @@
   }
 
   &__filter-toggle {
-    width: 50%;
-    height: 46px;
-    border: $border-light;
-    background: $c-lightest-gray;
-    padding: 0 $px16;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $letter-spacing-3;
     display: flex;
     align-items: center;
   }
 
   &__icon-text {
     width: 100%;
-    justify-content: space-between;
+    column-gap: rem-calc(11px);
+  }
+
+  &__icon-text .ca-icon-and-text__text {
+    margin-right: 0;
   }
 
   &__filter-button-wrap {
@@ -30,24 +32,13 @@
   }
 
   &__active-filters {
-    margin: 0 0 0 rem-calc(6px);
+    margin-left: rem-calc(6px);
   }
 
   &__title {
     text-transform: uppercase;
     font-weight: $font-weight-bold;
     margin-right: $px16;
-  }
-
-  &__sort {
-    display: flex;
-    align-items: center;
-    width: 50%;
-
-    @include bp(laptop) {
-      order: 2;
-      width: auto;
-    }
   }
 
   &__sort-select.ca-input-select {
@@ -63,11 +54,8 @@
   }
 
   &__active-products {
-    margin-left: $default-spacing/2;
-    margin-top: $px12;
-    
-    @include bp(laptop) {
-      order: 1;
-    }
+    color: $c-semi-gray;
+    font-size: rem-calc(10px);
+    letter-spacing: $letter-spacing-3;
   }
 }

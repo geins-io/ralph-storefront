@@ -90,21 +90,25 @@
           </template>
           <div class="ca-footer-navigation-accordion__list ca-footer-navigation-accordion__list--contact">
             <div class="ca-footer__contact">
-              <span class="ca-footer__contact-title">Telefon:</span>
+              <span class="ca-footer__contact-title">
+                {{ $t('CUSTOMER_SERVICE_PHONE_TITLE') }}
+              </span>
               <a
                 class="ca-footer__contact-info"
-                :href="'tel:' + $config.customerServicePhone"
+                :href="'tel:' + $t('CUSTOMER_SERVICE_PHONE')"
               >
                 {{ $config.customerServicePhone }}
               </a>
             </div>
             <div class="ca-footer__contact">
-              <span class="ca-footer__contact-title">Mail:</span>
+              <span class="ca-footer__contact-title">
+                {{ $t('CUSTOMER_SERVICE_MAIL_TITLE') }}
+              </span>
               <a
                 class="ca-footer__contact-info"
-                :href="'mailto:' + $config.customerServiceEmail"
+                :href="'mailto:' + $t('CUSTOMER_SERVICE_EMAIL')"
               >
-                {{ $config.customerServiceEmail }}
+                {{ $t('CUSTOMER_SERVICE_EMAIL') }}
               </a>
             </div>
             <span>{{ $t('CUSTOMER_SERVICE_OPEN') }}</span>
@@ -114,7 +118,9 @@
         <section v-else>
           <h2 class="ca-footer__title">{{ $t('CUSTOMER_SERVICE') }}</h2>
           <div class="ca-footer__contact">
-            <span class="ca-footer__contact-title">Telefon:</span>
+            <span class="ca-footer__contact-title">
+              {{ $t('CUSTOMER_SERVICE_PHONE_TITLE') }}
+            </span>
             <a
               class="ca-footer__contact-info"
               :href="'tel:' + $config.customerServicePhone"
@@ -123,12 +129,14 @@
             </a>
           </div>
           <div class="ca-footer__contact">
-            <span class="ca-footer__contact-title">Mail:</span>
+            <span class="ca-footer__contact-title">
+                {{ $t('CUSTOMER_SERVICE_MAIL_TITLE') }}
+              </span>
             <a
               class="ca-footer__contact-info"
-              :href="'mailto:' + $config.customerServiceEmail"
+              :href="'mailto:' + $t('CUSTOMER_SERVICE_EMAIL')"
             >
-              {{ $config.customerServiceEmail }}
+              {{ $t('CUSTOMER_SERVICE_EMAIL') }}
             </a>
           </div>
           <span>{{ $t('CUSTOMER_SERVICE_OPEN') }}</span>

@@ -1,9 +1,13 @@
 <template>
   <div class="ca-list-pagination">
+    <div 
+      :style="{'--progress': progress}"
+      class="ca-list-pagination__progress-bar"
+    ></div>
     <div class="ca-list-pagination__showing">
       {{
         $t('PAGINATION_SHOWING', {
-          sum: showing,
+          sum: currentCount,
           total: totalCount
         })
       }}
@@ -60,6 +64,10 @@ export default {
       type: Number,
       required: true
     },
+    currentCount: {
+      type: Number,
+      required: true
+    },
     allProductsLoaded: {
       type: Boolean,
       required: true
@@ -70,7 +78,11 @@ export default {
     }
   },
   data: () => ({}),
-  computed: {},
+  computed: {
+    progress() {
+      return this.currentCount / this.totalCount;
+    }
+  },
   watch: {},
   mounted() {},
   methods: {}

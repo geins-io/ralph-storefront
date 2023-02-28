@@ -4,22 +4,6 @@
       <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
       <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
       <CaListTop v-if="!hideListInfo" :type="type" :list-info="listInfo" />
-      <CaImage
-        v-if="type === 'category' && listInfo && listInfo.primaryImage"
-        class="ca-list-page__image"
-        size="1280w"
-        type="categoryheader"
-        :alt="listInfo.name"
-        :filename="listInfo.primaryImage"
-        :ratio="271 / 1280"
-        sizes="(min-width: 1360px) 1320px, 96vw"
-      />
-      <CaSkeleton
-        v-else-if="!listInfo"
-        class="ca-list-page__image"
-        :ratio="271 / 1280"
-        :radius="false"
-      />
     </CaContainer>
     <CaWidgetArea
       class="ca-list-page__widget-area"
@@ -31,18 +15,16 @@
       @variables-change="isWidgetSmartQuery = true"
     />
     <CaContainer>
-      <CaListFilters
-        v-if="showControls && selection"
-        :filters="filters"
-        :selection="selection"
-      />
-      <CaActiveFilters
-        v-if="showControls && selection && $store.getters.viewportComputer"
-        :selection="selection"
-        :selection-active="filterSelectionActive"
-        @selectionchange="filterChangeHandler"
-        @reset="resetFilters"
-      />
+      <div class="ca-list-page__filters">
+        <CaListSettings
+          v-if="showControls"
+          :active-products="totalCount"
+          :active-filters="totalFiltersActive"
+          :current-sort="selection.sort"
+          @sortchange="sortChangeHandler"
+        />
+      </div>
+
       <LazyCaFilterPanel
         :filters="filters"
         :selection="selection"
@@ -51,24 +33,6 @@
         :total-filters-active="totalFiltersActive"
         @selectionchange="filterChangeHandler"
         @reset="resetFilters"
-      />
-
-      <CaListSettings
-        v-if="showControls"
-        :active-products="totalCount"
-        :active-filters="totalFiltersActive"
-        :current-sort="selection.sort"
-        @sortchange="sortChangeHandler"
-      />
-
-      <CaListPagination
-        v-show="currentMinCount > 1"
-        direction="prev"
-        :showing="showing"
-        :total-count="totalCount"
-        :all-products-loaded="allProductsLoaded"
-        :loading="$apollo.queries.products.loading"
-        @loadprev="loadPrev"
       />
 
       <CaProductList
@@ -83,18 +47,12 @@
         direction="next"
         :showing="showing"
         :total-count="totalCount"
+        :current-count="currentMaxCount"
         :all-products-loaded="allProductsLoaded"
         :loading="$apollo.queries.products.loading"
         @loadmore="loadMore"
       />
     </CaContainer>
-    <CaWidgetArea
-      class="ca-list-page__widget-area"
-      family="Productlist"
-      area-name="The bottom part of the product list"
-      :filters="widgetAreaFilters"
-      :list-page-url="currentPath"
-    />
   </div>
 </template>
 <script>
@@ -116,12 +74,14 @@ export default {
         alias: '',
         preview: false
       };
+
       obj.filters = this.widgetAreaFilters;
       obj.customerType = this.$store.state.customerType;
       obj.displaySetting =
         this.$store.getters.viewport === 'phone' ? 'mobile' : 'desktop';
       const array = [];
       array.push(obj);
+      
       return array;
     }
   },

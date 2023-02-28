@@ -5,6 +5,8 @@ $c-lightest-gray: #f8f8f8;
 $c-light-gray: #ececec;
 $c-medium-gray: #ded5d5;
 $c-dark-gray: #adadad;
+$c-semi-gray: #5B5758;
+$c-semidark-gray: #5A5656;
 $c-darker-gray: #2a2b35;
 $c-darkest-gray: #363636;
 $c-light-pink: #fdf6f7;
@@ -38,7 +40,7 @@ $c-static-stock: $c-in-stock;
 // Border colors
 $c-border-light: $c-light-gray;
 $c-border-medium: $c-medium-gray;
-$c-border-dark: $c-medium-gray;
+$c-border-dark: $c-semidark-gray;
 $c-border-pink: $c-accent-bg;
 
 // Backgrounds
@@ -54,10 +56,10 @@ $c-cart-color: $c-text-primary;
 $c-sale: rgb(177, 0, 29);
 
 // Buttons
-$c-button-primary-bg: $c-darkest-gray;
-$c-button-primary-bg-hover: lighten($c-button-primary-bg, 3%);
-$c-button-primary-txt: $c-white;
-$c-button-primary-border: transparent;
+$c-button-primary-bg: $c-light-pink;
+$c-button-primary-bg-hover: lighten($c-pink, 3%);
+$c-button-primary-txt: $c-text-primary;
+$c-button-primary-border: #ffdddc;
 
 $c-button-secondary-bg: transparent;
 $c-button-secondary-bg-hover: darken($c-button-secondary-bg, 3%);

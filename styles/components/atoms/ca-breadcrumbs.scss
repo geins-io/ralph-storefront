@@ -1,0 +1,21 @@
+.ca-breadcrumbs {
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-3;
+  margin-bottom: $px10;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+  }
+
+  &__item:not(:first-child)::before {
+    content: '/';
+    margin-right: 0.2rem;
+  }
+
+  @include bp(tablet-down) {
+    display: flex;
+    justify-content: center;
+  }
+}

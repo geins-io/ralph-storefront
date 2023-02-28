@@ -201,7 +201,7 @@ export default async () => {
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: '#353797', height: '5px' },
+    loading: { color: '#ffdce0', height: '5px' },
     /*
      ** Global CSS
      */
@@ -570,7 +570,7 @@ export default async () => {
       bannerWidgetPrimaryColor: '#000000',
       bannerWidgetSecondaryColor: '#FFFFFF',
       productListWidgetArrowIconName: 'chevron',
-      productListRowSize: 5,
+      productListRowSize: 4,
       widgetImageSizes: {
         full: '(min-width: 1360px) 1320px, 96vw',
         half: '(min-width: 1360px) 650px, (min-width: 768px) 47vw, 96vw',
@@ -591,9 +591,9 @@ export default async () => {
       productListScrollSize: {
         phone: 2,
         tablet: 3,
-        laptop: 5,
-        desktop: 5,
-        desktopBig: 6
+        laptop: 4,
+        desktop: 4,
+        desktopBig: 4
       },
       showCategoryFilter: true,
       showCategoryTreeViewFilter: true,
