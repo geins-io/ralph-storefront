@@ -536,7 +536,7 @@ export default async () => {
       ...marketSettings,
       useStartPage: false,
       markets,
-      customerServiceEmail: 'info@carismar.io',
+      customerServiceEmail: 'info@geins.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
         tablet: 768,

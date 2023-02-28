@@ -1,6 +1,6 @@
 # @ralph/ralph-storefront
 
-> E-commerce frontend by Carismar
+> E-commerce frontend by Geins
 
 ## Build Setup
 

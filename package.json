@@ -1,8 +1,8 @@
 {
   "name": "@ralph/ralph-storefront",
   "version": "1.0.0",
-  "description": "PWA frontend for Carismar Commerce",
-  "author": "Carismar Commerce",
+  "description": "PWA frontend for Geins Commerce",
+  "author": "Geins Commerce",
   "private": true,
   "scripts": {
     "dev": "nuxt",

@@ -1,12 +1,12 @@
 .ca-footer {
   margin-top: $default-spacing;
-  
+
   &__section {
     &--usps {
       background: $c-light-gray;
       padding: $px8 0;
     }
-    
+
     &--newsletter {
       background: $c-lightest-gray;
       padding: $px20 0;
@@ -14,7 +14,7 @@
         padding: $px32 0;
       }
     }
-    
+
     &--content {
       background: $c-light-gray;
       padding: $px24 0 $px32;
@@ -29,7 +29,7 @@
     display: flex;
     text-align: center;
     justify-content: space-around;
-    
+
     @include bp(tablet) {
       justify-content: center;
     }
@@ -37,14 +37,14 @@
 
   &__usp {
     padding: 0 $px4;
-    
+
     @include bp(tablet) {
       padding: 0 $px32;
     }
 
     .ca-icon-and-text__icon {
       margin-bottom: $px4;
-      
+
       @include bp(tablet) {
         margin-bottom: 0;
       }
@@ -56,7 +56,7 @@
     text-align: center;
     max-width: 500px;
     margin: 0 auto;
-    
+
     @include bp(tablet) {
       background: $c-light-gray;
       padding: $px20 $px48 $px24;
@@ -82,7 +82,7 @@
   &__column {
     margin-bottom: $px20;
     line-height: 1.6;
-    
+
     @include bp(tablet) {
       width: 25%;
     }
@@ -92,11 +92,11 @@
     font-size: $font-size-l;
     margin-bottom: $px12;
     font-weight: $font-weight-bold;
-    
+
     &:not(:first-child) {
       margin-top: $px20;
     }
-    
+
     @include bp(tablet) {
       font-size: $font-size-xl;
     }
@@ -133,7 +133,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+
     @include bp(tablet) {
       justify-content: space-between;
     }
@@ -177,7 +177,7 @@
     @include bp(tablet) {
       height: 20px;
       padding: 0 $px16;
-      
+
       &--first {
         padding-left: 0;
       }
@@ -192,7 +192,7 @@
     padding: rem-calc(2) 0 0;
   }
 
-  &__carismar {
+  &__geins {
     height: 16px;
     margin-left: rem-calc(6);
     width: auto;

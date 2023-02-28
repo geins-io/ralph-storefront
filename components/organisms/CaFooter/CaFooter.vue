@@ -136,15 +136,15 @@
           </div>
           <a
             class="ca-footer__powered-by"
-            href="https://www.carismar.com"
+            href="https://www.geins.io"
             target="_blank"
           >
             Powered by
             <CaSvgAsset
-              class="ca-footer__carismar"
+              class="ca-footer__geins"
               folder="logos"
-              filename="carismar-black"
-              alt="Carismar logo"
+              filename="geins-black"
+              alt="Geins logo"
             />
           </a>
         </div>
