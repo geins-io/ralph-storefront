@@ -8,14 +8,14 @@
     max-width: var(--form-width);
     margin: 0 auto $px16;
   }
-  
+
   &__form {
     display: flex;
     position: relative;
     margin: $px16 auto $px20;
     max-width: var(--form-width);
   }
-  
+
   &__input {
     width: 100%;
     border-radius: 0;
@@ -28,18 +28,18 @@
   .ca-input-text__input::placeholder {
     font-size: $font-size-xs;
   }
-  
+
   &__button.ca-button {
     background-color: $c-white;
     color: inherit;
     font-size: $font-size-xs;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-bold;
     text-transform: initial;
     text-decoration: underline;
     padding-right: rem-calc(36px);
     padding-left: rem-calc(36px);
   }
-  
+
   .ca-input-text,
   .ca-input-text__input {
     border-radius: $default-radius 0 0 $default-radius;

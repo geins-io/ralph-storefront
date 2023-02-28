@@ -17,10 +17,7 @@
       <LazyCaDisplayCart />
       <LazyCaAccountPanel />
       <LazyCaMenuPanel menu-location-id="main-mobile" />
-      <LazyCaMarketPanel
-        v-if="$store.state.channel.markets.length > 1"
-        mode="advanced"
-      />
+      <LazyCaMarketPanel />
       <LazyCaSnackbar />
       <LazyCaModal />
       <LazyCaAddedToCart />

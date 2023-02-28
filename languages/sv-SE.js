@@ -12,8 +12,10 @@ export default {
   CUSTOMER_SERVICE_EMAIL: 'kundservice@bubbleroom.se',
   CUSTOMER_SERVICE_PHONE: '08-411 17 17',
   CUSTOMER_SERVICE_OPEN: 'Vardagar 8-20, Lördag 9-15',
-  CUSTOMER_SERVICE_INFO: 'Vi levererar endast till svensk adress. Lägsta ordervärde 70kr. Standardleverans 49 kr, fri frakt över 799 kr. 30 dagars ångerrätt. Betalsätt: Konto, Faktura, Swish, Betalkort eller PayPal.',
-  FOOTER_CORP_CONTENT: 'New Bubbleroom Sweden AB, Prognosgatan 11, 504 64 Borås\nORGnr: 556699-9214 Momsnummer: SE556699921401\nStyrelsen har sitt säte i Borås',
+  CUSTOMER_SERVICE_INFO:
+    'Vi levererar endast till svensk adress. Lägsta ordervärde 70kr. Standardleverans 49 kr, fri frakt över 799 kr. 30 dagars ångerrätt. Betalsätt: Konto, Faktura, Swish, Betalkort eller PayPal.',
+  FOOTER_CORP_CONTENT:
+    'New Bubbleroom Sweden AB, Prognosgatan 11, 504 64 Borås\nORGnr: 556699-9214 Momsnummer: SE556699921401\nStyrelsen har sitt säte i Borås',
   FAVORITES_LABEL: 'Mina favoriter',
   FAVORITES_EMPTY: 'Du har inga favoriter sparade',
   BRANDS_TITLE: 'Alla varumärken',
@@ -248,7 +250,8 @@ export default {
   NEWSLETTER_PLACEHOLDER: 'Din mejladress',
   NEWSLETTER_LABEL: '',
   NEWSLETTER_BUTTON: 'Sign up',
-  NEWSLETTER_POLICY: 'Dina personuppgifter behandlas i enlighet med vår integritetspolicy',
+  NEWSLETTER_POLICY:
+    'Dina personuppgifter behandlas i enlighet med vår integritetspolicy',
   NEWSLETTER_FEEDBACK_SUCCESS: 'Tack! Du är nu registrerad',
   CHECKOUT_YOUR_INFORMATION: 'Dina uppgifter',
   CHECKOUT_SUBTITLE_COUNTRY_INFO: 'Adressen ska vara i',
@@ -333,5 +336,6 @@ export default {
   REVIEW_WRITTEN_BY: 'Skriven av:',
   REVIEWS_LIST_EMPTY: 'Denna produkt har inga recensioner ännu',
   REVIEW_FEEDBACK_RATE_REQUIRED:
-    'Använd stjärnorna för att betygsätta produkten'
+    'Använd stjärnorna för att betygsätta produkten',
+  FOOTER_SOCIAL_TITLE: 'Följ oss'
 };

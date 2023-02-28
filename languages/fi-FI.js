@@ -331,6 +331,7 @@ export default {
   PRODUCT_REVIEWS: 'Tuotearvostelut',
   REVIEW_WRITTEN_BY: 'Kirjoittanut:',
   REVIEWS_LIST_EMPTY: 'Tällä tuotteella ei ole vielä yhtään arvostelua.',
-  REVIEW_FEEDBACK_RATE_REQUIRED: 'Käytä tähtiä tuotteen arvioimiseen'
+  REVIEW_FEEDBACK_RATE_REQUIRED: 'Käytä tähtiä tuotteen arvioimiseen',
   // !end FI translations from Google translet - please checkk if valid
+  FOOTER_SOCIAL_TITLE: 'Seuraa meitä'
 };

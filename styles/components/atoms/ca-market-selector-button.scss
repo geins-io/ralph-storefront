@@ -1,0 +1,19 @@
+.ca-market-selector-button {
+  $block: &;
+
+  padding: rem-calc(15);
+  border: $border-dark;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  font-size: $font-size-s;
+  display: flex;
+  justify-content: space-between;
+  &::after {
+    content: '>';
+    display: block;
+  }
+  &__flag {
+    margin-right: rem-calc(2);
+  }
+}

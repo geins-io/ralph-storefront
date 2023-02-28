@@ -20,7 +20,7 @@
           </p>
           <CaNewsletter class="ca-footer__newsletter-form" />
           <p class="ca-footer__newsletter-policy">
-            {{ $t('NEWSLETTER_POLICY') }} 
+            {{ $t('NEWSLETTER_POLICY') }}
           </p>
         </div>
       </CaContainer>
@@ -60,22 +60,24 @@
     </section>
 
     <section class="ca-footer__section ca-footer__section--logos">
-      <h2 class="ca-footer__title ca-footer__title--logos">Betalning och leverans</h2>
-        <ul class="ca-footer__logo-options">
-          <li
-            v-for="(link, index) in $config.paymentAndDeliveryLogos"
-            :key="index"
-          >
-            <CaSvgAsset
-              class="ca-footer__logo-options-item"
-              folder="logos"
-              :filename="link.name"
-              :alt="`${link.name} logo`"
-            />
-          </li>
-        </ul>
+      <h2 class="ca-footer__title ca-footer__title--logos">
+        Betalning och leverans
+      </h2>
+      <ul class="ca-footer__logo-options">
+        <li
+          v-for="(link, index) in $config.paymentAndDeliveryLogos"
+          :key="index"
+        >
+          <CaSvgAsset
+            class="ca-footer__logo-options-item"
+            folder="logos"
+            :filename="link.name"
+            :alt="`${link.name} logo`"
+          />
+        </li>
+      </ul>
     </section>
-    
+
     <section class="ca-footer__section ca-footer__section--content">
       <CaContainer class="ca-footer__content-holder">
         <CaAccordionItem
@@ -88,7 +90,9 @@
           <template #toggle-text>
             <h2>{{ $t('CUSTOMER_SERVICE') }}</h2>
           </template>
-          <div class="ca-footer-navigation-accordion__list ca-footer-navigation-accordion__list--contact">
+          <div
+            class="ca-footer-navigation-accordion__list ca-footer-navigation-accordion__list--contact"
+          >
             <div class="ca-footer__contact">
               <span class="ca-footer__contact-title">
                 {{ $t('CUSTOMER_SERVICE_PHONE_TITLE') }}
@@ -112,7 +116,9 @@
               </a>
             </div>
             <span>{{ $t('CUSTOMER_SERVICE_OPEN') }}</span>
-            <p class="ca-footer__disclaimer">{{ $t('CUSTOMER_SERVICE_INFO') }}</p>
+            <p class="ca-footer__disclaimer">
+              {{ $t('CUSTOMER_SERVICE_INFO') }}
+            </p>
           </div>
         </CaAccordionItem>
         <section v-else>
@@ -142,7 +148,7 @@
           <span>{{ $t('CUSTOMER_SERVICE_OPEN') }}</span>
           <p class="ca-footer__disclaimer">{{ $t('CUSTOMER_SERVICE_INFO') }}</p>
         </section>
-        
+
         <section>
           <CaFooterNavigationAccordion
             v-if="$store.getters.viewport === 'phone'"
@@ -151,7 +157,7 @@
           />
           <CaFooterNavigation v-else menu-location-id="footer-first" />
         </section>
-        
+
         <section>
           <CaFooterNavigationAccordion
             v-if="$store.getters.viewport === 'phone'"
@@ -161,27 +167,33 @@
           <CaFooterNavigation v-else menu-location-id="footer-second" />
         </section>
 
-        <section class="ca-footer__cert">
-          <CaImage
-            class="ca-footer__cert-tryggehandel"
-            :src="require('~/assets/logos/' + 'trygg-e-handel-se.png')"
-            alt="Trygg e-handel logo"
-            :ratio="1"
-          />
-          <CaImage
-            class="ca-footer__cert-hallbarehandel"
-            :src="require('~/assets/logos/' + 'hallbar-e-handel.png')"
-            alt="Trygg e-handel logo"
-            :ratio="1"
-          />
+        <section class="ca-footer__market-and-cert">
+          <h2 class="ca-footer__market-title">Choose location</h2>
+          <CaMarketSelectorButton class="ca-footer__market-selector" />
+          <div class="ca-footer__cert">
+            <CaImage
+              class="ca-footer__cert-tryggehandel"
+              :src="require('~/assets/logos/' + 'trygg-e-handel-se.png')"
+              alt="Trygg e-handel logo"
+              :ratio="1"
+            />
+            <CaImage
+              class="ca-footer__cert-hallbarehandel"
+              :src="require('~/assets/logos/' + 'hallbar-e-handel.png')"
+              alt="Trygg e-handel logo"
+              :ratio="1"
+            />
+          </div>
         </section>
       </CaContainer>
     </section>
-    
+
     <section class="ca-footer__section ca-footer__section--bottom">
       <CaContainer class="ca-footer__bottom">
         <section class="ca-footer__social">
-          <h2 class="ca-footer__title ca-footer__title--social">Följ oss</h2>
+          <h2 class="ca-footer__title ca-footer__title--social">
+            {{ $t('FOOTER_SOCIAL_TITLE') }}
+          </h2>
           <ul class="ca-footer__social-inner">
             <li
               v-for="(link, index) in $config.socialMediaLinks"
@@ -197,12 +209,9 @@
             </li>
           </ul>
         </section>
-        
+
         <div class="ca-footer__corp">
-          <CaLogo
-            class="ca-footer__main-logo"
-            :alt="$t('LOGO_ALT_TEXT')"
-          />
+          <CaLogo class="ca-footer__main-logo" :alt="$t('LOGO_ALT_TEXT')" />
           <p class="ca-footer__corp-info">{{ $t('FOOTER_CORP_CONTENT') }}</p>
         </div>
 

@@ -4,17 +4,17 @@
   font-weight: 300;
   margin-top: $default-spacing;
   padding-bottom: rem-calc(30px);
-  
+
   &__section {
     &--usps {
       padding: rem-calc(30px) 0 rem-calc(30px);
     }
-    
+
     &--newsletter {
       background-color: $c-pink;
       padding: $px24 $px16 $px16;
     }
-    
+
     &--content {
       padding: 0 0 $px32;
     }
@@ -48,7 +48,7 @@
       flex-direction: row;
       justify-content: flex-start;
     }
-    
+
     .ca-icon-and-text__text {
       margin: 0;
     }
@@ -72,10 +72,10 @@
     width: 32px;
     margin: 0 auto $px16;
   }
-  
+
   &__newsletter-offer {
     font-size: $font-size-s;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-bold;
   }
 
   &__newsletter-policy {
@@ -107,16 +107,35 @@
     justify-content: center;
     gap: #{rem-calc(10px)} $px40;
   }
-  
+
   &__logo-options-item {
     height: 1.2rem;
     width: auto;
   }
 
+  &__market-title {
+    margin: 0 0 $px20;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-m;
+    @include bp(laptop) {
+      display: none;
+    }
+  }
+
+  &__market-and-cert {
+    padding: rem-calc(20px) rem-calc(24px);
+    @include bp(laptop) {
+      padding: 0;
+    }
+  }
+
   &__cert {
-    justify-self: end;
     display: flex;
     column-gap: $px20;
+    margin: rem-calc(60) 0 0;
+    @include bp(laptop) {
+      justify-content: flex-end;
+    }
   }
 
   &__cert-tryggehandel {
@@ -202,7 +221,7 @@
   &__accordion-about .ca-accordion-item__icon-wrap.ca-icon-and-text {
     @include accordionIconBeforeTitle('about', 16px, 19px);
   }
-  
+
   &__accordion-support .ca-accordion-item__icon-wrap.ca-icon-and-text {
     @include accordionIconBeforeTitle('support', 16px, 19px);
   }
@@ -212,14 +231,9 @@
       width: 100%;
     }
 
-    &__bottom,
-    &__cert {
+    &__bottom {
       margin-right: rem-calc(24px);
       margin-left: rem-calc(24px);
-    }
-
-    &__cert {
-      margin-top: rem-calc(20px);
     }
   }
 

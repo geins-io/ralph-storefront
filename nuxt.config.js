@@ -286,18 +286,25 @@ export default async () => {
           baseUrl: process.env.BASE_URL,
           seo: false,
           locales: [
-            {
-              code: 'en',
-              iso: 'en-US',
-              file: 'en-US.js',
-              name: 'English',
-              domain: domainUrls?.en || '' // Only matters if diffrentDomains are used
-            },
+            // This might be used later, keeping it here
+            // {
+            //   code: 'en',
+            //   iso: 'en-US',
+            //   file: 'en-US.js',
+            //   name: 'English',
+            //   country: 'Europe',
+            //   currency: 'EUR',
+            //   flag: 'eu',
+            //   domain: domainUrls?.en || '' // Only matters if diffrentDomains are used
+            // },
             {
               code: 'sv',
               iso: 'sv-SE',
               file: 'sv-SE.js',
               name: 'Swedish',
+              country: 'Sweden',
+              currency: 'SEK',
+              flag: 'se',
               domain: domainUrls?.sv || '' // Only matters if diffrentDomains are used
             },
             {
@@ -305,6 +312,9 @@ export default async () => {
               iso: 'nb-NO',
               file: 'nb-NO.js',
               name: 'Norsk',
+              country: 'Norway',
+              currency: 'NOK',
+              flag: 'no',
               domain: domainUrls?.nb || '' // Only matters if diffrentDomains are used
             },
             {
@@ -312,6 +322,9 @@ export default async () => {
               iso: 'da-DK',
               file: 'da-DK.js',
               name: 'Dansk',
+              country: 'Denmark',
+              currency: 'DKK',
+              flag: 'dk',
               domain: domainUrls?.da || '' // Only matters if diffrentDomains are used
             },
             {
@@ -319,6 +332,9 @@ export default async () => {
               iso: 'fi-FI',
               file: 'fi-FI.js',
               name: 'Finska',
+              country: 'Finland',
+              currency: 'EUR',
+              flag: 'fi',
               domain: domainUrls?.fi || '' // Only matters if diffrentDomains are used
             }
           ],
@@ -410,7 +426,7 @@ export default async () => {
         name: 'Ralph',
         short_name: 'Ralph',
         description: defaultMeta.description,
-        theme_color: '#363636'
+        theme_color: '#ffdce0'
       },
       icon: {
         purpose: 'any'

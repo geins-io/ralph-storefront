@@ -335,6 +335,7 @@ export default {
   REVIEW_WRITTEN_BY: 'Skrevet af:',
   REVIEWS_LIST_EMPTY: 'Dette produkt har endnu ingen anmeldelser.',
   REVIEW_FEEDBACK_RATE_REQUIRED:
-    'Brug venligst stjerner til at bedømme produktet'
+    'Brug venligst stjerner til at bedømme produktet',
   // !end DK translations from Google translet - please checkk if valid
+  FOOTER_SOCIAL_TITLE: 'Følg os'
 };

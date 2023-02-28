@@ -64,5 +64,5 @@ $list-column-count-desktop: 4;
 $text-widget-max-width: rem-calc(650px);
 
 // Content panel
-$content-panel-header-height: 50px;
-$content-panel-header-height-computer: 60px;
+$content-panel-header-height: rem-calc(50);
+$content-panel-header-height-computer: rem-calc(60);
