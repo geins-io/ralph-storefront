@@ -58,5 +58,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-klarna-error-page';
+@import './styles/pages/klarna-error-page';
 </style>

@@ -9,7 +9,7 @@
     background-color: $c-header-bg;
     z-index: $z-index-header;
     position: relative;
-
+    
     body[style='overflow: hidden;'] & {
       padding-right: var(--scrollbar-width);
     }
@@ -44,6 +44,8 @@
 
   &__nav-toggle {
     @include flex-valign;
+
+    margin-right: auto;
     font-size: 28px;
   }
 

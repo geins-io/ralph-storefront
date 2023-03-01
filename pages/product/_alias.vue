@@ -248,5 +248,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-product-page';
+@import './styles/pages/product-page';
 </style>

@@ -8,6 +8,7 @@ import {
   HttpLink
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
+import chalk from 'chalk';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 
 const fallbackChannelId = process.env.FALLBACK_CHANNEL_ID;
@@ -193,7 +194,9 @@ export default async () => {
      */
     cli: {
       badgeMessages: [
-        'Ralph-UI docs: http://localhost:6001/#/undefined',
+        `${chalk.bold('Ralph-UI docs:')} ${chalk.underline.yellow(
+          'http://localhost:6001/'
+        )}`,
         '',
         '* Keep in mind that if port will be occupied, then it will run on a different port.'
       ]

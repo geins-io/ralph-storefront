@@ -11,10 +11,11 @@
 
   &__loading {
     @include halign;
+
     position: fixed;
     top: $header-bar-height + $top-bar-height + $px12;
     z-index: $z-index-panel;
-    background: $c-darkest-gray;
+    background-color: $c-darkest-gray;
     padding: $px8;
     width: rem-calc(36px);
     height: rem-calc(36px);
