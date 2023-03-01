@@ -33,6 +33,7 @@
 
     &--skeleton {
       margin: 0 auto $px8;
+      
       @include bp(tablet) {
         margin: 0 0 $px8;
       }

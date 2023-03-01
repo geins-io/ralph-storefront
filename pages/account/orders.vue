@@ -123,5 +123,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-orders-page';
+@import './styles/pages/orders-page';
 </style>

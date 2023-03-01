@@ -115,7 +115,7 @@ $column-width: 48.2%;
   &__specifications-box {
     @include bp(laptop) {
       width: $column-width;
-      background: $c-lightest-gray;
+      background-color: $c-lightest-gray;
       padding: 0 $px24 $px16;
     }
   }

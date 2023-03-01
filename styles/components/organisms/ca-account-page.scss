@@ -28,7 +28,7 @@
   
   &__content {
     width: 100%;
-    background: $c-lightest-gray;
+    background-color: $c-lightest-gray;
     padding: $px16 $px12;
     
     @include bp(laptop) {
@@ -43,13 +43,14 @@
   max-width: rem-calc(300px);
   width: 100%;
   border: $border-light;
-  background: $c-lightest-gray;
+  background-color: $c-lightest-gray;
   padding: $px16;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: $px20 auto 0;
+
   @include bp(laptop) {
     margin: 0 0 0 $px32;
   }

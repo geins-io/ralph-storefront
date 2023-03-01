@@ -65,5 +65,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-balance-page';
+@import './styles/pages/balance-page';
 </style>

@@ -34,5 +34,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-favorites-page';
+@import './styles/pages/favorites-page';
 </style>

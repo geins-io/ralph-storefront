@@ -1,5 +1,5 @@
 .ca-top-bar {
-  background: $c-topbar-bg;
+  background-color: $c-topbar-bg;
   font-size: $font-size-xs;
   z-index: $z-index-header + 1;
   position: relative;
@@ -9,9 +9,10 @@
   }
 
   &__container {
+    @include flex-halign;
+
     height: $top-bar-height;
     line-height: $top-bar-height;
-    @include flex-halign;
 
     @include bp(laptop) {
       height: $top-bar-height-computer;

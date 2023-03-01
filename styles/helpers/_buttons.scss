@@ -11,27 +11,27 @@ $button-font-weight: $font-weight-normal !default;
   padding: 0.65em 2em;
   white-space: nowrap;
   position: relative;
-  transition: background 150ms ease;
+  transition: background-color 150ms ease;
   cursor: pointer;
 }
 
 @mixin button-primary {
-  background: $c-button-primary-bg;
+  background-color: $c-button-primary-bg;
   color: $c-button-primary-txt;
   border: $button-primary-border;
 
   &:hover {
-    background: $c-button-primary-bg-hover;
+    background-color: $c-button-primary-bg-hover;
   }
 }
 
 @mixin button-secondary {
-  background: $c-button-secondary-bg;
+  background-color: $c-button-secondary-bg;
   color: $c-button-secondary-txt;
   border: $button-secondary-border;
 
   &:hover {
-    background: $c-button-secondary-bg-hover;
+    background-color: $c-button-secondary-bg-hover;
   }
 }
 

@@ -88,5 +88,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-content-page';
+@import './styles/pages/content-page';
 </style>

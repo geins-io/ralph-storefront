@@ -6,7 +6,7 @@
     line-height: 38px;
     height: 40px;
     border: $border-light;
-    background: $c-lightest-gray;
+    background-color: $c-lightest-gray;
     transition: border-color 200ms ease;
     cursor: pointer;
     position: relative;
@@ -23,7 +23,7 @@
     position: absolute;
     margin-top: 2px;
     z-index: 15;
-    background: $c-lightest-gray;
+    background-color: $c-lightest-gray;
     overflow: hidden;
     width: 100%;
     padding: $px12;

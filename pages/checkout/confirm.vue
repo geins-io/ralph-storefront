@@ -72,5 +72,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-checkout-confirm-page';
+@import './styles/pages/checkout-confirm-page';
 </style>
