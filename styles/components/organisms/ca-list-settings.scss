@@ -3,8 +3,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin: 0 -#{$default-spacing/2} $default-spacing;
-  margin-top: $px20;
+  margin: $px20 0;
 
   @include bp(laptop) {
     margin: 0 0 $default-spacing;

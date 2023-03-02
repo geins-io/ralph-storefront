@@ -101,7 +101,7 @@
                 class="ca-footer__contact-info"
                 :href="'tel:' + $t('CUSTOMER_SERVICE_PHONE')"
               >
-                {{ $config.customerServicePhone }}
+                {{ $t('CUSTOMER_SERVICE_PHONE') }}
               </a>
             </div>
             <div class="ca-footer__contact">
@@ -121,6 +121,7 @@
             </p>
           </div>
         </CaAccordionItem>
+
         <section v-else>
           <h2 class="ca-footer__title">{{ $t('CUSTOMER_SERVICE') }}</h2>
           <div class="ca-footer__contact">
@@ -129,9 +130,9 @@
             </span>
             <a
               class="ca-footer__contact-info"
-              :href="'tel:' + $config.customerServicePhone"
+              :href="'tel:' + $t('CUSTOMER_SERVICE_PHONE')"
             >
-              {{ $config.customerServicePhone }}
+              {{ $t('CUSTOMER_SERVICE_PHONE') }}
             </a>
           </div>
           <div class="ca-footer__contact">

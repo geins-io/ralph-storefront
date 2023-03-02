@@ -1,7 +1,14 @@
 .ca-brand-and-name {
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-3;
+  display: flex;
+  flex-direction: column-reverse;
+
+  &__name {
+    margin-bottom: rem-calc(2px);
+  }
+
   &__brand {
-    font-weight: $font-weight-bold;
     text-transform: uppercase;
-    margin-bottom: $px4;
   }
 }

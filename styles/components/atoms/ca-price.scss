@@ -1,12 +1,12 @@
 .ca-price {
   &__selling {
-    font-size: 1.2em;
+    font-size: $font-size-s;
     font-weight: $font-weight-bold;
   }
 
   &__regular {
+    font-size: $font-size-xs;
     text-decoration: line-through;
-    color: $c-text-secondary;
     margin-left: $px4;
   }
   

@@ -31,10 +31,39 @@
           :alt="product.brand.name + ' ' + product.name"
         />
       </NuxtLink>
+      <div 
+        v-if="product.unitPrice.discountPercentage"
+        class="ca-product-card__discount"
+      >
+        {{ product.unitPrice.discountPercentage }} %
+      </div>
       <CaToggleFavorite
         class="ca-product-card__favorite"
         :prod-alias="product.alias"
         :prod-id="product.productId"
+      />
+
+      <!-- DUMMY - TODO: badge params -->
+      <ul class="ca-product-card__badge">
+        <li
+          v-for="(item, index) in dummyBadges"
+          :key="index"
+          class="ca-product-card__badge-item"
+        >
+          <span 
+            class="ca-product-card__badge-inner" 
+            :class="`ca-product-card__badge-inner--${item.value.toLowerCase()}`"
+          >
+            {{ item.value }}
+          </span>
+        </li>
+      </ul>
+
+      <!-- TODO: quickshop button -->
+      <CaIconButton 
+        icon-name="shopping-bag" 
+        aria-label="Snabbväljare" 
+        class="ca-product-card__quickshop"
       />
     </div>
     <CaSkeleton
@@ -45,22 +74,26 @@
     />
 
     <div class="ca-product-card__info">
-      <NuxtLink v-if="productPopulated" :to="product.canonicalUrl">
+      <NuxtLink v-if="productPopulated" :to="product.canonicalUrl" class="ca-product-card__content">
+        <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
+
+        <!-- DUMMY -->
+        <CaCampaigns
+          v-if="product.discountCampaigns"
+          class="ca-product-card__campaigns"
+          :campaigns="dummyCampaigns"
+        />
+        <!-- <CaCampaigns
+          v-if="product.discountCampaigns"
+          class="ca-product-card__campaigns"
+          :campaigns="product.discountCampaigns"
+        /> -->
+
         <CaBrandAndName
           :brand="product.brand.name"
           :name="product.name"
           name-tag="h2"
-        />
-
-        <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
-        <CaCampaigns
-          v-if="product.discountCampaigns"
-          class="ca-product-card__campaigns"
-          :campaigns="product.discountCampaigns"
-        />
-        <CaStockDisplay
-          class="ca-product-card__stock-display"
-          :stock="product.totalStock"
+          class="ca-product-card__brand-and-name"
         />
       </NuxtLink>
       <div v-else>
@@ -68,18 +101,6 @@
         <CaSkeleton width="70%" />
         <CaSkeleton width="50%" />
       </div>
-      <CaButton
-        class="ca-product-card__buy-button"
-        type="full-width"
-        :loading="addToCartLoading"
-        @clicked="addToCartClick"
-      >
-        {{
-          skuId && product.totalStock.totalStock > 0
-            ? $t('ADD')
-            : $t('READ_MORE')
-        }}
-      </CaButton>
     </div>
   </component>
 </template>
@@ -98,7 +119,85 @@ export default {
   mixins: [MixProductCard],
   props: {},
   data: () => ({}),
-  computed: {},
+  computed: {
+    dummyBadges() {
+      // TODO: delete later - dummy data for badges
+      /* parameterGroups[
+        {
+          name: '',
+          parameters: []
+        }, {
+          name: 'TEST badges',
+          parameters: [
+            {
+              name: 'Badge',
+              value: 'Mer hållbar',
+              show: true,
+              identifier: null,
+            }, {
+              name: 'Badge',
+              value: 'Sizes',
+              show: true,
+              identifier: null,
+            }, {
+              name: 'Badge',
+              value: 'Bästsäljare',
+              show: true,
+              identifier: null,
+            }, {
+              name: 'Badge',
+              value: 'Collab',
+              show: true,
+              identifier: null,
+            }
+          ]
+        }
+      ]
+      */
+      const data = [
+        {
+          name: 'Badge',
+          value: 'Sustainability',
+          show: true,
+          identifier: null,
+        }, {
+          name: 'Badge',
+          value: 'Sizes',
+          show: true,
+          identifier: null,
+        }, {
+          name: 'Badge',
+          value: 'Bestseller',
+          show: true,
+          identifier: null,
+        }, {
+          name: 'Badge',
+          value: 'Collab',
+          show: true,
+          identifier: null,
+        }
+      ];
+
+      return data;
+    },
+    // TODO: delete later - dummy data for campaigns
+    dummyCampaigns() {
+      const data = [
+        {
+          name: 'Kampanjnamn',
+          hideTitle: true,
+        }, {
+          name: '3 för 2',
+          hideTitle: false,
+        }, {
+          name: 'Lagerrensning',
+          hideTitle: false,
+        }
+      ];
+
+      return data;
+    }
+  },
   watch: {},
   created() {},
   methods: {}

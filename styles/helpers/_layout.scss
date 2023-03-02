@@ -27,13 +27,11 @@
 
 @mixin iconCircle {
   @include flex-calign;
-  background-color: $c-white;
-  width: 36px;
-  height: 36px;
+  background-color: $c-lightest-gray;
+  width: 34px;
+  aspect-ratio: 1;
   transition: all 200ms ease;
-  border-radius: 50%;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
-  border: $border-light;
+  border-radius: 50vw;
   font-size: $font-size-m;
   
   &:focus-visible {
@@ -92,5 +90,18 @@
     display: inline-block;
     width: $width;
     height: $height;
+  }
+}
+
+@mixin campaignBadge {
+  background-color: $c-sale;
+  color: $c-lightest-gray;
+  font-size: rem-calc(8px);
+  letter-spacing: $letter-spacing-3;
+  line-height: 1;
+  padding: 0.25rem 0.25rem 0.2rem;
+
+  @include bp(tablet) {
+    font-size: rem-calc(11px);
   }
 }

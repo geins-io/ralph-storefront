@@ -1,0 +1,11 @@
+.ca-campaigns {
+  &__item {
+    @include campaignBadge;
+    flex-shrink: 0;
+  }
+
+  &--box {
+    background-color: $c-lightest-gray;
+    padding: $px12 $px16;
+  }
+}

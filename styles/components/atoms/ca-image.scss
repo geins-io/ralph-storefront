@@ -1,0 +1,49 @@
+.ca-image {
+  $block: &;
+  
+  position: relative;
+
+  &__img {
+    width: 100%;
+
+    &-wrapper {
+      background-color: $c-skeleton;
+    }
+
+    &--background {
+      background-position: center center;
+      background-size: 100%;
+      background-repeat: 'no-repeat';
+      height: 0;
+      padding: 0;
+    }
+  }
+  &--loaded {
+    #{$block}__skeleton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
+  &--force-ratio {
+    #{$block}__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      object-fit: cover;
+    }
+  }
+
+  &--product {
+    @include productImageOverlay;
+
+    #{$block}__img {
+      background-color: $c-white;
+    }
+  }
+}

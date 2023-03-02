@@ -1,4 +1,7 @@
 .ca-product-card {
+  width: 100%;
+  display: grid;
+  grid-template-rows: max-content 1fr;
   position: relative;
 
   &__image-wrap {
@@ -11,25 +14,67 @@
   }
 
   &__info {
-    padding-top: $px12;
-    display: block;
+    padding-top: clamp(#{rem-calc(12px)}, 2vw, #{rem-calc(14px)});
+    display: flex;
+    width: 100%;
+
+    > * {
+      flex-grow: 1;
+    }
   }
 
-  &__price {
-    margin-top: $px4;
+  &__discount {
+    @include campaignBadge;
+
+    position: absolute;
+    top: $px8;
+    left: $px8;
+
+    @include bp(tablet) {
+      font-size: rem-calc(11px);
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: clamp(#{rem-calc(2px)}, 2vw, rem-calc(4px)) rem-calc(12px);
+
+    @include bp(desktop) {
+      grid-template-columns: minmax(max-content, 1fr) auto;
+      grid-template-rows: 1fr auto;
+    }
+  }
+
+  &__price.ca-price--selling {
+    display: flex;
+    flex-direction: row-reverse;
   }
 
   &__campaigns {
-    margin: rem-calc(5) 0 0;
+    display: flex;
+    gap: 0.25em;
+    flex-wrap: wrap;
+    align-self: start;
+
+    @include bp(desktop) {
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
   }
 
-  &__stock-display {
-    font-size: $font-size-xs;
-    margin: $px10 0 0;
-  }
-  
-  &__buy-button {
-    margin: $px16 0 0;
+  &__quickshop {
+    @include iconCircle;
+    --icon-size: 16px;
+    
+    position: absolute;
+    right: rem-calc(6px);
+    bottom: rem-calc(5px);
+
+    @include bp(tablet) {
+      right: rem-calc(29px);
+      bottom: rem-calc(8px);
+    }
   }
 
   ::v-deep .ca-toggle-favorite {
@@ -39,4 +84,89 @@
     right: $px12;
     bottom: $px12;
   }
+
+  &__brand-and-name {
+    font-size: #{rem-calc(10px)};
+    grid-column: 1 / -1;
+    margin-top: auto;
+
+    @include bp(tablet) {
+      font-size: $font-size-xs;
+    }
+  }
+
+
+  // WIP
+  &__badge {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem-calc(5px);
+    position: absolute;
+    left: rem-calc(4px);
+    bottom: rem-calc(4px);
+
+    @include bp(tablet) {
+      row-gap: rem-calc(8px);
+      left: rem-calc(8px);
+      bottom: rem-calc(8px);
+    }
+  }
+
+  &__badge-item {
+    width: max-content;
+  }
+
+  &__badge-inner {
+    font-size: clamp(#{rem-calc(8px)}, 2vw, #{rem-calc(11px)});
+    font-weight: 300;
+    letter-spacing: $letter-spacing-3;
+    line-height: 1;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    column-gap: rem-calc(4px);
+    padding: rem-calc(4px) rem-calc(10px);
+    
+    &--sustainability {
+      background-color: #eaefe9;
+  
+      &::before {
+        content: '';
+        background-position: center;
+        background-repeat: no-repeat;
+        display: inline-block;
+        background-image: url('./assets/icons/badge-leaf.svg');
+        width: 6px;
+        height: 9px;
+      }
+    }
+    
+    &--sizes {
+      background-color: $c-lightest-gray;
+  
+      &::before {
+        content: '+';
+        display: inline-block;
+      }
+    }
+    
+    &--bestseller {
+      background-color: $c-lightest-gray;
+  
+      &::before {
+        content: '';
+        background-position: center;
+        background-repeat: no-repeat;
+        display: inline-block;
+        background-image: url('./assets/icons/badge-star.svg');
+        width: clamp(#{rem-calc(11px)}, 1vw, #{rem-calc(13px)});
+        aspect-ratio: 1;
+      }
+    }
+    
+    &--collab {
+      background-color: #d6cfc6;
+    }
+  }
+
 }

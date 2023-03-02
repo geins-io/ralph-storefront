@@ -1,17 +1,23 @@
 .ca-toggle-favorite {
   @include iconCircle;
   
-  width: rem-calc(40px);
-  height: rem-calc(40px);
-  position: absolute;
-  right: 0;
-  top: 0;
   font-size: rem-calc(18px);
   color: $c-text-secondary;
+  position: absolute;
+  top: rem-calc(5px);
+  right: rem-calc(6px);
   transition: all 150ms ease;
   
   &--active {
-    color: $c-white;
-    background-color: $c-sale;
+    background-color: $c-lightest-gray;
+    
+    svg {
+      fill: $c-pink;
+    }
+  }
+
+  @include bp(tablet) {
+    top: rem-calc(8px);
+    right: rem-calc(29px);
   }
 }
