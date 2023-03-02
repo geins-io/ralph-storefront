@@ -1,0 +1,92 @@
+@mixin topLinkStyle {
+  outline: none;
+  width: 100%;
+  display: block;
+  font-size: $font-size-s;
+  padding: $px20 $px16;
+  border-bottom: $border-light;
+  letter-spacing: $letter-spacing-3;
+  text-transform: uppercase;
+}
+
+@mixin childLinkStyle {
+  display: block;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-light;
+  padding: rem-calc(16px) rem-calc(16px) rem-calc(16px) rem-calc(26px);
+}
+
+.ca-panel-navigation {
+  $block: &;
+
+  &__link {
+    @include topLinkStyle;
+  }
+
+  &__parent {
+    &.ca-accordion-item {
+      .ca-accordion-item__toggle {
+        @include topLinkStyle;
+      }
+
+      .ca-accordion-item__icon-wrap.ca-icon-and-text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .ca-icon {
+          font-size: rem-calc(20px);
+        }
+      }
+    }
+  }
+
+  &__children {
+    padding: $px12 0;
+  }
+
+  &__child-link {
+    @include childLinkStyle;
+  }
+
+  &__child-parent {
+    &.ca-accordion-item {
+      .ca-accordion-item__toggle {
+        @include childLinkStyle;
+
+        font-weight: $font-weight-bold;
+        border-bottom: none;
+      }
+
+      .ca-accordion-item__icon-wrap.ca-icon-and-text {
+        .ca-icon {
+          font-size: rem-calc(18px);
+        }
+      }
+    }
+  }
+
+  &__child-item {
+    &:last-child {
+      .ca-accordion-item__content {
+        margin-bottom: rem-calc(-12px);
+      }
+    }
+  }
+
+  &__grand-children {
+    padding: $px10 0;
+  }
+
+  &__grand-child-link {
+    @include childLinkStyle;
+    padding-left: rem-calc(40);
+  }
+
+  &__spinner.ca-spinner {
+    @include calign;
+    border-color: var(--accent-color, $c-accent-color);
+    width: 30px;
+    height: 30px;
+  }
+}

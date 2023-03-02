@@ -1,3 +1,57 @@
 .ca-secondary-nav {
   $block: &;
+
+  height: rem-calc(62);
+  display: flex;
+  border-top: $border-super-light;
+  background-color: $c-lightest-gray;
+
+  &__item {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+
+    &--icon {
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      width: rem-calc(62);
+      border-left: $border-super-light;
+      flex-shrink: 0;
+      line-height: 0;
+    }
+  }
+
+  &__account {
+    width: 100%;
+    text-align: left;
+    padding: 0 $px16;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    color: $c-text-secondary;
+  }
+
+  &__account-text {
+    --text-and-icon-spacing: #{$px16};
+  }
+
+  &__favorites {
+    @include flex-calign;
+    --icon-size: #{rem-calc(30)};
+
+    width: 100%;
+
+    .ca-notification-badge--positioned {
+      top: rem-calc(16);
+      right: rem-calc(16);
+    }
+  }
+
+  &__cart {
+    @include flex-calign;
+    --icon-size: #{rem-calc(24)};
+
+    width: 100%;
+  }
 }

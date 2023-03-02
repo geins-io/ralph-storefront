@@ -386,11 +386,11 @@ export default async () => {
               nb: '/favoritter'
             },
             'brands/index': {
-              sv: '/varumarken',
+              sv: '/märken',
               en: '/brands',
-              da: '/varemaerker',
-              fi: '/tavaramerkkeja',
-              nb: '/varemerker'
+              da: '/maerker',
+              fi: '/tuotemerkit',
+              nb: '/merker'
             }
           },
           ...domainSettings

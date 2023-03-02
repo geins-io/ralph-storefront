@@ -5,8 +5,8 @@ $c-lightest-gray: #fefefe;
 $c-light-gray: #ececec;
 $c-medium-gray: #ded5d5;
 $c-dark-gray: #adadad;
-$c-semi-gray: #5B5758;
-$c-semidark-gray: #5A5656;
+$c-semi-gray: #5b5758;
+$c-semidark-gray: #5a5656;
 $c-darker-gray: #2a2b35;
 $c-darkest-gray: #363636;
 $c-light-pink: #fdf6f7;
@@ -38,6 +38,7 @@ $c-few-left: $c-oversellable;
 $c-static-stock: $c-in-stock;
 
 // Border colors
+$c-border-super-light: #e6e5e5;
 $c-border-light: $c-light-gray;
 $c-border-medium: $c-medium-gray;
 $c-border-dark: $c-semidark-gray;

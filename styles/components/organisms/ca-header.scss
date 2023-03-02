@@ -9,7 +9,7 @@
     background-color: $c-header-bg;
     z-index: $z-index-header;
     position: relative;
-    
+
     body[style='overflow: hidden;'] & {
       padding-right: var(--scrollbar-width);
     }
@@ -21,10 +21,12 @@
     column-gap: $px24;
     align-items: center;
     height: $header-bar-height;
+    padding: 0 rem-calc(20);
 
     @include bp(laptop) {
       grid-template-columns: 1fr auto 1fr;
       height: $header-bar-height-computer;
+      padding: 0 rem-calc(40);
     }
   }
 

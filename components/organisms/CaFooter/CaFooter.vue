@@ -137,8 +137,8 @@
           </div>
           <div class="ca-footer__contact">
             <span class="ca-footer__contact-title">
-                {{ $t('CUSTOMER_SERVICE_MAIL_TITLE') }}
-              </span>
+              {{ $t('CUSTOMER_SERVICE_MAIL_TITLE') }}
+            </span>
             <a
               class="ca-footer__contact-info"
               :href="'mailto:' + $t('CUSTOMER_SERVICE_EMAIL')"

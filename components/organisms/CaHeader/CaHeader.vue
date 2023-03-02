@@ -5,7 +5,7 @@
     </CaGlobalMessage>
     <CaTopBar />
     <div class="ca-header__bar">
-      <CaContainer class="ca-header__container">
+      <CaContainer class="ca-header__container" design="full-width">
         <CaIconButton
           class="ca-header__nav-toggle only-mobile"
           icon-name="menu"
@@ -21,7 +21,9 @@
 
         <div class="ca-header__actions">
           <CaIconButton
-            v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportComputer"
+            v-if="
+              !$store.getters.siteIsAtTop && !$store.getters.viewportComputer
+            "
             class="ca-header__search-toggle"
             icon-name="search-header"
             aria-label="Show search"
@@ -59,7 +61,11 @@
         </div>
       </CaContainer>
     </div>
-    <CaHeaderNavigation class="only-computer" menu-location-id="main-desktop" />
+    <CaHeaderNavigation
+      class="only-computer"
+      menu-location-id="main-desktop"
+      menu-state="click"
+    />
     <CaSearch class="only-mobile" :opened="searchOpened" />
   </header>
 </template>

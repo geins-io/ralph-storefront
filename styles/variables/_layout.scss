@@ -1,6 +1,7 @@
 @import '../helpers/sizing';
 
 // Borders
+$border-super-light: 1px solid $c-border-super-light;
 $border-light: 1px solid $c-border-light;
 $border-medium: 1px solid $c-border-medium;
 $border-dark: 1px solid $c-border-dark;
@@ -64,5 +65,5 @@ $list-column-count-desktop: 4;
 $text-widget-max-width: rem-calc(650px);
 
 // Content panel
-$content-panel-header-height: rem-calc(50);
-$content-panel-header-height-computer: rem-calc(60);
+$content-panel-header-height: rem-calc(56);
+$content-panel-header-height-computer: rem-calc(62);

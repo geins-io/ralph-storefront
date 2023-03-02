@@ -1,0 +1,9 @@
+.ca-menu-panel {
+  &__logo {
+    width: rem-calc(126);
+    margin: 0 auto;
+  }
+  .ca-content-panel__header {
+    border-bottom: none;
+  }
+}

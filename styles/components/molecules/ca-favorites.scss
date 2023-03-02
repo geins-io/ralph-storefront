@@ -1,13 +1,13 @@
 .ca-favorites {
   $block: &;
+  --icon-size: #{rem-calc(24)};
 
   position: relative;
 
   &__text {
     @include visually-hidden;
   }
-  
+
   &__icon {
-    --icon-size: #{rem-calc(24)};
   }
 }
