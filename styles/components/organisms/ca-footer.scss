@@ -117,14 +117,14 @@
     margin: 0 0 $px20;
     font-weight: $font-weight-bold;
     font-size: $font-size-m;
-    @include bp(laptop) {
-      display: none;
+    @include bp(tablet) {
+      @include visually-hidden;
     }
   }
 
   &__market-and-cert {
     padding: rem-calc(20px) rem-calc(24px);
-    @include bp(laptop) {
+    @include bp(tablet) {
       padding: 0;
     }
   }
@@ -133,7 +133,7 @@
     display: flex;
     column-gap: $px20;
     margin: rem-calc(60) 0 0;
-    @include bp(laptop) {
+    @include bp(tablet) {
       justify-content: flex-end;
     }
   }
@@ -257,11 +257,11 @@
       column-gap: $px20;
     }
 
-    .ca-footer__main-logo {
+    &__main-logo {
       margin-left: auto;
     }
 
-    .ca-footer__corp-info {
+    &__corp-info {
       text-align: right;
     }
 
