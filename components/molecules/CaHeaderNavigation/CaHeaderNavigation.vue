@@ -5,7 +5,10 @@
         v-for="item in menu.menuItems"
         :key="item.id"
         class="ca-header-navigation__item"
-        :class="{ 'ca-header-navigation__item--open': open === item.id }"
+        :class="{
+          'ca-header-navigation__item--open':
+            open === item.id && item.children.length
+        }"
         @mouseover="handleMouseOver(item.id)"
         @mouseleave="handleMouseLeave"
         @click="handleClick(item.id)"
@@ -19,6 +22,11 @@
             v-if="item.children.length"
             icon-name="chevron-down"
             icon-position="right"
+            class="ca-header-navigation__link-label"
+            :class="
+              'ca-header-navigation__link-label--' +
+                getLabel(item).toLowerCase()
+            "
           >
             {{ getLabel(item) }}
           </CaIconAndText>

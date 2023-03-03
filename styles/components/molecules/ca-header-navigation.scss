@@ -29,30 +29,37 @@
       }
 
       > #{$block}__link {
-        .ca-icon-and-text {
-          column-gap: rem-calc(6);
-        }
-
-        .ca-icon-and-text__text {
-          margin-right: 0;
-        }
-
         .ca-icon-and-text__icon {
           transform: rotate(-180deg);
+        }
+      }
+
+      #{$block}__link-label {
+        background-color: $c-pink;
+        &--outlet,
+        &--rea {
+          background-color: $c-sale;
+          color: $c-text-inverse;
         }
       }
     }
   }
 
   &__link {
+    --text-and-icon-spacing: #{rem-calc(6)};
     font-size: $font-size-xs;
     text-transform: uppercase;
-    padding: 0 $px20;
+    padding: 0 rem-calc(14);
     height: $header-navigation-height-computer;
     display: flex;
     align-items: center;
     line-height: 1;
     white-space: nowrap;
+  }
+
+  &__link-label {
+    padding: rem-calc(2) rem-calc(6);
+    transition: background-color 200ms ease, color 200ms ease;
   }
 
   &__children {
