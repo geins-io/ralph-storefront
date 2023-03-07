@@ -15,4 +15,8 @@
     font-weight: $font-weight-bold;
     margin-left: $px12;
   }
+
+  &__qty {
+    font-size: rem-calc(10);
+  }
 }

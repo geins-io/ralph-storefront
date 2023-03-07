@@ -47,7 +47,7 @@ export default {
   FILTER_LABEL_CAMPAIGNS: 'Campaigns',
   FILTER_LABEL_SKUS: 'Sizes',
   FILTERS_ACTIVE: 'filter active | filters active',
-  SORT_TITLE: 'Sort by',
+  SORT_TITLE: 'Sort',
   SORT_LABEL_LATEST: 'New in',
   SORT_LABEL_BESTSELLERS: 'Bestsellers',
   SORT_LABEL_LOWEST_PRICE: 'Lowest price',
@@ -246,7 +246,8 @@ export default {
   NEWSLETTER_PLACEHOLDER: 'your email adress',
   NEWSLETTER_LABEL: '',
   NEWSLETTER_BUTTON: 'Sign up',
-  NEWSLETTER_POLICY: 'Your personal data is processed in accordance with our privacy policy',
+  NEWSLETTER_POLICY:
+    'Your personal data is processed in accordance with our privacy policy',
   NEWSLETTER_FEEDBACK_SUCCESS: 'Thanks! You are now registered',
   CHECKOUT_YOUR_INFORMATION: 'Your information',
   CHECKOUT_SUBTITLE_COUNTRY_INFO: 'The address must be located in',

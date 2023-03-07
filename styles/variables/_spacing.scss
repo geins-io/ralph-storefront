@@ -19,15 +19,15 @@ $px80: rem-calc(80px);
 $default-spacing: $px20;
 $default-site-width-spacing: $px20;
 $default-site-width-spacing-tablet: $px40;
-$default-site-width-spacing-laptop: rem-calc(80px);
+$default-site-width-spacing-laptop: $px40;
 
 // List spacing
-$list-column-spacing: $px10;
-$list-row-spacing: $px20;
-$list-column-spacing-tablet: $px20;
+$list-column-spacing: $px4;
+$list-row-spacing: $px24;
+$list-column-spacing-tablet: $px10;
 $list-row-spacing-tablet: $px32;
-$list-column-spacing-laptop: $px20;
-$list-row-spacing-laptop: $px32;
+$list-column-spacing-laptop: rem-calc(18);
+$list-row-spacing-laptop: rem-calc(36);
 
 // Widget spacing
 $widget-column-spacing: $px10;

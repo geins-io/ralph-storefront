@@ -33,7 +33,7 @@
   transition: all 200ms ease;
   border-radius: 50vw;
   font-size: $font-size-m;
-  
+
   &:focus-visible {
     box-shadow: 0 0 0 $focus-border;
   }
@@ -104,4 +104,16 @@
   @include bp(tablet) {
     font-size: rem-calc(11px);
   }
+}
+
+@mixin panelTopLevelStyle {
+  font-size: $font-size-s;
+  font-weight: $font-weight-normal;
+  letter-spacing: $letter-spacing-3;
+  text-transform: uppercase;
+  outline: none;
+  width: 100%;
+  display: block;
+  padding: $px20 $px16;
+  border-bottom: $border-light;
 }

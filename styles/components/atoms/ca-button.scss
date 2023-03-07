@@ -1,0 +1,46 @@
+.ca-button {
+  @include button;
+
+  &__spinner {
+    @include button-spinner;
+  }
+
+  // Colors
+  &--primary {
+    @include button-primary;
+  }
+
+  &--secondary {
+    @include button-secondary;
+  }
+
+  &--tertiary {
+    @include button-tertiary;
+  }
+
+  // Sizes
+  &--s {
+    @include button-s;
+  }
+
+  &--m {
+    @include button-s;
+  }
+
+  &--l {
+    @include button-l;
+  }
+
+  // Types
+  &--full-width {
+    @include button-full-width;
+  }
+
+  &--disabled {
+    @include button-disabled;
+  }
+
+  &--loading {
+    @include button-loading;
+  }
+}

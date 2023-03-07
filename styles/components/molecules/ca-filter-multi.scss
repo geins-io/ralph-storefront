@@ -1,0 +1,61 @@
+.ca-filter-multi {
+  $block: &;
+  $c-input-checkbox-bg: $c-white !default;
+  $input-checkbox-border: $border-light !default;
+
+  &__value {
+    @include panelSecondLevelText;
+    padding: $px20 $px20 $px20 rem-calc(54);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    border-bottom: $border-light;
+
+    &::before {
+      @include valign;
+
+      content: '';
+      background-color: $c-input-checkbox-bg;
+      border: $input-checkbox-border;
+      border-radius: rem-calc(1);
+      display: block;
+      width: rem-calc(14);
+      aspect-ratio: 1;
+      left: rem-calc(24);
+      transition: all 200ms ease;
+    }
+
+    &--selected {
+      &::before {
+        background-color: var(--accent-color, $c-accent-color);
+      }
+
+      #{$block}__check {
+        opacity: 1;
+      }
+    }
+
+    &--disabled {
+      @include visually-hidden;
+    }
+
+    &--hidden {
+      @include visually-hidden;
+    }
+  }
+  &__check {
+    @include valign;
+
+    left: rem-calc(27);
+    color: $c-text-primary;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    color: $c-text-primary;
+    font-size: rem-calc(8);
+  }
+
+  &__count {
+    margin-left: auto;
+    color: $c-text-secondary;
+  }
+}

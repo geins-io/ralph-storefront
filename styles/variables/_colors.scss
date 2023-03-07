@@ -57,34 +57,39 @@ $c-cart-color: $c-text-primary;
 $c-sale: #186506;
 
 // Buttons
-$c-button-primary-bg: $c-light-pink;
-$c-button-primary-bg-hover: lighten($c-pink, 3%);
-$c-button-primary-txt: $c-text-primary;
-$c-button-primary-border: #ffdddc;
+$c-button-primary-bg: $c-text-primary;
+$c-button-primary-bg-hover: lighten($c-text-primary, 3%);
+$c-button-primary-txt: $c-text-inverse;
+$c-button-primary-border: $c-text-primary;
 
 $c-button-secondary-bg: transparent;
-$c-button-secondary-bg-hover: darken($c-button-secondary-bg, 3%);
+$c-button-secondary-bg-hover: darken($c-white, 3%);
 $c-button-secondary-txt: $c-text-primary;
-$c-button-secondary-border: $c-darkest-gray;
+$c-button-secondary-border: $c-dark-gray;
+
+$c-button-tertiary-bg: $c-pink;
+$c-button-tertiary-bg-hover: lighten($c-pink, 3%);
+$c-button-tertiary-txt: $c-text-primary;
+$c-button-tertiary-border: $c-pink;
 
 // Inputs
 $c-input-focused-border: $c-accent-color;
 $c-input-background: $c-white;
 
-$c-input-checkbox-text: $c-text-secondary;
+$c-input-checkbox-text: $c-text-primary;
 $c-input-checkbox-bg: $c-white;
-$c-input-checkbox-checked-bg: $c-white;
-$c-input-checkbox-checked-border: $c-dark-gray;
+$c-input-checkbox-checked-bg: $c-pink;
+$c-input-checkbox-checked-border: $c-text-primary;
 
-$c-input-radio-checked-bg: $c-dark-gray;
+$c-input-radio-checked-bg: $c-pink;
 
 // Content panel
 $c-content-panel-header-bg: $c-white;
 $c-content-panel-header-txt: $c-text-primary;
 
 // Notification badge
-$c-notification-badge-bg: $c-pale-pink;
-$c-notification-badge-txt: $c-text-inverse;
+$c-notification-badge-bg: $c-pink;
+$c-notification-badge-txt: $c-text-primary;
 
 // Skeletons
-$c-skeleton: $c-light-gray;
+$c-skeleton: $c-lightest-gray;

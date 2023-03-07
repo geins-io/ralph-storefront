@@ -20,20 +20,8 @@
           v-if="showControls"
           :active-products="totalCount"
           :active-filters="totalFiltersActive"
-          :current-sort="selection.sort"
-          @sortchange="sortChangeHandler"
         />
       </div>
-
-      <LazyCaFilterPanel
-        :filters="filters"
-        :selection="selection"
-        :selection-active="filterSelectionActive"
-        :total-products="totalCount"
-        :total-filters-active="totalFiltersActive"
-        @selectionchange="filterChangeHandler"
-        @reset="resetFilters"
-      />
 
       <CaProductList
         :skip="currentMinCount - 1"
@@ -53,6 +41,18 @@
         @loadmore="loadMore"
       />
     </CaContainer>
+
+    <LazyCaFilterPanel
+      :filters="filters"
+      :selection="selection"
+      :selection-active="filterSelectionActive"
+      :total-products="totalCount"
+      :total-filters-active="totalFiltersActive"
+      :current-sort="selection.sort"
+      @selectionchange="filterChangeHandler"
+      @sortchange="sortChangeHandler"
+      @reset="resetFilters"
+    />
   </div>
 </template>
 <script>
@@ -81,7 +81,7 @@ export default {
         this.$store.getters.viewport === 'phone' ? 'mobile' : 'desktop';
       const array = [];
       array.push(obj);
-      
+
       return array;
     }
   },

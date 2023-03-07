@@ -1,0 +1,355 @@
+<template>
+  <LazyCaContentPanel
+    v-if="filters"
+    name="filters"
+    enter-from="right"
+    :title="$t('FILTER_SORT')"
+    class="ca-filter-panel"
+  >
+    <LazyCaAccordionItem
+      v-if="
+        filters.categories &&
+          filters.categories.length &&
+          $config.showCategoryFilter &&
+          $config.showCategoryTreeViewFilter
+      "
+      class="ca-filter-panel__toggle"
+      :open-on-init="contentpanel.frame === 'categories'"
+      :styled="false"
+    >
+      <template #toggle-text>
+        <div class="ca-filter-panel__toggle-content">
+          <span class="ca-filter-panel__toggle-text">
+            {{ $t('FILTER_LABEL_CATEGORIES') }}
+          </span>
+          <CaNotificationBadge
+            :number="selection.categories.length"
+            :positioned="false"
+          />
+        </div>
+      </template>
+      <LazyCaFilterMultiTreeView
+        :values="filters.categories"
+        :selection="selection.categories"
+        @selectionchange="updateSelection($event, 'categories')"
+      />
+    </LazyCaAccordionItem>
+    <LazyCaAccordionItem
+      v-if="
+        filters.categories &&
+          filters.categories.length &&
+          $config.showCategoryFilter &&
+          !$config.showCategoryTreeViewFilter
+      "
+      class="ca-filter-panel__toggle"
+      :open-on-init="contentpanel.frame === 'categories'"
+      :styled="false"
+    >
+      <template #toggle-text>
+        <div class="ca-filter-panel__toggle-content">
+          <span class="ca-filter-panel__toggle-text">
+            {{ $t('FILTER_LABEL_CATEGORIES') }}
+          </span>
+          <CaNotificationBadge
+            :number="selection.categories.length"
+            :positioned="false"
+          />
+        </div>
+      </template>
+      <LazyCaFilterMulti
+        :values="filters.categories"
+        :selection="selection.categories"
+        @selectionchange="updateSelection($event, 'categories')"
+      />
+    </LazyCaAccordionItem>
+    <LazyCaAccordionItem
+      v-if="filters.brands && filters.brands.length && $config.showBrandsFilter"
+      class="ca-filter-panel__toggle"
+      :open-on-init="contentpanel.frame === 'brands'"
+      :styled="false"
+    >
+      <template #toggle-text>
+        <div class="ca-filter-panel__toggle-content">
+          <span class="ca-filter-panel__toggle-text">
+            {{ $t('FILTER_LABEL_BRANDS') }}
+          </span>
+          <CaNotificationBadge
+            :number="selection.brands.length"
+            :positioned="false"
+          />
+        </div>
+      </template>
+      <LazyCaFilterMulti
+        :values="filters.brands"
+        :selection="selection.brands"
+        @selectionchange="updateSelection($event, 'brands')"
+      />
+    </LazyCaAccordionItem>
+    <LazyCaAccordionItem
+      v-if="filters.skus && filters.skus.length && $config.showSkuFilter"
+      class="ca-filter-panel__toggle"
+      :open-on-init="contentpanel.frame === 'skus'"
+      :styled="false"
+    >
+      <template #toggle-text>
+        <div class="ca-filter-panel__toggle-content">
+          <span class="ca-filter-panel__toggle-text">
+            {{ $t('FILTER_LABEL_SKUS') }}
+          </span>
+          <CaNotificationBadge
+            :number="selection.skus.length"
+            :positioned="false"
+          />
+        </div>
+      </template>
+      <LazyCaFilterMulti
+        :values="filters.skus"
+        :selection="selection.skus"
+        @selectionchange="updateSelection($event, 'skus')"
+      />
+    </LazyCaAccordionItem>
+    <LazyCaAccordionItem
+      v-if="filters.price && filters.price.length && $config.showPriceFilter"
+      class="ca-filter-panel__toggle"
+      :open-on-init="contentpanel.frame === 'price'"
+      :styled="false"
+    >
+      <template #toggle-text>
+        <div class="ca-filter-panel__toggle-content">
+          <span class="ca-filter-panel__toggle-text">
+            {{ $t('FILTER_LABEL_PRICE') }}
+          </span>
+          <CaNotificationBadge
+            :number="selection.price.length"
+            :positioned="false"
+          />
+        </div>
+      </template>
+      <LazyCaFilterMulti
+        :values="filters.price"
+        :selection="selection.price"
+        @selectionchange="updateSelection($event, 'price')"
+      />
+    </LazyCaAccordionItem>
+    <LazyCaAccordionItem
+      v-for="(filter, index) in filters.parameters"
+      :key="index"
+      class="ca-filter-panel__toggle"
+      :open-on-init="contentpanel.frame === filter.filterId"
+      :styled="false"
+    >
+      <template #toggle-text>
+        <div class="ca-filter-panel__toggle-content">
+          <span class="ca-filter-panel__toggle-text">
+            {{ filter.label }}
+          </span>
+          <CaNotificationBadge
+            :number="getParameterSelection(filter.filterId).length || 0"
+            :positioned="false"
+          />
+        </div>
+      </template>
+      <LazyCaFilterMulti
+        :values="filter.values"
+        :selection="getParameterSelection(filter.filterId)"
+        @selectionchange="
+          updateSelection($event, 'parameters', filter.filterId)
+        "
+      />
+    </LazyCaAccordionItem>
+    <LazyCaAccordionItem
+      v-if="
+        filters.discount &&
+          filters.discount.length &&
+          $config.showDiscountFilter
+      "
+      class="ca-filter-panel__toggle"
+      :open-on-init="contentpanel.frame === 'discount'"
+      :styled="false"
+    >
+      <template #toggle-text>
+        <div class="ca-filter-panel__toggle-content">
+          <span class="ca-filter-panel__toggle-text">
+            {{ $t('FILTER_LABEL_DISCOUNT') }}
+          </span>
+          <CaNotificationBadge
+            :number="selection.discount.length"
+            :positioned="false"
+          />
+        </div>
+      </template>
+      <LazyCaFilterMulti
+        :values="filters.discount"
+        :selection="selection.discount"
+        @selectionchange="updateSelection($event, 'discount')"
+      />
+    </LazyCaAccordionItem>
+    <LazyCaAccordionItem
+      class="ca-filter-panel__toggle"
+      :open-on-init="contentpanel.frame === 'sort'"
+      :styled="false"
+    >
+      <template #toggle-text>
+        <span class="ca-filter-panel__toggle-text">
+          {{ $t('SORT_TITLE') }}
+        </span>
+      </template>
+      <ul class="ca-filter-panel__sort">
+        <li
+          v-for="(sort, index) in sortOptions"
+          :key="index"
+          class="ca-filter-panel__sort-item"
+        >
+          <button
+            type="button"
+            class="ca-filter-panel__sort-button"
+            :class="{
+              'ca-filter-panel__sort-button--current':
+                sort.value === currentSort
+            }"
+            @click="updateSort(sort.value)"
+          >
+            {{ sort.label }}
+          </button>
+        </li>
+      </ul>
+    </LazyCaAccordionItem>
+    <template #footer>
+      <div class="ca-filter-panel__footer">
+        <div class="ca-filter-panel__list-info">
+          {{ totalProducts }}
+          {{ $tc('PRODUCT_LOWERCASE', totalProducts) }} -
+          {{ totalFiltersActive }}
+          {{ $tc('FILTERS_ACTIVE', totalFiltersActive) }}
+        </div>
+        <div class="ca-filter-panel__buttons-wrap">
+          <CaButton
+            class="ca-filter-panel__button-reset"
+            color="secondary"
+            :size="buttonSize"
+            type="full-width"
+            :disabled="!selectionActive"
+            @clicked="resetFilters"
+          >
+            {{ $t('RESET_FILTER') }}
+          </CaButton>
+          <CaButton
+            class="ca-filter-panel__button-apply"
+            :size="buttonSize"
+            type="full-width"
+            @clicked="closeContentPanel"
+          >
+            {{ $t('APPLY_FILTER') }}
+          </CaButton>
+        </div>
+      </div>
+    </template>
+  </LazyCaContentPanel>
+</template>
+<script>
+import { mapState } from 'vuex';
+import eventbus from '@ralph/ralph-ui/plugins/eventbus.js';
+
+// @group Organisms
+// @vuese
+// (Description of component)<br><br>
+// **SASS-path:** _./styles/components/organisms/ca-filter-panel.scss_
+export default {
+  name: 'CaFilterPanel',
+  mixins: [],
+  props: {
+    filters: {
+      type: Object,
+      required: true
+    },
+    selection: {
+      type: Object,
+      required: true
+    },
+    selectionActive: {
+      type: Boolean,
+      required: true
+    },
+    totalProducts: {
+      type: Number,
+      required: true
+    },
+    totalFiltersActive: {
+      type: Number,
+      required: true
+    },
+    currentSort: {
+      type: String,
+      required: true
+    }
+  },
+  data: vm => ({
+    currentSelection: {},
+    sortOptions: [
+      {
+        label: vm.$t('SORT_LABEL_LATEST'),
+        value: 'LATEST'
+      },
+      {
+        label: vm.$t('SORT_LABEL_BESTSELLERS'),
+        value: 'MOST_SOLD'
+      },
+      {
+        label: vm.$t('SORT_LABEL_LOWEST_PRICE'),
+        value: 'PRICE'
+      },
+      {
+        label: vm.$t('SORT_LABEL_HIGHEST_PRICE'),
+        value: 'PRICE_DESC'
+      }
+    ]
+  }),
+  computed: {
+    buttonSize() {
+      return this.$store.getters.viewport === 'phone' ? 's' : 'm';
+    },
+    ...mapState(['contentpanel'])
+  },
+  watch: {
+    selection(newVal) {
+      this.currentSelection = newVal;
+    }
+  },
+  mounted() {
+    this.currentSelection = this.selection;
+  },
+  methods: {
+    resetFilters() {
+      this.$emit('reset');
+    },
+    closeContentPanel() {
+      eventbus.$emit('close-content-panel');
+    },
+    updateSelection(selection, type, group = null) {
+      if (group) {
+        const obj = this.currentSelection.parameters;
+        if (obj[group]) {
+          obj[group] = selection;
+        } else {
+          this.$set(obj, group, selection);
+        }
+        this.$set(this.currentSelection, 'parameters', obj);
+      } else {
+        this.currentSelection[type] = selection;
+      }
+      this.$emit('selectionchange', this.currentSelection);
+    },
+    getParameterSelection(group) {
+      const selection = this.selection.parameters[group];
+      return selection || [];
+    },
+    updateSort(sort) {
+      this.$emit('sortchange', sort);
+      this.closeContentPanel();
+    }
+  }
+};
+</script>
+<style lang="scss">
+@import 'organisms/ca-filter-panel';
+</style>

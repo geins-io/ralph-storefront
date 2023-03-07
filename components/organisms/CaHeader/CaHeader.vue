@@ -55,7 +55,7 @@
             </CaIconAndText>
           </NuxtLink>
 
-          <CaFavorites class="ca-header__favorites" />
+          <CaFavorites :show-text="false" class="ca-header__favorites" />
 
           <CaMiniCart class="ca-header__cart" />
         </div>

@@ -54,7 +54,7 @@ export default {
   FILTER_LABEL_SKUS: 'Storlekar',
   FILTERS_ACTIVE: 'aktivt filter | aktiva filter',
   FILTER_LABEL_DISCOUNT: 'Rea',
-  SORT_TITLE: 'Sortera på',
+  SORT_TITLE: 'Sortera',
   SORT_LABEL_LATEST: 'Senast inkomna',
   SORT_LABEL_BESTSELLERS: 'Bästsäljare',
   SORT_LABEL_LOWEST_PRICE: 'Lägsta pris',

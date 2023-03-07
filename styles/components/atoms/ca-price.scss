@@ -7,14 +7,14 @@
   &__regular {
     font-size: $font-size-xs;
     text-decoration: line-through;
-    margin-left: $px4;
+    margin-right: $px4;
   }
-  
+
   &__ex-vat {
     margin-left: $px4;
     color: $c-text-secondary;
   }
-  
+
   &--sale & {
     &__selling {
       color: $c-sale;

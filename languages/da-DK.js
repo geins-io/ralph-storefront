@@ -12,8 +12,10 @@ export default {
   CUSTOMER_SERVICE_EMAIL: 'kundeservice@bubbleroom.com',
   CUSTOMER_SERVICE_PHONE: '70 27 78 33',
   CUSTOMER_SERVICE_OPEN: 'Hverdage 08.00-18.00',
-  CUSTOMER_SERVICE_INFO: 'Laveste ordreværdi 70kr, Standardlevering 49kr, fri fragt ved køb over 499,-. 30 dages fortrydelsesret. Betalingsmetoder: Betalingskort og PayPal. Vi leverer kun til danske adresser.',
-  FOOTER_CORP_CONTENT: 'New Bubbleroom Sweden AB\nVATnr: SE556699921401\nCVR nummer: 12578423',
+  CUSTOMER_SERVICE_INFO:
+    'Laveste ordreværdi 70kr, Standardlevering 49kr, fri fragt ved køb over 499,-. 30 dages fortrydelsesret. Betalingsmetoder: Betalingskort og PayPal. Vi leverer kun til danske adresser.',
+  FOOTER_CORP_CONTENT:
+    'New Bubbleroom Sweden AB\nVATnr: SE556699921401\nCVR nummer: 12578423',
   FAVORITES_LABEL: 'Mine favoritter',
   FAVORITES_EMPTY: 'Du har ingen markerede favoritprodukter',
   BRANDS_TITLE: 'Alle mærker',
@@ -50,7 +52,7 @@ export default {
   FILTER_LABEL_CAMPAIGNS: 'Kampagner',
   FILTER_LABEL_SKUS: 'Størrelser',
   FILTERS_ACTIVE: 'aktivt filter | aktive filtre',
-  SORT_TITLE: 'Sorter efter',
+  SORT_TITLE: 'Sorter',
   SORT_LABEL_LATEST: 'Sidst modtaget',
   SORT_LABEL_BESTSELLERS: 'Bedst sælgende',
   SORT_LABEL_LOWEST_PRICE: 'Laveste pris',
@@ -248,7 +250,8 @@ export default {
   NEWSLETTER_PLACEHOLDER: 'Din e-mail-adresse',
   NEWSLETTER_LABEL: '',
   NEWSLETTER_BUTTON: 'Sign up',
-  NEWSLETTER_POLICY: 'Dine personoplysninger behandles i overensstemmelse med vores privatlivspolitik',
+  NEWSLETTER_POLICY:
+    'Dine personoplysninger behandles i overensstemmelse med vores privatlivspolitik',
   NEWSLETTER_FEEDBACK_SUCCESS: 'Tak! Du er nu registreret',
   CHECKOUT_YOUR_INFORMATION: 'Din information',
   CHECKOUT_SUBTITLE_COUNTRY_INFO: 'Adressen skal være i',

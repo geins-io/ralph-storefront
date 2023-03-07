@@ -1,0 +1,83 @@
+.ca-filter-panel {
+  &__toggle {
+    .ca-clickable {
+      @include panelTopLevelStyle;
+    }
+
+    .ca-icon-and-text {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  &__toggle-content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__toggle-text {
+    margin: 0 rem-calc(6) 0 0;
+  }
+
+  .ca-accordion-item__toggle {
+    .ca-icon-and-text__icon {
+      font-size: rem-calc(14);
+    }
+  }
+
+  &__footer {
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+    padding: $px16;
+  }
+
+  &__list-info {
+    text-align: center;
+    margin: 0 0 $px10 0;
+    font-size: $font-size-xs;
+  }
+
+  &__buttons-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__button-apply.ca-button {
+    margin-left: $px12;
+  }
+
+  &__button-reset {
+  }
+
+  &__sort-item {
+    border-bottom: $border-light;
+  }
+
+  &__sort-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include panelSecondLevelText;
+    padding: $px20 $px24;
+    column-gap: $px16;
+    &:before {
+      content: '';
+      display: block;
+      width: rem-calc(14);
+      aspect-ratio: 1;
+      box-shadow: 0 0 0 1px $c-border-dark;
+      background-color: $c-white;
+      border: 2px solid $c-white;
+      border-radius: 50%;
+      transition: background-color 150ms ease, box-shadow 150ms ease;
+      box-sizing: border-box;
+    }
+
+    &--current {
+      &:before {
+        background-color: $c-accent-color;
+      }
+    }
+  }
+}

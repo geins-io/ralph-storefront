@@ -1,21 +1,19 @@
 $button-font-size: $font-size-xs !default;
 $button-font-size-s: $font-size-s !default;
+$button-font-size-m: $font-size-m !default;
 $button-font-size-l: $font-size-l !default;
-$button-font-weight: $font-weight-semibold !default;
+$button-font-weight: $font-weight-bold !default;
 
 @mixin button {
   color: $c-text-primary;
   font-size: $button-font-size;
   font-weight: $button-font-weight;
-  text-transform: uppercase;
   letter-spacing: $letter-spacing-3;
   display: inline-block;
   padding: 1em 2em;
   white-space: nowrap;
   position: relative;
-  transition: 
-    background-color 150ms ease,
-    border-color 150ms ease;
+  transition: background-color 150ms ease, border-color 150ms ease;
   cursor: pointer;
 
   &:hover {
@@ -42,17 +40,32 @@ $button-font-weight: $font-weight-semibold !default;
   }
 }
 
+@mixin button-tertiary {
+  background-color: $c-button-tertiary-bg;
+  color: $c-button-tertiary-txt;
+  border: $button-tertiary-border;
+
+  &:hover {
+    background-color: $c-button-tertiary-bg-hover;
+  }
+}
+
 @mixin button-s {
-  padding: 0.6em 0.9em;
-  font-size: $button-font-size-s;
+  padding: 1.4em 0.9em;
+  font-size: $button-font-size;
+}
+
+@mixin button-m {
+  padding: 1.4em 1em;
+  font-size: $button-font-size-m;
 }
 
 @mixin button-l {
   font-size: $button-font-size-l;
-  padding: 0.65em 4.2em;
+  padding: 1.4em 4.2em;
 
   @include bp(tablet) {
-    padding: 0.65em 5em;
+    padding: 1.4em 5em;
   }
 }
 
@@ -67,8 +80,8 @@ $button-font-weight: $font-weight-semibold !default;
 
 @mixin button-full-width {
   width: 100%;
-  padding-left: 0.7em;
-  padding-right: 0.7em;
+  padding-left: 2.1em;
+  padding-right: 2.1em;
   text-align: center;
 }
 

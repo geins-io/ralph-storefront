@@ -5,9 +5,7 @@
   @include hideScrollbar;
 
   &__button {
-    background-color: transparent;
-    border: $border-dark;
-    font-size: $font-size-xs;
+    @include button-secondary;
     padding: $px10 rem-calc(13px);
   }
 }

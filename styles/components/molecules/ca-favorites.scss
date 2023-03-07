@@ -4,10 +4,7 @@
 
   position: relative;
 
-  &__text {
-    @include visually-hidden;
-  }
-
-  &__icon {
+  &__qty {
+    font-size: rem-calc(10);
   }
 }

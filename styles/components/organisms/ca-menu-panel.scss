@@ -6,4 +6,8 @@
   .ca-content-panel__header {
     border-bottom: none;
   }
+
+  .ca-panel-navigation__child-link--all {
+    @include visually-hidden;
+  }
 }

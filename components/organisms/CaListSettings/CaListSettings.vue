@@ -1,7 +1,7 @@
 <template>
   <div class="ca-list-settings">
     <div class="ca-list-settings__active-products">
-      {{ activeProducts }} 
+      {{ activeProducts }}
       {{ $tc('PRODUCT_LOWERCASE', activeProducts) }}
     </div>
 
@@ -51,34 +51,12 @@ export default {
       type: Number,
       required: true
     },
-    currentSort: {
-      type: String,
-      required: true
-    },
     activeFilters: {
       type: Number,
       required: true
     }
   },
   data: vm => ({
-    sortOptions: [
-      {
-        label: vm.$t('SORT_LABEL_LATEST'),
-        value: 'LATEST'
-      },
-      {
-        label: vm.$t('SORT_LABEL_BESTSELLERS'),
-        value: 'MOST_SOLD'
-      },
-      {
-        label: vm.$t('SORT_LABEL_LOWEST_PRICE'),
-        value: 'PRICE'
-      },
-      {
-        label: vm.$t('SORT_LABEL_HIGHEST_PRICE'),
-        value: 'PRICE_DESC'
-      }
-    ],
     sort: null
   }),
   computed: {},

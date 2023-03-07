@@ -79,7 +79,7 @@
     </section>
 
     <section class="ca-footer__section ca-footer__section--content">
-      <CaContainer class="ca-footer__content-holder">
+      <CaContainer class="ca-footer__content-holder" design="narrow">
         <CaAccordionItem
           v-if="$store.getters.viewport === 'phone'"
           class="ca-footer-navigation-accordion"

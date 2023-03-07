@@ -386,9 +386,9 @@ export default async () => {
               nb: '/favoritter'
             },
             'brands/index': {
-              sv: '/märken',
+              sv: encodeURI('/märken'),
               en: '/brands',
-              da: '/maerker',
+              da: encodeURI('/mærker'),
               fi: '/tuotemerkit',
               nb: '/merker'
             }
@@ -627,7 +627,7 @@ export default async () => {
       productSchemaOptions: {
         productSkuLabelIsSize: false,
         productDescriptionField: 'text1',
-        schemaImageSize: '700f700', // Make sure this is a valid product image size
+        schemaImageSize: '700x1016', // Make sure this is a valid product image size
         extraOfferProperties: {
           itemCondition: 'https://schema.org/NewCondition'
         }
@@ -638,7 +638,7 @@ export default async () => {
       /* ****************** */
       /* ***** IMAGES ***** */
       /* ****************** */
-      productImageRatio: 1 / 1,
+      productImageRatio: 1.4514,
       imageSizes,
       /* ******************** */
       /* ***** CHECKOUT ***** */

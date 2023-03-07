@@ -39,6 +39,11 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     gap: clamp(#{rem-calc(2px)}, 2vw, rem-calc(4px)) rem-calc(12px);
+    padding: 0 $px4;
+
+    @include bp(tablet) {
+      padding: 0;
+    }
 
     @include bp(desktop) {
       grid-template-columns: minmax(max-content, 1fr) auto;
@@ -66,14 +71,13 @@
   &__quickshop {
     @include iconCircle;
     --icon-size: 16px;
-    
+
     position: absolute;
     right: rem-calc(6px);
     bottom: rem-calc(5px);
 
     @include bp(tablet) {
-      right: rem-calc(29px);
-      bottom: rem-calc(8px);
+      display: none;
     }
   }
 
@@ -94,7 +98,6 @@
       font-size: $font-size-xs;
     }
   }
-
 
   // WIP
   &__badge {
@@ -126,10 +129,10 @@
     align-items: center;
     column-gap: rem-calc(4px);
     padding: rem-calc(4px) rem-calc(10px);
-    
+
     &--sustainability {
       background-color: #eaefe9;
-  
+
       &::before {
         content: '';
         background-position: center;
@@ -140,19 +143,19 @@
         height: 9px;
       }
     }
-    
+
     &--sizes {
       background-color: $c-lightest-gray;
-  
+
       &::before {
         content: '+';
         display: inline-block;
       }
     }
-    
+
     &--bestseller {
       background-color: $c-lightest-gray;
-  
+
       &::before {
         content: '';
         background-position: center;
@@ -163,10 +166,9 @@
         aspect-ratio: 1;
       }
     }
-    
+
     &--collab {
       background-color: #d6cfc6;
     }
   }
-
 }

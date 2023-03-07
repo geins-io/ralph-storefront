@@ -1,9 +1,9 @@
 <template>
   <div class="ca-price" :class="modifiers">
-    <span class="ca-price__selling">{{ sellingPrice }}</span>
     <span v-if="price.isDiscounted" class="ca-price__regular">
       {{ regularPrice }}
     </span>
+    <span class="ca-price__selling">{{ sellingPrice }}</span>
     <span v-if="!vatIncluded" class="ca-price__ex-vat">
       {{ $t('EX_VAT') }}
     </span>

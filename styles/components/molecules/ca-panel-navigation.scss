@@ -1,18 +1,6 @@
-@mixin topLinkStyle {
-  outline: none;
-  width: 100%;
-  display: block;
-  font-size: $font-size-s;
-  padding: $px20 $px16;
-  border-bottom: $border-light;
-  letter-spacing: $letter-spacing-3;
-  text-transform: uppercase;
-}
-
 @mixin childLinkStyle {
+  @include panelSecondLevelText;
   display: block;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-light;
   padding: rem-calc(16px) rem-calc(16px) rem-calc(16px) rem-calc(26px);
 }
 
@@ -20,13 +8,13 @@
   $block: &;
 
   &__link {
-    @include topLinkStyle;
+    @include panelTopLevelStyle;
   }
 
   &__parent {
     &.ca-accordion-item {
       .ca-accordion-item__toggle {
-        @include topLinkStyle;
+        @include panelTopLevelStyle;
       }
 
       .ca-accordion-item__icon-wrap.ca-icon-and-text {

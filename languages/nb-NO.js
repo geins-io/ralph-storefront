@@ -12,7 +12,8 @@ export default {
   CUSTOMER_SERVICE_EMAIL: 'kundeservice@bubbleroom.no',
   CUSTOMER_SERVICE_PHONE: '22 33 05 20',
   CUSTOMER_SERVICE_OPEN: 'Hverdager 08.00-17.00',
-  CUSTOMER_SERVICE_INFO: 'Minste beløp å handle for 100 kr, standard frakt kr 59,-, fri frakt når du handler for minimum 799,-. 30 dager retur- og angrerett Betalingsmåte: Konto, Faktura, Kortbetaling og PayPal. Vi leverer kun til norske adresser. Vi leverer kun til norske adresser.',
+  CUSTOMER_SERVICE_INFO:
+    'Minste beløp å handle for 100 kr, standard frakt kr 59,-, fri frakt når du handler for minimum 799,-. 30 dager retur- og angrerett Betalingsmåte: Konto, Faktura, Kortbetaling og PayPal. Vi leverer kun til norske adresser. Vi leverer kun til norske adresser.',
   FOOTER_CORP_CONTENT: 'Bubbleroom AS\nForetaksregisteret: 921326556',
   FAVORITES_EMPTY: 'Du har ingen markerede favoritprodukter',
   BRANDS_TITLE: 'Alle mærker',
@@ -49,7 +50,7 @@ export default {
   FILTER_LABEL_CAMPAIGNS: 'Kampagner',
   FILTER_LABEL_SKUS: 'Størrelser',
   FILTERS_ACTIVE: 'aktivt filter | aktive filtre',
-  SORT_TITLE: 'Sorter efter',
+  SORT_TITLE: 'Sorter',
   SORT_LABEL_LATEST: 'Sidst modtaget',
   SORT_LABEL_BESTSELLERS: 'Bedst sælgende',
   SORT_LABEL_LOWEST_PRICE: 'Laveste pris',
@@ -247,7 +248,8 @@ export default {
   NEWSLETTER_PLACEHOLDER: 'e-postadressen din',
   NEWSLETTER_LABEL: '',
   NEWSLETTER_BUTTON: 'Sign up',
-  NEWSLETTER_POLICY: 'Dine personopplysninger behandles i samsvar med vår personvernerklæring',
+  NEWSLETTER_POLICY:
+    'Dine personopplysninger behandles i samsvar med vår personvernerklæring',
   NEWSLETTER_FEEDBACK_SUCCESS: 'Tak! Du er nu registreret',
   CHECKOUT_YOUR_INFORMATION: 'Din information',
   CHECKOUT_SUBTITLE_COUNTRY_INFO: 'Adressen skal være i',

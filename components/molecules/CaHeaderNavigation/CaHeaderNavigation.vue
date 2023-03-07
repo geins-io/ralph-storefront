@@ -39,6 +39,7 @@
             :is="containerElem"
             class="ca-header-navigation__children-container"
             :class="getContainerClass(item)"
+            design="narrow"
           >
             <ul class="ca-header-navigation__children-list">
               <li
