@@ -534,15 +534,39 @@ export default async () => {
         desktopBig: 1440
       },
       siteTopThreshold: 10,
-      paymentAndDeliveryLogos: [
-        { name: 'paypal' },
-        { name: 'visa' },
-        { name: 'mastercard' },
-        { name: 'avarda' },
-        { name: 'swish' },
-        { name: 'budbee' },
-        { name: 'postnord' },
-        { name: 'instabox' }
+      paymentAndDeliveryLogos:[
+        { 
+          name: 'paypal', 
+          type: 'payment' 
+        }, 
+        { 
+          name: 'visa', 
+          type: 'payment' 
+        }, 
+        { 
+          name: 'mastercard', 
+          type: 'payment' 
+        }, 
+        { 
+          name: 'avarda', 
+          type: 'payment' 
+        }, 
+        { 
+          name: 'swish', 
+          type: 'payment' 
+        }, 
+        { 
+          name: 'budbee', 
+          type: 'shipping' 
+        }, 
+        { 
+          name: 'postnord', 
+          type: 'shipping' 
+        }, 
+        { 
+          name: 'instabox', 
+          type: 'shipping' 
+        }
       ],
       socialMediaLinks: [
         {

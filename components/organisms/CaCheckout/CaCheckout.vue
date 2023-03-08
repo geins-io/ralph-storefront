@@ -36,7 +36,10 @@
     >
       <template #title>
         {{ $t('CART') }}
-        <span v-if="cart.data && cart.data.items">
+        <span 
+          v-if="cart.data && cart.data.items" 
+          class="ca-checkout-section__title-count"
+        >
           ({{ $store.getters['cart/totalQuantity'] }})
         </span>
       </template>

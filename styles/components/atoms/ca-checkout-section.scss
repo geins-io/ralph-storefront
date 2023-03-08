@@ -1,0 +1,97 @@
+.ca-checkout-section {
+  $block: &;
+  
+  margin-top: rem-calc(23);
+
+  &__title {
+    font-size: $font-size-xs;
+    letter-spacing: $letter-spacing-3;
+    text-transform: uppercase;
+    margin-bottom: $px12;
+    text-align: center;
+    margin-top: $px32;
+    
+    &-count {
+      @include visually-hidden;
+    }
+  }
+
+  &__content {
+    background-color: $c-white;
+    padding: $px20 $px12;
+    position: relative;
+    min-height: rem-calc(100px);
+
+    @include bp(tablet) {
+      padding: $px32;
+    }
+  }
+
+  &__loading {
+    @include flex-calign;
+    background-color: $c-white;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  &__spinner.ca-spinner {
+    border-color: var(--accent-color, $c-accent-color);
+    width: 30px;
+    height: 30px;
+  }
+
+  &__guard {
+    background-color: $c-white;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &__guard-info {
+    @include halign;
+    background-color: $c-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: $px56;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    padding: $px24;
+    font-size: $font-size-l;
+    text-align: center;
+    width: 90%;
+
+    @include bp(tablet) {
+      width: 50%;
+    }
+  }
+
+  &__guard-icon {
+    font-size: rem-calc(24px);
+    margin: 0 0 $px10;
+    color: $c-info;
+  }
+
+  &--arrow #{$block}__content::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 18px solid $c-white;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+  }
+}

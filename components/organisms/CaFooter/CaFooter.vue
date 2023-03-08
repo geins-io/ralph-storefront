@@ -65,14 +65,14 @@
       </h2>
       <ul class="ca-footer__logo-options">
         <li
-          v-for="(link, index) in $config.paymentAndDeliveryLogos"
+          v-for="(icon, index) in $config.paymentAndDeliveryLogos"
           :key="index"
         >
           <CaSvgAsset
             class="ca-footer__logo-options-item"
             folder="logos"
-            :filename="link.name"
-            :alt="`${link.name} logo`"
+            :filename="icon.name"
+            :alt="`${icon.name} logo`"
           />
         </li>
       </ul>
@@ -106,7 +106,7 @@
             </div>
             <div class="ca-footer__contact">
               <span class="ca-footer__contact-title">
-                {{ $t('CUSTOMER_SERVICE_MAIL_TITLE') }}
+                {{ $t('CUSTOMER_SERVICE_EMAIL_TITLE') }}
               </span>
               <a
                 class="ca-footer__contact-info"
@@ -137,7 +137,7 @@
           </div>
           <div class="ca-footer__contact">
             <span class="ca-footer__contact-title">
-              {{ $t('CUSTOMER_SERVICE_MAIL_TITLE') }}
+              {{ $t('CUSTOMER_SERVICE_EMAIL_TITLE') }}
             </span>
             <a
               class="ca-footer__contact-info"

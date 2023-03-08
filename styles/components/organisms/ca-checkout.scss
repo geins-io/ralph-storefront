@@ -4,8 +4,11 @@
   padding-bottom: $px32;
   
   &__login {
-    margin: 0 auto rem-calc(-14);
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-3;
     text-decoration: underline;
+    margin: 0 auto;
     display: table;
   }
   

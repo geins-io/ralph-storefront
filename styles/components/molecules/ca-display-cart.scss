@@ -1,0 +1,41 @@
+.ca-display-cart {
+  &__products {
+    padding: 0 $px12;
+  }
+
+  &__product {
+    padding: $px12 0;
+
+    &:not(:last-child) {
+      border-bottom: $border-light;
+    }
+  }
+
+  &__empty {
+    @include calign;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+  }
+  
+  &__footer {
+    background-color: $c-lightest-gray;
+    padding: $px16 $px12;
+  }
+  
+  &__summary {
+    margin-bottom: $px16;
+  }
+
+  &__logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $px16;
+    margin-top: rem-calc(18);
+  }
+
+  &__logos-item {
+    height: rem-calc(16);
+  }
+}

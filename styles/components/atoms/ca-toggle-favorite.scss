@@ -4,8 +4,8 @@
   font-size: rem-calc(18px);
   color: $c-text-secondary;
   position: absolute;
-  top: rem-calc(5px);
-  right: rem-calc(6px);
+  top: $px8;
+  right: $px8;
   transition: all 150ms ease;
   
   &--active {
@@ -14,10 +14,5 @@
     svg {
       fill: $c-pink;
     }
-  }
-
-  @include bp(tablet) {
-    top: rem-calc(8px);
-    right: rem-calc(29px);
   }
 }

@@ -1,0 +1,121 @@
+.ca-added-to-cart {
+  $block: &;
+
+  &__container.ca-container {
+    z-index: $z-index-added-to-cart;
+    position: fixed;
+    
+    @include bp(tablet-down) {
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      pointer-events: none;
+    }
+    
+    @include bp(laptop) {
+      left: 50%;
+      transform: translateX(-50%);
+      top: $header-bar-height-computer + $top-bar-height-computer;
+    }
+  }
+  
+  &__box {
+    position: absolute;
+    opacity: 0;
+    width: rem-calc(360);
+    background-color: $c-white;
+    transition: all 200ms ease;
+    pointer-events: none;
+
+    &--visible {
+      opacity: 1;
+      pointer-events: initial;
+    }
+    
+    @include bp(tablet-down) {
+      @include halign;
+
+      bottom: rem-calc(-40);
+      width: calc(100% - 20px);
+      
+      &--visible {
+        bottom: rem-calc(10);
+      }
+    }
+    
+    @include bp(laptop) {
+      top: rem-calc(-50);
+      right: 0;
+      
+      &--visible {
+        top: 0;
+      }
+    }
+  }
+  
+  &__header {
+    --icon-size: 23px;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    font-size: $font-size-xs;
+    color: $c-text-secondary;
+    letter-spacing: $letter-spacing-3;
+    padding: rem-calc(15px) rem-calc(24);
+    position: relative;
+  }
+  
+  &__close {
+    @include iconCircle;
+    @include valign;
+    right: rem-calc(12);
+  }
+  
+  &__body {
+    padding: $px10 rem-calc(24) rem-calc(24);
+  }
+
+  &__sum {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-3;
+    margin-bottom: rem-calc(6);
+  }
+
+  &__shipping-notice {
+    --icon-size: 17px;
+    --text-and-icon-spacing: #{rem-calc(10)};
+
+    background-color: $c-light-green;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-3;
+    border-radius: 1px;
+    width: max-content;
+    margin-bottom: rem-calc(6);
+    padding: rem-calc(5) rem-calc(9);
+
+    > * {
+      display: flex;
+    }
+  }
+
+  &__cart-btn {
+    margin-top: rem-calc(6);
+  }
+  
+  &__product {
+    margin: 0 0 rem-calc(12);
+  }
+
+  &--scrolled {
+    #{$block}__container.ca-container {
+      @include bp(laptop) {
+        top: $header-bar-height-computer;
+      }
+    }
+  }
+
+  .ca-cart-product__quantity-picker {
+    display: none;
+  }
+}

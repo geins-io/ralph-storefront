@@ -1,20 +1,24 @@
 .ca-price {
+  --font-size-selling: #{$font-size-xs};
+  --font-size-regular: #{rem-calc(10)};
+
   &__selling {
-    font-size: $font-size-s;
+    font-size: var(--font-size-selling, $font-size-s);
     font-weight: $font-weight-bold;
   }
-
+  
   &__regular {
-    font-size: $font-size-xs;
+    font-size: var(--font-size-regular, $font-size-xs);
+    font-weight: $font-weight-bold;
     text-decoration: line-through;
-    margin-right: $px4;
+    margin-right: rem-calc(5);
   }
-
+  
   &__ex-vat {
     margin-left: $px4;
     color: $c-text-secondary;
   }
-
+  
   &--sale & {
     &__selling {
       color: $c-sale;
