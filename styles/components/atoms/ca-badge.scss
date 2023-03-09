@@ -1,0 +1,57 @@
+.ca-badge {
+  font-size: clamp(#{rem-calc(8px)}, 2vw, #{rem-calc(11px)});
+  letter-spacing: $letter-spacing-3;
+  line-height: 1;
+  text-transform: uppercase;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  column-gap: rem-calc(4px);
+  padding: var(--badge-padding, #{rem-calc(4px)} #{rem-calc(10px)});
+
+  &--new {
+    --badge-padding: 0;
+  }
+
+  // WIP
+  &--sustainability {
+    background-color: #eaefe9;
+
+    &::before {
+      content: '';
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-block;
+      background-image: url('./assets/icons/badge-leaf.svg');
+      width: 6px;
+      height: 9px;
+    }
+  }
+
+  &--sizes {
+    background-color: $c-lightest-gray;
+
+    &::before {
+      content: '+';
+      display: inline-block;
+    }
+  }
+
+  &--bestseller {
+    background-color: $c-lightest-gray;
+
+    &::before {
+      content: '';
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-block;
+      background-image: url('./assets/icons/badge-star.svg');
+      width: clamp(#{rem-calc(11px)}, 1vw, #{rem-calc(13px)});
+      aspect-ratio: 1;
+    }
+  }
+
+  &--collab {
+    background-color: #d6cfc6;
+  }
+}

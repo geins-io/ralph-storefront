@@ -333,5 +333,6 @@ export default {
   REVIEW_WRITTEN_BY: 'Written by:',
   REVIEWS_LIST_EMPTY: 'This product doesn´t have any reviews yet',
   REVIEW_FEEDBACK_RATE_REQUIRED: 'Please use stars to rate the product',
-  FOOTER_SOCIAL_TITLE: 'Follow us'
+  FOOTER_SOCIAL_TITLE: 'Follow us',
+  BADGE_NEW: 'New!'
 };

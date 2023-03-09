@@ -1,5 +1,11 @@
 <template>
   <component :is="baseTag" class="ca-product-card" @click="productClickHandler">
+    <CaBadge
+      v-if="isNew"
+      type="new"
+      :text="$t('BADGE_NEW')"
+      class="ca-product-card__new-badge"
+    />
     <div v-if="productPopulated" class="ca-product-card__image-wrap">
       <NuxtLink
         class="ca-product-card__image-link"
@@ -10,6 +16,9 @@
         <CaImage
           v-if="product.images !== null && product.images.length > 0"
           class="ca-product-card__image"
+          :class="{
+            'ca-product-card__image--has-second': product.images.length > 1
+          }"
           type="product"
           :size-array="
             $config.imageSizes.product.filter(
@@ -21,7 +30,7 @@
           :ratio="$config.productImageRatio"
           :filename="product.images[0]"
           :alt="product.brand.name + ' ' + product.name"
-          sizes="(min-width: 1360px) 248px, (min-width: 1024px) 18.23vw, (min-width: 768px) 30.73vw, 48vw"
+          :sizes="imgSizesProductCard"
         />
         <CaImage
           v-else
@@ -29,6 +38,24 @@
           :ratio="$config.productImageRatio"
           :src="require('~/assets/placeholders/product-image-square.png')"
           :alt="product.brand.name + ' ' + product.name"
+        />
+        <CaImage
+          v-if="
+            product.images !== null && product.images.length > 1 && isDesktop
+          "
+          class="ca-product-card__image ca-product-card__image--second-image"
+          type="product"
+          :size-array="
+            $config.imageSizes.product.filter(
+              item =>
+                parseInt(item.descriptor) < 1150 &&
+                parseInt(item.descriptor) > 186
+            )
+          "
+          :ratio="$config.productImageRatio"
+          :filename="product.images[1]"
+          :alt="product.brand.name + ' ' + product.name"
+          :sizes="imgSizesProductCard"
         />
       </NuxtLink>
       <div 
@@ -44,18 +71,15 @@
       />
 
       <!-- DUMMY - TODO: badge params -->
-      <ul class="ca-product-card__badge">
+      <ul class="ca-product-card__badge-list">
         <li
           v-for="(item, index) in dummyBadges"
           :key="index"
-          class="ca-product-card__badge-item"
         >
-          <span 
-            class="ca-product-card__badge-inner" 
-            :class="`ca-product-card__badge-inner--${item.value.toLowerCase()}`"
-          >
-            {{ item.value }}
-          </span>
+          <CaBadge
+            :type="item.value"
+            :text="item.value"
+          />
         </li>
       </ul>
 
@@ -118,7 +142,10 @@ export default {
   name: 'CaProductCard',
   mixins: [MixProductCard],
   props: {},
-  data: () => ({}),
+  data: () => ({
+    imgSizesProductCard:
+      '(min-width: 1360px) 248px, (min-width: 1024px) 18.23vw, (min-width: 768px) 30.73vw, 48vw'
+  }),
   computed: {
     dummyBadges() {
       // TODO: delete later - dummy data for badges
@@ -196,7 +223,22 @@ export default {
       ];
 
       return data;
-    }
+    },
+    isDesktop() {
+      return this.$store.getters.viewportComputer;
+    },
+    isNew() {
+      if (this.product.firstAvailableOn) {
+        const now = new Date();
+        const firstAvailableDate = new Date(this.product.firstAvailableOn);
+        const oneDay = 1000 * 60 * 60 * 24;
+        const oneWeek = oneDay * 7;
+
+        return (now - firstAvailableDate) < oneWeek;
+      } else {
+        return false;
+      }
+    },
   },
   watch: {},
   created() {},

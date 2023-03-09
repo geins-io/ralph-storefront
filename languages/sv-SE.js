@@ -339,5 +339,6 @@ export default {
   REVIEWS_LIST_EMPTY: 'Denna produkt har inga recensioner ännu',
   REVIEW_FEEDBACK_RATE_REQUIRED:
     'Använd stjärnorna för att betygsätta produkten',
-  FOOTER_SOCIAL_TITLE: 'Följ oss'
+  FOOTER_SOCIAL_TITLE: 'Följ oss',
+  BADGE_NEW: 'Nyhet!'
 };

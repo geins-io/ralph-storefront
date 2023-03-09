@@ -1,10 +1,21 @@
 .ca-product-card {
   width: 100%;
   display: grid;
-  grid-template-rows: max-content 1fr;
+  grid-template: 
+    "new" $px16
+    "img" auto
+    "content" 1fr
+    / 100%;
   position: relative;
 
+  &__new-badge {
+    grid-area: new;
+    align-self: start;
+    margin-left: $px8;
+  }
+
   &__image-wrap {
+    grid-area: img;
     line-height: 0;
     position: relative;
   }
@@ -13,10 +24,40 @@
     display: block;
   }
 
+  &__image {
+    transition: opacity 200ms ease;
+    opacity: 1;
+
+    @include bp(laptop) {
+      &--has-second {
+        &:hover {
+          opacity: 0;
+        }
+      }
+
+      &--second-image {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.ca-image--product::after {
+      display: none;
+    }
+  }
+  
   &__info {
-    padding-top: clamp(#{rem-calc(12px)}, 2vw, #{rem-calc(14px)});
+    grid-area: content;
     display: flex;
     width: 100%;
+    padding-top: clamp(#{rem-calc(12px)}, 2vw, #{rem-calc(14px)});
 
     > * {
       flex-grow: 1;
@@ -37,7 +78,7 @@
 
   &__content {
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr;
     gap: clamp(#{rem-calc(2px)}, 2vw, rem-calc(4px)) rem-calc(12px);
     padding: 0 $px4;
 
@@ -99,8 +140,7 @@
     }
   }
 
-  // WIP
-  &__badge {
+  &__badge-list {
     display: flex;
     flex-direction: column;
     row-gap: rem-calc(5px);
@@ -112,63 +152,6 @@
       row-gap: rem-calc(8px);
       left: rem-calc(8px);
       bottom: rem-calc(8px);
-    }
-  }
-
-  &__badge-item {
-    width: max-content;
-  }
-
-  &__badge-inner {
-    font-size: clamp(#{rem-calc(8px)}, 2vw, #{rem-calc(11px)});
-    font-weight: 300;
-    letter-spacing: $letter-spacing-3;
-    line-height: 1;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    column-gap: rem-calc(4px);
-    padding: rem-calc(4px) rem-calc(10px);
-
-    &--sustainability {
-      background-color: #eaefe9;
-
-      &::before {
-        content: '';
-        background-position: center;
-        background-repeat: no-repeat;
-        display: inline-block;
-        background-image: url('./assets/icons/badge-leaf.svg');
-        width: 6px;
-        height: 9px;
-      }
-    }
-
-    &--sizes {
-      background-color: $c-lightest-gray;
-
-      &::before {
-        content: '+';
-        display: inline-block;
-      }
-    }
-
-    &--bestseller {
-      background-color: $c-lightest-gray;
-
-      &::before {
-        content: '';
-        background-position: center;
-        background-repeat: no-repeat;
-        display: inline-block;
-        background-image: url('./assets/icons/badge-star.svg');
-        width: clamp(#{rem-calc(11px)}, 1vw, #{rem-calc(13px)});
-        aspect-ratio: 1;
-      }
-    }
-
-    &--collab {
-      background-color: #d6cfc6;
     }
   }
 }

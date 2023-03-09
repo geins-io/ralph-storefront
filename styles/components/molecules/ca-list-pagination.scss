@@ -9,9 +9,14 @@
   
   &__button {
     background-color: transparent;
+    color: $c-text-primary;
     border: $border-dark;
     padding: rem-calc(17px) rem-calc(34px);
     overflow-anchor: none;
+
+    &:hover {
+      color: $c-text-inverse;
+    }
   }
   
   &__showing {

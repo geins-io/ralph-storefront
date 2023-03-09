@@ -341,5 +341,6 @@ export default {
   REVIEW_FEEDBACK_RATE_REQUIRED:
     'Vennligst bruk stjerner for å rangere produktet',
   // !end NO translations from Google translet - please checkk if valid
-  FOOTER_SOCIAL_TITLE: 'Følg oss'
+  FOOTER_SOCIAL_TITLE: 'Følg oss',
+  BADGE_NEW: 'Nyhet!'
 };

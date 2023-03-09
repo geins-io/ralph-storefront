@@ -1,0 +1,31 @@
+#import "product/price.graphql"
+#import "product/stock.graphql"
+#import "product/sku.graphql"
+#import "global/campaign.graphql"
+
+fragment ListProduct on ProductType {
+  brand {
+    name
+  }
+  name
+  productId
+  alias
+  canonicalUrl
+  firstAvailableOn
+  unitPrice {
+    ...Price
+  }
+  images
+  discountCampaigns {
+    ...Campaign
+  }
+  primaryCategory {
+    name
+  }
+  totalStock {
+    ...Stock
+  }
+  skus {
+    ...Sku
+  }
+}

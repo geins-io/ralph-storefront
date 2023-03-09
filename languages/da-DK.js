@@ -342,5 +342,6 @@ export default {
   REVIEW_FEEDBACK_RATE_REQUIRED:
     'Brug venligst stjerner til at bedømme produktet',
   // !end DK translations from Google translet - please checkk if valid
-  FOOTER_SOCIAL_TITLE: 'Følg os'
+  FOOTER_SOCIAL_TITLE: 'Følg os',
+  BADGE_NEW: 'Nyhed!'
 };
