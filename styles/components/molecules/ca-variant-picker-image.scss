@@ -16,6 +16,7 @@
 
   &__choice {
     line-height: 0;
+    
     &--chosen {
       #{$block}__image {
         border: 1px solid $c-border-dark;

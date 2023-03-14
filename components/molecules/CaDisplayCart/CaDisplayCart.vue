@@ -33,19 +33,8 @@
           </CaIconAndText>
           <template v-else>{{ $t('CART_TO_CHECKOUT') }}</template>
         </CaButton>
-        <ul class="ca-display-cart__logos">
-          <li
-            v-for="(icon, index) in paymentLogos"
-            :key="index"
-          >
-            <CaSvgAsset
-              class="ca-display-cart__logos-item"
-              folder="logos"
-              :filename="icon.name"
-              :alt="`${icon.name} logo`"
-            />
-          </li>
-        </ul>
+
+        <CaLogoDisplay :logo-array-src="paymentLogos" class="ca-display-cart__logos" />
       </div>
     </template>
   </LazyCaContentPanel>

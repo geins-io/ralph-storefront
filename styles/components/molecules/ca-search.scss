@@ -343,6 +343,7 @@
   &--visible {
     @include bp(tablet-down) {
       transform: translateY(0);
+      
       .ca-header--scrolled & {
         box-shadow: $box-shadow;
       }

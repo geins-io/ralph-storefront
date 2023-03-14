@@ -61,21 +61,13 @@
 
     <section class="ca-footer__section ca-footer__section--logos">
       <h2 class="ca-footer__title ca-footer__title--logos">
-        Betalning och leverans
+        {{ $t('DELIVERY_PAYMENT') }}
       </h2>
-      <ul class="ca-footer__logo-options">
-        <li
-          v-for="(icon, index) in $config.paymentAndDeliveryLogos"
-          :key="index"
-        >
-          <CaSvgAsset
-            class="ca-footer__logo-options-item"
-            folder="logos"
-            :filename="icon.name"
-            :alt="`${icon.name} logo`"
-          />
-        </li>
-      </ul>
+      
+      <CaLogoDisplay 
+        :logo-array-src="$config.paymentAndDeliveryLogos" 
+        class="ca-footer__logos"
+      />
     </section>
 
     <section class="ca-footer__section ca-footer__section--content">

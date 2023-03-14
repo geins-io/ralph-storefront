@@ -191,24 +191,15 @@
   }
 
   &__payment-logos {
-    display: flex;
-    justify-content: center;
+    --logo-display-gap: 0 #{$px16};
     align-items: center;
-    column-gap: $px16;
-  }
-
-  &__payment-logo-item {
-  }
-
-  &__payment-logo {
-    height: rem-calc(16);
-    width: auto;
   }
 
   &__accordion {
     border-top: 12px solid $c-light-pink;
     margin: 0 -#{$default-spacing/2} $default-spacing;
     padding: 0 $default-spacing;
+    
     @include bp(tablet) {
       border-top: none;
       margin: 0;

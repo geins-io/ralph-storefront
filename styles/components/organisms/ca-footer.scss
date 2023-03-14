@@ -101,22 +101,16 @@
     text-decoration: underline;
   }
 
-  &__logo-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: #{rem-calc(10px)} $px40;
-  }
-
-  &__logo-options-item {
-    height: 1.2rem;
-    width: auto;
+  &__logos {
+    --logo-display-gap: #{rem-calc(10px)} #{$px40};
+    --logo-display-size: 1.2rem;
   }
 
   &__market-title {
     margin: 0 0 $px20;
     font-weight: $font-weight-bold;
     font-size: $font-size-m;
+
     @include bp(tablet) {
       @include visually-hidden;
     }
@@ -124,6 +118,7 @@
 
   &__market-and-cert {
     padding: rem-calc(20px) rem-calc(24px);
+
     @include bp(tablet) {
       padding: 0;
     }
@@ -133,6 +128,7 @@
     display: flex;
     column-gap: $px20;
     margin: rem-calc(60) 0 0;
+
     @include bp(tablet) {
       justify-content: flex-end;
     }

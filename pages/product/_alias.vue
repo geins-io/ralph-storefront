@@ -141,20 +141,10 @@
             <p class="ca-product-page__split-payment">
               Delbetala från 20 kr / månaden
             </p>
-            <ul class="ca-product-page__payment-logos">
-              <li
-                v-for="(link, index) in paymentLogos"
-                :key="index"
-                class="ca-product-page__payment-logo-item"
-              >
-                <CaSvgAsset
-                  class="ca-product-page__payment-logo"
-                  folder="logos"
-                  :filename="link.name"
-                  :alt="`${link.name} logo`"
-                />
-              </li>
-            </ul>
+            <CaLogoDisplay 
+              :logo-array-src="paymentLogos"
+              class="ca-product-page__payment-logos"
+            />
           </div>
           <CaProductAccordion
             class="ca-product-page__accordion"

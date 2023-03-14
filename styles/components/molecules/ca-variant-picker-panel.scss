@@ -1,6 +1,7 @@
 .ca-variant-picker-panel {
   $block: &;
   width: 100%;
+  
   &__trigger {
     width: 100%;
     height: rem-calc(52);

@@ -1,9 +1,13 @@
 .ca-category-display {
   display: flex;
-  column-gap: $px8;
-  row-gap: $px8;
+  gap: $px8;
   overflow: auto;
   @include hideScrollbar;
+
+  @include bp(laptop) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
   &__button {
     @include button-secondary;

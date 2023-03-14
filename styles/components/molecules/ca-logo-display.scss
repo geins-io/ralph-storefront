@@ -1,0 +1,11 @@
+.ca-logo-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--logo-display-gap, 0 0);
+
+  &__item {
+    height: var(--logo-display-size, #{rem-calc(16)});
+    width: auto;
+  }
+}

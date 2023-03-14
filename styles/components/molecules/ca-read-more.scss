@@ -1,0 +1,57 @@
+.ca-read-more {
+  $block: &;
+
+  &__text {
+    overflow: hidden;
+    position: relative;
+    color: var(--body-text-color, $c-text-primary);
+  
+    &::after {
+      content: '';
+      display: block;
+      height: 50%;
+      width: 100%;
+      background-image: linear-gradient(hexToRgba($c-white, 0), $c-white);
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 1;
+      transition: opacity 200ms ease;
+    }
+  }
+  
+  &__button {
+    @include button-primary;
+    --icon-size: 0.815em;
+
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xs;
+    letter-spacing: $letter-spacing-3;
+    padding: 1.2em;
+
+    svg {
+      margin-left: rem-calc(2);;
+      
+      > * {
+        stroke: #fff;
+      }
+    }
+  }
+  
+  &--visible & {
+    &__text::after {
+      opacity: 0;
+    }
+
+    &__button {
+      margin-top: $px8;
+    }
+  }
+  
+  &--ready {
+    #{$block}__text {
+      transition: height 200ms ease;
+    }
+  }
+}

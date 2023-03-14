@@ -61,6 +61,7 @@
     @include panelSecondLevelText;
     padding: $px20 $px24;
     column-gap: $px16;
+    
     &:before {
       content: '';
       display: block;
