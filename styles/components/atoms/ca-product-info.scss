@@ -1,0 +1,17 @@
+.ca-product-info {
+  $block: &;
+
+  font-size: $font-size-xs;
+  margin: 0 0 rem-calc(16);
+
+  &__title {
+    font-weight: $font-weight-bold;
+    margin: 0 0 rem-calc(8);
+  }
+
+  &__text {
+    a {
+      text-decoration: underline;
+    }
+  }
+}

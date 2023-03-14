@@ -1,7 +1,7 @@
 <template>
   <div class="ca-layout-default" :class="modifiers">
     <CaHeader />
-    <main class="ca-layout-default__main">
+    <main class="ca-layout-default__main" :class="pageTypeClass">
       <Nuxt />
     </main>
     <div>
@@ -37,8 +37,13 @@ export default {
       return {
         'ca-layout-default--loading': this.$store.state.loading.loading
       };
+    },
+    pageTypeClass() {
+      const routeName = this.$route.name.split('-')[0].split('_')[0];
+      return 'ca-layout-default__main--' + routeName;
     }
-  }
+  },
+  methods: {}
 };
 </script>
 <style lang="scss">

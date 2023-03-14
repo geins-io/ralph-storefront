@@ -1,9 +1,19 @@
 .ca-header {
+  $block: &;
+  --top-height: #{calc(#{$top-bar-height} - #{rem-calc(5)})};
+
   position: fixed;
   width: 100%;
   left: 0;
   top: 0;
   z-index: $z-index-header;
+  transform: translateY(calc(var(--motion-y, 0px) * -1));
+  transition: transform 400ms ease;
+  background-color: $c-white;
+
+  @include bp(laptop) {
+    --top-height: #{calc(#{$top-bar-height-computer} - #{rem-calc(6)})};
+  }
 
   &__bar {
     background-color: $c-header-bg;
@@ -44,20 +54,27 @@
     @include visually-hidden;
   }
 
-  &__nav-toggle {
-    @include flex-valign;
-
-    margin-right: auto;
-    font-size: 28px;
-  }
-
+  &__nav-toggle,
   &__search-toggle {
     @include flex-valign;
+
     margin-right: auto;
-    font-size: 23px;
+    font-size: rem-calc(23);
   }
 
   &__logo {
     width: clamp(#{rem-calc(126px)}, 18vw, #{rem-calc(208px)});
+  }
+
+  &--scrolled {
+    --motion-y: var(--top-height);
+
+    &:not(#{$block}--is-hidden) {
+      box-shadow: $box-shadow;
+    }
+  }
+
+  &--is-hidden {
+    --motion-y: 100%;
   }
 }

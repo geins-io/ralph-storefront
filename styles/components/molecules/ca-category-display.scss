@@ -1,6 +1,7 @@
 .ca-category-display {
   display: flex;
   column-gap: $px8;
+  row-gap: $px8;
   overflow: auto;
   @include hideScrollbar;
 

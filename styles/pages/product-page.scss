@@ -1,12 +1,9 @@
-$column-width: 48.2%;
-
 .ca-product-page {
   &__section {
     margin-bottom: $px20;
 
     @include bp(laptop) {
       display: flex;
-      justify-content: space-between;
       align-items: flex-start;
       margin-bottom: $px56;
     }
@@ -26,20 +23,41 @@ $column-width: 48.2%;
 
   &__main {
     position: relative;
-    max-width: 500px;
-    margin: $px16 auto 0;
+    max-width: rem-calc(422);
+    margin: rem-calc(18) auto 0;
 
     @include bp(laptop) {
-      width: 40%;
-      margin: $px32 auto 0;
+      position: sticky;
+      top: calc(#{$header-height-computer} + #{rem-calc(10)});
+      width: rem-calc(422);
+      margin: 0 0 0 rem-calc(120);
+      padding: $px16 0 0;
+      transition: transform 400ms ease;
+    }
+
+    &--header-scrolled {
+      @include bp(laptop) {
+        transform: translateY(-#{$top-bar-height-computer});
+      }
+    }
+
+    &--header-hidden {
+      @include bp(laptop) {
+        transform: translateY(-#{$header-height-computer});
+      }
+    }
+  }
+
+  &__gallery-wrap {
+    position: relative;
+    @include bp(laptop) {
+      width: calc(50% + #{$default-site-width-spacing-laptop});
+      margin-left: -#{$default-site-width-spacing-laptop};
     }
   }
 
   &__gallery.ca-product-gallery {
-    @include bp(laptop) {
-      width: $column-width;
-      margin-right: $px48;
-    }
+    position: relative;
   }
 
   &__skeleton-main-slide {
@@ -49,8 +67,52 @@ $column-width: 48.2%;
     }
   }
 
+  &__icon-wrap {
+    position: absolute;
+    bottom: rem-calc(24);
+    right: rem-calc(0);
+    display: flex;
+    flex-direction: column;
+    row-gap: rem-calc(13);
+    @include bp(laptop) {
+      bottom: auto;
+      right: rem-calc(15);
+      top: rem-calc(15);
+    }
+  }
+
+  &__favorite.ca-toggle-favorite {
+    position: static;
+    width: rem-calc(44);
+  }
+
+  &__video-button {
+    @include iconCircle;
+    font-size: rem-calc(14);
+    width: rem-calc(44);
+  }
+
+  &__price-wrap {
+    position: relative;
+  }
+
   &__price {
-    margin: $px4 0 $px8;
+    --font-size-selling: #{$font-size-xxl};
+    --font-size-regular: #{$font-size-s};
+  }
+
+  &__lowest-price {
+    font-size: $font-size-xxs;
+  }
+
+  &__campaigns {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__brand-and-name {
+    margin: $px8 0 $px16;
   }
 
   &__product-summary {
@@ -61,8 +123,31 @@ $column-width: 48.2%;
     margin: 0 0 rem-calc(16);
   }
 
+  &__buy-wrap {
+    display: flex;
+    column-gap: $px8;
+
+    @include bp(tablet) {
+      flex-direction: column;
+      row-gap: rem-calc(18);
+    }
+  }
+
   &__variant-picker {
-    margin-bottom: $default-spacing;
+    width: 100%;
+  }
+
+  &__color-picker {
+    margin: rem-calc(18) 0 0;
+  }
+
+  &__color-picker-title {
+    font-weight: $font-weight-bold;
+    margin: 0 0 rem-calc(6);
+  }
+
+  &__color-picker-current {
+    font-weight: $font-weight-normal;
   }
 
   &__quantity {
@@ -76,47 +161,58 @@ $column-width: 48.2%;
   }
 
   &__buy-button.ca-button {
-    margin-bottom: $px20;
-    padding: 0.9em 2.15em;
-  }
-
-  &__stock-display {
-    font-size: $font-size-m;
-  }
-
-  &__actions {
-    margin-bottom: $px24;
-  }
-
-  &__usps {
+    font-size: $font-size-s;
+    height: rem-calc(52);
+    padding: 0;
     display: flex;
-    justify-content: space-between;
-    border-top: $border-light;
-    padding: $px16 0 0;
+    align-items: center;
+    justify-content: center;
+    column-gap: rem-calc(8);
+
+    &.ca-button--loading {
+      .ca-icon {
+        display: none;
+      }
+    }
+
+    .ca-spinner {
+      border-color: $c-text-primary;
+    }
   }
 
-  &__usp {
-    padding: 0 $px4;
+  &__payment {
+    margin: $px16 0 $px20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: $px10;
     text-align: center;
-    .ca-icon {
-      margin-bottom: $px4;
-    }
+    font-size: $font-size-xs;
+  }
+
+  &__payment-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: $px16;
+  }
+
+  &__payment-logo-item {
+  }
+
+  &__payment-logo {
+    height: rem-calc(16);
+    width: auto;
   }
 
   &__accordion {
+    border-top: 12px solid $c-light-pink;
     margin: 0 -#{$default-spacing/2} $default-spacing;
-
-    @include bp(laptop) {
+    padding: 0 $default-spacing;
+    @include bp(tablet) {
+      border-top: none;
       margin: 0;
-      width: $column-width;
-    }
-  }
-
-  &__specifications-box {
-    @include bp(laptop) {
-      width: $column-width;
-      background-color: $c-lightest-gray;
-      padding: 0 $px24 $px16;
+      padding: 0;
     }
   }
 

@@ -1,0 +1,26 @@
+.ca-variant-picker-image {
+  $block: &;
+
+  display: grid;
+  gap: rem-calc(8);
+  grid-template-columns: repeat(6, 1fr);
+
+  @include bp(tablet) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__image {
+    border: 1px solid transparent;
+    transition: border-color 200ms ease;
+  }
+
+  &__choice {
+    line-height: 0;
+    &--chosen {
+      #{$block}__image {
+        border: 1px solid $c-border-dark;
+        border-radius: 1px;
+      }
+    }
+  }
+}

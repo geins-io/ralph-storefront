@@ -1,0 +1,5 @@
+.ca-variant-picker {
+  &__title {
+    @include visually-hidden;
+  }
+}

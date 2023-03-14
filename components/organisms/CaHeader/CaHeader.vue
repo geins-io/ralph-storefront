@@ -22,7 +22,9 @@
         <div class="ca-header__actions">
           <CaIconButton
             v-if="
-              !$store.getters.siteIsAtTop && !$store.getters.viewportComputer
+              isPdp &&
+                ($store.getters.viewport === 'phone' ||
+                  $store.getters.viewport === 'tablet')
             "
             class="ca-header__search-toggle"
             icon-name="search-header"
@@ -66,7 +68,12 @@
       menu-location-id="main-desktop"
       menu-state="click"
     />
-    <CaSearch class="only-mobile" :opened="searchOpened" />
+    <CaSearch
+      class="only-mobile"
+      :opened="searchOpened"
+      :is-pdp="isPdp"
+      @closed="searchOpened = false"
+    />
   </header>
 </template>
 <script>
@@ -83,11 +90,16 @@ export default {
   computed: {
     modifiers() {
       return {
-        'ca-header--scrolled': !this.$store.getters.siteIsAtTop
+        'ca-header--scrolled': !this.$store.getters.siteIsAtTop,
+        'ca-header--is-hidden': this.$store.state.headerHidden,
+        'ca-header--pdp': this.isPdp
       };
     },
     availableLocales() {
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+    },
+    isPdp() {
+      return this.$route.name.includes('pdp');
     }
   },
   watch: {},

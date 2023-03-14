@@ -12,7 +12,9 @@ $c-darkest-gray: #363636;
 $c-light-pink: #fdf6f7;
 $c-pale-pink: #e59797;
 $c-pink: #ffdce0;
-$c-light-green: #89D7A4;
+$c-red: #b2071b;
+$c-green: #186506;
+$c-light-green: #89d7a4;
 
 $c-accent-color: $c-pink;
 $c-accent-bg: $c-pink;
@@ -55,7 +57,7 @@ $c-search-bg: $c-medium-gray;
 $c-cart-color: $c-text-primary;
 
 // Price
-$c-sale: #186506;
+$c-sale: $c-green;
 
 // Buttons
 $c-button-primary-bg: $c-text-primary;

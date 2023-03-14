@@ -25,6 +25,7 @@ export default {
   CATEGORIES: 'Categories',
   PRODUCT_LIST: 'Product list',
   ADD_TO_CART: 'Add to bag',
+  ADD_TO_CART_SHORT: 'Add',
   ADD_FAVORITE: 'Add to favorites',
   ADD: 'Add',
   REMOVE_FAVORITE: 'Remove from favorites',
@@ -100,9 +101,9 @@ export default {
   PRODUCT_DESCRIPTION: 'Product description',
   NO_PRODUCT_DESCRIPTION:
     'Unfortunately there is no product description available for this product.',
-  PRODUCT_SPECIFICATION: 'Specification',
+  PRODUCT_SPECIFICATION: 'Product details',
   NO_PRODUCT_SPECIFICATION:
-    'Unfortunately there are no specifications available for this product.',
+    'Unfortunately there are no product details available for this product.',
   SEARCH_RESULTS_TITLE: 'Search result',
   SEARCH_RESULTS_SEE_ALL: 'See all search results',
   YOUR_RECENT_SEARCHES: 'Your recent searches',
@@ -113,7 +114,7 @@ export default {
   SEARCH_RESULTS_PAGE_TITLE: 'Search results for: {search}',
   RESET_FILTERS: 'Reset filters',
   NO_PRODUCTS_MATCH: 'No products are matching your selection',
-  SKU_NOT_CHOSEN: 'Not chosen',
+  SKU_NOT_CHOSEN: 'Choose size',
   SKU_LABEL: 'Size',
   INPUT_OPTIONAL: 'optional',
   EMAIL: 'Email',
@@ -334,5 +335,14 @@ export default {
   REVIEWS_LIST_EMPTY: 'This product doesn´t have any reviews yet',
   REVIEW_FEEDBACK_RATE_REQUIRED: 'Please use stars to rate the product',
   FOOTER_SOCIAL_TITLE: 'Follow us',
-  BADGE_NEW: 'New!'
+  BADGE_NEW: 'New!',
+  PREVIOUS_LOWEST_PRICE: 'Previous lowest price',
+  CHOSEN_COLOR: 'Chosen color',
+  MATERIAL: 'Material',
+  LAUNDRY_GUIDE: 'Laundry guide',
+  PRODUCT_ID: 'Product id',
+  BRAND: 'Brand',
+  COLOR: 'Color',
+  PRODUCED_IN: 'Produced in',
+  DELIVERY_PAYMENT: 'Delivery and payment'
 };

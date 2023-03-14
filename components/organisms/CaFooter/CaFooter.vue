@@ -190,7 +190,7 @@
     </section>
 
     <section class="ca-footer__section ca-footer__section--bottom">
-      <CaContainer class="ca-footer__bottom">
+      <CaContainer class="ca-footer__bottom" design="narrow">
         <section class="ca-footer__social">
           <h2 class="ca-footer__title ca-footer__title--social">
             {{ $t('FOOTER_SOCIAL_TITLE') }}

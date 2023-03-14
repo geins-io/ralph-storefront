@@ -6,19 +6,13 @@
   align-items: center;
   margin-top: clamp(#{rem-calc(30px)}, 10vw, #{rem-calc(134px)});
   margin-bottom: rem-calc(60px);
-  
+
   &__button {
-    background-color: transparent;
-    color: $c-text-primary;
-    border: $border-dark;
+    @include button-secondary;
     padding: rem-calc(17px) rem-calc(34px);
     overflow-anchor: none;
-
-    &:hover {
-      color: $c-text-inverse;
-    }
   }
-  
+
   &__showing {
     font-size: rem-calc(10px);
     letter-spacing: $letter-spacing-3;

@@ -29,6 +29,7 @@ export default {
   CATEGORIES: 'Touteryhmät',
   PRODUCT_LIST: 'Tuoteluettelo',
   ADD_TO_CART: 'Lisää ostoskoriin',
+  ADD_TO_CART_SHORT: 'Lisää',
   ADD_FAVORITE: 'Lisää suosikiksi',
   ADD: 'Lisätä',
   REMOVE_FAVORITE: 'Lisää Poista suosikeista',
@@ -104,7 +105,7 @@ export default {
   PRODUCT_DESCRIPTION: 'Tuotteen Kuvaus',
   NO_PRODUCT_DESCRIPTION:
     'Valitettavasti tälle tuotteelle ei ole näytettävää tuotekuvausta.',
-  PRODUCT_SPECIFICATION: 'Erittely',
+  PRODUCT_SPECIFICATION: 'Tuotteen yksityiskohdat',
   NO_PRODUCT_SPECIFICATION:
     'Valitettavasti tälle tuotteelle ei ole näytettävää teknisiä tietoja.',
   SEARCH_RESULTS_TITLE: 'Hakutulokset',
@@ -116,7 +117,7 @@ export default {
   SEARCH_RESULTS_PAGE_TITLE: ' Hakutulokset for  {search},',
   ESET_FILTERS: ' Tyhjennä kaikki',
   NO_PRODUCTS_MATCH: 'Yksikään tuote ei vastaa valintaasi',
-  SKU_NOT_CHOSEN: 'Ei valittu',
+  SKU_NOT_CHOSEN: 'Valittu koko',
   SKU_LABEL: 'Koko',
   INPUT_OPTIONAL: 'Vapaaehtoisesti',
   EMAIL: 'Sähköpostiosoite',
@@ -338,5 +339,14 @@ export default {
   REVIEW_FEEDBACK_RATE_REQUIRED: 'Käytä tähtiä tuotteen arvioimiseen',
   // !end FI translations from Google translet - please checkk if valid
   FOOTER_SOCIAL_TITLE: 'Seuraa meitä',
-  BADGE_NEW: 'Uutuus!'
+  BADGE_NEW: 'Uutuus!',
+  PREVIOUS_LOWEST_PRICE: 'Edellinen alin hinta',
+  CHOSEN_COLOR: 'Valittu väri',
+  MATERIAL: 'Materiaali',
+  LAUNDRY_GUIDE: 'Pesuohje',
+  PRODUCT_ID: 'Tuotenumero',
+  BRAND: 'Merkki',
+  COLOR: 'Väri',
+  PRODUCED_IN: 'Valmistettu',
+  DELIVERY_PAYMENT: 'Toimitus ja maksu'
 };

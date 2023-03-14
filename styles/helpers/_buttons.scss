@@ -15,10 +15,6 @@ $button-font-weight: $font-weight-bold !default;
   position: relative;
   transition: background-color 150ms ease, border-color 150ms ease;
   cursor: pointer;
-
-  &:hover {
-    border-color: $c-button-primary-border;
-  }
 }
 
 @mixin button-primary {
@@ -27,6 +23,7 @@ $button-font-weight: $font-weight-bold !default;
 
   &:hover {
     background-color: $c-button-primary-bg-hover;
+    border-color: $c-button-primary-border;
   }
 }
 

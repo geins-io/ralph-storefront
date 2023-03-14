@@ -1,4 +1,10 @@
 .ca-campaigns {
+  display: flex;
+  grid-gap: 0.25em;
+  gap: 0.25em;
+  flex-wrap: wrap;
+  align-self: start;
+
   &__item {
     @include campaignBadge;
     flex-shrink: 0;

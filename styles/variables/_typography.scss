@@ -6,12 +6,12 @@ $heading-font: 'Poppins', sans-serif;
 $special-font: 'Bauer Bodoni', serif;
 
 // Font weight
-$font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-semibold: 500;
 $font-weight-bold: 600;
 
 // Font size
+$font-size-xxs: rem-calc(10px);
 $font-size-xs: rem-calc(12px);
 $font-size-s: rem-calc(14px);
 $font-size-m: rem-calc(16px);

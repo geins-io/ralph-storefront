@@ -1,4 +1,6 @@
 .ca-top-bar {
+  $block: &;
+
   background-color: $c-topbar-bg;
   font-size: $font-size-xs;
   font-weight: $font-weight-semibold;
@@ -6,6 +8,14 @@
   text-transform: uppercase;
   position: relative;
   z-index: $z-index-header;
+  transform: scaleY(1);
+  transition: transform 400ms ease;
+  transform-origin: bottom center;
+  height: $top-bar-height;
+
+  @include bp(laptop) {
+    height: $top-bar-height-computer;
+  }
 
   body[style='overflow: hidden;'] &:not(.ca-top-bar--undistracted) {
     padding-right: var(--scrollbar-width);
@@ -14,13 +24,11 @@
   &__container {
     @include flex-halign;
 
-    height: $top-bar-height;
     line-height: $top-bar-height;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
 
     @include bp(laptop) {
-      height: $top-bar-height-computer;
       line-height: $top-bar-height-computer;
     }
   }
@@ -36,11 +44,28 @@
     column-gap: $px16;
   }
 
+  &__usp {
+    transition: transform 400ms ease;
+    transform: scale(1);
+  }
+
   &__customer-type-toggle {
     margin: 0 0 0 $px20;
   }
 
   &__lang-switcher {
     justify-self: end;
+  }
+
+  &--scrolled {
+    transform: scaleY(0.2);
+
+    @include bp(laptop) {
+      transform: scaleY(0.17);
+    }
+
+    #{$block}__usp {
+      transform: scale(0);
+    }
   }
 }

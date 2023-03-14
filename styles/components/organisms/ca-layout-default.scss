@@ -7,6 +7,22 @@
     @include bp(laptop) {
       padding-top: $header-height-computer + $default-spacing;
     }
+
+    &--pdp {
+      padding-top: $top-bar-height + $header-bar-height + $px4;
+
+      @include bp(laptop) {
+        padding-top: $header-height-computer + $px8;
+      }
+    }
+
+    &--index {
+      padding-top: $top-bar-height + $header-bar-height + $search-height;
+
+      @include bp(laptop) {
+        padding-top: $header-height-computer;
+      }
+    }
   }
 
   &__loading {

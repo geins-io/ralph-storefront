@@ -19,28 +19,49 @@
     </CaAccordionItem>
     <CaAccordionItem
       v-if="product.parameterGroups !== null"
-      class="ca-product-accordion__item only-mobile"
+      class="ca-product-accordion__item"
       base-tag="section"
     >
       <template #toggle-text>
         <h2>{{ $t('PRODUCT_SPECIFICATION') }}</h2>
       </template>
       <div class="ca-product-accordion__item-content">
-        <CaSpecifications :specification-groups="product.parameterGroups" />
+        <CaProductInfo
+          v-if="getParameterText('material')"
+          :title="$t('MATERIAL')"
+        >
+          {{ getParameterText('material') }}
+        </CaProductInfo>
+        <CaProductInfo
+          v-if="getParameterText('washinginstructions')"
+          :title="$t('LAUNDRY_GUIDE')"
+        >
+          {{ getParameterText('washinginstructions') }}
+        </CaProductInfo>
+        <CaProductInfo :title="$t('PRODUCT_ID')">
+          {{ product.productId }}
+        </CaProductInfo>
+        <CaProductInfo :title="$t('BRAND')">
+          <NuxtLink :to="product.brand.canonicalUrl">
+            {{ product.brand.name }}
+          </NuxtLink>
+        </CaProductInfo>
+        <CaProductInfo v-if="getParameterText('color')" :title="$t('COLOR')">
+          {{ getParameterText('color') }}
+        </CaProductInfo>
+        <CaProductInfo
+          v-if="getParameterText('factory')"
+          :title="$t('PRODUCED_IN')"
+        >
+          {{ getParameterText('factory') }}
+        </CaProductInfo>
       </div>
     </CaAccordionItem>
-    <CaAccordionItem
-      v-if="product.texts.text3"
-      class="ca-product-accordion__item"
-      base-tag="section"
-    >
+    <CaAccordionItem class="ca-product-accordion__item" base-tag="section">
       <template #toggle-text>
-        <h2>Ingredienser</h2>
+        <h2>{{ $t('DELIVERY_PAYMENT') }}</h2>
       </template>
-      <CaHtml
-        class="ca-product-accordion__item-content"
-        :content="product.texts.text3"
-      />
+      <div class="ca-product-accordion__item-content"></div>
     </CaAccordionItem>
   </div>
 </template>
@@ -60,10 +81,21 @@ export default {
     }
   },
   data: () => ({}),
-  computed: {},
+  computed: {
+    productDetails() {
+      return this.product.parameterGroups.find(i => i.parameterGroupId === 1);
+    }
+  },
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {
+    getParameterText(id) {
+      const parameter = this.productDetails?.parameters.find(
+        i => i.identifier === id
+      );
+      return parameter ? parameter.value : '';
+    }
+  }
 };
 </script>
 <style lang="scss">

@@ -1,10 +1,10 @@
 .ca-product-card {
   width: 100%;
   display: grid;
-  grid-template: 
-    "new" $px16
-    "img" auto
-    "content" 1fr
+  grid-template:
+    'new' $px16
+    'img' auto
+    'content' 1fr
     / 100%;
   position: relative;
 
@@ -52,12 +52,12 @@
       display: none;
     }
   }
-  
+
   &__info {
+    padding-top: clamp(#{rem-calc(10px)}, 2vw, #{rem-calc(14px)});
     grid-area: content;
     display: flex;
     width: 100%;
-    padding-top: clamp(#{rem-calc(12px)}, 2vw, #{rem-calc(14px)});
 
     > * {
       flex-grow: 1;
@@ -92,9 +92,11 @@
     }
   }
 
-  &__price.ca-price--selling {
-    display: flex;
-    flex-direction: row-reverse;
+  &__price.ca-price {
+    @include bp(tablet) {
+      --font-size-selling: #{$font-size-s};
+      --font-size-regular: #{$font-size-xs};
+    }
   }
 
   &__campaigns {

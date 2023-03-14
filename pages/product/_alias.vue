@@ -9,61 +9,71 @@
       />
       <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
       <section class="ca-product-page__section">
-        <CaProductGallery
-          v-if="product"
-          class="ca-product-page__gallery"
-          :images="productImages"
-          :alt="product.brand.name + ' ' + product.name"
-        />
-        <div v-else class="ca-product-page__gallery ca-product-gallery">
-          <div class="ca-product-gallery__slider">
-            <div
-              class="ca-product-gallery__slide ca-product-page__skeleton-main-slide"
-            >
-              <CaSkeleton
-                class="ca-product-gallery__image"
-                :ratio="$config.productImageRatio"
-                :radius="false"
-              />
+        <div class="ca-product-page__gallery-wrap">
+          <CaProductGallery
+            v-if="product"
+            class="ca-product-page__gallery"
+            :images="productImages"
+            :alt="product.brand.name + ' ' + product.name"
+            thumbnail-mode="grid"
+          />
+          <div v-else class="ca-product-page__gallery ca-product-gallery">
+            <div class="ca-product-gallery__slider">
+              <div
+                class="ca-product-gallery__slide ca-product-page__skeleton-main-slide"
+              >
+                <CaSkeleton
+                  class="ca-product-gallery__image"
+                  :ratio="$config.productImageRatio"
+                  :radius="false"
+                />
+              </div>
             </div>
           </div>
+          <div class="ca-product-page__icon-wrap">
+            <CaToggleFavorite
+              v-if="product"
+              class="ca-product-page__favorite"
+              :prod-alias="prodAlias"
+              :prod-id="product.productId"
+            />
+            <CaIconButton
+              icon-name="play"
+              aria-label="Play video"
+              class="ca-product-page__video-button"
+            />
+          </div>
         </div>
-        <div v-if="product" class="ca-product-page__main">
-          <CaToggleFavorite
-            :prod-alias="prodAlias"
-            :prod-id="product.productId"
-          />
+
+        <div
+          v-if="product"
+          class="ca-product-page__main"
+          :class="mainModifiers"
+        >
+          <div class="ca-product-page__price-wrap">
+            <CaPrice
+              class="ca-product-page__price"
+              :price="product.unitPrice"
+            />
+            <p class="ca-product-page__lowest-price">
+              {{ $t('PREVIOUS_LOWEST_PRICE') }}: {{ lowestPrice }}
+            </p>
+            <CaCampaigns
+              v-if="product.discountCampaigns"
+              class="ca-product-page__campaigns"
+              :campaigns="product.discountCampaigns"
+            />
+          </div>
+
           <CaBrandAndName
+            class="ca-product-page__brand-and-name"
             :brand="product.brand.name"
             :brand-alias="product.brand.canonicalUrl"
             :name="product.name"
             name-tag="h1"
           />
-          <CaPrice class="ca-product-page__price" :price="product.unitPrice" />
 
-          <CaHtml
-            v-if="product && product.texts.text1"
-            class="ca-product-page__product-summary"
-            :content="product.texts.text1"
-          />
-          <CaCampaigns
-            v-if="product.discountCampaigns"
-            class="ca-product-page__campaigns"
-            :campaigns="product.discountCampaigns"
-          />
-          <CaVariantPicker
-            v-if="hasVariants"
-            :variants="baseVariants"
-            :variants-data="variantPickerData"
-            :title="
-              baseVariantType === 'Color' ? $t('PICK_COLOR') : 'Välj lådstorlek'
-            "
-            :type="baseVariantType === 'Color' ? 'color' : 'panel'"
-            @replaceProduct="replaceProduct"
-            @notify="notifyHandler"
-          />
-
-          <CaVariantPicker
+          <!-- <CaVariantPicker
             v-if="hasMultipleDimensions"
             :variants="secondDimensionVariants"
             :variants-data="variantPickerData"
@@ -71,94 +81,85 @@
             type="panel"
             @replaceProduct="replaceProduct"
             @notify="notifyHandler"
-          />
+          /> -->
 
+          <div class="ca-product-page__buy-wrap">
+            <CaVariantPicker
+              v-if="hasSkuVariants"
+              class="ca-product-page__variant-picker"
+              :variants="skuVariants"
+              :variants-data="variantPickerData"
+              type="panel"
+              :title="$t('SKU_NOT_CHOSEN')"
+              panel-render-mode="only-button"
+              @changeSku="sizeChangeHandler"
+              @notify="notifyHandler"
+            />
+
+            <CaButton
+              v-if="outOfStock && !hasSkuVariants"
+              class="ca-product-page__buy-button"
+              type="full-width"
+              color="secondary"
+              @clicked="notifyHandler(skuVariants[0])"
+            >
+              {{ $t('NOTIFY_PANEL_BUTTON') }}
+            </CaButton>
+            <CaButton
+              v-else
+              class="ca-product-page__buy-button"
+              type="full-width"
+              color="tertiary"
+              :loading="addToCartLoading"
+              :disabled="outOfStock"
+              @clicked="addToCartClick"
+            >
+              {{ buyButtonText }}
+              <CaIcon name="shopping-bag" />
+            </CaButton>
+          </div>
           <CaVariantPicker
-            v-if="hasSkuVariants"
-            :variants="skuVariants"
+            v-if="hasVariants"
+            class="ca-product-page__color-picker"
+            :variants="baseVariants"
             :variants-data="variantPickerData"
-            title="Med logga"
-            type="display"
-            @changeSku="sizeChangeHandler"
+            :title="$t('PICK_COLOR')"
+            type="image"
+            @replaceProduct="replaceProduct"
             @notify="notifyHandler"
-          />
-
-          <LazyCaNotifyPanel
+          >
+            <template v-slot:title>
+              <p class="ca-product-page__color-picker-title">
+                {{ $t('CHOSEN_COLOR') }}:
+                <span class="ca-product-page__color-picker-current">
+                  {{ baseVariantLabel }}
+                </span>
+              </p>
+            </template>
+          </CaVariantPicker>
+          <div class="ca-product-page__payment">
+            <p class="ca-product-page__split-payment">
+              Delbetala från 20 kr / månaden
+            </p>
+            <ul class="ca-product-page__payment-logos">
+              <li
+                v-for="(link, index) in paymentLogos"
+                :key="index"
+                class="ca-product-page__payment-logo-item"
+              >
+                <CaSvgAsset
+                  class="ca-product-page__payment-logo"
+                  folder="logos"
+                  :filename="link.name"
+                  :alt="`${link.name} logo`"
+                />
+              </li>
+            </ul>
+          </div>
+          <CaProductAccordion
+            class="ca-product-page__accordion"
             :product="product"
-            :variant="currentNotifyVariant"
           />
-
-          <CaProductQuantity
-            class="ca-product-page__quantity"
-            :quantity="quantity"
-            :max-quantity="currentStock.totalStock"
-            :threshold="stockThreshold"
-            @changed="onQuantityChange"
-            @thresholdReached="quantityThresholdHandler"
-          />
-
-          <CaButton
-            v-if="outOfStock && !hasSkuVariants"
-            class="ca-product-page__buy-button"
-            type="full-width"
-            color="secondary"
-            @clicked="notifyHandler(skuVariants[0])"
-          >
-            {{ $t('NOTIFY_PANEL_BUTTON') }}
-          </CaButton>
-          <CaButton
-            v-else
-            class="ca-product-page__buy-button"
-            type="full-width"
-            :loading="addToCartLoading"
-            :disabled="outOfStock"
-            @clicked="addToCartClick"
-          >
-            {{ $t('ADD_TO_CART') }}
-          </CaButton>
-          <div class="ca-product-page__actions">
-            <CaStockDisplay
-              class="ca-product-page__stock-display"
-              :stock="currentStock"
-              :product-quantity="quantity"
-              :show-delivery-time="true"
-            />
-          </div>
-          <div class="ca-product-page__usps">
-            <CaIconAndText
-              class="ca-product-page__usp"
-              icon-name="check-circle"
-              icon-position="top"
-            >
-              {{ $t('USP_1') }}
-            </CaIconAndText>
-            <CaIconAndText
-              class="ca-product-page__usp"
-              icon-name="check-circle"
-              icon-position="top"
-            >
-              {{ $t('USP_2') }}
-            </CaIconAndText>
-            <CaIconAndText
-              class="ca-product-page__usp"
-              icon-name="check-circle"
-              icon-position="top"
-            >
-              {{ $t('USP_3') }}
-            </CaIconAndText>
-          </div>
-          <div
-            v-if="$config.productShowRelated && relatedProductsRelated.length"
-            class="ca-product-page__related"
-          >
-            <h3 class="ca-product-page__related-title">
-              {{ $t('RELATED_PRODUCTS') }}
-            </h3>
-            <CaQuickAddProducts
-              class="ca-product-page__related-products"
-              :products="relatedProductsRelated"
-            />
-          </div>
         </div>
         <div
           v-else
@@ -173,25 +174,6 @@
             width="100%"
             height="50px"
           />
-        </div>
-      </section>
-      <section class="ca-product-page__section">
-        <CaProductAccordion
-          v-if="product"
-          class="ca-product-page__accordion"
-          :product="product"
-        />
-        <div class="ca-product-page__specifications-box only-computer">
-          <h2 class="ca-product-page__specifications-title">
-            {{ $t('PRODUCT_SPECIFICATION') }}
-          </h2>
-          <CaSpecifications
-            v-if="product && product.parameterGroups !== null"
-            :specification-groups="product.parameterGroups"
-          />
-          <p v-else>
-            {{ $t('NO_PRODUCT_SPECIFICATION') }}
-          </p>
         </div>
       </section>
       <section
@@ -211,6 +193,22 @@
         :filters="widgetAreaFilters"
       />
     </section>
+    <LazyCaNotifyPanel
+      v-if="product"
+      :product="product"
+      :variant="currentNotifyVariant"
+    />
+    <CaVariantPicker
+      v-if="hasSkuVariants"
+      class="ca-product-page__variant-picker"
+      :variants="skuVariants"
+      :variants-data="variantPickerData"
+      type="panel"
+      :title="$t('SKU_NOT_CHOSEN')"
+      panel-render-mode="only-panel"
+      @changeSku="sizeChangeHandler"
+      @notify="notifyHandler"
+    />
   </div>
 </template>
 
@@ -239,7 +237,29 @@ export default {
   name: 'ProductPage',
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
   data: () => ({}),
-  computed: {},
+  computed: {
+    buyButtonText() {
+      return this.$store.getters.viewport === 'phone'
+        ? this.$t('ADD_TO_CART_SHORT')
+        : this.$t('ADD_TO_CART');
+    },
+    paymentLogos() {
+      return this.$config.paymentAndDeliveryLogos.filter(
+        i => i.type === 'payment'
+      );
+    },
+    lowestPrice() {
+      const lowest = this.product?.priceLog.find(price => price.isLowest);
+      return lowest?.sellingPriceIncVatFormatted;
+    },
+    mainModifiers() {
+      return {
+        'ca-product-page__main--header-hidden': this.$store.state.headerHidden,
+        'ca-product-page__main--header-scrolled': !this.$store.getters
+          .siteIsAtTop
+      };
+    }
+  },
   methods: {},
   meta: {
     pageType: 'Product Page'

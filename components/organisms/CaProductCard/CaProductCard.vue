@@ -58,7 +58,7 @@
           :sizes="imgSizesProductCard"
         />
       </NuxtLink>
-      <div 
+      <div
         v-if="product.unitPrice.discountPercentage"
         class="ca-product-card__discount"
       >
@@ -72,21 +72,15 @@
 
       <!-- DUMMY - TODO: badge params -->
       <ul class="ca-product-card__badge-list">
-        <li
-          v-for="(item, index) in dummyBadges"
-          :key="index"
-        >
-          <CaBadge
-            :type="item.value"
-            :text="item.value"
-          />
+        <li v-for="(item, index) in dummyBadges" :key="index">
+          <CaBadge :type="item.value" :text="item.value" />
         </li>
       </ul>
 
       <!-- TODO: quickshop button -->
-      <CaIconButton 
-        icon-name="shopping-bag" 
-        aria-label="Snabbväljare" 
+      <CaIconButton
+        icon-name="shopping-bag"
+        aria-label="Snabbväljare"
         class="ca-product-card__quickshop"
       />
     </div>
@@ -98,20 +92,18 @@
     />
 
     <div class="ca-product-card__info">
-      <NuxtLink v-if="productPopulated" :to="product.canonicalUrl" class="ca-product-card__content">
+      <NuxtLink
+        v-if="productPopulated"
+        :to="product.canonicalUrl"
+        class="ca-product-card__content"
+      >
         <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
 
-        <!-- DUMMY -->
         <CaCampaigns
           v-if="product.discountCampaigns"
           class="ca-product-card__campaigns"
-          :campaigns="dummyCampaigns"
-        />
-        <!-- <CaCampaigns
-          v-if="product.discountCampaigns"
-          class="ca-product-card__campaigns"
           :campaigns="product.discountCampaigns"
-        /> -->
+        />
 
         <CaBrandAndName
           :brand="product.brand.name"
@@ -186,39 +178,25 @@ export default {
           name: 'Badge',
           value: 'Sustainability',
           show: true,
-          identifier: null,
-        }, {
+          identifier: null
+        },
+        {
           name: 'Badge',
           value: 'Sizes',
           show: true,
-          identifier: null,
-        }, {
+          identifier: null
+        },
+        {
           name: 'Badge',
           value: 'Bestseller',
           show: true,
-          identifier: null,
-        }, {
+          identifier: null
+        },
+        {
           name: 'Badge',
           value: 'Collab',
           show: true,
-          identifier: null,
-        }
-      ];
-
-      return data;
-    },
-    // TODO: delete later - dummy data for campaigns
-    dummyCampaigns() {
-      const data = [
-        {
-          name: 'Kampanjnamn',
-          hideTitle: true,
-        }, {
-          name: '3 för 2',
-          hideTitle: false,
-        }, {
-          name: 'Lagerrensning',
-          hideTitle: false,
+          identifier: null
         }
       ];
 
@@ -234,11 +212,11 @@ export default {
         const oneDay = 1000 * 60 * 60 * 24;
         const oneWeek = oneDay * 7;
 
-        return (now - firstAvailableDate) < oneWeek;
+        return now - firstAvailableDate < oneWeek;
       } else {
         return false;
       }
-    },
+    }
   },
   watch: {},
   created() {},

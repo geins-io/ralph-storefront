@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     currentPath() {
-      return this.$route.path;
+      return decodeURI(this.$route.path);
     },
     filtersVars() {
       return {

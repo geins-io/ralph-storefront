@@ -1,6 +1,6 @@
 <template>
-  <div class="ca-top-bar" :class="{ 'ca-top-bar--undistracted': undistracted }">
-    <CaContainer class="ca-top-bar__container">
+  <div class="ca-top-bar" :class="modifiers">
+    <CaContainer class="ca-top-bar__container" design="none">
       <div class="ca-usp-block ca-top-bar__usps">
         <div class="ca-top-bar__usp">{{ $t('USP_TEXT') }}</div>
       </div>
@@ -25,7 +25,14 @@ export default {
     }
   },
   data: () => ({}),
-  computed: {},
+  computed: {
+    modifiers() {
+      return {
+        'ca-top-bar--scrolled': !this.$store.getters.siteIsAtTop,
+        'ca-top-bar--undistracted': this.undistracted
+      };
+    }
+  },
   watch: {},
   mounted() {},
   methods: {}

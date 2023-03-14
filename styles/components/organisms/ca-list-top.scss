@@ -7,7 +7,7 @@
 
   &__text {
     width: 100%;
-    
+
     @include bp(laptop) {
       width: 50%;
       max-width: 700px;
@@ -21,7 +21,7 @@
 
     &--skeleton {
       margin: 0 auto $px8;
-      
+
       @include bp(tablet) {
         margin: 0 0 $px8;
       }
@@ -41,13 +41,15 @@
       }
     }
   }
-  
+
   &__subcategories {
-    margin-top: clamp(#{rem-calc(22px)}, #{"-4vw + 4rem"}, #{rem-calc(30px)});
+    margin-top: clamp(#{rem-calc(22px)}, #{'-4vw + 4rem'}, #{rem-calc(30px)});
     max-width: 100%;
-    
+
     @include bp(laptop) {
-      max-width: 33rem;
+      max-width: rem-calc(800);
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 }

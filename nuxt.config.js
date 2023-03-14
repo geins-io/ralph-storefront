@@ -534,38 +534,38 @@ export default async () => {
         desktopBig: 1440
       },
       siteTopThreshold: 10,
-      paymentAndDeliveryLogos:[
-        { 
-          name: 'paypal', 
-          type: 'payment' 
-        }, 
-        { 
-          name: 'visa', 
-          type: 'payment' 
-        }, 
-        { 
-          name: 'mastercard', 
-          type: 'payment' 
-        }, 
-        { 
-          name: 'avarda', 
-          type: 'payment' 
-        }, 
-        { 
-          name: 'swish', 
-          type: 'payment' 
-        }, 
-        { 
-          name: 'budbee', 
-          type: 'shipping' 
-        }, 
-        { 
-          name: 'postnord', 
-          type: 'shipping' 
-        }, 
-        { 
-          name: 'instabox', 
-          type: 'shipping' 
+      paymentAndDeliveryLogos: [
+        {
+          name: 'paypal',
+          type: 'payment'
+        },
+        {
+          name: 'visa',
+          type: 'payment'
+        },
+        {
+          name: 'mastercard',
+          type: 'payment'
+        },
+        {
+          name: 'avarda',
+          type: 'payment'
+        },
+        {
+          name: 'swish',
+          type: 'payment'
+        },
+        {
+          name: 'budbee',
+          type: 'shipping'
+        },
+        {
+          name: 'postnord',
+          type: 'shipping'
+        },
+        {
+          name: 'instabox',
+          type: 'shipping'
         }
       ],
       socialMediaLinks: [
@@ -615,7 +615,7 @@ export default async () => {
       productListWidgetArrowIconName: 'chevron',
       productListRowSize: 4,
       widgetImageSizes: {
-        full: '(min-width: 1360px) 1320px, 96vw',
+        full: '(min-width: 1860px) 1920px, 96vw',
         half: '(min-width: 1360px) 650px, (min-width: 768px) 47vw, 96vw',
         third: '(min-width: 1360px) 427px, (min-width: 768px) 31vw, 96vw',
         quarter: '(min-width: 1360px) 315px, (min-width: 768px) 23vw, 96vw'

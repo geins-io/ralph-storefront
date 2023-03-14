@@ -30,6 +30,7 @@ export default {
   CATEGORIES: 'Kategorier',
   PRODUCT_LIST: 'Produktliste',
   ADD_TO_CART: 'Læg i varekurv',
+  ADD_TO_CART_SHORT: 'Tilføj',
   ADD_FAVORITE: 'Tilføj som favorit',
   ADD: 'Tilføje',
   REMOVE_FAVORITE: 'Fjern frafavoritter',
@@ -105,9 +106,9 @@ export default {
   PRODUCT_DESCRIPTION: 'Produkt beskrivelse',
   NO_PRODUCT_DESCRIPTION:
     'Desværre er der ingen produktbeskrivelse at vise for dette produkt.',
-  PRODUCT_SPECIFICATION: 'Specifikation',
+  PRODUCT_SPECIFICATION: 'Produktdetaljer',
   NO_PRODUCT_SPECIFICATION:
-    'Desværre er der ingen specifikationer at vise for dette produkt.',
+    'Desværre er der ingen produktdetaljer at vise for dette produkt.',
   SEARCH_RESULTS_TITLE: 'Søgeresultat',
   SEARCH_RESULTS_SEE_ALL: 'Se alle søgeresultater',
   YOUR_RECENT_SEARCHES: 'Dine seneste søgninger',
@@ -118,7 +119,7 @@ export default {
   SEARCH_RESULTS_PAGE_TITLE: 'Søgeresultater for',
   ESET_FILTERS: 'Ryd alle',
   NO_PRODUCTS_MATCH: 'Ingen produkter matchede dit valg',
-  SKU_NOT_CHOSEN: 'Ikke valgt',
+  SKU_NOT_CHOSEN: 'Vælg størrelse',
   SKU_LABEL: 'Størrelse',
   INPUT_OPTIONAL: 'frivilligt',
   EMAIL: 'E-mailadresse',
@@ -343,5 +344,14 @@ export default {
     'Brug venligst stjerner til at bedømme produktet',
   // !end DK translations from Google translet - please checkk if valid
   FOOTER_SOCIAL_TITLE: 'Følg os',
-  BADGE_NEW: 'Nyhed!'
+  BADGE_NEW: 'Nyhed!',
+  PREVIOUS_LOWEST_PRICE: 'Tidligere laveste pris',
+  CHOSEN_COLOR: 'Valgt farve',
+  MATERIAL: 'Materiale',
+  LAUNDRY_GUIDE: 'Vaskeråd',
+  PRODUCT_ID: 'Produkt ID',
+  BRAND: 'Mærke',
+  COLOR: 'Farve',
+  PRODUCED_IN: 'Produceret i',
+  DELIVERY_PAYMENT: 'Levering och betaling'
 };

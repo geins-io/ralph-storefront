@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="ca-added-to-cart"
-    :class="{ 'ca-added-to-cart--scrolled': !$store.getters.siteIsAtTop }"
-  >
+  <div class="ca-added-to-cart" :class="modifiers">
     <CaOverlay
       class="ca-added-to-cart__overlay"
       :visible="visible"
@@ -36,19 +33,18 @@
           <div class="ca-added-to-cart__sum">
             {{ $t('MINI_CART_SUM', { sum: cartTotal }) }}
           </div>
-          <div 
-            v-if="freeShipping"
-            class="ca-added-to-cart__shipping-notice"
-          >
-            <CaIconAndText
-              icon-name="check-round"
-              icon-position="left"
-            >
-              {{ $t('MINI_CART_SHIPPING') }} 
+          <div v-if="freeShipping" class="ca-added-to-cart__shipping-notice">
+            <CaIconAndText icon-name="check-round" icon-position="left">
+              {{ $t('MINI_CART_SHIPPING') }}
             </CaIconAndText>
           </div>
           <div @click="close">
-            <CaButton type="full-width" size="m" href="checkout" class="ca-added-to-cart__cart-btn">
+            <CaButton
+              type="full-width"
+              size="m"
+              href="checkout"
+              class="ca-added-to-cart__cart-btn"
+            >
               <CaIconAndText
                 v-if="buttonIcon"
                 :icon-name="buttonIcon"
@@ -81,6 +77,12 @@ export default {
   },
   data: () => ({}),
   computed: {
+    modifiers() {
+      return {
+        'ca-added-to-cart--header-hidden': this.$store.state.headerHidden,
+        'ca-added-to-cart--header-scrolled': !this.$store.getters.siteIsAtTop
+      };
+    },
     cartData() {
       return this.$store.state.cart.data;
     },

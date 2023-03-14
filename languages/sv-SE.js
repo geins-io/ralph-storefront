@@ -30,6 +30,7 @@ export default {
   CATEGORIES: 'Kategorier',
   PRODUCT_LIST: 'Produktlistning',
   ADD_TO_CART: 'Lägg i varukorgen',
+  ADD_TO_CART_SHORT: 'Lägg till',
   ADD_FAVORITE: 'Lägg till som favorit',
   ADD: 'Lägg till',
   REMOVE_FAVORITE: 'Ta bort från favoriter',
@@ -107,9 +108,9 @@ export default {
   PRODUCT_DESCRIPTION: 'Produktbeskrivning',
   NO_PRODUCT_DESCRIPTION:
     'Det finns tyvärr ingen produktbeskrivning att visa för denna produkt.',
-  PRODUCT_SPECIFICATION: 'Specifikation',
+  PRODUCT_SPECIFICATION: 'Produktdetaljer',
   NO_PRODUCT_SPECIFICATION:
-    'Det finns tyvärr inga specifikationer att visa för denna produkt.',
+    'Det finns tyvärr inga produktdetaljer att visa för denna produkt.',
   SEARCH_RESULTS_TITLE: 'Sökresultat',
   SEARCH_RESULTS_SEE_ALL: 'Se alla sökresultat',
   YOUR_RECENT_SEARCHES: 'Dina senaste sökningar',
@@ -119,7 +120,7 @@ export default {
   SEARCH_RESULTS_PAGE_TITLE: 'Sökresultat för: {search}',
   ESET_FILTERS: 'Återställ filter',
   NO_PRODUCTS_MATCH: 'Inga produkter matchar ditt urval',
-  SKU_NOT_CHOSEN: 'Ej vald',
+  SKU_NOT_CHOSEN: 'Välj storlek',
   SKU_LABEL: 'Storlek',
   INPUT_OPTIONAL: 'frivilligt',
   EMAIL: 'Email',
@@ -340,5 +341,14 @@ export default {
   REVIEW_FEEDBACK_RATE_REQUIRED:
     'Använd stjärnorna för att betygsätta produkten',
   FOOTER_SOCIAL_TITLE: 'Följ oss',
-  BADGE_NEW: 'Nyhet!'
+  BADGE_NEW: 'Nyhet!',
+  PREVIOUS_LOWEST_PRICE: 'Tidigare lägsta pris',
+  CHOSEN_COLOR: 'Vald färg',
+  MATERIAL: 'Material',
+  LAUNDRY_GUIDE: 'Tvättråd',
+  PRODUCT_ID: 'Produkt ID',
+  BRAND: 'Märke',
+  COLOR: 'Färg',
+  PRODUCED_IN: 'Produceras hos',
+  DELIVERY_PAYMENT: 'Leverans och betalning'
 };

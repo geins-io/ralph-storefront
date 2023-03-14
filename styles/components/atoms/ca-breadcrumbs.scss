@@ -1,7 +1,11 @@
 .ca-breadcrumbs {
-  font-size: $font-size-xs;
+  font-size: $font-size-xxs;
   letter-spacing: $letter-spacing-3;
   margin-bottom: $px10;
+
+  @include bp(tablet) {
+    font-size: $font-size-xs;
+  }
 
   &__list {
     display: flex;

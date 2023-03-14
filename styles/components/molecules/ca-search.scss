@@ -8,21 +8,21 @@
     position: fixed;
     z-index: $z-index-search;
   }
-  
+
   @include bp(laptop) {
     position: relative;
     z-index: $z-index-search-computer;
   }
-  
+
   &__bar {
     @include bp(tablet-down) {
       height: $search-height;
       background-color: $c-white;
-  
+
       @include flex-calign;
     }
   }
-  
+
   &__input-wrap {
     background-color: $c-light-pink;
     border: $border-pink;
@@ -30,35 +30,33 @@
     height: $search-input-height;
     width: calc(100% - #{$default-spacing});
     position: relative;
-    transition: 
-      border-color 200ms ease,
-      background-color 200ms ease;
-  
+    transition: border-color 200ms ease, background-color 200ms ease;
+
     @include flex-valign;
-  
+
     @include bp(laptop) {
       width: $search-width;
     }
   }
-  
+
   &__input {
     flex: 1;
     height: 100%;
     padding: 0 $px16;
     outline: none;
-  
+
     @include bp(phone-only) {
       font-size: $font-size-m;
     }
-  
+
     &:focus-visible {
       box-shadow: none;
     }
   }
-  
+
   &__button {
     @include flex-calign;
-    
+
     font-size: 16px;
     height: 100%;
     width: 40px;
@@ -67,7 +65,7 @@
 
   &__remove {
     @include flex-calign;
-  
+
     position: absolute;
     height: 100%;
     width: 40px;
@@ -96,7 +94,7 @@
       width: $search-width;
     }
   }
-  
+
   &__no-suggestions {
     font-size: $font-size-xs;
     color: $c-text-secondary;
@@ -110,10 +108,10 @@
     top: 40%;
     left: 50%;
     margin: 0 -15px 0;
-  
+
     @include bp(laptop) {
       top: 50%;
-  
+
       &.empty {
         margin: 20px auto;
         position: static;
@@ -123,7 +121,7 @@
 
   &__results {
     $vh: calc(var(--vh, 1vh) * 100);
-  
+
     position: relative;
     background-color: $c-white;
     height: calc(
@@ -132,7 +130,7 @@
     height: calc(
       #{$vh} - #{$top-bar-height + $header-bar-height + $search-height}
     );
-  
+
     @include bp(laptop) {
       --half-viewport: calc((100% - var(--scrollbar-width, 0px)) * 0.5);
       --half-element-width: #{$site-width * 0.5};
@@ -142,8 +140,8 @@
       height: auto;
       max-width: 100%;
       width: $site-width;
-      left: #{"max(0px, var(--search-position))"};
-      
+      left: #{'max(0px, var(--search-position))'};
+
       &--loading-empty,
       &--no-results {
         --half-element-width: #{$search-width * 0.5};
@@ -167,7 +165,7 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     height: 100%;
-    
+
     @include bp(laptop) {
       overflow-y: hidden;
       padding: $px16 $px20;
@@ -187,7 +185,7 @@
     justify-content: space-between;
     align-content: flex-start;
     flex-wrap: wrap;
-    
+
     @include bp(laptop) {
       flex-wrap: nowrap;
       justify-content: flex-start;
@@ -222,24 +220,24 @@
     width: 320px;
     margin: 0 0 0 $px32;
     transition: opacity 200ms ease;
-    
+
     @include bp(desktop-down) {
       width: 25vw;
     }
-    
+
     @include bp(tablet-down) {
       width: 48%;
       margin: 0;
     }
-    
+
     &--products {
       width: 420px;
       margin: 0;
-    
+
       @include bp(desktop-down) {
         width: 33vw;
       }
-    
+
       @include bp(tablet-down) {
         width: 100%;
         margin: 0 0 $px16;
@@ -269,16 +267,16 @@
 
     &--product {
       margin: 0 0 $px4;
-    
+
       @include bp(tablet-down) {
         margin: 0;
-    
+
         &:not(:first-child) {
           margin: rem-calc(6px) 0 0;
         }
       }
     }
-    
+
     &--tag {
       &:not(:last-child) {
         margin: 0 0 $px8;
@@ -295,7 +293,7 @@
 
     &--tag {
       @include ellipsis;
-      
+
       background-color: $c-light-pink;
       padding: rem-calc(6px) rem-calc(10px);
       display: inline-block;
@@ -334,6 +332,9 @@
   }
 
   &__overlay.ca-overlay {
+    height: calc(100vh + 100%);
+    bottom: auto;
+
     @include bp(tablet-down) {
       z-index: $z-index-search-overlay;
     }
@@ -342,6 +343,9 @@
   &--visible {
     @include bp(tablet-down) {
       transform: translateY(0);
+      .ca-header--scrolled & {
+        box-shadow: $box-shadow;
+      }
     }
   }
 

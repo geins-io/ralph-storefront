@@ -1,16 +1,16 @@
 .ca-toggle-favorite {
   @include iconCircle;
-  
+
   font-size: rem-calc(18px);
   color: $c-text-secondary;
   position: absolute;
   top: $px8;
   right: $px8;
   transition: all 150ms ease;
-  
+
   &--active {
     background-color: $c-lightest-gray;
-    
+
     svg {
       fill: $c-pink;
     }
