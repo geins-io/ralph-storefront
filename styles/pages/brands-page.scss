@@ -1,15 +1,22 @@
 .ca-brands-page {
+  &__title {
+    font-size: $font-size-s;
+    font-weight: $font-weight-semibold;
+    text-align: center;
+  }
+
   &__filter {
     display: flex;
     flex-wrap: wrap;
-    gap: rem-calc(5);
+    justify-content: center;
+    gap: rem-calc(5) rem-calc(10);
     margin-top: rem-calc(20);
   }
 
   &__filter-item {
     font-family: $heading-font;
     font-size: $font-size-l;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-semibold;
     text-transform: uppercase;
 
     &.is-passive {
@@ -24,8 +31,9 @@
   &__group-label {
     font-family: $heading-font;
     font-size: $font-size-xxl;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-semibold;
     line-height: 1em;
+    text-transform: uppercase;
   }
 
   &__group-item {

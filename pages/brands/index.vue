@@ -38,7 +38,7 @@
                 class="ca-brands-page__list-item"
               >
                 <NuxtLink class="ca-brands-page__link" :to="brand.canonicalUrl">
-                  {{ brand.alias }}
+                  {{ brand.name }}
                 </NuxtLink>
               </li>
             </ul>
