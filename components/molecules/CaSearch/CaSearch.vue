@@ -156,10 +156,15 @@
                       alt="placeholder"
                     />
                     <div class="ca-search__item-info">
-                      <div class="ca-search__item-name">{{ product.name }}</div>
                       <CaPrice
                         class="ca-search__item-price"
                         :price="product.unitPrice"
+                      />
+                      <CaBrandAndName
+                        :brand="product.brand.name"
+                        :name="product.name"
+                        name-tag="h3"
+                        class="ca-search__brand-and-name"
                       />
                     </div>
                   </NuxtLink>

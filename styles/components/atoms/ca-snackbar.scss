@@ -1,0 +1,53 @@
+.ca-snackbar {
+  position: fixed;
+  left: calc(#{$default-spacing} / 2);
+  width: calc(100% - #{$default-spacing});
+  z-index: $z-index-snackbar;
+  background-color: $c-darkest-gray;
+  color: $c-text-inverse;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-xs;
+  padding: $px16;
+  border-radius: rem-calc(4px);
+  box-shadow: $box-shadow;
+
+  @include bp(tablet) {
+    padding: $px20;
+    width: auto;
+    left: auto;
+  }
+
+  // States
+  &--error {
+    background-color: $c-error;
+  }
+
+  &--success {
+    background-color: $c-success;
+  }
+
+  // Placements
+  &--top-right {
+    top: $header-bar-height + $top-bar-height + $px12;
+
+    @include bp(tablet) {
+      right: calc(#{$default-spacing} / 2);
+    }
+
+    @include bp(laptop) {
+      top: $header-height-computer + $default-spacing;
+      right: $default-spacing;
+    }
+  }
+
+  &--bottom-center {
+    bottom: calc(#{$default-spacing} / 2);
+
+    @include bp(tablet) {
+      bottom: $default-spacing;
+
+      @include halign;
+      position: fixed;
+    }
+  }
+}

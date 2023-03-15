@@ -16,7 +16,7 @@
     margin-left: $px12;
   }
 
-  &__qty {
+  &__qty.ca-notification-badge {
     font-size: rem-calc(10);
   }
 }

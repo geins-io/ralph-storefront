@@ -365,7 +365,7 @@ export default async () => {
               nb: '/min-konto/bestillinger'
             },
             'account/settings': {
-              sv: '/mina-sidor/installningar',
+              sv: encodeURI('/mina-sidor/inställningar'),
               en: '/my-account/settings',
               da: '/min-konto/indstillinger',
               fi: '/tilini/asetukset',

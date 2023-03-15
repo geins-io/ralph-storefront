@@ -18,6 +18,7 @@
 
   &__item {
     .ca-icon-and-text__icon {
+      flex-shrink: 0;
       transition: transform 150ms;
     }
 

@@ -154,13 +154,12 @@ export default {
     // Sizes attribute for main image
     mainImageSizes: {
       type: String,
-      default:
-        '(min-width: 1920px) 510px, (min-width: 1024px) 38vw, (min-width: 768px) 51vw, 70vw'
+      default: '75vw'
     },
     // Sizes attribute for thumbnail image
     thumbnailSizes: {
       type: String,
-      default: '(min-width: 1920px) 495px, 25vw'
+      default: '(min-width: 1900px) 495px, 25vw'
     }
   },
   data: () => ({

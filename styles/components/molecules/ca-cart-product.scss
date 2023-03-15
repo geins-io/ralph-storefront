@@ -9,6 +9,7 @@
   
   &__price-group {
     margin: rem-calc(5px) 0 0;
+    padding-right: rem-calc(22);
   }
   
   &__price-group-item {
@@ -17,11 +18,12 @@
     align-items: center;
     position: relative;
   }
-  
+
   &__price-group-quantity {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
     white-space: nowrap;
     flex-shrink: 0;
-    font-weight: $font-weight-bold;
   }
   
   &__price-group-spacer {
@@ -56,7 +58,7 @@
   }
 
   &__campaigns {
-    margin: $px4 0 0;
+    margin: $px4 0;
   }
   
   &__stock-display {

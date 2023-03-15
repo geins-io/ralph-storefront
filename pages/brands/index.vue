@@ -90,6 +90,7 @@ export default {
         if (result.data && result.data.brands) {
           this.isBrandsLoaded = true;
         }
+        this.$store.dispatch('loading/end');
       },
       error(error) {
         this.$nuxt.error({ statusCode: 500, message: error });

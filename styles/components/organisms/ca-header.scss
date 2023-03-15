@@ -62,6 +62,10 @@
     font-size: rem-calc(23);
   }
 
+  &__logo-link {
+    width: fit-content;
+  }
+
   &__logo {
     width: clamp(#{rem-calc(126px)}, 18vw, #{rem-calc(208px)});
   }

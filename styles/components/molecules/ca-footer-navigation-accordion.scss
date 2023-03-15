@@ -13,4 +13,12 @@
     display: block;
     margin: rem-calc(8px) 0;
   }
+
+  .ca-icon-and-text {
+    --text-and-icon-spacing: #{$px12};
+  }
+
+  .ca-icon-and-text__text {
+    margin-right: auto;
+  }
 }

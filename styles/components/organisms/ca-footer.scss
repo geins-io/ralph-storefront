@@ -215,11 +215,11 @@
   }
 
   &__accordion-about .ca-accordion-item__icon-wrap.ca-icon-and-text {
-    @include accordionIconBeforeTitle('about', 16px, 19px);
+    @include accordionIconBeforeTitle('about');
   }
 
   &__accordion-support .ca-accordion-item__icon-wrap.ca-icon-and-text {
-    @include accordionIconBeforeTitle('support', 16px, 19px);
+    @include accordionIconBeforeTitle('support');
   }
 
   @include bp(phone-only) {

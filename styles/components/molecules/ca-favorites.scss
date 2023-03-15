@@ -4,7 +4,7 @@
 
   position: relative;
 
-  &__qty {
+  &__qty.ca-notification-badge {
     font-size: rem-calc(10);
   }
 }

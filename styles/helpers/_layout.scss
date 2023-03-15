@@ -73,16 +73,8 @@
   }
 }
 
-@mixin accordionIconBeforeTitle($icon-name, $width, $height) {
-  display: grid;
-  grid-template-columns: max-content 1fr max-content;
-  column-gap: $px12;
-
-  .ca-icon {
-    order: 2;
-  }
-
-  &::before {
+@mixin accordionIconBeforeTitle($icon-name, $width: 16px, $height: 19px) {
+  &::after {
     content: '';
     background-image: url('./assets/icons/#{$icon-name}.svg');
     background-position: center;
@@ -90,6 +82,7 @@
     display: inline-block;
     width: $width;
     height: $height;
+    flex-shrink: 0;
   }
 }
 
@@ -104,6 +97,14 @@
   @include bp(tablet) {
     font-size: rem-calc(11px);
   }
+}
+
+@mixin campaignListFlex {
+  display: flex;
+  grid-gap: 0.25em;
+  gap: 0.25em;
+  flex-wrap: wrap;
+  align-self: start;
 }
 
 @mixin panelTopLevelStyle {

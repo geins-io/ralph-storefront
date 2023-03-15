@@ -58,12 +58,8 @@ $button-font-weight: $font-weight-bold !default;
 }
 
 @mixin button-l {
-  font-size: $button-font-size-l;
-  padding: 1.4em 4.2em;
-
-  @include bp(tablet) {
-    padding: 1.4em 5em;
-  }
+  font-size: $button-font-size-m;
+  padding: 1em 2em;
 }
 
 @mixin button-disabled {

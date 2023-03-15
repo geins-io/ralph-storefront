@@ -11,11 +11,6 @@
     }
   }
 
-  @include bp(tablet-down) {
-    .ca-accordion-item__toggle {
-    }
-  }
-
   &__item {
     --icon-size: #{rem-calc(12)};
     border-bottom: $border-medium;

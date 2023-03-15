@@ -1,9 +1,5 @@
 .ca-campaigns {
-  display: flex;
-  grid-gap: 0.25em;
-  gap: 0.25em;
-  flex-wrap: wrap;
-  align-self: start;
+  @include campaignListFlex;
 
   &__item {
     @include campaignBadge;
@@ -13,5 +9,13 @@
   &--box {
     background-color: $c-lightest-gray;
     padding: $px12 $px16;
+  }
+
+  &.ca-cart__campaigns {
+    display: grid;
+
+    .ca-campaigns__list {
+      @include campaignListFlex;
+    }
   }
 }

@@ -56,6 +56,15 @@
           class="ca-cart-product__price"
           :price="item.unitPrice"
         />
+        <CaCampaigns
+          v-if="
+            item.campaign &&
+              item.campaign.appliedCampaigns &&
+              item.campaign.appliedCampaigns.length
+          "
+          class="ca-cart-product__campaigns"
+          :campaigns="item.campaign.appliedCampaigns"
+        />
         <CaBrandAndName
           :brand="product.brand.name"
           :name="product.name"

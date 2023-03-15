@@ -100,7 +100,7 @@
         <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
 
         <CaCampaigns
-          v-if="product.discountCampaigns"
+          v-if="product.discountCampaigns && product.discountCampaigns.length"
           class="ca-product-card__campaigns"
           :campaigns="product.discountCampaigns"
         />
@@ -136,7 +136,7 @@ export default {
   props: {},
   data: () => ({
     imgSizesProductCard:
-      '(min-width: 1360px) 248px, (min-width: 1024px) 18.23vw, (min-width: 768px) 30.73vw, 48vw'
+      '(min-width: 1900px) 467px, (min-width: 1024px) 24vw, (min-width: 768px) 32vw, 50vw'
   }),
   computed: {
     dummyBadges() {

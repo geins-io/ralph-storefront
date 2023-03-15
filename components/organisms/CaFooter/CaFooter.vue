@@ -63,9 +63,9 @@
       <h2 class="ca-footer__title ca-footer__title--logos">
         {{ $t('DELIVERY_PAYMENT') }}
       </h2>
-      
-      <CaLogoDisplay 
-        :logo-array-src="$config.paymentAndDeliveryLogos" 
+
+      <CaLogoDisplay
+        :logo-array-src="$config.paymentAndDeliveryLogos"
         class="ca-footer__logos"
       />
     </section>
@@ -166,13 +166,13 @@
           <div class="ca-footer__cert">
             <CaImage
               class="ca-footer__cert-tryggehandel"
-              :src="require('~/assets/logos/' + 'trygg-e-handel-se.png')"
+              :src="require('~/assets/logos/trygg-e-handel-se.png')"
               alt="Trygg e-handel logo"
               :ratio="1"
             />
             <CaImage
               class="ca-footer__cert-hallbarehandel"
-              :src="require('~/assets/logos/' + 'hallbar-e-handel.png')"
+              :src="require('~/assets/logos/hallbar-e-handel.png')"
               alt="Trygg e-handel logo"
               :ratio="1"
             />

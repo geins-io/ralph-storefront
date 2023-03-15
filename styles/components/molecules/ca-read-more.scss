@@ -5,7 +5,7 @@
     overflow: hidden;
     position: relative;
     color: var(--body-text-color, $c-text-primary);
-  
+
     &::after {
       content: '';
       display: block;
@@ -18,9 +18,10 @@
       bottom: 0;
       opacity: 1;
       transition: opacity 200ms ease;
+      pointer-events: none;
     }
   }
-  
+
   &__button {
     @include button-primary;
     --icon-size: 0.815em;
@@ -31,14 +32,14 @@
     padding: 1.2em;
 
     svg {
-      margin-left: rem-calc(2);;
-      
+      margin-left: rem-calc(2);
+
       > * {
         stroke: #fff;
       }
     }
   }
-  
+
   &--visible & {
     &__text::after {
       opacity: 0;
@@ -48,7 +49,7 @@
       margin-top: $px8;
     }
   }
-  
+
   &--ready {
     #{$block}__text {
       transition: height 200ms ease;

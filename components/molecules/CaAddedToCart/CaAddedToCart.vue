@@ -84,13 +84,13 @@ export default {
       };
     },
     cartData() {
-      return this.$store.state.cart.data;
+      return this.cart.data;
     },
     cartTotal() {
-      return this.cartData.summary?.total.sellingPriceIncVatFormatted;
+      return this.cartData?.summary?.total.sellingPriceIncVatFormatted;
     },
     freeShipping() {
-      return this.cartData.summary?.shipping.amountLeftToFreeShipping !== -1;
+      return this.cartData?.summary?.shipping.amountLeftToFreeShipping === 0;
     },
     // @vuese
     // Is the notification visible

@@ -18,15 +18,43 @@
             thumbnail-mode="grid"
           />
           <div v-else class="ca-product-page__gallery ca-product-gallery">
-            <div class="ca-product-gallery__slider">
+            <div
+              class="only-computer ca-product-gallery__thumbnails ca-product-gallery__thumbnails--grid"
+            >
               <div
-                class="ca-product-gallery__slide ca-product-page__skeleton-main-slide"
+                v-for="index in 4"
+                :key="index"
+                class="ca-clickable ca-product-gallery__thumbnail-container ca-product-gallery__thumbnail-container--grid"
               >
                 <CaSkeleton
                   class="ca-product-gallery__image"
                   :ratio="$config.productImageRatio"
                   :radius="false"
                 />
+              </div>
+            </div>
+            <div class="ca-product-gallery__slider only-mobile">
+              <div class="ca-product-gallery__main">
+                <div class="ca-product-gallery__slider ca-slider">
+                  <div class="ca-slider__lane-wrap">
+                    <div
+                      class="ca-slider__lane"
+                      style="--current-slide:5; --slider-offset:0;"
+                    >
+                      <div
+                        v-for="index in 2"
+                        :key="index"
+                        class="ca-slide ca-product-gallery__slide"
+                      >
+                        <CaSkeleton
+                          class="ca-product-gallery__image"
+                          :ratio="$config.productImageRatio"
+                          :radius="false"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -55,7 +83,10 @@
               class="ca-product-page__price"
               :price="product.unitPrice"
             />
-            <p class="ca-product-page__lowest-price">
+            <p
+              v-if="product.unitPrice.isDiscounted"
+              class="ca-product-page__lowest-price"
+            >
               {{ $t('PREVIOUS_LOWEST_PRICE') }}: {{ lowestPrice }}
             </p>
             <CaCampaigns
@@ -141,7 +172,7 @@
             <p class="ca-product-page__split-payment">
               Delbetala från 20 kr / månaden
             </p>
-            <CaLogoDisplay 
+            <CaLogoDisplay
               :logo-array-src="paymentLogos"
               class="ca-product-page__payment-logos"
             />
