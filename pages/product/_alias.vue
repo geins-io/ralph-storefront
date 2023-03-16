@@ -173,7 +173,7 @@
               Delbetala från 20 kr / månaden
             </p>
             <CaLogoDisplay
-              :logo-array-src="paymentLogos"
+              type="payment"
               class="ca-product-page__payment-logos"
             />
           </div>
@@ -263,11 +263,6 @@ export default {
       return this.$store.getters.viewport === 'phone'
         ? this.$t('ADD_TO_CART_SHORT')
         : this.$t('ADD_TO_CART');
-    },
-    paymentLogos() {
-      return this.$config.paymentAndDeliveryLogos.filter(
-        i => i.type === 'payment'
-      );
     },
     lowestPrice() {
       const lowest = this.product?.priceLog.find(price => price.isLowest);

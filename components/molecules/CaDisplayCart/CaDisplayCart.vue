@@ -34,7 +34,7 @@
           <template v-else>{{ $t('CART_TO_CHECKOUT') }}</template>
         </CaButton>
 
-        <CaLogoDisplay :logo-array-src="paymentLogos" class="ca-display-cart__logos" />
+        <CaLogoDisplay type="payment" class="ca-display-cart__logos" />
       </div>
     </template>
   </LazyCaContentPanel>
@@ -56,9 +56,6 @@ export default {
   },
   data: () => ({}),
   computed: {
-    paymentLogos() {
-      return this.$config.paymentAndDeliveryLogos.filter(i => i.type === 'payment');
-    },
     ...mapState({
       cart: state => state.cart.data
     })

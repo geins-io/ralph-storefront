@@ -28,4 +28,11 @@ fragment ListProduct on ProductType {
   skus {
     ...Sku
   }
+  variantDimensions {
+    dimension
+    group {
+      label
+      value
+    }
+  }
 }

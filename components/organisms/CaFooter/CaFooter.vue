@@ -64,10 +64,7 @@
         {{ $t('DELIVERY_PAYMENT') }}
       </h2>
 
-      <CaLogoDisplay
-        :logo-array-src="$config.paymentAndDeliveryLogos"
-        class="ca-footer__logos"
-      />
+      <CaLogoDisplay />
     </section>
 
     <section class="ca-footer__section ca-footer__section--content">

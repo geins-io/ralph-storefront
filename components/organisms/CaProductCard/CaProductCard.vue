@@ -111,6 +111,11 @@
           name-tag="h2"
           class="ca-product-card__brand-and-name"
         />
+
+        <CaColorVariantDisplay 
+          :variants="product.variantDimensions"
+          class="ca-product-card__color-variants"
+        />
       </NuxtLink>
       <div v-else>
         <CaSkeleton width="30%" />

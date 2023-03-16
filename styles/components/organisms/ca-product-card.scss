@@ -156,4 +156,10 @@
       bottom: rem-calc(8px);
     }
   }
+
+  &__color-variants {
+    position: absolute;
+    right: rem-calc(4);
+    bottom: 0;
+  }
 }

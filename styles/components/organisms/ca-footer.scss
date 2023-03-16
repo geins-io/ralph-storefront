@@ -1,4 +1,7 @@
 .ca-footer {
+  --logo-display-gap: #{rem-calc(10px)} #{$px40};
+  --logo-display-size: 1.2rem;
+  
   background-color: $c-light-pink;
   font-size: $font-size-xs;
   font-weight: 300;
@@ -99,11 +102,6 @@
 
   &__contact-info {
     text-decoration: underline;
-  }
-
-  &__logos {
-    --logo-display-gap: #{rem-calc(10px)} #{$px40};
-    --logo-display-size: 1.2rem;
   }
 
   &__market-title {
