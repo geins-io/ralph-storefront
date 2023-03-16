@@ -13,47 +13,30 @@
       >
         {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
       </button>
-      <NuxtLink v-else :to="localePath('account-orders')">
+      <NuxtLink v-else :to="$getPath('account-orders')">
         {{ $t('ACCOUNT_TITLE') }}
       </NuxtLink>
     </CaSecondaryNavItem>
     <CaSecondaryNavItem>
-      <NuxtLink :to="localePath('favorites')">
+      <NuxtLink :to="$getPath('favorites')">
         {{ $t('FAVORITES_LABEL') }} ({{ $store.state.favorites.length }})
       </NuxtLink>
     </CaSecondaryNavItem>
     <CaSecondaryNavItem>
-      <CaCountrySelectorPanel />
+      <CaMarketSelectorButton />
     </CaSecondaryNavItem>
-    <!-- <CaSecondaryNavItem>
-      <a
-        v-for="locale in availableLocales"
-        :key="locale.code"
-        :href="'/' + locale.code"
-      >
-        <CaFlag
-          class="ca-top-bar__flag"
-          :country="locale.flag"
-          shape="circle"
-        />
-        {{ locale.name }}
-      </a>
-    </CaSecondaryNavItem> -->
   </ul>
 </template>
 <script>
-// @group Molecules
-// @vuese
+/*
+  CaSecondaryNav is a reusable component that displays the links in the bottom of the mobile menu
+*/
 export default {
   name: 'CaSecondaryNav',
   mixins: [],
   props: {},
   data: () => ({}),
-  computed: {
-    availableLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
-    }
-  },
+  computed: {},
   watch: {},
   mounted() {},
   methods: {}

@@ -3,6 +3,7 @@
     font-size: $font-size-l;
     font-weight: $font-weight-bold;
     margin: rem-calc(10) 0 rem-calc(24);
+
     @include bp(tablet) {
       font-size: $font-size-xxl;
       margin: rem-calc(20) 0 rem-calc(36);
@@ -18,9 +19,9 @@
   }
 
   &__empty {
-    min-height: rem-calc(200);
-    
     @include flex-calign;
+    
+    min-height: rem-calc(200);
     font-size: $font-size-xl;
     color: $c-text-secondary;
     

@@ -16,8 +16,10 @@
 </template>
 
 <script>
+/*
+  Renders the favorites page.
+*/
 import MixFavoritesPage from 'MixFavoritesPage';
-
 export default {
   name: 'FavoritesPage',
   mixins: [MixFavoritesPage],
@@ -32,5 +34,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-favorites-page';
+@import './styles/pages/favorites-page';
 </style>

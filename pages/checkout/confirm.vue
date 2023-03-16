@@ -50,6 +50,12 @@
 </template>
 
 <script>
+/*
+  Renders the checkout confirm page.
+
+  layout: undistracted - removes the header and footer
+
+*/
 import MixConfirmPage from 'MixConfirmPage';
 export default {
   name: 'CheckoutConfirmPage',
@@ -66,5 +72,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-checkout-confirm-page';
+@import './styles/pages/checkout-confirm-page';
 </style>

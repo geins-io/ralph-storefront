@@ -17,11 +17,11 @@
       <NuxtLink
         v-for="(item, index) in navItems"
         :key="index"
-        :to="localePath(item.path)"
+        :to="$getPath(item.path)"
         class="ca-account-header__nav-item"
         :class="{
           'ca-account-header__nav-item--current':
-            localePath(item.path) === $route.path
+            $getPath(item.path) === $route.path
         }"
       >
         {{ item.name }}
@@ -30,8 +30,13 @@
   </div>
 </template>
 <script>
-// @group Molecules
-// @vuese
+/*
+  CaAccountHeader is a reusable component that displays a title, a log out button and a navigation menu.
+  It receives two props:
+  - title: a string representing the title
+  - navItems: an array of objects representing the navigation items
+  It also dispatches the 'auth/logout' action when the log out button is clicked.
+*/
 export default {
   name: 'CaAccountHeader',
   mixins: [],
@@ -52,7 +57,7 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout');
-      this.$router.push({ path: this.localePath('index') });
+      this.$router.push({ path: this.$getPath('index') });
     }
   }
 };

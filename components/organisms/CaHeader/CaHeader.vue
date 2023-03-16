@@ -20,7 +20,7 @@
           @clicked="() => (searchOpened = !searchOpened)"
         />
         <CaSearch class="only-computer" />
-        <NuxtLink class="ca-header__logo-link" :to="localePath('index')">
+        <NuxtLink class="ca-header__logo-link" :to="$getPath('index')">
           <CaLogo class="ca-header__logo" :alt="$t('LOGO_ALT_TEXT')" />
         </NuxtLink>
         <CaFavorites class="ca-header__favorites" />
@@ -32,6 +32,9 @@
   </header>
 </template>
 <script>
+/*
+  Header component for the site.
+*/
 export default {
   name: 'CaHeader',
   mixins: [],

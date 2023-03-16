@@ -194,6 +194,13 @@
           </p>
         </div>
       </section>
+      <section
+        v-if="$config.showProductReviewSection"
+        class="ca-product-page__section-review"
+      >
+        <CaReviewsList v-if="product" :product-alias="prodAlias" />
+        <CaReviewForm :product-alias="prodAlias" />
+      </section>
     </CaContainer>
     <section class="ca-product-page__widget-section">
       <CaWidgetArea
@@ -208,6 +215,22 @@
 </template>
 
 <script>
+/*
+  Renders product page.
+
+  @mixin MixProductPage - handles product page logic
+  @mixin MixAddToCart - handles add to cart logic
+  @mixin MixVariantHandler - handles variant logic
+
+  events:
+    - replaceProduct - replaces product with new one
+    - notify - notifies user about product
+    - changeSku - changes sku
+    - changed - quantity changed
+    - thresholdReached - quantity threshold reached
+    - clicked - add to cart clicked
+
+*/
 import MixAddToCart from 'MixAddToCart';
 import MixVariantHandler from 'MixVariantHandler';
 import MixProductPage from 'MixProductPage';
@@ -217,7 +240,6 @@ export default {
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
   data: () => ({}),
   computed: {},
-  watch: {},
   methods: {},
   meta: {
     pageType: 'Product Page'
@@ -226,5 +248,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-product-page';
+@import './styles/pages/product-page';
 </style>

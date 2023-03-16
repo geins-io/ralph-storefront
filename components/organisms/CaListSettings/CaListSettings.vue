@@ -42,8 +42,22 @@
   </div>
 </template>
 <script>
-// @group Organisms
-// @vuese
+/*
+  Renders the list settings component.
+
+  Props:
+    activeProducts: Number
+      The number of active products.
+    currentSort: String
+      The current sort value.
+    activeFilters: Number
+      The number of active filters.
+
+  Events:
+    sortchange: String
+      Emitted when the sort value changes.
+
+*/
 export default {
   name: 'CaListSettings',
   mixins: [],
@@ -100,5 +114,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-list-settings';
+@import 'organisms/ca-list-settings';
 </style>

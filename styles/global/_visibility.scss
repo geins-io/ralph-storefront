@@ -3,6 +3,7 @@
     display: none !important;
   }
 }
+
 .only-computer {
   @include bp(tablet-down) {
     display: none !important;

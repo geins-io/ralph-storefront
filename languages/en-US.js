@@ -308,5 +308,20 @@ export default {
   NAVIGATION_GO_TO: 'Go to',
   RELATED_PRODUCTS: 'Related products',
   CHOOSE: 'Choose',
-  CHOOSE_YOUR_COUNTRY: 'Choose country'
+  CHOOSE_YOUR_COUNTRY: 'Choose country',
+  MARKET_PANEL_TITLE: 'Choose your region',
+  MARKET_GROUP_SCANDINAVIA: 'Scandinavia',
+  MARKET_GROUP_EU: 'Europe',
+  REVIEW_WRITE: 'Write a review',
+  REVIEW_IN_ACCEPTANCE: 'Thank you! Your review will be added shortly',
+  REVIEW_NEED_LOG_IN: 'You need to log in to be able to write a review',
+  REVIEW_NAME_PLACEHOLDER: 'Your name',
+  REVIEW_COMMENT_PLACEHOLDER: 'Your review',
+  SEND: 'Send',
+  FEEDBACK_ALL_INPUTS_REVIEW:
+    'Please fill all necessary information to submit a review',
+  PRODUCT_REVIEWS: 'Product reviews',
+  REVIEW_WRITTEN_BY: 'Written by:',
+  REVIEWS_LIST_EMPTY: 'This product doesn´t have any reviews yet',
+  REVIEW_FEEDBACK_RATE_REQUIRED: 'Please use stars to rate the product'
 };

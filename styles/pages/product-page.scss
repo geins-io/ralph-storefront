@@ -3,12 +3,24 @@ $column-width: 48.2%;
 .ca-product-page {
   &__section {
     margin-bottom: $px20;
-    
+
     @include bp(laptop) {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: $px56;
+    }
+
+    &-review {
+      display: flex;
+      flex-direction: column-reverse;
+
+      @include bp(laptop) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: rem-calc(40px);
+      }
     }
   }
 
@@ -16,7 +28,7 @@ $column-width: 48.2%;
     position: relative;
     max-width: 500px;
     margin: $px16 auto 0;
-    
+
     @include bp(laptop) {
       width: 40%;
       margin: $px32 auto 0;
@@ -93,7 +105,7 @@ $column-width: 48.2%;
 
   &__accordion {
     margin: 0 -#{$default-spacing/2} $default-spacing;
-    
+
     @include bp(laptop) {
       margin: 0;
       width: $column-width;
@@ -103,7 +115,7 @@ $column-width: 48.2%;
   &__specifications-box {
     @include bp(laptop) {
       width: $column-width;
-      background: $c-lightest-gray;
+      background-color: $c-lightest-gray;
       padding: 0 $px24 $px16;
     }
   }

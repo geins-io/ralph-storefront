@@ -136,15 +136,15 @@
           </div>
           <a
             class="ca-footer__powered-by"
-            href="https://www.carismar.com"
+            href="https://www.geins.io"
             target="_blank"
           >
             Powered by
             <CaSvgAsset
-              class="ca-footer__carismar"
+              class="ca-footer__geins"
               folder="logos"
-              filename="carismar-black"
-              alt="Carismar logo"
+              filename="geins-black"
+              alt="Geins logo"
             />
           </a>
         </div>
@@ -153,8 +153,9 @@
   </footer>
 </template>
 <script>
-// @group Organisms
-// @vuese
+/*
+  Footer component for the site.
+*/
 export default {
   name: 'CaFooter',
   mixins: [],
@@ -171,5 +172,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-footer';
+@import 'organisms/ca-footer';
 </style>

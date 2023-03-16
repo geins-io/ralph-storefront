@@ -51,19 +51,22 @@
       v-if="
         $store.getters['cart/totalQuantity'] &&
           $config.checkout.showMultipleMarkets &&
-          markets &&
-          markets.length > 1
+          selectableMarkets &&
+          selectableMarkets.length > 1
       "
       :loading="cartLoading"
     >
       <template #title>{{ $t('CHECKOUT_CHOOSE_COUNTRY') }}</template>
-      <CaCountrySelector :data="markets" @input="setMarketId($event)" />
+      <CaCountrySelector
+        :data="selectableMarkets"
+        @input="setCheckoutMarket($event)"
+      />
     </CaCheckoutSection>
 
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
       :loading="shippingLoading"
-      :blocked="$config.checkout.showMultipleMarkets && !marketId"
+      :blocked="$config.checkout.showMultipleMarkets && !currentMarket"
     >
       <template #title>
         {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
@@ -143,10 +146,25 @@
   </div>
 </template>
 <script>
+/* 
+  This component is the main checkout component. It holds the different sections of the checkout.
+  It also handles the different checkout steps and the different payment options.
+
+  The checkout is divided into 3 or 4 steps:
+  1. Cart
+  (2. Market/Country)
+  3. Shipping
+  4. Payment
+
+  The checkout has 4 different standard payment options:
+  1. Invoice
+  2. Klarna
+  3. Svea
+  4. Walley
+
+*/
+
 import MixCheckout from 'MixCheckout';
-// @group Organisms
-// @vuese
-// Holds the different sections of the checkout
 export default {
   name: 'CaCheckout',
   mixins: [MixCheckout],

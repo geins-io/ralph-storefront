@@ -53,6 +53,32 @@
 </template>
 
 <script>
+/*
+  Renders the brands page.
+
+  apollo:
+    brands: The brands query.
+    errorPolicy: 'all' to prevent errors from being thrown.
+    result: If the brands query returns data, set isBrandsLoaded to true.
+    error: If the brands query returns an error, throw the error.
+  
+  data:
+    isBrandsLoaded: Boolean to check if the brands query has returned data.
+    brandsTree: The brands object.
+    isGroupFilter: Boolean to check if the group filter is active.
+    activeGroupFilter: The active group filter.
+  
+  computed:
+    sortedBrands: The brands sorted by alias.
+    getOneBrandPerCharacter: The brands sorted by alias and only one brand per character.
+
+  methods:
+    setGroupFilter: Sets the active group filter.
+
+  watch:
+    sortedBrands: If the brands query returns data, set the brandsTree to the getOneBrandPerCharacter.
+
+*/
 import brandsQuery from 'brands/brands.graphql';
 export default {
   name: 'BrandsPage',
@@ -152,5 +178,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-brands-page';
+@import './styles/pages/brands-page';
 </style>

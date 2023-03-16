@@ -6,9 +6,10 @@
   z-index: $z-index-header;
 
   &__bar {
-    background: $c-header-bg;
+    background-color: $c-header-bg;
     z-index: $z-index-header;
     position: relative;
+    
     body[style='overflow: hidden;'] & {
       padding-right: var(--scrollbar-width);
     }
@@ -27,9 +28,9 @@
   }
 
   &__nav-toggle {
-    margin-right: auto;
-
     @include flex-valign;
+
+    margin-right: auto;
     font-size: 28px;
   }
 

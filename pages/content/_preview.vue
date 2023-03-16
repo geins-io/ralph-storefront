@@ -7,6 +7,9 @@
 </template>
 
 <script>
+/*
+  Renders a widget area preview page.
+*/
 import { mapState } from 'vuex';
 export default {
   middleware: 'authenticated',
@@ -30,11 +33,11 @@ export default {
           maxAge: 3600
         });
         this.$store.dispatch('auth/update', {
-          username: 'preview-user@carismar.com',
+          username: 'preview-user@geins.io',
           rememberUser: false
         });
         if (this.$route.query.redirect) {
-          this.$router.push(this.localePath('index'));
+          this.$router.push(this.$getPath('index'));
         } else {
           this.isAuthenticated = true;
         }

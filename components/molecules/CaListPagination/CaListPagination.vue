@@ -29,8 +29,18 @@
   </div>
 </template>
 <script>
-// @group Molecules
-// @vuese
+/*
+  CaListPagination is a reusable component that displays a message and a button to load more products.
+  It receives five props:
+  - direction: a string representing the direction of the pagination ('next' or 'prev')
+  - showing: a string representing the number of products currently shown
+  - totalCount: a number representing the total number of products
+  - allProductsLoaded: a boolean representing whether all products have been loaded
+  - loading: a boolean representing whether the products are currently loading
+  It emits an event when the button is clicked:
+  - loadmore: load more button has been clicked
+  - loadprev: load previous button has been clicked
+*/
 export default {
   name: 'CaListPagination',
   mixins: [],
@@ -67,5 +77,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'molecules/ca-list-pagination';
+@import 'molecules/ca-list-pagination';
 </style>

@@ -52,6 +52,26 @@
 </template>
 
 <script>
+/*
+  Renders the reset password page.
+
+  apollo:
+    commitReset: The commit reset mutation.
+
+  data:
+    loading: Boolean that indicates if the page is loading.
+    password: The password.
+    passwordConfirm: The password confirmation.
+    resetKey: The reset key.
+    currentFeedback: The current feedback object.
+    feedback: The feedback object.
+  
+  methods:
+    commitReset: Commits the reset.
+    resetFields: Resets the fields.
+    showFeedback: Shows the feedback.
+    checkValid: Checks if the fields are valid.
+*/
 import commitResetMutation from 'user/pw-reset-commit.graphql';
 export default {
   name: 'ResetPasswordPage',
@@ -120,7 +140,7 @@ export default {
               this.resetFields();
               this.showFeedback(this.feedback.passwordChanged);
               setTimeout(() => {
-                window.location.replace(this.localePath('/?action=login'));
+                window.location.replace(this.$getPath('/?action=login'));
               }, 1000);
               return;
             }
@@ -164,5 +184,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-reset-password';
+@import 'organisms/ca-reset-password';
 </style>

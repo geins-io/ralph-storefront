@@ -15,6 +15,20 @@
 </template>
 
 <script>
+/*
+  Renders the balance page.
+
+  apollo:
+    getUser: The user query.
+
+  data:
+    user: The user object.
+    loading: Boolean that indicates if the page is loading.
+
+  computed:
+    balance: The formatted balance of the user.
+
+*/
 import getUserQuery from 'user/get.graphql';
 export default {
   middleware: 'authenticated',
@@ -52,5 +66,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'organisms/ca-balance-page';
+@import './styles/pages/balance-page';
 </style>

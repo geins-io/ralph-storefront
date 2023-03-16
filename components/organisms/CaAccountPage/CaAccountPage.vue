@@ -39,8 +39,18 @@
   </div>
 </template>
 <script>
-// @group Organisms
-// @vuese
+/*
+  CaAccountPage is a reusable component that displays the account header and the customer service box.
+  It receives no props.
+
+  It also dispatches the 'loading/end' action when the component is mounted.
+
+  It uses the following components:
+  - CaAccountHeader
+  - CaContainer
+  - CaIconAndText
+  - CaButton
+*/
 export default {
   name: 'CaAccountPage',
   mixins: [],
@@ -64,7 +74,7 @@ export default {
   computed: {
     currentPageTitle() {
       const currentPage = this.accountMenu.find(
-        i => this.localePath(i.path) === this.$route.path
+        i => this.$getPath(i.path) === this.$route.path
       );
       const accountTitle = this.$t('ACCOUNT_TITLE');
       return this.$store.getters.viewport === 'phone'
@@ -80,5 +90,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-account-page';
+@import 'organisms/ca-account-page';
 </style>
