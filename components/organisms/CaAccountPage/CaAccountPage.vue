@@ -80,5 +80,50 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-account-page';
+.ca-account-page {
+  &__body {
+    @include bp(laptop) {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+  &__content {
+    width: 100%;
+    background: $c-lightest-gray;
+    padding: $px16 $px12;
+    @include bp(laptop) {
+      border: $border-light;
+      padding: $px20 $px40;
+      min-height: rem-calc(180px);
+    }
+  }
+}
+.ca-customer-service-box {
+  max-width: rem-calc(300px);
+  width: 100%;
+  border: $border-light;
+  background: $c-lightest-gray;
+  padding: $px16;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: $px20 auto 0;
+  @include bp(laptop) {
+    margin: 0 0 0 $px32;
+  }
+  &__title {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-l;
+  }
+  &__text {
+    margin: $px10 0 $px4;
+  }
+  &__contact {
+    margin: $px8 0 0;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-m;
+  }
+}
 </style>

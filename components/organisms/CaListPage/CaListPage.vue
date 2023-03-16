@@ -130,5 +130,12 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'organisms/ca-list-page';
+.ca-list-page {
+  &__image {
+    margin: 0 0 $px32 0;
+  }
+  &__widget-area {
+    margin: 0 0 $px32 0;
+  }
+}
 </style>

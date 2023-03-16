@@ -9,14 +9,13 @@ import {
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
-// import channelSettings from './static/channel-settings';
-// import localeSettings from './static/locales';
-const fallbackChannelId = process.env.FALLBACK_CHANNEL_ID;
-const fallbackMarketId = process.env.FALLBACK_MARKET_ID;
+import channelSettings from './static/channel-settings';
+import localeSettings from './static/locales';
+const defaultLocale = process.env.DEFAULT_LOCALE
 
-// const currentLocaleSettings = localeSettings.find(
-//   i => i.code === defaultLocale
-// );
+const currentLocaleSettings = localeSettings.find(
+  i => i.code === defaultLocale
+);
 
 const routePaths = {
   category: '/c',
@@ -71,7 +70,7 @@ export default async () => {
   const defaultMetaQuery = await apolloClient.query({
     query: gql`
       query listPageInfo {
-        listPageInfo(alias: "frontpage", channelId: "${fallbackChannelId}", marketId: "${fallbackMarketId}") {
+        listPageInfo(alias: "frontpage") {
           meta {
             description
             title
@@ -185,30 +184,28 @@ export default async () => {
               file: 'en-US.js',
               name: 'English',
               flag: 'gb',
-              currency: 'EUR'
+              currency: 'EUR',
+              domain: channelSettings.find(i => i.locale === 'en').domain,
+              channelId: '2|en'
             },
             {
-              code: 'sv',
-              iso: 'sv-SE',
-              file: 'sv-SE.js',
-              name: 'Swedish',
-              flag: 'se',
-              currency: 'SEK'
+              code: currentLocaleSettings.code,
+              iso: currentLocaleSettings.iso,
+              file: currentLocaleSettings.file,
+              name: currentLocaleSettings.name,
+              flag: currentLocaleSettings.flag,
+              channelId: process.env.FALLBACK_CHANNEL_ID,
+              currency: currentLocaleSettings.currency,
+              domain: channelSettings.find(i => i.locale === defaultLocale).domain
             }
           ],
           langDir: 'languages/',
           defaultLocale: process.env.DEFAULT_LOCALE,
-          strategy: 'prefix',
           lazy: true,
           vueI18n: {
             fallbackLocale: process.env.DEFAULT_LOCALE
           },
-          detectBrowserLanguage: {
-            useCookie: true,
-            cookieKey: 'language_redirected',
-            redirectOn: 'root',
-            cookieAge: 365
-          },
+          detectBrowserLanguage: false,
           differentDomains: false,
           parsePages: false,
           pages: {
@@ -283,7 +280,7 @@ export default async () => {
     },
     apollo: {
       clientConfigs: {
-        default: '~/node_modules/@ralph/ralph-ui/plugins/apollo-config.js'
+        default: '~/plugins/apollo-config.js'
       },
       includeNodeModules: true
     },
@@ -383,16 +380,12 @@ export default async () => {
       ),
       apiKey: process.env.API_KEY,
       apiEndpoint: process.env.API_ENDPOINT,
-      fallbackChannelId,
-      fallbackMarketId,
-      isMultiLanguage: true,
       customerServiceEmail: 'info@carismar.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
         tablet: 768,
         laptop: 1024,
-        desktop: 1200,
-        desktopBig: 1440
+        desktop: 1200
       },
       siteTopThreshold: 10,
       socialMediaLinks: [
@@ -447,8 +440,7 @@ export default async () => {
         phone: 2,
         tablet: 3,
         laptop: 5,
-        desktop: 5,
-        desktopBig: 6
+        desktop: 5
       },
       showCategoryFilter: true,
       showCategoryTreeViewFilter: true,
@@ -484,9 +476,9 @@ export default async () => {
         entryCode: true,
         message: true,
         defaultPaymentId: 23,
-        defaultShippingId: null,
-        showMultipleMarkets: true
+        defaultShippingId: null
       },
+      showMultipleMarkets: true,
       /* ******************** */
       /* ******* CART ******* */
       /* ******************** */
@@ -501,12 +493,6 @@ export default async () => {
         gender: false, // If set to true, gender must be added to user.graphql
         country: false,
         priceLists: true // Set to true if using different price lists for different users
-      },
-      /* ******************** */
-      /* ******* GTM ******* */
-      /* ******************** */
-      gtm: {
-        isProductsKeyItems: false
       }
     },
     privateRuntimeConfig: {},

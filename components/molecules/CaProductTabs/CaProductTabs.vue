@@ -68,5 +68,6 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import 'molecules/ca-product-tabs';
+.ca-product-tabs {
+}
 </style>

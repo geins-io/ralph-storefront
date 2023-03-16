@@ -23,8 +23,6 @@ export default {
         if (this.$store.getters['auth/authenticated']) {
           await this.$store.dispatch('auth/logout');
         }
-        // remove cart for new spoofed user
-        this.$store.dispatch('cart/reset');
         this.auth.client.setTokenData({
           token: this.$route.query.loginToken,
           maxAge: 3600
@@ -34,7 +32,7 @@ export default {
           rememberUser: false
         });
         if (this.$route.query.redirect) {
-          this.$router.push(this.localePath('index'));
+          this.$router.push('/');
         } else {
           this.isAuthenticated = true;
         }
@@ -44,6 +42,6 @@ export default {
   methods: {},
   meta: {
     pageType: 'Preview Page'
-  }
+  },
 };
 </script>

@@ -18,13 +18,12 @@
         </CaIconAndText>
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
-      <CaCountrySelectorPanel class="ca-top-bar__lang-switcher only-computer" />
-      <!-- <a
+      <a
         v-for="locale in availableLocales"
         v-show="!undistracted"
         :key="locale.code"
         class="ca-top-bar__lang-switcher only-computer"
-        :href="'/' + locale.code"
+        :href="switchLocalePath(locale.code)"
       >
         <CaFlag
           class="ca-top-bar__flag"
@@ -32,7 +31,7 @@
           shape="circle"
         />
         {{ locale.name }}
-      </a> -->
+      </a>
       <button
         v-if="!$store.getters['auth/authenticated']"
         v-show="!undistracted"
@@ -89,6 +88,44 @@ export default {
   methods: {}
 };
 </script>
-<style lang="scss">
-@import 'organisms/ca-top-bar';
+<style lang="scss" scoped>
+.ca-top-bar {
+  background: $c-topbar-bg;
+  font-size: $font-size-xs;
+  z-index: $z-index-header;
+  position: relative;
+  body[style='overflow: hidden;'] &:not(.ca-top-bar--undistracted) {
+    padding-right: var(--scrollbar-width);
+  }
+  &__container {
+    height: $top-bar-height;
+    line-height: $top-bar-height;
+    @include flex-halign;
+    @include bp(laptop) {
+      height: $top-bar-height-computer;
+      line-height: $top-bar-height-computer;
+      justify-content: space-between;
+    }
+  }
+  &__flag {
+    margin-right: $px4;
+    font-size: 15px;
+  }
+  &__usps {
+    @include bp(desktop) {
+      @include calign;
+    }
+  }
+  &__usp {
+    @include bp(laptop) {
+      margin: 0 $px16;
+    }
+  }
+  &__lang-switcher {
+    margin: 0 $px20 0 auto;
+  }
+  &__customer-type-toggle {
+    margin: 0 0 0 $px20;
+  }
+}
 </style>
