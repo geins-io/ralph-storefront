@@ -104,46 +104,5 @@ export default {
 </script>
 
 <style lang="scss">
-.ca-orders-page {
-  &__title {
-    font-size: $font-size-m;
-    font-weight: $font-weight-bold;
-    margin: 0 0 $px10;
-    @include bp(laptop) {
-      font-size: $font-size-l;
-    }
-  }
-  &__spinner.ca-spinner {
-    margin: 48px auto;
-    width: 40px;
-    height: 40px;
-    border-color: $c-accent-color;
-  }
-  &__empty {
-    font-size: $font-size-l;
-    text-align: center;
-    color: $c-text-secondary;
-    margin: 55px auto;
-  }
-  &__history {
-    &:not(:first-child) {
-      margin: $px16 0 0;
-    }
-    @include bp(laptop) {
-      &:not(:first-child) {
-        margin: $px24 0 0;
-      }
-    }
-  }
-  &__order {
-    &:not(:first-child) {
-      margin: $px10 0 0;
-    }
-    @include bp(laptop) {
-      &:not(:first-child) {
-        margin: $px16 0 0;
-      }
-    }
-  }
-}
+  @import 'organisms/ca-orders-page';
 </style>

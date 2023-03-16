@@ -59,12 +59,5 @@ export default {
 </script>
 
 <style lang="scss">
-.ca-settings-page {
-  &__spinner.ca-spinner {
-    margin: 48px auto;
-    width: 40px;
-    height: 40px;
-    border-color: $c-accent-color;
-  }
-}
+  @import 'organisms/ca-balance-page';
 </style>

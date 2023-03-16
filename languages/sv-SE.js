@@ -305,5 +305,6 @@ export default {
   NAVIGATION_ALL_IN: 'Visa allt inom',
   NAVIGATION_GO_TO: 'Gå till',
   RELATED_PRODUCTS: 'Relaterad produkter',
-  CHOOSE: 'Välj'
+  CHOOSE: 'Välj',
+  CHOOSE_YOUR_COUNTRY: 'Välj land'
 };

@@ -27,7 +27,9 @@ export default {
       if (val && this.$route.query.loginToken) {
         if (this.$store.getters['auth/authenticated']) {
           await this.$store.dispatch('auth/logout');
-        }
+        } 
+        // remove cart for new spoofed user
+        this.$store.dispatch('cart/reset');
         this.auth.client.setTokenData({
           token: this.$route.query.loginToken,
           maxAge: 3600
@@ -64,7 +66,7 @@ export default {
   created() {},
   mounted() {
     if (!this.$route.query.loginToken) {
-      this.$router.replace(this.localePath('account-orders'));
+      this.routeToAccount();
     }
   },
   meta: {
@@ -79,22 +81,5 @@ export default {
 </script>
 
 <style lang="scss">
-.ca-account-page {
-  &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 0 $px40;
-  }
-  &__title {
-    font-size: $font-size-xxl;
-    font-weight: $font-weight-bold;
-    margin: 0 0 $px40;
-  }
-  &__spinner.ca-spinner {
-    width: 60px;
-    height: 60px;
-    border-color: $c-accent-color;
-  }
-}
+  @import 'organisms/ca-account-page';
 </style>

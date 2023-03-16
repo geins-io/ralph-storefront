@@ -36,6 +36,6 @@ export default {
   methods: {},
   meta: {
     pageType: 'Category Page'
-  },
+  }
 };
 </script>
