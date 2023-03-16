@@ -132,8 +132,7 @@
     );
 
     @include bp(laptop) {
-      --viewport-without-scrollbar: calc(100% - var(--scrollbar-width, 0px));
-      --half-viewport: calc(var(--viewport-without-scrollbar) * 0.5);
+      --half-viewport: calc((100% - var(--scrollbar-width, 0px)) * 0.5);
       --half-element-width: #{$site-width * 0.5};
       --search-position: calc(var(--half-viewport) - var(--half-element-width));
 
@@ -141,7 +140,7 @@
       height: auto;
       max-width: 100%;
       width: $site-width;
-      left: #{'max(0px, var(--search-position))'};
+      left: #{'max(0.1px, var(--search-position))'};
 
       &--loading-empty,
       &--no-results {
@@ -188,8 +187,9 @@
     flex-wrap: wrap;
 
     @include bp(laptop) {
-      flex-wrap: nowrap;
-      justify-content: flex-start;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: rem-calc(32);
     }
   }
 
@@ -219,11 +219,10 @@
 
   &__result {
     width: 320px;
-    margin: 0 0 0 $px32;
     transition: opacity 200ms ease;
 
     @include bp(desktop-down) {
-      width: 25vw;
+      width: 28vw;
     }
 
     @include bp(tablet-down) {
@@ -254,10 +253,8 @@
   &__list {
     @include bp(laptop) {
       display: flex;
-      flex-direction: column;
       flex-wrap: wrap;
       align-content: space-between;
-      height: rem-calc(320px);
     }
   }
 
@@ -284,9 +281,8 @@
 
     &--tag {
       &:not(:last-child) {
-        margin: 0 0 $px8;
+        margin: 0 rem-calc(3) $px8 0;
       }
-      @include bp(tablet-down);
     }
   }
 
