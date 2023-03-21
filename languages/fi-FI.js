@@ -348,5 +348,6 @@ export default {
   BRAND: 'Merkki',
   COLOR: 'Väri',
   PRODUCED_IN: 'Valmistettu',
-  DELIVERY_PAYMENT: 'Toimitus ja maksu'
+  DELIVERY_PAYMENT: 'Toimitus ja maksu',
+  AVARDA_MONTHLY_PAYMENT: 'Maksa erissä alkaen {sum} / kk'
 };

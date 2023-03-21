@@ -344,5 +344,6 @@ export default {
   BRAND: 'Brand',
   COLOR: 'Color',
   PRODUCED_IN: 'Produced in',
-  DELIVERY_PAYMENT: 'Delivery and payment'
+  DELIVERY_PAYMENT: 'Delivery and payment',
+  AVARDA_MONTHLY_PAYMENT: 'Pay in installments from {sum} / month'
 };

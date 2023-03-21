@@ -4,13 +4,8 @@
       <CaCheckoutHeader :title="$t('ORDER_CONFIRM_TITLE')" />
       <CaCheckoutSection :bottom-arrow="false">
         <CaCheckoutExternal
-          v-if="$route.query.kid || $route.query.sid"
-          :type="$route.query.sid ? 'SVEA' : 'KLARNA'"
-          :confirm="true"
-        />
-        <CaCheckoutExternal
-          v-if="$route.query.wid"
-          :type="'WALLEY'"
+          v-if="$route.query.aid && avardaScriptLoaded"
+          type="AVARDA"
           :confirm="true"
         />
         <div v-else class="ca-checkout-confirm">
@@ -57,10 +52,11 @@
 
 */
 import MixConfirmPage from 'MixConfirmPage';
+import MixCheckoutPage from 'MixCheckoutPage';
 export default {
   name: 'CheckoutConfirmPage',
   layout: 'undistracted',
-  mixins: [MixConfirmPage],
+  mixins: [MixConfirmPage, MixCheckoutPage],
   data: () => ({}),
   computed: {},
   mounted() {},

@@ -174,21 +174,6 @@ export default async () => {
   const markets = await getMarketsQuery.data.channel.markets;
 
   return {
-    // Leaving this here for reference when building a store front for a client that requires Nosto
-    // head: {
-    //   script: (process.env.NOSTO_ACCOUNT_ID && process.env.NOSTO_ACCOUNT_ID.length) && [
-    //     {
-    //       src: '/js/nosto.js',
-    //       async: true
-    //       ssr: false
-    //     },
-    //     {
-    //       src: `//connect.nosto.com/include/${process.env.NOSTO_ACCOUNT_ID}`,
-    //       async: true,
-    //       ssr: false
-    //     }
-    //   ]
-    // },
     /*
      ** Append documentation URL to output cli banner
      */
@@ -673,7 +658,7 @@ export default async () => {
         identityNumber: true,
         entryCode: true,
         message: true,
-        defaultPaymentId: 23,
+        defaultPaymentId: 29,
         defaultShippingId: null,
         showMultipleMarkets: true
       },

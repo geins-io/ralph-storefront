@@ -169,9 +169,10 @@
             </template>
           </CaVariantPicker>
           <div class="ca-product-page__payment">
-            <p class="ca-product-page__split-payment">
-              Delbetala från 20 kr / månaden
-            </p>
+            <CaAvardaMonthlyPayment
+              class="ca-product-page__split-payment"
+              :price="product.unitPrice"
+            />
             <CaLogoDisplay
               type="payment"
               class="ca-product-page__payment-logos"

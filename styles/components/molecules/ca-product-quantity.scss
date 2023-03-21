@@ -7,34 +7,34 @@
       opacity: 0.5;
     }
   }
-  
+
   &__input {
     &:focus-visible {
       box-shadow: none;
     }
   }
-  
+
   &--default {
     display: inline-flex;
     border-radius: $default-radius;
     overflow: hidden;
-  
+
     #{$block}__button {
       @include flex-calign;
       --icon-size: 0.55rem;
-  
+
       border: $border-dark;
-      width: 30px;
+      width: rem-calc(30);
       aspect-ratio: 1;
       text-align: center;
       font-size: 0.9em;
-  
+
       @include bp(laptop) {
         transition: background-color 150ms ease;
-  
+
         &:hover {
           background-color: $c-button-primary-bg-hover;
-          
+
           svg {
             filter: invert(1);
           }
@@ -45,19 +45,19 @@
     #{$block}__input {
       font-weight: $font-weight-bold;
       font-size: $font-size-xs;
-      width: 20px;
-      height: 30px;
+      width: rem-calc(30);
+      aspect-ratio: 1;
       text-align: center;
     }
   }
-  
+
   &--stacked {
     height: rem-calc(50);
     width: rem-calc(100);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-  
+
     #{$block}__input {
       height: 100%;
       width: 67%;
@@ -68,18 +68,18 @@
       border-top-left-radius: $default-radius;
       border-bottom-left-radius: $default-radius;
     }
-  
+
     #{$block}__button {
       @include flex-calign;
       height: 50%;
       width: 33%;
       background-color: $c-light-gray;
       font-size: $font-size-xl;
-  
+
       &--increase {
         border-top-right-radius: $default-radius;
       }
-  
+
       &--decrease {
         border-bottom-right-radius: $default-radius;
       }
@@ -88,11 +88,11 @@
 
   &--rounded {
     display: inline-flex;
-  
+
     #{$block}__button {
       @include iconCircle;
     }
-  
+
     #{$block}__input {
       width: rem-calc(30);
       margin: 0 rem-calc(5);

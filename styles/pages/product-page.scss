@@ -96,7 +96,7 @@
     position: relative;
   }
 
-  &__price {
+  &__price.ca-price {
     --font-size-selling: #{$font-size-xxl};
     --font-size-regular: #{$font-size-s};
   }
@@ -199,7 +199,7 @@
     border-top: 12px solid $c-light-pink;
     margin: 0 -#{$default-spacing/2} $default-spacing;
     padding: 0 $default-spacing;
-    
+
     @include bp(tablet) {
       border-top: none;
       margin: 0;

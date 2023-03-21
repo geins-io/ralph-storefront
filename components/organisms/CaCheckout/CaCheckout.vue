@@ -14,30 +14,15 @@
     >
       {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
     </button>
-    <div v-else-if="$config.customerTypesToggle" class="ca-checkout__logout">
-      <CaCustomerTypeToggle />
-      <CaClickable class="ca-checkout__logout-button" @clicked="logout">
-        {{ $t('LOG_OUT') }}
-      </CaClickable>
-    </div>
-    <CaCheckoutSection
-      v-if="
-        !$store.getters['auth/authenticated'] && $config.customerTypesToggle
-      "
-    >
-      <template #title>
-        {{ $t('SHOP_AS') }}
-      </template>
-      <CaCustomerTypeToggle class="ca-checkout__vat-toggle" />
-    </CaCheckoutSection>
+
     <CaCheckoutSection
       :bottom-arrow="$store.getters['cart/totalQuantity'] > 0"
       :loading="cartLoading"
     >
       <template #title>
         {{ $t('CART') }}
-        <span 
-          v-if="cart.data && cart.data.items" 
+        <span
+          v-if="cart.data && cart.data.items"
           class="ca-checkout-section__title-count"
         >
           ({{ $store.getters['cart/totalQuantity'] }})
@@ -51,96 +36,24 @@
     </CaCheckoutSection>
 
     <CaCheckoutSection
-      v-if="
-        $store.getters['cart/totalQuantity'] &&
-          $config.checkout.showMultipleMarkets &&
-          selectableMarkets &&
-          selectableMarkets.length > 1
-      "
-      :loading="cartLoading"
-    >
-      <template #title>{{ $t('CHECKOUT_CHOOSE_COUNTRY') }}</template>
-      <CaCountrySelector
-        :data="selectableMarkets"
-        @input="setCheckoutMarket($event)"
-      />
-    </CaCheckoutSection>
-
-    <CaCheckoutSection
-      v-if="$store.getters['cart/totalQuantity'] > 0"
-      :loading="shippingLoading"
-      :blocked="$config.checkout.showMultipleMarkets && !currentMarket"
-    >
-      <template #title>
-        {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
-      </template>
-      <CaUdc
-        ref="udc"
-        :shipping-data="checkout.shippingData"
-        :zip="currentZip"
-        :parent-loading="shippingLoading"
-        :data-is-set="udcDataSet"
-        @init="initUDC"
-        @changed="setUDCdata"
-        @validation="udcValid = $event"
-      />
-      <!-- IF NOT UDC/NSHIFT, REMOVE COMPONENT ABOVE AND USE THIS BELOW -->
-      <!-- <CaShippingOptions
-        v-if="checkout.shippingOptions"
-        class="ca-checkout__shipping-options"
-        :options="checkout.shippingOptions"
-        @selection="shippingSelectionHandler"
-      /> -->
-      <template #guard>
-        {{ $t('CHECKOUT_LOCATION_GUARD') }}
-      </template>
-    </CaCheckoutSection>
-    <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
       :bottom-arrow="false"
       :loading="
         !checkout ||
           (checkoutLoading && paymentType === 'STANDARD') ||
-          frameLoading
+          frameLoading ||
+          !selectedPaymentOption
       "
-      :blocked="$refs.udc && !udcValid"
     >
       <template #title>
-        {{ hasPaymentOptions ? $t('CHECKOUT_PAY') : $t('COMPLETE_ORDER') }}
+        {{ $t('COMPLETE_ORDER') }}
       </template>
-      <h3 v-if="hasPaymentOptions" class="ca-checkout__sub-heading">
-        <span class="ca-checkout__sub-heading--inner">
-          {{ $t('CHECKOUT_CHOOSE_PAYMENT') }}
-        </span>
-      </h3>
-      <CaPaymentOptions
-        v-if="hasPaymentOptions"
-        class="ca-checkout__payment-options"
-        :options="checkout.paymentOptions"
-        @selection="paymentSelectionHandler"
-      />
-      <h3 v-if="hasPaymentOptions" class="ca-checkout__sub-heading">
-        <span class="ca-checkout__sub-heading--inner">
-          {{ $t('COMPLETE_ORDER') }}
-        </span>
-      </h3>
       <CaCheckoutExternal
-        v-if="
-          paymentType === 'KLARNA' ||
-            paymentType === 'SVEA' ||
-            paymentType === 'WALLEY'
-        "
+        v-if="selectedPaymentOption"
         ref="externalcheckout"
         :data="selectedPaymentOption.paymentData"
         :new-checkout-session="selectedPaymentOption.newCheckoutSession"
         :type="paymentType"
-      />
-      <CaCheckoutCarismar
-        v-else
-        ref="checkoutCarismar"
-        :checkout="checkout"
-        @update="updateCheckoutData"
-        @place-order="placeOrder"
       />
       <template #guard>
         {{ $t('CHECKOUT_PAYMENT_GUARD') }}
@@ -164,6 +77,7 @@
   2. Klarna
   3. Svea
   4. Walley
+  5. Avarda
 
 */
 
@@ -171,7 +85,12 @@ import MixCheckout from 'MixCheckout';
 export default {
   name: 'CaCheckout',
   mixins: [MixCheckout],
-  props: {},
+  props: {
+    avardaScriptLoaded: {
+      type: Boolean,
+      required: true
+    }
+  },
   data: () => ({}),
   computed: {},
   watch: {},

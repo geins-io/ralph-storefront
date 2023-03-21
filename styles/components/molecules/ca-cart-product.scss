@@ -6,12 +6,12 @@
     width: 67px;
     margin-right: $px12;
   }
-  
+
   &__price-group {
     margin: rem-calc(5px) 0 0;
     padding-right: rem-calc(22);
   }
-  
+
   &__price-group-item {
     display: flex;
     justify-content: space-between;
@@ -25,17 +25,22 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
-  
+
   &__price-group-spacer {
     height: 1px;
     width: 100%;
     background-color: $c-border-light;
     margin: 0 $px16;
   }
-  
+
   &__price-group-price {
     flex-shrink: 0;
     font-size: $font-size-xs;
+  }
+
+  &__price.ca-price {
+    --font-size-selling: #{$font-size-s};
+    --font-size-regular: #{$font-size-xs};
   }
 
   &__variant {
@@ -43,7 +48,7 @@
     font-size: $font-size-xs;
     margin: $px4 0 0;
   }
-  
+
   &__info {
     display: grid;
     position: relative;
@@ -60,7 +65,7 @@
   &__campaigns {
     margin: $px4 0;
   }
-  
+
   &__stock-display {
     font-size: $font-size-xs;
     margin: $px4 0 0;
@@ -72,12 +77,12 @@
     align-items: center;
     margin-top: $px12;
   }
-  
+
   &__static-quantity {
     font-size: $font-size-s;
     color: $c-text-secondary;
   }
-  
+
   &__total {
     font-size: $font-size-xs;
     font-weight: $font-weight-bold;

@@ -350,5 +350,6 @@ export default {
   BRAND: 'Märke',
   COLOR: 'Färg',
   PRODUCED_IN: 'Produceras hos',
-  DELIVERY_PAYMENT: 'Leverans och betalning'
+  DELIVERY_PAYMENT: 'Leverans och betalning',
+  AVARDA_MONTHLY_PAYMENT: 'Delbetala från {sum} / månaden'
 };
