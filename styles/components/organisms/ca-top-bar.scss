@@ -1,4 +1,5 @@
 .ca-top-bar {
+  $block: &;
   background-color: $c-topbar-bg;
   font-size: $font-size-xs;
   z-index: $z-index-header + 1;
@@ -38,11 +39,9 @@
     }
   }
 
-  &__lang-switcher {
-    margin: 0 $px20 0 auto;
-  }
-
-  &__customer-type-toggle {
-    margin: 0 0 0 $px20;
+  &__group {
+    margin: 0 0 0 auto;
+    display: flex;
+    gap: $px20;
   }
 }

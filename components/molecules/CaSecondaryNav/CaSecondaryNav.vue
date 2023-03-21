@@ -22,7 +22,7 @@
         {{ $t('FAVORITES_LABEL') }} ({{ $store.state.favorites.length }})
       </NuxtLink>
     </CaSecondaryNavItem>
-    <CaSecondaryNavItem>
+    <CaSecondaryNavItem v-if="$store.state.channel.markets.length > 1">
       <CaMarketSelectorButton />
     </CaSecondaryNavItem>
   </ul>
