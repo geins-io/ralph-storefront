@@ -99,7 +99,7 @@ export default {
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
     },
     isPdp() {
-      return this.$route.name.includes('pdp');
+      return this.$route?.name?.includes('pdp');
     }
   },
   watch: {},

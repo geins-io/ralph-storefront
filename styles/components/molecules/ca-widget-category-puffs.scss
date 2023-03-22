@@ -1,0 +1,44 @@
+.ca-widget-category-puffs {
+  $block: &;
+  text-align: center;
+
+  &__heading {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-l;
+    margin-bottom: $px16;
+  }
+
+  &__list {
+    @include hideScrollbar;
+    
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(140px, 22vw, 190px);
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    gap: rem-calc(10);
+    max-width: 100%;
+    padding-bottom: rem-calc(4);
+    overflow-x: auto;
+  }
+
+  &__image {
+    .ca-image__img {
+      display: inline-block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      vertical-align: bottom;
+    }
+  }
+
+  &__category-title,
+  &__category-subtitle {
+    font-size: $font-size-s;
+  }
+
+  &__category-title {
+    font-weight: $font-weight-bold;
+  }
+}

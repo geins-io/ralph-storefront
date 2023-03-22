@@ -48,12 +48,12 @@ $button-font-weight: $font-weight-bold !default;
 }
 
 @mixin button-s {
-  padding: 1.2em 1.3em;
+  padding: 1.2em 2em;
   font-size: $button-font-size;
 }
 
 @mixin button-m {
-  padding: 1.4em 1em;
+  padding: 1.4em 2em;
   font-size: $button-font-size-m;
 }
 

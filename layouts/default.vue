@@ -39,8 +39,11 @@ export default {
       };
     },
     pageTypeClass() {
-      const routeName = this.$route.name.split('-')[0].split('_')[0];
-      return 'ca-layout-default__main--' + routeName;
+      const routeName = this.$route.name;
+      const routeNameStripped = routeName
+        ? routeName.split('-')[0].split('_')[0]
+        : '';
+      return 'ca-layout-default__main--' + routeNameStripped;
     }
   },
   methods: {}
