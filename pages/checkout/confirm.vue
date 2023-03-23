@@ -3,12 +3,7 @@
     <CaContainer>
       <CaCheckoutHeader :title="$t('ORDER_CONFIRM_TITLE')" />
       <CaCheckoutSection :bottom-arrow="false">
-        <CaCheckoutExternal
-          v-if="$route.query.aid && avardaScriptLoaded"
-          type="AVARDA"
-          :confirm="true"
-        />
-        <div v-else class="ca-checkout-confirm">
+        <div class="ca-checkout-confirm">
           <CaIcon class="ca-checkout-confirm__icon" name="check-circle" />
           <h2 class="ca-checkout-confirm__title">
             {{ $t('CHECKOUT_CONFIRM_TITLE') }}

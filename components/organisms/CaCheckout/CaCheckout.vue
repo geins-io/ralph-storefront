@@ -21,12 +21,6 @@
     >
       <template #title>
         {{ $t('CART') }}
-        <span
-          v-if="cart.data && cart.data.items"
-          class="ca-checkout-section__title-count"
-        >
-          ({{ $store.getters['cart/totalQuantity'] }})
-        </span>
       </template>
       <CaCart
         v-if="cart.data"

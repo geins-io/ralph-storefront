@@ -2,20 +2,20 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  margin-bottom: $default-spacing;
-  
+  margin-bottom: rem-calc(40);
+
   &__logo {
     width: $checkout-logo-width;
-    
+
     @include bp(laptop) {
       width: $checkout-logo-width-computer;
     }
   }
-  
+
   &__title {
     @include visually-hidden;
   }
-  
+
   &__back {
     --icon-size: 18px;
 
@@ -23,7 +23,7 @@
       display: block;
     }
   }
-  
+
   &__button {
     padding: 0.9em;
   }
