@@ -249,6 +249,7 @@
 <script>
 import { mapState } from 'vuex';
 import eventbus from '@ralph/ralph-ui/plugins/eventbus.js';
+import MixProductListSort from 'MixProductListSort';
 
 // @group Organisms
 // @vuese
@@ -256,7 +257,7 @@ import eventbus from '@ralph/ralph-ui/plugins/eventbus.js';
 // **SASS-path:** _./styles/components/organisms/ca-filter-panel.scss_
 export default {
   name: 'CaFilterPanel',
-  mixins: [],
+  mixins: [MixProductListSort],
   props: {
     filters: {
       type: Object,
@@ -283,26 +284,8 @@ export default {
       required: true
     }
   },
-  data: vm => ({
-    currentSelection: {},
-    sortOptions: [
-      {
-        label: vm.$t('SORT_LABEL_LATEST'),
-        value: 'LATEST'
-      },
-      {
-        label: vm.$t('SORT_LABEL_BESTSELLERS'),
-        value: 'MOST_SOLD'
-      },
-      {
-        label: vm.$t('SORT_LABEL_LOWEST_PRICE'),
-        value: 'PRICE'
-      },
-      {
-        label: vm.$t('SORT_LABEL_HIGHEST_PRICE'),
-        value: 'PRICE_DESC'
-      }
-    ]
+  data: () => ({
+    currentSelection: {}
   }),
   computed: {
     buttonSize() {

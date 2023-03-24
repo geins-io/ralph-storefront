@@ -28,19 +28,15 @@
 </template>
 <script>
 /*
-  Renders the list settings component.
+  Renders the list settings component. 
+  To override defaultSortOptions, add your own "defaultSortOptions" array to data
 
   Props:
     activeProducts: Number
       The number of active products.
-    currentSort: String
-      The current sort value.
     activeFilters: Number
       The number of active filters.
 
-  Events:
-    sortchange: String
-      Emitted when the sort value changes.
 
 */
 export default {
@@ -56,23 +52,10 @@ export default {
       required: true
     }
   },
-  data: vm => ({
-    sort: null
-  }),
+  data: () => ({}),
   computed: {},
-  watch: {
-    sort(newVal, oldVal) {
-      if (oldVal !== null) {
-        this.$emit('sortchange', newVal);
-      }
-    },
-    currentSort() {
-      this.sort = this.currentSort;
-    }
-  },
-  mounted() {
-    this.sort = this.currentSort;
-  },
+  watch: {},
+  mounted() {},
   methods: {}
 };
 </script>
