@@ -350,5 +350,9 @@ export default {
   COLOR: 'Väri',
   PRODUCED_IN: 'Valmistettu',
   DELIVERY_PAYMENT: 'Toimitus ja maksu',
-  AVARDA_MONTHLY_PAYMENT: 'Maksa erissä alkaen {sum} / kk'
+  AVARDA_MONTHLY_PAYMENT: 'Maksa erissä alkaen {sum} / kk',
+  BADGE_BESTSELLER: 'Paras myyjä',
+  BADGE_COLLAB: 'Collab',
+  BADGE_SUSTAINABLE: 'Kestävämpi',
+  BADGE_SIZES: 'Sizes'
 };

@@ -346,5 +346,9 @@ export default {
   COLOR: 'Color',
   PRODUCED_IN: 'Produced in',
   DELIVERY_PAYMENT: 'Delivery and payment',
-  AVARDA_MONTHLY_PAYMENT: 'Pay in installments from {sum} / month'
+  AVARDA_MONTHLY_PAYMENT: 'Pay in installments from {sum} / month',
+  BADGE_BESTSELLER: 'Bestseller',
+  BADGE_COLLAB: 'Collab',
+  BADGE_SUSTAINABLE: 'Sustainable',
+  BADGE_SIZES: 'Sizes'
 };

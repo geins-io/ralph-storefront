@@ -35,4 +35,15 @@ fragment ListProduct on ProductType {
       value
     }
   }
+  parameterGroups {
+    name
+    parameterGroupId
+    parameters {
+      parameterId
+      name
+      value
+      show
+      identifier
+    }
+  }
 }

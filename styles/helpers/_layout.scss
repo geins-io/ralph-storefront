@@ -73,8 +73,13 @@
   }
 }
 
-@mixin accordionIconBeforeTitle($icon-name, $width: 16px, $height: 19px) {
-  &::after {
+@mixin icon(
+  $icon-name, 
+  $width, 
+  $height: $width, 
+  $element: 'before'
+) {
+  &::#{$element} {
     content: '';
     background-image: url('./assets/icons/#{$icon-name}.svg');
     background-position: center;
@@ -84,6 +89,10 @@
     height: $height;
     flex-shrink: 0;
   }
+}
+
+@mixin accordionIconBeforeTitle($icon-name, $width: 16px, $height: 19px) {
+  @include icon($icon-name, $width, $height, 'after');
 }
 
 @mixin campaignBadge {

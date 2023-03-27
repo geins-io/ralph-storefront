@@ -70,10 +70,9 @@
         :prod-id="product.productId"
       />
 
-      <!-- DUMMY - TODO: badge params -->
       <ul class="ca-product-card__badge-list">
-        <li v-for="(item, index) in dummyBadges" :key="index">
-          <CaBadge :type="item.value" :text="item.value" />
+        <li v-for="(item, index) in badges" :key="index">
+          <CaBadge :value="item" />
         </li>
       </ul>
 
@@ -144,69 +143,6 @@ export default {
       '(min-width: 1900px) 467px, (min-width: 1024px) 24vw, (min-width: 768px) 32vw, 50vw'
   }),
   computed: {
-    dummyBadges() {
-      // TODO: delete later - dummy data for badges
-      /* parameterGroups[
-        {
-          name: '',
-          parameters: []
-        }, {
-          name: 'TEST badges',
-          parameters: [
-            {
-              name: 'Badge',
-              value: 'Mer hållbar',
-              show: true,
-              identifier: null,
-            }, {
-              name: 'Badge',
-              value: 'Sizes',
-              show: true,
-              identifier: null,
-            }, {
-              name: 'Badge',
-              value: 'Bästsäljare',
-              show: true,
-              identifier: null,
-            }, {
-              name: 'Badge',
-              value: 'Collab',
-              show: true,
-              identifier: null,
-            }
-          ]
-        }
-      ]
-      */
-      const data = [
-        {
-          name: 'Badge',
-          value: 'Sustainability',
-          show: true,
-          identifier: null
-        },
-        {
-          name: 'Badge',
-          value: 'Sizes',
-          show: true,
-          identifier: null
-        },
-        {
-          name: 'Badge',
-          value: 'Bestseller',
-          show: true,
-          identifier: null
-        },
-        {
-          name: 'Badge',
-          value: 'Collab',
-          show: true,
-          identifier: null
-        }
-      ];
-
-      return data;
-    },
     isDesktop() {
       return this.$store.getters.viewportComputer;
     },
@@ -221,6 +157,19 @@ export default {
       } else {
         return false;
       }
+    },
+    badges() {
+      const attrGroup = this.product.parameterGroups?.find(group => group.name === 'Artikelattribut');
+
+      if (!attrGroup) {
+        return [];
+      }
+
+      const badges = attrGroup.parameters
+        .filter(attr => attr.name === 'Badges')
+        .map(badge => badge.value);
+
+      return badges;
     }
   },
   watch: {},

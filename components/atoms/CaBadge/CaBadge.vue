@@ -8,19 +8,33 @@ export default {
   name: 'CaBadge',
   mixins: [],
   props: {
-    type: {
+    value: {
       type: String,
-      default: 'text'
-    },
-    text: {
-      type: String,
-      default: ''
+      default: '',
+      required: true
     }
   },
   data: () => ({}),
   computed: {
+    text() {
+      if(this.isKnownBadge) {
+        return this.$t(this.translationKey);
+      }
+
+      return this.value;
+    },
     modifiers() {
-      return 'ca-badge--' + this.type.toLowerCase();
+      if(this.isKnownBadge) {
+        return 'ca-badge--' + this.value.toLowerCase();
+      }
+
+      return '';
+    },
+    translationKey() {
+      return `BADGE_${this.value}`;
+    },
+    isKnownBadge() {
+      return this.$te(this.translationKey);
     }
   },
   watch: {},

@@ -352,5 +352,9 @@ export default {
   COLOR: 'Färg',
   PRODUCED_IN: 'Produceras hos',
   DELIVERY_PAYMENT: 'Leverans och betalning',
-  AVARDA_MONTHLY_PAYMENT: 'Delbetala från {sum} / månaden'
+  AVARDA_MONTHLY_PAYMENT: 'Delbetala från {sum} / månaden',
+  BADGE_BESTSELLER: 'Bästsäljare',
+  BADGE_COLLAB: 'Collab',
+  BADGE_SUSTAINABLE: 'Mer hållbar',
+  BADGE_SIZES: 'Sizes'
 };
