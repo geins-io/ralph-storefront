@@ -12,9 +12,9 @@
       <CaSkeleton
         v-else-if="!listInfo"
         class="ca-list-top__title ca-list-top__title--skeleton"
-        width="30%"
+        width="20%"
       />
-      <div 
+      <div
         v-if="
           listInfo && !!listInfo.primaryDescription && !listInfo.hideDescription
         "
@@ -26,8 +26,7 @@
         v-else-if="!listInfo"
         class="ca-list-top__description ca-list-top__description--skeleton"
       >
-        <CaSkeleton width="70%" />
-        <CaSkeleton />
+        <CaSkeleton width="80%" />
         <CaSkeleton width="60%" />
       </div>
     </div>

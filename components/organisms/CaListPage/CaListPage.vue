@@ -2,7 +2,7 @@
   <div class="ca-list-page" :class="modifier">
     <CaContainer>
       <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
-      <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
+      <CaSkeleton v-else class="ca-breadcrumbs" width="10%" />
       <CaListTop v-if="!hideListInfo" :type="type" :list-info="listInfo" />
     </CaContainer>
     <CaWidgetArea

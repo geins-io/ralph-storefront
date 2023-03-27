@@ -84,19 +84,19 @@
   &__children-container {
     display: grid;
     column-gap: rem-calc(20);
-    
+
     &--xs {
       grid-template-columns: 4fr 1fr;
     }
-    
+
     &--s {
       grid-template-columns: 3fr 2fr;
     }
-    
+
     &--m {
       grid-template-columns: 2fr 3fr;
     }
-    
+
     &--l {
       grid-template-columns: 1fr 4fr;
     }
@@ -164,12 +164,11 @@
   &__widget-area {
     width: 100%;
     height: 100%;
-    padding: rem-calc(20) 0;
-    
-    div {
-      background-color: $c-light-gray;
-      width: 100%;
-      height: 100%;
+    padding: rem-calc(20) 0 0;
+
+    .ca-widget-container--design-full-width {
+      column-gap: $px20;
+      row-gap: $px16;
     }
   }
 }

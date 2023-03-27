@@ -92,22 +92,19 @@
                 </ul>
               </li>
             </ul>
-            <!-- TODO: Add widget area to DB for real data -->
-            <div class="ca-header-navigation__widget-area">
-              <div></div>
-            </div>
-            <!-- <CaWidgetArea
+
+            <LazyCaWidgetArea
               ref="widgetarea"
               class="ca-header-navigation__widget-area"
               family="Menu"
-              area-name="Menu area"
+              area-name="Desktop menu"
               :filters="[
                 {
                   key: 'MenuLabel',
                   value: `${getLabel(item)}`
                 }
               ]"
-            /> -->
+            />
           </component>
         </div>
       </li>

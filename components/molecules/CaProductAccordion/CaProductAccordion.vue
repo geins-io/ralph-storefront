@@ -61,7 +61,13 @@
       <template #toggle-text>
         <h2>{{ $t('DELIVERY_PAYMENT') }}</h2>
       </template>
-      <div class="ca-product-accordion__item-content"></div>
+      <div class="ca-product-accordion__item-content">
+        <LazyCaWidgetArea
+          class="ca-product-accordion__widget-area"
+          family="PDP Info"
+          area-name="PDP Info"
+        />
+      </div>
     </CaAccordionItem>
   </div>
 </template>

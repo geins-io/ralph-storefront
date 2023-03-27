@@ -7,7 +7,7 @@
         :current="breadcrumbsCurrent"
         :product-name="product.name"
       />
-      <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
+      <CaSkeleton v-else class="ca-breadcrumbs" width="20%" />
       <section class="ca-product-page__section">
         <div class="ca-product-page__gallery-wrap">
           <CaProductGallery
@@ -104,16 +104,6 @@
             name-tag="h1"
           />
 
-          <!-- <CaVariantPicker
-            v-if="hasMultipleDimensions"
-            :variants="secondDimensionVariants"
-            :variants-data="variantPickerData"
-            title="Välj lådstorlek"
-            type="panel"
-            @replaceProduct="replaceProduct"
-            @notify="notifyHandler"
-          /> -->
-
           <div class="ca-product-page__buy-wrap">
             <CaVariantPicker
               v-if="hasSkuVariants"
@@ -187,15 +177,30 @@
           v-else
           class="ca-product-page__main ca-product-page__main--skeleton"
         >
-          <CaSkeleton width="30%" />
-          <CaSkeleton width="50%" />
-          <CaSkeleton width="20%" />
-          <CaSkeleton width="70%" />
           <CaSkeleton
-            class="ca-product-page__skeleton-button"
-            width="100%"
-            height="50px"
+            width="20%"
+            class="ca-price ca-product-page__price ca-product-page__price--skeleton"
           />
+          <div class="ca-brand-and-name ca-product-page__brand-and-name">
+            <div class="ca-brand-and-name__brand">
+              <CaSkeleton width="30%" class="ca-brand-and-name__brand" />
+            </div>
+            <CaSkeleton width="50%" class="ca-brand-and-name__name" />
+          </div>
+          <div class="ca-product-page__buy-wrap">
+            <CaSkeleton width="100%" height="52px" :radius="false" />
+            <CaSkeleton
+              class="ca-product-page__skeleton-button"
+              width="100%"
+              height="52px"
+              :radius="false"
+            />
+          </div>
+          <div class="ca-product-page__payment">
+            <p class="ca-avarda-monthly-payment ca-product-page__split-payment">
+              <CaSkeleton width="50%" />
+            </p>
+          </div>
         </div>
       </section>
       <section

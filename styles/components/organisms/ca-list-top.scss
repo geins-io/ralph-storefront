@@ -18,13 +18,8 @@
     font-size: $font-size-s;
     font-weight: $font-weight-semibold;
     margin: 0 0 rem-calc(14px);
-
     &--skeleton {
-      margin: 0 auto $px8;
-
-      @include bp(tablet) {
-        margin: 0 0 $px8;
-      }
+      margin: 0 auto rem-calc(14px);
     }
   }
 
@@ -34,11 +29,9 @@
     color: $c-semidark-gray;
 
     &--skeleton {
-      @include bp(tablet-down) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 
