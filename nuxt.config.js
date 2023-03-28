@@ -394,11 +394,11 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights',
       // TODO - Doc:
-      // ['ralph-module-voyado-elevate',
-      //   {
-      //     enabled: true,
-      //   }
-      // ]
+      ['ralph-module-voyado-elevate',
+        {
+          enabled: true,
+        }
+      ]
     ],
     // htmlValidator: {
     //   usePrettier: true,
@@ -711,7 +711,10 @@ export default async () => {
           ];
         }
       },
-      transpile: ['@ralph/ralph-ui'],
+      transpile: [
+        '@ralph/ralph-ui',
+        '@apptus/esales-api'
+      ],
       optimization: {
         splitChunks: {
           automaticNameDelimiter: 'ca.',
@@ -743,6 +746,11 @@ export default async () => {
        ** You can extend webpack config here
        */
       extend(config, { isDev }) {
+        config.module.rules.push({
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto'
+        });
         config.resolve.extensions.unshift('.vue');
         config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
         // Resolve modules by always checking storefront first to allow for overrides
