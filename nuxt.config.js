@@ -392,7 +392,13 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/gtm
       '@nuxtjs/gtm',
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
-      '@nuxtjs/applicationinsights'
+      '@nuxtjs/applicationinsights',
+      // TODO - Doc:
+      // ['ralph-module-voyado-elevate',
+      //   {
+      //     enabled: true,
+      //   }
+      // ]
     ],
     // htmlValidator: {
     //   usePrettier: true,
