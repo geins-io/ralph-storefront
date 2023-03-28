@@ -1,6 +1,6 @@
-.ca-search {
-  $search-width: 450px !default;
+$search-width: 450px !default;
 
+.voyado-search {
   @include bp(tablet-down) {
     transform: translateY(-100%);
     transition: transform 200ms ease;
@@ -23,6 +23,87 @@
     }
   }
 
+  &__results {
+    $vh: calc(var(--vh, 1vh) * 100);
+
+    position: relative;
+    background-color: $c-white;
+    height: calc(
+      100vh - #{$top-bar-height + $header-bar-height + $search-height}
+    );
+    height: calc(
+      #{$vh} - #{$top-bar-height + $header-bar-height + $search-height}
+    );
+
+    @include bp(laptop) {
+      --half-viewport: calc((100% - var(--scrollbar-width, 0px)) * 0.5);
+      --half-element-width: #{$site-width * 0.5};
+      --search-position: calc(var(--half-viewport) - var(--half-element-width));
+
+      position: fixed;
+      height: auto;
+      max-width: 100%;
+      width: $site-width;
+      left: #{'max(0.1px, var(--search-position))'};
+
+      &--loading-empty,
+      &--no-results {
+        --half-element-width: #{$search-width * 0.5};
+
+        width: $search-width;
+        max-width: $search-width;
+      }
+    }
+
+    &--loading:not(&--loading-empty) {
+      .ca-search__top,
+      .ca-search__result {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__close-button {
+    height: 50px;
+    background-color: $c-white;
+    width: 100%;
+    text-transform: uppercase;
+    border-top: $border-light;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
+  &--visible {
+    @include bp(tablet-down) {
+      transform: translateY(0);
+
+      .ca-header--scrolled & {
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+
+  &--active &__input-wrap {
+    background-color: $c-white;
+  }
+
+  @include bp(laptop) {
+    &__suggestions,
+    &__no-suggestions,
+    &__results {
+      border-radius: 0 0 rem-calc(6px) rem-calc(6px);
+      border: $border-pink;
+    }
+
+    &--active &__input-wrap {
+      border-bottom-color: transparent;
+      border-radius: rem-calc(6px) rem-calc(6px) 0 0;
+    }
+  }
+}
+
+.voyado-search-form {
   &__input-wrap {
     background-color: $c-light-pink;
     border: $border-pink;
@@ -73,6 +154,19 @@
     right: 40px;
     background-color: $c-white;
   }
+}
+
+.voyado-search-results {
+  padding: $px16 $px20 rem-calc(66px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+
+  @include bp(laptop) {
+    overflow-y: hidden;
+    padding: $px16 $px20;
+  }
 
   &__title {
     text-transform: uppercase;
@@ -119,59 +213,6 @@
     }
   }
 
-  &__results {
-    $vh: calc(var(--vh, 1vh) * 100);
-
-    position: relative;
-    background-color: $c-white;
-    height: calc(
-      100vh - #{$top-bar-height + $header-bar-height + $search-height}
-    );
-    height: calc(
-      #{$vh} - #{$top-bar-height + $header-bar-height + $search-height}
-    );
-
-    @include bp(laptop) {
-      --half-viewport: calc((100% - var(--scrollbar-width, 0px)) * 0.5);
-      --half-element-width: #{$site-width * 0.5};
-      --search-position: calc(var(--half-viewport) - var(--half-element-width));
-
-      position: fixed;
-      height: auto;
-      max-width: 100%;
-      width: $site-width;
-      left: #{'max(0.1px, var(--search-position))'};
-
-      &--loading-empty,
-      &--no-results {
-        --half-element-width: #{$search-width * 0.5};
-
-        width: $search-width;
-        max-width: $search-width;
-      }
-    }
-
-    &--loading:not(&--loading-empty) {
-      .ca-search__top,
-      .ca-search__result {
-        opacity: 0.5;
-      }
-    }
-  }
-
-  &__results-box {
-    padding: $px16 $px20 rem-calc(66px);
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    height: 100%;
-
-    @include bp(laptop) {
-      overflow-y: hidden;
-      padding: $px16 $px20;
-    }
-  }
-
   &__no-results {
     color: $c-text-secondary;
     margin: $px10 0;
@@ -191,30 +232,6 @@
       grid-template-columns: repeat(3, 1fr);
       gap: rem-calc(32);
     }
-  }
-
-  &__close-button {
-    height: 50px;
-    background-color: $c-white;
-    width: 100%;
-    text-transform: uppercase;
-    border-top: $border-light;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-  }
-
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0 0 $px16;
-    transition: opacity 200ms ease;
-  }
-
-  &__see-all {
-    text-decoration: underline;
   }
 
   &__result {
@@ -245,6 +262,21 @@
     }
   }
 
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0 $px16;
+    transition: opacity 200ms ease;
+  }
+
+  &__see-all {
+    text-decoration: underline;
+  }
+}
+
+.voyado-search-results-list {
   &__list-title {
     font-weight: $font-weight-bold;
     margin: 0 0 $px8;
@@ -339,34 +371,6 @@
 
     @include bp(tablet-down) {
       z-index: $z-index-search-overlay;
-    }
-  }
-
-  &--visible {
-    @include bp(tablet-down) {
-      transform: translateY(0);
-
-      .ca-header--scrolled & {
-        box-shadow: $box-shadow;
-      }
-    }
-  }
-
-  &--active &__input-wrap {
-    background-color: $c-white;
-  }
-
-  @include bp(laptop) {
-    &__suggestions,
-    &__no-suggestions,
-    &__results {
-      border-radius: 0 0 rem-calc(6px) rem-calc(6px);
-      border: $border-pink;
-    }
-
-    &--active &__input-wrap {
-      border-bottom-color: transparent;
-      border-radius: rem-calc(6px) rem-calc(6px) 0 0;
     }
   }
 }
