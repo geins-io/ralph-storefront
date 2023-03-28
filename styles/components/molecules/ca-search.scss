@@ -168,6 +168,15 @@ $search-width: 450px !default;
     padding: $px16 $px20;
   }
 
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0 $px16;
+    transition: opacity 200ms ease;
+  }
+
   &__title {
     text-transform: uppercase;
     font-weight: $font-weight-bold;
@@ -175,6 +184,10 @@ $search-width: 450px !default;
     &--suggestion {
       margin: 0 0 $px8;
     }
+  }
+
+  &__see-all {
+    text-decoration: underline;
   }
 
   &__suggestions {
@@ -234,7 +247,7 @@ $search-width: 450px !default;
     }
   }
 
-  &__result {
+  &__results {
     width: 320px;
     transition: opacity 200ms ease;
 
@@ -261,23 +274,10 @@ $search-width: 450px !default;
       }
     }
   }
-
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0 0 $px16;
-    transition: opacity 200ms ease;
-  }
-
-  &__see-all {
-    text-decoration: underline;
-  }
 }
 
 .voyado-search-results-list {
-  &__list-title {
+  &__title {
     font-weight: $font-weight-bold;
     margin: 0 0 $px8;
   }
@@ -318,7 +318,7 @@ $search-width: 450px !default;
     }
   }
 
-  &__item-link {
+  &__link {
     &--product {
       display: flex;
       align-items: flex-start;
@@ -335,8 +335,9 @@ $search-width: 450px !default;
     }
   }
 
-  &__item-image {
+  &__image {
     width: rem-calc(40px);
+    max-width: rem-calc(40px);
     margin: 0 $px12 0 0;
 
     @include bp(laptop) {
@@ -351,7 +352,7 @@ $search-width: 450px !default;
     }
   }
 
-  &__item-info {
+  &__info {
     width: calc(100% - #{rem-calc(52px)});
     font-size: $font-size-xs;
   }
@@ -360,7 +361,7 @@ $search-width: 450px !default;
     @include ellipsis;
   }
 
-  &__item-price.ca-price {
+  &__price {
     font-size: 0.8em;
     @include ellipsis;
   }
