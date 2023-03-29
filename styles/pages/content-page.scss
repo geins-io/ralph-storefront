@@ -1,26 +1,38 @@
 .ca-content-page {
+  &__wrapper-has-menu {
+    background-color: $c-info-page-bg;
+    padding: clamp(#{rem-calc(14)}, 4vw, #{rem-calc(48)});
+    min-height: 50vh;
+  }
+
   &__container {
     &--has-menu {
+      background-color: $c-lightest-gray;
+      max-width: rem-calc(1011);
+      padding: clamp(#{rem-calc(14)}, 4vw, #{rem-calc(48)});
+      display: flex;
+      flex-direction: column-reverse;
+
       .ca-container {
         width: 100%;
       }
 
       @include bp(tablet) {
-        display: flex;
+        display: grid;
+        grid-template-columns: max-content minmax(1em, 1fr);
+        justify-content: center;
         column-gap: $px32;
       }
     }
   }
 
   &__sidebar {
-    @include bp(tablet) {
-      width: rem-calc(200);
-      flex-shrink: 0;
+    @include bp(tablet-down) {
+      padding-bottom: 0;
     }
-    
-    @include bp(laptop) {
-      width: rem-calc(300);
-      flex-shrink: 0;
+
+    @include bp(tablet) {
+      width: rem-calc(227);
     }
   }
 }

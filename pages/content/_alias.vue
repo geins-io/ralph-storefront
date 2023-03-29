@@ -1,20 +1,23 @@
 <template>
   <div class="ca-content-page">
-    <CaContainer
-      class="ca-content-page__container"
-      :class="{ 'ca-content-page__container--has-menu': hasMenu }"
-      :design="hasMenu ? 'default' : 'full-width'"
-    >
-      <CaInfoPageMenu
-        v-if="hasMenu"
-        class="ca-content-page__sidebar"
-        menu-location-id="info-pages"
-      />
-      <CaWidgetArea
-        :alias="this.$route.params.alias"
-        @dataFetched="onDataFetched"
-      />
-    </CaContainer>
+    <div :class="{ 'ca-content-page__wrapper-has-menu': hasMenu }">
+      <CaContainer
+        class="ca-content-page__container"
+        :class="{ 'ca-content-page__container--has-menu': hasMenu }"
+        :design="hasMenu ? 'default' : 'full-width'"
+      >
+        <CaInfoPageMenu
+          v-if="hasMenu"
+          class="ca-content-page__sidebar"
+          menu-location-id="info-pages"
+          phone-mode="accordion"
+        />
+        <CaWidgetArea
+          :alias="this.$route.params.alias"
+          @dataFetched="onDataFetched"
+        />
+      </CaContainer>
+    </div>
   </div>
 </template>
 

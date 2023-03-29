@@ -1,6 +1,7 @@
 // Theme colors
 $c-white: #ffffff;
 $c-black: #000000;
+$c-extremely-light-gray: #faf9f9;
 $c-lightest-gray: #fefefe;
 $c-light-gray: #ececec;
 $c-medium-gray: #ded5d5;
@@ -41,6 +42,7 @@ $c-few-left: $c-oversellable;
 $c-static-stock: $c-in-stock;
 
 // Border colors
+$c-border-extremely-light: $c-extremely-light-gray;
 $c-border-super-light: #e6e5e5;
 $c-border-light: $c-light-gray;
 $c-border-medium: $c-medium-gray;
@@ -50,6 +52,7 @@ $c-border-light-pink: $c-light-pink;
 
 // Backgrounds
 $c-main-bg: $c-white;
+$c-info-page-bg: #faf9f9;
 
 // Header
 $c-topbar-bg: $c-accent-bg;

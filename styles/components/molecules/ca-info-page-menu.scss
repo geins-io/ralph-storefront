@@ -1,0 +1,49 @@
+.ca-info-page-menu {
+  $block: &;
+
+  &__submenu-list {
+    padding-top: rem-calc(6);
+
+    @include bp(phone-only) {
+      display: none;
+    }
+  }
+
+  &__submenu-link {
+    display: block;
+    padding: rem-calc(7) rem-calc(16) rem-calc(7) rem-calc(24);
+
+    &.nuxt-link-exact-active {
+      display: flex;
+      justify-content: space-between;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &__item {
+    padding: rem-calc(8) 0;
+  }
+
+  &__link {
+    &.nuxt-link-exact-active {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &__link-icon {
+    display: none;
+  }
+
+  @include bp(phone-only) {
+    padding: $px20 0;
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__link {
+      white-space: nowrap;
+    }
+  }
+}
