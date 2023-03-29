@@ -2,8 +2,9 @@
   <div class="ComponentNameKebabCase"></div>
 </template>
 <script>
-// @group ComponentType
-// @vuese
+/* 
+  (Description of component) 
+*/
 export default {
   name: 'ComponentNameCamelCase',
   mixins: [],
@@ -16,6 +17,5 @@ export default {
 };
 </script>
 <style lang="scss">
-.ComponentNameKebabCase {
-}
+@import 'ComponentType/ComponentNameKebabCase';
 </style>
