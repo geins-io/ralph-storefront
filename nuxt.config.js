@@ -194,7 +194,7 @@ export default async () => {
      */
     cli: {
       badgeMessages: [
-        `${chalk.bold('Ralph-UI docs:')} ${chalk.underline.yellow(
+        `${chalk.bold('Ralph UI docs:')} ${chalk.underline.yellow(
           'http://localhost:6001/'
         )}`,
         '',

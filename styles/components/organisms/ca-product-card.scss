@@ -27,12 +27,12 @@
     font-size: $font-size-xs;
     margin: $px10 0 0;
   }
-  
+
   &__buy-button {
     margin: $px16 0 0;
   }
 
-  ::v-deep .ca-toggle-favorite {
+  &__favorite.ca-toggle-favorite {
     width: 36px;
     height: 36px;
     top: auto;

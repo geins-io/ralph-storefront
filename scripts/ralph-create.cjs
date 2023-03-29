@@ -15,7 +15,7 @@ const uppercamelcase = require('uppercamelcase');
 const glob = require('glob');
 const prompts = require('prompts');
 
-const ATOMIC_TYPE = ['atoms', 'molecules', 'organisms'];
+const ATOMIC_TYPE = ['atoms', 'molecules', 'organisms', 'mixins'];
 
 const questions = [
   {
@@ -29,7 +29,7 @@ const questions = [
     type: 'text',
     name: 'name',
     message: 'Enter the name for the component',
-    initial: 'banner'
+    initial: 'banner-image'
   }
 ];
 
@@ -43,22 +43,28 @@ const questions = [
   createComponent(component, name);
 
   function createComponent(componentFolder, componentName) {
-    const ComponentType = uppercamelcase(componentFolder);
+    const ComponentPrefix = componentFolder === 'mixins' ? 'mix' : 'ca';
+    const ComponentType = componentFolder;
+    const ComponentTypeCamelCase = uppercamelcase(componentFolder);
     const ComponentName = uppercamelcase(componentName);
-    const ComponentNameCamelCase = ComponentName.startsWith('Ca')
-      ? ComponentName
-      : 'Ca' + ComponentName;
+    const ComponentNameCamelCase = uppercamelcase(
+      ComponentPrefix + ComponentName
+    );
+    const ComponentNameKebabCase =
+      ComponentPrefix +
+      ComponentName.replace(
+        /([A-Z])(?=\w)/g,
+        (s1, s2) => '-' + s2.toLowerCase()
+      );
     const PackagePath = path.resolve(
       __dirname,
       `../components/${componentFolder}`,
       `${ComponentNameCamelCase}`
     );
-    const ComponentNameKebabCase =
-      'ca' +
-      ComponentName.replace(
-        /([A-Z])(?=\w)/g,
-        (s1, s2) => '-' + s2.toLowerCase()
-      );
+    const SASSpath = path.resolve(
+      __dirname,
+      `../styles/components/${componentFolder}`
+    );
     const ret = glob.sync(PackagePath + '/' + ComponentNameCamelCase + '.js');
 
     if (ret.length > 0) {
@@ -75,7 +81,32 @@ const questions = [
     }
 
     fs.readdirSync(fwFolder).forEach(file => {
-      const fileName = file.replace('component', ComponentNameCamelCase);
+      let fileName;
+      const filePath = file.includes('.scss') ? SASSpath : PackagePath;
+
+      if (file.includes('.vue') && componentFolder === 'mixins') {
+        return;
+      }
+
+      if (file.includes('.mixin.js') && componentFolder !== 'mixins') {
+        return;
+      }
+
+      if (
+        (file.includes('.spec.js') || file.includes('.scss')) &&
+        componentFolder === 'mixins'
+      ) {
+        return;
+      }
+
+      if (file.includes('.scss')) {
+        fileName = file.replace('component', ComponentNameKebabCase);
+      } else {
+        fileName = file.replace('component', ComponentNameCamelCase);
+      }
+      if (file.includes('.mixin.js') && componentFolder === 'mixins') {
+        fileName = fileName.replace('.mixin.js', '.js');
+      }
 
       let content = fs.readFileSync(fwFolder + file, 'utf8');
       content = content.replace(/ComponentFolder/g, componentFolder);
@@ -88,11 +119,15 @@ const questions = [
         ComponentNameKebabCase
       );
       content = content.replace(/ComponentName/g, ComponentName);
+      content = content.replace(
+        /ComponentTypeCamelCase/g,
+        ComponentTypeCamelCase
+      );
       content = content.replace(/ComponentType/g, ComponentType);
 
-      fileSave(path.join(PackagePath, fileName))
+      fileSave(path.join(filePath, fileName))
         .write(content, 'utf8')
-        .end('\n');
+        .end();
     });
   }
 })();
