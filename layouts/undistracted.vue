@@ -13,36 +13,11 @@
 </template>
 <script>
 import MixGlobalInit from 'MixGlobalInit';
-import listPageInfo from 'global/list-page-info.graphql';
 export default {
   name: 'CaUndistractedLayout',
   mixins: [MixGlobalInit],
-  apollo: {
-    listPageInfo: {
-      query: listPageInfo,
-      errorPolicy: 'all',
-      result(result) {
-        if (result && result.data.length) {
-          this.listPageInfo = result.data;
-        }
-      }
-    }
-  },
-  data: () => ({
-    listPageInfo: null
-  }),
-  head() {
-    return {
-      title: this.listPageInfo?.meta?.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.listPageInfo?.meta?.description
-        }
-      ]
-    };
-  }
+  data: () => ({})
+  // IMPORTANT NOTICE: If you decide to add a head() function here, you will overwrite default meta functionality that comes with MixGlobalInit from Ralph UI
 };
 </script>
 <style lang="scss">
