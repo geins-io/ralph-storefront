@@ -410,12 +410,6 @@ export default async () => {
     //   }
     // },
     pwa: {
-      // Default metadata. Doc: https://pwa.nuxtjs.org/meta/
-      meta: {
-        name: defaultMeta.title,
-        description: defaultMeta.description,
-        author: null
-      },
       manifest: {
         name: 'Ralph',
         short_name: 'Ralph',
