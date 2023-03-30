@@ -65,5 +65,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import './styles/pages/balance-page';
+@import './styles/pages/settings-page';
 </style>

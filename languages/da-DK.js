@@ -46,7 +46,7 @@ export default {
   SORT_LABEL_LATEST: 'Sidst modtaget',
   SORT_LABEL_MOST_SOLD: 'Bedst sælgende',
   SORT_LABEL_PRICE: 'Laveste pris',
-  SORT_LABEL_PRICE_DESC: 'højeste pris',
+  SORT_LABEL_PRICE_DESC: 'Højeste pris',
   SORT_LABEL_RELEVANCE: 'Relevans',
   CONTINUE_SHOPPING: 'Fortsæt med at shoppe',
   CHECKOUT: 'Kassen',
