@@ -33,7 +33,6 @@ import MixGlobalInit from 'MixGlobalInit';
 export default {
   name: 'CaDefaultLayout',
   mixins: [MixGlobalInit],
-  apollo: {},
   data: () => ({}),
   computed: {
     modifiers() {
@@ -42,6 +41,7 @@ export default {
       };
     }
   }
+  // IMPORTANT NOTICE: If you decide to add a head() function here, you will overwrite default meta functionality that comes with MixGlobalInit from Ralph UI
 };
 </script>
 <style lang="scss">
