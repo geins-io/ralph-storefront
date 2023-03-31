@@ -116,20 +116,12 @@
     --icon-size: 16px;
 
     position: absolute;
-    right: rem-calc(6px);
-    bottom: rem-calc(5px);
+    right: $px8;
+    bottom: $px8;
 
     @include bp(tablet) {
       display: none;
     }
-  }
-
-  ::v-deep .ca-toggle-favorite {
-    width: 36px;
-    height: 36px;
-    top: auto;
-    right: $px12;
-    bottom: $px12;
   }
 
   &__brand-and-name {

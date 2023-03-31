@@ -63,7 +63,9 @@
   }
 
   &__campaigns {
-    margin: $px4 0;
+    &:not(:empty) {
+      margin: $px4 0;
+    }
   }
 
   &__stock-display {

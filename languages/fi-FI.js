@@ -88,7 +88,7 @@ export default {
   PICK_SIZE: 'Valitse koko',
   STOCK_STATUS_IN_STOCK: 'Varastossa',
   STOCK_STATUS_OUT_OF_STOCK: 'Loppu varastosta',
-  STOCK_STATUS_FEW_LEFT: 'Vain {quantity} jäljellä',
+  STOCK_STATUS_FEW_LEFT: 'Varastossa!',
   STOCK_STATUS_OVERSELLABLE: 'Tilaustuote tehty',
   STOCK_STATUS_STATIC: 'Varastossa',
   STOCK_STATUS_DELIVERY_TIME_IN_STOCK: 'Normaali toimitusaika',
@@ -354,5 +354,6 @@ export default {
   BADGE_BESTSELLER: 'Paras myyjä',
   BADGE_COLLAB: 'Collab',
   BADGE_SUSTAINABLE: 'Kestävämpi',
-  BADGE_SIZES: 'Sizes'
+  BADGE_SIZES: 'Sizes',
+  REMIND_ME: 'Muistuta minua'
 };

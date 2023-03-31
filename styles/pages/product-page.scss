@@ -128,13 +128,31 @@
   }
 
   &__buy-wrap {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     column-gap: $px8;
 
     @include bp(tablet) {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       row-gap: rem-calc(18);
     }
+  }
+
+  &__size-picker {
+    width: 100%;
+    height: rem-calc(52);
+    border: $border-dark;
+    padding: 0 $px16;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    border-radius: $default-radius;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-s;
+  }
+
+  &__size-picker-arrow {
+    margin-left: auto;
   }
 
   &__variant-picker {

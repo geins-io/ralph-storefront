@@ -1,0 +1,39 @@
+.ca-quickshop {
+  $block: &;
+
+  &__item {
+    padding: 0 rem-calc(26);
+    &--out-of-stock {
+      #{$block}__name {
+        color: $c-medium-gray;
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  &__button {
+    border-bottom: $border-light;
+    height: rem-calc(50);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xs;
+  }
+
+  &__name {
+    margin-right: auto;
+  }
+
+  &__status {
+    margin-right: $px20;
+  }
+
+  &__remind {
+    text-decoration: underline;
+  }
+
+  &__icon {
+    font-size: rem-calc(14);
+  }
+}

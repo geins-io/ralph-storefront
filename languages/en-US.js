@@ -84,7 +84,7 @@ export default {
   PICK_SIZE: 'Pick size',
   STOCK_STATUS_IN_STOCK: 'In stock',
   STOCK_STATUS_OUT_OF_STOCK: 'Out of stock',
-  STOCK_STATUS_FEW_LEFT: 'Only {quantity} left',
+  STOCK_STATUS_FEW_LEFT: 'Few left!',
   STOCK_STATUS_OVERSELLABLE: 'Order item',
   STOCK_STATUS_STATIC: 'In stock',
   STOCK_STATUS_DELIVERY_TIME_IN_STOCK: 'Normal delivery time',
@@ -350,5 +350,6 @@ export default {
   BADGE_BESTSELLER: 'Bestseller',
   BADGE_COLLAB: 'Collab',
   BADGE_SUSTAINABLE: 'Sustainable',
-  BADGE_SIZES: 'Sizes'
+  BADGE_SIZES: 'Sizes',
+  REMIND_ME: 'Remind me'
 };

@@ -75,12 +75,11 @@
           <CaBadge :value="item" />
         </li>
       </ul>
-
-      <!-- TODO: quickshop button -->
       <CaIconButton
         icon-name="shopping-bag"
         aria-label="Snabbväljare"
         class="ca-product-card__quickshop"
+        @clicked="$store.dispatch('quickshop/open', product)"
       />
     </div>
     <CaSkeleton
@@ -115,7 +114,7 @@
           class="ca-product-card__brand-and-name"
         />
 
-        <CaColorVariantDisplay 
+        <CaColorVariantDisplay
           :variants="product.variantDimensions"
           class="ca-product-card__color-variants"
         />
@@ -163,7 +162,9 @@ export default {
       }
     },
     badges() {
-      const attrGroup = this.product.parameterGroups?.find(group => group.name === 'Artikelattribut');
+      const attrGroup = this.product.parameterGroups?.find(
+        group => group.name === 'Artikelattribut'
+      );
 
       if (!attrGroup) {
         return [];

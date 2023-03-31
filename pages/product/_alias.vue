@@ -106,18 +106,16 @@
           />
 
           <div class="ca-product-page__buy-wrap">
-            <CaVariantPicker
-              v-if="hasSkuVariants"
-              class="ca-product-page__variant-picker"
-              :variants="skuVariants"
-              :variants-data="variantPickerData"
-              type="panel"
-              :title="$t('SKU_NOT_CHOSEN')"
-              panel-render-mode="only-button"
-              @changeSku="sizeChangeHandler"
-              @notify="notifyHandler"
-            />
-
+            <button
+              class="ca-product-page__size-picker"
+              @click="$store.dispatch('quickshop/open', product)"
+            >
+              {{ $t('PICK_SIZE') }}
+              <CaIcon
+                class="ca-product-page__size-picker-arrow"
+                name="chevron-right"
+              />
+            </button>
             <CaButton
               v-if="outOfStock && !hasSkuVariants"
               class="ca-product-page__buy-button"
@@ -204,13 +202,6 @@
           </div>
         </div>
       </section>
-      <section
-        v-if="$config.showProductReviewSection"
-        class="ca-product-page__section-review"
-      >
-        <CaReviewsList v-if="product" :product-alias="prodAlias" />
-        <CaReviewForm :product-alias="prodAlias" />
-      </section>
     </CaContainer>
     <section class="ca-product-page__widget-section">
       <CaWidgetArea
@@ -221,22 +212,6 @@
         :filters="widgetAreaFilters"
       />
     </section>
-    <LazyCaNotifyPanel
-      v-if="product"
-      :product="product"
-      :variant="currentNotifyVariant"
-    />
-    <CaVariantPicker
-      v-if="hasSkuVariants"
-      class="ca-product-page__variant-picker"
-      :variants="skuVariants"
-      :variants-data="variantPickerData"
-      type="panel"
-      :title="$t('SKU_NOT_CHOSEN')"
-      panel-render-mode="only-panel"
-      @changeSku="sizeChangeHandler"
-      @notify="notifyHandler"
-    />
   </div>
 </template>
 
@@ -283,7 +258,18 @@ export default {
       };
     }
   },
-  methods: {},
+  methods: {
+    notifyHandler(variant) {
+      this.currentNotifyVariant = variant;
+      this.$store.commit('quickshop/setProduct', this.product);
+      this.$store.commit('quickshop/setNotifyVariant', variant);
+      this.$nextTick(() => {
+        this.$store.commit('contentpanel/open', {
+          name: 'notify'
+        });
+      });
+    }
+  },
   meta: {
     pageType: 'Product Page'
   }

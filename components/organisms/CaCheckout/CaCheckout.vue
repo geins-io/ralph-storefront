@@ -49,6 +49,7 @@
         :new-checkout-session="selectedPaymentOption.newCheckoutSession"
         :type="paymentType"
       />
+      <span v-else class="ca-checkout__loading-placeholder" />
       <template #guard>
         {{ $t('CHECKOUT_PAYMENT_GUARD') }}
       </template>

@@ -21,6 +21,14 @@
       <LazyCaSnackbar />
       <LazyCaModal />
       <LazyCaAddedToCart />
+      <LazyCaNotifyPanel
+        v-if="
+          $store.state.quickshop.product && $store.state.quickshop.notifyVariant
+        "
+        :product="$store.state.quickshop.product"
+        :variant="$store.state.quickshop.notifyVariant"
+      />
+      <LazyCaQuickshopPanel />
     </div>
   </div>
 </template>
@@ -30,7 +38,6 @@ import MixGlobalInit from 'MixGlobalInit';
 export default {
   name: 'CaDefaultLayout',
   mixins: [MixGlobalInit],
-  apollo: {},
   data: () => ({}),
   computed: {
     modifiers() {
@@ -39,14 +46,14 @@ export default {
       };
     },
     pageTypeClass() {
-      const routeName = this.$route.name;
+      const routeName = this.$route?.name;
       const routeNameStripped = routeName
         ? routeName.split('-')[0].split('_')[0]
         : '';
       return 'ca-layout-default__main--' + routeNameStripped;
     }
-  },
-  methods: {}
+  }
+  // IMPORTANT NOTICE: If you decide to add a head() function here, you will overwrite default meta functionality that comes with MixGlobalInit from Ralph UI
 };
 </script>
 <style lang="scss">

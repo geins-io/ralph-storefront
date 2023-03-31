@@ -91,7 +91,7 @@ export default {
   PICK_SIZE: 'Välj storlek',
   STOCK_STATUS_IN_STOCK: 'I lager',
   STOCK_STATUS_OUT_OF_STOCK: 'Slut i lager',
-  STOCK_STATUS_FEW_LEFT: 'Bara {quantity} kvar',
+  STOCK_STATUS_FEW_LEFT: 'Fåtal kvar!',
   STOCK_STATUS_OVERSELLABLE: 'Beställningsvara',
   STOCK_STATUS_STATIC: 'I lager',
   STOCK_STATUS_DELIVERY_TIME_IN_STOCK: 'Normal leveranstid',
@@ -356,5 +356,6 @@ export default {
   BADGE_BESTSELLER: 'Bästsäljare',
   BADGE_COLLAB: 'Collab',
   BADGE_SUSTAINABLE: 'Mer hållbar',
-  BADGE_SIZES: 'Sizes'
+  BADGE_SIZES: 'Sizes',
+  REMIND_ME: 'Påminn mig'
 };
