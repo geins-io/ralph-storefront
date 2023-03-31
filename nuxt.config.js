@@ -626,7 +626,7 @@ export default async () => {
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
-      productStockFewLeftLimit: 6,
+      productStockFewLeftLimit: 10,
       productSchemaOptions: {
         productSkuLabelIsSize: false,
         productDescriptionField: 'text1',

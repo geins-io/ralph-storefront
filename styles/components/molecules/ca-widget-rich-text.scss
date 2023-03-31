@@ -1,37 +1,36 @@
 .ca-widget-rich-text {
   $block: &;
 
-  h1,
-  h2,
-  h3 {
-    font-weight: $font-weight-bold;
-  }
-
-  h1 {
-    color: $c-semidark-gray;
-    font-size: $font-size-xs;
-    letter-spacing: $letter-spacing-3;
-    text-transform: uppercase;
-  }
-
-  h2 {
-    font-size: rem-calc(24);
-  }
-
-  h3 {
-    font-size: $font-size-m;
-  }
-
-  h1 + h2 {
-    margin-top: rem-calc(24);
-    margin-bottom: rem-calc(48);
-  }
-
-  div + h3 {
-    margin-top: rem-calc(40);
-  }
-
-  &__body {
+  &__body.ca-html {
     max-width: rem-calc(640);
+    h1,
+    h2,
+    h3 {
+      font-weight: $font-weight-bold;
+    }
+
+    h1 {
+      color: $c-semidark-gray;
+      font-size: $font-size-xs;
+      letter-spacing: $letter-spacing-3;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: rem-calc(24);
+    }
+
+    h3 {
+      font-size: $font-size-m;
+    }
+
+    h1 + h2 {
+      margin-top: rem-calc(24);
+      margin-bottom: rem-calc(48);
+    }
+
+    div + h3 {
+      margin-top: rem-calc(40);
+    }
   }
 }
