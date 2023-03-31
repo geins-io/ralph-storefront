@@ -48,6 +48,7 @@
             <CaPrice
               class="ca-cart-product__price-group-price"
               :price="price.price"
+              :type="product.discountType" 
             />
           </li>
         </ul>
@@ -55,6 +56,7 @@
           v-else
           class="ca-cart-product__price"
           :price="item.unitPrice"
+          :type="product.discountType" 
         />
         <CaCampaigns
           v-if="

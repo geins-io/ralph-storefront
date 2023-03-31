@@ -96,7 +96,7 @@
 }
 
 @mixin campaignBadge {
-  background-color: $c-sale;
+  background-color: $c-campaign;
   color: $c-lightest-gray;
   font-size: rem-calc(8px);
   letter-spacing: $letter-spacing-3;

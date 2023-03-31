@@ -96,7 +96,11 @@
         :to="product.canonicalUrl"
         class="ca-product-card__content"
       >
-        <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
+        <CaPrice
+          class="ca-product-card__price"
+          :price="product.unitPrice"
+          :type="product.discountType" 
+        />
 
         <CaCampaigns
           v-if="product.discountCampaigns && product.discountCampaigns.length"

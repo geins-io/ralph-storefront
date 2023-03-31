@@ -12,6 +12,7 @@ fragment ListProduct on ProductType {
   alias
   canonicalUrl
   firstAvailableOn
+  discountType
   unitPrice {
     ...Price
   }

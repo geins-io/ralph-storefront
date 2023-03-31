@@ -18,10 +18,22 @@
     margin-left: $px4;
     color: $c-text-secondary;
   }
-
+  
   &--sale & {
     &__selling {
       color: $c-sale;
+    }
+  }
+  
+  &--product-sale & {
+    &__selling {
+      color: $c-product-sale;
+    }
+  }
+  
+  &--campaign & {
+    &__selling {
+      color: $c-campaign;
     }
   }
 }

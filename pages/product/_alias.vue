@@ -82,6 +82,7 @@
             <CaPrice
               class="ca-product-page__price"
               :price="product.unitPrice"
+              :type="product.discountType" 
             />
             <p
               v-if="product.unitPrice.isDiscounted"

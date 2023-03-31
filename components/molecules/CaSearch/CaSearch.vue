@@ -159,6 +159,7 @@
                       <CaPrice
                         class="ca-search__item-price"
                         :price="product.unitPrice"
+                        :type="product.discountType" 
                       />
                       <CaBrandAndName
                         :brand="product.brand.name"

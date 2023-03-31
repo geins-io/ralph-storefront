@@ -1,5 +1,5 @@
 <template>
-  <div class="ca-price" :class="modifiers">
+  <div class="ca-price" :class="priceModifiers">
     <span v-if="price.isDiscounted" class="ca-price__regular">
       {{ regularPrice }}
     </span>
@@ -12,12 +12,33 @@
 <script>
 /*
   CaPrice is a reusable component that displays the price of the product.
-
 */
 import MixPrice from 'MixPrice';
 export default {
   name: 'CaPrice',
-  mixins: [MixPrice]
+  mixins: [MixPrice],
+  props: {
+    type: {
+      type: String,
+      default: 'NONE',
+      validator(value) {
+        return ['NONE', 'SALE_PRICE', 'PRICE_CAMPAIGN'].includes(value);
+      }
+    }
+  },
+  computed: {
+    priceModifiers() {
+      if (this.type === 'PRICE_CAMPAIGN') {
+        return 'ca-price--campaign';
+      }
+
+      if (this.type === 'SALE_PRICE') {
+        return 'ca-price--product-sale'
+      }
+
+      return this.modifiers;
+    }
+  }
 };
 </script>
 <style lang="scss">

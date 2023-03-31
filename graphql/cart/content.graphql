@@ -1,0 +1,88 @@
+#import "product/price.graphql"
+#import "product/stock.graphql"
+#import "global/campaign.graphql"
+
+fragment Cart on CartType {
+  id
+  promoCode
+  appliedCampaigns {
+    ...Campaign
+  }
+  items {
+    campaign {
+      appliedCampaigns {
+        ...Campaign
+      }
+      prices {
+        price {
+          ...Price
+        }
+        quantity
+      }
+    }
+    unitPrice {
+      sellingPriceIncVat
+      ...Price
+    }
+    product {
+      discountType
+      productId
+      brand {
+        name
+      }
+      name
+      images
+      alias
+      canonicalUrl
+      primaryCategory {
+        name
+      }
+      skus {
+        skuId
+        name
+        stock {
+          ...Stock
+        }
+      }
+    }
+    quantity
+    skuId
+    totalPrice {
+      ...Price
+    }
+  }
+  summary {
+    fixedAmountDiscountIncVat
+    fixedAmountDiscountExVat
+    subTotal {
+      regularPriceIncVatFormatted
+      regularPriceExVatFormatted
+      sellingPriceIncVatFormatted
+      sellingPriceExVatFormatted
+      sellingPriceExVat
+      sellingPriceIncVat
+      vat
+    }
+    shipping {
+      amountLeftToFreeShipping
+      amountLeftToFreeShippingFormatted
+      feeExVatFormatted
+      feeIncVatFormatted
+      feeIncVat
+      isDefault
+      feeExVat
+    }
+    total {
+      isDiscounted
+      sellingPriceIncVatFormatted
+      sellingPriceExVatFormatted
+      sellingPriceIncVat
+      discountIncVatFormatted
+      discountExVatFormatted
+      discountExVat
+      discountIncVat
+      vatFormatted
+      vat
+    }
+  }
+}
