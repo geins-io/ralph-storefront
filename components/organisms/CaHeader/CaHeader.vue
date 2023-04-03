@@ -68,17 +68,9 @@
       menu-location-id="main-desktop"
       menu-state="click"
     />
-    <!-- <CaSearch
-      class="only-mobile"
-      :opened="searchOpened"
-      :is-pdp="isPdp"
-      @closed="searchOpened = false"
-    /> -->
     <VoyadoSearch
       class="only-mobile"
-      :opened="searchOpened"
-      :is-pdp="isPdp"
-      @closed="searchOpened = false"
+      :is-visible="searchIsVisible"
     />
   </header>
 </template>
@@ -106,6 +98,9 @@ export default {
     },
     isPdp() {
       return this.$route?.name?.includes('pdp');
+    },
+    searchIsVisible() {
+      return this.isPdp ? this.searchOpened : true;
     }
   },
   watch: {},
