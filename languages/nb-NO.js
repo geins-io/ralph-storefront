@@ -363,5 +363,7 @@ export default {
   SIZE_GUIDE: 'Størrelseguide',
   SIZE_GUIDE_CLOTHES: 'Klær',
   SIZE_GUIDE_BRAS: 'Bh størrelser',
-  SIZE_GUIDE_SHOES: 'Skostørrelser'
+  SIZE_GUIDE_SHOES: 'Skostørrelser',
+  SEO_READ_MORE: 'Les mer',
+  SEO_READ_LESS: 'Mindre',
 };

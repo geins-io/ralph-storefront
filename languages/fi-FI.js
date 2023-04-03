@@ -359,5 +359,7 @@ export default {
   SIZE_GUIDE: 'Mittaopas',
   SIZE_GUIDE_CLOTHES: 'Vaatteet',
   SIZE_GUIDE_BRAS: 'Rintaliivien koot',
-  SIZE_GUIDE_SHOES: 'Kenkänkoot'
+  SIZE_GUIDE_SHOES: 'Kenkänkoot',
+  SEO_READ_MORE: 'Lue lisää',
+  SEO_READ_LESS: 'Læs mere',
 };

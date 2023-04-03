@@ -361,5 +361,7 @@ export default {
   SIZE_GUIDE: 'Storleksguide',
   SIZE_GUIDE_CLOTHES: 'Kläder',
   SIZE_GUIDE_BRAS: 'Behå-storlekar',
-  SIZE_GUIDE_SHOES: 'Skostorlekar'
+  SIZE_GUIDE_SHOES: 'Skostorlekar',
+  SEO_READ_MORE: 'Läs mer',
+  SEO_READ_LESS: 'Mindre',
 };

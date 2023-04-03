@@ -40,6 +40,8 @@
         :loading="$apollo.queries.products.loading"
         @loadmore="loadMore"
       />
+
+      <CaSeoText :text="seoCategoryPageText" />
     </CaContainer>
 
     <LazyCaFilterPanel
@@ -83,6 +85,9 @@ export default {
       array.push(obj);
 
       return array;
+    },
+    seoCategoryPageText() {
+      return this.listInfo?.secondaryDescription;
     }
   },
   watch: {},
