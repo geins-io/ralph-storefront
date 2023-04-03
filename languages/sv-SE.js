@@ -357,5 +357,9 @@ export default {
   BADGE_COLLAB: 'Collab',
   BADGE_SUSTAINABLE: 'Mer hållbar',
   BADGE_SIZES: 'Sizes',
-  REMIND_ME: 'Påminn mig'
+  REMIND_ME: 'Påminn mig',
+  SIZE_GUIDE: 'Storleksguide',
+  SIZE_GUIDE_CLOTHES: 'Kläder',
+  SIZE_GUIDE_BRAS: 'Behå-storlekar',
+  SIZE_GUIDE_SHOES: 'Skostorlekar'
 };

@@ -360,5 +360,9 @@ export default {
   BADGE_COLLAB: 'Collab',
   BADGE_SUSTAINABLE: 'Mere holdbar',
   BADGE_SIZES: 'Sizes',
-  REMIND_ME: 'Påmind mig'
+  REMIND_ME: 'Påmind mig',
+  SIZE_GUIDE: 'Størrelsesguide',
+  SIZE_GUIDE_CLOTHES: 'Tøj',
+  SIZE_GUIDE_BRAS: 'Bh størrelser',
+  SIZE_GUIDE_SHOES: 'Skostørrelser'
 };

@@ -1,3 +1,21 @@
 .ca-quickshop-panel {
   $block: &;
+
+  &__size-guide-button {
+    @include icon('measure', 22px, 22px);
+    @include flex-valign;
+
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-decoration: underline;
+    background-color: $c-light-pink;
+    border-radius: rem-calc(19);
+    padding: 0.4rem 1rem;
+    margin: 0 0 0 auto;
+
+    @include bp(tablet) {
+      font-size: $font-size-s;
+      margin: 0 auto 0 rem-calc(20);
+    }
+  }
 }

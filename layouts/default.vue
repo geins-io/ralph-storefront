@@ -29,6 +29,7 @@
         :variant="$store.state.quickshop.notifyVariant"
       />
       <LazyCaQuickshopPanel />
+      <LazyCaSizeGuidePanel />
     </div>
   </div>
 </template>
