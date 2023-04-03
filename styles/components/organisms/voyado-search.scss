@@ -16,11 +16,16 @@ $search-width: 450px !default;
     position: relative;
     background-color: $c-white;
     height: calc(
-      100vh - #{$top-bar-height + $header-bar-height + $search-height}
-    );
-    height: calc(
       #{$vh} - #{$top-bar-height + $header-bar-height + $search-height}
     );
+
+    &--suggestions {
+      height: auto;
+
+      .voyado-search-results {
+        padding: $px16 $px20 $px16;
+      }
+    }
 
     @include bp(laptop) {
       // --half-viewport: calc((100% - var(--scrollbar-width, 0px)) * 0.5);
@@ -283,7 +288,7 @@ $search-width: 450px !default;
   }
 }
 
-.voyado-search-results-list {
+.voyado-search-product-results {
   &__title {
     font-weight: $font-weight-bold;
     margin: 0 0 $px8;
