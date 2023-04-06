@@ -11,7 +11,6 @@
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "stats": "set NODE_ENV=development && yarn nuxt build --modern=server --analyze",
     "link-ralph": "npm link @ralph/ralph-ui",
-    "ralph": "npm explore @ralph/ralph-ui -- npm run documentation-serve & npm run dev",
     "ralph-ride": "node ./scripts/ralph-ride.cjs",
     "ralph-create": "node ./scripts/ralph-create.cjs"
   },
@@ -52,7 +51,6 @@
     "@vue/test-utils": "^1.3.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^26.6.3",
-    "chalk": "^5.2.0",
     "core-js": "^3.21.0",
     "cross-fetch": "^3.1.5",
     "csv-parser": "^3.0.0",
