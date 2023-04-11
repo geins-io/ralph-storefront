@@ -11,15 +11,16 @@
 
   &__header {
     @include flex-valign;
-    
+
     height: $content-panel-header-height;
     border-bottom: $border-light;
     justify-content: space-between;
     background-color: $c-content-panel-header-bg;
     color: $c-content-panel-header-txt;
-    padding: 0 $px16;
+    padding: 0 rem-calc(26);
 
     @include bp(laptop) {
+      padding: 0 $px16;
       height: $content-panel-header-height-computer;
     }
   }

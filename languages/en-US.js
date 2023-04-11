@@ -351,5 +351,11 @@ export default {
   BADGE_COLLAB: 'Collab',
   BADGE_SUSTAINABLE: 'Sustainable',
   BADGE_SIZES: 'Sizes',
-  REMIND_ME: 'Remind me'
+  REMIND_ME: 'Remind me',
+  SIZE_GUIDE: 'Size guide',
+  SIZE_GUIDE_CLOTHES: 'Clothes',
+  SIZE_GUIDE_BRAS: 'Bra sizes',
+  SIZE_GUIDE_SHOES: 'Shoe sizes',
+  SEO_READ_MORE: 'Read more',
+  SEO_READ_LESS: 'Less',
 };

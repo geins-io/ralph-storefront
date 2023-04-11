@@ -365,5 +365,11 @@ export default {
   VOYADO_SEARCH_RESULTS_EMPTY_QUERY: 'Du har inte sökt på något än',
   VOYADO_SEARCH_RESULTS_NO_MATCH: 'Tyvärr hittades inget som matchar din sökning',
   VOYADO_SEARCH_PRODUCT_RESULTS_TITLE: 'Produkt | Produkter',
-  VOYADO_SEARCH_CLOSE: 'Stäng'
+  VOYADO_SEARCH_CLOSE: 'Stäng',
+  SIZE_GUIDE: 'Storleksguide',
+  SIZE_GUIDE_CLOTHES: 'Kläder',
+  SIZE_GUIDE_BRAS: 'Behå-storlekar',
+  SIZE_GUIDE_SHOES: 'Skostorlekar',
+  SEO_READ_MORE: 'Läs mer',
+  SEO_READ_LESS: 'Mindre'
 };

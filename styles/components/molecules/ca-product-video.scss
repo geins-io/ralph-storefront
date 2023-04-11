@@ -1,0 +1,78 @@
+.ca-product-video {
+  $block: &;
+
+  position: relative;
+
+  &:hover {
+    #{$block}__controls {
+      opacity: 1;
+    }
+  }
+
+  &__video {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
+  &__controls {
+    @include halign;
+
+    width: calc(100% - #{rem-calc(32)});
+    bottom: rem-calc(10);
+    display: flex;
+    align-items: center;
+    column-gap: rem-calc(10);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    @include bp(laptop) {
+      opacity: 0;
+    }
+  }
+
+  &__button {
+    @include iconCircle;
+
+    --icon-size: #{rem-calc(10)};
+
+    &--playing {
+      --icon-size: #{rem-calc(12)};
+    }
+  }
+
+  &__scrollbar {
+    position: relative;
+    width: 100%;
+    height: rem-calc(20);
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: rem-calc(10);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: rem-calc(10);
+    background-color: $c-pink;
+  }
+
+  &--aspect-ratio-product {
+    aspect-ratio: 100 / 145.14;
+    overflow: hidden;
+
+    #{$block}__video {
+      @include calign;
+
+      width: 100%;
+      height: auto;
+      overflow: initial;
+    }
+  }
+}

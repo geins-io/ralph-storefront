@@ -1,0 +1,58 @@
+.ca-size-guide-panel {
+  $block: &;
+
+  &__inner {
+    padding: $px20;
+  }
+
+  &__accordion.ca-accordion-item {
+    font-size: $font-size-xs;
+    margin-bottom: $px20;
+    border: none;
+  }
+
+  .ca-accordion-item__toggle {
+    font-size: $font-size-s;
+    background: $c-pink;
+  }
+
+  &__widget-area {
+    padding: $px20 0;
+
+    .table-scroll {
+      width: 100%;
+      overflow: auto;
+    }
+
+    .ca-html {
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: $font-weight-bold;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: rem-calc(10) 0;
+        font-size: $font-size-xs;
+
+        th,
+        td {
+          padding: $px8 $px16;
+          border: 1px solid $c-light-gray;
+        }
+
+        th {
+          background: $c-light-pink;
+        }
+      }
+
+      p {
+        margin: rem-calc(10) 0;
+      }
+    }
+  }
+}

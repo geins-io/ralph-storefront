@@ -98,6 +98,7 @@
               class="ca-header-navigation__widget-area"
               family="Menu"
               area-name="Desktop menu"
+              :widget-image-sizes="widgetImageSizes"
               :filters="[
                 {
                   key: 'MenuLabel',
@@ -137,7 +138,13 @@ export default {
     }
   },
   data: () => ({
-    open: 0
+    open: 0,
+    widgetImageSizes: {
+      full: '(min-width: 1380px) 1040px, 76vw',
+      half: '(min-width: 1380px) 512px, 38vw',
+      third: '(min-width: 1380px) 336px, 25vw',
+      quarter: '(min-width: 1380px) 245px, 18vw'
+    }
   }),
   computed: {
     currentLocale() {
