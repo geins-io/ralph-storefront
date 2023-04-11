@@ -17,7 +17,6 @@
             :slide-index="index"
             :slide-meta="slideMeta"
             class="ca-product-gallery__slide"
-            @clicked="openModal(index)"
           >
             <CaImage
               class="ca-product-gallery__image"
@@ -85,7 +84,33 @@
           :sizes="thumbnailSizes"
         />
       </CaClickable>
+      <div
+        v-if="videoId"
+        class="ca-product-gallery__thumbnail-container ca-product-gallery__thumbnail-container--grid  ca-product-gallery__thumbnail-container--video"
+      >
+        <span ref="videoAnchor" class="ca-product-gallery__video-anchor" />
+        <CaProductVideo ref="video" :video-id="videoId" />
+      </div>
     </div>
+    <LazyCaContentPanel
+      class="ca-product-gallery__panel"
+      name="pdp-video"
+      enter-from="bottom"
+    >
+      <div class="ca-product-gallery__panel-inner">
+        <CaProductVideo
+          :video-id="videoId"
+          :aspect-ratio-product="false"
+          :autoplay="true"
+        />
+        <CaIconButton
+          class="ca-product-gallery__panel-close"
+          icon-name="x"
+          aria-label="Close"
+          @clicked="closeVideo"
+        />
+      </div>
+    </LazyCaContentPanel>
   </div>
 </template>
 <script>
@@ -160,8 +185,14 @@ export default {
     thumbnailSizes: {
       type: String,
       default: '(min-width: 1900px) 495px, 25vw'
+    },
+    // Vimeo video id
+    videoId: {
+      type: String,
+      required: true
     }
   },
+
   data: () => ({
     modalIndex: 1,
     currentSlide: 0
@@ -243,6 +274,19 @@ export default {
     },
     slideChangeHandler(index) {
       this.currentSlide = index;
+    },
+    scrollToVideo() {
+      if (this.$store.getters.viewportComputer) {
+        this.$refs.video.playVideo();
+        this.$refs.videoAnchor.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        this.$store.commit('contentpanel/open', {
+          name: 'pdp-video'
+        });
+      }
+    },
+    closeVideo() {
+      this.$store.commit('contentpanel/close');
     }
   }
 };

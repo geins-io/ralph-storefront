@@ -1,0 +1,49 @@
+.ca-seo-text {
+  $block: &;
+  
+  font-size: $font-size-xs;
+  max-width: rem-calc(1120);
+  margin: 0 auto rem-calc(48);
+
+  &__button {
+    font-weight: $font-weight-bold;
+    text-decoration: underline;
+    display: block;
+    margin: rem-calc(12) auto 0;
+  }
+
+  &__inner {
+    overflow: hidden;
+  }
+
+  &__inner.collapsed {
+    max-height: rem-calc(100);
+    position: relative;
+
+    &::after {
+      content: '';
+      background-image: linear-gradient(rgba($c-white, 0), #{$c-white});
+      width: 100%;
+      height: 50%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__content {
+    > :first-child {
+      margin-bottom: rem-calc(24);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: $font-weight-bold;
+      font-size: inherit;
+    }
+  }
+}

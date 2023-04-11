@@ -136,4 +136,25 @@
       right: rem-calc(15);
     }
   }
+
+  &__panel {
+    .ca-content-panel--bottom {
+      height: 100%;
+      border-radius: 0;
+    }
+
+    .ca-content-panel__header,
+    .ca-content-panel__footer {
+      display: none;
+    }
+  }
+
+  &__panel-close {
+    @include iconCircle;
+
+    position: absolute;
+    top: rem-calc(15);
+    right: rem-calc(15);
+    z-index: 1;
+  }
 }

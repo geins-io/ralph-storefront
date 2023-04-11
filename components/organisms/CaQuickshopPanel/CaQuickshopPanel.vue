@@ -9,6 +9,16 @@
       <h1 class="ca-content-panel__title">
         {{ $t('PICK_SIZE') }}
       </h1>
+      <button
+        class="ca-quickshop-panel__size-guide-button"
+        @click="
+          $store.commit('contentpanel/open', {
+            name: 'size-guide'
+          })
+        "
+      >
+        {{ $t('SIZE_GUIDE') }}
+      </button>
     </template>
     <div class="ca-quickshop-panel__inner">
       <CaQuickshop />

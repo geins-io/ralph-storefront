@@ -50,9 +50,10 @@
 
   &__gallery-wrap {
     position: relative;
+
     @include bp(laptop) {
       width: calc(50% + #{$default-site-width-spacing-laptop});
-      margin-left: -#{$default-site-width-spacing-laptop};
+      margin-left: -1.9rem;
     }
   }
 
@@ -74,6 +75,7 @@
     display: flex;
     flex-direction: column;
     row-gap: rem-calc(13);
+
     @include bp(laptop) {
       bottom: auto;
       right: rem-calc(15);
@@ -88,6 +90,7 @@
 
   &__video-button {
     @include iconCircle;
+
     font-size: rem-calc(14);
     width: rem-calc(44);
   }
@@ -218,6 +221,7 @@
 
   &__payment-logos {
     --logo-display-gap: 0 #{$px16};
+
     align-items: center;
   }
 
