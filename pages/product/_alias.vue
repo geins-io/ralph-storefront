@@ -12,11 +12,14 @@
         <div class="ca-product-page__gallery-wrap">
           <CaProductGallery
             v-if="product"
+            ref="gallery"
             class="ca-product-page__gallery"
             :images="productImages"
             :alt="product.brand.name + ' ' + product.name"
+            :video-id="videoId"
             thumbnail-mode="grid"
           />
+
           <div v-else class="ca-product-page__gallery ca-product-gallery">
             <div
               class="only-computer ca-product-gallery__thumbnails ca-product-gallery__thumbnails--grid"
@@ -66,9 +69,11 @@
               :prod-id="product.productId"
             />
             <CaIconButton
+              v-if="product && videoId"
               icon-name="play"
               aria-label="Play video"
               class="ca-product-page__video-button"
+              @clicked="scrollToGalleryVideo"
             />
           </div>
         </div>
@@ -82,7 +87,7 @@
             <CaPrice
               class="ca-product-page__price"
               :price="product.unitPrice"
-              :type="product.discountType" 
+              :type="product.discountType"
             />
             <p
               v-if="product.unitPrice.isDiscounted"
@@ -196,9 +201,11 @@
             />
           </div>
           <div class="ca-product-page__payment">
-            <p class="ca-avarda-monthly-payment ca-product-page__split-payment">
+            <div
+              class="ca-avarda-monthly-payment ca-product-page__split-payment"
+            >
               <CaSkeleton width="50%" />
-            </p>
+            </div>
           </div>
         </div>
       </section>
@@ -256,9 +263,21 @@ export default {
         'ca-product-page__main--header-scrolled': !this.$store.getters
           .siteIsAtTop
       };
+    },
+    videoId() {
+      return (
+        this.product.parameterGroups
+          .find(group => group.parameterGroupId === 1)
+          ?.parameters.find(param => param.name === 'Video')?.value ?? ''
+      );
     }
   },
   methods: {
+    scrollToGalleryVideo() {
+      if (this.$refs.gallery) {
+        this.$refs.gallery.scrollToVideo();
+      }
+    },
     notifyHandler(variant) {
       this.currentNotifyVariant = variant;
       this.$store.commit('quickshop/setProduct', this.product);
