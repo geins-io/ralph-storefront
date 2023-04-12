@@ -17,12 +17,7 @@
           <CaLogo class="ca-header__logo" :alt="$t('LOGO_ALT_TEXT')" />
         </NuxtLink>
 
-        <VoyadoSearch
-          class="only-computer"
-          :cluster-id="voyadoSearchClusterId"
-          :market="voyadoSearchMarket"
-          :locale-iso="voyadoSearchLocaleIso"
-        />
+        <VoyadoSearch class="only-computer" />
 
         <div class="ca-header__actions">
           <CaIconButton
@@ -73,13 +68,7 @@
       menu-location-id="main-desktop"
       menu-state="click"
     />
-    <VoyadoSearch
-      class="only-mobile"
-      :cluster-id="voyadoSearchClusterId"
-      :market="voyadoSearchMarket"
-      :locale-iso="voyadoSearchLocaleIso"
-      :is-visible="searchIsVisible"
-    />
+    <VoyadoSearch class="only-mobile" :is-visible="searchIsVisible" />
   </header>
 </template>
 <script>
@@ -94,15 +83,6 @@ export default {
     searchOpened: false
   }),
   computed: {
-    voyadoSearchClusterId() {
-      return 'wAFAF8CF4';
-    },
-    voyadoSearchMarket() {
-      return 'SE';
-    },
-    voyadoSearchLocaleIso() {
-      return 'sv-SE';
-    },
     modifiers() {
       return {
         'ca-header--scrolled': !this.$store.getters.siteIsAtTop,

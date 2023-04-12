@@ -394,9 +394,11 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights',
       // TODO - Doc:
-      ['ralph-module-voyado-elevate',
+      [
+        'ralph-module-voyado-elevate',
         {
           enabled: true,
+          clusterId: 'wAFAF8CF4'
         }
       ]
     ],
@@ -411,8 +413,8 @@ export default async () => {
     // },
     pwa: {
       manifest: {
-        name: 'Ralph',
-        short_name: 'Ralph',
+        name: 'Bubbleroom',
+        short_name: 'Bubbleroom',
         description: defaultMeta.description,
         theme_color: '#ffdce0'
       },
@@ -711,10 +713,7 @@ export default async () => {
           ];
         }
       },
-      transpile: [
-        '@ralph/ralph-ui',
-        '@apptus/esales-api'
-      ],
+      transpile: ['@ralph/ralph-ui', '@apptus/esales-api'],
       optimization: {
         splitChunks: {
           automaticNameDelimiter: 'ca.',
