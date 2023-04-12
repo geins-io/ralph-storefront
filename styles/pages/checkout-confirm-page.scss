@@ -1,7 +1,6 @@
 .ca-checkout-confirm-page {
-  max-width: $checkout-width;
+  max-width: rem-calc(650);
   margin: 0 auto;
-  padding-bottom: $px32;
   
   &__title {
     font-size: $font-size-xl;
@@ -12,26 +11,51 @@
     text-align: center;
     color: $c-text-secondary;
   }
+
+  .ca-checkout-section__content {
+    padding: rem-calc(41) rem-calc(28);
+  }
+
+  &__order-confirm {
+    margin-bottom: rem-calc(40);
+
+    .ca-checkout-section__content {
+      background-color: $c-pink;
+    }
+  }
+  
+  &__cart {
+    .ca-checkout-section__content {
+      padding: 0;
+    }
+  }
+
+  .ca-cart-product__static-quantity {
+    font-size: $font-size-xs;
+  }
+
+  .ca-cart-product__price-group {
+    padding-right: 0;
+  }
 }
 
 .ca-checkout-confirm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   &__icon {
-    font-size: 40px;
-    color: $c-success;
+    width: rem-calc(92);
+    margin-bottom: rem-calc(28);
   }
-  
+
   &__title {
-    margin: $px20 0;
+    margin-bottom: rem-calc(32);
     font-size: $font-size-xxl;
     font-weight: $font-weight-bold;
   }
   
   &__text {
-    font-size: $font-size-m;
     text-align: center;
     margin: 0 0 $px20;
   }

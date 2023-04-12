@@ -72,6 +72,12 @@
           :name="product.name"
           name-tag="h3"
         />
+        <p
+          v-if="skuValue && !$config.cart.hiddenSkuValues.includes(skuValue)"
+          class="ca-cart-product__variant"
+        >
+          {{ skuValue }}
+        </p>
       </NuxtLink>
       <div class="ca-cart-product__quantity-picker">
         <CaProductQuantity

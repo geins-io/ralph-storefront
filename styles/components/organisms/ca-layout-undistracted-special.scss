@@ -1,0 +1,8 @@
+.ca-layout-undistracted-special {
+  background-color: $c-white;
+  min-height: 100vh;
+  
+  &__main {
+    padding: ($default-spacing * 2) 0;
+  }
+}

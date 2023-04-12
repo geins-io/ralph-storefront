@@ -37,6 +37,7 @@
     "express": "^4.17.2",
     "nuxt": "^2.15.8",
     "nuxt-user-agent": "^1.2.2",
+    "party-js": "^2.2.0",
     "vue-slide-up-down": "^2.0.1",
     "vuex-persist": "^3.1.3"
   },

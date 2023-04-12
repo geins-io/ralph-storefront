@@ -270,7 +270,8 @@ export default {
   CHECKOUT_HIDE_SUMMARY: 'Piilota tiedot',
   CHECKOUT_CONFIRM_TITLE: 'Kiitos tilauksestasi!',
   CHECKOUT_CONFIRM_TEXT:
-    'Pian saat osoitteeseen {email} tilausvahvistuksen, jossa on kaikki tilaustasi koskevat tiedot.',
+    'Olemme nyt vastaanottaneet tilauksesi ja saat pian tilausvahvistuksen osoitteeseen {email}. Toivottavasti olet tyytyväinen uuteen asuun!',
+  CHECKOUT_REGARDS: 'Tervehdys Bubbleroom',
   CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
     'Varmista, että kaikki kentät on täytetty oikein',
   CHECKOUT_FEEDBACK_TERMS_NOT_ACCEPTED:

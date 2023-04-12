@@ -271,9 +271,10 @@ export default {
   CHECKOUT_TOTAL: 'Totalbelopp inkl. moms',
   CHECKOUT_SHOW_SUMMARY: 'Visa detaljer',
   CHECKOUT_HIDE_SUMMARY: 'Dölj detaljer',
-  CHECKOUT_CONFIRM_TITLE: 'Tack för din order!',
+  CHECKOUT_CONFIRM_TITLE: 'Tack för din beställning!',
   CHECKOUT_CONFIRM_TEXT:
-    'Inom kort kommer du få en orderbekräftelse skickad till {email} med all information gällande din order.',
+    'Vi har nu mottagit din beställning och inom kort kommer du få din orderbekräftelse till {email}. Hoppas du blir nöjd med din nya outfit!',
+  CHECKOUT_REGARDS: 'Hälsningar Bubbleroom',
   CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
     'Se till att alla fält är korrekt ifyllda',
   CHECKOUT_FEEDBACK_TERMS_NOT_ACCEPTED:

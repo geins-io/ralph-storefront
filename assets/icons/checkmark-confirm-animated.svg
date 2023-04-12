@@ -1,0 +1,76 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1080 1080"
+  width="1080"
+  height="1080"
+  preserveAspectRatio="xMidYMid meet"
+  class="checkout-confirm-animated"
+>
+  <defs>
+    <clipPath id="__lottie_element_2">
+      <rect width="1080" height="1080" x="0" y="0"></rect>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#__lottie_element_2)">
+    <g
+      style="display: block;"
+      transform="matrix(10.029999732971191,0,0,10.029999732971191,-4876.19970703125,-4876.19970703125)"
+      opacity="1">
+      <!-- Circle -->
+      <g opacity="1" transform="matrix(1,0,0,1,540,540)">
+        <path
+          class="checkout-confirm-animated__circle"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill-opacity="0"
+          stroke="rgb(60,184,120)"
+          stroke-opacity="1"
+          stroke-width="8"
+          stroke-dasharray="1000"
+          stroke-dashoffset="1000"
+          d="M39.744998931884766,0 C39.744998931884766,21.950000762939453 21.950000762939453,39.744998931884766 0,39.744998931884766 C-21.950000762939453,39.744998931884766 -39.744998931884766,21.950000762939453 -39.744998931884766,0 C-39.744998931884766,-21.950000762939453 -21.950000762939453,-39.744998931884766 0,-39.744998931884766 C2.5460000038146973,-39.744998931884766 5.035999774932861,-39.50600051879883 7.448999881744385,-39.04800033569336">
+        </path>
+      </g>
+      <!-- Checkmark -->
+      <g opacity="1" transform="matrix(1,0,0,1,548.5430297851562,535.2579956054688)">
+        <path
+          class="checkout-confirm-animated__checkmark"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill-opacity="0"
+          stroke="rgb(60,184,120)"
+          stroke-opacity="1"
+          stroke-width="9"
+          stroke-dasharray="1000"
+          stroke-dashoffset="1000"
+          d="M-22.218000411987305,4.234000205993652 C-22.218000411987305,4.234000205993652 -8.543000221252441,17.316999435424805 -8.543000221252441,17.316999435424805 C-8.543000221252441,17.316999435424805 20.777000427246094,-15.694999694824219 22.16699981689453,-17.260000228881836">
+        </path>
+      </g>
+    </g>
+  </g>
+
+  <style>
+    .checkout-confirm-animated {
+      animation: enlarge 1s linear 1.5s;
+    }
+
+    .checkout-confirm-animated__circle {
+      animation: shape 5s linear 200ms forwards;
+      transform: scaleY(-1);
+      rotate: 284deg;
+    }
+    
+    .checkout-confirm-animated__checkmark {
+      animation: shape 12s linear 300ms forwards;
+    }
+
+    @keyframes shape {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes enlarge {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+  </style>
+</svg>
