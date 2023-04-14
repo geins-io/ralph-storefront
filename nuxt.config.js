@@ -8,7 +8,6 @@ import {
   HttpLink
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
-import chalk from 'chalk';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 
 const fallbackChannelId = process.env.FALLBACK_CHANNEL_ID;
@@ -174,18 +173,6 @@ export default async () => {
   const markets = await getMarketsQuery.data.channel.markets;
 
   return {
-    /*
-     ** Append documentation URL to output cli banner
-     */
-    cli: {
-      badgeMessages: [
-        `${chalk.bold('Ralph UI docs:')} ${chalk.underline.yellow(
-          'http://localhost:6001/'
-        )}`,
-        '',
-        '* Keep in mind that if port will be occupied, then it will run on a different port.'
-      ]
-    },
     /*
      ** Customize the progress-bar color
      */
