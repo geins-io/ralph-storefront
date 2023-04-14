@@ -12,16 +12,20 @@ $search-width: 450px !default;
 
   &__results-container {
     $vh: calc(var(--vh, 1vh) * 100);
+    --header-total-height: #{$top-bar-height + $header-bar-height +
+      $search-height};
+
+    .ca-header--scrolled & {
+      --header-total-height: #{rem-calc(5) + $header-bar-height + $search-height};
+    }
+
+    .ca-header--is-hidden & {
+      --header-total-height: #{$search-height};
+    }
 
     position: relative;
     background-color: $c-white;
-    height: calc(
-      #{$vh} - #{$top-bar-height + $header-bar-height + $search-height}
-    );
-
-    &--suggestions {
-      height: auto;
-    }
+    height: calc(#{$vh} - var(--header-total-height));
 
     @include bp(laptop) {
       position: fixed;
@@ -88,6 +92,13 @@ $search-width: 450px !default;
 
 .voyado-search-form {
   width: calc(100% - #{$default-spacing});
+  display: flex;
+  align-items: center;
+  gap: rem-calc(8px);
+
+  @include bp(laptop) {
+    display: block;
+  }
 
   &__input-wrap {
     background-color: $c-light-pink;
@@ -105,10 +116,15 @@ $search-width: 450px !default;
     }
   }
 
+  &__close {
+    line-height: 0;
+    --icon-size: #{rem-calc(40)};
+  }
+
   &__input {
     flex: 1;
     height: 100%;
-    padding: 0 $px16;
+    padding: 0 $px10 0 $px16;
     outline: none;
 
     @include bp(phone-only) {
@@ -133,26 +149,37 @@ $search-width: 450px !default;
     @include flex-calign;
 
     position: absolute;
-    height: 100%;
-    width: 40px;
-    font-size: 15px;
-    right: 40px;
-    background-color: $c-white;
+    height: rem-calc(24);
+    width: rem-calc(24);
+    font-size: rem-calc(16);
+    right: rem-calc(10);
+    background-color: $c-semi-gray;
+    color: $c-white;
+    border-radius: 100%;
   }
 }
 
 .voyado-search-results {
-  padding: $px16 $px20 rem-calc(66px);
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   height: 100%;
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @include bp(laptop) {
-    overflow-y: hidden;
     padding: $px16 $px20;
+  }
+
+  &__container {
+    width: 100%;
+    @include bp(tablet-down) {
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: $px16 $px20;
+      height: calc(100% - 78px);
+    }
   }
 
   &__loading {
@@ -205,11 +232,25 @@ $search-width: 450px !default;
 
   &__results {
     margin: 0 0 $px24;
+    &--products {
+      @include bp(tablet-down) {
+        margin: 0;
+      }
+    }
     &--empty {
       color: $c-text-secondary;
       margin: $px10 0;
       text-align: center;
       width: 100%;
+    }
+  }
+
+  &__button {
+    max-width: calc(100% - #{rem-calc(40)});
+    margin: $px16 0;
+    @include bp(laptop) {
+      max-width: 100%;
+      margin: 0;
     }
   }
 
