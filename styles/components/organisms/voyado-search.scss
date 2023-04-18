@@ -198,38 +198,6 @@ $search-width: 450px !default;
     height: rem-calc(50);
   }
 
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0 0 $px10;
-    transition: opacity 200ms ease;
-  }
-
-  &__title {
-    font-weight: $font-weight-bold;
-  }
-
-  &__suggestions-list {
-    display: flex;
-    flex-direction: column;
-    gap: $px8;
-  }
-
-  &__suggestion {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__search-icon {
-    line-height: 0;
-  }
-
-  &__see-all {
-    text-decoration: underline;
-  }
-
   &__results {
     margin: 0 0 $px24;
     &--products {
@@ -256,6 +224,36 @@ $search-width: 450px !default;
 
   &--empty {
     min-height: rem-calc(300);
+  }
+}
+
+.voyado-search-list-results {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0 $px10;
+    transition: opacity 200ms ease;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+  }
+
+  &__suggestions-list {
+    display: flex;
+    flex-direction: column;
+    gap: $px8;
+  }
+
+  &__suggestion {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__search-icon {
+    line-height: 0;
   }
 }
 
