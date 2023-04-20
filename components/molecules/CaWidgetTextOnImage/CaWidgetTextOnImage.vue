@@ -151,14 +151,18 @@ export default {
     headingStyles() {
       const {
         headingFontColor,
+        headingFont,
         headingFontStyleItalic,
         headingLineHeight,
         headingTextShadow
       } = this.configuration;
+
       const lineHeightValues = [0.9, 1.2, 1.5];
+      const fontFamilyValues = ['Poppins', 'Bauer Bodoni', 'Bauer Bodoni'];
 
       return [
         { color: headingFontColor },
+        { fontFamily: fontFamilyValues[headingFont] },
         { fontStyle: headingFontStyleItalic ? 'italic' : null },
         { backgroundColor: headingTextShadow ? 'rgba(0, 0, 0, 0.2)' : null },
         { lineHeight: `${lineHeightValues[headingLineHeight]}em` }
