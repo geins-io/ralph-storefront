@@ -1,11 +1,12 @@
 <template>
-  <component :is="baseTag" class="ca-product-card" @click="productClickHandler">
+  <component :is="baseTag" class="ca-product-card">
     <div v-if="productPopulated" class="ca-product-card__image-wrap">
       <NuxtLink
         class="ca-product-card__image-link"
         tabindex="-1"
         :to="product.canonicalUrl"
         :data-alias="product.alias"
+        @click.native="productClickHandler"
       >
         <CaImage
           v-if="product.images !== null && product.images.length > 0"
@@ -45,7 +46,11 @@
     />
 
     <div class="ca-product-card__info">
-      <NuxtLink v-if="productPopulated" :to="product.canonicalUrl">
+      <NuxtLink
+        v-if="productPopulated"
+        :to="product.canonicalUrl"
+        @click.native="productClickHandler"
+      >
         <CaBrandAndName
           :brand="product.brand.name"
           :name="product.name"
