@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@apptus/esales-api": "^2.1.0",
+    "@geins/ralph-module-voyado-elevate": "^1.0.6",
     "@nuxtjs/apollo": "4.0.1-rc.4",
     "@nuxtjs/applicationinsights": "^1.2.2",
     "@nuxtjs/gtm": "^2.4.0",

@@ -380,9 +380,9 @@ export default async () => {
       '@nuxtjs/gtm',
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights',
-      // TODO - Doc:
+      // Doc: https://www.npmjs.com/package/@geins/ralph-module-voyado-elevate
       [
-        'ralph-module-voyado-elevate',
+        '@geins/ralph-module-voyado-elevate',
         {
           enabled: true,
           clusterId: 'wAFAF8CF4'
