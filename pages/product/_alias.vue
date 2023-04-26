@@ -270,6 +270,34 @@ export default {
           .find(group => group.parameterGroupId === 1)
           ?.parameters.find(param => param.name === 'Video')?.value ?? ''
       );
+    },
+    prioritizeTag() {
+      if (this.$store.getters['lastVisited/isCurve']) {
+        return 'Curve';
+      }
+      if (this.$store.getters['lastVisited/isStudent']) {
+        return 'Studenten';
+      }
+
+      return '';
+    },
+    productImages() {
+      if (!Array.isArray(this.product?.productImages)) {
+        return [];
+      }
+
+      if (!this.prioritizeTag) {
+        return this.product.productImages.map(x => x.fileName);
+      }
+
+      const imagesSortedOnTag = [...this.product.productImages].sort((a, b) => {
+        const tagA = a.tags.includes(this.prioritizeTag) ? -1 : 1;
+        const tagB = b.tags.includes(this.prioritizeTag) ? -1 : 1;
+
+        return tagA - tagB;
+      });
+
+      return imagesSortedOnTag.map(x => x.fileName);
     }
   },
   methods: {

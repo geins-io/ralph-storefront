@@ -27,6 +27,10 @@ query product(
       canonicalUrl
     }
     images
+    productImages {
+      fileName
+      tags
+    }
     primaryCategory {
       name
       alias

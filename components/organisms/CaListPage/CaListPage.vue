@@ -90,9 +90,14 @@ export default {
       return this.listInfo?.secondaryDescription;
     }
   },
-  watch: {},
+  watch: {
+    breadcrumbsCurrent(value) {
+      this.$store.dispatch('lastVisited/set', value.canonical);
+    }
+  },
   created() {},
-  methods: {}
+  mounted() {},
+  methods: {},
 };
 </script>
 <style lang="scss">
