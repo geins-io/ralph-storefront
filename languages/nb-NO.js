@@ -101,7 +101,7 @@ export default {
   CART_ADD_TOO_MANY:
     'Desværre kan du ikke tilføje mere til varekurv. Kun {stock} tilbage på lager',
   QUANTITY_THRESHOLD_REACHED:
-    'Du kan ikke tilføje flere, da du allerede har {quantity} i varekurven,',
+    'Du kan ikke tilføje flere, da du allerede har {quantity} i varekurven',
   PRODUCT_DESCRIPTION: 'Produkt beskrivelse',
   NO_PRODUCT_DESCRIPTION:
     'Desværre er der ingen produktbeskrivelse at vise for dette produkt.',
@@ -112,9 +112,9 @@ export default {
   SEARCH_RESULTS_SEE_ALL: 'Se alle søgeresultater',
   YOUR_RECENT_SEARCHES: 'Dine seneste søgninger',
   TOP_SEARCHES: 'Populære søgninger',
-  SEARCH_NO_SUGGESTIONS: 'Du har ikke søgt efter noget endnu,',
+  SEARCH_NO_SUGGESTIONS: 'Du har ikke søgt efter noget endnu',
   SEARCH_NO_RESULTS:
-    'Desværre blev der ikke fundet noget, der matcher din søgning,',
+    'Desværre blev der ikke fundet noget, der matcher din søgning',
   SEARCH_RESULTS_PAGE_TITLE: 'Søgeresultater for',
   ESET_FILTERS: 'Ryd alle',
   NO_PRODUCTS_MATCH: 'Ingen produkter matchede dit valg',
@@ -146,9 +146,9 @@ export default {
   RESET_PASSWORD: 'Nulstille kodeord',
   CHANGE_PASSWORD: 'Skift kodeord',
   BACK_TO_LOGIN: 'Tilbage til login',
-  ACCOUNT_FEEDBACK_CREATED: 'Din konto er oprettet, du er nu logget ind,',
+  ACCOUNT_FEEDBACK_CREATED: 'Din konto er oprettet, du er nu logget ind',
   ACCOUNT_FEEDBACK_CREDENTIALS:
-    'Forkert e-mail eller adgangskode, prøv venligst igen,',
+    'Forkert e-mail eller adgangskode, prøv venligst igen',
   ACCOUNT_FEEDBACK_LOGGED_IN: 'Du er logget ind',
   ACCOUNT_FEEDBACK_PASSWORD_RESET:
     'En e-mail til nulstilling af adgangskode er blevet sendt til dig',
@@ -260,7 +260,7 @@ export default {
   CHECKOUT_CONSENTS_TITLE: 'Håndtering af persondata',
   CHECKOUT_CONSENTS_TEXT:
     'For os er det vigtigt, at dine data ikke bliver brugt til andet end det, du har givet tilladelse til. Nedenfor kan du se, hvad vi kan bruge dataene til, og hvilke fordele du får ud af det.',
-  CHECKOUT_CONSENT_ORDER: 'Jeg har læst og accepterer {0},',
+  CHECKOUT_CONSENT_ORDER: 'Jeg har læst og accepterer {0}',
   CHECKOUT_CONSENT_NEWSLETTER:
     'Ja tak, jeg vil gerne modtage nyhedsbreve med spændende tilbud',
   CHECKOUT_CONSENT_SMS:
@@ -311,7 +311,7 @@ export default {
   NOTIFY_PANEL_TITLE: 'Overvåg produkt',
   NOTIFY_PANEL_DESCRIPTION:
     'Indtast din e-mailadresse i feltet nedenfor for at modtage en besked, når produktet er tilbage på lager.',
-  NOTIFY_PANEL_BUTTON: 'Overvåg produkt s',
+  NOTIFY_PANEL_BUTTON: 'Overvåg produkt',
   NOTIFY_PANEL_SUCCESS:
     'Din dækning registreres. Du modtager en e-mail, når dit produkt er tilbage på lager.',
   NOTIFY_ME: 'Overvåge',
@@ -328,7 +328,6 @@ export default {
   MARKET_PANEL_TITLE: 'Velg region',
   MARKET_GROUP_SCANDINAVIA: 'Skandinavia',
   MARKET_GROUP_EU: 'Europa',
-  // !start NO translations from Google translet - please checkk if valid
   REVIEW_WRITE: 'Skrive en omtale',
   REVIEW_IN_ACCEPTANCE:
     'Takk skal du ha! Din anmeldelse vil bli lagt til snart.',

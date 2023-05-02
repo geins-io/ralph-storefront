@@ -13,9 +13,6 @@ $ npm install
 # (`npm link` has to be runned in local Ralph UI repo first if never done before)
 $ npm run link-ralph
 
-# serve the documentation (open url in the browser) and serve the app
-$ npm run ralph
-
 # serve with hot reload at localhost:3000
 $ npm run dev
 

@@ -1,5 +1,5 @@
 <template>
-  <component :is="baseTag" class="ca-product-card" @click="productClickHandler">
+  <component :is="baseTag" class="ca-product-card">
     <CaBadge
       v-if="isNew"
       type="new"
@@ -12,6 +12,7 @@
         tabindex="-1"
         :to="product.canonicalUrl"
         :data-alias="product.alias"
+        @click.native="productClickHandler"
       >
         <CaImage
           v-if="product.images !== null && product.images.length > 0"
@@ -94,6 +95,7 @@
         v-if="productPopulated"
         :to="product.canonicalUrl"
         class="ca-product-card__content"
+        @click.native="productClickHandler"
       >
         <CaPrice
           class="ca-product-card__price"

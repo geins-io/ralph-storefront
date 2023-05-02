@@ -8,7 +8,6 @@ import {
   HttpLink
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
-import chalk from 'chalk';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
 
 const fallbackChannelId = process.env.FALLBACK_CHANNEL_ID;
@@ -175,18 +174,6 @@ export default async () => {
 
   return {
     /*
-     ** Append documentation URL to output cli banner
-     */
-    cli: {
-      badgeMessages: [
-        `${chalk.bold('Ralph UI docs:')} ${chalk.underline.yellow(
-          'http://localhost:6001/'
-        )}`,
-        '',
-        '* Keep in mind that if port will be occupied, then it will run on a different port.'
-      ]
-    },
-    /*
      ** Customize the progress-bar color
      */
     loading: { color: '#ffdce0', height: '5px' },
@@ -222,7 +209,7 @@ export default async () => {
     plugins: [
       { src: '~/plugins/persistedState.js', mode: 'client' },
       {
-        src: '~/node_modules/@ralph/ralph-ui/plugins/get-path.js'
+        src: '~/node_modules/@ralph/ralph-ui/plugins/ralph.js'
       },
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/broadcastChannel.js',
