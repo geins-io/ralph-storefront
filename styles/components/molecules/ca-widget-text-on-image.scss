@@ -52,7 +52,7 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-  
+
     @include bp(laptop) {
       margin-bottom: rem-calc(34);
     }
@@ -61,6 +61,10 @@
   &__cta {
     display: inline-block;
     white-space: nowrap;
+    text-transform: uppercase;
+
+    font-size: $font-size-s;
+    padding: rem-calc(10) rem-calc(22);
   }
 
   &__video {

@@ -10,21 +10,20 @@ export default {
   props: {
     value: {
       type: String,
-      default: '',
-      required: true
+      default: ''
     }
   },
   data: () => ({}),
   computed: {
     text() {
-      if(this.isKnownBadge) {
+      if (this.isKnownBadge) {
         return this.$t(this.translationKey);
       }
 
       return this.value;
     },
     modifiers() {
-      if(this.isKnownBadge) {
+      if (this.isKnownBadge) {
         return 'ca-badge--' + this.value.toLowerCase();
       }
 

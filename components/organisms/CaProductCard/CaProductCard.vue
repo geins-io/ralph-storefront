@@ -100,7 +100,7 @@
         <CaPrice
           class="ca-product-card__price"
           :price="product.unitPrice"
-          :type="product.discountType" 
+          :type="product.discountType"
         />
 
         <CaCampaigns
