@@ -209,7 +209,7 @@ export default async () => {
     plugins: [
       { src: '~/plugins/persistedState.js', mode: 'client' },
       {
-        src: '~/node_modules/@ralph/ralph-ui/plugins/get-path.js'
+        src: '~/node_modules/@ralph/ralph-ui/plugins/ralph.js'
       },
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/broadcastChannel.js',

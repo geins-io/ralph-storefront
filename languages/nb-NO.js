@@ -43,7 +43,7 @@ export default {
   HIDE: 'Skjule',
   LOAD_MORE: 'Indlæs mere',
   LOAD_PREVIOUS: 'Indlæs forrige',
-  PAGINATION_SHOWING: 'Viser {sum} af {total}',
+  PAGINATION_SHOWING: 'Viser {sum} av {total}',
   FILTERS: 'Filter',
   FILTER_LABEL_CATEGORIES: 'Kategorier',
   FILTER_LABEL_BRANDS: 'Mærker',
@@ -269,9 +269,10 @@ export default {
   CHECKOUT_TOTAL: 'Samlet beløbincl. moms',
   CHECKOUT_SHOW_SUMMARY: 'Vis detaljer',
   CHECKOUT_HIDE_SUMMARY: 'Skjul detaljer',
-  CHECKOUT_CONFIRM_TITLE: 'Tak for din ordre!',
+  CHECKOUT_CONFIRM_TITLE: 'Takk for din bestilling!',
   CHECKOUT_CONFIRM_TEXT:
-    'Du vil snart modtage en ordrebekræftelse sendt til {email} med alle oplysninger om din ordre.',
+    'Vi har nå mottatt bestillingen din, og du vil snart motta ordrebekreftelsen til {email}. Håper du er fornøyd med det nye antrekket ditt!',
+  CHECKOUT_REGARDS: 'Hilsen Bubbleroom',
   CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
     'Sørg for, at alle felter er udfyldt korrekt',
   CHECKOUT_FEEDBACK_TERMS_NOT_ACCEPTED:

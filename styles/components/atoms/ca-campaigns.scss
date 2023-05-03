@@ -12,7 +12,7 @@
   }
 
   &.ca-cart__campaigns {
-    display: grid;
+    display: block;
 
     .ca-campaigns__list {
       @include campaignListFlex;

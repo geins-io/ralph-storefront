@@ -13,18 +13,9 @@
   }
 
   &__heading {
+    font-size: clamp(#{rem-calc(32)}, 10vw, #{rem-calc(58)});
     display: flex;
-    font-size: 8vw;
     padding: rem-calc(5px) rem-calc(12px);
-    white-space: nowrap;
-
-    @include bp(tablet) {
-      font-size: 2.4vw;
-    }
-
-    @include bp(laptop) {
-      font-size: 3rem;
-    }
   }
 
   &__subheading {
@@ -53,19 +44,27 @@
   }
 
   &__cta-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: rem-calc(8) rem-calc(16);
+    margin: rem-calc(12) auto;
+    width: 100%;
     position: absolute;
-    left: 50%;
     bottom: 0;
-    transform: translate(-50%, -50%);
+
+    @include bp(laptop) {
+      margin-bottom: rem-calc(34);
+    }
   }
 
   &__cta {
     display: inline-block;
     white-space: nowrap;
+    text-transform: uppercase;
 
-    & + #{$block}__cta-secondary {
-      margin-left: rem-calc(16);
-    }
+    font-size: $font-size-s;
+    padding: rem-calc(10) rem-calc(22);
   }
 
   &__video {

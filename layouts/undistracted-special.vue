@@ -1,0 +1,25 @@
+<template>
+  <div class="ca-layout-undistracted-special">
+    <CaGlobalMessage v-if="$store.state.ancientBrowser">
+      {{ $t('ANCIENT_BROWSER_MESSAGE') }}
+    </CaGlobalMessage>
+    <CaTopBar :undistracted="true" />
+    <main class="ca-layout-undistracted-special__main">
+      <Nuxt />
+    </main>
+    <CaCookieConsent ref="cookieConsent" />
+    <LazyCaAccountPanel />
+  </div>
+</template>
+<script>
+import MixGlobalInit from 'MixGlobalInit';
+export default {
+  name: 'CaUndistractedLayout',
+  mixins: [MixGlobalInit],
+  data: () => ({})
+  // IMPORTANT NOTICE: If you decide to add a head() function here, you will overwrite default meta functionality that comes with MixGlobalInit from Ralph UI
+};
+</script>
+<style lang="scss">
+@import 'organisms/ca-layout-undistracted-special';
+</style>
