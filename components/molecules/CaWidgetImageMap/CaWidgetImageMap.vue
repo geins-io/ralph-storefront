@@ -101,6 +101,7 @@ export default {
         })
         .then(() => this.resizeAreas())
         .catch(e => {
+          // eslint-disable-next-line no-console
           console.error('Something went wrong', e);
         });
     },
@@ -168,6 +169,7 @@ export default {
           return { coords, ...restAreaProps };
         });
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(`Can't parse map area coords.`, error); // eslint-disable-line quotes, no-console
       }
     },
