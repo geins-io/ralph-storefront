@@ -379,7 +379,15 @@ export default async () => {
       // Doc: https://www.npmjs.com/package/@nuxtjs/gtm
       '@nuxtjs/gtm',
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
-      '@nuxtjs/applicationinsights'
+      '@nuxtjs/applicationinsights',
+      // Doc: https://www.npmjs.com/package/@geins/ralph-module-voyado-elevate
+      [
+        '@geins/ralph-module-voyado-elevate',
+        {
+          enabled: true,
+          clusterId: 'wAFAF8CF4'
+        }
+      ]
     ],
     // htmlValidator: {
     //   usePrettier: true,
@@ -392,8 +400,8 @@ export default async () => {
     // },
     pwa: {
       manifest: {
-        name: 'Ralph',
-        short_name: 'Ralph',
+        name: 'Bubbleroom',
+        short_name: 'Bubbleroom',
         description: defaultMeta.description,
         theme_color: '#ffdce0'
       },
@@ -692,7 +700,7 @@ export default async () => {
           ];
         }
       },
-      transpile: ['@ralph/ralph-ui'],
+      transpile: ['@ralph/ralph-ui', '@apptus/esales-api'],
       optimization: {
         splitChunks: {
           automaticNameDelimiter: 'ca.',
@@ -724,6 +732,11 @@ export default async () => {
        ** You can extend webpack config here
        */
       extend(config, { isDev }) {
+        config.module.rules.push({
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto'
+        });
         config.resolve.extensions.unshift('.vue');
         config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
         // Resolve modules by always checking storefront first to allow for overrides

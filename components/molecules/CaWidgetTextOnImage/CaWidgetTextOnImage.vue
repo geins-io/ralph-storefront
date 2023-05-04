@@ -5,6 +5,7 @@
       :is="wrapperElement"
       v-bind="linkElemAttributes"
       class="ca-widget-text-on-image__inner"
+      @click.native="clickHandler"
     >
       <div v-if="hasVideo" class="ca-widget-text-on-image__video-wrap">
         <CaImage
@@ -129,9 +130,7 @@ export default {
   }),
   computed: {
     wrapperElement() {
-      return !this.canShowSecondButton
-        ? this.linkBaseElem
-        : this.container;
+      return !this.canShowSecondButton ? this.linkBaseElem : this.container;
     },
     ctaElement() {
       if (this.wrapperElement === this.container) {
@@ -288,6 +287,16 @@ export default {
         data,
         this.playerOrigin
       );
+    },
+    // @vuese
+    // Pushing the widget:click event
+    clickHandler() {
+      this.$store.dispatch('events/push', {
+        type: 'widget:click',
+        data: {
+          href: this.processedHref
+        }
+      });
     }
   }
 };

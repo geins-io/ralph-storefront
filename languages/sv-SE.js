@@ -359,10 +359,22 @@ export default {
   BADGE_SUSTAINABLE: 'Mer hållbar',
   BADGE_SIZES: 'Sizes',
   REMIND_ME: 'Påminn mig',
+  VOYADO_SEARCH_FORM: 'Sök',
+  VOYADO_SEARCH_FORM_PLACEHOLDER: 'Sök',
+  VOYADO_SEARCH_RESULTS_TITLE: 'Sökresultat',
+  VOYADO_SEARCH_RESULTS_SEE_ALL: 'Visa alla sökresultat',
+  VOYADO_SEARCH_RESULTS_NO_MATCH:
+    'Tyvärr hittades inget som matchar din sökning',
+  VOYADO_SEARCH_RESULTS_SUGGESTIONS_TITLE: 'Populära sökningar',
+  VOYADO_SEARCH_RECENT_SEARCHES_TITLE: 'Senaste sökningar',
+  VOYADO_SEARCH_RESULTS_REMOVE_RECENT: 'Rensa',
+  VOYADO_SEARCH_PRODUCT_RESULTS_TITLE: 'Produkt | Produkter',
+  VOYADO_SEARCH_RESULTS_BUTTON: 'Visa {hits} produkt | Visa {hits} produkter',
+  VOYADO_SEARCH_CLOSE: 'Stäng',
   SIZE_GUIDE: 'Storleksguide',
   SIZE_GUIDE_CLOTHES: 'Kläder',
   SIZE_GUIDE_BRAS: 'Behå-storlekar',
   SIZE_GUIDE_SHOES: 'Skostorlekar',
   SEO_READ_MORE: 'Läs mer',
-  SEO_READ_LESS: 'Mindre',
+  SEO_READ_LESS: 'Mindre'
 };

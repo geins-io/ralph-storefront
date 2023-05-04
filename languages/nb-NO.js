@@ -43,7 +43,7 @@ export default {
   HIDE: 'Skjule',
   LOAD_MORE: 'Indlæs mere',
   LOAD_PREVIOUS: 'Indlæs forrige',
-  PAGINATION_SHOWING: 'Viser {sum} av {total},',
+  PAGINATION_SHOWING: 'Viser {sum} av {total}',
   FILTERS: 'Filter',
   FILTER_LABEL_CATEGORIES: 'Kategorier',
   FILTER_LABEL_BRANDS: 'Mærker',
@@ -342,7 +342,6 @@ export default {
   REVIEWS_LIST_EMPTY: 'Dette produktet har ingen anmeldelser ennå.',
   REVIEW_FEEDBACK_RATE_REQUIRED:
     'Vennligst bruk stjerner for å rangere produktet',
-  // !end NO translations from Google translet - please checkk if valid
   FOOTER_SOCIAL_TITLE: 'Følg oss',
   BADGE_NEW: 'Nyhet!',
   PREVIOUS_LOWEST_PRICE: 'Tidligere laveste pris',

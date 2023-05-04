@@ -17,6 +17,7 @@
           :is="getElem(item)"
           v-bind="getAttrs(item)"
           class="ca-header-navigation__link"
+          @click.native="clickHandler(item)"
         >
           <CaIconAndText
             v-if="item.children.length"
@@ -60,6 +61,7 @@
                       childItem.type === 'custom' &&
                       childItem.children.length === 0
                   }"
+                  @click.native="clickHandler(childItem)"
                 >
                   {{ getLabel(childItem) }}
                 </component>
@@ -85,6 +87,7 @@
                         'ca-header-navigation__custom-link':
                           grandChildItem.type === 'custom'
                       }"
+                      @click.native="clickHandler(grandChildItem)"
                     >
                       {{ getLabel(grandChildItem) }}
                     </component>

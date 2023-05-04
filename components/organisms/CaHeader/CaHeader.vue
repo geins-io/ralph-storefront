@@ -17,7 +17,7 @@
           <CaLogo class="ca-header__logo" :alt="$t('LOGO_ALT_TEXT')" />
         </NuxtLink>
 
-        <CaSearch class="only-computer" />
+        <VoyadoSearch class="only-computer" />
 
         <div class="ca-header__actions">
           <CaIconButton
@@ -68,12 +68,7 @@
       menu-location-id="main-desktop"
       menu-state="click"
     />
-    <CaSearch
-      class="only-mobile"
-      :opened="searchOpened"
-      :is-pdp="isPdp"
-      @closed="searchOpened = false"
-    />
+    <VoyadoSearch class="only-mobile" :is-visible="searchIsVisible" />
   </header>
 </template>
 <script>
@@ -100,10 +95,12 @@ export default {
     },
     isPdp() {
       return this.$route?.name?.includes('pdp');
+    },
+    searchIsVisible() {
+      return this.isPdp ? this.searchOpened : true;
     }
   },
   watch: {},
-  mounted() {},
   methods: {}
 };
 </script>
