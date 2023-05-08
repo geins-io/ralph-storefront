@@ -4,7 +4,7 @@ export const state = () => ({
 
 export const mutations = {
   setType(state, value) {
-    state.type = value;
+    state.type = (typeof value === 'string') ? value : '';
   }
 };
 
