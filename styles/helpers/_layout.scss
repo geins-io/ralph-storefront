@@ -127,3 +127,20 @@
   padding: $px20 $px16;
   border-bottom: $border-light;
 }
+
+@mixin menu-link-arrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &::after {
+    content: '';
+    background-image: url('./assets/icons/menu-arrow.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: rem-calc(15);
+    height: rem-calc(15);
+  }
+}

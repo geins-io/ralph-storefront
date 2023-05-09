@@ -146,19 +146,10 @@
 
   &__custom-link {
     font-weight: $font-weight-bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  }
 
-    &::after {
-      content: '';
-      background-image: url('./assets/icons/menu-arrow.svg');
-      background-position: center;
-      background-repeat: no-repeat;
-      display: inline-block;
-      width: rem-calc(15);
-      height: rem-calc(15);
-    }
+  &__custom-link--arrow {
+    @include menu-link-arrow;
   }
 
   &__widget-area {

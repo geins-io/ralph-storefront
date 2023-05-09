@@ -71,6 +71,10 @@
     padding-left: rem-calc(40);
   }
 
+  &__grand-child-link--arrow {
+    @include menu-link-arrow;
+  }
+
   &__spinner.ca-spinner {
     @include calign;
     border-color: var(--accent-color, $c-accent-color);

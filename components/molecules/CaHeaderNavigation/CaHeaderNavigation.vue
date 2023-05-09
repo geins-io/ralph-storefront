@@ -2,7 +2,7 @@
   <nav class="ca-header-navigation" :class="modifiers">
     <ul v-if="menu" class="ca-header-navigation__items">
       <li
-        v-for="item in menu.menuItems"
+        v-for="item in getItemsWithLabel(menu.menuItems)"
         :key="item.id"
         class="ca-header-navigation__item"
         :class="{
@@ -44,7 +44,7 @@
           >
             <ul class="ca-header-navigation__children-list">
               <li
-                v-for="childItem in item.children"
+                v-for="childItem in getItemsWithLabel(item.children)"
                 :key="childItem.id"
                 class="ca-header-navigation__child-item"
                 :class="{
@@ -59,7 +59,8 @@
                   :class="{
                     'ca-header-navigation__custom-link':
                       childItem.type === 'custom' &&
-                      childItem.children.length === 0
+                      childItem.children.length === 0,
+                    'ca-header-navigation__custom-link--arrow': hasArrow(childItem)
                   }"
                   @click.native="clickHandler(childItem)"
                 >
@@ -75,7 +76,7 @@
                   class="ca-header-navigation__grand-children"
                 >
                   <li
-                    v-for="grandChildItem in childItem.children"
+                    v-for="grandChildItem in getItemsWithLabel(childItem.children)"
                     :key="grandChildItem.id"
                     class="ca-header-navigation__grand-child-item"
                   >
@@ -85,7 +86,8 @@
                       class="ca-header-navigation__grand-child-link"
                       :class="{
                         'ca-header-navigation__custom-link':
-                          grandChildItem.type === 'custom'
+                          grandChildItem.type === 'custom',
+                        'ca-header-navigation__custom-link--arrow': hasArrow(grandChildItem)
                       }"
                       @click.native="clickHandler(grandChildItem)"
                     >
@@ -163,6 +165,15 @@ export default {
   watch: {},
   mounted() {},
   methods: {
+    hasArrow(item) {
+      return item.label.endsWith('#pil');
+    },
+    getLabel(item) {
+      return (item.label || item.title).replace(/#pil$/, '');
+    },
+    getItemsWithLabel(items) {
+      return items.filter(x => this.getLabel(x));
+    },
     openMenu(id) {
       this.open = id;
     },
