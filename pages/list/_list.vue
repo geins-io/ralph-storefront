@@ -4,6 +4,7 @@
     :info-query="infoQuery"
     :current-path="currentPath"
     :filters-vars="filtersVars"
+    :exclude-facets="isSale ? [] : [`${saleFacet}`]"
   />
 </template>
 
@@ -38,7 +39,19 @@ export default {
         listPageUrl: this.currentPath,
         filter: null
       };
-    }
+    },
+    saleFacet() {
+      const facet = 'rp_sale_';
+      const currency = this.$store.getters['channel/currentCurrency'];
+
+      return `${facet}${currency}`.toLowerCase();
+    },
+    isSale() {
+      /* Array for multiple sale markets (in order): sv, en, da, fi, nb */
+      const markets = ['rea', 'sale', 'udsalg', 'ale', 'tilbud'];
+
+      return markets.some((x) => this.$route?.path?.includes(x));
+    },
   },
   mounted() {},
   methods: {},

@@ -3,6 +3,7 @@
     type="all"
     :info-query="infoQuery"
     :current-alias="currentAlias"
+    :exclude-facets="[`${saleFacet}`]"
   />
 </template>
 
@@ -25,6 +26,12 @@ export default {
   computed: {
     currentAlias() {
       return 'all';
+    },
+    saleFacet() {
+      const facet = 'rp_sale_';
+      const currency = this.$store.getters['channel/currentCurrency'];
+
+      return `${facet}${currency}`.toLowerCase();
     }
   },
   mounted() {},
