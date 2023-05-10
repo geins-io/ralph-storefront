@@ -73,12 +73,7 @@
   }
 }
 
-@mixin icon(
-  $icon-name, 
-  $width, 
-  $height: $width, 
-  $element: 'before'
-) {
+@mixin icon($icon-name, $width, $height: $width, $element: 'before') {
   &::#{$element} {
     content: '';
     background-image: url('./assets/icons/#{$icon-name}.svg');
@@ -132,6 +127,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: $font-weight-bold;
 
   &::after {
     content: '';

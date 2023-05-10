@@ -145,11 +145,9 @@
   }
 
   &__custom-link {
-    font-weight: $font-weight-bold;
-  }
-
-  &__custom-link--arrow {
-    @include menu-link-arrow;
+    &--arrow {
+      @include menu-link-arrow;
+    }
   }
 
   &__widget-area {
