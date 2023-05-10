@@ -604,7 +604,7 @@ export default async () => {
       /* **** PRODUCT LIST ***** */
       /* *********************** */
       productListDefaultSort: 'LATEST',
-      productListPageSize: 20,
+      productListPageSize: 60,
       productListScrollSize: {
         phone: 2,
         tablet: 3,

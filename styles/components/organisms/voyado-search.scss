@@ -255,6 +255,10 @@ $search-width: 450px !default;
   &__search-icon {
     line-height: 0;
   }
+
+  &--hidden {
+    display: none;
+  }
 }
 
 .voyado-search-product-results {
@@ -308,5 +312,28 @@ $search-width: 450px !default;
     @include ellipsis;
 
     font-size: 0.8em;
+  }
+}
+
+.voyado-product-page-recommendations {
+  margin: $px32 0 0;
+
+  &__list {
+    margin: 0 0 $px32;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-s;
+    text-transform: uppercase;
+
+    @include bp(tablet) {
+      margin: 0 0 $px4;
+      text-align: center;
+      font-size: $font-size-l;
+    }
+  }
+  .ca-slider-dots {
+    display: none !important;
   }
 }
