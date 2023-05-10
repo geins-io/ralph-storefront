@@ -23,6 +23,18 @@
         />
       </div>
 
+      <CaListPagination
+        v-show="currentMinCount > 1"
+        direction="prev"
+        :showing="showing"
+        :total-count="totalCount"
+        :min-count="currentMinCount"
+        :max-count="currentMaxCount"
+        :all-products-loaded="allProductsLoaded"
+        :loading="$apollo.queries.products.loading"
+        @loadprev="loadPrev"
+      />
+
       <CaProductList
         :skip="currentMinCount - 1"
         :page-size="pageSize"
@@ -35,7 +47,8 @@
         direction="next"
         :showing="showing"
         :total-count="totalCount"
-        :current-count="currentMaxCount"
+        :min-count="currentMinCount"
+        :max-count="currentMaxCount"
         :all-products-loaded="allProductsLoaded"
         :loading="$apollo.queries.products.loading"
         @loadmore="loadMore"
@@ -97,7 +110,7 @@ export default {
   },
   created() {},
   mounted() {},
-  methods: {},
+  methods: {}
 };
 </script>
 <style lang="scss">

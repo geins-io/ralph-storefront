@@ -24,6 +24,10 @@ export default {
       validator(value) {
         return ['NONE', 'SALE_PRICE', 'PRICE_CAMPAIGN'].includes(value);
       }
+    },
+    price: {
+      type: Object,
+      required: true
     }
   },
   computed: {
@@ -33,7 +37,7 @@ export default {
       }
 
       if (this.type === 'SALE_PRICE') {
-        return 'ca-price--product-sale'
+        return 'ca-price--product-sale';
       }
 
       return this.modifiers;

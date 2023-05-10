@@ -13,6 +13,7 @@ fragment ListProduct on ProductType {
   canonicalUrl
   firstAvailableOn
   discountType
+  articleNumber
   unitPrice {
     ...Price
   }

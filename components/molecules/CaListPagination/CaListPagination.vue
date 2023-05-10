@@ -1,16 +1,13 @@
 <template>
-  <div class="ca-list-pagination">
-    <div 
-      :style="{'--progress': progress}"
-      class="ca-list-pagination__progress-bar"
-    ></div>
+  <div class="ca-list-pagination" :class="'ca-list-pagination--' + direction">
+    <CaListCountBar
+      v-if="direction === 'next'"
+      :min-count="minCount"
+      :max-count="maxCount"
+      :total-count="totalCount"
+    />
     <div class="ca-list-pagination__showing">
-      {{
-        $t('PAGINATION_SHOWING', {
-          sum: currentCount,
-          total: totalCount
-        })
-      }}
+      {{ paginationText }}
       {{ $tc('PRODUCT_LOWERCASE', totalCount) }}
     </div>
     <CaButton
@@ -64,10 +61,6 @@ export default {
       type: Number,
       required: true
     },
-    currentCount: {
-      type: Number,
-      required: true
-    },
     allProductsLoaded: {
       type: Boolean,
       required: true
@@ -75,12 +68,31 @@ export default {
     loading: {
       type: Boolean,
       required: true
+    },
+    minCount: {
+      type: Number,
+      required: true
+    },
+    maxCount: {
+      type: Number,
+      required: true
     }
   },
   data: () => ({}),
   computed: {
-    progress() {
-      return this.currentCount / this.totalCount;
+    isPartial() {
+      return this.minCount > 1;
+    },
+    paginationText() {
+      return this.isPartial
+        ? this.$t('PAGINATION_SHOWING_PARTIAL', {
+            sum: this.showing,
+            total: this.totalCount
+          })
+        : this.$t('PAGINATION_SHOWING', {
+            sum: this.maxCount,
+            total: this.totalCount
+          });
     }
   },
   watch: {},
