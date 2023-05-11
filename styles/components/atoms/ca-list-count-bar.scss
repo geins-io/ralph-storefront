@@ -1,0 +1,21 @@
+.ca-list-count-bar {
+  background-color: #cfcdcd;
+  border-radius: 50vw;
+  width: 8.9375rem;
+  height: 4px;
+  margin-bottom: rem-calc(14px);
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc((var(--min-count) / var(--total-count)) * 100%);
+    width: calc((var(--product-count) / var(--total-count)) * 100%);
+    background-color: $c-semidark-gray;
+    contain: paint;
+  }
+}

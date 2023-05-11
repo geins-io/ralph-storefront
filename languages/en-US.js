@@ -374,6 +374,8 @@ export default {
   VOYADO_RECOMMENDATIONS_TITLE_UPSELL_1: 'Something for you?',
   VOYADO_RECOMMENDATIONS_TITLE_UPSELL_2: 'Do you find a favorite here?',
   VOYADO_RECOMMENDATIONS_TITLE_UPSELL_3: 'Don´t miss these',
+  VOYADO_RECOMMENDATIONS_TITLE_NEWEST_PRODUCTS: 'New arrivals',
+  VOYADO_RECOMMENDATIONS_TITLE_TOP_PRODUCTS: 'Top sellers',
   SIZE_GUIDE: 'Size guide',
   SIZE_GUIDE_CLOTHES: 'Clothes',
   SIZE_GUIDE_BRAS: 'Bra sizes',

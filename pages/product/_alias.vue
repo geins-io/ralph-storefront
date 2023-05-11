@@ -220,11 +220,13 @@
       />
     </section>
     <section class="ca-product-page__voyado-recs">
-      <VoyadoProductPageRecommendations
-        v-if="product"
-        :product-key="product.articleNumber"
-        :random-titles="3"
-      />
+      <CaContainer>
+        <VoyadoRecommendations
+          v-if="product"
+          :product-key="product.articleNumber"
+          :random-titles="3"
+        />
+      </CaContainer>
     </section>
   </div>
 </template>

@@ -1,0 +1,19 @@
+.voyado-recommendations {
+  &__list {
+    & + & {
+      margin: $px32 0 0;
+    }
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-s;
+    text-transform: uppercase;
+
+    @include bp(tablet) {
+      margin: 0 0 $px4;
+      text-align: center;
+      font-size: $font-size-l;
+    }
+  }
+}

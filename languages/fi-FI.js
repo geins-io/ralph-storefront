@@ -375,6 +375,8 @@ export default {
   VOYADO_RECOMMENDATIONS_TITLE_UPSELL_1: 'Jotain sinulle?',
   VOYADO_RECOMMENDATIONS_TITLE_UPSELL_2: 'Löydätkö suosikkisi täältä?',
   VOYADO_RECOMMENDATIONS_TITLE_UPSELL_3: 'Ethän missaa näitä?',
+  VOYADO_RECOMMENDATIONS_TITLE_NEWEST_PRODUCTS: 'Uutuudet',
+  VOYADO_RECOMMENDATIONS_TITLE_TOP_PRODUCTS: 'Parhaiten myydyt',
   SIZE_GUIDE: 'Mittaopas',
   SIZE_GUIDE_CLOTHES: 'Vaatteet',
   SIZE_GUIDE_BRAS: 'Rintaliivien koot',

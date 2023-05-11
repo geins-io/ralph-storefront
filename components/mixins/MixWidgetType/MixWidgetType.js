@@ -32,6 +32,8 @@ export default {
         return 'CaWidgetTextOnImage';
       } else if (this.type === 'Image map') {
         return 'CaWidgetImageMap';
+      } else if (this.type === 'Voyado feed') {
+        return 'VoyadoRecommendations';
       } else if (
         this.type === 'Nosto feed' &&
         this.$store.getters['nosto/isNostoActive'] &&

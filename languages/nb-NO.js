@@ -379,6 +379,8 @@ export default {
   VOYADO_RECOMMENDATIONS_TITLE_UPSELL_1: 'Kanskje noe for deg?',
   VOYADO_RECOMMENDATIONS_TITLE_UPSELL_2: 'Finner du en favoritt her?',
   VOYADO_RECOMMENDATIONS_TITLE_UPSELL_3: 'Ikke gå glipp av disse',
+  VOYADO_RECOMMENDATIONS_TITLE_NEWEST_PRODUCTS: 'Nyheter',
+  VOYADO_RECOMMENDATIONS_TITLE_TOP_PRODUCTS: 'Bestselgere',
   SIZE_GUIDE: 'Størrelseguide',
   SIZE_GUIDE_CLOTHES: 'Klær',
   SIZE_GUIDE_BRAS: 'Bh størrelser',

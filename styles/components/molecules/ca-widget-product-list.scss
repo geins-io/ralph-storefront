@@ -1,0 +1,17 @@
+.ca-widget-product-list {
+  &__list {
+    margin: 0 0 $px32;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-s;
+    text-transform: uppercase;
+
+    @include bp(tablet) {
+      margin: 0 0 $px4;
+      text-align: center;
+      font-size: $font-size-l;
+    }
+  }
+}
