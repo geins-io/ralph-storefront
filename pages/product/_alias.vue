@@ -67,6 +67,7 @@
               class="ca-product-page__favorite"
               :prod-alias="prodAlias"
               :prod-id="product.productId"
+              :product="product"
             />
             <CaIconButton
               v-if="product && videoId"

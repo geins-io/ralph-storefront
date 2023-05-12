@@ -69,6 +69,7 @@
         class="ca-product-card__favorite"
         :prod-alias="product.alias"
         :prod-id="product.productId"
+        :product="product"
       />
 
       <ul class="ca-product-card__badge-list">
