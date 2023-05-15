@@ -67,7 +67,7 @@
               class="ca-product-page__favorite"
               :prod-alias="prodAlias"
               :prod-id="product.productId"
-              :product="product"
+              :product="voyadoProduct"
             />
             <CaIconButton
               v-if="product && videoId"
@@ -114,7 +114,7 @@
           <div class="ca-product-page__buy-wrap">
             <button
               class="ca-product-page__size-picker"
-              @click="$store.dispatch('quickshop/open', product)"
+              @click="$store.dispatch('quickshop/open', voyadoProduct)"
             >
               {{ $t('PICK_SIZE') }}
               <CaIcon
@@ -226,6 +226,7 @@
           v-if="product"
           :product-key="product.articleNumber"
           :random-titles="3"
+          @voyadoProductData="setVoyadoData"
         />
       </CaContainer>
     </section>
@@ -252,10 +253,10 @@
 import MixAddToCart from 'MixAddToCart';
 import MixVariantHandler from 'MixVariantHandler';
 import MixProductPage from 'MixProductPage';
-
+import { VoyadoProductPage } from '@geins/ralph-module-voyado-elevate';
 export default {
   name: 'ProductPage',
-  mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
+  mixins: [MixProductPage, MixAddToCart, MixVariantHandler, VoyadoProductPage],
   data: () => ({}),
   computed: {
     buyButtonText() {
@@ -318,7 +319,7 @@ export default {
     },
     notifyHandler(variant) {
       this.currentNotifyVariant = variant;
-      this.$store.commit('quickshop/setProduct', this.product);
+      this.$store.commit('quickshop/setProduct', this.voyadoProduct);
       this.$store.commit('quickshop/setNotifyVariant', variant);
       this.$nextTick(() => {
         this.$store.commit('contentpanel/open', {

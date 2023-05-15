@@ -24,7 +24,7 @@
     }
   },
   "dependencies": {
-    "@geins/ralph-module-voyado-elevate": "^3.0.0",
+    "@geins/ralph-module-voyado-elevate": "^4.0.2",
     "@nuxtjs/apollo": "4.0.1-rc.4",
     "@nuxtjs/applicationinsights": "^1.2.2",
     "@nuxtjs/gtm": "^2.4.0",
