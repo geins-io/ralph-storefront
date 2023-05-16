@@ -272,7 +272,7 @@ export default {
   CHECKOUT_CONFIRM_TITLE: 'Thank you for your order!',
   CHECKOUT_CONFIRM_TEXT:
     'Shortly you will receive an order confirmation at {email} with all information regarding your order. We hope you will enjoy your new outfit!',
-  CHECKOUT_REGARDS: 'Kindly regards Bubbleroom',
+  CHECKOUT_REGARDS: 'Bubbleroom',
   CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
     'Make sure all fields are valid before you place your order',
   CHECKOUT_FEEDBACK_TERMS_NOT_ACCEPTED:

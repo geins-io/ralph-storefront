@@ -273,8 +273,8 @@ export default {
   CHECKOUT_HIDE_SUMMARY: 'Skjul detaljer',
   CHECKOUT_CONFIRM_TITLE: 'Takk for din bestilling!',
   CHECKOUT_CONFIRM_TEXT:
-    'Vi har nå mottatt bestillingen din, og du vil snart motta ordrebekreftelsen til {email}. Håper du er fornøyd med det nye antrekket ditt!',
-  CHECKOUT_REGARDS: 'Hilsen Bubbleroom',
+    'Takk for at du handler hos oss.\n\nVi har mottatt bestillingen din og du vil i løpet av 24 timer ( med unntak av helgedager) få en ordrebekreftelse på epost.\n\nNår bestillingen sendes fra oss, vil du motta en leveringsbekreftelse med mer informasjon.\n\nVi håper at du blir fornøyd med din nye Outfit!',
+  CHECKOUT_REGARDS: 'Bubbleroom',
   CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
     'Sørg for, at alle felter er udfyldt korrekt',
   CHECKOUT_FEEDBACK_TERMS_NOT_ACCEPTED:

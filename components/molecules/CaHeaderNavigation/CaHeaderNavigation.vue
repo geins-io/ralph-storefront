@@ -1,5 +1,5 @@
 <template>
-  <nav class="ca-header-navigation" :class="modifiers">
+  <nav ref="menu" class="ca-header-navigation" :class="modifiers">
     <ul v-if="menu" class="ca-header-navigation__items">
       <li
         v-for="item in getItemsWithLabel(menu.menuItems)"
@@ -163,7 +163,12 @@ export default {
     }
   },
   watch: {},
-  mounted() {},
+  mounted() {
+    document.body.addEventListener('click', this.handleClickOutside);
+  },
+  beforeDestroy() {
+    document.body.removeEventListener('click', this.handleClickOutside);
+  },
   methods: {
     hasArrow(item) {
       return item.label.endsWith('#pil');
@@ -258,6 +263,14 @@ export default {
         }
       }
       return baseClass + modifier;
+    },
+    handleClickOutside(e) {
+      const menuRef = this.$refs.menu;
+      const isMenuClicked = menuRef && menuRef.contains(e.target);
+
+      if (!isMenuClicked) {
+        this.closeMenu();
+      }
     }
   }
 };

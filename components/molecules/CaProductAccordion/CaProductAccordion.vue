@@ -39,7 +39,7 @@
           {{ getParameterText('washinginstructions') }}
         </CaProductInfo>
         <CaProductInfo :title="$t('PRODUCT_ID')">
-          {{ product.productId }}
+          {{ product.articleNumber }}
         </CaProductInfo>
         <CaProductInfo :title="$t('BRAND')">
           <NuxtLink :to="product.brand.canonicalUrl">

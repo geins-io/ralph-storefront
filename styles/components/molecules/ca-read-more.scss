@@ -29,7 +29,7 @@
     font-weight: $font-weight-bold;
     font-size: $font-size-xs;
     letter-spacing: $letter-spacing-3;
-    padding: 1.2em;
+    padding: $px10 rem-calc(13px);
 
     svg {
       margin-left: rem-calc(2);

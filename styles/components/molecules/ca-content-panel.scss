@@ -65,7 +65,8 @@
     width: 90vw;
 
     #{$block}__close-icon {
-      right: -27px;
+      position: absolute;
+      right: rem-calc(12);
     }
   }
 
@@ -75,7 +76,8 @@
     width: 90vw;
 
     #{$block}__close-icon {
-      left: -27px;
+      position: absolute;
+      right: rem-calc(12);
     }
   }
 
@@ -89,6 +91,7 @@
     #{$block}__header {
       justify-content: center;
     }
+    
     #{$block}__close-icon {
       display: none;
     }

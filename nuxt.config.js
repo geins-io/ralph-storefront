@@ -510,6 +510,14 @@ export default async () => {
       siteTopThreshold: 10,
       paymentAndDeliveryLogos: [
         {
+          name: 'bubbleroom-faktura',
+          type: 'payment'
+        },
+        {
+          name: 'bubbleroom-konto',
+          type: 'payment'
+        },
+        {
           name: 'paypal',
           type: 'payment'
         },
@@ -519,10 +527,6 @@ export default async () => {
         },
         {
           name: 'mastercard',
-          type: 'payment'
-        },
-        {
-          name: 'avarda',
           type: 'payment'
         },
         {

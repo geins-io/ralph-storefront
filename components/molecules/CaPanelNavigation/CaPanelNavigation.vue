@@ -80,6 +80,21 @@
                 {{ getLabel(childItem) }}
               </component>
             </li>
+            <li>
+              <LazyCaWidgetArea
+                ref="widgetarea"
+                class="ca-header-navigation__widget-area"
+                family="Menu"
+                area-name="Mobile menu"
+                :widget-image-sizes="widgetImageSizes"
+                :filters="[
+                  {
+                    key: 'MenuLabel',
+                    value: `${getLabel(item)}`
+                  }
+                ]"
+              />
+            </li>
           </ul>
         </CaAccordionItem>
         <component
@@ -106,7 +121,14 @@ export default {
   name: 'CaPanelNavigation',
   mixins: [MixMenu],
   props: {},
-  data: () => ({}),
+  data: () => ({
+    widgetImageSizes: {
+      full: '84vw',
+      half: '84vw',
+      third: '84vw',
+      quarter: '84vw'
+    }
+  }),
   computed: {},
   watch: {},
   mounted() {},
