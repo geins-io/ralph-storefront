@@ -15,7 +15,7 @@ export default {
         {
           hid: 'avarda',
           src:
-            'https://avdonl0s0checkout0fe.blob.core.windows.net/frontend/static/js/main.js',
+            'https://avdonl0p0checkout0fe.blob.core.windows.net/frontend/static/js/main.js',
           callback: () => {
             this.avardaScriptLoaded = true;
           }
