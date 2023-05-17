@@ -385,7 +385,20 @@ export default async () => {
         '@geins/ralph-module-voyado-elevate',
         {
           enabled: true,
-          clusterId: 'wAFAF8CF4'
+          clusterId: process.env.VOYADO_CLUSTER_ID
+        }
+      ],
+      // Doc: https://www.npmjs.com/package/@geins/ralph-module-gtm
+      [
+        '@geins/ralph-module-gtm',
+        {
+          itemId: 'articleNumber',
+          propOverrides: [
+            {
+              override: 'price_campaign',
+              name: 'green_price'
+            }
+          ]
         }
       ]
     ],
@@ -771,7 +784,7 @@ export default async () => {
         }
       }
     },
-    dev: process.env.NODE_ENV !== 'production',
+    dev: process.env.NODE_ENV === 'development',
     appInsights: {
       instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY,
       serverConfig: {

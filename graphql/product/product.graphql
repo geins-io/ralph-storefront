@@ -37,7 +37,6 @@ query product(
       canonicalUrl
     }
     unitPrice {
-      sellingPriceIncVat
       ...Price
     }
     texts {

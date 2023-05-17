@@ -24,13 +24,14 @@
     }
   },
   "dependencies": {
-    "@geins/ralph-module-voyado-elevate": "^4.0.2",
+    "@geins/ralph-module-voyado-elevate": "^4.1.0",
+    "@geins/ralph-module-gtm": "^1.0.0",
     "@nuxtjs/apollo": "4.0.1-rc.4",
     "@nuxtjs/applicationinsights": "^1.2.2",
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/i18n": "^7.2.0",
     "@nuxtjs/pwa": "^3.3.5",
-    "@ralph/ralph-ui": "19.2.1",
+    "@ralph/ralph-ui": "19.3.0",
     "apollo-link": "^1.2.14",
     "cookie": "^0.4.2",
     "cookie-universal-nuxt": "^2.1.5",
