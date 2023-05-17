@@ -388,5 +388,13 @@ export default {
   SIZE_GUIDE_BRAS: 'Bh størrelser',
   SIZE_GUIDE_SHOES: 'Skostørrelser',
   SEO_READ_MORE: 'Læs mere',
-  SEO_READ_LESS: 'Mindre'
+  SEO_READ_LESS: 'Mindre',
+  FLOWBOX_PAGE_TITLE: 'We love your style!',
+  FLOWBOX_HASHTAG: '#BUBBLEROOMSTYLE',
+  FLOWBOX_TAG_ALL: 'Alle',
+  FLOWBOX_TAG_DRESSES: 'Kjoler',
+  FLOWBOX_TAG_JUMPSUITS: 'Jumpsuit',
+  FLOWBOX_TAG_TOPS: 'Toppe',
+  FLOWBOX_TAG_JACKETS: 'Jakker & Frakker',
+  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Bukser & Nederdele'
 };

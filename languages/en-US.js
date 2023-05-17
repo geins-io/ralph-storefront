@@ -381,5 +381,13 @@ export default {
   SIZE_GUIDE_BRAS: 'Bra sizes',
   SIZE_GUIDE_SHOES: 'Shoe sizes',
   SEO_READ_MORE: 'Read more',
-  SEO_READ_LESS: 'Less'
+  SEO_READ_LESS: 'Less',
+  FLOWBOX_PAGE_TITLE: 'We love your style!',
+  FLOWBOX_HASHTAG: '#BUBBLEROOMSTYLE',
+  FLOWBOX_TAG_ALL: 'All',
+  FLOWBOX_TAG_DRESSES: 'Dresses',
+  FLOWBOX_TAG_JUMPSUITS: 'Jumpsuit',
+  FLOWBOX_TAG_TOPS: 'Tops',
+  FLOWBOX_TAG_JACKETS: 'Jackets',
+  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Trousers & Skirts'
 };

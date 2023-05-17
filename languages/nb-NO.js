@@ -386,5 +386,13 @@ export default {
   SIZE_GUIDE_BRAS: 'Bh størrelser',
   SIZE_GUIDE_SHOES: 'Skostørrelser',
   SEO_READ_MORE: 'Les mer',
-  SEO_READ_LESS: 'Mindre'
+  SEO_READ_LESS: 'Mindre',
+  FLOWBOX_PAGE_TITLE: 'We love your style!',
+  FLOWBOX_HASHTAG: '#BUBBLEROOMSTYLE',
+  FLOWBOX_TAG_ALL: 'Alt',
+  FLOWBOX_TAG_DRESSES: 'Kjoler',
+  FLOWBOX_TAG_JUMPSUITS: 'Jumpsuits',
+  FLOWBOX_TAG_TOPS: 'Topper',
+  FLOWBOX_TAG_JACKETS: 'Jakker & Kåper',
+  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Bukser & Skjørt'
 };

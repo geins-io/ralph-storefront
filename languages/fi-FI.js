@@ -382,5 +382,13 @@ export default {
   SIZE_GUIDE_BRAS: 'Rintaliivien koot',
   SIZE_GUIDE_SHOES: 'Kenkänkoot',
   SEO_READ_MORE: 'Lue lisää',
-  SEO_READ_LESS: 'Læs mere'
+  SEO_READ_LESS: 'Læs mere',
+  FLOWBOX_PAGE_TITLE: 'We love your style!',
+  FLOWBOX_HASHTAG: '#BUBBLEROOMSTYLE',
+  FLOWBOX_TAG_ALL: 'Kaikki',
+  FLOWBOX_TAG_DRESSES: 'Mekot',
+  FLOWBOX_TAG_JUMPSUITS: 'Jumpsuit',
+  FLOWBOX_TAG_TOPS: 'Paidat',
+  FLOWBOX_TAG_JACKETS: 'Takit',
+  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Housut & Hameet'
 };

@@ -1,0 +1,67 @@
+.ca-instashop-page {
+  $block: &;
+
+  &__header {
+    text-align: center;
+    margin: 0 auto;
+    padding: $px12 clamp(#{rem-calc(4)}, 1vw, #{$px12});
+
+    @include bp(laptop) {
+      max-width: 40rem;
+    }
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    font-size: rem-calc(28);
+  }
+
+  &__hashtag {
+    font-size: $font-size-m;
+    margin: rem-calc(10) 0 rem-calc(26) 0;
+  }
+
+  &__filters {
+    --columns: 2;
+    --gap: clamp(#{rem-calc(8)}, 1vw, #{$px12});
+    --gutters: calc(var(--columns) - 1);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    width: 100%;
+    justify-content: center;
+
+    > * {
+      width: calc((100% / var(--columns)) - (var(--gap) * (var(--gutters) / var(--columns))));
+    }
+
+    @include bp(laptop) {
+      --columns: 4;
+    }
+  }
+
+  &__filters-button {
+    background-color: #efefef;
+    font-weight: $font-weight-bold;
+    font-size: 0.6875rem;
+    width: 100%;
+    padding: 0.6em 2.125em;
+    white-space: nowrap;
+
+    &--selected {
+      background-color: #ffdddc;
+    }
+  }
+
+  .flow-container {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' fill='none'%3E%3Cpath fill='%23ececec' vector-effect='non-scaling-stroke' stroke='%23fff' stroke-width='12' d='M6 6h238v238H6z'/%3E%3C/svg%3E");
+    background-size: var(--placeholder-size, 50%) auto;
+    width: 100%;
+    min-height: 100vh;
+
+    @media (min-width: 500px) {
+      --placeholder-size: 25%;
+    }
+  }
+}

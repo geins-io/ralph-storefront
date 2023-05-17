@@ -386,5 +386,13 @@ export default {
   SIZE_GUIDE_BRAS: 'Behå-storlekar',
   SIZE_GUIDE_SHOES: 'Skostorlekar',
   SEO_READ_MORE: 'Läs mer',
-  SEO_READ_LESS: 'Mindre'
+  SEO_READ_LESS: 'Mindre',
+  FLOWBOX_PAGE_TITLE: 'We love your style!',
+  FLOWBOX_HASHTAG: '#BUBBLEROOMSTYLE',
+  FLOWBOX_TAG_ALL: 'Alla',
+  FLOWBOX_TAG_DRESSES: 'Klänningar',
+  FLOWBOX_TAG_JUMPSUITS: 'Jumpsuits',
+  FLOWBOX_TAG_TOPS: 'Toppar',
+  FLOWBOX_TAG_JACKETS: 'Jackor & Kappor',
+  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Byxor & Kjolar'
 };
