@@ -170,7 +170,7 @@ export default {
     'Olemme täällä auttaaksemme sinua. Ota yhteyttä, jos sinulla on ongelmia.',
   ACCOUNT_ORDERS_TITLE: 'Tilaukset',
   ACCOUNT_SETTINGS_TITLE: 'Asetukset',
-  ACCOUNT_BALANCE_TITLE: ' Saldo',
+  ACCOUNT_BALANCE_TITLE: 'Saldo',
   ACCOUNT_BALANCE_PAGE_TITLE: 'Nykyinen tasapaino',
   ACCOUNT_TITLE: 'Omat sivut',
   ACCOUNT_SETTINGS_CANCEL: 'Peruuttaa',

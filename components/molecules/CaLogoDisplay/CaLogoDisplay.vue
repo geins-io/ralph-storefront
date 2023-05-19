@@ -31,11 +31,17 @@ export default {
   data: () => ({}),
   computed: {
     logos() {
-      if(this.type === 'all') {
-        return this.$config.paymentAndDeliveryLogos;
+      let logoArray = this.$config.paymentAndDeliveryLogos;
+
+      if (this.$store.state.channel.currentMarket === 'dk') {
+        logoArray = logoArray.filter(({ name }) => name !== 'paypal');
       }
 
-      return this.$config.paymentAndDeliveryLogos.filter(x => x.type === this.type);
+      if (this.type === 'all') {
+        return logoArray;
+      }
+
+      return logoArray.filter(x => x.type === this.type);
     }
   },
   watch: {},

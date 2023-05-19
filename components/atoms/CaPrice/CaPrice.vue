@@ -40,7 +40,7 @@ export default {
         return 'ca-price--product-sale';
       }
 
-      return '';
+      return this.modifiers;
     }
   }
 };

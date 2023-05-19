@@ -176,6 +176,7 @@ export default {
     'Vi er her for at hjælpe dig. Kontakt os, hvis du har problemer.',
   ACCOUNT_ORDERS_TITLE: 'Ordrer',
   ACCOUNT_SETTINGS_TITLE: 'Indstillinger',
+  ACCOUNT_BALANCE_TITLE: 'Balance',
   ACCOUNT_TITLE: 'Mine sider',
   ACCOUNT_SETTINGS_CANCEL: 'Afbestille',
   ACCOUNT_SETTINGS_EDIT: 'Skift',
