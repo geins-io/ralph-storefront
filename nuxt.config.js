@@ -400,8 +400,45 @@ export default async () => {
             }
           ]
         }
-      ]
+      ],
+      // Doc: https://www.npmjs.com/package/@nuxtjs/robots/v/2.5.0
+      '@nuxtjs/robots'
     ],
+    robots() {
+      const options = [
+        {
+          UserAgent: '*',
+          Disallow: ['/checkout/', '/account/', '/favorites'],
+          Sitemap:
+            domainUrls[process.env.DEFAULT_LOCALE] +
+            '/sitemap/bubbleroom.' +
+            fallbackMarketAlias +
+            '-' +
+            process.env.DEFAULT_LOCALE +
+            '-' +
+            fallbackMarketAlias.toUpperCase() +
+            '.xml'
+        }
+      ];
+      switch (fallbackMarketAlias) {
+        case 'se':
+          options[0].Disallow.push('/kassan', '/mina-sidor/', '/favoriter');
+          break;
+        case 'fi':
+          options[0].Disallow.push('/kassa', '/tilini/', '/suosikkeja');
+          break;
+        case 'no':
+          options[0].Disallow.push('/kassen', '/min-konto/', '/favoriter');
+          break;
+        case 'dk':
+          options[0].Disallow.push('/kassen', '/min-konto/', '/favoritter');
+          break;
+        default:
+          break;
+      }
+      options.push({ userAgent: 'AhrefsBot', disallow: '/' });
+      return options;
+    },
     // htmlValidator: {
     //   usePrettier: true,
     //   options: {
