@@ -7,7 +7,7 @@ export default {
   }),
   computed: {
     env() {
-      return process.env.NODE_ENV === 'production' ? 'p' : 's';
+      return this.$config.ralphEnv === 'prod' ? 'p' : 's';
     }
   },
   watch: {},
