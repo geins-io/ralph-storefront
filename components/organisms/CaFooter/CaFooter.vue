@@ -2,27 +2,9 @@
   <footer class="ca-footer">
     <section class="ca-footer__section ca-footer__section--newsletter">
       <CaContainer>
-        <div class="ca-footer__newsletter">
-          <h2 class="ca-footer__newsletter-title">
-            {{ $t('NEWSLETTER_TITLE') }}
-          </h2>
-          <CaSvgAsset
-            class="ca-footer__newsletter-logo"
-            folder="icons"
-            filename="newsletter"
-            alt="Newsletter signup logo"
-          />
-          <p class="ca-footer__newsletter-offer">
-            {{ $t('NEWSLETTER_OFFER') }}
-          </p>
-          <p class="ca-footer__newsletter-text">
-            {{ $t('NEWSLETTER_TEXT') }}
-          </p>
-          <CaNewsletter class="ca-footer__newsletter-form" />
-          <p class="ca-footer__newsletter-policy">
-            {{ $t('NEWSLETTER_POLICY') }}
-          </p>
-        </div>
+        <section class="ca-footer__newsletter newsletter-signup">
+          <div class="newsletter-signup__placeholder"></div>
+        </section>
       </CaContainer>
     </section>
 
