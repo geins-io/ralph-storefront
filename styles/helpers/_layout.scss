@@ -90,8 +90,8 @@
   @include icon($icon-name, $width, $height, 'after');
 }
 
-@mixin campaignBadge {
-  background-color: $c-campaign;
+@mixin price-type-badge($bg: $c-campaign) {
+  background-color: $bg;
   color: $c-lightest-gray;
   font-size: rem-calc(8px);
   letter-spacing: $letter-spacing-3;

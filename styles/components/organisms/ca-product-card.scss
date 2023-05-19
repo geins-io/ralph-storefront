@@ -65,15 +65,9 @@
   }
 
   &__discount {
-    @include campaignBadge;
-
     position: absolute;
     top: $px8;
     left: $px8;
-
-    @include bp(tablet) {
-      font-size: rem-calc(11px);
-    }
   }
 
   &__content {

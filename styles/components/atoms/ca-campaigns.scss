@@ -2,7 +2,7 @@
   @include campaignListFlex;
 
   &__item {
-    @include campaignBadge;
+    @include price-type-badge;
     flex-shrink: 0;
   }
 

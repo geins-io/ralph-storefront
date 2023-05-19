@@ -1,0 +1,15 @@
+.ca-discount-badge {
+  $block: &;
+
+  &--sale {
+    @include price-type-badge($c-product-sale);
+  }
+
+  &--campaign {
+    @include price-type-badge;
+  }
+
+  @include bp(tablet) {
+    font-size: rem-calc(11px);
+  }
+}

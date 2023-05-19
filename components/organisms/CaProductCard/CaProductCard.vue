@@ -59,12 +59,11 @@
           :sizes="imgSizesProductCard"
         />
       </NuxtLink>
-      <div
-        v-if="product.unitPrice.discountPercentage"
+      <CaDiscountBadge
         class="ca-product-card__discount"
-      >
-        {{ product.unitPrice.discountPercentage }} %
-      </div>
+        :price="product.unitPrice"
+        :price-type="product.discountType"
+      />
       <CaToggleFavorite
         class="ca-product-card__favorite"
         :prod-alias="product.alias"
