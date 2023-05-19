@@ -491,7 +491,7 @@ export default async () => {
     },
     gtm: {
       id: process.env.GTM_ID,
-      debug: process.env.NODE_ENV !== 'production',
+      debug: process.env.RALPH_ENV !== 'prod',
       respectDoNotTrack: false,
       pageViewEventName: 'Page Impression',
       pageTracking: false
@@ -503,6 +503,7 @@ export default async () => {
       /* ***************** */
       /* **** GLOBAL ***** */
       /* ***************** */
+      ralphEnv: process.env.RALPH_ENV,
       baseUrl: process.env.BASE_URL,
       imageServer: process.env.IMAGE_SERVER,
       authEndpoint: process.env.AUTH_ENDPOINT,
