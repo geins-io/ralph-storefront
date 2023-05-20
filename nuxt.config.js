@@ -376,16 +376,14 @@ export default async () => {
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
-      // Doc: https://www.npmjs.com/package/@nuxtjs/gtm
-      '@nuxtjs/gtm',
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights',
       // Doc: https://www.npmjs.com/package/@geins/ralph-module-voyado-elevate
       [
         '@geins/ralph-module-voyado-elevate',
         {
-          enabled: true,
-          clusterId: process.env.VOYADO_CLUSTER_ID
+          clusterId: process.env.VOYADO_CLUSTER_ID,
+          encodeSearchString: true
         }
       ],
       // Doc: https://www.npmjs.com/package/@geins/ralph-module-gtm
@@ -398,7 +396,12 @@ export default async () => {
               override: 'price_campaign',
               name: 'green_price'
             }
-          ]
+          ],
+          gtm: {
+            id: process.env.GTM_ID,
+            debug: process.env.RALPH_ENV === 'dev',
+            respectDoNotTrack: false
+          }
         }
       ],
       // Doc: https://www.npmjs.com/package/@nuxtjs/robots/v/2.5.0
@@ -521,13 +524,6 @@ export default async () => {
         // Adding routes with translated paths is done through nuxt-i18n config above
       }
     },
-    gtm: {
-      id: process.env.GTM_ID,
-      debug: process.env.RALPH_ENV !== 'prod',
-      respectDoNotTrack: false,
-      pageViewEventName: 'Page Impression',
-      pageTracking: false
-    },
     /*
      ** Runtime configs
      */
@@ -636,6 +632,7 @@ export default async () => {
         }
       ],
       routePaths,
+      useExternalGtm: true,
       /* ****************** */
       /* **** WIDGETS ***** */
       /* ****************** */

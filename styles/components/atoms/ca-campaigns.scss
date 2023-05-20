@@ -4,6 +4,7 @@
   &__item {
     @include price-type-badge;
     flex-shrink: 0;
+    padding: rem-calc(6) rem-calc(6) rem-calc(4);
   }
 
   &--box {

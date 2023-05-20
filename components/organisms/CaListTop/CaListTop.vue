@@ -31,7 +31,7 @@
       </div>
     </div>
     <CaCategoryDisplay
-      v-if="listInfo && listInfo.subCategories.length"
+      v-if="listInfo && listInfo.subCategories && listInfo.subCategories.length"
       class="ca-list-top__subcategories"
       :categories="listInfo.subCategories"
     />
