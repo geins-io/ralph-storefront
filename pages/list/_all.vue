@@ -15,23 +15,18 @@
 
 */
 import categoryInfoQuery from 'productlist/category-page.graphql';
+import MixSaleUtils from 'MixSaleUtils';
 
 export default {
   middleware: 'list-page-routing',
   name: 'AllListView',
-  mixins: [],
+  mixins: [MixSaleUtils],
   data: () => ({
     infoQuery: categoryInfoQuery
   }),
   computed: {
     currentAlias() {
       return 'all';
-    },
-    saleFacet() {
-      const facet = 'rp_sale_';
-      const currency = this.$store.getters['channel/currentCurrency'];
-
-      return `${facet}${currency}`.toLowerCase();
     }
   },
   mounted() {},
