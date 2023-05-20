@@ -1,6 +1,4 @@
 .ca-list-pagination {
-  --progress: 0;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,9 +6,22 @@
   margin-bottom: rem-calc(60px);
 
   &__button {
+    @include button;
     @include button-secondary;
     padding: rem-calc(17px) rem-calc(34px);
     overflow-anchor: none;
+
+    &--disabled {
+      @include button-disabled;
+    }
+
+    &--loading {
+      @include button-loading;
+    }
+  }
+
+  &__button-spinner {
+    @include button-spinner;
   }
 
   &__showing {
