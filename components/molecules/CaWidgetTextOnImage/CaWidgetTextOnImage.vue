@@ -90,7 +90,7 @@
           v-bind="linkElemAttributes"
           :to="configuration.button2Url"
           :style="{ backgroundColor: configuration.button2BackgroundColor }"
-          class="ca-button ca-button--m ca-widget-text-on-image__cta-secondary"
+          class="ca-button ca-button--m ca-widget-text-on-image__cta"
         >
           <span :style="{ color: configuration.button2FontColor }">
             {{ configuration.button2Text }}

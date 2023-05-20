@@ -7,8 +7,10 @@ $list-row-spacing-desktop: 10;
   row-gap: $list-row-spacing;
   grid-template-columns: repeat($list-column-count, 1fr);
   margin: 0 (-$default-site-width-spacing/2);
+
   @include bp(tablet) {
     margin: 0;
+    
     @if $list-column-spacing-tablet != $list-column-spacing {
       column-gap: $list-column-spacing-tablet;
     }
@@ -19,6 +21,7 @@ $list-row-spacing-desktop: 10;
       grid-template-columns: repeat($list-column-count-tablet, 1fr);
     }
   }
+
   @include bp(laptop) {
     @if $list-column-spacing-laptop != $list-column-spacing-tablet {
       column-gap: $list-column-spacing-laptop;
@@ -30,6 +33,7 @@ $list-row-spacing-desktop: 10;
       grid-template-columns: repeat($list-column-count-laptop, 1fr);
     }
   }
+  
   @include bp(desktop) {
     @if $list-column-spacing-desktop != $list-column-spacing-laptop {
       column-gap: $list-column-spacing-desktop;
@@ -41,6 +45,7 @@ $list-row-spacing-desktop: 10;
       grid-template-columns: repeat($list-column-count-desktop, 1fr);
     }
   }
+
   @include bp(desktop-big) {
     @if $list-column-spacing-desktop-big != $list-column-spacing-desktop {
       column-gap: $list-column-spacing-desktop-big;
@@ -52,17 +57,20 @@ $list-row-spacing-desktop: 10;
       grid-template-columns: repeat($list-column-count-desktop-big, 1fr);
     }
   }
+
   &__empty {
     width: 100%;
     font-size: $font-size-m;
     text-align: center;
     padding: rem-calc(30px) $px20 rem-calc(50px);
     color: $c-text-secondary;
+  
     @include bp(tablet) {
       font-size: $font-size-l;
       padding: rem-calc(60px) $px20 rem-calc(100px);
     }
   }
+  
   &--empty {
     display: block;
   }

@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 0 0 $px32;
+  margin: 0 0 clamp(#{rem-calc(22px)}, #{'-4vw + 4rem'}, #{rem-calc(30px)});
 
   &__text {
     width: 100%;
@@ -17,9 +17,9 @@
   &__title {
     font-size: $font-size-s;
     font-weight: $font-weight-semibold;
-    margin: 0 0 rem-calc(14px);
+
     &--skeleton {
-      margin: 0 auto rem-calc(14px);
+      margin: 0 auto;
     }
   }
 
@@ -27,6 +27,7 @@
     font-size: rem-calc(10px);
     letter-spacing: $letter-spacing-4;
     color: $c-semidark-gray;
+    margin-top: rem-calc(14px);
 
     &--skeleton {
       display: flex;

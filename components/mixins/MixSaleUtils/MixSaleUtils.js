@@ -35,6 +35,10 @@ export default {
     // Get standard or sale text, depending on isSale
     // @arg text (String)
     textVariation(text) {
+      if (typeof text !== 'string') {
+        return text;
+      }
+
       const separator = /<p>\$\$\$\$(.*?)<\/p>|\$\$\$\$/g;
       // eslint-disable-next-line no-unused-vars
       const [standardText, _, saleText] = text

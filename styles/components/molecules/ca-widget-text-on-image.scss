@@ -20,6 +20,7 @@
 
   &__subheading {
     display: flex;
+    font-family: $heading-font !important;
     font-size: $font-size-xs;
     font-weight: $font-weight-bold;
     padding: rem-calc(5px) rem-calc(12px);
@@ -63,9 +64,6 @@
     display: inline-block;
     white-space: nowrap;
     text-transform: uppercase;
-
-    font-size: $font-size-s;
-    padding: rem-calc(10) rem-calc(22);
   }
 
   &__video {

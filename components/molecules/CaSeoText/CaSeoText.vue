@@ -43,9 +43,13 @@ export default {
       this.isCollapsed = !this.isCollapsed;
     },
     trimBrTags(str) {
+      if (typeof str !== 'string') {
+        return str;
+      }
+
       const brTags = /^(\s*<br\s*\/?\s*>\s*)*|(\s*<br\s*\/?\s*>\s*)*\s*$/g;
 
-      return str.replace(brTags, '')
+      return str.replace(brTags, '');
     }
   }
 };
