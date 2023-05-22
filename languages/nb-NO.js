@@ -175,6 +175,7 @@ export default {
   ACCOUNT_ORDERS_TITLE: 'Ordrer',
   ACCOUNT_SETTINGS_TITLE: 'Indstillinger',
   ACCOUNT_BALANCE_TITLE: 'Saldo',
+  ACCOUNT_BALANCE_PAGE_TITLE: 'Saldo',
   ACCOUNT_TITLE: 'Mine sider',
   ACCOUNT_SETTINGS_CANCEL: 'Afbestille',
   ACCOUNT_SETTINGS_EDIT: 'Skift',
