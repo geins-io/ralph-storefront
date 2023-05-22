@@ -43,7 +43,7 @@
         {{ $t('COMPLETE_ORDER') }}
       </template>
       <CaCheckoutExternal
-        v-if="selectedPaymentOption"
+        v-if="selectedPaymentOption && avardaScriptLoaded"
         ref="externalcheckout"
         :data="selectedPaymentOption.paymentData"
         :new-checkout-session="selectedPaymentOption.newCheckoutSession"
