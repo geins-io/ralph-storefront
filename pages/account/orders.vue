@@ -117,7 +117,7 @@ export default {
     }
   },
   meta: {
-    pageType: 'Orders Page'
+    pageType: 'My pages'
   }
 };
 </script>

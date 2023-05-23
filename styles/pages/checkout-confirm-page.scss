@@ -1,7 +1,7 @@
 .ca-checkout-confirm-page {
   max-width: rem-calc(650);
   margin: 0 auto;
-  
+
   &__title {
     font-size: $font-size-xl;
     text-align: center;
@@ -23,7 +23,7 @@
       background-color: $c-pink;
     }
   }
-  
+
   &__cart {
     .ca-checkout-section__content {
       padding: 0;
@@ -54,15 +54,26 @@
     font-size: $font-size-xxl;
     font-weight: $font-weight-bold;
   }
-  
+
   &__text {
     text-align: center;
     margin: 0 0 $px20;
     white-space: pre-line;
   }
-  
+
   &__id {
     font-size: $font-size-xl;
     color: $c-text-secondary;
+  }
+
+  &__spinner-box {
+    @include flex-calign;
+    height: rem-calc(300px);
+  }
+
+  &__spinner.ca-spinner {
+    border-color: var(--accent-color, $c-accent-color);
+    width: 50px;
+    height: 50px;
   }
 }

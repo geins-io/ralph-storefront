@@ -51,14 +51,14 @@ export default {
       return this.$t(`FLOWBOX_TAG_${tag.replace('-', '_').toUpperCase()}`);
     },
     onTagClick(e) {
-      const selectedTag = e.currentTarget.dataset.tag; 
+      const selectedTag = e.currentTarget.dataset.tag;
       const tags = selectedTag === 'all' ? this.tags : [selectedTag];
 
       this.updateFlow(tags);
       this.selectedTag = selectedTag;
     },
     initFlow() {
-       window.flowbox('init', {
+      window.flowbox('init', {
         container: this.$refs.flow,
         key: this.flowKey,
         locale: this.$i18n?.localeProperties.code,
@@ -87,7 +87,7 @@ export default {
     };
   },
   meta: {
-    pageType: 'Instashop Page'
+    pageType: 'Instashop'
   }
 };
 </script>

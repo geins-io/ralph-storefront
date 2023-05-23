@@ -22,7 +22,7 @@ export default {
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Search Page'
+    pageType: 'Search'
   }
 };
 </script>

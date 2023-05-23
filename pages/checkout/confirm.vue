@@ -1,10 +1,16 @@
 <template>
   <div ref="orderSuccess" class="ca-checkout-confirm-page">
-    <CaContainer>
+    <CaContainer v-if="!loading">
       <CaCheckoutHeader :title="$t('ORDER_CONFIRM_TITLE')" />
-      <CaCheckoutSection :bottom-arrow="false" class="ca-checkout-confirm-page__order-confirm">
+      <CaCheckoutSection
+        :bottom-arrow="false"
+        class="ca-checkout-confirm-page__order-confirm"
+      >
         <div class="ca-checkout-confirm">
-          <CaIcon class="ca-checkout-confirm__icon" name="checkmark-confirm-animated" />
+          <CaIcon
+            class="ca-checkout-confirm__icon"
+            name="checkmark-confirm-animated"
+          />
           <h2 class="ca-checkout-confirm__title">
             {{ $t('CHECKOUT_CONFIRM_TITLE') }}
           </h2>
@@ -20,10 +26,15 @@
           <p v-if="$route.query.oid" class="ca-checkout-confirm__id">
             {{ $t('ORDER_NUMBER') }}: #{{ $route.query.oid }}
           </p>
-          <p class="ca-checkout-confirm__regards">{{ $t('CHECKOUT_REGARDS') }}</p>
+          <p class="ca-checkout-confirm__regards">
+            {{ $t('CHECKOUT_REGARDS') }}
+          </p>
         </div>
       </CaCheckoutSection>
-      <CaCheckoutSection :bottom-arrow="false" class="ca-checkout-confirm-page__cart">
+      <CaCheckoutSection
+        :bottom-arrow="false"
+        class="ca-checkout-confirm-page__cart"
+      >
         <template #title>
           {{ $t('ORDER_SUMMARY_TITLE') }}
         </template>
@@ -35,6 +46,9 @@
         </client-only>
       </CaCheckoutSection>
     </CaContainer>
+    <div v-else class="ca-checkout-confirm__spinner-box">
+      <CaSpinner class="ca-checkout-confirm__spinner" :loading="loading" />
+    </div>
   </div>
 </template>
 
@@ -54,17 +68,22 @@ export default {
   mixins: [MixConfirmPage, MixCheckoutPage],
   data: () => ({}),
   computed: {},
-  mounted() {
-    this.$nextTick(() => {
-      party.confetti(this.$refs.orderSuccess, {
-        count: party.variation.range(70, 100),
-        size: party.variation.range(0.8, 1.2),
-      });
-    });
+  watch: {
+    loading(newVal, oldVal) {
+      if (oldVal && !newVal) {
+        this.$nextTick(() => {
+          party.confetti(this.$refs.orderSuccess, {
+            count: party.variation.range(70, 100),
+            size: party.variation.range(0.8, 1.2)
+          });
+        });
+      }
+    }
   },
+  mounted() {},
   methods: {},
   meta: {
-    pageType: 'Confirm Page'
+    pageType: 'Thank you-page'
   }
 };
 </script>

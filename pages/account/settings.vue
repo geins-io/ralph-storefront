@@ -59,7 +59,7 @@ export default {
   }),
   methods: {},
   meta: {
-    pageType: 'Settings Page'
+    pageType: 'My pages'
   }
 };
 </script>

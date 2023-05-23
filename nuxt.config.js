@@ -382,8 +382,7 @@ export default async () => {
       [
         '@geins/ralph-module-voyado-elevate',
         {
-          clusterId: process.env.VOYADO_CLUSTER_ID,
-          encodeSearchString: true
+          clusterId: process.env.VOYADO_CLUSTER_ID
         }
       ],
       // Doc: https://www.npmjs.com/package/@geins/ralph-module-gtm
@@ -395,6 +394,22 @@ export default async () => {
             {
               override: 'price_campaign',
               name: 'green_price'
+            },
+            {
+              override: 'value',
+              name: 'UA_value'
+            },
+            {
+              override: 'items_value_ex_tax',
+              name: 'value'
+            },
+            {
+              override: 'items_tax',
+              name: 'tax'
+            },
+            {
+              override: 'user_id',
+              name: 'userId'
             }
           ],
           gtm: {
