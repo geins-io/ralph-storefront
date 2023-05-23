@@ -60,7 +60,7 @@ export default {
   },
   methods: {},
   meta: {
-    pageType: 'Balance Page'
+    pageType: 'My pages'
   }
 };
 </script>

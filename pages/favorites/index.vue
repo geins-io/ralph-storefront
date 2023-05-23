@@ -28,7 +28,7 @@ export default {
   computed: {},
   methods: {},
   meta: {
-    pageType: 'Favorite Page'
+    pageType: 'My favorites'
   }
 };
 </script>

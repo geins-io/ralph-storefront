@@ -11,9 +11,9 @@
 <script>
 /*
   Renders the list page.
-  
+
   middleware: list-page-routing - handles the routing for the list pages
-  
+
   computed:
     currentPath: The current path of the list page.
     filtersVars: The variables for the filters query.
@@ -45,7 +45,7 @@ export default {
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'List Page'
+    pageType: 'Product list'
   }
 };
 </script>

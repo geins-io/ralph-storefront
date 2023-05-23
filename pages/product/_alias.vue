@@ -329,7 +329,7 @@ export default {
     }
   },
   meta: {
-    pageType: 'Product Page'
+    pageType: 'Product'
   }
 };
 </script>

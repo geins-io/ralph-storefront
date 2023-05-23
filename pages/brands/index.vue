@@ -89,7 +89,7 @@ export default {
       result(result) {
         if (result.data && result.data.products.filters) {
           const facets = result.data.products.filters.facets;
-          const brandFacets = facets.find(facet => facet.type === 'Brand'); 
+          const brandFacets = facets.find(facet => facet.type === 'Brand');
 
           this.updateBrandsFromFacets(brandFacets);
           this.isLoading = false;
@@ -158,7 +158,7 @@ export default {
             alias: item.label.toUpperCase(),
             name: item.label,
             canonicalUrl: item.url
-          }
+          };
         });
       }
     },
@@ -190,7 +190,7 @@ export default {
     }
   },
   meta: {
-    pageType: 'Brands Page'
+    pageType: 'Brands'
   }
 };
 </script>

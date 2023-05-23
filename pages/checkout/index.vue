@@ -22,7 +22,7 @@ export default {
   data: () => ({}),
   methods: {},
   meta: {
-    pageType: 'Checkout Page'
+    pageType: 'Checkout'
   }
 };
 </script>

@@ -85,7 +85,7 @@ export default {
     widgetAreaVars() {
       const obj = {
         family: 'Productlist',
-        areaName: 'The top part of the product list',
+        areaName: '1. The top part of the product list',
         alias: '',
         preview: false
       };

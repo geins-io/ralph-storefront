@@ -78,7 +78,7 @@ export default {
     }
   },
   meta: {
-    pageType: 'Account Page'
+    pageType: 'My pages'
   },
   methods: {
     routeToAccount() {

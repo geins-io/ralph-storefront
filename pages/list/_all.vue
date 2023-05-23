@@ -32,7 +32,7 @@ export default {
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Products Page'
+    pageType: 'News'
   }
 };
 </script>

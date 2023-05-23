@@ -178,7 +178,7 @@ export default {
     }
   },
   meta: {
-    pageType: 'Reset password Page'
+    pageType: 'Forgot password'
   }
 };
 </script>
