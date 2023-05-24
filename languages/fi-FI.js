@@ -53,6 +53,7 @@ export default {
   FILTER_LABEL_PRICE: 'Myöntää',
   FILTER_LABEL_CAMPAIGNS: 'Myöntää',
   FILTER_LABEL_SKUS: 'Koot',
+  FILTER_LABEL_DISCOUNT: 'Ale',
   FILTERS_ACTIVE: 'aktiivinen suodatin | aktiiviset suodattimet',
   SORT_TITLE: 'Järjestä',
   SORT_LABEL_LATEST: 'Viimeksi saapuneet',

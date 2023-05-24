@@ -47,6 +47,13 @@ fragment Cart on CartType {
       unitPrice {
         ...Price
       }
+      parameterGroups {
+        parameterGroupId
+        parameters {
+          name
+          value
+        }
+      }
     }
     quantity
     skuId

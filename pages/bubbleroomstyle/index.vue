@@ -66,6 +66,7 @@ export default {
         tagsOperator: 'any',
         lazyLoad: false
       });
+      this.$store.dispatch('loading/end');
     },
     updateFlow(tags) {
       window.flowbox('update', {
