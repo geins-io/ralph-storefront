@@ -321,7 +321,7 @@ export default {
   NOTIFY_PANEL_SUCCESS:
     'Din dækning registreres. Du modtager en e-mail, når dit produkt er tilbage på lager.',
   NOTIFY_ME: 'Overvåge',
-  ALL_PAGE_TITLE: 'Alle produkter',
+  ALL_PAGE_TITLE: 'Nyheder',
   NAVIGATION_ALL_IN: 'Vis alt indenfor',
   NAVIGATION_GO_TO: 'Gå til',
   RELATED_PRODUCTS: 'Relaterede produkter',

@@ -318,7 +318,7 @@ export default {
   NOTIFY_PANEL_BUTTON: 'Näytön koko',
   NOTIFY_PANEL_SUCCESS: 'Koko näyttö tallennettu',
   NOTIFY_ME: 'Näytön koko',
-  ALL_PAGE_TITLE: 'Kaikki tuotteet',
+  ALL_PAGE_TITLE: 'Uutiset',
   NAVIGATION_ALL_IN: 'Näytä kaikki sisällä',
   NAVIGATION_GO_TO: 'Mene',
   RELATED_PRODUCTS: 'Liittyvät tuotteet',
