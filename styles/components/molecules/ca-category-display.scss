@@ -9,7 +9,7 @@
     justify-content: center;
   }
 
-  &__button {
+  &__button.ca-button {
     @include button-secondary;
     padding: $px10 rem-calc(13px);
   }

@@ -52,6 +52,7 @@ export default {
   FILTER_LABEL_PRICE: 'Pris',
   FILTER_LABEL_CAMPAIGNS: 'Kampagner',
   FILTER_LABEL_SKUS: 'Størrelser',
+  FILTER_LABEL_DISCOUNT: 'Tilbud',
   FILTERS_ACTIVE: 'aktivt filter | aktive filtre',
   SORT_TITLE: 'Sorter',
   SORT_LABEL_LATEST: 'Sidst modtaget',

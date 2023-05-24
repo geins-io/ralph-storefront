@@ -61,13 +61,13 @@
     errorPolicy: 'all' to prevent errors from being thrown.
     result: If the brands query returns data, set isLoading to false.
     error: If the brands query returns an error, throw the error.
-  
+
   data:
     isLoading: Boolean to check if the brands query has returned data.
     brandsTree: The brands object.
     isGroupFilter: Boolean to check if the group filter is active.
     activeGroupFilter: The active group filter.
-  
+
   computed:
     sortedBrands: The brands sorted by alias.
     getOneBrandPerCharacter: The brands sorted by alias and only one brand per character.
@@ -80,11 +80,20 @@
 
 */
 import brandsByProductsQuery from 'products/brands-by-products.graphql';
+import MixSaleUtils from 'MixSaleUtils';
 export default {
   name: 'BrandsPage',
+  mixins: [MixSaleUtils],
   apollo: {
     products: {
       query: brandsByProductsQuery,
+      variables() {
+        return {
+          filter: {
+            excludeFacets: [`${this.saleFacet}`]
+          }
+        };
+      },
       errorPolicy: 'all',
       result(result) {
         if (result.data && result.data.products.filters) {
