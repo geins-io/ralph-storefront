@@ -50,12 +50,7 @@ export default {
     products: {
       query: productsQuery,
       variables() {
-        return {
-          productVars: this.productVars,
-          filter: {
-            excludeFacets: [`${this.saleFacet}`]
-          }
-        };
+        return this.productVars;
       },
       errorPolicy: 'all',
       result(result) {
@@ -157,6 +152,8 @@ export default {
           facets: this.favoritesProducts
         };
       }
+
+      filter.excludeFacets = [`${this.saleFacet}`];
 
       return {
         filter,
