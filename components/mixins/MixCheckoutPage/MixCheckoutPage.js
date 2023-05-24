@@ -6,13 +6,16 @@ export default {
     avardaScriptLoaded: false
   }),
   computed: {
-    env() {
-      return this.$config.ralphEnv === 'prod' ? 'p' : 's';
+    stage() {
+      return this.$config.ralphEnv === 'prod' ? '' : 'stage.';
     }
   },
   watch: {},
   mounted() {
     this.$store.dispatch('initVoyado');
+    if (window.avardaCheckoutInit) {
+      this.avardaScriptLoaded = true;
+    }
   },
   methods: {},
   head() {
@@ -20,7 +23,7 @@ export default {
       script: [
         {
           hid: 'avarda',
-          src: `https://avdonl0${this.env}0checkout0fe.blob.core.windows.net/frontend/static/js/main.js`,
+          src: `https://${this.stage}checkout-cdn.avarda.com/cdn/static/js/main.js`,
           callback: () => {
             this.avardaScriptLoaded = true;
           }
