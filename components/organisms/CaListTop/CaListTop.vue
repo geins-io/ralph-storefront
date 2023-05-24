@@ -31,9 +31,9 @@
       </div>
     </div>
     <CaCategoryDisplay
-      v-if="listInfo && listInfo.subCategories && listInfo.subCategories.length"
+      v-if="filteredSubCategories && filteredSubCategories.length"
       class="ca-list-top__subcategories"
-      :categories="listInfo.subCategories"
+      :categories="filteredSubCategories"
     />
   </div>
 </template>
@@ -52,7 +52,6 @@
 */
 export default {
   name: 'CaListTop',
-  mixins: [],
   props: {
     type: {
       type: String,
@@ -61,13 +60,36 @@ export default {
     listInfo: {
       type: Object,
       default: () => {}
+    },
+    categories: {
+      type: Array,
+      default: () => []
     }
   },
-  data: () => ({}),
-  computed: {},
-  watch: {},
-  mounted() {},
-  methods: {}
+  computed: {
+    // Categories and sub categories exist
+    hasCategories() {
+      return !!(this.listInfo &&
+        this.listInfo.subCategories &&
+        this.listInfo.subCategories.length &&
+        this.categories &&
+        this.categories.length);
+    },
+    // Filter all sub categories that are not in the categories array
+    filteredSubCategories() {
+      if (!this.hasCategories) {
+        return [];
+      }
+
+      return this.listInfo.subCategories.filter(
+        subCategory =>
+          this.categories.find(category => {
+            const subCategoryFacet = 'c_' + subCategory.alias.toString();
+            return subCategoryFacet === category.facetId;
+          })
+      );
+    },
+  },
 };
 </script>
 <style lang="scss">

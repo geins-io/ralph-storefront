@@ -314,6 +314,7 @@ export default {
   FREE_SHIPPING: 'Fri fragt',
   SWEDEN: 'Sverige',
   BREADCRUMBS_HOME: 'Hjem',
+  BREADCRUMBS_SALE: 'Udsalg',
   NOTIFY_PANEL_TITLE: 'Overvåg produkt',
   NOTIFY_PANEL_DESCRIPTION:
     'Indtast din e-mailadresse i feltet nedenfor for at modtage en besked, når produktet er tilbage på lager.',

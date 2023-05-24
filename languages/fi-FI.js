@@ -312,6 +312,7 @@ export default {
   FREE_SHIPPING: 'Ilmainen toimitus',
   SWEDEN: ' Sverige',
   BREADCRUMBS_HOME: 'Etusivu ',
+  BREADCRUMBS_SALE: 'Ale',
   NOTIFY_PANEL_TITLE: 'Näytön koko',
   NOTIFY_PANEL_DESCRIPTION:
     'Kirjoita sähköpostiosoitteesi alla olevaan kenttään saadaksesi ilmoituksen, kun tuotetta on taas varastossa.',

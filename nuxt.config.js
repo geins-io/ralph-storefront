@@ -562,6 +562,13 @@ export default async () => {
       ...marketSettings,
       useStartPage: false,
       markets,
+      salePathsByMarket: {
+        se: '/rea',
+        en: '/sale',
+        dk: '/udsalg',
+        fi: '/ale',
+        no: '/tilbud'
+      },
       customerServiceEmail: 'kundservice@bubbleroom.se',
       customerServicePhone: '08-411 17 17',
       breakpoints: {

@@ -3,7 +3,12 @@
     <CaContainer>
       <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
       <CaSkeleton v-else class="ca-breadcrumbs" width="10%" />
-      <CaListTop v-if="!hideListInfo" :type="type" :list-info="listInfo" />
+      <CaListTop
+        v-if="!hideListInfo"
+        :type="type"
+        :list-info="listInfo"
+        :categories="filters.categories"
+      />
     </CaContainer>
     <CaWidgetArea
       class="ca-list-page__widget-area"

@@ -1,12 +1,28 @@
-/* 
+/*
   Helpers for sale pages
 */
+import { mapState } from 'vuex';
+
 export default {
   name: 'MixSaleUtils',
-  mixins: [],
-  props: {},
-  data: () => ({}),
   computed: {
+    ...mapState({
+      currentMarket: state => state.channel.currentMarket
+    }),
+    // @vuese
+    // Get sale paths by market dictionary
+    salePathsByMarket() {
+      if (!this.$config?.salePathsByMarket) {
+        return {};
+      }
+
+      return this.$config.salePathsByMarket;
+    },
+    // @vuese
+    // Get sale path by market
+    salePath() {
+      return this.salePathsByMarket[this.currentMarket];
+    },
     // @vuese
     // Check if current route includes sale segment
     isSale() {
@@ -14,10 +30,9 @@ export default {
         return false;
       }
 
-      /* Array for multiple sale markets (in order): sv, en, da, fi, nb */
-      const markets = ['rea', 'sale', 'udsalg', 'ale', 'tilbud'];
+      const salePaths = Object.values(this.salePathsByMarket);
 
-      return markets.some(x => this.$route.path.includes(x));
+      return salePaths.some(x => this.$route.path.includes(x));
     },
     // @vuese
     // Compute sale facet name
@@ -26,10 +41,8 @@ export default {
       const currency = this.$store.getters['channel/currentCurrency'];
 
       return `${facet}${currency}`.toLowerCase();
-    }
+    },
   },
-  watch: {},
-  mounted() {},
   methods: {
     // @vuese
     // Get standard or sale text, depending on isSale

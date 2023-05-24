@@ -1,8 +1,12 @@
 <template>
-  <component :is="isDesktop">
-    <ul v-if="categories && categories.length" class="ca-category-display">
+  <component
+    :is="isDesktop"
+    v-if="modifiedCategories.length"
+    class="ca-category-display__container"
+  >
+    <ul class="ca-category-display">
       <li
-        v-for="(category, index) in categories"
+        v-for="(category, index) in modifiedCategories"
         :key="index"
         class="ca-category-display__item"
       >
@@ -19,13 +23,14 @@
   </component>
 </template>
 <script>
+import MixSaleUtils from 'MixSaleUtils';
 // @group Molecules
 // @vuese
 // Display list of categories as buttons. Often used in list page headers<br><br>
 // **SASS-path:** _./styles/components/molecules/ca-category-display.scss_
 export default {
   name: 'CaCategoryDisplay',
-  mixins: [],
+  mixins: [MixSaleUtils],
   props: {
     // List of categories to display. Must include name and alias
     categories: {
@@ -43,17 +48,49 @@ export default {
       default: 'div'
     }
   },
-  data: () => ({}),
+  data: () => ({
+    modifiedCategories: []
+  }),
   computed: {
     isDesktop() {
-      return this.$store.getters.viewportComputer 
-        ? 'CaReadMore' 
+      return this.$store.getters.viewportComputer
+        ? 'CaReadMore'
         : this.elementWrapper;
+    },
+  },
+  watch: {
+    isSale: {
+      handler(state) {
+        if (state === false) {
+          this.modifiedCategories = this.categories;
+        } else {
+          this.applySaleToCategories();
+        }
+      },
+      immediate: true
     }
   },
-  watch: {},
-  mounted() {},
-  methods: {}
+  methods: {
+    addSaleToPath(path) {
+      if (/^\/l/.test(path)) {
+        return path.replace(/^\/l/, '/l' + this.salePath);
+      }
+
+      return path;
+    },
+    async applySaleToCategories() {
+      const modifiedCategories = await Promise.all(this.categories.map(async category => {
+        const modifiedPath = await this.addSaleToPath(category.canonicalUrl);
+
+        return {
+          ...category,
+          canonicalUrl: modifiedPath
+        };
+      }));
+
+      this.modifiedCategories = modifiedCategories;
+    },
+  }
 };
 </script>
 <style lang="scss">

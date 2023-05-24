@@ -314,6 +314,7 @@ export default {
   FREE_SHIPPING: 'Fri frakt',
   SWEDEN: 'Sverige',
   BREADCRUMBS_HOME: 'Hem',
+  BREADCRUMBS_SALE: 'REA',
   NOTIFY_PANEL_TITLE: 'Bevaka produkt',
   NOTIFY_PANEL_DESCRIPTION:
     'Fyll i din e-postadress i fältet nedan för att få en avisering när produkten är tillbaka i lager igen.',
