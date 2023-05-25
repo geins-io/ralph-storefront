@@ -393,5 +393,10 @@ export default {
   FLOWBOX_TAG_JUMPSUITS: 'Jumpsuit',
   FLOWBOX_TAG_TOPS: 'Paidat',
   FLOWBOX_TAG_JACKETS: 'Takit',
-  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Housut & Hameet'
+  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Housut & Hameet',
+  // TODO: Temporary translations
+  // eslint-disable-next-line quotes
+  TEMP_ACCOUNT_PANEL_CODE: `Psst... Juuri nyt saat 15% alennusta kaikesta koodilla <strong>NEW15</strong>`,
+  // eslint-disable-next-line quotes
+  TEMP_ACCOUNT_PANEL_PASSWORD_NOTE: `Päivitämme turvallisuuttamme. Sinun täytyy siksi palauttaa salasanasi painamalla <strong>"Unohditko salasanasi"</strong> alla.`
 };

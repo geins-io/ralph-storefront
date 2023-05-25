@@ -1,0 +1,60 @@
+.ca-account-panel {
+  &__inner {
+    padding: $px20;
+  }
+
+  &__feedback {
+    margin-bottom: $default-spacing;
+  }
+  
+  &__actions {
+    margin: $px16 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  &__disclaimer {
+    width: 100%;
+    margin: $px16 0 0;
+  
+    a {
+      text-decoration: underline;
+    }
+  }
+  
+  &__forgot {
+    text-decoration: underline;
+  }
+  
+  &__button {
+    margin: 0 0 $px12;
+  
+    &--reset {
+      margin: $px12 0;
+    }
+  }
+  
+  &__back {
+    margin: $px4 auto 0;
+    text-decoration: underline;
+    display: table;
+  }
+
+  // TODO: Temporary code - Delete some time after launch
+  &__temporary {
+    background-color: #fef6f7;
+    font-size: $font-size-xs;
+    border-radius: rem-calc(4);
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: rem-calc(4);
+    margin-top: rem-calc(8);
+    padding: rem-calc(18);
+  }
+
+  &__temporary-note {
+    margin-bottom: rem-calc(20);
+  }
+}

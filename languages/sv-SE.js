@@ -396,5 +396,10 @@ export default {
   FLOWBOX_TAG_JUMPSUITS: 'Jumpsuits',
   FLOWBOX_TAG_TOPS: 'Toppar',
   FLOWBOX_TAG_JACKETS: 'Jackor & Kappor',
-  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Byxor & Kjolar'
+  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Byxor & Kjolar',
+  // TODO: Temporary translations
+  // eslint-disable-next-line quotes
+  TEMP_ACCOUNT_PANEL_CODE: `Psst... Just nu får du 15% rabatt på allt med koden <strong>NEW15</strong>`,
+  // eslint-disable-next-line quotes
+  TEMP_ACCOUNT_PANEL_PASSWORD_NOTE: `Vi uppdaterar vår säkerhet. Du behöver därför återställa ditt lösenord genom att trycka på <strong>"Glömt lösenord"</strong> nedan.`
 };

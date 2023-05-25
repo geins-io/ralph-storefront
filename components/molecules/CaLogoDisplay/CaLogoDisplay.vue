@@ -30,12 +30,11 @@ export default {
   },
   data: () => ({}),
   computed: {
+    currentMarket() {
+      return this.$store.state.channel.currentMarket;
+    },
     logos() {
-      let logoArray = this.$config.paymentAndDeliveryLogos;
-
-      if (this.$store.state.channel.currentMarket === 'dk') {
-        logoArray = logoArray.filter(({ name }) => name !== 'paypal');
-      }
+      const logoArray = this.getLogosForMarket(this.currentMarket);
 
       if (this.type === 'all') {
         return logoArray;
@@ -46,7 +45,14 @@ export default {
   },
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {
+    getLogosForMarket(market) {
+      const marketLogos = this.$config.paymentAndDeliveryLogosByMarket[market] || [];
+      const allLogos = this.$config.paymentAndDeliveryLogos;
+
+      return allLogos.filter(({ name }) => marketLogos.includes(name));
+    }
+  }
 };
 </script>
 <style lang="scss">

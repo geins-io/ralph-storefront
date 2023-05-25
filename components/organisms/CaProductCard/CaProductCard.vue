@@ -2,8 +2,7 @@
   <component :is="baseTag" class="ca-product-card">
     <CaBadge
       v-if="isNew"
-      type="new"
-      :text="$t('BADGE_NEW')"
+      value="NEW"
       class="ca-product-card__new-badge"
     />
     <div v-if="productPopulated" class="ca-product-card__image-wrap">

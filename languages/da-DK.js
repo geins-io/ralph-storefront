@@ -401,5 +401,10 @@ export default {
   FLOWBOX_TAG_JUMPSUITS: 'Jumpsuit',
   FLOWBOX_TAG_TOPS: 'Toppe',
   FLOWBOX_TAG_JACKETS: 'Jakker & Frakker',
-  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Bukser & Nederdele'
+  FLOWBOX_TAG_TROUSERS_SKIRTS: 'Bukser & Nederdele',
+  // TODO: Temporary translations
+  // eslint-disable-next-line quotes
+  TEMP_ACCOUNT_PANEL_CODE: `Psst... Lige nu får du 15% rabat på alt med koden <strong>NEW15</strong>`,
+  // eslint-disable-next-line quotes
+  TEMP_ACCOUNT_PANEL_PASSWORD_NOTE: `Vi opdaterer vores sikkerhed. Du skal derfor nulstille din adgangskode ved at trykke på <strong>"Glemt Adgangskode"</strong> nedenfor.`
 };

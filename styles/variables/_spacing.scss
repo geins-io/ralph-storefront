@@ -23,10 +23,12 @@ $default-site-width-spacing-laptop: $px40;
 
 // List spacing
 $list-column-spacing: $px4;
-$list-row-spacing: $px24;
 $list-column-spacing-tablet: $px10;
-$list-row-spacing-tablet: $px32;
+$list-column-spacing-desktop: rem-calc(18);
 $list-column-spacing-laptop: rem-calc(18);
+$list-row-spacing: $px24;
+$list-row-spacing-tablet: $px32;
+$list-row-spacing-desktop: rem-calc(36);
 $list-row-spacing-laptop: rem-calc(36);
 
 // Widget spacing
