@@ -38,7 +38,14 @@ export default {
     },
     // The interest rate for the current market
     yearInterestRate() {
-      return this.$store.state.channel.currentMarket === 'no' ? 22.95 : 19.92;
+      switch (this.$store.state.channel.currentMarket) {
+        case 'no':
+          return 22.95;
+        case 'fi':
+          return 17.5;
+        default:
+          return 19.92;
+      }
     }
   },
   watch: {},

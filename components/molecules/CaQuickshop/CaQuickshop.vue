@@ -47,7 +47,8 @@ export default {
     handleClick(sku) {
       if (this.getStockStatus(sku.stock) === 'OUT_OF_STOCK') {
         const notifyVariant = {
-          label: sku.name
+          label: sku.name,
+          skuId: sku.skuId
         };
         this.$store.commit('quickshop/setNotifyVariant', notifyVariant);
         this.$nextTick(() => {
