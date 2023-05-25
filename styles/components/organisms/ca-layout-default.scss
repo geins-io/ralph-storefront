@@ -42,6 +42,10 @@
     }
   }
 
+  &__top-area {
+    margin: 0 0 $px20;
+  }
+
   &--loading {
     #{$block}__main {
       min-height: 100vh;

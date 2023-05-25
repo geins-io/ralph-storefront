@@ -363,6 +363,13 @@ export default async () => {
               fi: '/tuotemerkit',
               nb: '/merker'
             },
+            'list/bestsellers': {
+              sv: encodeURI('/bästsäljare-just-nu'),
+              en: '/bestsellers',
+              da: '/bestseller-lige-nu',
+              fi: '/parhaiten-myydyt-just-nyt',
+              nb: encodeURI('/bestselgere-akkurat-nå')
+            },
             'list/_all': {
               sv: '/nyheter',
               en: '/news',
@@ -697,6 +704,12 @@ export default async () => {
       showSkuFilter: true,
       showPriceFilter: true,
       showDiscountFilter: true,
+      customSortRoutes: [
+        {
+          name: 'bestsellers',
+          sort: 'CUSTOM_1'
+        }
+      ],
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */

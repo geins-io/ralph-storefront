@@ -6,6 +6,7 @@
         v-if="!isPdp"
         family="Top Area"
         area-name="Campaign banner"
+        class="ca-layout-default__top-area"
       />
       <Nuxt />
     </main>

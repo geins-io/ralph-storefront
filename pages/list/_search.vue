@@ -6,10 +6,7 @@
 /*
   Renders the search page.
 
-
-
 */
-
 export default {
   name: 'SearchListView',
   mixins: [],

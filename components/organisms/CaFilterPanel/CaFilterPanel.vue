@@ -285,7 +285,14 @@ export default {
     }
   },
   data: () => ({
-    currentSelection: {}
+    currentSelection: {},
+    defaultSortOptions: [
+      'RELEVANCE',
+      'LATEST',
+      'CUSTOM_1',
+      'PRICE',
+      'PRICE_DESC'
+    ]
   }),
   computed: {
     buttonSize() {

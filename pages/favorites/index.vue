@@ -23,7 +23,6 @@ import MixFavoritesPage from 'MixFavoritesPage';
 export default {
   name: 'FavoritesPage',
   mixins: [MixFavoritesPage],
-
   data: () => ({}),
   computed: {},
   methods: {},
