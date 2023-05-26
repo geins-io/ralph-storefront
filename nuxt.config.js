@@ -225,6 +225,11 @@ export default async () => {
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/headersControl.js',
         mode: 'server'
+      },
+      {
+        src: '~/plugins/voyadoEngage.client.js',
+        mode: 'client',
+        ssr: false
       }
     ],
 
@@ -474,6 +479,21 @@ export default async () => {
       options.push({ userAgent: 'AhrefsBot', disallow: '/' });
       return options;
     },
+    head: {
+      script: [
+        {
+          hid: 'voyado-engage-js-embed',
+          src:
+            process.env.ralphEnv === 'prod'
+              ? '/vendors/voyado-engage-tracking-script.js'
+              : '/vendors/voyado-engage-tracking-script-staging.js',
+          defer: true
+        }
+      ]
+    },
+    serverMiddleware: [
+      { path: '/api/voyado-engage', handler: '~/api/voyado-engage.js' }
+    ],
     // htmlValidator: {
     //   usePrettier: true,
     //   options: {
