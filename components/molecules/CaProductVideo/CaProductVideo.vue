@@ -1,48 +1,50 @@
 <template>
-  <div class="ca-product-video" :class="modifiers">
-    <LazyVimeo
-      v-show="ready"
-      ref="player"
-      :video-id="videoId"
-      :options="options"
-      class="ca-product-video__video"
-      @timeupdate="onTimeUpdate"
-      @ready="onReady"
-    />
-    <div
-      v-show="ready"
-      class="ca-product-video__controls"
-      :class="{ 'ca-product-video__controls--playing': isPlaying }"
-    >
-      <CaIconButton
-        class="ca-product-video__button"
-        :class="{
-          'ca-product-video__button--playing': isPlaying
-        }"
-        :icon-name="isPlaying ? 'pause' : 'play'"
-        :aria-label="isPlaying ? 'Pause video' : 'Play video'"
-        @clicked="togglePlayPause"
+  <client-only>
+    <div class="ca-product-video" :class="modifiers">
+      <LazyVimeo
+        v-show="ready"
+        ref="player"
+        :video-id="videoId"
+        :options="options"
+        class="ca-product-video__video"
+        @timeupdate="onTimeUpdate"
+        @ready="onReady"
       />
-
       <div
-        ref="scrollbar"
-        class="ca-product-video__scrollbar"
-        @mousedown="startScrubbing"
-        @touchstart="startScrubbing"
+        v-show="ready"
+        class="ca-product-video__controls"
+        :class="{ 'ca-product-video__controls--playing': isPlaying }"
       >
-        <div
-          class="ca-product-video__progress"
-          :style="{ width: progress + '%' }"
+        <CaIconButton
+          class="ca-product-video__button"
+          :class="{
+            'ca-product-video__button--playing': isPlaying
+          }"
+          :icon-name="isPlaying ? 'pause' : 'play'"
+          :aria-label="isPlaying ? 'Pause video' : 'Play video'"
+          @clicked="togglePlayPause"
         />
+
+        <div
+          ref="scrollbar"
+          class="ca-product-video__scrollbar"
+          @mousedown="startScrubbing"
+          @touchstart="startScrubbing"
+        >
+          <div
+            class="ca-product-video__progress"
+            :style="{ width: progress + '%' }"
+          />
+        </div>
       </div>
+      <CaSkeleton
+        v-if="!ready"
+        class="ca-product-video__video"
+        :radius="false"
+        height="100vh"
+      />
     </div>
-    <CaSkeleton
-      v-if="!ready"
-      class="ca-product-video__video"
-      :radius="false"
-      height="100vh"
-    />
-  </div>
+  </client-only>
 </template>
 <script>
 /*

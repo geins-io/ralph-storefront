@@ -113,6 +113,7 @@
 
           <div class="ca-product-page__buy-wrap">
             <button
+              v-if="product.variantGroup"
               class="ca-product-page__size-picker"
               @click="$store.dispatch('quickshop/open', voyadoProduct)"
             >
@@ -127,7 +128,7 @@
               class="ca-product-page__buy-button"
               type="full-width"
               color="secondary"
-              @clicked="notifyHandler(skuVariants[0])"
+              @clicked="notifyHandler(product.skus[0])"
             >
               {{ $t('NOTIFY_PANEL_BUTTON') }}
             </CaButton>
