@@ -11,7 +11,11 @@
   &__new-badge {
     grid-area: new;
     align-self: start;
-    margin-left: $px8;
+    margin-left: rem-calc(5);
+    
+    @include bp(desktop) {
+      margin-left: 0;
+    }
   }
 
   &__image-wrap {
