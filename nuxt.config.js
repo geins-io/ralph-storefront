@@ -590,10 +590,10 @@ export default async () => {
       },
       siteTopThreshold: 10,
       paymentAndDeliveryLogosByMarket: {
-        se: ['bubbleroom-faktura', 'bubbleroom-konto', 'paypal', 'visa', 'mastercard', 'swish', 'budbee', 'postnord', 'instabox'],
+        se: ['bubbleroom-faktura', 'bubbleroom-konto', 'visa', 'mastercard', 'swish', 'budbee', 'postnord', 'instabox'],
         dk: ['bubbleroom-faktura', 'bubbleroom-konto', 'visa', 'mastercard', 'budbee', 'postnord', 'mobilepay'],
-        fi: ['bubbleroom-faktura', 'bubbleroom-konto', 'paypal', 'visa', 'mastercard', 'budbee', 'posti', 'mobilepay'],
-        no: ['bubbleroom-faktura', 'bubbleroom-konto', 'paypal', 'visa', 'mastercard', 'vipps', 'postnord']
+        fi: ['bubbleroom-faktura', 'bubbleroom-konto', 'visa', 'mastercard', 'budbee', 'posti', 'mobilepay'],
+        no: ['bubbleroom-faktura', 'bubbleroom-konto', 'visa', 'mastercard', 'vipps', 'postnord']
       },
       paymentAndDeliveryLogos: [
         {
@@ -602,10 +602,6 @@ export default async () => {
         },
         {
           name: 'bubbleroom-konto',
-          type: 'payment'
-        },
-        {
-          name: 'paypal',
           type: 'payment'
         },
         {
