@@ -491,9 +491,7 @@ export default async () => {
         }
       ]
     },
-    serverMiddleware: [
-      { path: '/api/voyado-engage', handler: '~/api/voyado-engage.js' }
-    ],
+    serverMiddleware: [{ path: '/api', handler: '~/api/voyado-engage.js' }],
     // htmlValidator: {
     //   usePrettier: true,
     //   options: {
@@ -610,10 +608,42 @@ export default async () => {
       },
       siteTopThreshold: 10,
       paymentAndDeliveryLogosByMarket: {
-        se: ['bubbleroom-faktura', 'bubbleroom-konto', 'visa', 'mastercard', 'swish', 'budbee', 'postnord', 'instabox'],
-        dk: ['bubbleroom-faktura', 'bubbleroom-konto', 'visa', 'mastercard', 'budbee', 'postnord', 'mobilepay'],
-        fi: ['bubbleroom-faktura', 'bubbleroom-konto', 'visa', 'mastercard', 'budbee', 'posti', 'mobilepay'],
-        no: ['bubbleroom-faktura', 'bubbleroom-konto', 'visa', 'mastercard', 'vipps', 'postnord']
+        se: [
+          'bubbleroom-faktura',
+          'bubbleroom-konto',
+          'visa',
+          'mastercard',
+          'swish',
+          'budbee',
+          'postnord',
+          'instabox'
+        ],
+        dk: [
+          'bubbleroom-faktura',
+          'bubbleroom-konto',
+          'visa',
+          'mastercard',
+          'budbee',
+          'postnord',
+          'mobilepay'
+        ],
+        fi: [
+          'bubbleroom-faktura',
+          'bubbleroom-konto',
+          'visa',
+          'mastercard',
+          'budbee',
+          'posti',
+          'mobilepay'
+        ],
+        no: [
+          'bubbleroom-faktura',
+          'bubbleroom-konto',
+          'visa',
+          'mastercard',
+          'vipps',
+          'postnord'
+        ]
       },
       paymentAndDeliveryLogos: [
         {
