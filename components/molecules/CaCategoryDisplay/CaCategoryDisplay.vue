@@ -56,21 +56,26 @@ export default {
       return this.$store.getters.viewportComputer
         ? 'CaReadMore'
         : this.elementWrapper;
-    },
-  },
-  watch: {
-    isSale: {
-      handler(state) {
-        if (state === false) {
-          this.modifiedCategories = this.categories;
-        } else {
-          this.applySaleToCategories();
-        }
-      },
-      immediate: true
     }
   },
+  watch: {
+    categories(newVal, oldVal) {
+      if (newVal.length !== oldVal.length) {
+        this.setCategories();
+      }
+    }
+  },
+  mounted() {
+    this.setCategories();
+  },
   methods: {
+    setCategories() {
+      if (!this.isSale) {
+        this.modifiedCategories = this.categories;
+      } else {
+        this.applySaleToCategories();
+      }
+    },
     addSaleToPath(path) {
       if (/^\/l/.test(path)) {
         return path.replace(/^\/l/, '/l' + this.salePath);
@@ -79,17 +84,19 @@ export default {
       return path;
     },
     async applySaleToCategories() {
-      const modifiedCategories = await Promise.all(this.categories.map(async category => {
-        const modifiedPath = await this.addSaleToPath(category.canonicalUrl);
+      const modifiedCategories = await Promise.all(
+        this.categories.map(async category => {
+          const modifiedPath = await this.addSaleToPath(category.canonicalUrl);
 
-        return {
-          ...category,
-          canonicalUrl: modifiedPath
-        };
-      }));
+          return {
+            ...category,
+            canonicalUrl: modifiedPath
+          };
+        })
+      );
 
       this.modifiedCategories = modifiedCategories;
-    },
+    }
   }
 };
 </script>

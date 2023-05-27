@@ -67,13 +67,16 @@ export default {
     }
   },
   computed: {
+    filterCategories() {
+      return this.categories?.length ? this.categories : [];
+    },
     // Categories and sub categories exist
     hasCategories() {
-      return !!(this.listInfo &&
+      return !!(
+        this.listInfo &&
         this.listInfo.subCategories &&
-        this.listInfo.subCategories.length &&
-        this.categories &&
-        this.categories.length);
+        this.listInfo.subCategories.length
+      );
     },
     // Filter all sub categories that are not in the categories array
     filteredSubCategories() {
@@ -81,15 +84,18 @@ export default {
         return [];
       }
 
-      return this.listInfo.subCategories.filter(
-        subCategory =>
-          this.categories.find(category => {
-            const subCategoryFacet = 'c_' + subCategory.alias.toString();
-            return subCategoryFacet === category.facetId;
-          })
+      if (!this.filterCategories.length) {
+        return this.listInfo.subCategories;
+      }
+
+      return this.listInfo.subCategories.filter(subCategory =>
+        this.filterCategories.find(category => {
+          const subCategoryFacet = 'c_' + subCategory.alias.toString();
+          return subCategoryFacet === category.facetId;
+        })
       );
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">
