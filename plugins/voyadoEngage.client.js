@@ -1,29 +1,29 @@
 export default function(app, inject) {
-  async function fetchVoyadoId(email) {
-    try {
-      const result = await fetch(`/api/voyado-engage?email=${email}`);
+  // async function fetchVoyadoId(email) {
+  //   try {
+  //     const result = await fetch(`/api/voyado-engage?email=${email}`);
 
-      return result?.text();
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     return result?.text();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  const setVoyadoId = async email => {
-    const id = await fetchVoyadoId(email);
+  // const setVoyadoId = async email => {
+  //   const id = await fetchVoyadoId(email);
 
-    if (!id) {
-      return;
-    }
+  //   if (!id) {
+  //     return;
+  //   }
 
-    // eslint-disable-next-line no-undef
-    va('setContactId', id);
-    app.store.commit('voyadoEngage/setVoyadoId', id);
-  };
+  //   // eslint-disable-next-line no-undef
+  //   va('setContactId', id);
+  //   app.store.commit('voyadoEngage/setVoyadoId', id);
+  // };
 
-  if (app.store.getters['auth/authenticated']) {
-    setVoyadoId(app.store.state.auth.user);
-  }
+  // if (app.store.getters['auth/authenticated']) {
+  //   setVoyadoId(app.store.state.auth.user);
+  // }
 
   // Listen to events in ralph and take action
   app.store.subscribe((mutation, state) => {
@@ -60,9 +60,9 @@ export default function(app, inject) {
         }
       }
 
-      if (eventType.includes('user:login')) {
-        setVoyadoId(state.auth.user);
-      }
+      // if (eventType.includes('user:login')) {
+      //   setVoyadoId(state.auth.user);
+      // }
     }
   });
 }
