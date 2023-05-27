@@ -491,7 +491,12 @@ export default async () => {
         }
       ]
     },
-   // serverMiddleware: [{ path: '/api', handler: '~/api/voyado-engage.js' }],
+    serverMiddleware: [
+      {
+        path: '/api/voyado-engage',
+        handler: '@/server-middleware/voyado-engage.js'
+      }
+    ],
     // htmlValidator: {
     //   usePrettier: true,
     //   options: {
