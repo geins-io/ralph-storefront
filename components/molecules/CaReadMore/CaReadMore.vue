@@ -63,7 +63,9 @@ export default {
   },
   watch: {},
   mounted() {
-    this.setHeights();
+    this.$nextTick(() => {
+      this.setHeights();
+    });
   },
   methods: {
     // @vuese

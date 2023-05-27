@@ -48,54 +48,38 @@ export default {
       default: 'div'
     }
   },
-  data: () => ({
-    modifiedCategories: []
-  }),
+  data: () => ({}),
   computed: {
     isDesktop() {
       return this.$store.getters.viewportComputer
         ? 'CaReadMore'
         : this.elementWrapper;
-    }
-  },
-  watch: {
-    categories(newVal, oldVal) {
-      if (newVal.length !== oldVal.length) {
-        this.setCategories();
-      }
-    }
-  },
-  mounted() {
-    this.setCategories();
-  },
-  methods: {
-    setCategories() {
-      if (!this.isSale) {
-        this.modifiedCategories = this.categories;
-      } else {
-        this.applySaleToCategories();
-      }
     },
+    modifiedCategories() {
+      if (!this.isSale) {
+        return this.categories;
+      } else {
+        const modifiedCategories = this.categories.map(category => {
+          const modifiedPath = this.addSaleToPath(category.canonicalUrl);
+
+          return {
+            ...category,
+            canonicalUrl: modifiedPath
+          };
+        });
+
+        return modifiedCategories;
+      }
+    }
+  },
+  watch: {},
+  methods: {
     addSaleToPath(path) {
       if (/^\/l/.test(path)) {
         return path.replace(/^\/l/, '/l' + this.salePath);
       }
 
       return path;
-    },
-    async applySaleToCategories() {
-      const modifiedCategories = await Promise.all(
-        this.categories.map(async category => {
-          const modifiedPath = await this.addSaleToPath(category.canonicalUrl);
-
-          return {
-            ...category,
-            canonicalUrl: modifiedPath
-          };
-        })
-      );
-
-      this.modifiedCategories = modifiedCategories;
     }
   }
 };
