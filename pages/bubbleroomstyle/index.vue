@@ -23,6 +23,7 @@
 </template>
 
 <script>
+/* eslint no-console: ["warn", { allow: ["error"] }] */
 export default {
   name: 'InstashopPage',
   data: () => ({
@@ -36,15 +37,15 @@ export default {
     }
   },
   watch: {},
-  mounted() {
-    if (!window?.flowbox) {
-      const f = function() {
-        f.q.push(arguments);
-      };
-      f.q = [];
-      window.flowbox = f;
+  mounted() {},
+  beforeDestroy() {
+    try {
+      window.flowbox('destroy', {
+        container: this.$refs.flow
+      });
+    } catch (err) {
+      console.error('flow-destroy', err);
     }
-    this.initFlow();
   },
   methods: {
     getTagText(tag) {
@@ -58,31 +59,52 @@ export default {
       this.selectedTag = selectedTag;
     },
     initFlow() {
-      window.flowbox('init', {
-        container: this.$refs.flow,
-        key: this.flowKey,
-        locale: this.$i18n?.localeProperties.code,
-        tags: this.tags,
-        tagsOperator: 'any',
-        lazyLoad: false
-      });
+      try {
+        if (!window?.flowbox) {
+          const f = function() {
+            f.q.push(arguments);
+          };
+          f.q = [];
+          window.flowbox = f;
+        }
+        window.flowbox('init', {
+          container: this.$refs.flow,
+          key: this.flowKey,
+          locale: this.$i18n?.localeProperties.code,
+          tags: this.tags,
+          tagsOperator: 'any',
+          lazyLoad: false
+        });
+      } catch (err) {
+        console.error('flow-init', err);
+      }
+
       this.$store.dispatch('loading/end');
     },
     updateFlow(tags) {
-      window.flowbox('update', {
-        key: this.flowKey,
-        tags
-      });
+      try {
+        window.flowbox('update', {
+          container: this.$refs.flow,
+          key: this.flowKey,
+          tags
+        });
+      } catch (err) {
+        console.error('flow-update', err);
+      }
     }
   },
   head() {
     return {
       script: [
         {
-          // unique id for script
           hid: 'flowbox-js-embed',
           src: 'https://connect.getflowbox.com/flowbox.js',
-          defer: true
+          defer: true,
+          callback: () => {
+            this.$nextTick(() => {
+              this.initFlow();
+            });
+          }
         }
       ]
     };

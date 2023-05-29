@@ -2,10 +2,10 @@ export default {
   CUSTOMER_TYPE_PERSON: 'Privat person',
   CUSTOMER_TYPE_ORGANIZATION: 'Forretning',
   USP_1: 'Hurtig levering',
-  USP_2: 'Gratis fragt over 499,-',
+  USP_2: 'Fri fragt over 499 kr',
   USP_3: '30 dages returret',
   USP_4: 'Sikker betaling',
-  USP_TEXT: 'Hurtig levering - Gratis fragt ved køb over 499,-',
+  USP_TEXT: 'Fri fragt ved køb over 499 kr',
   CUSTOMER_SERVICE: 'Kunde service',
   CUSTOMER_SERVICE_PHONE_TITLE: 'Telefon',
   CUSTOMER_SERVICE_EMAIL_TITLE: 'Mail',
@@ -13,7 +13,7 @@ export default {
   CUSTOMER_SERVICE_PHONE: '70 27 78 33',
   CUSTOMER_SERVICE_OPEN: 'Hverdage 08.00-18.00',
   CUSTOMER_SERVICE_INFO:
-    'Laveste ordreværdi 70kr, Standardlevering 49kr, fri fragt ved køb over 499,-. 30 dages fortrydelsesret. Betalingsmetoder: Betalingskort og PayPal. Vi leverer kun til danske adresser.',
+    'Laveste ordreværdi 70 kr, Standardlevering 49 kr, fri fragt ved køb over 499 kr. 30 dages fortrydelsesret. Betalingsmetoder: Betalingskort og PayPal. Vi leverer kun til danske adresser.',
   FOOTER_CORP_CONTENT:
     'New Bubbleroom Sweden AB\nVATnr: SE556699921401\nCVR nummer: 12578423',
   FAVORITES_LABEL: 'Mine favoritter',

@@ -9,10 +9,15 @@
   >
     <div class="ca-account-panel__inner">
       <!-- TODO: Temporary code - Delete some time after launch -->
-      <div class="ca-feedback ca-feedback--error ca-account-panel__temporary-note">
+      <div
+        class="ca-feedback ca-feedback--error ca-account-panel__temporary-note"
+      >
         <CaIcon class="ca-feedback__icon" name="alert-octagon" />
         <div class="ca-feedback__message">
-          <CaHtml :content="$t('TEMP_ACCOUNT_PANEL_PASSWORD_NOTE')" :styled="false" />
+          <CaHtml
+            :content="$t('TEMP_ACCOUNT_PANEL_PASSWORD_NOTE')"
+            :styled="false"
+          />
         </div>
       </div>
 
