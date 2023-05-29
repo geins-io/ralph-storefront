@@ -1,24 +1,27 @@
 <template>
   <CaContainer class="ca-instashop-page">
-    <header class="ca-instashop-page__header">
-      <h1 class="ca-instashop-page__title">{{ $t('FLOWBOX_PAGE_TITLE') }}</h1>
-      <p class="ca-instashop-page__hashtag">{{ $t('FLOWBOX_HASHTAG') }}</p>
-      <ul class="ca-instashop-page__filters">
-        <li v-for="tag in buttons" :key="tag">
-          <button
-            :data-tag="tag"
-            class="ca-instashop-page__filters-button"
-            :class="{
-              'ca-instashop-page__filters-button--selected': tag === selectedTag
-            }"
-            @click="onTagClick"
-          >
-            {{ getTagText(tag) }}
-          </button>
-        </li>
-      </ul>
-    </header>
-    <div ref="flow" class="flow-container"></div>
+    <client-only>
+      <header class="ca-instashop-page__header">
+        <h1 class="ca-instashop-page__title">{{ $t('FLOWBOX_PAGE_TITLE') }}</h1>
+        <p class="ca-instashop-page__hashtag">{{ $t('FLOWBOX_HASHTAG') }}</p>
+        <ul class="ca-instashop-page__filters">
+          <li v-for="tag in buttons" :key="tag">
+            <button
+              :data-tag="tag"
+              class="ca-instashop-page__filters-button"
+              :class="{
+                'ca-instashop-page__filters-button--selected':
+                  tag === selectedTag
+              }"
+              @click="onTagClick"
+            >
+              {{ getTagText(tag) }}
+            </button>
+          </li>
+        </ul>
+      </header>
+      <div ref="flow" class="flow-container"></div>
+    </client-only>
   </CaContainer>
 </template>
 
