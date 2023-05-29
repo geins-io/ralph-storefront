@@ -623,15 +623,7 @@ export default async () => {
           'postnord',
           'instabox'
         ],
-        dk: [
-          'bubbleroom-faktura',
-          'bubbleroom-konto',
-          'visa',
-          'mastercard',
-          'budbee',
-          'postnord',
-          'mobilepay'
-        ],
+        dk: ['visa', 'mastercard', 'budbee', 'postnord', 'mobilepay'],
         fi: [
           'bubbleroom-faktura',
           'bubbleroom-konto',
@@ -669,6 +661,10 @@ export default async () => {
         },
         {
           name: 'swish',
+          type: 'payment'
+        },
+        {
+          name: 'mobilepay',
           type: 'payment'
         },
         {
@@ -787,7 +783,7 @@ export default async () => {
           itemCondition: 'https://schema.org/NewCondition'
         }
       },
-      productShowRelated: true,
+      productShowRelated: false,
       showProductReviewSection: false,
       showStarsInProductReviewForm: false, // it requires showProductReviewSection to be true
       /* ****************** */

@@ -145,7 +145,11 @@
           <div class="ca-footer__cert">
             <CaImage
               class="ca-footer__cert-tryggehandel"
-              :src="require('~/assets/logos/trygg-e-handel-se.png')"
+              :src="
+                require('~/assets/logos/trygg-e-handel-' +
+                  currentMarket +
+                  '.png')
+              "
               alt="Trygg e-handel logo"
               :ratio="1"
             />
@@ -188,7 +192,7 @@
         </div>
 
         <div class="ca-footer__copyright">
-          Copyright &copy; Ralph Storefront
+          Copyright &copy; Bubbleroom
           <a
             class="ca-footer__powered-by"
             href="https://www.geins.io"
@@ -219,6 +223,9 @@ export default {
   computed: {
     uspLogoPlacement() {
       return this.$store.getters.viewport === 'phone' ? 'top' : 'left';
+    },
+    currentMarket() {
+      return this.$store.state.channel.currentMarket;
     }
   },
   watch: {},

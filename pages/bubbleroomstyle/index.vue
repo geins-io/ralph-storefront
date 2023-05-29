@@ -32,20 +32,28 @@ export default {
   data: () => ({
     tags: ['dresses', 'jumpsuits', 'tops', 'jackets', 'trousers-skirts'],
     selectedTag: 'all',
-    flowKey: 'a6IuB9-NRp6bSncRCy3GaA'
+    flowKey: 'a6IuB9-NRp6bSncRCy3GaA',
+    isFlowboxScriptLoaded: false
   }),
   computed: {
     buttons() {
       return ['all', ...this.tags];
     }
   },
-  watch: {},
+  watch: {
+    isFlowboxScriptLoaded(newVal) {
+      if (newVal) {
+        this.initFlow();
+      }
+    }
+  },
   mounted() {},
   beforeDestroy() {
     try {
       window.flowbox('destroy', {
         container: this.$refs.flow
       });
+      window.flowbox = undefined;
     } catch (err) {
       console.error('flow-destroy', err);
     }
@@ -63,13 +71,6 @@ export default {
     },
     initFlow() {
       try {
-        if (!window?.flowbox) {
-          const f = function() {
-            f.q.push(arguments);
-          };
-          f.q = [];
-          window.flowbox = f;
-        }
         window.flowbox('init', {
           container: this.$refs.flow,
           key: this.flowKey,
@@ -85,15 +86,22 @@ export default {
       this.$store.dispatch('loading/end');
     },
     updateFlow(tags) {
-      try {
-        window.flowbox('update', {
-          container: this.$refs.flow,
-          key: this.flowKey,
-          tags
-        });
-      } catch (err) {
-        console.error('flow-update', err);
-      }
+      window.flowbox('destroy', {
+        container: this.$refs.flow
+      });
+      window.flowbox('init', {
+        container: this.$refs.flow,
+        key: this.flowKey,
+        locale: this.$i18n?.localeProperties.code,
+        tags: this.tags,
+        tagsOperator: 'any',
+        lazyLoad: false
+      });
+      window.flowbox('update', {
+        container: this.$refs.flow,
+        key: this.flowKey,
+        tags
+      });
     }
   },
   head() {
@@ -103,10 +111,16 @@ export default {
           hid: 'flowbox-js-embed',
           src: 'https://connect.getflowbox.com/flowbox.js',
           defer: true,
+          async: true,
           callback: () => {
-            this.$nextTick(() => {
-              this.initFlow();
-            });
+            if (!window?.flowbox) {
+              const f = function() {
+                f.q.push(arguments);
+              };
+              f.q = [];
+              window.flowbox = f;
+            }
+            this.isFlowboxScriptLoaded = true;
           }
         }
       ]

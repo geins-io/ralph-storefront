@@ -19,7 +19,6 @@
           </div>
         </transition>
       </client-only>
-      <CaCookieConsent />
       <LazyCaDisplayCart />
       <LazyCaAccountPanel />
       <LazyCaMenuPanel menu-location-id="main-mobile" />
