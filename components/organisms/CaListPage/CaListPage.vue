@@ -38,6 +38,7 @@
         :all-products-loaded="allProductsLoaded"
         :loading="$apollo.queries.products.loading"
         @loadprev="loadPrev"
+        @reset="resetCurrentPage"
       />
 
       <CaProductList
@@ -57,6 +58,7 @@
         :all-products-loaded="allProductsLoaded"
         :loading="$apollo.queries.products.loading"
         @loadmore="loadMore"
+        @reset="resetCurrentPage"
       />
 
       <CaSeoText :text="seoCategoryPageText" />

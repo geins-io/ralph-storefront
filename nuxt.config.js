@@ -365,7 +365,7 @@ export default async () => {
               sv: encodeURI('/märken'),
               en: '/brands',
               da: encodeURI('/mærker'),
-              fi: '/tuotemerkit',
+              fi: '/merkit',
               nb: '/merker'
             },
             'list/bestsellers': {

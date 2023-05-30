@@ -47,6 +47,7 @@ export default {
   LOAD_PREVIOUS: 'Ladda föregående',
   PAGINATION_SHOWING: 'Du har sett {sum} av {total}',
   PAGINATION_SHOWING_PARTIAL: 'Du visar {sum} av {total}',
+  PAGINATION_BACK: 'Tillbaka till första sidan',
   FILTER_SORT: 'Filtrera & sortera',
   FILTERS: 'Filter',
   FILTER_LABEL_CATEGORIES: 'Kategorier',

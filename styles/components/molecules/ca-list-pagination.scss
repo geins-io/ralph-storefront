@@ -30,6 +30,13 @@
     margin-bottom: rem-calc(14px);
   }
 
+  &__back-link {
+    margin: $px12 0 0;
+    font-size: $font-size-xxs;
+    color: $c-text-secondary;
+    display: none;
+  }
+
   &--prev {
     margin-top: clamp(#{rem-calc(30px)}, 10vw, #{rem-calc(50px)});
   }

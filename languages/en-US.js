@@ -42,6 +42,7 @@ export default {
   LOAD_PREVIOUS: 'Load previous',
   PAGINATION_SHOWING: 'Showing {sum} of {total}',
   PAGINATION_SHOWING_PARTIAL: 'Showing {sum} of {total}',
+  PAGINATION_BACK: 'Back to first page',
   FILTER_SORT: 'Filter & sort',
   FILTERS: 'Filters',
   FILTER_LABEL_CATEGORIES: 'Categories',

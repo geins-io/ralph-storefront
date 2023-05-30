@@ -47,6 +47,7 @@ export default {
   LOAD_PREVIOUS: 'Indlæs forrige',
   PAGINATION_SHOWING: 'Viser {sum} af {total}',
   PAGINATION_SHOWING_PARTIAL: 'Viser {sum} af {total}',
+  PAGINATION_BACK: 'Tilbage til første side',
   FILTER_SORT: 'Filtrer & sorter',
   FILTERS: 'Filter',
   FILTER_LABEL_CATEGORIES: 'Kategorier',
