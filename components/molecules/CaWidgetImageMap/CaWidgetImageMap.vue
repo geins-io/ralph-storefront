@@ -3,7 +3,6 @@
     <CaImage
       :ref="`mainImage${widgetId}`"
       class="ca-widget-image-map__image"
-      :banner-image="fullWidth"
       type="pagewidget"
       :alt="altText"
       :filename="filename"
