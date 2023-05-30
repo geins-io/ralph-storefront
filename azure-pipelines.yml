@@ -39,7 +39,6 @@ stages:
         tags: |
           $(tag)
     - task: PowerShell@2
-    displayName: Set build tag
-    inputs:
+      inputs:
       targetType: 'inline'
       script: 'Write-Host "##vso[build.addbuildtag]$("$(Build.SourceBranch)" -replace ''refs/tags/'', '''')"'
