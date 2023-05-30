@@ -7,7 +7,6 @@
     <main class="ca-layout-undistracted-special__main">
       <Nuxt />
     </main>
-    <CaCookieConsent ref="cookieConsent" />
     <LazyCaAccountPanel />
   </div>
 </template>
