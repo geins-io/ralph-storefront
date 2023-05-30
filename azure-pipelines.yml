@@ -42,5 +42,5 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          Write-Host "##vso[build.addbuildtag]$("$(Build.SourceBranch)" -replace ''refs/tags/'', '''')"
-          If(("$(Build.SourceBranch)" -replace ''refs/tags/'', '''') -like "release/*"){Write-Host "##vso[build.addbuildtag]release"}
+          Write-Host "##vso[build.addbuildtag]$("$(Build.SourceBranch)" -replace "refs/tags/"","")"
+          If(("$(Build.SourceBranch)" -replace "refs/tags/"","") -like "release/*"){Write-Host "##vso[build.addbuildtag]release"}
