@@ -142,7 +142,7 @@
         <section class="ca-footer__market-and-cert">
           <h2 class="ca-footer__market-title">Choose location</h2>
           <CaMarketSelectorButton class="ca-footer__market-selector" />
-          <div class="ca-footer__cert">
+          <div v-if="currentMarket !== 'fi'" class="ca-footer__cert">
             <CaImage
               class="ca-footer__cert-tryggehandel"
               :src="
