@@ -18,6 +18,10 @@ fragment ListProduct on ProductType {
     ...Price
   }
   images
+  productImages {
+    fileName
+    tags
+  }
   discountCampaigns {
     ...Campaign
   }

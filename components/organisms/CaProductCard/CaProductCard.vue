@@ -1,10 +1,6 @@
 <template>
   <component :is="baseTag" class="ca-product-card">
-    <CaBadge
-      v-if="isNew"
-      value="NEW"
-      class="ca-product-card__new-badge"
-    />
+    <CaBadge v-if="isNew" value="NEW" class="ca-product-card__new-badge" />
     <div v-if="productPopulated" class="ca-product-card__image-wrap">
       <NuxtLink
         class="ca-product-card__image-link"
@@ -28,7 +24,7 @@
             )
           "
           :ratio="$config.productImageRatio"
-          :filename="product.images[0]"
+          :filename="getPrimaryImage"
           :alt="product.brand.name + ' ' + product.name"
           :sizes="imgSizesProductCard"
         />
@@ -53,7 +49,7 @@
             )
           "
           :ratio="$config.productImageRatio"
-          :filename="product.images[1]"
+          :filename="getSecondaryImage"
           :alt="product.brand.name + ' ' + product.name"
           :sizes="imgSizesProductCard"
         />
@@ -176,6 +172,47 @@ export default {
         .map(badge => badge.value);
 
       return badges;
+    },
+    prioritizeTag() {
+      if (this.$store.getters['lastVisited/isCurve']) {
+        return 'Curve';
+      }
+      if (this.$store.getters['lastVisited/isStudent']) {
+        return 'Studenten';
+      }
+
+      return '';
+    },
+    imageWithTag() {
+      return this.product.productImages.find(image =>
+        image.tags.includes(this.prioritizeTag)
+      );
+    },
+    getPrimaryImage() {
+      if (!this.product.productImages) {
+        return this.product.images[0];
+      }
+      if (!this.prioritizeTag) {
+        return this.product.productImages[0].fileName;
+      } else {
+        if (!this.imageWithTag) {
+          return this.product.productImages[0].fileName;
+        }
+        return this.imageWithTag.fileName;
+      }
+    },
+    getSecondaryImage() {
+      if (!this.product.productImages) {
+        return this.product.images[1];
+      }
+      if (!this.prioritizeTag) {
+        return this.product.productImages[1].fileName;
+      } else {
+        if (!this.imageWithTag) {
+          return this.product.productImages[1].fileName;
+        }
+        return this.product.productImages[0].fileName;
+      }
     }
   },
   watch: {},
