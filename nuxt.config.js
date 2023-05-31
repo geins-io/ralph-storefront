@@ -776,12 +776,13 @@ export default async () => {
       /* ****************** */
       productStockFewLeftLimit: 10,
       productSchemaOptions: {
-        productSkuLabelIsSize: false,
-        productDescriptionField: 'text1',
+        productSkuLabelIsSize: true,
+        productDescriptionField: 'text2',
         schemaImageSize: '700x1016', // Make sure this is a valid product image size
         extraOfferProperties: {
           itemCondition: 'https://schema.org/NewCondition'
-        }
+        },
+        useGtin13: true
       },
       productShowRelated: false,
       showProductReviewSection: false,

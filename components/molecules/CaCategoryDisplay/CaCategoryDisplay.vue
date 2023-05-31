@@ -1,7 +1,8 @@
 <template>
   <component
-    :is="isDesktop"
+    :is="elem"
     v-if="modifiedCategories.length"
+    ref="readmore"
     class="ca-category-display__container"
   >
     <ul class="ca-category-display">
@@ -50,7 +51,7 @@ export default {
   },
   data: () => ({}),
   computed: {
-    isDesktop() {
+    elem() {
       return this.$store.getters.viewportComputer
         ? 'CaReadMore'
         : this.elementWrapper;
@@ -72,7 +73,16 @@ export default {
       }
     }
   },
-  watch: {},
+  watch: {
+    categories(newVal, oldVal) {
+      if (
+        newVal?.length !== oldVal?.length &&
+        this.$store.getters.viewportComputer
+      ) {
+        this.$refs.readmore.setHeights();
+      }
+    }
+  },
   methods: {
     addSaleToPath(path) {
       if (/^\/l/.test(path)) {
