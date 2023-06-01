@@ -134,9 +134,10 @@
   - productclick: an object containing the product data
 */
 import MixProductCard from 'MixProductCard';
+import { VoyadoProductCard } from '@geins/ralph-module-voyado-elevate';
 export default {
   name: 'CaProductCard',
-  mixins: [MixProductCard],
+  mixins: [MixProductCard, VoyadoProductCard],
   props: {},
   data: () => ({
     imgSizesProductCard:
@@ -184,11 +185,17 @@ export default {
       return '';
     },
     imageWithTag() {
+      if (!this.productPopulated) {
+        return null;
+      }
       return this.product.productImages.find(image =>
         image.tags.includes(this.prioritizeTag)
       );
     },
     getPrimaryImage() {
+      if (!this.productPopulated) {
+        return '';
+      }
       if (!this.product.productImages) {
         return this.product.images[0];
       }
@@ -202,6 +209,9 @@ export default {
       }
     },
     getSecondaryImage() {
+      if (!this.productPopulated) {
+        return '';
+      }
       if (!this.product.productImages) {
         return this.product.images[1];
       }
