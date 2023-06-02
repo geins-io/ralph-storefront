@@ -166,6 +166,7 @@
           </CaVariantPicker>
           <div class="ca-product-page__payment">
             <CaAvardaMonthlyPayment
+              v-if="$store.state.channel.currentMarket !== 'dk'"
               class="ca-product-page__split-payment"
               :price="product.unitPrice"
             />
