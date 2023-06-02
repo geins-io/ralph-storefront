@@ -302,6 +302,12 @@ export default {
   CHECKOUT_PAY: 'Betala',
   CHECKOUT_CHOOSE_PAYMENT: 'Välj betalsätt',
   CHECKOUT_ACTIVE_CAMPAIGNS: 'Aktiva kampanjer',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TITLE: 'Information till dig!',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TEXT:
+    'Vi ser att du försöker genomföra ett köp hos oss men tyvärr kan vi inte godkänna detta. Vi hänvisar dig därför till våra köpvillkor & avsnittet ”Fair use policy” för mer information. Har du ytterligare frågor är du välkommen att kontakta vår kundservice så ser vi över situationen tillsammans med dig.',
+  CHECKOUT_FEEDBACK_LIMITED_TITLE: 'Information till dig!',
+  CHECKOUT_FEEDBACK_LIMITED_TEXT:
+    'Dina betalningsalternativ är begränsade, konto/faktura är inaktiverat för dig. Du kan fortfarande handla hos oss men då mot något av våra övriga betalsätt. För mer information om begränsningarna av ditt konto, se avsnittet ”Rimliga returer” alternativt kontakta kundservice.',
   ORDER_NUMBER: 'Ordernummer',
   MINI_CART_SUM: 'Summa varukorg: {sum}',
   MINI_CART_SHIPPING: 'Du har fri frakt!',

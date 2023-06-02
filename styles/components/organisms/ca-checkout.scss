@@ -2,7 +2,7 @@
   max-width: $checkout-width;
   margin: 0 auto;
   padding-bottom: $px32;
-  
+
   &__login {
     font-size: $font-size-xs;
     font-weight: $font-weight-bold;
@@ -11,17 +11,17 @@
     margin: 0 auto;
     display: table;
   }
-  
+
   &__logout {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   &__logout-button {
     text-decoration: underline;
   }
-  
+
   &__sub-heading {
     font-size: $font-size-m;
     font-weight: $font-weight-bold;
@@ -29,7 +29,7 @@
     position: relative;
     z-index: 1;
     text-align: center;
-    
+
     &::before {
       @include valign;
 
@@ -40,22 +40,22 @@
       background-color: $c-border-dark;
       z-index: -2;
     }
-    
+
     &--inner {
       display: inline-block;
       background-color: $c-white;
       padding: $px4 rem-calc(26);
     }
-    
+
     @include bp(laptop) {
       font-size: $font-size-l;
     }
   }
-  
+
   &__payment-options {
     margin: 0 0 rem-calc(20);
   }
-  
+
   &__vat-toggle {
     .ca-customer-type-toggle__toggles {
       justify-content: center;
@@ -67,19 +67,19 @@
       display: flex;
       align-items: center;
       font-size: $font-size-xs;
-      
+
       @include bp(tablet) {
         font-size: $font-size-s;
       }
-      
+
       &:first-child {
         margin-right: $px16;
-        
+
         @include bp(tablet) {
           margin-right: $px32;
         }
       }
-      
+
       &::before {
         content: '';
         width: 20px;
@@ -90,12 +90,22 @@
         border-radius: 50%;
         margin-right: $px10;
       }
-      
+
       &--active {
         &::before {
           background-color: $c-accent-color;
         }
       }
     }
+  }
+
+  &__feedback {
+    margin: 0 0 rem-calc(20);
+  }
+
+  &__feedback-title {
+    font-size: $font-size-m;
+    font-weight: $font-weight-bold;
+    margin: 0 0 rem-calc(5);
   }
 }

@@ -301,6 +301,12 @@ export default {
   CHECKOUT_PAY: 'Maksaa',
   CHECKOUT_CHOOSE_PAYMENT: 'Valitse maksutapa',
   CHECKOUT_ACTIVE_CAMPAIGNS: 'Aktiiviset kampanjat',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TITLE: 'Tietoa sinulle!',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TEXT:
+    'Valitettavasti emme voi hyväksyä tilaustasi. Pyydämme sinua ystävällisesti lukemaan ostoehtomme ja etenkin ”Fair Use Policy” kohdan saadaksesi lisää tietoa asiasta. Saat tietenkin olla yhteydessä asiakaspalveluumme jos sinulla on kysyttävää.',
+  CHECKOUT_FEEDBACK_LIMITED_TITLE: 'Pieni tiedote sinulle!',
+  CHECKOUT_FEEDBACK_LIMITED_TEXT:
+    'Maksuvaihtoehtojasi on rajoitettu, tili/lasku on poistettu käytöstäsi. Voit edelleen ostaa tuotteitamme käyttäen muita maksutapojamme. Lisätietoja tilisi rajoituksista saat kohdasta ”Fair Use Policy” tai ottamalla yhteyttä asiakaspalveluun.',
   ORDER_NUMBER: 'Tilausnumero',
   MINI_CART_SUM: 'Ostoskorissa yhteensä: {sum}',
   MINI_CART_SHIPPING: 'Sinulla on ilmainen toimitus!',
