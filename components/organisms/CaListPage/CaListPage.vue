@@ -12,12 +12,10 @@
     </CaContainer>
     <CaWidgetArea
       class="ca-list-page__widget-area"
-      :family="widgetAreaVars[0].family"
-      :area-name="widgetAreaVars[0].areaName"
+      family="Productlist"
+      area-name="1. The top part of the product list"
       :filters="widgetAreaFilters"
-      :is-parent-loaded="!isWidgetSmartQuery"
-      :loaded-data="widgetData.widgetArea_0"
-      @variables-change="isWidgetSmartQuery = true"
+      :list-page-url="currentPath"
     />
     <CaContainer>
       <div class="ca-list-page__filters">
@@ -87,25 +85,8 @@ export default {
   name: 'CaListPage',
   mixins: [MixListPage],
   props: {},
-  data: () => ({ isWidgetSmartQuery: false }),
+  data: () => ({}),
   computed: {
-    widgetAreaVars() {
-      const obj = {
-        family: 'Productlist',
-        areaName: '1. The top part of the product list',
-        alias: '',
-        preview: false
-      };
-
-      obj.filters = this.widgetAreaFilters;
-      obj.customerType = this.$store.state.customerType;
-      obj.displaySetting =
-        this.$store.getters.viewport === 'phone' ? 'mobile' : 'desktop';
-      const array = [];
-      array.push(obj);
-
-      return array;
-    },
     seoCategoryPageText() {
       return this.listInfo?.secondaryDescription;
     }

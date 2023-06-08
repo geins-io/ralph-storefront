@@ -31,7 +31,7 @@
     "@nuxtjs/i18n": "^7.2.0",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/robots": "^2.5.0",
-    "@ralph/ralph-ui": "19.6.0-dev.15",
+    "@ralph/ralph-ui": "19.6.0-dev.17",
     "apollo-link": "^1.2.14",
     "cookie": "^0.4.2",
     "cookie-universal-nuxt": "^2.1.5",
