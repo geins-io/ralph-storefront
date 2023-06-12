@@ -3,7 +3,7 @@
   $grid-gap: rem-calc(10);
   --slider-item-width: 74.4%;
 
-  margin: 0 -#{$default-spacing/2 + rem-calc(2)};
+  margin: 0 -#{$default-spacing/2};
 
   @include bp(tablet) {
     margin: 0 -#{$default-site-width-spacing-tablet/2 + rem-calc(2)};
@@ -45,7 +45,7 @@
   }
 
   &__slide {
-    padding: 0 rem-calc(1);
+    padding: 0 rem-calc(2) 0 0;
     opacity: 0.6;
     transition: opacity 200ms ease;
     cursor: pointer;

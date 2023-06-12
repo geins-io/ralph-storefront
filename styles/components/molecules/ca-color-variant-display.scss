@@ -2,16 +2,18 @@
   font-size: $font-size-xxs;
   color: $c-text-secondary;
   display: flex;
-  column-gap: rem-calc(3);
+  column-gap: rem-calc(4);
   align-items: center;
+  line-height: 0;
 
   &__item {
     background-color: var(--variant-color);
     border-radius: 50%;
     width: rem-calc(8);
     aspect-ratio: 1;
+    box-shadow: 0 0 0 1px $c-light-gray;
   }
-  
+
   &__item-label {
     @include visually-hidden;
   }

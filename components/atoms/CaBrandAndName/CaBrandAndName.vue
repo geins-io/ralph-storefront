@@ -1,5 +1,8 @@
 <template>
   <div class="ca-brand-and-name">
+    <component :is="nameTag" class="ca-brand-and-name__name">
+      {{ name }}
+    </component>
     <div v-if="brand !== ''" class="ca-brand-and-name__brand">
       <NuxtLink
         v-if="brandAlias !== ''"
@@ -12,9 +15,6 @@
         {{ brand }}
       </span>
     </div>
-    <component :is="nameTag" class="ca-brand-and-name__name">
-      {{ name }}
-    </component>
   </div>
 </template>
 <script>
