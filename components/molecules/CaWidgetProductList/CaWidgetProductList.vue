@@ -60,7 +60,10 @@ export default {
         this.setupPagination(products?.count);
       },
       skip() {
-        return this.isWidgetModeEmpty;
+        return (
+          this.isWidgetModeEmpty ||
+          (this.fetchProductsOnlyClientSide && process.server)
+        );
       },
       error(error) {
         this.$nuxt.error({ statusCode: error.statusCode, message: error });
@@ -72,6 +75,11 @@ export default {
     configuration: {
       type: Object,
       required: true
+    },
+    // Fetch products only client side
+    fetchProductsOnlyClientSide: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({
