@@ -103,7 +103,6 @@
           class="ca-product-card__campaigns"
           :campaigns="product.discountCampaigns"
         />
-
         <CaBrandAndName
           :brand="product.brand.name"
           :name="product.name"

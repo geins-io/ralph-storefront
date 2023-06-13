@@ -3,7 +3,6 @@
     type="list"
     :info-query="infoQuery"
     :current-path="currentPath"
-    :filters-vars="filtersVars"
     :exclude-facets="isSale ? [] : [`${saleFacet}`]"
   />
 </template>
@@ -34,12 +33,6 @@ export default {
   computed: {
     currentPath() {
       return decodeURI(this.$route.path);
-    },
-    filtersVars() {
-      return {
-        listPageUrl: this.currentPath,
-        filter: null
-      };
     }
   },
   mounted() {},

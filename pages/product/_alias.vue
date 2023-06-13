@@ -151,6 +151,7 @@
             :variants="baseVariants"
             :variants-data="variantPickerData"
             :title="$t('PICK_COLOR')"
+            :product-id="product.productId"
             type="image"
             @replaceProduct="replaceProduct"
             @notify="notifyHandler"
@@ -166,6 +167,7 @@
           </CaVariantPicker>
           <div class="ca-product-page__payment">
             <CaAvardaMonthlyPayment
+              v-if="$store.state.channel.currentMarket !== 'dk'"
               class="ca-product-page__split-payment"
               :price="product.unitPrice"
             />

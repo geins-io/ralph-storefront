@@ -301,6 +301,12 @@ export default {
   CHECKOUT_PAY: 'Betale',
   CHECKOUT_CHOOSE_PAYMENT: 'Vælg betalingsmetode',
   CHECKOUT_ACTIVE_CAMPAIGNS: 'Aktive kampagner',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TITLE: 'Informasjon til deg!',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TEXT:
+    'Vi ser du forsøker bestille varer hos oss, men vi kan dessverre ikke gjennomføre bestillingen din. Vennligst les våre kjøpsvillkår og avsnittet «Fair use policy» for mer informasjon. Har du spørsmål utover dette er du velkommen til å ta kontakt med kundeservice.',
+  CHECKOUT_FEEDBACK_LIMITED_TITLE: 'Informasjon til deg!',
+  CHECKOUT_FEEDBACK_LIMITED_TEXT:
+    'Dine betalingsalternativer er begrenset, konto/faktura er deaktivert for deg. Du kan fortsatt handle hos oss, men da med en av våre øvrige betalingsmåter. For mer informasjon om begrensningene på kontoen din, se avsnittet "Fair use policy" eller kontakt kundeservice.',
   ORDER_NUMBER: 'Ordrenummer',
   MINI_CART_SUM: 'Totalt i handlekurven: {sum}',
   MINI_CART_SHIPPING: 'Du har gratis frakt!',

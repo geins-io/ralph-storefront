@@ -1,6 +1,10 @@
 .ca-campaigns {
   @include campaignListFlex;
 
+  &:empty {
+    display: none;
+  }
+
   &__item {
     @include price-type-badge;
     flex-shrink: 0;

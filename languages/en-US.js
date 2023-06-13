@@ -299,6 +299,12 @@ export default {
   CHECKOUT_PAY: 'Pay',
   CHECKOUT_CHOOSE_PAYMENT: 'Choose payment option',
   CHECKOUT_ACTIVE_CAMPAIGNS: 'Active campaigns',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TITLE: 'Information for you!',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TEXT:
+    'We see that you\'re trying to make a purchase with us, but unfortunately, we cannot approve it. Therefore, we refer you to our terms of purchase and the section "Fair use policy" for more information. If you have any further questions, please feel free to contact our customer service, and we will review the situation with you.',
+  CHECKOUT_FEEDBACK_LIMITED_TITLE: 'Information for you!',
+  CHECKOUT_FEEDBACK_LIMITED_TEXT:
+    'Your payment options are limited, and your account/invoice is deactivated. You can still shop with us, but you\'ll need to use one of our other payment methods. For more information about the limitations on your account, please refer to the section "Reasonable returns" or contact customer service.',
   ORDER_NUMBER: 'Order number',
   MINI_CART_SUM: 'Cart amount: {sum}',
   MINI_CART_SHIPPING: 'You have free shipping!',

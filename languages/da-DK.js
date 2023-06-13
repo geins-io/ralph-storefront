@@ -303,6 +303,12 @@ export default {
   CHECKOUT_PAY: 'Betale',
   CHECKOUT_CHOOSE_PAYMENT: 'Vælg betalingsmetode',
   CHECKOUT_ACTIVE_CAMPAIGNS: 'Aktive kampagner',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TITLE: 'Information til dig!',
+  CHECKOUT_FEEDBACK_BLACKLISTED_TEXT:
+    'Vi kan se, at du forsøger at foretage et køb hos os, men vi kan desværre ikke godkende dette. Vi henviser dig derfor til vores købsbetingelser og afsnittet ”Fair Use Policy” for mere information. Hvis du har yderligere spørgsmål, er du velkommen til at kontakte vores kundeservice, og vi vil gennemgå situationen sammen med dig.',
+  CHECKOUT_FEEDBACK_LIMITED_TITLE: 'Information til dig!',
+  CHECKOUT_FEEDBACK_LIMITED_TEXT:
+    'Dine betalingsmuligheder er begrænsede, konto/faktura er inaktiveret for dig. Du kan stadig handle hos os, men kun med en af vores øvrige betalingsmuligheder. Du kan se flere oplysninger om begrænsningerne af din konto i afsnittet ”Fair use policy” eller kontakte kundeservice.',
   ORDER_NUMBER: 'Ordrenummer',
   MINI_CART_SUM: 'Samlet i indkøbskurven: {sum}',
   MINI_CART_SHIPPING: 'Du har fri fragt!',

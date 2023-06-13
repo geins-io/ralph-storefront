@@ -1,0 +1,19 @@
+query validateOrderCreation(
+  $cartId: String!
+  $checkout: CheckoutInputType!
+  $channelId: String
+  $languageId: String
+  $checkoutMarketId: String
+) {
+  validateOrderCreation(
+    cartId: $cartId
+    checkout: $checkout
+    channelId: $channelId
+    languageId: $languageId
+    marketId: $checkoutMarketId
+  ) {
+    isValid
+    message
+    memberType
+  }
+}
