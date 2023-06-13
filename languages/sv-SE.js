@@ -174,6 +174,9 @@ export default {
     'Vi finns här för att hjälpa dig. Hör av dig till oss om du har problem.',
   ACCOUNT_ORDERS_TITLE: 'Ordrar',
   ACCOUNT_SETTINGS_TITLE: 'Inställningar',
+  ACCOUNT_INVOICES_TITLE: 'Mina fakturor',
+  ACCOUNT_INVOICES_PATH:
+    'https://minasidor.avarda.se/auth/login?siteKey=B539BD3A-3EFF-44C0-9F44-A3E5D2C8BB33',
   ACCOUNT_BALANCE_TITLE: 'Saldo',
   ACCOUNT_BALANCE_PAGE_TITLE: 'Aktuellt saldo',
   ACCOUNT_TITLE: 'Mina sidor',

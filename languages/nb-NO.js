@@ -176,6 +176,9 @@ export default {
     'Vi er her for at hjælpe dig. Kontakt os, hvis du har problemer.',
   ACCOUNT_ORDERS_TITLE: 'Ordrer',
   ACCOUNT_SETTINGS_TITLE: 'Indstillinger',
+  ACCOUNT_INVOICES_TITLE: 'Mine Fakturaer',
+  ACCOUNT_INVOICES_PATH:
+    'https://minside.avarda.no/auth/login/email?siteKey=602152A8-5E6A-416E-A8B9-1D9856B4BD84',
   ACCOUNT_BALANCE_TITLE: 'Saldo',
   ACCOUNT_BALANCE_PAGE_TITLE: 'Saldo',
   ACCOUNT_TITLE: 'Mine sider',

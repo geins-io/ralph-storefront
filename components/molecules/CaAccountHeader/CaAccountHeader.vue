@@ -26,6 +26,12 @@
       >
         {{ item.name }}
       </NuxtLink>
+      <a
+        :href="$t('ACCOUNT_INVOICES_PATH')"
+        target="_blank"
+        class="ca-account-header__nav-item"
+        >{{ $t('ACCOUNT_INVOICES_TITLE') }}</a
+      >
     </nav>
   </div>
 </template>

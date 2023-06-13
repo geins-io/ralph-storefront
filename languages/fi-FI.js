@@ -172,6 +172,9 @@ export default {
     'Olemme täällä auttaaksemme sinua. Ota yhteyttä, jos sinulla on ongelmia.',
   ACCOUNT_ORDERS_TITLE: 'Tilaukset',
   ACCOUNT_SETTINGS_TITLE: 'Asetukset',
+  ACCOUNT_INVOICES_TITLE: 'Omat Laskut',
+  ACCOUNT_INVOICES_PATH:
+    'https://omatsivut.avarda.fi/auth/login/email?siteKey=2BEC6126-9F41-4C97-B688-E44CF6329F13',
   ACCOUNT_BALANCE_TITLE: 'Saldo',
   ACCOUNT_BALANCE_PAGE_TITLE: 'Nykyinen tasapaino',
   ACCOUNT_TITLE: 'Omat sivut',
