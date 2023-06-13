@@ -317,7 +317,7 @@ export default {
   CART_SUMMARY_SUBTOTAL: 'Delsumma',
   CART_SUMMARY_DISCOUNT: 'Rabatt',
   CART_SUMMARY_SHIPPING_FEE: 'Fraktavgift',
-  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Estimerad fraktavgift',
+  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Fraktavgift',
   CART_SUMMARY_REGULAR_PRICE: 'Ordinarie pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'kvar till fri frakt',
   CART_SUMMARY_VAT: 'Moms',

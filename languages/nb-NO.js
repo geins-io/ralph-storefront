@@ -316,7 +316,7 @@ export default {
   CART_SUMMARY_SUBTOTAL: 'Subtotal',
   CART_SUMMARY_DISCOUNT: 'Rabat',
   CART_SUMMARY_SHIPPING_FEE: 'Fragtomkostninger',
-  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Beräknad fragtomkostninger',
+  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Fragtomkostninger',
   CART_SUMMARY_REGULAR_PRICE: 'Normal pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'Tilbage indtil fri fragt',
   CART_SUMMARY_VAT: 'Moms',

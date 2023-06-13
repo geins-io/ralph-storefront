@@ -12,6 +12,7 @@
           icon-open="chevron-up"
           icon-closed="chevron-down"
           :styled="false"
+          :open-on-init="hasOpen(item)"
         >
           <template #toggle-text>
             {{ getLabel(item) }}
@@ -38,6 +39,7 @@
                 icon-open="chevron-up"
                 icon-closed="chevron-down"
                 :styled="false"
+                :open-on-init="hasOpen(childItem)"
               >
                 <template #toggle-text>
                   {{ getLabel(childItem) }}
@@ -136,8 +138,11 @@ export default {
     hasArrow(item) {
       return item.label.endsWith('#pil');
     },
+    hasOpen(item) {
+      return item.label.endsWith('#open');
+    },
     getLabel(item) {
-      return (item.label || item.title).replace(/#pil$/, '');
+      return (item.label || item.title).replace(/#(pil|open)$/, '');
     },
     getItemsWithLabel(items) {
       return items.filter(x => this.getLabel(x));

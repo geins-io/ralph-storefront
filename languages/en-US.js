@@ -311,7 +311,7 @@ export default {
   CART_SUMMARY_SUBTOTAL: 'Subtotal',
   CART_SUMMARY_DISCOUNT: 'Discount',
   CART_SUMMARY_SHIPPING_FEE: 'Shipping fee',
-  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Estimated shipping fee',
+  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Shipping fee',
   CART_SUMMARY_REGULAR_PRICE: 'Regular price',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'left to free shipping',
   CART_SUMMARY_VAT: 'VAT',

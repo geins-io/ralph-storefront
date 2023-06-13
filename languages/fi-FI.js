@@ -316,7 +316,7 @@ export default {
   CART_SUMMARY_SUBTOTAL: 'Välisumma',
   CART_SUMMARY_DISCOUNT: ' Alennus',
   CART_SUMMARY_SHIPPING_FEE: 'Toimitusmaksu',
-  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Arvioitu toimitusmaksu',
+  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Toimitusmaksu',
   CART_SUMMARY_REGULAR_PRICE: 'Normaalihinta',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'Jäljellä ilmainen toimitus',
   CART_SUMMARY_VAT: 'arvonlisävero',
