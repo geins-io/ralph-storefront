@@ -1,10 +1,5 @@
 <template>
-  <CaListPage
-    type="list"
-    :info-query="infoQuery"
-    :current-path="currentPath"
-    :exclude-facets="isSale ? [] : [`${saleFacet}`]"
-  />
+  <VoyadoListPage :type="listType" :list-info="listInfo" />
 </template>
 
 <script>
@@ -13,28 +8,18 @@
 
   middleware: list-page-routing - handles the routing for the list pages
 
-  computed:
-    currentPath: The current path of the list page.
-    filtersVars: The variables for the filters query.
-
 */
-import listInfoQuery from 'productlist/list-page.graphql';
 import MixSaleUtils from 'MixSaleUtils';
+import MixListInfo from 'MixListInfo';
 
 export default {
   middleware: 'list-page-routing',
   name: 'ListView',
-  mixins: [MixSaleUtils],
-  data() {
-    return {
-      infoQuery: listInfoQuery
-    };
-  },
-  computed: {
-    currentPath() {
-      return decodeURI(this.$route.path);
-    }
-  },
+  mixins: [MixListInfo, MixSaleUtils],
+  data: () => ({
+    listType: 'list'
+  }),
+  computed: {},
   mounted() {},
   methods: {},
   meta: {

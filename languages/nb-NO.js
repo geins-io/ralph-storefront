@@ -119,7 +119,7 @@ export default {
   SEARCH_NO_SUGGESTIONS: 'Du har ikke søgt efter noget endnu',
   SEARCH_NO_RESULTS:
     'Desværre blev der ikke fundet noget, der matcher din søgning',
-  SEARCH_RESULTS_PAGE_TITLE: 'Søgeresultater for',
+  SEARCH_RESULTS_PAGE_TITLE: 'Søgeresultater for: {search}',
   ESET_FILTERS: 'Ryd alle',
   NO_PRODUCTS_MATCH: 'Ingen produkter matchede dit valg',
   SKU_NOT_CHOSEN: 'Vælg størrelse',
@@ -383,7 +383,6 @@ export default {
   VOYADO_SEARCH_PRODUCT_RESULTS_TITLE: 'Produkt | Produkter',
   VOYADO_SEARCH_RESULTS_BUTTON: 'Vis {hits} produkt | Vis {hits} produkter',
   VOYADO_SEARCH_CLOSE: 'Lukk',
-  VOYADO_SEARCH_PAGE_TITLE: 'Søkeresultat for: {search}',
   VOYADO_RECOMMENDATIONS_TITLE_ALTERNATIVES_1: 'Andre kjøpte også',
   VOYADO_RECOMMENDATIONS_TITLE_ALTERNATIVES_2: 'Du kan like',
   VOYADO_RECOMMENDATIONS_TITLE_ALTERNATIVES_3: 'Lignende produkter',

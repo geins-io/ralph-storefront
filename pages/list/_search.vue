@@ -1,5 +1,5 @@
 <template>
-  <VoyadoSearchPage :query="query" />
+  <VoyadoListPage :type="listType" :list-info="staticListInfo" />
 </template>
 
 <script>
@@ -10,10 +10,21 @@
 export default {
   name: 'SearchListView',
   mixins: [],
-  data: () => ({}),
+  data: () => ({
+    listType: 'search'
+  }),
   computed: {
-    query() {
-      return this.$route.params.search;
+    staticListInfo() {
+      const title = this.$t('SEARCH_RESULTS_PAGE_TITLE', {
+        search: this.$route.params.search
+      });
+      return {
+        name: title,
+        meta: {
+          title,
+          description: title
+        }
+      };
     }
   },
   mounted() {},

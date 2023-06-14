@@ -1,8 +1,7 @@
 <template>
   <CaListPage
-    type="all"
-    :info-query="infoQuery"
-    :current-alias="currentAlias"
+    :type="listType"
+    :list-info="staticListInfo"
     :exclude-facets="[`${saleFacet}`]"
   />
 </template>
@@ -14,7 +13,6 @@
   middleware: list-page-routing - handles the routing for the list pages
 
 */
-import categoryInfoQuery from 'productlist/category-page.graphql';
 import MixSaleUtils from 'MixSaleUtils';
 
 export default {
@@ -22,11 +20,18 @@ export default {
   name: 'AllListView',
   mixins: [MixSaleUtils],
   data: () => ({
-    infoQuery: categoryInfoQuery
+    listType: 'all'
   }),
   computed: {
-    currentAlias() {
-      return 'all';
+    staticListInfo() {
+      const title = this.$t('ALL_PAGE_TITLE');
+      return {
+        name: title,
+        meta: {
+          title,
+          description: title
+        }
+      };
     }
   },
   mounted() {},
