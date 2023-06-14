@@ -4,25 +4,37 @@
 
 <script>
 /*
-  Renders the list page.
-  
+  Renders the all products page.
+
   middleware: list-page-routing - handles the routing for the list pages
 
 */
+
 import MixListInfo from 'MixListInfo';
 
 export default {
   middleware: 'list-page-routing',
-  name: 'ListView',
+  name: 'AllListView',
   mixins: [MixListInfo],
   data: () => ({
-    listType: 'list'
+    listType: 'all'
   }),
-  computed: {},
+  computed: {
+    staticListInfo() {
+      const title = this.$t('ALL_PAGE_TITLE');
+      return {
+        name: title,
+        meta: {
+          title,
+          description: title
+        }
+      };
+    }
+  },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'List Page'
+    pageType: 'All Page'
   }
 };
 </script>

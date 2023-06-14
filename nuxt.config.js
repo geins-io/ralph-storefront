@@ -21,8 +21,7 @@ const routePaths = {
   product: '/p',
   search: '/s',
   discountCampaign: '/dc',
-  list: '/l',
-  all: '/allt'
+  list: '/l'
 };
 
 // Set the domain settings and market settings based on if env-variable DOMAINS exists
@@ -371,6 +370,13 @@ export default async () => {
               da: '/varemaerker',
               fi: '/tavaramerkkeja',
               nb: '/varemerker'
+            },
+            'list/all': {
+              sv: '/nyheter',
+              en: '/news',
+              da: '/nyheder',
+              fi: '/uutuudet',
+              nb: '/nyheter'
             }
           },
           ...domainSettings
@@ -447,11 +453,6 @@ export default async () => {
           name: 'plp',
           path: routePaths.list + '/*',
           component: resolve(__dirname, 'pages/list/_list.vue')
-        });
-        routes.push({
-          name: 'plp-all',
-          path: routePaths.all,
-          component: resolve(__dirname, 'pages/list/_all.vue')
         });
         routes.push({
           name: 'plp-category',

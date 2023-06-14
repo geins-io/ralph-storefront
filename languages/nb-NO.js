@@ -35,6 +35,7 @@ export default {
   LOAD_PREVIOUS: 'Indlæs forrige',
   PAGINATION_SHOWING: 'Viser {sum} av {total}',
   PAGINATION_SHOWING_PARTIAL: 'Viser {sum} av {total}',
+  PAGINATION_BACK: 'Tilbake til første side',
   FILTERS: 'Filter',
   FILTER_LABEL_CATEGORIES: 'Kategorier',
   FILTER_LABEL_BRANDS: 'Mærker',

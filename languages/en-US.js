@@ -36,6 +36,7 @@ export default {
   LOAD_PREVIOUS: 'Load previous',
   PAGINATION_SHOWING: 'You have seen {sum} of {total}',
   PAGINATION_SHOWING_PARTIAL: 'Showing {sum} of {total}',
+  PAGINATION_BACK: 'Back to first page',
   FILTERS: 'Filters',
   FILTER_LABEL_CATEGORIES: 'Categories',
   FILTER_LABEL_BRANDS: 'Brands',

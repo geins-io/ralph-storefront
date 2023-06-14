@@ -1,9 +1,8 @@
 <template>
   <CaListPage
-    type="brand"
-    :info-query="infoQuery"
+    :type="listType"
+    :list-info="listInfo"
     :current-alias="currentAlias"
-    :filters-vars="filtersVars"
   />
 </template>
 
@@ -15,28 +14,20 @@
   
   computed:
     currentAlias: The current alias of the brand.
-    filtersVars: The variables for the filters query.
 
 */
-import brandInfoQuery from 'productlist/brand-page.graphql';
+import MixListInfo from 'MixListInfo';
 
 export default {
   middleware: 'list-page-routing',
   name: 'BrandListView',
-  mixins: [],
+  mixins: [MixListInfo],
   data: () => ({
-    infoQuery: brandInfoQuery
+    listType: 'brand'
   }),
   computed: {
     currentAlias() {
       return this.$route.params.brand.split('/').pop();
-    },
-    filtersVars() {
-      return {
-        categoryAlias: null,
-        brandAlias: this.currentAlias,
-        filter: null
-      };
     }
   },
   mounted() {},

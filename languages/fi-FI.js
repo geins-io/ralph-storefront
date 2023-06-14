@@ -36,6 +36,7 @@ export default {
   LOAD_PREVIOUS: 'Lataa edellinen',
   PAGINATION_SHOWING: 'Esitykset {sum} of {total}',
   PAGINATION_SHOWING_PARTIAL: 'Esitykset {sum} of {total}',
+  PAGINATION_BACK: 'Takaisin ensimmäiselle sivulle',
   FILTERS: 'Suodattaa',
   FILTER_LABEL_CATEGORIES: 'Touteryhmät',
   FILTER_LABEL_BRANDS: 'Merkit',
