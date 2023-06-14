@@ -9,7 +9,7 @@ export default {
   CUSTOMER_SERVICE: 'Asiakaspalvelu',
   CUSTOMER_SERVICE_PHONE_TITLE: 'Puhelin',
   CUSTOMER_SERVICE_EMAIL_TITLE: 'Mail',
-  CUSTOMER_SERVICE_EMAIL: 'asiakaspalvelu@bubbleroom.com',
+  CUSTOMER_SERVICE_EMAIL: 'asiakaspalvelu.fi@bubbleroom.com',
   CUSTOMER_SERVICE_PHONE: '09 8566 8307',
   CUSTOMER_SERVICE_OPEN: 'Arkisin 8-21 ja la-su 10-15',
   CUSTOMER_SERVICE_INFO:

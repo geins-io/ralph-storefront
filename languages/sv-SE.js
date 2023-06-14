@@ -6,10 +6,10 @@ export default {
   USP_3: '30 dagars returrätt',
   USP_4: 'Säker betalning',
   USP_TEXT: 'Snabb leverans - Fri frakt vid köp över 799 kr',
-  CUSTOMER_SERVICE: 'Kundtjänst',
+  CUSTOMER_SERVICE: 'Kundservice',
   CUSTOMER_SERVICE_PHONE_TITLE: 'Telefon',
   CUSTOMER_SERVICE_EMAIL_TITLE: 'Mail',
-  CUSTOMER_SERVICE_EMAIL: 'kundservice@bubbleroom.se',
+  CUSTOMER_SERVICE_EMAIL: 'kundservice.se@bubbleroom.com',
   CUSTOMER_SERVICE_PHONE: '08-411 17 17',
   CUSTOMER_SERVICE_OPEN: 'Vardagar 8-20, Lördag 9-15',
   CUSTOMER_SERVICE_INFO:

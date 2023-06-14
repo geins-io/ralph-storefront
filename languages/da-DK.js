@@ -9,7 +9,7 @@ export default {
   CUSTOMER_SERVICE: 'Kunde service',
   CUSTOMER_SERVICE_PHONE_TITLE: 'Telefon',
   CUSTOMER_SERVICE_EMAIL_TITLE: 'Mail',
-  CUSTOMER_SERVICE_EMAIL: 'kundeservice@bubbleroom.com',
+  CUSTOMER_SERVICE_EMAIL: 'kundeservice.dk@bubbleroom.com',
   CUSTOMER_SERVICE_PHONE: '70 27 78 33',
   CUSTOMER_SERVICE_OPEN: 'Hverdage 08.00-18.00',
   CUSTOMER_SERVICE_INFO:
