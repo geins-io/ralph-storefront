@@ -190,10 +190,10 @@
             class="ca-price ca-product-page__price ca-product-page__price--skeleton"
           />
           <div class="ca-brand-and-name ca-product-page__brand-and-name">
+            <CaSkeleton width="50%" class="ca-brand-and-name__name" />
             <div class="ca-brand-and-name__brand">
               <CaSkeleton width="30%" class="ca-brand-and-name__brand" />
             </div>
-            <CaSkeleton width="50%" class="ca-brand-and-name__name" />
           </div>
           <div class="ca-product-page__buy-wrap">
             <CaSkeleton width="100%" height="52px" :radius="false" />
