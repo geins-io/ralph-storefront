@@ -164,12 +164,6 @@
       >
         {{ $t('BACK_TO_LOGIN') }}
       </button>
-
-      <!-- TODO: Temporary code - Delete some time after launch -->
-      <div class="ca-account-panel__temporary">
-        <span aria-label="Party popper emoji">&#127881;</span>
-        <CaHtml :content="$t('TEMP_ACCOUNT_PANEL_CODE')" :styled="false" />
-      </div>
     </div>
   </LazyCaContentPanel>
 </template>

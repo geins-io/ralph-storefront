@@ -42,18 +42,7 @@
     display: table;
   }
 
-  // TODO: Temporary code - Delete some time after launch
-  &__temporary {
-    background-color: #fef6f7;
-    font-size: $font-size-xs;
-    border-radius: rem-calc(4);
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    column-gap: rem-calc(4);
-    margin-top: rem-calc(8);
-    padding: rem-calc(18);
-  }
-
+  // TODO: Temporary styling - Delete some time after launch
   &__temporary-note {
     margin-bottom: rem-calc(20);
   }
