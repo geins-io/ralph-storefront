@@ -229,7 +229,6 @@
           v-if="product"
           :product-key="product.articleNumber"
           :random-titles="3"
-          :product-rules="voyadoProductRules"
           @voyadoProductData="setVoyadoData"
         />
       </CaContainer>
