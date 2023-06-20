@@ -450,7 +450,7 @@ export default async () => {
           UserAgent: '*',
           Disallow: ['/checkout/', '/account/', '/favorites'],
           Sitemap:
-            domainUrls[process.env.DEFAULT_LOCALE] +
+            process.env.BASE_URL +
             '/sitemap/bubbleroom.' +
             fallbackMarketAlias +
             '-' +

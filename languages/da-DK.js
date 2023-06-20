@@ -9,7 +9,7 @@ export default {
   CUSTOMER_SERVICE: 'Kunde service',
   CUSTOMER_SERVICE_PHONE_TITLE: 'Telefon',
   CUSTOMER_SERVICE_EMAIL_TITLE: 'Mail',
-  CUSTOMER_SERVICE_EMAIL: 'kundeservice@bubbleroom.com',
+  CUSTOMER_SERVICE_EMAIL: 'kundeservice.dk@bubbleroom.com',
   CUSTOMER_SERVICE_PHONE: '70 27 78 33',
   CUSTOMER_SERVICE_OPEN: 'Hverdage 08.00-18.00',
   CUSTOMER_SERVICE_INFO:
@@ -178,6 +178,9 @@ export default {
     'Vi er her for at hjælpe dig. Kontakt os, hvis du har problemer.',
   ACCOUNT_ORDERS_TITLE: 'Ordrer',
   ACCOUNT_SETTINGS_TITLE: 'Indstillinger',
+  ACCOUNT_INVOICES_TITLE: 'Mine Fakturaer',
+  ACCOUNT_INVOICES_PATH:
+    'https://minside.avarda.dk/auth/login/email?siteKey=26F3E2CB-0636-459C-8261-3353937B1A80',
   ACCOUNT_BALANCE_TITLE: 'Balance',
   ACCOUNT_BALANCE_PAGE_TITLE: 'Balance',
   ACCOUNT_TITLE: 'Mine sider',
@@ -315,7 +318,7 @@ export default {
   CART_SUMMARY_SUBTOTAL: 'Subtotal',
   CART_SUMMARY_DISCOUNT: 'Rabat',
   CART_SUMMARY_SHIPPING_FEE: 'Fragtomkostninger',
-  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Beräknad fragtomkostninger',
+  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Fragtomkostninger',
   CART_SUMMARY_REGULAR_PRICE: 'Normal pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'Tilbage indtil fri fragt',
   CART_SUMMARY_VAT: 'Moms',

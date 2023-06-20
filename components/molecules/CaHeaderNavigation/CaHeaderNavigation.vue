@@ -174,7 +174,7 @@ export default {
       return item.label.endsWith('#pil');
     },
     getLabel(item) {
-      return (item.label || item.title).replace(/#pil$/, '');
+      return (item.label || item.title).replace(/#(pil|open)$/, '');
     },
     getItemsWithLabel(items) {
       return items.filter(x => this.getLabel(x));

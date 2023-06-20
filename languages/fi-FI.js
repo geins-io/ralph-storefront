@@ -9,7 +9,7 @@ export default {
   CUSTOMER_SERVICE: 'Asiakaspalvelu',
   CUSTOMER_SERVICE_PHONE_TITLE: 'Puhelin',
   CUSTOMER_SERVICE_EMAIL_TITLE: 'Mail',
-  CUSTOMER_SERVICE_EMAIL: 'asiakaspalvelu@bubbleroom.com',
+  CUSTOMER_SERVICE_EMAIL: 'asiakaspalvelu.fi@bubbleroom.com',
   CUSTOMER_SERVICE_PHONE: '09 8566 8307',
   CUSTOMER_SERVICE_OPEN: 'Arkisin 8-21 ja la-su 10-15',
   CUSTOMER_SERVICE_INFO:
@@ -172,6 +172,9 @@ export default {
     'Olemme täällä auttaaksemme sinua. Ota yhteyttä, jos sinulla on ongelmia.',
   ACCOUNT_ORDERS_TITLE: 'Tilaukset',
   ACCOUNT_SETTINGS_TITLE: 'Asetukset',
+  ACCOUNT_INVOICES_TITLE: 'Omat Laskut',
+  ACCOUNT_INVOICES_PATH:
+    'https://omatsivut.avarda.fi/auth/login/email?siteKey=2BEC6126-9F41-4C97-B688-E44CF6329F13',
   ACCOUNT_BALANCE_TITLE: 'Saldo',
   ACCOUNT_BALANCE_PAGE_TITLE: 'Nykyinen tasapaino',
   ACCOUNT_TITLE: 'Omat sivut',
@@ -313,7 +316,7 @@ export default {
   CART_SUMMARY_SUBTOTAL: 'Välisumma',
   CART_SUMMARY_DISCOUNT: ' Alennus',
   CART_SUMMARY_SHIPPING_FEE: 'Toimitusmaksu',
-  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Arvioitu toimitusmaksu',
+  CART_SUMMARY_ESTIMATED_SHIPPING_FEE: 'Toimitusmaksu',
   CART_SUMMARY_REGULAR_PRICE: 'Normaalihinta',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'Jäljellä ilmainen toimitus',
   CART_SUMMARY_VAT: 'arvonlisävero',
