@@ -1,89 +1,72 @@
 <template>
-  <div class="ca-list-page" :class="modifier">
+  <div class="ca-list-page ca-list-page--voyado">
     <CaContainer>
       <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
       <CaSkeleton v-else class="ca-breadcrumbs" width="10%" />
-      <CaListTop
-        v-if="!hideListInfo"
-        :type="type"
-        :list-info="listInfo"
-        :categories="filters.categories"
-      />
+      <CaListTop :type="type" :list-info="listInfo" />
     </CaContainer>
     <CaWidgetArea
       class="ca-list-page__widget-area"
       family="Productlist"
       area-name="1. The top part of the product list"
-      :filters="widgetAreaFilters"
-      :list-page-url="currentPath"
+      :list-page-url="pageReference"
     />
     <CaContainer>
       <div class="ca-list-page__filters">
-        <CaListSettings
-          v-if="showControls"
-          :active-products="totalCount"
-          :active-filters="totalFiltersActive"
-        />
+        <CaListSettings :active-products="totalCount" />
       </div>
 
       <CaListPagination
-        v-show="currentMinCount > 1"
+        v-if="currentMinCount > 1"
         direction="prev"
         :showing="showing"
         :total-count="totalCount"
         :min-count="currentMinCount"
         :max-count="currentMaxCount"
         :all-products-loaded="allProductsLoaded"
-        :loading="$apollo.queries.products.loading"
+        :loading="isLoading"
         @loadprev="loadPrev"
-        @reset="resetCurrentPage"
       />
 
       <CaProductList
         :skip="currentMinCount - 1"
         :page-size="pageSize"
         :products="productList"
-        :products-fetched="productsFetched"
+        :products-fetched="!isLoading"
       />
 
       <CaListPagination
-        v-if="showControls"
         direction="next"
         :showing="showing"
         :total-count="totalCount"
         :min-count="currentMinCount"
         :max-count="currentMaxCount"
         :all-products-loaded="allProductsLoaded"
-        :loading="$apollo.queries.products.loading"
+        :loading="isLoading"
         @loadmore="loadMore"
-        @reset="resetCurrentPage"
       />
 
       <CaSeoText :text="seoCategoryPageText" />
     </CaContainer>
-
-    <LazyCaFilterPanel
-      :filters="filters"
-      :selection="selection"
-      :selection-active="filterSelectionActive"
-      :total-products="totalCount"
-      :total-filters-active="totalFiltersActive"
-      :current-sort="selection.sort"
-      @selectionchange="filterChangeHandler"
+    <LazyVoyadoFilterPanel
+      :external-sort-options="sortOptions"
+      :current-sort="sort"
+      :facets="facets"
+      @reset="resetHandler"
       @sortchange="sortChangeHandler"
-      @reset="resetFilters"
+      @selectionchange="selectionChangeHandler"
     />
   </div>
 </template>
 <script>
-/*
-  CaListPage is the main component for the product list pages.
+/* 
+  (Description of component) 
 */
-import MixListPage from 'MixListPage';
+import { VoyadoListPage } from '@geins/ralph-module-voyado-elevate';
 
 export default {
-  name: 'CaListPage',
-  mixins: [MixListPage],
+  name: 'CaListPageVoyado',
+  mixins: [VoyadoListPage],
   props: {},
   data: () => ({}),
   computed: {
@@ -92,9 +75,8 @@ export default {
     }
   },
   watch: {},
-  created() {},
   mounted() {
-    this.$store.dispatch('lastVisited/set', this.currentPath);
+    this.$store.dispatch('lastVisited/set', this.pageReference);
   },
   methods: {}
 };

@@ -229,6 +229,7 @@
           v-if="product"
           :product-key="product.articleNumber"
           :random-titles="3"
+          :product-rules="voyadoProductRules"
           @voyadoProductData="setVoyadoData"
         />
       </CaContainer>
@@ -262,6 +263,9 @@ export default {
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler, VoyadoProductPage],
   data: () => ({}),
   computed: {
+    voyadoProductRules() {
+      return 'rule excl custom.price_type { "SALE_PRICE" }';
+    },
     buyButtonText() {
       return this.$store.getters.viewport === 'phone'
         ? this.$t('ADD_TO_CART_SHORT')

@@ -1,5 +1,10 @@
 <template>
-  <VoyadoListPage :type="listType" :list-info="listInfo" />
+  <CaListPageVoyado
+    :type="listType"
+    :list-info="listInfo"
+    :page-reference="pageReference"
+    :product-rules="productRules"
+  />
 </template>
 
 <script>
@@ -19,7 +24,17 @@ export default {
   data: () => ({
     listType: 'list'
   }),
-  computed: {},
+  computed: {
+    productRules() {
+      return this.isSale
+        ? 'rule excl custom.price_type { "CAMPAIGN_PRICE" "NONE" }'
+        : 'rule excl custom.price_type { "SALE_PRICE" }';
+    },
+    pageReference() {
+      const pageRef = decodeURI(this.$route.path);
+      return this.isSale ? pageRef.replace(this.salePath, '') : pageRef;
+    }
+  },
   mounted() {},
   methods: {},
   meta: {

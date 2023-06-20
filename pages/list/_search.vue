@@ -1,5 +1,5 @@
 <template>
-  <VoyadoListPage :type="listType" :list-info="staticListInfo" />
+  <CaListPageVoyado :type="listType" :list-info="staticListInfo" />
 </template>
 
 <script>
