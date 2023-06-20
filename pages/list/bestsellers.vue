@@ -2,7 +2,6 @@
   <CaListPage
     :type="listType"
     :list-info="staticListInfo"
-    :exclude-facets="isSale ? [] : [`${saleFacet}`]"
     :implicit-facets="['p_1_40_BESTSELLER']"
   />
 </template>
@@ -14,12 +13,11 @@
   middleware: list-page-routing - handles the routing for the list pages
 
 */
-import MixSaleUtils from 'MixSaleUtils';
 
 export default {
   middleware: 'list-page-routing',
   name: 'BestsellerView',
-  mixins: [MixSaleUtils],
+  mixins: [],
   data: () => ({
     listType: 'all'
   }),
