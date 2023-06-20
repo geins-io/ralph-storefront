@@ -4,7 +4,6 @@
     :info-query="infoQuery"
     :custom-list-info="customListInfo"
     :current-alias="currentAlias"
-    :exclude-facets="isSale ? [] : [`${saleFacet}`]"
     :implicit-facets="['p_1_40_BESTSELLER']"
   />
 </template>
@@ -22,12 +21,11 @@
 */
 
 import categoryInfoQuery from 'productlist/category-page.graphql';
-import MixSaleUtils from 'MixSaleUtils';
 
 export default {
   middleware: 'list-page-routing',
   name: 'BestsellerView',
-  mixins: [MixSaleUtils],
+  mixins: [],
   data: () => ({
     infoQuery: categoryInfoQuery
   }),
