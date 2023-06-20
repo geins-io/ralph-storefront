@@ -14,7 +14,8 @@ export default {
   CUSTOMER_SERVICE_OPEN: 'Hverdager 08.00-17.00',
   CUSTOMER_SERVICE_INFO:
     'Minste beløp å handle for 100 kr, standard frakt kr 59,-, fri frakt når du handler for minimum 799,-. 30 dager retur- og angrerett. Betalingsmåte: Konto, Faktura og Kortbetaling. Vi leverer kun til norske adresser.',
-  FOOTER_CORP_CONTENT: 'New Bubbleroom Sweden AB\nForetaksregisteret: 556699-9214',
+  FOOTER_CORP_CONTENT:
+    'New Bubbleroom Sweden AB\nForetaksregisteret: 556699-9214',
   FAVORITES_EMPTY: 'Du har ingen markerede favoritprodukter',
   BRANDS_TITLE: 'Alle mærker',
   BRANDS_EMPTY: 'Ingen mærker er tilgængelige',

@@ -603,8 +603,18 @@ export default async () => {
         fi: '/ale',
         no: '/tilbud'
       },
-      customerServiceEmail: 'kundservice@bubbleroom.se',
-      customerServicePhone: '08-411 17 17',
+      customerServiceEmail: {
+        se: 'kundservice.se@bubbleroom.com',
+        dk: 'kundeservice.dk@bubbleroom.com',
+        fi: 'asiakaspalvelu.fi@bubbleroom.com',
+        no: 'kundeservice.no@bubbleroom.com'
+      },
+      customerServicePhone: {
+        se: '08-411 17 17',
+        dk: '70 27 78 33',
+        fi: '09 8566 8307',
+        no: '22 33 05 20'
+      },
       breakpoints: {
         tablet: 768,
         laptop: 1024,

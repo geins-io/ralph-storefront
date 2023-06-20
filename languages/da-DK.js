@@ -13,7 +13,7 @@ export default {
   CUSTOMER_SERVICE_PHONE: '70 27 78 33',
   CUSTOMER_SERVICE_OPEN: 'Hverdage 08.00-18.00',
   CUSTOMER_SERVICE_INFO:
-    'Laveste ordreværdi 70 kr, Standardlevering 49 kr, fri fragt ved køb over 499 kr. 30 dages fortrydelsesret. Betalingsmetoder: Betalingskort og PayPal. Vi leverer kun til danske adresser.',
+    'Laveste ordreværdi 70kr, Standardlevering 49kr, fri fragt ved køb over 499 kr. 30 dages fortrydelsesret. Betalingsmetoder: Betalingskort. Vi leverer kun til danske adresser.',
   FOOTER_CORP_CONTENT:
     'New Bubbleroom Sweden AB\nVATnr: SE556699921401\nCVR nummer: 12578423',
   FAVORITES_LABEL: 'Mine favoritter',

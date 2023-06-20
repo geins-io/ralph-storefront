@@ -1,10 +1,5 @@
 <template>
-  <CaListPage
-    type="list"
-    :info-query="infoQuery"
-    :current-path="currentPath"
-    :exclude-facets="isSale ? [] : [`${saleFacet}`]"
-  />
+  <CaListPage type="list" :info-query="infoQuery" :current-path="currentPath" />
 </template>
 
 <script>

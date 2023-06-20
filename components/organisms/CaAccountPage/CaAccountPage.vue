@@ -19,18 +19,18 @@
           </p>
           <a
             class="ca-customer-service-box__contact"
-            :href="'tel:' + $config.customerServicePhone"
+            :href="'tel:' + $config.customerServicePhone[currentMarket]"
           >
             <CaIconAndText icon-name="phone">
-              {{ $config.customerServicePhone }}
+              {{ $config.customerServicePhone[currentMarket] }}
             </CaIconAndText>
           </a>
           <a
             class="ca-customer-service-box__contact"
-            :href="'mailto:' + $config.customerServiceEmail"
+            :href="'mailto:' + $config.customerServiceEmail[currentMarket]"
           >
             <CaIconAndText icon-name="mail">
-              {{ $config.customerServiceEmail }}
+              {{ $config.customerServiceEmail[currentMarket] }}
             </CaIconAndText>
           </a>
         </div>
@@ -76,6 +76,9 @@ export default {
       return this.$store.getters.viewport === 'phone'
         ? accountTitle
         : accountTitle + ' / ' + currentPage?.name;
+    },
+    currentMarket() {
+      return this.$store.state.channel.currentMarket;
     }
   },
   watch: {},

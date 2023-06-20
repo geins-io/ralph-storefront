@@ -13,7 +13,7 @@ export default {
   CUSTOMER_SERVICE_PHONE: '09 8566 8307',
   CUSTOMER_SERVICE_OPEN: 'Arkisin 8-21 ja la-su 10-15',
   CUSTOMER_SERVICE_INFO:
-    'Pienin tilaussumma 7 €, toimitus 5,20 €, ilmainen toimitus yli 79 € tilauksille. 30 päivän peruutusoikeus. Maksutapa: Lasku, Tili, Maksukortti, PayPal ja Verkkomaksu. Toimitamme vain suomalaisiin osoitteisiin. ',
+    'Pienin tilaussumma 7 €, toimitus 5,20 €, ilmainen toimitus yli 79 € tilauksille. 30 päivän peruutusoikeus. Maksutapa: Lasku, Tili, Maksukorttil ja Verkkomaksu. Toimitamme vain suomalaisiin osoitteisiin.',
   FOOTER_CORP_CONTENT: 'New Bubbleroom Sweden AB\nVATnr: SE556699921401',
   FAVORITES_LABEL: 'Suosikkini',
   FAVORITES_EMPTY: 'Sinulla ei ole suosikeiksi merkittyjä tuotteita',
