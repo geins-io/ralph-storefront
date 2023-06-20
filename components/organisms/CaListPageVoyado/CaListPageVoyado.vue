@@ -62,7 +62,7 @@
 /* 
   (Description of component) 
 */
-import { VoyadoListPage } from '@geins/ralph-module-voyado-elevate';
+import VoyadoListPage from 'VoyadoListPage';
 
 export default {
   name: 'CaListPageVoyado',
