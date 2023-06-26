@@ -133,7 +133,7 @@
   - productclick: an object containing the product data
 */
 import MixProductCard from 'MixProductCard';
-import VoyadoProductCard from 'VoyadoProductCard';
+import { VoyadoProductCard } from '@geins/ralph-module-voyado-elevate';
 export default {
   name: 'CaProductCard',
   mixins: [MixProductCard, VoyadoProductCard],

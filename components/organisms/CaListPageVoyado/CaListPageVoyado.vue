@@ -3,7 +3,11 @@
     <CaContainer>
       <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
       <CaSkeleton v-else class="ca-breadcrumbs" width="10%" />
-      <CaListTop :type="type" :list-info="listInfo" />
+      <CaListTop
+        :type="type"
+        :list-info="listInfo"
+        :categories="filterCategories"
+      />
     </CaContainer>
     <CaWidgetArea
       class="ca-list-page__widget-area"
@@ -59,19 +63,59 @@
   </div>
 </template>
 <script>
-/* 
-  (Description of component) 
+/*
+  The Voyado list page 
 */
-import VoyadoListPage from 'VoyadoListPage';
+import { VoyadoListPage } from '@geins/ralph-module-voyado-elevate';
+import filtersQuery from 'productlist/list-filters.graphql';
 
 export default {
   name: 'CaListPageVoyado',
   mixins: [VoyadoListPage],
+  apollo: {
+    productFilters: {
+      query() {
+        return filtersQuery;
+      },
+      variables() {
+        return {
+          skip: 0,
+          take: 0,
+          filter: null,
+          url: this.pageReference
+        };
+      },
+      result(result) {
+        if (result && result.data) {
+          this.baseFilters = result.data.products.filters;
+        }
+      },
+      update: data => data.products.filters,
+      skip() {
+        return !process.client || this.baseFilters;
+      },
+      error(error) {
+        this.$nuxt.error({ statusCode: error.statusCode, message: error });
+      }
+    }
+  },
   props: {},
-  data: () => ({}),
+  data: () => ({
+    baseFilters: null
+  }),
   computed: {
     seoCategoryPageText() {
       return this.listInfo?.secondaryDescription;
+    },
+    filterCategories() {
+      if (!this.baseFilters) {
+        return [];
+      }
+      const categories = this.baseFilters.facets.find(
+        i => i.type === 'Category'
+      );
+
+      return categories?.values || [];
     }
   },
   watch: {},
