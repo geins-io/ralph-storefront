@@ -56,6 +56,7 @@
       :external-sort-options="sortOptions"
       :current-sort="sort"
       :facets="facets"
+      :show-sort-at-top="true"
       @reset="resetHandler"
       @sortchange="sortChangeHandler"
       @selectionchange="selectionChangeHandler"
