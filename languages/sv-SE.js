@@ -278,7 +278,7 @@ export default {
   CHECKOUT_HIDE_SUMMARY: 'Dölj detaljer',
   CHECKOUT_CONFIRM_TITLE: 'Tack för din beställning!',
   CHECKOUT_CONFIRM_TEXT:
-    'Tack för att du handlar hos oss.\n\nVi har nu mottagit din beställning & inom 24 timmar (vardagar) kommer din orderbekräftelse till din e-mail.\n\nNär din order skickats från oss kommer du att få en leveransbekräftelse med mer information.\n\nVi hoppas att du kommer bli nöjd med din nya outfit!',
+    'Kära kund,\n\nJust nu kan det vara en liten försening med din orderbekräftelse. Vi arbetar hårt för att så snart som möjligt skicka bekräftelsen till dig. Tack för ditt tålamod. \n\nDenna fördröjning påverkar inte leveranstiden för dina produkter. Du kan fortsätta förvänta dig att få dem inom den ursprungliga leveranstidsramen.',
   CHECKOUT_REGARDS: 'Bubbleroom',
   CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
     'Se till att alla fält är korrekt ifyllda',
