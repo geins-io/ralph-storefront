@@ -1,19 +1,29 @@
 <template>
-  <VoyadoSearchPage :query="query" />
+  <CaListPageVoyado :type="listType" :list-info="staticListInfo" />
 </template>
 
 <script>
 /*
   Renders the search page.
-
 */
 export default {
   name: 'SearchListView',
   mixins: [],
-  data: () => ({}),
+  data: () => ({
+    listType: 'search'
+  }),
   computed: {
-    query() {
-      return this.$route.params.search;
+    staticListInfo() {
+      const title = this.$t('SEARCH_RESULTS_PAGE_TITLE', {
+        search: this.$route.params.search
+      });
+      return {
+        name: title,
+        meta: {
+          title,
+          description: title
+        }
+      };
     }
   },
   mounted() {},

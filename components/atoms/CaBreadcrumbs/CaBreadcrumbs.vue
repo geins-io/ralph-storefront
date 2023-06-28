@@ -88,7 +88,6 @@ export default {
 
       // Add dynamic category parents
       if (this.parents.length && this.categoryTree.length) {
-
         for (let i = this.parents.length - 1; i >= 0; i--) {
           position++;
 
@@ -158,8 +157,11 @@ export default {
         const parent = this.categoryTree.find(
           i => i.categoryId === current.parentCategoryId
         );
-        this.parents.push(parent);
-        this.setParent(parent.alias);
+
+        if (parent) {
+          this.parents.push(parent);
+          this.setParent(parent.alias);
+        }
       }
     },
     // Adds sale to path
@@ -169,7 +171,7 @@ export default {
       }
 
       return path;
-    },
+    }
   }
 };
 </script>

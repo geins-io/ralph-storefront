@@ -1,9 +1,7 @@
 <template>
   <CaListPage
-    type="all"
-    :info-query="infoQuery"
-    :custom-list-info="customListInfo"
-    :current-alias="currentAlias"
+    :type="listType"
+    :list-info="staticListInfo"
     :implicit-facets="['p_1_40_BESTSELLER']"
   />
 </template>
@@ -13,27 +11,18 @@
   Renders the list page for bestsellers.
   
   middleware: list-page-routing - handles the routing for the list pages
-  
-  computed:
-    currentPath: The current path of the list page.
-    filtersVars: The variables for the filters query.
 
 */
-
-import categoryInfoQuery from 'productlist/category-page.graphql';
 
 export default {
   middleware: 'list-page-routing',
   name: 'BestsellerView',
   mixins: [],
   data: () => ({
-    infoQuery: categoryInfoQuery
+    listType: 'all'
   }),
   computed: {
-    currentAlias() {
-      return 'all';
-    },
-    customListInfo() {
+    staticListInfo() {
       const title = this.$t('BESTSELLER_PAGE_TITLE');
       return {
         name: title,

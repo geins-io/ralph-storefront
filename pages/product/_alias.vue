@@ -190,10 +190,10 @@
             class="ca-price ca-product-page__price ca-product-page__price--skeleton"
           />
           <div class="ca-brand-and-name ca-product-page__brand-and-name">
+            <CaSkeleton width="50%" class="ca-brand-and-name__name" />
             <div class="ca-brand-and-name__brand">
               <CaSkeleton width="30%" class="ca-brand-and-name__brand" />
             </div>
-            <CaSkeleton width="50%" class="ca-brand-and-name__name" />
           </div>
           <div class="ca-product-page__buy-wrap">
             <CaSkeleton width="100%" height="52px" :radius="false" />
@@ -262,6 +262,9 @@ export default {
   mixins: [MixProductPage, MixAddToCart, MixVariantHandler, VoyadoProductPage],
   data: () => ({}),
   computed: {
+    voyadoProductRules() {
+      return 'rule excl custom.price_type { "SALE_PRICE" }';
+    },
     buyButtonText() {
       return this.$store.getters.viewport === 'phone'
         ? this.$t('ADD_TO_CART_SHORT')

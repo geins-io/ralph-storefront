@@ -91,13 +91,11 @@ export default {
       return this.listInfo?.secondaryDescription;
     }
   },
-  watch: {
-    breadcrumbsCurrent(value) {
-      this.$store.dispatch('lastVisited/set', value.canonical);
-    }
-  },
+  watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    this.$store.dispatch('lastVisited/set', this.currentPath);
+  },
   methods: {}
 };
 </script>

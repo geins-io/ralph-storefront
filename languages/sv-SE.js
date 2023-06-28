@@ -383,7 +383,6 @@ export default {
   VOYADO_SEARCH_PRODUCT_RESULTS_TITLE: 'Produkt | Produkter',
   VOYADO_SEARCH_RESULTS_BUTTON: 'Visa {hits} produkt | Visa {hits} produkter',
   VOYADO_SEARCH_CLOSE: 'Stäng',
-  VOYADO_SEARCH_PAGE_TITLE: 'Sökresultat för: {search}',
   VOYADO_RECOMMENDATIONS_TITLE_ALTERNATIVES_1: 'Andra köpte även',
   VOYADO_RECOMMENDATIONS_TITLE_ALTERNATIVES_2: 'Du kanske gillar',
   VOYADO_RECOMMENDATIONS_TITLE_ALTERNATIVES_3: 'Liknande produkter',

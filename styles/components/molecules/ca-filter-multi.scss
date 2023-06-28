@@ -9,6 +9,7 @@
     position: relative;
     cursor: pointer;
     display: flex;
+    align-items: center;
     border-bottom: $border-light;
 
     &::before {
@@ -43,6 +44,11 @@
       @include visually-hidden;
     }
   }
+
+  &__color {
+    margin-right: $px10;
+  }
+
   &__check {
     @include valign;
 

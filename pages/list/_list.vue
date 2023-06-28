@@ -1,5 +1,9 @@
 <template>
-  <CaListPage type="list" :info-query="infoQuery" :current-path="currentPath" />
+  <CaListPageVoyado
+    :type="listType"
+    :list-info="listInfo"
+    :page-reference="decodeURI(this.$route.path)"
+  />
 </template>
 
 <script>
@@ -8,28 +12,17 @@
 
   middleware: list-page-routing - handles the routing for the list pages
 
-  computed:
-    currentPath: The current path of the list page.
-    filtersVars: The variables for the filters query.
-
 */
-import listInfoQuery from 'productlist/list-page.graphql';
-import MixSaleUtils from 'MixSaleUtils';
+import MixListInfo from 'MixListInfo';
 
 export default {
   middleware: 'list-page-routing',
   name: 'ListView',
-  mixins: [MixSaleUtils],
-  data() {
-    return {
-      infoQuery: listInfoQuery
-    };
-  },
-  computed: {
-    currentPath() {
-      return decodeURI(this.$route.path);
-    }
-  },
+  mixins: [MixListInfo],
+  data: () => ({
+    listType: 'list'
+  }),
+  computed: {},
   mounted() {},
   methods: {},
   meta: {

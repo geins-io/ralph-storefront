@@ -376,7 +376,6 @@ export default {
   VOYADO_SEARCH_PRODUCT_RESULTS_TITLE: 'Product | Products',
   VOYADO_SEARCH_RESULTS_BUTTON: 'Show {hits} product | Show {hits} products',
   VOYADO_SEARCH_CLOSE: 'Close',
-  VOYADO_SEARCH_PAGE_TITLE: 'Search results for: {search}',
   VOYADO_RECOMMENDATIONS_TITLE_ALTERNATIVES_1: 'Others also bought',
   VOYADO_RECOMMENDATIONS_TITLE_ALTERNATIVES_2: 'You may also like',
   VOYADO_RECOMMENDATIONS_TITLE_ALTERNATIVES_3: 'Similar products',

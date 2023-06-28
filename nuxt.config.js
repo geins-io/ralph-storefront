@@ -375,7 +375,7 @@ export default async () => {
               fi: '/parhaiten-myydyt-just-nyt',
               nb: encodeURI('/bestselgere-akkurat-nå')
             },
-            'list/_all': {
+            'list/all': {
               sv: '/nyheter',
               en: '/news',
               da: '/nyheder',

@@ -46,10 +46,6 @@ export default {
     activeProducts: {
       type: Number,
       required: true
-    },
-    activeFilters: {
-      type: Number,
-      required: true
     }
   },
   data: () => ({}),
