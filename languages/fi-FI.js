@@ -13,7 +13,7 @@ export default {
   CUSTOMER_SERVICE_PHONE: '09 8566 8307',
   CUSTOMER_SERVICE_OPEN: 'Arkisin 8-21 ja la-su 10-15',
   CUSTOMER_SERVICE_INFO:
-    'Pienin tilaussumma 7 €, toimitus 5,20 €, ilmainen toimitus yli 79 € tilauksille. 30 päivän peruutusoikeus. Maksutapa: Lasku, Tili, Maksukortti, PayPal ja Verkkomaksu. Toimitamme vain suomalaisiin osoitteisiin. ',
+    'Pienin tilaussumma 7 €, toimitus 5,20 €, ilmainen toimitus yli 79 € tilauksille. 30 päivän peruutusoikeus. Maksutapa: Lasku, Tili, Maksukorttil ja Verkkomaksu. Toimitamme vain suomalaisiin osoitteisiin.',
   FOOTER_CORP_CONTENT: 'New Bubbleroom Sweden AB\nVATnr: SE556699921401',
   FAVORITES_LABEL: 'Suosikkini',
   FAVORITES_EMPTY: 'Sinulla ei ole suosikeiksi merkittyjä tuotteita',
@@ -277,7 +277,7 @@ export default {
   CHECKOUT_HIDE_SUMMARY: 'Piilota tiedot',
   CHECKOUT_CONFIRM_TITLE: 'Kiitos tilauksestasi!',
   CHECKOUT_CONFIRM_TEXT:
-    'Kiitos että teet ostoksia meillä.\n\nOlemme nyt vatstaanottaneet tilauksesi & 24 tunnin sisällä (arkisin) tulee sinun tilausvahvistus sähköpostiisi.\n\nKun tilauksesi on lähetetty meiltä, saat toimitusvahvistuksen jossa on lisätietoja.\n\nToivomme että olet tyytyväinen sinun uuteen asuun!',
+    'Arvoisa asiakas,\n\nTällä hetkellä tilausvahvistuksen saapumisessa voi olla pieni viivästys. Työskentelemme kovasti lähettääksemme vahvistuksen sinulle mahdollisimman pian. Kiitos kärsivällisyydestäsi.\n\nTämä viivästys ei vaikuta tuotteidesi toimitusaikaan. Voit odottaa saavasi ne alkuperäisessä toimitusaikataulussa.\n\nKiitos vielä kerran kärsivällisyydestäsi ja ymmärryksestäsi.',
   CHECKOUT_REGARDS: 'Bubbleroom',
   CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
     'Varmista, että kaikki kentät on täytetty oikein',

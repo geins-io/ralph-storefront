@@ -14,7 +14,8 @@ export default {
   CUSTOMER_SERVICE_OPEN: 'Hverdager 08.00-17.00',
   CUSTOMER_SERVICE_INFO:
     'Minste beløp å handle for 100 kr, standard frakt kr 59,-, fri frakt når du handler for minimum 799,-. 30 dager retur- og angrerett. Betalingsmåte: Konto, Faktura og Kortbetaling. Vi leverer kun til norske adresser.',
-  FOOTER_CORP_CONTENT: 'New Bubbleroom Sweden AB\nForetaksregisteret: 556699-9214',
+  FOOTER_CORP_CONTENT:
+    'New Bubbleroom Sweden AB\nForetaksregisteret: 556699-9214',
   FAVORITES_EMPTY: 'Du har ingen markerede favoritprodukter',
   BRANDS_TITLE: 'Alle mærker',
   BRANDS_EMPTY: 'Ingen mærker er tilgængelige',
@@ -280,7 +281,7 @@ export default {
   CHECKOUT_HIDE_SUMMARY: 'Skjul detaljer',
   CHECKOUT_CONFIRM_TITLE: 'Takk for din bestilling!',
   CHECKOUT_CONFIRM_TEXT:
-    'Takk for at du handler hos oss.\n\nVi har mottatt bestillingen din og du vil i løpet av 24 timer ( med unntak av helgedager) få en ordrebekreftelse på epost.\n\nNår bestillingen sendes fra oss, vil du motta en leveringsbekreftelse med mer informasjon.\n\nVi håper at du blir fornøyd med din nye Outfit!',
+    'Kjære kunde,\n\nAkkurat nå kan det være en liten forsinkelse med din ordrebekreftelse. Vi jobber hardt for å sende bekreftelsen til deg så snart som mulig. Takk for din tålmodighet.\n\nDenne forsinkelsen påvirker ikke leveringstiden for produktene dine. Du kan fortsatt forvente å motta dem innenfor den opprinnelige leveringstidsrammen.\n\nTakk igjen for din tålmodighet og forståelse.',
   CHECKOUT_REGARDS: 'Bubbleroom',
   CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
     'Sørg for, at alle felter er udfyldt korrekt',

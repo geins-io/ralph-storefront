@@ -13,7 +13,7 @@ export default {
   CUSTOMER_SERVICE_PHONE: '70 27 78 33',
   CUSTOMER_SERVICE_OPEN: 'Hverdage 08.00-18.00',
   CUSTOMER_SERVICE_INFO:
-    'Laveste ordreværdi 70 kr, Standardlevering 49 kr, fri fragt ved køb over 499 kr. 30 dages fortrydelsesret. Betalingsmetoder: Betalingskort og PayPal. Vi leverer kun til danske adresser.',
+    'Laveste ordreværdi 70kr, Standardlevering 49kr, fri fragt ved køb over 499 kr. 30 dages fortrydelsesret. Betalingsmetoder: Betalingskort. Vi leverer kun til danske adresser.',
   FOOTER_CORP_CONTENT:
     'New Bubbleroom Sweden AB\nVATnr: SE556699921401\nCVR nummer: 12578423',
   FAVORITES_LABEL: 'Mine favoritter',
@@ -282,7 +282,7 @@ export default {
   CHECKOUT_HIDE_SUMMARY: 'Skjul detaljer',
   CHECKOUT_CONFIRM_TITLE: 'Tak for din ordre!',
   CHECKOUT_CONFIRM_TEXT:
-    'Tak fordi du handler hos os.\n\nVi har nu modtaget din ordre & indenfor 24 timer (hverdage), vil din ordrebekræftelse blive sendt til din mail.\n\nNår din ordre er afsendt fra os, modtager du en leveringsbekræftelse med yderligere information.\n\nVi håber, du bliver tilfreds med dit nye outfit!',
+    'Kære kunde,\n\nLige nu kan der være en lille forsinkelse med din ordrebekræftelse. Vi arbejder hårdt på at sende bekræftelsen til dig så hurtigt som muligt. Tak for din tålmodighed.\n\nDenne forsinkelse påvirker ikke leveringstiden for dine produkter. Du kan fortsat forvente at modtage dem inden for den oprindelige leveringstidsramme.\n\nTak igen for din tålmodighed og forståelse.',
   CHECKOUT_REGARDS: 'Bubbleroom',
   CHECKOUT_FEEDBACK_FIELDS_NOT_VALID:
     'Sørg for, at alle felter er udfyldt korrekt',
