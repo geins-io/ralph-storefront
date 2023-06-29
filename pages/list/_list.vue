@@ -2,7 +2,7 @@
   <CaListPageVoyado
     :type="listType"
     :list-info="listInfo"
-    :page-reference="decodeURI(this.$route.path)"
+    :page-reference="decodeURI($route.path)"
   />
 </template>
 

@@ -104,7 +104,7 @@
           :campaigns="product.discountCampaigns"
         />
         <CaBrandAndName
-          :brand="product.brand.name"
+          :brand="product.brand"
           :name="product.name"
           name-tag="h2"
           class="ca-product-card__brand-and-name"
