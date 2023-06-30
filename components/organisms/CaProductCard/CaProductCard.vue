@@ -183,13 +183,34 @@ export default {
 
       return '';
     },
-    imageWithTag() {
+    imagesWithTag() {
       if (!this.productPopulated) {
         return null;
       }
-      return this.product.productImages.find(image =>
+      return this.product.productImages.filter(image =>
         image.tags.includes(this.prioritizeTag)
       );
+    },
+    primaryImageWithTag() {
+      if (!this.productPopulated) {
+        return null;
+      }
+      return this.imagesWithTag[0] || null;
+    },
+    secondaryImageWithTag() {
+      if (!this.productPopulated) {
+        return null;
+      }
+      return this.imagesWithTag[1] || null;
+    },
+    hasTwoImages() {
+      if (!this.productPopulated) {
+        return false;
+      }
+      if (!this.product.productImages) {
+        return this.product.images.length > 1;
+      }
+      return this.product.productImages.length > 1;
     },
     getPrimaryImage() {
       if (!this.productPopulated) {
@@ -198,29 +219,26 @@ export default {
       if (!this.product.productImages) {
         return this.product.images[0];
       }
-      if (!this.prioritizeTag) {
+      if (!this.prioritizeTag || !this.primaryImageWithTag) {
         return this.product.productImages[0].fileName;
       } else {
-        if (!this.imageWithTag) {
-          return this.product.productImages[0].fileName;
-        }
-        return this.imageWithTag.fileName;
+        return this.primaryImageWithTag.fileName;
       }
     },
     getSecondaryImage() {
       if (!this.productPopulated) {
         return '';
       }
+      if (!this.hasTwoImages) {
+        return this.product.images[0];
+      }
       if (!this.product.productImages) {
         return this.product.images[1];
       }
-      if (!this.prioritizeTag) {
+      if (!this.prioritizeTag || !this.secondaryImageWithTag) {
         return this.product.productImages[1].fileName;
       } else {
-        if (!this.imageWithTag) {
-          return this.product.productImages[1].fileName;
-        }
-        return this.product.productImages[0].fileName;
+        return this.secondaryImageWithTag.fileName;
       }
     }
   },
