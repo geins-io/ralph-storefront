@@ -183,25 +183,13 @@ export default {
 
       return '';
     },
-    imagesWithTag() {
+    imageWithTag() {
       if (!this.productPopulated) {
         return null;
       }
-      return this.product.productImages.filter(image =>
+      return this.product.productImages.find(image =>
         image.tags.includes(this.prioritizeTag)
       );
-    },
-    primaryImageWithTag() {
-      if (!this.productPopulated) {
-        return null;
-      }
-      return this.imagesWithTag[0] || null;
-    },
-    secondaryImageWithTag() {
-      if (!this.productPopulated) {
-        return null;
-      }
-      return this.imagesWithTag[1] || null;
     },
     hasTwoImages() {
       if (!this.productPopulated) {
@@ -219,10 +207,10 @@ export default {
       if (!this.product.productImages) {
         return this.product.images[0];
       }
-      if (!this.prioritizeTag || !this.primaryImageWithTag) {
+      if (!this.prioritizeTag || !this.imageWithTag) {
         return this.product.productImages[0].fileName;
       } else {
-        return this.primaryImageWithTag.fileName;
+        return this.imageWithTag.fileName;
       }
     },
     getSecondaryImage() {
@@ -235,11 +223,7 @@ export default {
       if (!this.product.productImages) {
         return this.product.images[1];
       }
-      if (!this.prioritizeTag || !this.secondaryImageWithTag) {
-        return this.product.productImages[1].fileName;
-      } else {
-        return this.secondaryImageWithTag.fileName;
-      }
+      return this.product.productImages[1].fileName;
     }
   },
   watch: {},
