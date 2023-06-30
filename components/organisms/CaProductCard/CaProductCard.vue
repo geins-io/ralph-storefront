@@ -223,7 +223,11 @@ export default {
       if (!this.product.productImages) {
         return this.product.images[1];
       }
-      return this.product.productImages[1].fileName;
+      if (!this.prioritizeTag || !this.imageWithTag) {
+        return this.product.productImages[1].fileName;
+      } else {
+        return this.product.productImages[0].fileName;
+      }
     }
   },
   watch: {},
