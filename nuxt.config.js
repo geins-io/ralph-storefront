@@ -484,7 +484,7 @@ export default async () => {
         {
           hid: 'voyado-engage-js-embed',
           src:
-            process.env.ralphEnv === 'prod'
+            process.env.RALPH_ENV === 'prod'
               ? '/vendors/voyado-engage-tracking-script.js'
               : '/vendors/voyado-engage-tracking-script-staging.js',
           defer: true
