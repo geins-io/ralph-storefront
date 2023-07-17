@@ -112,7 +112,7 @@ export default {
   SEARCH_NO_RESULTS:
     'Desværre blev der ikke fundet noget, der matcher din søgning',
   SEARCH_RESULTS_PAGE_TITLE: 'Søgeresultater for: {search}',
-  ESET_FILTERS: 'Ryd alle',
+  RESET_FILTERS: 'Ryd alle',
   NO_PRODUCTS_MATCH: 'Ingen produkter matchede dit valg',
   SKU_NOT_CHOSEN: 'Ikke valgt',
   SKU_LABEL: 'Størrelse',

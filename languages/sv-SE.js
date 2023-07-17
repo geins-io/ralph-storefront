@@ -111,7 +111,7 @@ export default {
   SEARCH_NO_SUGGESTIONS: 'Du har inte sökt på något än',
   SEARCH_NO_RESULTS: 'Tyvärr hittades inget som matchar din sökning',
   SEARCH_RESULTS_PAGE_TITLE: 'Sökresultat för: {search}',
-  ESET_FILTERS: 'Återställ filter',
+  RESET_FILTERS: 'Återställ filter',
   NO_PRODUCTS_MATCH: 'Inga produkter matchar ditt urval',
   SKU_NOT_CHOSEN: 'Ej vald',
   SKU_LABEL: 'Storlek',

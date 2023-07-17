@@ -111,7 +111,7 @@ export default {
   SEARCH_NO_SUGGESTIONS: 'Et ole vielä etsinyt mitään',
   SEARCH_NO_RESULTS: 'Valitettavasti hakuasi vastaavaa ei löytynyt',
   SEARCH_RESULTS_PAGE_TITLE: ' Hakutulokset for {search}',
-  ESET_FILTERS: ' Tyhjennä kaikki',
+  RESET_FILTERS: ' Tyhjennä kaikki',
   NO_PRODUCTS_MATCH: 'Yksikään tuote ei vastaa valintaasi',
   SKU_NOT_CHOSEN: 'Ei valittu',
   SKU_LABEL: 'Koko',
