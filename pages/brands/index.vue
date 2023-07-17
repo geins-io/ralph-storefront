@@ -38,7 +38,7 @@
                 class="ca-brands-page__list-item"
               >
                 <NuxtLink class="ca-brands-page__link" :to="brand.canonicalUrl">
-                  {{ brand.alias }}
+                  {{ brand.name }}
                 </NuxtLink>
               </li>
             </ul>
@@ -59,15 +59,15 @@
   apollo:
     brands: The brands query.
     errorPolicy: 'all' to prevent errors from being thrown.
-    result: If the brands query returns data, set isBrandsLoaded to true.
+    result: If the brands query returns data, set isLoading to false.
     error: If the brands query returns an error, throw the error.
-  
+
   data:
-    isBrandsLoaded: Boolean to check if the brands query has returned data.
+    isLoading: Boolean to check if the brands query has returned data.
     brandsTree: The brands object.
     isGroupFilter: Boolean to check if the group filter is active.
     activeGroupFilter: The active group filter.
-  
+
   computed:
     sortedBrands: The brands sorted by alias.
     getOneBrandPerCharacter: The brands sorted by alias and only one brand per character.
@@ -79,17 +79,30 @@
     sortedBrands: If the brands query returns data, set the brandsTree to the getOneBrandPerCharacter.
 
 */
-import brandsQuery from 'brands/brands.graphql';
+import brandsByProductsQuery from 'products/brands-by-products.graphql';
 export default {
   name: 'BrandsPage',
   apollo: {
-    brands: {
-      query: brandsQuery,
+    products: {
+      query: brandsByProductsQuery,
+      variables() {
+        return {
+          filter: {
+            excludeFacets: [`${this.saleFacet}`]
+          }
+        };
+      },
       errorPolicy: 'all',
       result(result) {
-        if (result.data && result.data.brands) {
-          this.isBrandsLoaded = true;
+        if (result.data && result.data.products.filters) {
+          const facets = result.data.products.filters.facets;
+          const brandFacets = facets.find(facet => facet.type === 'Brand');
+
+          this.updateBrandsFromFacets(brandFacets);
+          this.isLoading = false;
         }
+
+        this.$store.dispatch('loading/end');
       },
       error(error) {
         this.$nuxt.error({ statusCode: 500, message: error });
@@ -97,7 +110,8 @@ export default {
     }
   },
   data: () => ({
-    isBrandsLoaded: false,
+    brands: [],
+    isLoading: true,
     brandsTree: [],
     isGroupFilter: false,
     activeGroupFilter: ''
@@ -137,13 +151,24 @@ export default {
     }
   },
   watch: {
-    isBrandsLoaded() {
-      if (this.isBrandsLoaded) {
+    isLoading() {
+      if (!this.isLoading) {
         this.createBrandsTree();
       }
     }
   },
   methods: {
+    updateBrandsFromFacets(facets) {
+      if (facets && facets.values.length) {
+        this.brands = [...facets.values].map(item => {
+          return {
+            alias: item.label.toUpperCase(),
+            name: item.label,
+            canonicalUrl: item.url
+          };
+        });
+      }
+    },
     getAllBrandsByInitial(character) {
       const getBrands = [...this.sortedBrands];
 
