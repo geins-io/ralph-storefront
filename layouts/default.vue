@@ -1,7 +1,7 @@
 <template>
   <div class="ca-layout-default" :class="modifiers">
     <CaHeader />
-    <main class="ca-layout-default__main">
+    <main class="ca-layout-default__main" :class="pageTypeClass">
       <Nuxt />
     </main>
     <div>
@@ -39,6 +39,16 @@ export default {
       return {
         'ca-layout-default--loading': this.$store.state.loading.loading
       };
+    },
+    pageTypeClass() {
+      const routeName = this.$route?.name;
+      const routeNameStripped = routeName
+        ? routeName.split('-')[0].split('_')[0]
+        : '';
+      return 'ca-layout-default__main--' + routeNameStripped;
+    },
+    isPdp() {
+      return this.$route?.name?.includes('pdp');
     }
   }
   // IMPORTANT NOTICE: If you decide to add a head() function here, you will overwrite default meta functionality that comes with MixGlobalInit from Ralph UI

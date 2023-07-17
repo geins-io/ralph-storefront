@@ -390,8 +390,6 @@ export default async () => {
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
-      // Doc: https://www.npmjs.com/package/@nuxtjs/gtm
-      '@nuxtjs/gtm',
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
@@ -492,13 +490,6 @@ export default async () => {
         // Adding routes with translated paths is done through nuxt-i18n config above
       }
     },
-    gtm: {
-      id: process.env.GTM_ID,
-      debug: ralphEnv !== 'prod',
-      respectDoNotTrack: false,
-      pageViewEventName: 'Page Impression',
-      pageTracking: false
-    },
     /*
      ** Runtime configs
      */
@@ -591,6 +582,7 @@ export default async () => {
       showSkuFilter: true,
       showPriceFilter: true,
       showDiscountFilter: true,
+      customSortRoutes: [],
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
@@ -638,12 +630,6 @@ export default async () => {
         gender: false, // If set to true, gender must be added to user.graphql
         country: false,
         priceLists: true // Set to true if using different price lists for different users
-      },
-      /* ******************** */
-      /* ******* GTM ******* */
-      /* ******************** */
-      gtm: {
-        isProductsKeyItems: false
       }
     },
     privateRuntimeConfig: {},
