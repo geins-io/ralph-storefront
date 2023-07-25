@@ -1,4 +1,4 @@
-import { state, getters, mutations, actions } from 'channel';
+import { state, getters, mutations, actions } from 'channel.js';
 
 export default {
   state,
