@@ -299,13 +299,6 @@ export default async () => {
               domain: domainUrls?.nb || '' // Only matters if diffrentDomains are used
             },
             {
-              code: 'nn',
-              iso: 'nn-NO',
-              file: 'nb-NO.js',
-              name: 'Norsk',
-              domain: domainUrls?.nn || '' // Only matters if diffrentDomains are used
-            },
-            {
               code: 'da',
               iso: 'da-DK',
               file: 'da-DK.js',

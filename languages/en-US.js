@@ -310,7 +310,7 @@ export default {
   NOTIFY_PANEL_SUCCESS:
     'Thank you! You will be notified when this product is back in stock',
   NOTIFY_ME: 'Notify me',
-  ALL_PAGE_TITLE: 'All products',
+  ALL_PAGE_TITLE: 'News',
   NAVIGATION_ALL_IN: 'Show all in',
   NAVIGATION_GO_TO: 'Go to',
   RELATED_PRODUCTS: 'Related products',

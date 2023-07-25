@@ -1,5 +1,5 @@
 <template>
-  <CaListPage :type="listType" :list-info="listInfo" />
+  <CaListPage :type="listType" :list-info="staticListInfo" />
 </template>
 
 <script>
@@ -10,12 +10,10 @@
 
 */
 
-import MixListInfo from 'MixListInfo';
-
 export default {
   middleware: 'list-page-routing',
   name: 'AllListView',
-  mixins: [MixListInfo],
+  mixins: [],
   data: () => ({
     listType: 'all'
   }),

@@ -308,7 +308,7 @@ export default {
   NOTIFY_PANEL_SUCCESS:
     'Din bevakning är registrerad. Du kommer att få ett mail när din produkt åter finns i lager',
   NOTIFY_ME: 'Bevaka',
-  ALL_PAGE_TITLE: 'Alla produkter',
+  ALL_PAGE_TITLE: 'Nyheter',
   NAVIGATION_ALL_IN: 'Visa allt inom',
   NAVIGATION_GO_TO: 'Gå till',
   RELATED_PRODUCTS: 'Relaterad produkter',

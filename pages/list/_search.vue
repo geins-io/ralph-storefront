@@ -1,7 +1,7 @@
 <template>
   <CaListPage
     :type="listType"
-    :list-info="listInfo"
+    :list-info="staticListInfo"
     :current-alias="currentAlias"
   />
 </template>
@@ -17,12 +17,11 @@
     filtersVars: The variables for the filters query.
 
 */
-import MixListInfo from 'MixListInfo';
 
 export default {
   middleware: 'list-page-routing',
   name: 'SearchListView',
-  mixins: [MixListInfo],
+  mixins: [],
   data: () => ({ listType: 'search' }),
   computed: {
     currentAlias() {
