@@ -1,4 +1,4 @@
-import { state, getters, mutations, actions } from 'cart';
+import { state, getters, mutations, actions } from 'cart.js';
 
 export default {
   state,

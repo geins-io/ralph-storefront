@@ -1,9 +1,8 @@
 <template>
   <CaListPage
-    type="discountCampaign"
-    :info-query="infoQuery"
+    :type="listType"
+    :list-info="listInfo"
     :current-alias="currentAlias"
-    :filters-vars="filtersVars"
   />
 </template>
 
@@ -14,27 +13,19 @@
   
   computed:
     currentAlias: The current alias of the discount campaign.
-    filtersVars: The variables for the filters query.
 
 */
-import discountCampaignInfoQuery from 'productlist/discountCampaign-page.graphql';
-
+import MixListInfo from 'MixListInfo';
 export default {
   middleware: 'list-page-routing',
   name: 'DiscountCampaignListView',
-  mixins: [],
+  mixins: [MixListInfo],
   data: () => ({
-    infoQuery: discountCampaignInfoQuery
+    listType: 'discountCampaign'
   }),
   computed: {
     currentAlias() {
       return this.$route.params.discountCampaign.split('/').pop();
-    },
-    filtersVars() {
-      return {
-        discountCampaignAlias: this.currentAlias,
-        filter: null
-      };
     }
   },
   mounted() {},

@@ -1,9 +1,8 @@
 <template>
   <CaListPage
-    type="search"
-    :info-query="infoQuery"
+    :type="listType"
+    :list-info="staticListInfo"
     :current-alias="currentAlias"
-    :filters-vars="filtersVars"
   />
 </template>
 
@@ -12,31 +11,31 @@
   Renders the search page.
 
   middleware: list-page-routing - handles the routing for the list pages
-  
+
   computed:
     currentAlias: The current alias of the search.
     filtersVars: The variables for the filters query.
 
 */
-import categoryInfoQuery from 'productlist/category-page.graphql';
 
 export default {
   middleware: 'list-page-routing',
   name: 'SearchListView',
   mixins: [],
-  data: () => ({
-    infoQuery: categoryInfoQuery
-  }),
+  data: () => ({ listType: 'search' }),
   computed: {
     currentAlias() {
       return this.$route.params.search;
     },
-    filtersVars() {
+    staticListInfo() {
+      const title = this.$t('SEARCH_RESULTS_PAGE_TITLE', {
+        search: this.$route.params.search
+      });
       return {
-        categoryAlias: null,
-        brandAlias: null,
-        filter: {
-          searchText: this.currentAlias
+        name: title,
+        meta: {
+          title,
+          description: title
         }
       };
     }

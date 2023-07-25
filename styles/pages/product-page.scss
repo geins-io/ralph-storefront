@@ -16,10 +16,8 @@ $column-width: 48.2%;
       flex-direction: column-reverse;
 
       @include bp(laptop) {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: rem-calc(40px);
+        display: grid;
+        grid-template-columns: $column-width $column-width;
       }
     }
   }
