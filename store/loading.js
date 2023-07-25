@@ -1,4 +1,4 @@
-import { state, getters, mutations, actions } from 'loading';
+import { state, getters, mutations, actions } from 'loading.js';
 
 export default {
   state,

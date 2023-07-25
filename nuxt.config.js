@@ -21,8 +21,7 @@ const routePaths = {
   product: '/p',
   search: '/s',
   discountCampaign: '/dc',
-  list: '/l',
-  all: '/allt'
+  list: '/l'
 };
 
 // Set the domain settings and market settings based on if env-variable DOMAINS exists
@@ -300,13 +299,6 @@ export default async () => {
               domain: domainUrls?.nb || '' // Only matters if diffrentDomains are used
             },
             {
-              code: 'nn',
-              iso: 'nn-NO',
-              file: 'nb-NO.js',
-              name: 'Norsk',
-              domain: domainUrls?.nn || '' // Only matters if diffrentDomains are used
-            },
-            {
               code: 'da',
               iso: 'da-DK',
               file: 'da-DK.js',
@@ -371,6 +363,13 @@ export default async () => {
               da: '/varemaerker',
               fi: '/tavaramerkkeja',
               nb: '/varemerker'
+            },
+            'list/all': {
+              sv: '/nyheter',
+              en: '/news',
+              da: '/nyheder',
+              fi: '/uutuudet',
+              nb: '/nyheter'
             }
           },
           ...domainSettings
@@ -384,8 +383,6 @@ export default async () => {
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
-      // Doc: https://www.npmjs.com/package/@nuxtjs/gtm
-      '@nuxtjs/gtm',
       // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
       '@nuxtjs/applicationinsights'
     ],
@@ -449,11 +446,6 @@ export default async () => {
           component: resolve(__dirname, 'pages/list/_list.vue')
         });
         routes.push({
-          name: 'plp-all',
-          path: routePaths.all,
-          component: resolve(__dirname, 'pages/list/_all.vue')
-        });
-        routes.push({
           name: 'plp-category',
           path: routePaths.category + '/:category',
           component: resolve(__dirname, 'pages/list/_category.vue')
@@ -490,13 +482,6 @@ export default async () => {
         });
         // Adding routes with translated paths is done through nuxt-i18n config above
       }
-    },
-    gtm: {
-      id: process.env.GTM_ID,
-      debug: ralphEnv !== 'prod',
-      respectDoNotTrack: false,
-      pageViewEventName: 'Page Impression',
-      pageTracking: false
     },
     /*
      ** Runtime configs
@@ -590,6 +575,7 @@ export default async () => {
       showSkuFilter: true,
       showPriceFilter: true,
       showDiscountFilter: true,
+      customSortRoutes: [],
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
@@ -637,12 +623,6 @@ export default async () => {
         gender: false, // If set to true, gender must be added to user.graphql
         country: false,
         priceLists: true // Set to true if using different price lists for different users
-      },
-      /* ******************** */
-      /* ******* GTM ******* */
-      /* ******************** */
-      gtm: {
-        isProductsKeyItems: false
       }
     },
     privateRuntimeConfig: {},

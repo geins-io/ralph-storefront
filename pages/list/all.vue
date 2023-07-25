@@ -1,9 +1,5 @@
 <template>
-  <CaListPage
-    type="all"
-    :info-query="infoQuery"
-    :current-alias="currentAlias"
-  />
+  <CaListPage :type="listType" :list-info="staticListInfo" />
 </template>
 
 <script>
@@ -13,24 +9,30 @@
   middleware: list-page-routing - handles the routing for the list pages
 
 */
-import categoryInfoQuery from 'productlist/category-page.graphql';
 
 export default {
   middleware: 'list-page-routing',
   name: 'AllListView',
   mixins: [],
   data: () => ({
-    infoQuery: categoryInfoQuery
+    listType: 'all'
   }),
   computed: {
-    currentAlias() {
-      return 'all';
+    staticListInfo() {
+      const title = this.$t('ALL_PAGE_TITLE');
+      return {
+        name: title,
+        meta: {
+          title,
+          description: title
+        }
+      };
     }
   },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Products Page'
+    pageType: 'All Page'
   }
 };
 </script>

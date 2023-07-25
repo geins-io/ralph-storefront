@@ -1,4 +1,4 @@
-import { state, getters, mutations, actions } from 'contentpanel';
+import { state, getters, mutations, actions } from 'contentpanel.js';
 
 export default {
   state,

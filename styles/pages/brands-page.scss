@@ -1,4 +1,10 @@
 .ca-brands-page {
+  &__title {
+    font-family: $heading-font;
+    font-size: $font-size-xxl;
+    font-weight: $font-weight-bold;
+    margin-bottom: rem-calc(20);
+  }
   &__filter {
     display: flex;
     flex-wrap: wrap;
@@ -12,13 +18,19 @@
     font-weight: $font-weight-bold;
     text-transform: uppercase;
 
-    &.is-passive {
+    &--passive {
       color: $c-text-secondary;
     }
 
-    &.is-active {
+    &--active {
       text-decoration: underline;
     }
+  }
+
+  &__reset {
+    text-decoration: underline;
+    margin: rem-calc(10) 0 0;
+    color: $c-text-secondary;
   }
 
   &__group-label {

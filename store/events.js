@@ -1,4 +1,4 @@
-import { state, getters, mutations, actions } from 'ralphevents';
+import { state, getters, mutations, actions } from 'ralphevents.js';
 
 export default {
   state,

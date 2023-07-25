@@ -9,7 +9,7 @@
         @click.native="productClickHandler"
       >
         <CaImage
-          v-if="product.images !== null && product.images.length > 0"
+          v-if="product.productImages && product.productImages.length > 0"
           class="ca-product-card__image"
           type="product"
           :size-array="
@@ -20,7 +20,7 @@
             )
           "
           :ratio="$config.productImageRatio"
-          :filename="product.images[0]"
+          :filename="product.productImages[0].fileName"
           :alt="product.brand.name + ' ' + product.name"
           sizes="(min-width: 1360px) 248px, (min-width: 1024px) 18.23vw, (min-width: 768px) 30.73vw, 48vw"
         />
@@ -59,7 +59,7 @@
 
         <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
         <CaCampaigns
-          v-if="product.discountCampaigns"
+          v-if="product.discountCampaigns && product.discountCampaigns.length"
           class="ca-product-card__campaigns"
           :campaigns="product.discountCampaigns"
         />
