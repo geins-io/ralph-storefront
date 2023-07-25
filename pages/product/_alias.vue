@@ -47,7 +47,7 @@
             :content="product.texts.text1"
           />
           <CaCampaigns
-            v-if="product.discountCampaigns"
+            v-if="product.discountCampaigns && product.discountCampaigns.length"
             class="ca-product-page__campaigns"
             :campaigns="product.discountCampaigns"
           />
