@@ -111,24 +111,8 @@ export default {
   name: 'CaListPage',
   mixins: [MixListPage],
   props: {},
-  data: () => ({ isWidgetSmartQuery: false }),
-  computed: {
-    widgetAreaVars() {
-      const obj = {
-        family: 'Productlist',
-        areaName: 'The top part of the product list',
-        alias: '',
-        preview: false
-      };
-      obj.filters = this.widgetAreaFilters;
-      obj.customerType = this.$store.state.customerType;
-      obj.displaySetting =
-        this.$store.getters.viewport === 'phone' ? 'mobile' : 'desktop';
-      const array = [];
-      array.push(obj);
-      return array;
-    }
-  },
+  data: () => ({}),
+  computed: {},
   watch: {},
   created() {},
   methods: {}
