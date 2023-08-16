@@ -64,13 +64,14 @@ if (process.env.DOMAINS) {
   // If site should have only language prefix and no market prefix, remove the following declaration
   domainSettings = {
     differentDomains: false,
-    strategy: 'no_prefix'
+    strategy: 'prefix_except_default'
   };
 
   if (domains.length > 1) {
     // If more than one domain, set diffrentDomains to true
     domainSettings = {
-      differentDomains: true
+      differentDomains: true,
+      strategy: 'no_prefix'
     };
   }
 }
