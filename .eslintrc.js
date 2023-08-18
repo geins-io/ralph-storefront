@@ -7,7 +7,7 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint'
   },
-  extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier', 'prettier/vue'],
+  extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
   // add your custom rules here
   rules: {
     'linebreak-style': 0,
