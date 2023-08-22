@@ -1,9 +1,10 @@
 .ca-list-settings {
+  $minus-margin: calc(-1 * #{$default-spacing}/ 2);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin: 0 -#{$default-spacing/2} $default-spacing;
+  margin: 0 $minus-margin $default-spacing;
   margin-top: $px20;
 
   @include bp(laptop) {
@@ -63,9 +64,9 @@
   }
 
   &__active-products {
-    margin-left: $default-spacing/2;
+    margin-left: calc(#{$default-spacing}/ 2);
     margin-top: $px12;
-    
+
     @include bp(laptop) {
       order: 1;
     }

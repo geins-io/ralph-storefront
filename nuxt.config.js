@@ -5,7 +5,7 @@ import {
   ApolloClient,
   gql,
   InMemoryCache,
-  HttpLink
+  HttpLink,
 } from '@apollo/client/core';
 import fetch from 'cross-fetch';
 import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
@@ -21,7 +21,7 @@ const routePaths = {
   product: '/p',
   search: '/s',
   discountCampaign: '/dc',
-  list: '/l'
+  list: '/l',
 };
 
 // Set the domain settings and market settings based on if env-variable DOMAINS exists
@@ -29,24 +29,24 @@ const routePaths = {
 // TODO: All this should come from channelSettings when we have a way to get channel settings from api
 let domainSettings = {
   differentDomains: false,
-  strategy: 'prefix'
+  strategy: 'prefix',
 };
 let domainUrls = null;
 
 // Default settings for market for publicRuntimeConfig
 let marketSettings = {
   isMultiLanguage: true,
-  marketInPath: true
+  marketInPath: true,
 };
 
 if (process.env.DOMAINS) {
   const domains = process.env.DOMAINS.split(',');
 
   domainUrls = domains
-    ?.map(domain => {
+    ?.map((domain) => {
       const domainArr = domain?.split('|');
       return {
-        [domainArr[0]]: domainArr[1] || ''
+        [domainArr[0]]: domainArr[1] || '',
       };
     })
     .reduce((result, item) => {
@@ -58,20 +58,20 @@ if (process.env.DOMAINS) {
   // If using DOMAINS, turn off multilang and marketInPath
   marketSettings = {
     isMultiLanguage: false,
-    marketInPath: false
+    marketInPath: false,
   };
 
   // If site should have only language prefix and no market prefix, remove the following declaration
   domainSettings = {
     differentDomains: false,
-    strategy: 'prefix_except_default'
+    strategy: 'prefix_except_default',
   };
 
   if (domains.length > 1) {
     // If more than one domain, set diffrentDomains to true
     domainSettings = {
       differentDomains: true,
-      strategy: 'no_prefix'
+      strategy: 'no_prefix',
     };
   }
 }
@@ -83,20 +83,20 @@ const imageSizeObject = {};
 const apolloCache = new InMemoryCache({});
 const apolloClient = new ApolloClient({
   cache: apolloCache,
-  link: new HttpLink({ uri: process.env.API_ENDPOINT, fetch })
+  link: new HttpLink({ uri: process.env.API_ENDPOINT, fetch }),
 });
 
 // Parse the imageSizesFile to get the image sizes
-const imageSizesStreamRead = new Promise(function(resolve) {
+const imageSizesStreamRead = new Promise(function (resolve) {
   imageSizesStream
     .pipe(csv())
-    .on('data', row => {
+    .on('data', (row) => {
       // Get the value from the PartitionKey (Imate type) Column and make it lowercase (Because of input inconsistencies in the source document)
       const PartitionKey = row.PartitionKey.toLowerCase();
       // Create the data for this row
       const imageRow = {
         folder: row.Folder,
-        descriptor: row.Width + 'w'
+        descriptor: row.Width + 'w',
       };
       // Check if the imagesizeobject has the current image tyoe already, if so add to it, otherwise create it
       if (imageSizeObject[PartitionKey]) {
@@ -130,9 +130,9 @@ export default async () => {
     `,
     context: {
       headers: {
-        'X-ApiKey': process.env.API_KEY
-      }
-    }
+        'X-ApiKey': process.env.API_KEY,
+      },
+    },
   });
   const defaultMeta = await defaultMetaQuery.data.listPageInfo.meta;
 
@@ -168,9 +168,9 @@ export default async () => {
     `,
     context: {
       headers: {
-        'X-ApiKey': process.env.API_KEY
-      }
-    }
+        'X-ApiKey': process.env.API_KEY,
+      },
+    },
   });
   const markets = await getMarketsQuery.data.channel.markets;
 
@@ -206,44 +206,43 @@ export default async () => {
       {
         path: '~/node_modules/@ralph/ralph-ui/components/atoms',
         extensions: ['vue'],
-        level: 1
+        level: 1,
       },
       {
         path: '~/node_modules/@ralph/ralph-ui/components/molecules',
         extensions: ['vue'],
-        level: 1
+        level: 1,
       },
       {
         path: '~/node_modules/@ralph/ralph-ui/components/organisms',
         extensions: ['vue'],
-        level: 1
-      }
+        level: 1,
+      },
     ],
 
     /*
      ** Plugins to load before mounting the App
      */
     plugins: [
-      { src: '~/plugins/persistedState.js', mode: 'client' },
       {
-        src: '~/node_modules/@ralph/ralph-ui/plugins/ralph.js'
+        src: '~/node_modules/@ralph/ralph-ui/plugins/ralph.js',
       },
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/broadcastChannel.js',
-        mode: 'client'
+        mode: 'client',
       },
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/appInsights.client.js',
-        mode: 'client'
+        mode: 'client',
       },
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/appInsights.server.js',
-        mode: 'server'
+        mode: 'server',
       },
       {
         src: '~/node_modules/@ralph/ralph-ui/plugins/headersControl.js',
-        mode: 'server'
-      }
+        mode: 'server',
+      },
     ],
 
     /*
@@ -255,15 +254,15 @@ export default async () => {
         '@nuxtjs/router',
         {
           path: 'node_modules/@ralph/ralph-ui/plugins',
-          keepDefaultRouter: true
-        }
+          keepDefaultRouter: true,
+        },
       ],
       // Doc: https://github.com/nuxt-community/eslint-module
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/stylelint-module
-      '@nuxtjs/stylelint-module'
-      // Doc: https://html-validator.nuxtjs.org/
-      // '@nuxtjs/html-validator'
+      '@nuxtjs/stylelint-module',
+      // Doc: https://github.com/nuxt/postcss8
+      '@nuxt/postcss8',
     ],
     /*
      ** Nuxt.js modules
@@ -283,42 +282,42 @@ export default async () => {
               iso: 'en-US',
               file: 'en-US.js',
               name: 'English',
-              domain: domainUrls?.en || '' // Only matters if diffrentDomains are used
+              domain: domainUrls?.en || '', // Only matters if diffrentDomains are used
             },
             {
               code: 'sv',
               iso: 'sv-SE',
               file: 'sv-SE.js',
               name: 'Swedish',
-              domain: domainUrls?.sv || '' // Only matters if diffrentDomains are used
+              domain: domainUrls?.sv || '', // Only matters if diffrentDomains are used
             },
             {
               code: 'nb',
               iso: 'nb-NO',
               file: 'nb-NO.js',
               name: 'Norsk',
-              domain: domainUrls?.nb || '' // Only matters if diffrentDomains are used
+              domain: domainUrls?.nb || '', // Only matters if diffrentDomains are used
             },
             {
               code: 'da',
               iso: 'da-DK',
               file: 'da-DK.js',
               name: 'Dansk',
-              domain: domainUrls?.da || '' // Only matters if diffrentDomains are used
+              domain: domainUrls?.da || '', // Only matters if diffrentDomains are used
             },
             {
               code: 'fi',
               iso: 'fi-FI',
               file: 'fi-FI.js',
               name: 'Finska',
-              domain: domainUrls?.fi || '' // Only matters if diffrentDomains are used
-            }
+              domain: domainUrls?.fi || '', // Only matters if diffrentDomains are used
+            },
           ],
           langDir: 'languages/',
           defaultLocale: process.env.DEFAULT_LOCALE,
           lazy: true,
           vueI18n: {
-            fallbackLocale: process.env.DEFAULT_LOCALE
+            fallbackLocale: process.env.DEFAULT_LOCALE,
           },
           detectBrowserLanguage: false,
           parsePages: false,
@@ -328,53 +327,53 @@ export default async () => {
               en: '/checkout',
               da: '/kassen',
               fi: '/kassa',
-              nb: '/kassen'
+              nb: '/kassen',
             },
             'account/orders': {
               sv: '/mina-sidor/ordrar',
               en: '/my-account/orders',
               da: '/min-konto/bestillinger',
               fi: '/tilini/tilaukset',
-              nb: '/min-konto/bestillinger'
+              nb: '/min-konto/bestillinger',
             },
             'account/settings': {
               sv: '/mina-sidor/installningar',
               en: '/my-account/settings',
               da: '/min-konto/indstillinger',
               fi: '/tilini/asetukset',
-              nb: '/min-konto/innstillinger'
+              nb: '/min-konto/innstillinger',
             },
             'account/balance': {
               sv: '/mina-sidor/saldo',
               en: '/my-account/balance',
               da: '/min-konto/saldo',
               fi: '/tilini/saldo',
-              nb: '/min-konto/saldo'
+              nb: '/min-konto/saldo',
             },
             'favorites/index': {
               sv: '/favoriter',
               en: '/favorites',
               da: '/favoritter',
               fi: '/suosikkeja',
-              nb: '/favoritter'
+              nb: '/favoritter',
             },
             'brands/index': {
               sv: '/varumarken',
               en: '/brands',
               da: '/varemaerker',
               fi: '/tavaramerkkeja',
-              nb: '/varemerker'
+              nb: '/varemerker',
             },
             'list/all': {
               sv: '/nyheter',
               en: '/news',
               da: '/nyheder',
               fi: '/uutuudet',
-              nb: '/nyheter'
-            }
+              nb: '/nyheter',
+            },
           },
-          ...domainSettings
-        }
+          ...domainSettings,
+        },
       ],
       // Doc: https://github.com/nuxt-community/style-resources-module
       '@nuxtjs/style-resources',
@@ -384,44 +383,33 @@ export default async () => {
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
-      // Doc: https://www.npmjs.com/package/@nuxtjs/applicationinsights
-      '@nuxtjs/applicationinsights'
     ],
-    // htmlValidator: {
-    //   usePrettier: true,
-    //   options: {
-    //     rules: {
-    //       'input-missing-label': 'off',
-    //       'prefer-native-element': 'off'
-    //     }
-    //   }
-    // },
     pwa: {
       manifest: {
         name: 'Ralph',
         short_name: 'Ralph',
         description: defaultMeta.description,
-        theme_color: '#363636'
+        theme_color: '#363636',
       },
       icon: {
-        purpose: 'any'
-      }
+        purpose: 'any',
+      },
     },
     styleResources: {
-      scss: ['./styles/_variables.scss', './styles/_helpers.scss']
+      scss: ['./styles/_variables.scss', './styles/_helpers.scss'],
     },
     apollo: {
       clientConfigs: {
-        default: '~/node_modules/@ralph/ralph-ui/plugins/apollo-config.js'
+        default: '~/node_modules/@ralph/ralph-ui/plugins/apollo-config.js',
       },
-      includeNodeModules: true
+      includeNodeModules: true,
     },
     polyfill: {
       features: [
         {
-          require: 'focus-visible'
-        }
-      ]
+          require: 'focus-visible',
+        },
+      ],
     },
     router: {
       middleware: ['default'],
@@ -429,60 +417,60 @@ export default async () => {
         routes.push({
           name: 'pdp',
           path: routePaths.product + '/:alias',
-          component: resolve(__dirname, 'pages/product/_alias.vue')
+          component: resolve(__dirname, 'pages/product/_alias.vue'),
         });
         routes.push({
           name: 'pdp-level',
           path: routePaths.product + '/(.*)/:alias',
-          component: resolve(__dirname, 'pages/product/_alias.vue')
+          component: resolve(__dirname, 'pages/product/_alias.vue'),
         });
         routes.push({
           name: 'pdp-sub-level',
           path: routePaths.product + '/(.*)/(.*)/:alias',
-          component: resolve(__dirname, 'pages/product/_alias.vue')
+          component: resolve(__dirname, 'pages/product/_alias.vue'),
         });
         routes.push({
           name: 'plp',
           path: routePaths.list + '/*',
-          component: resolve(__dirname, 'pages/list/_list.vue')
+          component: resolve(__dirname, 'pages/list/_list.vue'),
         });
         routes.push({
           name: 'plp-category',
           path: routePaths.category + '/:category',
-          component: resolve(__dirname, 'pages/list/_category.vue')
+          component: resolve(__dirname, 'pages/list/_category.vue'),
         });
         routes.push({
           name: 'plp-sub-category',
           path: routePaths.category + '/(.*)/:category',
-          component: resolve(__dirname, 'pages/list/_category.vue')
+          component: resolve(__dirname, 'pages/list/_category.vue'),
         });
         routes.push({
           name: 'plp-brand',
           path: routePaths.brand + '/:brand+',
-          component: resolve(__dirname, 'pages/list/_brand.vue')
+          component: resolve(__dirname, 'pages/list/_brand.vue'),
         });
         routes.push({
           name: 'plp-discount-campaign',
           path: routePaths.discountCampaign + '/:discountCampaign+',
-          component: resolve(__dirname, 'pages/list/_discountCampaign.vue')
+          component: resolve(__dirname, 'pages/list/_discountCampaign.vue'),
         });
         routes.push({
           name: 'plp-search',
           path: routePaths.search + '/:search',
-          component: resolve(__dirname, 'pages/list/_search.vue')
+          component: resolve(__dirname, 'pages/list/_search.vue'),
         });
         routes.push({
           name: 'preview-widgets',
           path: '/preview-widgets',
-          component: resolve(__dirname, 'pages/content/_preview.vue')
+          component: resolve(__dirname, 'pages/content/_preview.vue'),
         });
         routes.push({
           name: 'content',
           path: '/:alias',
-          component: resolve(__dirname, 'pages/content/_alias.vue')
+          component: resolve(__dirname, 'pages/content/_alias.vue'),
         });
         // Adding routes with translated paths is done through nuxt-i18n config above
-      }
+      },
     },
     /*
      ** Runtime configs
@@ -497,7 +485,7 @@ export default async () => {
       authEndpoint: process.env.AUTH_ENDPOINT,
       signEndpoint: process.env.SIGN_ENDPOINT.replace(
         '{API_KEY}',
-        process.env.API_KEY
+        process.env.API_KEY,
       ),
       apiKey: process.env.API_KEY,
       apiEndpoint: process.env.API_ENDPOINT,
@@ -512,31 +500,31 @@ export default async () => {
         tablet: 768,
         laptop: 1024,
         desktop: 1200,
-        desktopBig: 1440
+        desktopBig: 1440,
       },
       siteTopThreshold: 10,
       socialMediaLinks: [
         {
           icon: 'facebook',
           title: 'Facebook',
-          link: 'https://www.facebook.com'
+          link: 'https://www.facebook.com',
         },
         {
           icon: 'instagram',
           title: 'Instagram',
-          link: 'https://www.instagram.com'
-        }
+          link: 'https://www.instagram.com',
+        },
       ],
       customerTypesToggle: true,
       customerTypes: [
         {
           type: 'PERSON',
-          vat: true
+          vat: true,
         },
         {
           type: 'ORGANIZATION',
-          vat: false
-        }
+          vat: false,
+        },
       ],
       routePaths,
       /* ****************** */
@@ -550,13 +538,13 @@ export default async () => {
         full: '(min-width: 1360px) 1320px, 96vw',
         half: '(min-width: 1360px) 650px, (min-width: 768px) 47vw, 96vw',
         third: '(min-width: 1360px) 427px, (min-width: 768px) 31vw, 96vw',
-        quarter: '(min-width: 1360px) 315px, (min-width: 768px) 23vw, 96vw'
+        quarter: '(min-width: 1360px) 315px, (min-width: 768px) 23vw, 96vw',
       },
       widgetImageSizesFullWidth: {
         full: '100vw',
         half: '(min-width: 768px) 49vw, 100vw',
         third: '(min-width: 768px) 33vw, 100vw',
-        quarter: '(min-width: 768px) 24vw, 100vw'
+        quarter: '(min-width: 768px) 24vw, 100vw',
       },
       /* *********************** */
       /* **** PRODUCT LIST ***** */
@@ -568,7 +556,7 @@ export default async () => {
         tablet: 3,
         laptop: 5,
         desktop: 5,
-        desktopBig: 6
+        desktopBig: 6,
       },
       showCategoryFilter: true,
       showCategoryTreeViewFilter: true,
@@ -586,8 +574,8 @@ export default async () => {
         productDescriptionField: 'text1',
         schemaImageSize: '700f700', // Make sure this is a valid product image size
         extraOfferProperties: {
-          itemCondition: 'https://schema.org/NewCondition'
-        }
+          itemCondition: 'https://schema.org/NewCondition',
+        },
       },
       productShowRelated: true,
       showProductReviewSection: true,
@@ -608,14 +596,14 @@ export default async () => {
         message: true,
         defaultPaymentId: 23,
         defaultShippingId: null,
-        showMultipleMarkets: true
+        showMultipleMarkets: true,
       },
       /* ******************** */
       /* ******* CART ******* */
       /* ******************** */
       cart: {
         hiddenSkuValues: ['-', 'One size'],
-        quantityChangerType: 'default'
+        quantityChangerType: 'default',
       },
       /* ******************** */
       /* ******* USER ******* */
@@ -623,19 +611,19 @@ export default async () => {
       user: {
         gender: false, // If set to true, gender must be added to user.graphql
         country: false,
-        priceLists: true // Set to true if using different price lists for different users
-      }
+        priceLists: true, // Set to true if using different price lists for different users
+      },
     },
     privateRuntimeConfig: {},
     render: {
       http2: {
-        push: true
-      }
+        push: true,
+      },
     },
     server: {
       timing: {
-        total: true
-      }
+        total: true,
+      },
     },
     /*
      ** Build configuration
@@ -647,11 +635,11 @@ export default async () => {
             [
               require.resolve('@nuxt/babel-preset-app'),
               {
-                corejs: { version: 3 }
-              }
-            ]
+                corejs: { version: 3 },
+              },
+            ],
           ];
-        }
+        },
       },
       transpile: ['@ralph/ralph-ui'],
       optimization: {
@@ -667,19 +655,19 @@ export default async () => {
             defaultVendors: {
               test: /[\\/]node_modules[\\/]/,
               priority: -10,
-              reuseExistingChunk: true
+              reuseExistingChunk: true,
             },
             default: {
               minChunks: 2,
               priority: -20,
-              reuseExistingChunk: true
-            }
-          }
-        }
+              reuseExistingChunk: true,
+            },
+          },
+        },
       },
       loaders: {
         vue: { cacheBusting: false, prettify: false },
-        scss: { sourceMap: false }
+        scss: { sourceMap: false },
       },
       /*
        ** You can extend webpack config here
@@ -694,13 +682,13 @@ export default async () => {
           path.resolve(__dirname, 'styles/components/'),
           path.resolve(
             __dirname,
-            'node_modules/@ralph/ralph-ui/styles/components/'
+            'node_modules/@ralph/ralph-ui/styles/components/',
           ),
           // Then for mixins
           path.resolve(__dirname, 'components/mixins/'),
           path.resolve(
             __dirname,
-            'node_modules/@ralph/ralph-ui/components/mixins/'
+            'node_modules/@ralph/ralph-ui/components/mixins/',
           ),
           // Then for graphql queries
           path.resolve(__dirname, 'graphql/'),
@@ -708,22 +696,22 @@ export default async () => {
           // Then the UI store
           path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/'),
           // Then the UI middleware
-          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/middleware/')
+          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/middleware/'),
         ];
         if (isDev) {
           config.devtool = 'source-map';
         }
-      }
+      },
     },
     dev: process.env.NODE_ENV !== 'production',
     appInsights: {
       instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY,
       serverConfig: {
-        excludedFileEndings: ['.js', '.map', '.json', '.png', '.svg']
+        excludedFileEndings: ['.js', '.map', '.json', '.png', '.svg'],
       },
       clientConfig: {
-        enableAutoRouteTracking: true
-      }
-    }
+        enableAutoRouteTracking: true,
+      },
+    },
   };
 };
