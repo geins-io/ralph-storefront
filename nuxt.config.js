@@ -261,8 +261,6 @@ export default async () => {
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/stylelint-module
       '@nuxtjs/stylelint-module',
-      // Doc: https://github.com/nuxt/postcss8
-      '@nuxt/postcss8',
     ],
     /*
      ** Nuxt.js modules
