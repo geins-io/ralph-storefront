@@ -61,6 +61,7 @@
     "sass-loader": "^10.2.1",
     "stylelint": "^13.13.1",
     "svg-inline-loader": "^0.8.2",
-    "uppercamelcase": "^3.0.0"
+    "uppercamelcase": "^3.0.0",
+    "zen-observable-ts": "^0.8.21"
   }
 }
