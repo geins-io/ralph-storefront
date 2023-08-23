@@ -14,7 +14,7 @@ ARG APPINSIGHTS_INSTRUMENTATION_KEY=#{AppinsightsInstrumentationKey}#
 ARG RALPH_ENV=#{RalphEnv}#
 
 # Build the app on a separate "machine".
-FROM node:14.15.5-alpine as builder
+FROM node:16.16.0-alpine as builder
 WORKDIR /app
 RUN apk add --no-cache curl git && \
     apk add --no-cache curl && \
@@ -60,7 +60,7 @@ RUN npm run build \
     # Put all the garbage in the 'output' folder
 
 # Grab the parts that makes our app work, and put them on a fresh linux image
-FROM node:14.15.5-alpine
+FROM node:16.16.0-alpine
 WORKDIR /app
 ARG PORT=3000
 ARG NODE_ENV
