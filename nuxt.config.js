@@ -525,6 +525,13 @@ export default async () => {
         },
       ],
       routePaths,
+      statesToPersist: [
+        'favorites',
+        'customerType',
+        'vatIncluded',
+        'list/relocateAlias',
+        'list/relocatePage',
+      ],
       /* ****************** */
       /* **** WIDGETS ***** */
       /* ****************** */
