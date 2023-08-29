@@ -32,7 +32,7 @@
           @click="
             $store.commit('contentpanel/open', {
               name: 'account',
-              frame: 'login'
+              frame: 'login',
             })
           "
         >
@@ -74,14 +74,14 @@ export default {
   props: {
     undistracted: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data: () => ({}),
   computed: {},
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

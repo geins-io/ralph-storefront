@@ -242,8 +242,8 @@ export default {
   computed: {},
   methods: {},
   meta: {
-    pageType: 'Product Page'
-  }
+    pageType: 'Product Page',
+  },
 };
 </script>
 

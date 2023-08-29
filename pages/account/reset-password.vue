@@ -75,33 +75,33 @@
 import commitResetMutation from 'user/pw-reset-commit.graphql';
 export default {
   name: 'ResetPasswordPage',
-  data: vm => ({
+  data: (vm) => ({
     loading: false,
     password: '',
     passwordConfirm: '',
     resetKey: '',
     currentFeedback: {
       type: 'info',
-      message: ''
+      message: '',
     },
     feedback: {
       passwordChanged: {
         type: 'success',
-        message: vm.$t('ACCOUNT_FEEDBACK_PASSWORD_CHANGED')
+        message: vm.$t('ACCOUNT_FEEDBACK_PASSWORD_CHANGED'),
       },
       notValid: {
         type: 'error',
-        message: vm.$t('ACCOUNT_FEEDBACK_FIELDS_NOT_VALID')
+        message: vm.$t('ACCOUNT_FEEDBACK_FIELDS_NOT_VALID'),
       },
       error: {
         type: 'error',
-        message: vm.$t('FEEDBACK_ERROR')
+        message: vm.$t('FEEDBACK_ERROR'),
       },
       resetKeyNotValid: {
         type: 'error',
-        message: vm.$t('ACCOUNT_FEEDBACK_RESET_KEY_NOT_VALID')
-      }
-    }
+        message: vm.$t('ACCOUNT_FEEDBACK_RESET_KEY_NOT_VALID'),
+      },
+    },
   }),
   computed: {},
   created() {},
@@ -116,19 +116,19 @@ export default {
       ) {
         this.loading = true;
         const password = await this.$store.state.auth.client.digest(
-          this.password
+          this.password,
         );
         this.$apollo
           .mutate({
             mutation: commitResetMutation,
             variables: {
               resetKey: this.resetKey,
-              password
+              password,
             },
             errorPolicy: 'all',
-            fetchPolicy: 'no-cache'
+            fetchPolicy: 'no-cache',
           })
-          .then(result => {
+          .then((result) => {
             this.loading = false;
 
             if (result.errors) {
@@ -147,7 +147,7 @@ export default {
             // wrong key uuid
             this.showFeedback(this.feedback.resetKeyNotValid);
           })
-          .catch(error => {
+          .catch((error) => {
             // pass the error response to the error component
             this.$nuxt.error({ statusCode: 500, message: error });
           });
@@ -175,11 +175,11 @@ export default {
     resetFields() {
       this.password = '';
       this.passwordConfirm = '';
-    }
+    },
   },
   meta: {
-    pageType: 'Reset password Page'
-  }
+    pageType: 'Reset password Page',
+  },
 };
 </script>
 

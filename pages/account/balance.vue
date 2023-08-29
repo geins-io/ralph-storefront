@@ -31,8 +31,8 @@
 */
 import getUserQuery from 'user/get.graphql';
 export default {
-  middleware: 'authenticated',
   name: 'BalancePage',
+  middleware: 'authenticated',
   transition: 'no-transition',
   apollo: {
     getUser: {
@@ -46,22 +46,22 @@ export default {
       },
       error(error) {
         this.$nuxt.error({ statusCode: 500, message: error });
-      }
-    }
+      },
+    },
   },
-  data: vm => ({
+  data: (vm) => ({
     user: null,
-    loading: false
+    loading: false,
   }),
   computed: {
     balance() {
       return this.user ? this.user.balanceFormatted : '';
-    }
+    },
   },
   methods: {},
   meta: {
-    pageType: 'Balance Page'
-  }
+    pageType: 'Balance Page',
+  },
 };
 </script>
 

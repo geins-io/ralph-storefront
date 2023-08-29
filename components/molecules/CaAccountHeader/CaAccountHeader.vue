@@ -21,7 +21,7 @@
         class="ca-account-header__nav-item"
         :class="{
           'ca-account-header__nav-item--current':
-            $getPath(item.path) === $route.path
+            $getPath(item.path) === $route.path,
         }"
       >
         {{ item.name }}
@@ -43,12 +43,12 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     navItems: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({}),
   computed: {},
@@ -58,8 +58,8 @@ export default {
     async logout() {
       await this.$store.dispatch('auth/logout');
       this.$router.push({ path: this.$getPath('index') });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

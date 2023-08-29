@@ -19,21 +19,21 @@
 import MixListInfo from 'MixListInfo';
 
 export default {
-  middleware: 'list-page-routing',
   name: 'BrandListView',
   mixins: [MixListInfo],
+  middleware: 'list-page-routing',
   data: () => ({
-    listType: 'brand'
+    listType: 'brand',
   }),
   computed: {
     currentAlias() {
       return this.$route.params.brand.split('/').pop();
-    }
+    },
   },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Brand Page'
-  }
+    pageType: 'Brand Page',
+  },
 };
 </script>

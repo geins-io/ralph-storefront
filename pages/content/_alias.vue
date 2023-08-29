@@ -10,10 +10,7 @@
         class="ca-content-page__sidebar"
         menu-location-id="info-pages"
       />
-      <CaWidgetArea
-        :alias="this.$route.params.alias"
-        @dataFetched="onDataFetched"
-      />
+      <CaWidgetArea :alias="$route.params.alias" @dataFetched="onDataFetched" />
     </CaContainer>
   </div>
 </template>
@@ -37,8 +34,35 @@ export default {
   mixins: [MixMetaReplacement],
   data: () => ({
     meta: undefined,
-    hasMenu: false
+    hasMenu: false,
   }),
+  head() {
+    return {
+      title: this.metaReplacement(this.meta?.title),
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.metaReplacement(this.meta?.description),
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.metaReplacement(this.meta?.title),
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.metaReplacement(this.meta?.description),
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.$config.baseUrl + '/meta-image-fallback.jpg',
+        },
+      ],
+    };
+  },
   methods: {
     onDataFetched(data) {
       if (
@@ -52,38 +76,11 @@ export default {
       this.meta = data?.widgetArea?.meta;
       this.hasMenu = data?.widgetArea?.tags.includes('menu');
       this.$store.dispatch('loading/end');
-    }
-  },
-  head() {
-    return {
-      title: this.metaReplacement(this.meta?.title),
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.metaReplacement(this.meta?.description)
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          content: this.metaReplacement(this.meta?.title)
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          content: this.metaReplacement(this.meta?.description)
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: this.$config.baseUrl + '/meta-image-fallback.jpg'
-        }
-      ]
-    };
+    },
   },
   meta: {
-    pageType: 'Content Page'
-  }
+    pageType: 'Content Page',
+  },
 };
 </script>
 

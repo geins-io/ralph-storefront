@@ -53,8 +53,8 @@
 */
 import getOrdersQuery from 'user/orders.graphql';
 export default {
-  middleware: 'authenticated',
   name: 'OrdersPage',
+  middleware: 'authenticated',
   transition: 'no-transition',
   apollo: {
     getOrders: {
@@ -68,13 +68,13 @@ export default {
       },
       error(error) {
         this.$nuxt.error({ statusCode: 500, message: error });
-      }
-    }
+      },
+    },
   },
   data: () => ({
     orders: null,
     inProgressStatuses: ['received', 'processing'],
-    historyStatuses: ['cancelled', 'completed']
+    historyStatuses: ['cancelled', 'completed'],
   }),
   computed: {
     ordersInProgress() {
@@ -82,7 +82,7 @@ export default {
     },
     orderHistory() {
       return this.splitOrders(this.historyStatuses);
-    }
+    },
   },
   created() {},
   methods: {
@@ -108,17 +108,17 @@ export default {
     },
     splitOrders(statusArray) {
       const arr = this.orders
-        ? this.orders.map(i => {
+        ? this.orders.map((i) => {
             i.status = this.mapStatus(i.status);
             return i;
           })
         : [];
-      return arr.filter(i => statusArray.includes(i.status));
-    }
+      return arr.filter((i) => statusArray.includes(i.status));
+    },
   },
   meta: {
-    pageType: 'Orders Page'
-  }
+    pageType: 'Orders Page',
+  },
 };
 </script>
 

@@ -13,7 +13,7 @@
         @clicked="
           $store.commit('contentpanel/open', {
             name: 'filters',
-            frame: 'categories'
+            frame: 'categories',
           })
         "
       />
@@ -26,7 +26,7 @@
         @clicked="
           $store.commit('contentpanel/open', {
             name: 'filters',
-            frame: 'brands'
+            frame: 'brands',
           })
         "
       />
@@ -39,7 +39,7 @@
         @clicked="
           $store.commit('contentpanel/open', {
             name: 'filters',
-            frame: 'skus'
+            frame: 'skus',
           })
         "
       />
@@ -52,7 +52,7 @@
         @clicked="
           $store.commit('contentpanel/open', {
             name: 'filters',
-            frame: 'price'
+            frame: 'price',
           })
         "
       />
@@ -65,7 +65,7 @@
         @clicked="
           $store.commit('contentpanel/open', {
             name: 'filters',
-            frame: filter.filterId
+            frame: filter.filterId,
           })
         "
       />
@@ -93,15 +93,15 @@ export default {
   props: {
     filters: {
       type: Object,
-      required: true
+      required: true,
     },
     selection: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
-    allParameters: []
+    allParameters: [],
   }),
   computed: {
     filtersPopulated() {
@@ -112,14 +112,14 @@ export default {
     },
     parameters() {
       return this.filters?.parameters || null;
-    }
+    },
   },
   watch: {
     parameters(newVal, oldVal) {
       if (oldVal === null && newVal.length) {
         this.allParameters = newVal;
       }
-    }
+    },
   },
   mounted() {
     this.allParameters = this.parameters?.length ? this.parameters : [];
@@ -131,8 +131,8 @@ export default {
     },
     getFilters(array) {
       return array ?? [];
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

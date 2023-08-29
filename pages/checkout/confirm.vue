@@ -59,15 +59,15 @@
 import MixConfirmPage from 'MixConfirmPage';
 export default {
   name: 'CheckoutConfirmPage',
-  layout: 'undistracted',
   mixins: [MixConfirmPage],
+  layout: 'undistracted',
   data: () => ({}),
   computed: {},
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Confirm Page'
-  }
+    pageType: 'Confirm Page',
+  },
 };
 </script>
 

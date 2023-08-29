@@ -330,5 +330,5 @@ export default {
   REVIEW_WRITTEN_BY: 'Skrevet av:',
   REVIEWS_LIST_EMPTY: 'Dette produktet har ingen anmeldelser ennå.',
   REVIEW_FEEDBACK_RATE_REQUIRED:
-    'Vennligst bruk stjerner for å rangere produktet'
+    'Vennligst bruk stjerner for å rangere produktet',
 };

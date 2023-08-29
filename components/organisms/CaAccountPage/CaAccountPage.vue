@@ -55,38 +55,38 @@ export default {
   name: 'CaAccountPage',
   mixins: [],
   props: {},
-  data: vm => ({
+  data: (vm) => ({
     accountMenu: [
       {
         name: vm.$t('ACCOUNT_ORDERS_TITLE'),
-        path: 'account-orders'
+        path: 'account-orders',
       },
       {
         name: vm.$t('ACCOUNT_SETTINGS_TITLE'),
-        path: 'account-settings'
+        path: 'account-settings',
       },
       {
         name: vm.$t('ACCOUNT_BALANCE_TITLE'),
-        path: 'account-balance'
-      }
-    ]
+        path: 'account-balance',
+      },
+    ],
   }),
   computed: {
     currentPageTitle() {
       const currentPage = this.accountMenu.find(
-        i => this.$getPath(i.path) === this.$route.path
+        (i) => this.$getPath(i.path) === this.$route.path,
       );
       const accountTitle = this.$t('ACCOUNT_TITLE');
       return this.$store.getters.viewport === 'phone'
         ? accountTitle
         : accountTitle + ' / ' + currentPage?.name;
-    }
+    },
   },
   watch: {},
   mounted() {
     this.$store.dispatch('loading/end');
   },
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

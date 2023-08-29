@@ -164,11 +164,11 @@ export default {
   computed: {
     uspLogoPlacement() {
       return this.$store.getters.viewport === 'phone' ? 'top' : 'left';
-    }
+    },
   },
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

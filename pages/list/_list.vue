@@ -12,17 +12,17 @@
 import MixListInfo from 'MixListInfo';
 
 export default {
-  middleware: 'list-page-routing',
   name: 'ListView',
   mixins: [MixListInfo],
+  middleware: 'list-page-routing',
   data: () => ({
-    listType: 'list'
+    listType: 'list',
   }),
   computed: {},
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'List Page'
-  }
+    pageType: 'List Page',
+  },
 };
 </script>

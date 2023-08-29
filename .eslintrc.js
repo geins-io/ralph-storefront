@@ -4,15 +4,17 @@ module.exports = {
     browser: true,
     node: true,
   },
-  parser: '@babel/eslint-parser',
   parserOptions: {
-    babelOptions: {
-      plugins: ['@babel/plugin-proposal-class-properties'],
-      presets: ['@babel/preset-env'],
-    },
+    parser: '@babel/eslint-parser',
+    babelOptions: {},
     requireConfigFile: false,
   },
-  extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
+  extends: [
+    '@nuxtjs',
+    'prettier',
+    'plugin:prettier/recommended',
+    'plugin:nuxt/recommended',
+  ],
   // add your custom rules here
   rules: {
     'linebreak-style': 0,
@@ -24,6 +26,7 @@ module.exports = {
     'node_modules',
     'dist',
     'antlr',
+    '**.spec.js',
     '**/unifaun-checkout-all.min.js',
   ],
 };

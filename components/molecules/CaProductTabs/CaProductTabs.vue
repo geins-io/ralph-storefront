@@ -41,37 +41,37 @@ export default {
   props: {
     product: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
-    selectedTab: 0
+    selectedTab: 0,
   }),
   computed: {
     tabs() {
       return [
         {
           label: this.$t('PRODUCT_DESCRIPTION'),
-          panel: this.product.texts.text1
+          panel: this.product.texts.text1,
         },
         {
           label: this.$t('PRODUCT_SPECIFICATION'),
-          panel: this.product.texts.text2
+          panel: this.product.texts.text2,
         },
         {
           label: 'Ingredienser',
-          panel: this.product.texts.text3
-        }
+          panel: this.product.texts.text3,
+        },
       ];
-    }
+    },
   },
   watch: {},
   mounted() {},
   methods: {
     setSelectedTab(data) {
       this.selectedTab = data;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

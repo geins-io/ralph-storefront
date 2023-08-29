@@ -14,9 +14,9 @@
           type="product"
           :size-array="
             $config.imageSizes.product.filter(
-              item =>
+              (item) =>
                 parseInt(item.descriptor) < 1150 &&
-                parseInt(item.descriptor) > 186
+                parseInt(item.descriptor) > 186,
             )
           "
           :ratio="$config.productImageRatio"
@@ -106,7 +106,7 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

@@ -2,11 +2,11 @@ function getMatchedComponents(route, matches = false, prop = 'components') {
   return Array.prototype.concat.apply(
     [],
     route.matched.map((m, index) => {
-      return Object.keys(m[prop]).map(key => {
+      return Object.keys(m[prop]).map((key) => {
         matches && matches.push(index);
         return m[prop][key];
       });
-    })
+    }),
   );
 }
 function setScrollRestoration(newVal) {
@@ -40,7 +40,7 @@ function shouldScrollToTop(route) {
   return Pages.some(({ options }) => options && options.scrollToTop);
 }
 
-export default function(to, from, savedPosition) {
+export default function (to, from, savedPosition) {
   // If the returned position is falsy or an empty object, will retain current scroll position
   let position = false;
   const isRouteChanged = to !== from;
@@ -62,7 +62,7 @@ export default function(to, from, savedPosition) {
     nuxt.$nextTick(() => nuxt.$emit('triggerScroll'));
   }
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     // wait for the out transition to complete (if necessary)
     nuxt.$once('triggerScroll', () => {
       // coords will be used if no selector is provided,
@@ -83,7 +83,7 @@ export default function(to, from, savedPosition) {
           }
         } catch (e) {
           console.warn(
-            'Failed to save scroll position. Please add CSS.escape() polyfill (https://github.com/mathiasbynens/CSS.escape).'
+            'Failed to save scroll position. Please add CSS.escape() polyfill (https://github.com/mathiasbynens/CSS.escape).',
           );
         }
       }

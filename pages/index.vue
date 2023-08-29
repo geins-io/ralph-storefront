@@ -13,8 +13,8 @@ export default {
   data: () => ({}),
   methods: {},
   meta: {
-    pageType: 'Start Page'
-  }
+    pageType: 'Start Page',
+  },
 };
 </script>
 

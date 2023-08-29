@@ -32,26 +32,26 @@ export default {
   props: {
     brand: {
       type: String,
-      default: ''
+      default: '',
     },
     brandAlias: {
       type: String,
-      default: ''
+      default: '',
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     nameTag: {
       type: String,
-      default: 'h2'
-    }
+      default: 'h2',
+    },
   },
   data: () => ({}),
   computed: {},
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

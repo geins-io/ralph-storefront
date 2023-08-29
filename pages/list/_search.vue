@@ -19,9 +19,9 @@
 */
 
 export default {
-  middleware: 'list-page-routing',
   name: 'SearchListView',
   mixins: [],
+  middleware: 'list-page-routing',
   data: () => ({ listType: 'search' }),
   computed: {
     currentAlias() {
@@ -29,21 +29,21 @@ export default {
     },
     staticListInfo() {
       const title = this.$t('SEARCH_RESULTS_PAGE_TITLE', {
-        search: this.$route.params.search
+        search: this.$route.params.search,
       });
       return {
         name: title,
         meta: {
           title,
-          description: title
-        }
+          description: title,
+        },
       };
-    }
+    },
   },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Search Page'
-  }
+    pageType: 'Search Page',
+  },
 };
 </script>

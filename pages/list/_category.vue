@@ -16,21 +16,21 @@
 */
 import MixListInfo from 'MixListInfo';
 export default {
-  middleware: 'list-page-routing',
   name: 'CategoryListView',
   mixins: [MixListInfo],
+  middleware: 'list-page-routing',
   data: () => ({
-    listType: 'category'
+    listType: 'category',
   }),
   computed: {
     currentAlias() {
       return this.$route.params.category.split('/').pop();
-    }
+    },
   },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Category Page'
-  }
+    pageType: 'Category Page',
+  },
 };
 </script>

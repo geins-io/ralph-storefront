@@ -4,24 +4,24 @@ import cookie from 'cookie';
 export default ({ store, req, app }) => {
   const defaultConfigCookie = {
     path: '/',
-    secure: false
+    secure: false,
   };
 
   new VuexPersistence({
     key: 'ralph',
-    reducer: state => {
+    reducer: (state) => {
       return {
         favorites: state.favorites,
         customerType: state.customerType,
         vatIncluded: state.vatIncluded,
         list: {
           relocateAlias: state.list.relocateAlias,
-          relocatePage: state.list.relocatePage
-        }
+          relocatePage: state.list.relocatePage,
+        },
       };
     },
     storage: {
-      getItem: key => {
+      getItem: (key) => {
         // See https://nuxtjs.org/guide/plugins/#using-process-flags
         if (process.server) {
           const headerCookies = req.headers.cookie || '';
@@ -35,10 +35,10 @@ export default ({ store, req, app }) => {
       setItem: (key, value) => {
         app.$cookies.set(key, value, {
           ...defaultConfigCookie,
-          expires: new Date(new Date().getTime() + 31536000000)
+          expires: new Date(new Date().getTime() + 31536000000),
         });
       },
-      removeItem: key => app.$cookies.remove(key, defaultConfigCookie)
-    }
+      removeItem: (key) => app.$cookies.remove(key, defaultConfigCookie),
+    },
   }).plugin(store);
 };

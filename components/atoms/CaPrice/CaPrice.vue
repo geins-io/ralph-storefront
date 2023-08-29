@@ -17,7 +17,7 @@
 import MixPrice from 'MixPrice';
 export default {
   name: 'CaPrice',
-  mixins: [MixPrice]
+  mixins: [MixPrice],
 };
 </script>
 <style lang="scss">

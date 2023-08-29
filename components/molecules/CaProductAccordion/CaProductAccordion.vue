@@ -56,14 +56,14 @@ export default {
   props: {
     product: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({}),
   computed: {},
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

@@ -25,7 +25,7 @@ function doApply(options, resolver) {
         // return if path matches with excludes
         if (
           options.exclude &&
-          options.exclude.some(function(exclude) {
+          options.exclude.some(function (exclude) {
             return (
               dirPath.search(exclude) >= 0 || stringIncludes(dirPath, exclude)
             );
@@ -36,7 +36,7 @@ function doApply(options, resolver) {
         // return if path doesn't match with includes
         if (
           options.include &&
-          !options.include.some(function(include) {
+          !options.include.some(function (include) {
             return (
               dirPath.search(include) >= 0 || stringIncludes(dirPath, include)
             );
@@ -52,7 +52,7 @@ function doApply(options, resolver) {
           if (!Array.isArray(transformResult)) {
             transformResult = [transformResult];
           }
-          transformResult = transformResult.filter(function(attemptName) {
+          transformResult = transformResult.filter(function (attemptName) {
             return typeof attemptName === 'string' && attemptName.length > 0;
           });
           attempts = attempts.concat(transformResult);
@@ -61,29 +61,29 @@ function doApply(options, resolver) {
         }
         forEachBail(
           attempts,
-          function(fileName, innerCallback) {
+          function (fileName, innerCallback) {
             // approach taken from: https://github.com/webpack/enhanced-resolve/blob/v4.0.0/lib/CloneBasenamePlugin.js
             const filePath = resolver.join(dirPath, fileName);
             const obj = assign({}, request, {
               path: filePath,
               relativePath:
                 request.relativePath &&
-                resolver.join(request.relativePath, fileName)
+                resolver.join(request.relativePath, fileName),
             });
             resolver.doResolve(
               target,
               obj,
               'using path: ' + filePath,
               resolveContext,
-              innerCallback
+              innerCallback,
             );
           },
-          callback
+          callback,
         );
-      }
+      },
     );
 }
-export default (function(options) {
+export default (function (options) {
   const optionsToUse =
     typeof options === 'boolean' ? { honorIndex: options } : options || {};
   const exclude = optionsToUse.exclude;
@@ -95,6 +95,6 @@ export default (function(options) {
   optionsToUse.include =
     include && !Array.isArray(include) ? [include] : include;
   return {
-    apply: doApply.bind(this, optionsToUse)
+    apply: doApply.bind(this, optionsToUse),
   };
 });

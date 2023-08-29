@@ -28,8 +28,8 @@ export default {
   computed: {},
   methods: {},
   meta: {
-    pageType: 'Favorite Page'
-  }
+    pageType: 'Favorite Page',
+  },
 };
 </script>
 

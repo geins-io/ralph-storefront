@@ -16,7 +16,7 @@ import MixGlobalInit from 'MixGlobalInit';
 export default {
   name: 'CaUndistractedLayout',
   mixins: [MixGlobalInit],
-  data: () => ({})
+  data: () => ({}),
   // IMPORTANT NOTICE: If you decide to add a head() function here, you will overwrite default meta functionality that comes with MixGlobalInit from Ralph UI
 };
 </script>

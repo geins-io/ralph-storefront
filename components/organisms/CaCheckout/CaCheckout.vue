@@ -8,7 +8,7 @@
       @click="
         $store.commit('contentpanel/open', {
           name: 'account',
-          frame: 'login'
+          frame: 'login',
         })
       "
     >
@@ -50,9 +50,9 @@
     <CaCheckoutSection
       v-if="
         $store.getters['cart/totalQuantity'] &&
-          $config.checkout.showMultipleMarkets &&
-          selectableMarkets &&
-          selectableMarkets.length > 1
+        $config.checkout.showMultipleMarkets &&
+        selectableMarkets &&
+        selectableMarkets.length > 1
       "
       :loading="cartLoading"
     >
@@ -97,8 +97,8 @@
       :bottom-arrow="false"
       :loading="
         !checkout ||
-          (checkoutLoading && paymentType === 'STANDARD') ||
-          frameLoading
+        (checkoutLoading && paymentType === 'STANDARD') ||
+        frameLoading
       "
       :blocked="$refs.udc && !udcValid"
     >
@@ -124,8 +124,8 @@
       <CaCheckoutExternal
         v-if="
           paymentType === 'KLARNA' ||
-            paymentType === 'SVEA' ||
-            paymentType === 'WALLEY'
+          paymentType === 'SVEA' ||
+          paymentType === 'WALLEY'
         "
         ref="externalcheckout"
         :data="selectedPaymentOption.paymentData"
@@ -176,8 +176,8 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout');
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

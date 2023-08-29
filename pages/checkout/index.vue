@@ -20,8 +20,8 @@ export default {
   data: () => ({}),
   methods: {},
   meta: {
-    pageType: 'Checkout Page'
-  }
+    pageType: 'Checkout Page',
+  },
 };
 </script>
 

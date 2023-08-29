@@ -40,18 +40,18 @@ export default {
   mixins: [],
   props: {},
   data: () => ({
-    searchOpened: false
+    searchOpened: false,
   }),
   computed: {
     modifiers() {
       return {
-        'ca-header--scrolled': !this.$store.getters.siteIsAtTop
+        'ca-header--scrolled': !this.$store.getters.siteIsAtTop,
       };
-    }
+    },
   },
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

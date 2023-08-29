@@ -57,18 +57,18 @@ export default {
   props: {
     type: {
       type: String,
-      required: true
+      required: true,
     },
     listInfo: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   data: () => ({}),
   computed: {},
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

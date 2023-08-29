@@ -11,11 +11,11 @@
 */
 
 export default {
-  middleware: 'list-page-routing',
   name: 'AllListView',
   mixins: [],
+  middleware: 'list-page-routing',
   data: () => ({
-    listType: 'all'
+    listType: 'all',
   }),
   computed: {
     staticListInfo() {
@@ -24,15 +24,15 @@ export default {
         name: title,
         meta: {
           title,
-          description: title
-        }
+          description: title,
+        },
       };
-    }
+    },
   },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'All Page'
-  }
+    pageType: 'All Page',
+  },
 };
 </script>

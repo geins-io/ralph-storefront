@@ -21,8 +21,8 @@
 */
 import getUserQuery from 'user/get.graphql';
 export default {
-  middleware: 'authenticated',
   name: 'SettingsPage',
+  middleware: 'authenticated',
   transition: 'no-transition',
   apollo: {
     getUser: {
@@ -36,31 +36,31 @@ export default {
       },
       error(error) {
         this.$nuxt.error({ statusCode: 500, message: error });
-      }
-    }
+      },
+    },
   },
-  data: vm => ({
+  data: (vm) => ({
     user: null,
     loading: false,
     genders: [
       {
         value: 'UNSPECIFIED',
-        label: vm.$t('ACCOUNT_GENDER_UNSPECIFIED')
+        label: vm.$t('ACCOUNT_GENDER_UNSPECIFIED'),
       },
       {
         value: 'WOMAN',
-        label: vm.$t('ACCOUNT_GENDER_WOMAN')
+        label: vm.$t('ACCOUNT_GENDER_WOMAN'),
       },
       {
         value: 'MAN',
-        label: vm.$t('ACCOUNT_GENDER_MAN')
-      }
-    ]
+        label: vm.$t('ACCOUNT_GENDER_MAN'),
+      },
+    ],
   }),
   methods: {},
   meta: {
-    pageType: 'Settings Page'
-  }
+    pageType: 'Settings Page',
+  },
 };
 </script>
 

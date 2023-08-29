@@ -17,21 +17,21 @@
 */
 import MixListInfo from 'MixListInfo';
 export default {
-  middleware: 'list-page-routing',
   name: 'DiscountCampaignListView',
   mixins: [MixListInfo],
+  middleware: 'list-page-routing',
   data: () => ({
-    listType: 'discountCampaign'
+    listType: 'discountCampaign',
   }),
   computed: {
     currentAlias() {
       return this.$route.params.discountCampaign.split('/').pop();
-    }
+    },
   },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Discount Campaign Page'
-  }
+    pageType: 'Discount Campaign Page',
+  },
 };
 </script>

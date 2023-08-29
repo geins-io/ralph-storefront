@@ -19,8 +19,8 @@
 import { mapState } from 'vuex';
 import getUserQuery from 'user/get.graphql';
 export default {
-  middleware: 'authenticated',
   name: 'AccountPage',
+  middleware: 'authenticated',
   data: () => ({}),
   computed: {
     title() {
@@ -28,7 +28,7 @@ export default {
         ? this.$t('ACCOUNT_LOGGING_IN_AS_USER')
         : this.$t('ACCOUNT_TITLE');
     },
-    ...mapState(['auth'])
+    ...mapState(['auth']),
   },
   watch: {
     async 'auth.client'(val) {
@@ -40,20 +40,20 @@ export default {
         this.$store.dispatch('cart/reset');
         this.auth.client.setTokenData({
           token: this.$route.query.loginToken,
-          maxAge: 3600
+          maxAge: 3600,
         });
         this.$store.dispatch('auth/update', {
           username: 'spoofed-user@geins.io',
-          rememberUser: false
+          rememberUser: false,
         });
         if (this.$config.customerTypesToggle) {
           this.$apollo
             .query({
               query: getUserQuery,
               errorPolicy: 'all',
-              fetchPolicy: 'no-cache'
+              fetchPolicy: 'no-cache',
             })
-            .then(result => {
+            .then((result) => {
               if (!result.errors) {
                 const type = result.data?.getUser?.customerType;
                 this.$store.dispatch('changeCustomerType', type);
@@ -61,7 +61,7 @@ export default {
                 this.routeToAccount();
               }
             })
-            .catch(error => {
+            .catch((error) => {
               // pass the error response to the error component
               this.$nuxt.error({ statusCode: 500, message: error });
             });
@@ -69,7 +69,7 @@ export default {
           this.routeToAccount();
         }
       }
-    }
+    },
   },
   created() {},
   mounted() {
@@ -78,13 +78,13 @@ export default {
     }
   },
   meta: {
-    pageType: 'Account Page'
+    pageType: 'Account Page',
   },
   methods: {
     routeToAccount() {
       this.$router.replace(this.$getPath('account-orders'));
-    }
-  }
+    },
+  },
 };
 </script>
 

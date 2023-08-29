@@ -12,13 +12,13 @@
 */
 import { mapState } from 'vuex';
 export default {
-  middleware: 'authenticated',
   name: 'WidgetPreview',
+  middleware: 'authenticated',
   data: () => ({
-    isAuthenticated: false
+    isAuthenticated: false,
   }),
   computed: {
-    ...mapState(['auth'])
+    ...mapState(['auth']),
   },
   watch: {
     async 'auth.client'(val) {
@@ -30,11 +30,11 @@ export default {
         this.$store.dispatch('cart/reset');
         this.auth.client.setTokenData({
           token: this.$route.query.loginToken,
-          maxAge: 3600
+          maxAge: 3600,
         });
         this.$store.dispatch('auth/update', {
           username: 'preview-user@geins.io',
-          rememberUser: false
+          rememberUser: false,
         });
         if (this.$route.query.redirect) {
           this.$router.push(this.$getPath('index'));
@@ -42,11 +42,11 @@ export default {
           this.isAuthenticated = true;
         }
       }
-    }
+    },
   },
   methods: {},
   meta: {
-    pageType: 'Preview Page'
-  }
+    pageType: 'Preview Page',
+  },
 };
 </script>

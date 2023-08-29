@@ -14,7 +14,7 @@ export default {
   },
   methods: {},
   meta: {
-    pageType: 'Error Page'
-  }
+    pageType: 'Error Page',
+  },
 };
 </script>

@@ -36,15 +36,15 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     values: {
       type: [Array, Object],
-      required: true
+      required: true,
     },
     selection: {
       type: [Array],
-      required: true
+      required: true,
     },
     type: {
       // 'multi', 'range'
@@ -52,18 +52,18 @@ export default {
       default: 'multi', // 'range'
       validator(value) {
         return ['multi', 'range'].includes(value);
-      }
-    }
+      },
+    },
   },
   data: () => ({
     open: false,
-    currentSelection: []
+    currentSelection: [],
   }),
   computed: {
     modifiers() {
       return {
         'ca-filter--open': this.open,
-        'ca-filter--chosen': this.selectionMade
+        'ca-filter--chosen': this.selectionMade,
       };
     },
     typeRange() {
@@ -71,7 +71,7 @@ export default {
     },
     selectionMade() {
       return this.currentSelection.length > 0;
-    }
+    },
   },
   watch: {
     selection: {
@@ -80,13 +80,13 @@ export default {
         if (newVal !== oldVal) {
           this.currentSelection = this.selection;
         }
-      }
-    }
+      },
+    },
   },
   mounted() {
     this.currentSelection = this.selection;
   },
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">
