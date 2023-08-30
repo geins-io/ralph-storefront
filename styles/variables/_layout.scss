@@ -13,7 +13,7 @@ $textarea-border-radius: $default-radius;
 $focus-border: 3px $c-ok;
 
 // Box shadow
-$box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.4);
+$box-shadow: 0 0 10px -3px rgb(0 0 0 / 40%);
 
 // Z-index
 $z-index-cookie-consent: 100;
@@ -39,7 +39,6 @@ $search-input-height: rem-calc(40px);
 $header-bar-height: rem-calc(50px);
 $header-bar-height-computer: rem-calc(80px);
 $header-navigation-height-computer: rem-calc(50px);
-
 $header-height: $top-bar-height + $header-bar-height + $search-height;
 $header-height-computer: $top-bar-height-computer + $header-bar-height-computer +
   $header-navigation-height-computer;

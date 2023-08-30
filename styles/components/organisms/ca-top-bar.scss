@@ -1,14 +1,15 @@
 .ca-top-bar {
   $block: &;
+
   background-color: $c-topbar-bg;
   font-size: $font-size-xs;
   z-index: $z-index-header + 1;
   position: relative;
-
+  /* stylelint-disable selector-class-pattern */
   body[style='overflow: hidden;'] &:not(.ca-top-bar--undistracted) {
     padding-right: var(--scrollbar-width);
   }
-
+  /* stylelint-enable selector-class-pattern */
   &__container {
     @include flex-halign;
 

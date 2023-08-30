@@ -10,9 +10,11 @@
     }
   }
 
-  .ca-top-bar__usps {
-    @include bp(laptop) {
-      @include calign;
+  .ca-top-bar {
+    &__usps {
+      @include bp(laptop) {
+        @include calign;
+      }
     }
   }
 }

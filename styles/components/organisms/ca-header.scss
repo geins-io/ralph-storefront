@@ -19,6 +19,7 @@
     height: $header-bar-height;
 
     @include flex-valign;
+
     justify-content: space-between;
 
     @include bp(laptop) {
@@ -37,11 +38,13 @@
   &__search-toggle {
     margin-right: auto;
     font-size: 23px;
+
     @include flex-valign;
   }
 
   &__logo {
     @include calign;
+
     width: 120px;
   }
 

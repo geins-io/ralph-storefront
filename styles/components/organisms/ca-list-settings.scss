@@ -1,5 +1,6 @@
 .ca-list-settings {
   $minus-margin: calc(-1 * #{$default-spacing}/ 2);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,8 +55,10 @@
   &__sort-select.ca-input-select {
     width: 100%;
 
-    .ca-input-select__select-wrap {
-      height: 46px;
+    .ca-input-select {
+      &__select-wrap {
+        height: 46px;
+      }
     }
 
     @include bp(laptop) {

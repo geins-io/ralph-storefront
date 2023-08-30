@@ -82,6 +82,7 @@ export default function (to, from, savedPosition) {
             position = { selector: hash };
           }
         } catch (e) {
+          // eslint-disable-next-line no-console
           console.warn(
             'Failed to save scroll position. Please add CSS.escape() polyfill (https://github.com/mathiasbynens/CSS.escape).',
           );

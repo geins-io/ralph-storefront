@@ -43,11 +43,13 @@
       padding: 0 $px32;
     }
 
-    .ca-icon-and-text__icon {
-      margin-bottom: $px4;
+    .ca-icon-and-text {
+      &__icon {
+        margin-bottom: $px4;
 
-      @include bp(tablet) {
-        margin-bottom: 0;
+        @include bp(tablet) {
+          margin-bottom: 0;
+        }
       }
     }
   }
@@ -125,7 +127,7 @@
 
   &__social-item {
     font-size: 30px;
-    
+
     &:not(:last-child) {
       margin-right: $px20;
     }
