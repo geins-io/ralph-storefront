@@ -5,14 +5,7 @@
     width: 100%;
     height: 100%;
     background: radial-gradient(
-      center,
-      ellipse cover,
-      transparent 27%,
-      rgb(9 9 9 / 0%) 31%,
-      rgb(170 170 170 / 10%) 100%
-    );
-    background: radial-gradient(
-      ellipse at center,
+      farthest-corner at center,
       transparent 27%,
       rgb(9 9 9 / 0%) 31%,
       rgb(170 170 170 / 10%) 100%

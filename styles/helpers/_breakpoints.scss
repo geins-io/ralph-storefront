@@ -1,5 +1,5 @@
 @import '../variables/breakpoints';
-
+/* stylelint-disable media-query-no-invalid */
 @mixin bp($media) {
   @if $media == phone-only {
     @media screen and (max-width: ($break-tablet - 1)) {
@@ -39,3 +39,4 @@
     }
   }
 }
+/* stylelint-enable media-query-no-invalid */

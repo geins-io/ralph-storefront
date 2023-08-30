@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // Convert Hex to RGBa
 @function hex-to-rgba($color, $opacity) {
   $r: color.red($color);
