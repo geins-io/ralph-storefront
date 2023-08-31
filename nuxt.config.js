@@ -204,17 +204,17 @@ export default async () => {
       { path: '~/components/molecules', extensions: ['vue'] },
       { path: '~/components/organisms', extensions: ['vue'] },
       {
-        path: '~/node_modules/@ralph/ralph-ui/components/atoms',
+        path: '~/node_modules/@geins/ralph-ui/components/atoms',
         extensions: ['vue'],
         level: 1,
       },
       {
-        path: '~/node_modules/@ralph/ralph-ui/components/molecules',
+        path: '~/node_modules/@geins/ralph-ui/components/molecules',
         extensions: ['vue'],
         level: 1,
       },
       {
-        path: '~/node_modules/@ralph/ralph-ui/components/organisms',
+        path: '~/node_modules/@geins/ralph-ui/components/organisms',
         extensions: ['vue'],
         level: 1,
       },
@@ -225,22 +225,22 @@ export default async () => {
      */
     plugins: [
       {
-        src: '~/node_modules/@ralph/ralph-ui/plugins/ralph.js',
+        src: '~/node_modules/@geins/ralph-ui/plugins/ralph.js',
       },
       {
-        src: '~/node_modules/@ralph/ralph-ui/plugins/broadcastChannel.js',
+        src: '~/node_modules/@geins/ralph-ui/plugins/broadcastChannel.js',
         mode: 'client',
       },
       {
-        src: '~/node_modules/@ralph/ralph-ui/plugins/appInsights.client.js',
+        src: '~/node_modules/@geins/ralph-ui/plugins/appInsights.client.js',
         mode: 'client',
       },
       {
-        src: '~/node_modules/@ralph/ralph-ui/plugins/appInsights.server.js',
+        src: '~/node_modules/@geins/ralph-ui/plugins/appInsights.server.js',
         mode: 'server',
       },
       {
-        src: '~/node_modules/@ralph/ralph-ui/plugins/headersControl.js',
+        src: '~/node_modules/@geins/ralph-ui/plugins/headersControl.js',
         mode: 'server',
       },
     ],
@@ -253,7 +253,7 @@ export default async () => {
       [
         '@nuxtjs/router',
         {
-          path: 'node_modules/@ralph/ralph-ui/plugins',
+          path: 'node_modules/@geins/ralph-ui/plugins',
           keepDefaultRouter: true,
         },
       ],
@@ -398,7 +398,7 @@ export default async () => {
     },
     apollo: {
       clientConfigs: {
-        default: '~/node_modules/@ralph/ralph-ui/plugins/apollo-config.js',
+        default: '~/node_modules/@geins/ralph-ui/plugins/apollo-config.js',
       },
       includeNodeModules: true,
     },
@@ -646,7 +646,7 @@ export default async () => {
           ];
         },
       },
-      transpile: ['@ralph/ralph-ui'],
+      transpile: ['@geins/ralph-ui'],
       optimization: {
         splitChunks: {
           automaticNameDelimiter: 'ca.',
@@ -687,21 +687,21 @@ export default async () => {
           path.resolve(__dirname, 'styles/components/'),
           path.resolve(
             __dirname,
-            'node_modules/@ralph/ralph-ui/styles/components/',
+            'node_modules/@geins/ralph-ui/styles/components/',
           ),
           // Then for mixins
           path.resolve(__dirname, 'components/mixins/'),
           path.resolve(
             __dirname,
-            'node_modules/@ralph/ralph-ui/components/mixins/',
+            'node_modules/@geins/ralph-ui/components/mixins/',
           ),
           // Then for graphql queries
           path.resolve(__dirname, 'graphql/'),
-          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/graphql/'),
+          path.resolve(__dirname, 'node_modules/@geins/ralph-ui/graphql/'),
           // Then the UI store
-          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/store/'),
+          path.resolve(__dirname, 'node_modules/@geins/ralph-ui/store/'),
           // Then the UI middleware
-          path.resolve(__dirname, 'node_modules/@ralph/ralph-ui/middleware/'),
+          path.resolve(__dirname, 'node_modules/@geins/ralph-ui/middleware/'),
         ];
         if (isDev) {
           config.devtool = 'source-map';
