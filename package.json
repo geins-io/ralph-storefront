@@ -1,6 +1,6 @@
 {
   "name": "@ralph/ralph-storefront",
-  "version": "1.0.0",
+  "version": "2.0.0-beta.0",
   "description": "PWA frontend for Geins Commerce",
   "author": "Geins Commerce",
   "private": true,
