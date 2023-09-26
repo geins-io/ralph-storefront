@@ -194,6 +194,8 @@ export default {
   ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Anna tilillesi uusi salasana',
   ACCOUNT_LOGGING_IN_AS_USER: 'Olet kirjautunut sisään käyttäjänä.',
   ACCOUNT_SETTING_NOT_SPECIFIED: 'Ei määritelty',
+  REFUNDED: 'Palautettu',
+  REFUNDS: 'Palautukset',
   FEEDBACK_ERROR:
     'Valitettavasti jotain meni pieleen. Yritä uudelleen ja ota yhteyttä asiakaspalveluun, jos ongelma jatkuu.',
   FEEDBACK_REQUIRED_FIELD: 'Tämä kenttä on pakollinen',

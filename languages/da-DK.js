@@ -197,6 +197,8 @@ export default {
   ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Indtast en ny adgangskode til din konto',
   ACCOUNT_LOGGING_IN_AS_USER: 'Du er logget ind som bruger..',
   ACCOUNT_SETTING_NOT_SPECIFIED: 'Ikke specificeret',
+  REFUNDED: 'Refunderet',
+  REFUNDS: 'Tilbagebetalinger',
   FEEDBACK_ERROR:
     'Desværre gik der noget galt. Prøv venligst igen og kontakt kundeservice, hvis problemet fortsætter.',
   FEEDBACK_REQUIRED_FIELD: 'Dette felt er obligatorisk',

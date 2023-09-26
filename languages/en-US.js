@@ -197,6 +197,8 @@ export default {
   ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Enter a new password for your account',
   ACCOUNT_LOGGING_IN_AS_USER: 'You are being logged in as user..',
   ACCOUNT_SETTING_NOT_SPECIFIED: 'Not specified',
+  REFUNDED: 'Refunded',
+  REFUNDS: 'Refunds',
   FEEDBACK_ERROR:
     'We are sorry, but something went wrong. Please try again and contact our customer service if the problem persists.',
   FEEDBACK_REQUIRED_FIELD: 'This field is required',
