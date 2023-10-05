@@ -28,7 +28,7 @@
     "@nuxtjs/applicationinsights": "^1.2.2",
     "@nuxtjs/i18n": "^7.2.0",
     "@nuxtjs/pwa": "^3.3.5",
-    "@ralph/ralph-ui": "20.2.0",
+    "@ralph/ralph-ui": "20.2.2",
     "apollo-link": "^1.2.14",
     "cookie": "^0.4.2",
     "cookie-universal-nuxt": "^2.1.5",
