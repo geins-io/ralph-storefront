@@ -301,6 +301,8 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Regular price',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'left to free shipping',
   CART_SUMMARY_VAT: 'VAT',
+  CART_SUMMARY_TOTAL_EX_BALANCE: 'Total before balance',
+  CART_SUMMARY_BALANCE: 'Balance',
   FREE_SHIPPING: 'Free shipping',
   SWEDEN: 'Sweden',
   BREADCRUMBS_HOME: 'Home',

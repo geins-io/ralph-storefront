@@ -295,6 +295,8 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Normal pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'Tilbage indtil fri fragt',
   CART_SUMMARY_VAT: 'Moms',
+  CART_SUMMARY_TOTAL_EX_BALANCE: 'Sum før saldo',
+  CART_SUMMARY_BALANCE: 'Saldo',
   FREE_SHIPPING: 'Fri fragt',
   SWEDEN: 'Sverige',
   BREADCRUMBS_HOME: 'Hjem',

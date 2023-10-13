@@ -299,6 +299,8 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Normaalihinta',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'Jäljellä ilmainen toimitus',
   CART_SUMMARY_VAT: 'arvonlisävero',
+  CART_SUMMARY_TOTAL_EX_BALANCE: 'Yhteensä ennen saldoa',
+  CART_SUMMARY_BALANCE: 'Saldoa',
   FREE_SHIPPING: 'Ilmainen toimitus',
   SWEDEN: ' Sverige',
   BREADCRUMBS_HOME: 'Etusivu',

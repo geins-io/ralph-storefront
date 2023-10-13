@@ -262,7 +262,7 @@ export default {
   CHECKOUT_CONSENT_SMS:
     'Ja tak, jeg vil gerne modtage SMS med spændende tilbud',
   CHECKOUT_TERMS: 'købsbetingelserne',
-  CHECKOUT_TOTAL: 'Samlet beløbincl. moms',
+  CHECKOUT_TOTAL: 'Samlet beløb incl. moms',
   CHECKOUT_SHOW_SUMMARY: 'Vis detaljer',
   CHECKOUT_HIDE_SUMMARY: 'Skjul detaljer',
   CHECKOUT_CONFIRM_TITLE: 'Tak for din ordre!',
@@ -298,6 +298,8 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Normal pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'Tilbage indtil fri fragt',
   CART_SUMMARY_VAT: 'Moms',
+  CART_SUMMARY_TOTAL_EX_BALANCE: 'I alt før saldo',
+  CART_SUMMARY_BALANCE: 'Saldo',
   FREE_SHIPPING: 'Fri fragt',
   SWEDEN: 'Sverige',
   BREADCRUMBS_HOME: 'Hjem',
