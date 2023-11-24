@@ -1,12 +1,11 @@
 <template>
   <component :is="baseTag" class="ca-product-card">
     <div v-if="productPopulated" class="ca-product-card__image-wrap">
-      <NuxtLink
+      <CaClickable
         class="ca-product-card__image-link"
-        tabindex="-1"
-        :to="product.canonicalUrl"
+        :href="product.canonicalUrl"
         :data-alias="product.alias"
-        @click.native="productClickHandler"
+        @clicked="productClickHandler"
       >
         <CaImage
           v-if="product.productImages && product.productImages.length > 0"
@@ -31,7 +30,7 @@
           :src="require('~/assets/placeholders/product-image-square.png')"
           :alt="product.brand.name + ' ' + product.name"
         />
-      </NuxtLink>
+      </CaClickable>
       <CaToggleFavorite
         class="ca-product-card__favorite"
         :prod-alias="product.alias"
@@ -46,10 +45,11 @@
     />
 
     <div class="ca-product-card__info">
-      <NuxtLink
+      <CaClickable
         v-if="productPopulated"
-        :to="product.canonicalUrl"
-        @click.native="productClickHandler"
+        tabindex="-1"
+        :href="product.canonicalUrl"
+        @clicked="productClickHandler"
       >
         <CaBrandAndName
           :brand="product.brand.name"
@@ -67,7 +67,7 @@
           class="ca-product-card__stock-display"
           :stock="product.totalStock"
         />
-      </NuxtLink>
+      </CaClickable>
       <div v-else>
         <CaSkeleton width="30%" />
         <CaSkeleton width="70%" />
