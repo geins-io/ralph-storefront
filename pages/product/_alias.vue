@@ -198,8 +198,10 @@
         v-if="$config.showProductReviewSection"
         class="ca-product-page__section-review"
       >
-        <CaReviewsList v-if="product" :product-alias="prodAlias" />
-        <CaReviewForm :product-alias="prodAlias" />
+        <client-only>
+          <CaReviewsList :product-alias="prodAlias" />
+          <CaReviewForm :product-alias="prodAlias" />
+        </client-only>
       </section>
     </CaContainer>
     <section class="ca-product-page__widget-section">
