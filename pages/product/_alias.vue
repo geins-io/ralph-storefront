@@ -79,7 +79,7 @@
             :variants-data="variantPickerData"
             title="Med logga"
             type="display"
-            @changeSku="sizeChangeHandler"
+            @changeSku="skuChangeHandler"
             @notify="notifyHandler"
           />
 
