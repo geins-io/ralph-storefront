@@ -2,6 +2,7 @@
   --scrollbar-width: 17px;
 }
 
+// Set scrollbar width when using body-scroll-lock
 body[style='overflow: hidden;'] {
   padding-right: var(--scrollbar-width);
 }
