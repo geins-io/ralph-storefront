@@ -14,8 +14,7 @@
     "stats": "set NODE_ENV=development && yarn nuxt build --modern=server --analyze",
     "link-ralph": "npx link",
     "ralph-ride": "node ./scripts/ralph-ride.cjs",
-    "ralph-create": "node ./scripts/ralph-create.cjs",
-    "prepare": "husky install"
+    "ralph-create": "node ./scripts/ralph-create.cjs"
   },
   "lint-staged": {
     "*.{js,vue}": "npm run lint:js",

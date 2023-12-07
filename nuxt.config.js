@@ -1,178 +1,17 @@
 import path from 'path';
-import fs from 'fs';
-import csv from 'csv-parser';
-import {
-  ApolloClient,
-  gql,
-  InMemoryCache,
-  HttpLink,
-} from '@apollo/client/core';
-import fetch from 'cross-fetch';
-import DirectoryNamedWebpackPlugin from './static/directory-named-webpack-resolve';
+import { getImageSizes } from './config/image-sizes';
+import { getFallbackMarkets, getFallbackMeta } from './config/fallback-data';
+import { getMarketSettings } from './config/market-settings';
+import { routePaths } from './config/route-paths';
+import DirectoryNamedWebpackPlugin from './config/directory-named-webpack-resolve';
 
 const ralphEnv = process.env.RALPH_ENV || 'prod';
 
-const fallbackChannelId = process.env.FALLBACK_CHANNEL_ID;
-const fallbackMarketAlias = process.env.FALLBACK_MARKET_ALIAS;
-
-const routePaths = {
-  category: '/c',
-  brand: '/b',
-  product: '/p',
-  search: '/s',
-  discountCampaign: '/dc',
-  list: '/l',
-};
-
-// Set the domain settings and market settings based on if env-variable DOMAINS exists
-// Default settings for multi market / multi language
-// TODO: All this should come from channelSettings when we have a way to get channel settings from api
-let domainSettings = {
-  differentDomains: false,
-  strategy: 'prefix',
-};
-let domainUrls = null;
-
-// Default settings for market for publicRuntimeConfig
-let marketSettings = {
-  isMultiLanguage: true,
-  marketInPath: true,
-};
-
-if (process.env.DOMAINS) {
-  const domains = process.env.DOMAINS.split(',');
-
-  domainUrls = domains
-    ?.map((domain) => {
-      const domainArr = domain?.split('|');
-      return {
-        [domainArr[0]]: domainArr[1] || '',
-      };
-    })
-    .reduce((result, item) => {
-      const key = Object.keys(item)[0];
-      result[key] = item[key];
-      return result;
-    }, {});
-
-  // If using DOMAINS, turn off multilang and marketInPath
-  marketSettings = {
-    isMultiLanguage: false,
-    marketInPath: false,
-  };
-
-  // If site should have only language prefix and no market prefix, remove the following declaration
-  domainSettings = {
-    differentDomains: false,
-    strategy: 'prefix_except_default',
-  };
-
-  if (domains.length > 1) {
-    // If more than one domain, set diffrentDomains to true
-    domainSettings = {
-      differentDomains: true,
-      strategy: 'no_prefix',
-    };
-  }
-}
-
-const imageSizesFile = './static/ImageSize.csv';
-
-const imageSizesStream = fs.createReadStream(imageSizesFile);
-const imageSizeObject = {};
-const apolloCache = new InMemoryCache({});
-const apolloClient = new ApolloClient({
-  cache: apolloCache,
-  link: new HttpLink({ uri: process.env.API_ENDPOINT, fetch }),
-});
-
-// Parse the imageSizesFile to get the image sizes
-const imageSizesStreamRead = new Promise(function (resolve) {
-  imageSizesStream
-    .pipe(csv())
-    .on('data', (row) => {
-      // Get the value from the PartitionKey (Imate type) Column and make it lowercase (Because of input inconsistencies in the source document)
-      const PartitionKey = row.PartitionKey.toLowerCase();
-      // Create the data for this row
-      const imageRow = {
-        folder: row.Folder,
-        descriptor: row.Width + 'w',
-      };
-      // Check if the imagesizeobject has the current image tyoe already, if so add to it, otherwise create it
-      if (imageSizeObject[PartitionKey]) {
-        imageSizeObject[PartitionKey].push(imageRow);
-      } else {
-        imageSizeObject[PartitionKey] = [imageRow];
-      }
-    })
-    .on('end', () => {
-      resolve(imageSizeObject);
-    });
-});
-
-async function getImageSizes() {
-  const imageSizes = await imageSizesStreamRead;
-  return imageSizes;
-}
 export default async () => {
   const imageSizes = await getImageSizes();
-  // Get default meta
-  const defaultMetaQuery = await apolloClient.query({
-    query: gql`
-      query listPageInfo {
-        listPageInfo(alias: "frontpage", channelId: "${fallbackChannelId}", marketId: "${fallbackMarketAlias}") {
-          meta {
-            description
-            title
-          }
-        }
-      }
-    `,
-    context: {
-      headers: {
-        'X-ApiKey': process.env.API_KEY,
-      },
-    },
-  });
-  const defaultMeta = await defaultMetaQuery.data.listPageInfo.meta;
-
-  // Get fallback markets
-  const getMarketsQuery = await apolloClient.query({
-    query: gql`
-      query channel {
-        channel(channelId: "${fallbackChannelId}") {
-          defaultMarketId
-          markets {
-            id
-            defaultLanguageId
-            alias
-            virtual
-            onlyDisplayInCheckout
-            groupKey
-            allowedLanguages {
-              id
-              name
-              code
-            }
-            country {
-              name
-              code
-            }
-            currency {
-              name
-              code
-            }
-          }
-        }
-      }
-    `,
-    context: {
-      headers: {
-        'X-ApiKey': process.env.API_KEY,
-      },
-    },
-  });
-  const markets = await getMarketsQuery.data.channel.markets;
+  const fallbackMarkets = await getFallbackMarkets();
+  const fallbackMeta = await getFallbackMeta();
+  const { domainSettings, domainUrls, marketSettings } = getMarketSettings();
 
   return {
     /*
@@ -215,14 +54,6 @@ export default async () => {
       {
         src: '~/node_modules/@geins/ralph-ui/plugins/broadcastChannel.js',
         mode: 'client',
-      },
-      {
-        src: '~/node_modules/@geins/ralph-ui/plugins/appInsights.client.js',
-        mode: 'client',
-      },
-      {
-        src: '~/node_modules/@geins/ralph-ui/plugins/appInsights.server.js',
-        mode: 'server',
       },
       {
         src: '~/node_modules/@geins/ralph-ui/plugins/headersControl.js',
@@ -371,7 +202,7 @@ export default async () => {
       manifest: {
         name: 'Ralph',
         short_name: 'Ralph',
-        description: defaultMeta.description,
+        description: fallbackMeta.description,
         theme_color: '#363636',
       },
       icon: {
@@ -472,11 +303,11 @@ export default async () => {
       ),
       apiKey: process.env.API_KEY,
       apiEndpoint: process.env.API_ENDPOINT,
-      fallbackChannelId,
-      fallbackMarketAlias,
+      fallbackChannelId: process.env.FALLBACK_CHANNEL_ID,
+      fallbackMarketAlias: process.env.FALLBACK_MARKET_ALIAS,
       ...marketSettings,
       useStartPage: false,
-      markets,
+      fallbackMarkets,
       customerServiceEmail: 'info@geins.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
@@ -694,14 +525,5 @@ export default async () => {
       },
     },
     dev: process.env.NODE_ENV !== 'production',
-    appInsights: {
-      instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATION_KEY,
-      serverConfig: {
-        excludedFileEndings: ['.js', '.map', '.json', '.png', '.svg'],
-      },
-      clientConfig: {
-        enableAutoRouteTracking: true,
-      },
-    },
   };
 };
