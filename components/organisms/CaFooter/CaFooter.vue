@@ -132,7 +132,7 @@
           class="ca-footer__bottom-column ca-footer__bottom-column--copyright"
         >
           <div class="ca-footer__copyright">
-            Copyright &copy; Ralph Storefront
+            Copyright &copy; {{ $config.currentChannelSettings.siteName }}
           </div>
           <a
             class="ca-footer__powered-by"

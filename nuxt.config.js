@@ -2,6 +2,10 @@ import path from 'path';
 import { getImageSizes } from './config/image-sizes';
 import { getFallbackMarkets, getFallbackMeta } from './config/fallback-data';
 import { getMarketSettings } from './config/market-settings';
+import {
+  channelSettings,
+  currentChannelSettings,
+} from './config/channel-settings';
 import { routePaths } from './config/route-paths';
 import DirectoryNamedWebpackPlugin from './config/directory-named-webpack-resolve';
 
@@ -17,7 +21,10 @@ export default async () => {
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: '#353797', height: '5px' },
+    loading: {
+      color: currentChannelSettings.theme['accent-color'],
+      height: '5px',
+    },
     /*
      ** Global CSS
      */
@@ -52,11 +59,15 @@ export default async () => {
         src: '~/node_modules/@geins/ralph-ui/plugins/ralph.js',
       },
       {
-        src: '~/node_modules/@geins/ralph-ui/plugins/broadcastChannel.js',
+        src: '~/node_modules/@geins/ralph-ui/plugins/set-css-variables.js',
         mode: 'client',
       },
       {
-        src: '~/node_modules/@geins/ralph-ui/plugins/headersControl.js',
+        src: '~/node_modules/@geins/ralph-ui/plugins/broadcast-channel.js',
+        mode: 'client',
+      },
+      {
+        src: '~/node_modules/@geins/ralph-ui/plugins/headers-control.js',
         mode: 'server',
       },
     ],
@@ -200,10 +211,10 @@ export default async () => {
     ],
     pwa: {
       manifest: {
-        name: 'Ralph',
-        short_name: 'Ralph',
+        name: currentChannelSettings.siteName,
+        short_name: currentChannelSettings.siteName,
         description: fallbackMeta.description,
-        theme_color: '#363636',
+        theme_color: currentChannelSettings.theme['accent-color'],
       },
       icon: {
         purpose: 'any',
@@ -306,8 +317,10 @@ export default async () => {
       fallbackChannelId: process.env.FALLBACK_CHANNEL_ID,
       fallbackMarketAlias: process.env.FALLBACK_MARKET_ALIAS,
       ...marketSettings,
-      useStartPage: false,
+      currentChannelSettings,
+      channelSettings,
       fallbackMarkets,
+      useStartPage: false,
       customerServiceEmail: 'info@geins.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
