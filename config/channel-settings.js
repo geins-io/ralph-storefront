@@ -10,6 +10,7 @@ export const channelSettings = [
   },
 ];
 
-export const currentChannelSettings = channelSettings.find(
-  (i) => i.channelId === process.env.FALLBACK_CHANNEL_ID,
-);
+export const currentChannelSettings =
+  channelSettings.find(
+    (i) => i.channelId === process.env.FALLBACK_CHANNEL_ID,
+  ) || channelSettings[0];

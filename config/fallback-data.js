@@ -1,5 +1,5 @@
 import { gql } from 'graphql-tag';
-import { apolloClient } from './apollo';
+import { apolloClient } from './apollo-client';
 
 const defaultMetaQuery = gql`
   query listPageInfo(
