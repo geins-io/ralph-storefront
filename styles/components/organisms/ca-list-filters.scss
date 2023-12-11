@@ -15,7 +15,6 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    column-gap: rem-calc(20px);
-    row-gap: rem-calc(20px);
+    gap: rem-calc(20px) rem-calc(20px);
   }
 }
