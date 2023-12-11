@@ -184,5 +184,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'organisms/ca-reset-password';
+@import './styles/pages/reset-password-page';
 </style>

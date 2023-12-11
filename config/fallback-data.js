@@ -1,5 +1,11 @@
 import { gql } from 'graphql-tag';
-import { apolloClient } from './apollo-client';
+import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client/core';
+import fetch from 'cross-fetch';
+
+const apolloClient = new ApolloClient({
+  cache: new InMemoryCache({}),
+  link: new HttpLink({ uri: process.env.API_ENDPOINT, fetch }),
+});
 
 const defaultMetaQuery = gql`
   query listPageInfo(

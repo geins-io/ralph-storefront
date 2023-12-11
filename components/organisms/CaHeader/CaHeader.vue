@@ -33,7 +33,7 @@
 </template>
 <script>
 /*
-  Header component for the site.
+  The main header component for the site.
 */
 export default {
   name: 'CaHeader',

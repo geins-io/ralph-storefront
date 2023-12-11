@@ -21,5 +21,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import 'organisms/ca-layout-undistracted';
+@import './styles/layouts/undistracted-layout';
 </style>

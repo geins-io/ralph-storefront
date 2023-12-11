@@ -90,12 +90,8 @@
 </template>
 <script>
 /*
-  CaProductCard is a reusable component that displays a product card.
-  It receives one prop:
-  - product: an object containing the product data
-
-  It emits an event when the product is clicked:
-  - productclick: an object containing the product data
+  This product is the main component for displaying a product card. 
+  To understand more about this component, please read the documentation for the MixProductCard in Ralph UI
 */
 import MixProductCard from 'MixProductCard';
 export default {

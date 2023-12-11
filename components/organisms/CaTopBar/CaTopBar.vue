@@ -62,11 +62,11 @@
 </template>
 <script>
 /*
-  A top bar component that is used on all pages.
+  The component for the top bar of the page, included in the header.
 
   props:
     undistracted: Boolean
-      If true, this is used by rthe undistrected layout and some elements might want to be hidden
+      Set to true if used in the undistracted layout. If true, some elements might want to be hidden
 */
 export default {
   name: 'CaTopBar',

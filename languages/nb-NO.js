@@ -78,8 +78,9 @@ export default {
   KLARNA_FAIL_BLOCKED:
     'Kunne ikke oprette ordre, da din bruger er blokeret hos Klarna',
   GO_BACK: 'Gå tilbage',
-  PICK_COLOR: 'Vælg farve',
-  PICK_SIZE: 'Velg størrelse',
+  PICK_COLOR: 'Velg farve',
+  PICK_SKU: 'Velg størrelse',
+  PICK_VARIANT: 'Velg variant',
   STOCK_STATUS_IN_STOCK: 'På lager',
   STOCK_STATUS_OUT_OF_STOCK: 'Udsolgt',
   STOCK_STATUS_FEW_LEFT: 'Kun {quantity} på lager',

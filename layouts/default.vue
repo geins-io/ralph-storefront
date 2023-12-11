@@ -55,5 +55,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import 'organisms/ca-layout-default';
+@import './styles/layouts/default-layout';
 </style>
