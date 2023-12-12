@@ -51,71 +51,10 @@
     mapStatus: Maps the status to the correct status.
     splitOrders: Splits the orders into in progress and history.
 */
-import getOrdersQuery from 'user/orders.graphql';
+import MixAccountOrders from 'MixAccountOrders';
 export default {
   name: 'OrdersPage',
-  middleware: 'ralph-authenticated',
-  transition: 'no-transition',
-  apollo: {
-    getOrders: {
-      query: getOrdersQuery,
-      errorPolicy: 'all',
-      fetchPolicy: 'no-cache',
-      result(result) {
-        if (result.data) {
-          this.orders = result.data.getOrders;
-        }
-      },
-      error(error) {
-        this.$nuxt.error({ statusCode: 500, message: error });
-      },
-    },
-  },
-  data: () => ({
-    orders: null,
-    inProgressStatuses: ['received', 'processing'],
-    historyStatuses: ['cancelled', 'completed'],
-  }),
-  computed: {
-    ordersInProgress() {
-      return this.splitOrders(this.inProgressStatuses);
-    },
-    orderHistory() {
-      return this.splitOrders(this.historyStatuses);
-    },
-  },
-  created() {},
-  methods: {
-    mapStatus(status) {
-      switch (status) {
-        case 'pending':
-        case 'pending-payment':
-        case 'backorder':
-          return 'received';
-        case 'partial':
-        case 'inactive':
-        case 'on-hold':
-          return 'processing';
-        case 'cancelled':
-        case 'out-of-stock':
-          return 'cancelled';
-        case 'completed':
-        case 'refunded':
-          return 'completed';
-        default:
-          return status;
-      }
-    },
-    splitOrders(statusArray) {
-      const arr = this.orders
-        ? this.orders.map((i) => {
-            i.status = this.mapStatus(i.status);
-            return i;
-          })
-        : [];
-      return arr.filter((i) => statusArray.includes(i.status));
-    },
-  },
+  mixins: [MixAccountOrders],
   meta: {
     pageType: 'Orders Page',
   },
