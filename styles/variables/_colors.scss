@@ -39,9 +39,9 @@ $c-border-dark: $c-medium-gray;
 $c-main-bg: $c-white;
 
 // Header
-$c-topbar-bg: $c-medium-gray;
-$c-header-bg: $c-light-gray;
-$c-search-bg: $c-medium-gray;
+$c-topbar-bg: $c-white;
+$c-header-bg: $c-white;
+$c-search-bg: $c-lightest-gray;
 $c-cart-color: $c-text-primary;
 
 // Price
@@ -65,12 +65,12 @@ $c-input-focused-border: $c-accent-color;
 $c-input-background: $c-white;
 $c-input-checkbox-text: $c-text-secondary;
 $c-input-checkbox-bg: $c-white;
-$c-input-checkbox-checked-bg: $c-white;
-$c-input-checkbox-checked-border: $c-dark-gray;
+$c-input-checkbox-checked-bg: $c-darkest-gray;
+$c-input-checkbox-checked-border: $c-darkest-gray;
 $c-input-radio-checked-bg: $c-dark-gray;
 
 // Content panel
-$c-content-panel-header-bg: $c-light-gray;
+$c-content-panel-header-bg: $c-lightest-gray;
 $c-content-panel-header-txt: $c-text-primary;
 
 // Notification badge

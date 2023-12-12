@@ -4,12 +4,13 @@
   left: 0;
   top: 0;
   z-index: $z-index-header;
+  border-bottom: $border-light;
 
   &__bar {
     background-color: $c-header-bg;
     z-index: $z-index-header;
     position: relative;
-    
+
     body[style='overflow: hidden;'] & {
       padding-right: var(--scrollbar-width);
     }

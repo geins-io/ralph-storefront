@@ -2,10 +2,10 @@
 export const channelSettings = [
   {
     channelId: '1|se',
-    siteName: 'Ralph Storefront PWA',
+    siteName: 'Ralph Storefront',
     // All theme settings will be converted into css variables and added to the root html element
     theme: {
-      'accent-color': '#cd552e',
+      'accent-color': '#363636',
     },
   },
 ];

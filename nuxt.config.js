@@ -433,7 +433,7 @@ export default async () => {
         },
       },
       productShowRelated: true,
-      showProductReviewSection: true,
+      showProductReviewSection: false,
       showStarsInProductReviewForm: true,
       /* ******************** */
       /* ***** CHECKOUT ***** */

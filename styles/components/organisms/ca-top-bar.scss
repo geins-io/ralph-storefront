@@ -3,7 +3,7 @@
 
   background-color: $c-topbar-bg;
   font-size: $font-size-xs;
-  z-index: $z-index-header + 1;
+  z-index: $z-index-header - 1;
   position: relative;
   /* stylelint-disable selector-class-pattern */
   body[style='overflow: hidden;'] &:not(.ca-top-bar--undistracted) {
@@ -42,7 +42,11 @@
 
   &__group {
     margin: 0 0 0 auto;
-    display: flex;
+    display: none;
     gap: $px20;
+
+    @include bp(laptop) {
+      display: flex;
+    }
   }
 }

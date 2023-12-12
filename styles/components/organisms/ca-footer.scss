@@ -3,12 +3,13 @@
 
   &__section {
     &--usps {
-      background-color: $c-light-gray;
+      border-top: $border-light;
+      border-bottom: $border-light;
       padding: $px8 0;
     }
 
     &--newsletter {
-      background-color: $c-lightest-gray;
+      background-color: $c-white;
       padding: $px20 0;
 
       @include bp(tablet) {
@@ -17,12 +18,10 @@
     }
 
     &--content {
-      background-color: $c-light-gray;
+      background-color: $c-white;
+      border-top: $border-light;
+      border-bottom: $border-light;
       padding: $px24 0 $px32;
-    }
-
-    &--bottom {
-      background-color: $c-medium-gray;
     }
   }
 
@@ -61,7 +60,7 @@
     margin: 0 auto;
 
     @include bp(tablet) {
-      background-color: $c-light-gray;
+      border: $border-light;
       padding: $px20 $px48 $px24;
     }
   }
