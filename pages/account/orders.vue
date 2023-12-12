@@ -54,7 +54,7 @@
 import getOrdersQuery from 'user/orders.graphql';
 export default {
   name: 'OrdersPage',
-  middleware: 'authenticated',
+  middleware: 'ralph-authenticated',
   transition: 'no-transition',
   apollo: {
     getOrders: {

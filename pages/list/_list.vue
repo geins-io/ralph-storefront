@@ -6,7 +6,7 @@
 /*
   Renders the list page.
   
-  middleware: list-page-routing - handles the routing for the list pages
+  middleware: ralph-list-page-routing - handles the routing for the list pages
 
 */
 import MixListInfo from 'MixListInfo';
@@ -14,7 +14,7 @@ import MixListInfo from 'MixListInfo';
 export default {
   name: 'ListView',
   mixins: [MixListInfo],
-  middleware: 'list-page-routing',
+  middleware: 'ralph-list-page-routing',
   data: () => ({
     listType: 'list',
   }),

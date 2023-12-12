@@ -6,14 +6,17 @@
 /*
   Renders the all products page.
 
-  middleware: list-page-routing - handles the routing for the list pages
+ middleware: ralph-list-page-routing - handles the routing for the list pages
+
+  computed:
+    staticListInfo: The listPageInfo for the all products page.
 
 */
 
 export default {
   name: 'AllListView',
   mixins: [],
-  middleware: 'list-page-routing',
+  middleware: 'ralph-list-page-routing',
   data: () => ({
     listType: 'all',
   }),

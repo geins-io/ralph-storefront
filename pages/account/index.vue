@@ -20,7 +20,7 @@ import { mapState } from 'vuex';
 import getUserQuery from 'user/get.graphql';
 export default {
   name: 'AccountPage',
-  middleware: 'authenticated',
+  middleware: 'ralph-authenticated',
   data: () => ({}),
   computed: {
     title() {

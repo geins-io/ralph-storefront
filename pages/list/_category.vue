@@ -9,7 +9,8 @@
 <script>
 /*
   Renders the category page.
-  middleware: list-page-routing - handles the routing for the list pages
+  
+  middleware: ralph-list-page-routing - handles the routing for the list pages
   
   computed:
     currentAlias: The current alias of the category.
@@ -18,7 +19,7 @@ import MixListInfo from 'MixListInfo';
 export default {
   name: 'CategoryListView',
   mixins: [MixListInfo],
-  middleware: 'list-page-routing',
+  middleware: 'ralph-list-page-routing',
   data: () => ({
     listType: 'category',
   }),

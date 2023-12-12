@@ -9,15 +9,18 @@ import {
 import { routePaths } from './config/route-paths';
 import DirectoryNamedWebpackPlugin from './config/directory-named-webpack-resolve';
 
-const ralphEnv = process.env.RALPH_ENV || 'prod';
-
 export default async () => {
+  const ralphEnv = process.env.RALPH_ENV || 'prod';
   const imageSizes = await getImageSizes();
   const fallbackMarkets = await getFallbackMarkets();
   const fallbackMeta = await getFallbackMeta();
   const { domainSettings, domainUrls, marketSettings } = getMarketSettings();
 
   return {
+    /*
+     ** Global CSS
+     */
+    css: ['@/styles/main.scss'],
     /*
      ** Customize the progress-bar color
      */
@@ -26,10 +29,9 @@ export default async () => {
       height: '5px',
     },
     /*
-     ** Global CSS
+     ** Auto import components with @nuxt/components
+     ** See https://github.com/nuxt/components
      */
-    css: ['@/styles/main.scss'],
-    // See https://github.com/nuxt/components
     components: [
       { path: '~/components/atoms', extensions: ['vue'] },
       { path: '~/components/molecules', extensions: ['vue'] },
@@ -50,7 +52,6 @@ export default async () => {
         level: 1,
       },
     ],
-
     /*
      ** Plugins to load before mounting the App
      */
@@ -71,9 +72,8 @@ export default async () => {
         mode: 'server',
       },
     ],
-
     /*
-     ** Nuxt.js dev-modules
+     ** Nuxt.js build modules
      */
     buildModules: [
       // Doc: https://www.npmjs.com/package/@nuxtjs/router
@@ -93,122 +93,129 @@ export default async () => {
      ** Nuxt.js modules
      */
     modules: [
+      // Doc: https://github.com/nuxt-community/i18n-module
+      '@nuxtjs/i18n',
       // Doc: https://github.com/nuxt-community/pwa-module
       '@nuxtjs/pwa',
-      [
-        // Doc: https://github.com/nuxt-community/i18n-module
-        '@nuxtjs/i18n',
-        {
-          baseUrl: process.env.BASE_URL,
-          seo: false,
-          locales: [
-            {
-              code: 'en',
-              iso: 'en-US',
-              file: 'en-US.js',
-              name: 'English',
-              domain: domainUrls?.en || '', // Only matters if diffrentDomains are used
-            },
-            {
-              code: 'sv',
-              iso: 'sv-SE',
-              file: 'sv-SE.js',
-              name: 'Swedish',
-              domain: domainUrls?.sv || '', // Only matters if diffrentDomains are used
-            },
-            {
-              code: 'nb',
-              iso: 'nb-NO',
-              file: 'nb-NO.js',
-              name: 'Norsk',
-              domain: domainUrls?.nb || '', // Only matters if diffrentDomains are used
-            },
-            {
-              code: 'da',
-              iso: 'da-DK',
-              file: 'da-DK.js',
-              name: 'Dansk',
-              domain: domainUrls?.da || '', // Only matters if diffrentDomains are used
-            },
-            {
-              code: 'fi',
-              iso: 'fi-FI',
-              file: 'fi-FI.js',
-              name: 'Finska',
-              domain: domainUrls?.fi || '', // Only matters if diffrentDomains are used
-            },
-          ],
-          langDir: 'languages/',
-          defaultLocale: process.env.DEFAULT_LOCALE,
-          lazy: true,
-          vueI18n: {
-            fallbackLocale: process.env.DEFAULT_LOCALE,
-          },
-          detectBrowserLanguage: false,
-          parsePages: false,
-          pages: {
-            'checkout/index': {
-              sv: '/kassan',
-              en: '/checkout',
-              da: '/kassen',
-              fi: '/kassa',
-              nb: '/kassen',
-            },
-            'account/orders': {
-              sv: '/mina-sidor/ordrar',
-              en: '/my-account/orders',
-              da: '/min-konto/bestillinger',
-              fi: '/tilini/tilaukset',
-              nb: '/min-konto/bestillinger',
-            },
-            'account/settings': {
-              sv: '/mina-sidor/installningar',
-              en: '/my-account/settings',
-              da: '/min-konto/indstillinger',
-              fi: '/tilini/asetukset',
-              nb: '/min-konto/innstillinger',
-            },
-            'account/balance': {
-              sv: '/mina-sidor/saldo',
-              en: '/my-account/balance',
-              da: '/min-konto/saldo',
-              fi: '/tilini/saldo',
-              nb: '/min-konto/saldo',
-            },
-            'favorites/index': {
-              sv: '/favoriter',
-              en: '/favorites',
-              da: '/favoritter',
-              fi: '/suosikkeja',
-              nb: '/favoritter',
-            },
-            'brands/index': {
-              sv: '/varumarken',
-              en: '/brands',
-              da: '/varemaerker',
-              fi: '/tavaramerkkeja',
-              nb: '/varemerker',
-            },
-            'list/all': {
-              sv: '/nyheter',
-              en: '/news',
-              da: '/nyheder',
-              fi: '/uutuudet',
-              nb: '/nyheter',
-            },
-          },
-          ...domainSettings,
-        },
-      ],
-      // Doc: https://github.com/nuxt-community/style-resources-module
-      '@nuxtjs/style-resources',
       // Doc: https://github.com/nuxt-community/apollo-module
       '@nuxtjs/apollo',
+      // Doc: https://github.com/nuxt-community/style-resources-module
+      '@nuxtjs/style-resources',
+      // Doc: https://www.npmjs.com/package/nuxt-polyfill
+      'nuxt-polyfill',
       // Doc: https://www.npmjs.com/package/cookie-universal-nuxt
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
     ],
+    /*
+     ** Nuxt.js i18n configuration
+     */
+    i18n: {
+      baseUrl: process.env.BASE_URL,
+      seo: false,
+      // It's recommended to remove the locales you do not intend to use.
+      locales: [
+        {
+          code: 'en',
+          iso: 'en-US',
+          file: 'en-US.js',
+          name: 'English',
+          domain: domainUrls?.en || '', // Only matters if diffrentDomains are used
+        },
+        {
+          code: 'sv',
+          iso: 'sv-SE',
+          file: 'sv-SE.js',
+          name: 'Swedish',
+          domain: domainUrls?.sv || '', // Only matters if diffrentDomains are used
+        },
+        {
+          code: 'nb',
+          iso: 'nb-NO',
+          file: 'nb-NO.js',
+          name: 'Norsk',
+          domain: domainUrls?.nb || '', // Only matters if diffrentDomains are used
+        },
+        {
+          code: 'da',
+          iso: 'da-DK',
+          file: 'da-DK.js',
+          name: 'Dansk',
+          domain: domainUrls?.da || '', // Only matters if diffrentDomains are used
+        },
+        {
+          code: 'fi',
+          iso: 'fi-FI',
+          file: 'fi-FI.js',
+          name: 'Finska',
+          domain: domainUrls?.fi || '', // Only matters if diffrentDomains are used
+        },
+      ],
+      langDir: 'languages/',
+      defaultLocale: process.env.DEFAULT_LOCALE,
+      lazy: true,
+      vueI18n: {
+        fallbackLocale: process.env.DEFAULT_LOCALE,
+      },
+      detectBrowserLanguage: false,
+      parsePages: false,
+      pages: {
+        'checkout/index': {
+          sv: '/kassan',
+          en: '/checkout',
+          da: '/kassen',
+          fi: '/kassa',
+          nb: '/kassen',
+        },
+        'account/orders': {
+          sv: '/mina-sidor/ordrar',
+          en: '/my-account/orders',
+          da: '/min-konto/bestillinger',
+          fi: '/tilini/tilaukset',
+          nb: '/min-konto/bestillinger',
+        },
+        'account/settings': {
+          sv: '/mina-sidor/installningar',
+          en: '/my-account/settings',
+          da: '/min-konto/indstillinger',
+          fi: '/tilini/asetukset',
+          nb: '/min-konto/innstillinger',
+        },
+        'account/balance': {
+          sv: '/mina-sidor/saldo',
+          en: '/my-account/balance',
+          da: '/min-konto/saldo',
+          fi: '/tilini/saldo',
+          nb: '/min-konto/saldo',
+        },
+        'favorites/index': {
+          sv: '/favoriter',
+          en: '/favorites',
+          da: '/favoritter',
+          fi: '/suosikkeja',
+          nb: '/favoritter',
+        },
+        'brands/index': {
+          sv: '/varumarken',
+          en: '/brands',
+          da: '/varemaerker',
+          fi: '/tavaramerkkeja',
+          nb: '/varemerker',
+        },
+        'list/all': {
+          sv: '/nyheter',
+          en: '/news',
+          da: '/nyheder',
+          fi: '/uutuudet',
+          nb: '/nyheter',
+        },
+      },
+      ...domainSettings,
+    },
+    /*
+     ** PWA module configuration
+     */
     pwa: {
       manifest: {
         name: currentChannelSettings.siteName,
@@ -220,15 +227,24 @@ export default async () => {
         purpose: 'any',
       },
     },
-    styleResources: {
-      scss: ['./styles/_variables.scss', './styles/_helpers.scss'],
-    },
+    /*
+     ** Apollo module configuration
+     */
     apollo: {
       clientConfigs: {
         default: '~/node_modules/@geins/ralph-ui/plugins/apollo-config.js',
       },
       includeNodeModules: true,
     },
+    /*
+     ** Style resources configuration
+     */
+    styleResources: {
+      scss: ['./styles/_variables.scss', './styles/_helpers.scss'],
+    },
+    /*
+     ** Polyfills
+     */
     polyfill: {
       features: [
         {
@@ -236,8 +252,11 @@ export default async () => {
         },
       ],
     },
+    /*
+     ** Nuxt.js router configuration
+     */
     router: {
-      middleware: ['default'],
+      middleware: ['ralph-default'],
       extendRoutes(routes, resolve) {
         routes.push({
           name: 'pdp',
@@ -298,7 +317,7 @@ export default async () => {
       },
     },
     /*
-     ** Runtime configs
+     ** Setup of global $config variables
      */
     publicRuntimeConfig: {
       /* ***************** */
@@ -320,6 +339,7 @@ export default async () => {
       currentChannelSettings,
       channelSettings,
       fallbackMarkets,
+      imageSizes,
       useStartPage: false,
       customerServiceEmail: 'info@geins.io',
       customerServicePhone: '+46 123 23 43 45',
@@ -402,9 +422,10 @@ export default async () => {
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
+      productImageRatio: 1 / 1,
       productStockFewLeftLimit: 6,
       productSchemaOptions: {
-        productSkuLabelIsSize: false,
+        productSkuLabelIsSize: true,
         productDescriptionField: 'text1',
         schemaImageSize: '700f700', // Make sure this is a valid product image size
         extraOfferProperties: {
@@ -413,12 +434,7 @@ export default async () => {
       },
       productShowRelated: true,
       showProductReviewSection: true,
-      showStarsInProductReviewForm: true, // it requires showProductReviewSection to be true
-      /* ****************** */
-      /* ***** IMAGES ***** */
-      /* ****************** */
-      productImageRatio: 1 / 1,
-      imageSizes,
+      showStarsInProductReviewForm: true,
       /* ******************** */
       /* ***** CHECKOUT ***** */
       /* ******************** */
@@ -437,18 +453,16 @@ export default async () => {
       /* ******************** */
       cart: {
         hiddenSkuValues: ['-', 'One size'],
-        quantityChangerType: 'default',
+        quantityChangerType: 'default', // Options: `default`, `round`, `stacked`
       },
       /* ******************** */
       /* ******* USER ******* */
       /* ******************** */
       user: {
-        gender: false, // If set to true, gender must be added to user.graphql
+        gender: false,
         country: false,
-        priceLists: true, // Set to true if using different price lists for different users
       },
     },
-    privateRuntimeConfig: {},
     render: {
       http2: {
         push: true,
@@ -537,6 +551,9 @@ export default async () => {
         }
       },
     },
+    /*
+     ** Dev mode setting
+     */
     dev: process.env.NODE_ENV !== 'production',
   };
 };

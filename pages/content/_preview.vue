@@ -13,7 +13,7 @@
 import { mapState } from 'vuex';
 export default {
   name: 'WidgetPreview',
-  middleware: 'authenticated',
+  middleware: 'ralph-authenticated',
   data: () => ({
     isAuthenticated: false,
   }),
