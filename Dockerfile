@@ -12,7 +12,7 @@ ARG DEFAULT_LOCALE=#{DefaultLocale}#
 ARG RALPH_ENV=#{RalphEnv}#
 
 # Build the app on a separate "machine".
-FROM node:16.16.0-alpine as builder
+FROM node:16.20.0-alpine as builder
 WORKDIR /app
 RUN apk add --no-cache curl git && \
     apk add --no-cache curl && \
