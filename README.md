@@ -1,5 +1,7 @@
 [![Start Geins Free Trial][geins-tiral-img]][geins-tiral-url] [![Geins Docs][geins-docs-img]][geins-docs-url]
 
+[![geins](https://raw.githubusercontent.com/geins-io/resources/master/images/banners/repos/ralph.jpg)](https://www.geins.io)
+
 # Ralph Storefront - PWA Launchpad for Geins Commerce
 
 This is a [Nuxt.js](https://v2.nuxt.com/) storefront fully integrated with Geins Commerce.
@@ -51,7 +53,7 @@ All styles are written in [SASS](https://sass-lang.com/), and the styles are str
 
 ## Components
 
-Ralph Storefront utilizes Ralph UI, a component and root functionality library for Ralph Storefront. This is where most of the components are located. You can override any component from Ralph UI by creating a component with the same name in the `components` folder. The `components` folder is structured according to the [Atomic Design methodology](https://atomicdesign.bradfrost.com/chapter-2/).
+Ralph Storefront utilizes [Ralph UI](https://www.npmjs.com/package/@geins/ralph-ui), a component and core functionality library for Ralph Storefront. This is where most of the components are located. You can override any component from Ralph UI by creating a component with the same name in the `components` folder. The `components` folder is structured according to the [Atomic Design methodology](https://atomicdesign.bradfrost.com/chapter-2/).
 
 ### Override Ralph UI components
 
@@ -99,6 +101,10 @@ npm run start
 ## Learn more
 
 Visit the Geins Commerce [documentation](https://docs.geins.io) to learn more about Geins Commerce, Ralph Storefront and everything else in the Geins Commerce ecosystem.
+
+## Changelog
+
+Detailed changes for each release are documented in the [CHANGELOG.md](CHANGELOG.md).
 
 [geins-docs-url]: https://docs.geins.io
 [geins-docs-img]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/geins-io/resources/master/sheilds/geins-docs-read-v3.json
