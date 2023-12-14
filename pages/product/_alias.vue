@@ -56,7 +56,9 @@
             :variants="baseVariants"
             :variants-data="variantPickerData"
             :title="
-              baseVariantType === 'Color' ? $t('PICK_COLOR') : 'Välj lådstorlek'
+              baseVariantType === 'Color'
+                ? $t('PICK_COLOR')
+                : $t('PICK_VARIANT')
             "
             :type="baseVariantType === 'Color' ? 'color' : 'panel'"
             @replaceProduct="replaceProduct"
@@ -67,7 +69,7 @@
             v-if="hasMultipleDimensions"
             :variants="secondDimensionVariants"
             :variants-data="variantPickerData"
-            title="Välj lådstorlek"
+            :title="$t('PICK_VARIANT')"
             type="panel"
             @replaceProduct="replaceProduct"
             @notify="notifyHandler"
@@ -77,9 +79,9 @@
             v-if="hasSkuVariants"
             :variants="skuVariants"
             :variants-data="variantPickerData"
-            title="Med logga"
+            :title="$t('PICK_SKU')"
             type="display"
-            @changeSku="sizeChangeHandler"
+            @changeSku="skuChangeHandler"
             @notify="notifyHandler"
           />
 
@@ -198,8 +200,10 @@
         v-if="$config.showProductReviewSection"
         class="ca-product-page__section-review"
       >
-        <CaReviewsList v-if="product" :product-alias="prodAlias" />
-        <CaReviewForm :product-alias="prodAlias" />
+        <client-only>
+          <CaReviewsList :product-alias="prodAlias" />
+          <CaReviewForm :product-alias="prodAlias" />
+        </client-only>
       </section>
     </CaContainer>
     <section class="ca-product-page__widget-section">
@@ -242,8 +246,8 @@ export default {
   computed: {},
   methods: {},
   meta: {
-    pageType: 'Product Page'
-  }
+    pageType: 'Product Page',
+  },
 };
 </script>
 

@@ -9,7 +9,8 @@
 <script>
 /*
   Renders the discount campaign page.
-  middleware: list-page-routing - handles the routing for the list pages
+ 
+ middleware: ralph-list-page-routing - handles the routing for the list pages
   
   computed:
     currentAlias: The current alias of the discount campaign.
@@ -17,21 +18,21 @@
 */
 import MixListInfo from 'MixListInfo';
 export default {
-  middleware: 'list-page-routing',
   name: 'DiscountCampaignListView',
   mixins: [MixListInfo],
+  middleware: 'ralph-list-page-routing',
   data: () => ({
-    listType: 'discountCampaign'
+    listType: 'discountCampaign',
   }),
   computed: {
     currentAlias() {
       return this.$route.params.discountCampaign.split('/').pop();
-    }
+    },
   },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Discount Campaign Page'
-  }
+    pageType: 'Discount Campaign Page',
+  },
 };
 </script>

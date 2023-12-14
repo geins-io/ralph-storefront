@@ -18,9 +18,7 @@ export default {
   data: () => ({}),
   methods: {},
   meta: {
-    pageType: 'Front Page'
-  }
+    pageType: 'Front Page',
+  },
 };
 </script>
-
-<style lang="scss"></style>

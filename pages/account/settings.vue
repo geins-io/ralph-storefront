@@ -14,53 +14,16 @@
 
 <script>
 /*
-  Renders the settings page.
-
-  apollo:
-    getUser: The user query.
+  Renders the account settings page.
 */
-import getUserQuery from 'user/get.graphql';
+import MixAccountSettings from 'MixAccountSettings';
 export default {
-  middleware: 'authenticated',
   name: 'SettingsPage',
-  transition: 'no-transition',
-  apollo: {
-    getUser: {
-      query: getUserQuery,
-      errorPolicy: 'all',
-      fetchPolicy: 'no-cache',
-      result(result) {
-        if (result.data) {
-          this.user = result.data.getUser;
-        }
-      },
-      error(error) {
-        this.$nuxt.error({ statusCode: 500, message: error });
-      }
-    }
-  },
-  data: vm => ({
-    user: null,
-    loading: false,
-    genders: [
-      {
-        value: 'UNSPECIFIED',
-        label: vm.$t('ACCOUNT_GENDER_UNSPECIFIED')
-      },
-      {
-        value: 'WOMAN',
-        label: vm.$t('ACCOUNT_GENDER_WOMAN')
-      },
-      {
-        value: 'MAN',
-        label: vm.$t('ACCOUNT_GENDER_MAN')
-      }
-    ]
-  }),
+  mixins: [MixAccountSettings],
   methods: {},
   meta: {
-    pageType: 'Settings Page'
-  }
+    pageType: 'Settings Page',
+  },
 };
 </script>
 

@@ -11,7 +11,7 @@
               'ca-brands-page__filter-item--active':
                 brandGroup.group === activeGroupFilter,
               'ca-brands-page__filter-item--passive':
-                brandGroup.group != activeGroupFilter && isGroupFilter
+                brandGroup.group != activeGroupFilter && isGroupFilter,
             }"
             class="ca-brands-page__filter-item"
           >
@@ -32,7 +32,7 @@
             v-for="(brandGroup, index) in brandsTree"
             :key="index"
             :aria-hidden="[
-              brandGroup.group != activeGroupFilter && isGroupFilter
+              brandGroup.group != activeGroupFilter && isGroupFilter,
             ]"
             class="ca-brands-page__group-item"
           >
@@ -73,8 +73,8 @@ export default {
   watch: {},
   methods: {},
   meta: {
-    pageType: 'Brands Page'
-  }
+    pageType: 'Brands Page',
+  },
 };
 </script>
 

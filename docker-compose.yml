@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      image: ralph:latest
+      args:
+        API_ENDPOINT: ${API_ENDPOINT}
+        API_KEY: ${API_KEY}
+        AUTH_ENDPOINT: ${AUTH_ENDPOINT}
+        DEFAULT_LOCALE: ${DEFAULT_LOCALE}
+        DOMAINS: ${DOMAINS}
+        FALLBACK_CHANNEL_ID: ${FALLBACK_CHANNEL_ID}
+        FALLBACK_MARKET_ALIAS: ${FALLBACK_MARKET_ALIAS}
+        IMAGE_SERVER: ${IMAGE_SERVER}
+        SIGN_ENDPOINT: ${SIGN_ENDPOINT}
+        BASE_URL: ${BASE_URL}
+    # ... other service configurations

@@ -8,8 +8,8 @@ export default {
   props: {
     error: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   computed: {
     errorPage() {
@@ -18,11 +18,10 @@ export default {
       }
       // catch everything else
       return 'CaError';
-    }
+    },
   },
   created() {
     this.$store.dispatch('loading/end');
-  }
+  },
 };
 </script>
-<style lang="scss"></style>

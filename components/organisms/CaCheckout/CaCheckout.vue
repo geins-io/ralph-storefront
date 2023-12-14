@@ -8,7 +8,7 @@
       @click="
         $store.commit('contentpanel/open', {
           name: 'account',
-          frame: 'login'
+          frame: 'login',
         })
       "
     >
@@ -50,9 +50,9 @@
     <CaCheckoutSection
       v-if="
         $store.getters['cart/totalQuantity'] &&
-          $config.checkout.showMultipleMarkets &&
-          selectableMarkets &&
-          selectableMarkets.length > 1
+        $config.checkout.showMultipleMarkets &&
+        selectableMarkets &&
+        selectableMarkets.length > 1
       "
       :loading="cartLoading"
     >
@@ -71,22 +71,22 @@
       <template #title>
         {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
       </template>
-      <CaUdc
-        ref="udc"
-        :shipping-data="checkout.shippingData"
-        :zip="currentZip"
-        :parent-loading="shippingLoading"
-        :data-is-set="udcDataSet"
-        @init="initUDC"
-        @changed="setUDCdata"
-        @validation="udcValid = $event"
-      />
-      <!-- IF NOT UDC/NSHIFT, REMOVE COMPONENT ABOVE AND USE THIS BELOW -->
-      <!-- <CaShippingOptions
+      <CaShippingOptions
         v-if="checkout.shippingOptions"
         class="ca-checkout__shipping-options"
         :options="checkout.shippingOptions"
         @selection="shippingSelectionHandler"
+      />
+      <!-- IF USING NSHIFT FOR SHIPPING, REMOVE COMPONENT ABOVE AND USE THIS BELOW -->
+      <!-- <CaNshift
+        ref="nshift"
+        :shipping-data="checkout.shippingData"
+        :zip="currentZip"
+        :parent-loading="shippingLoading"
+        :data-is-set="nshiftDataSet"
+        @init="initNshift"
+        @changed="setNshiftData"
+        @validation="nshiftValid = $event"
       /> -->
       <template #guard>
         {{ $t('CHECKOUT_LOCATION_GUARD') }}
@@ -97,10 +97,10 @@
       :bottom-arrow="false"
       :loading="
         !checkout ||
-          (checkoutLoading && paymentType === 'STANDARD') ||
-          frameLoading
+        (checkoutLoading && paymentType === 'STANDARD') ||
+        frameLoading
       "
-      :blocked="$refs.udc && !udcValid"
+      :blocked="$refs.nshift && !nshiftValid"
     >
       <template #title>
         {{ hasPaymentOptions ? $t('CHECKOUT_PAY') : $t('COMPLETE_ORDER') }}
@@ -124,8 +124,8 @@
       <CaCheckoutExternal
         v-if="
           paymentType === 'KLARNA' ||
-            paymentType === 'SVEA' ||
-            paymentType === 'WALLEY'
+          paymentType === 'SVEA' ||
+          paymentType === 'WALLEY'
         "
         ref="externalcheckout"
         :data="selectedPaymentOption.paymentData"
@@ -176,8 +176,8 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout');
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

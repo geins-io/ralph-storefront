@@ -37,7 +37,7 @@ export default {
   computed: {
     modifiers() {
       return {
-        'ca-layout-default--loading': this.$store.state.loading.loading
+        'ca-layout-default--loading': this.$store.state.loading.loading,
       };
     },
     pageTypeClass() {
@@ -49,11 +49,11 @@ export default {
     },
     isPdp() {
       return this.$route?.name?.includes('pdp');
-    }
-  }
+    },
+  },
   // IMPORTANT NOTICE: If you decide to add a head() function here, you will overwrite default meta functionality that comes with MixGlobalInit from Ralph UI
 };
 </script>
 <style lang="scss">
-@import 'organisms/ca-layout-default';
+@import './styles/layouts/default-layout';
 </style>

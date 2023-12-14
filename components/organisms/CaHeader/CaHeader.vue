@@ -33,25 +33,25 @@
 </template>
 <script>
 /*
-  Header component for the site.
+  The main header component for the site.
 */
 export default {
   name: 'CaHeader',
   mixins: [],
   props: {},
   data: () => ({
-    searchOpened: false
+    searchOpened: false,
   }),
   computed: {
     modifiers() {
       return {
-        'ca-header--scrolled': !this.$store.getters.siteIsAtTop
+        'ca-header--scrolled': !this.$store.getters.siteIsAtTop,
       };
-    }
+    },
   },
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

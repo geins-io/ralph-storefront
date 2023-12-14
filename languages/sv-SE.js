@@ -80,7 +80,8 @@ export default {
     'Kunde inte skapa order då din användare är blockerad hos Klarna',
   GO_BACK: 'Gå tillbaka',
   PICK_COLOR: 'Välj färg',
-  PICK_SIZE: 'Välj storlek',
+  PICK_SKU: 'Välj storlek',
+  PICK_VARIANT: 'Välj variant',
   STOCK_STATUS_IN_STOCK: 'I lager',
   STOCK_STATUS_OUT_OF_STOCK: 'Slut i lager',
   STOCK_STATUS_FEW_LEFT: 'Bara {quantity} kvar',
@@ -333,5 +334,5 @@ export default {
   REVIEW_WRITTEN_BY: 'Skriven av:',
   REVIEWS_LIST_EMPTY: 'Denna produkt har inga recensioner ännu',
   REVIEW_FEEDBACK_RATE_REQUIRED:
-    'Använd stjärnorna för att betygsätta produkten'
+    'Använd stjärnorna för att betygsätta produkten',
 };

@@ -4,12 +4,13 @@
   left: 0;
   top: 0;
   z-index: $z-index-header;
+  border-bottom: $border-light;
 
   &__bar {
     background-color: $c-header-bg;
     z-index: $z-index-header;
     position: relative;
-    
+
     body[style='overflow: hidden;'] & {
       padding-right: var(--scrollbar-width);
     }
@@ -19,6 +20,7 @@
     height: $header-bar-height;
 
     @include flex-valign;
+
     justify-content: space-between;
 
     @include bp(laptop) {
@@ -37,11 +39,13 @@
   &__search-toggle {
     margin-right: auto;
     font-size: 23px;
+
     @include flex-valign;
   }
 
   &__logo {
     @include calign;
+
     width: 120px;
   }
 

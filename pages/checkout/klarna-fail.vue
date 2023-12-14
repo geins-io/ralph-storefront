@@ -51,9 +51,9 @@ export default {
           break;
       }
       return msg;
-    }
+    },
   },
-  methods: {}
+  methods: {},
 };
 </script>
 

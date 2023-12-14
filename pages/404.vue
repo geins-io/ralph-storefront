@@ -8,13 +8,12 @@
 */
 export default {
   name: 'Error404Page',
-  data: () => ({}),
   beforeCreate() {
     this.$nuxt.error({ statusCode: 404, message: 'Page not found' });
   },
   methods: {},
   meta: {
-    pageType: 'Error Page'
-  }
+    pageType: 'Error Page',
+  },
 };
 </script>

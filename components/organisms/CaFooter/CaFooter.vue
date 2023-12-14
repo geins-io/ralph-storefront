@@ -41,9 +41,9 @@
     <section class="ca-footer__section ca-footer__section--content">
       <CaContainer class="ca-footer__content-holder">
         <section class="ca-footer__column">
-          <h2 class="ca-footer__title">Kundtjänst</h2>
+          <h2 class="ca-footer__title">{{ $t('CUSTOMER_SERVICE') }}</h2>
           <div class="ca-footer__contact">
-            <span class="ca-footer__contact-title">Mail:</span>
+            <span class="ca-footer__contact-title">{{ $t('EMAIL') }}:</span>
             <a
               class="ca-footer__contact-info"
               :href="'mailto:' + $config.customerServiceEmail"
@@ -52,7 +52,9 @@
             </a>
           </div>
           <div class="ca-footer__contact">
-            <span class="ca-footer__contact-title">Telefon:</span>
+            <span class="ca-footer__contact-title"
+              >{{ $t('LABEL_PHONE_NUMBER') }}:</span
+            >
             <a
               class="ca-footer__contact-info"
               :href="'tel:' + $config.customerServicePhone"
@@ -132,7 +134,7 @@
           class="ca-footer__bottom-column ca-footer__bottom-column--copyright"
         >
           <div class="ca-footer__copyright">
-            Copyright &copy; Ralph Storefront
+            Copyright &copy; {{ $config.currentChannelSettings.siteName }}
           </div>
           <a
             class="ca-footer__powered-by"
@@ -164,11 +166,11 @@ export default {
   computed: {
     uspLogoPlacement() {
       return this.$store.getters.viewport === 'phone' ? 'top' : 'left';
-    }
+    },
   },
   watch: {},
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

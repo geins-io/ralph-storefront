@@ -80,7 +80,8 @@ export default {
     'Could not create order since your user is blocked by Klarna',
   GO_BACK: 'Go back',
   PICK_COLOR: 'Pick color',
-  PICK_SIZE: 'Pick size',
+  PICK_SKU: 'Pick size',
+  PICK_VARIANT: 'Pick variant',
   STOCK_STATUS_IN_STOCK: 'In stock',
   STOCK_STATUS_OUT_OF_STOCK: 'Out of stock',
   STOCK_STATUS_FEW_LEFT: 'Only {quantity} left',
@@ -334,5 +335,5 @@ export default {
   PRODUCT_REVIEWS: 'Product reviews',
   REVIEW_WRITTEN_BY: 'Written by:',
   REVIEWS_LIST_EMPTY: 'This product doesn´t have any reviews yet',
-  REVIEW_FEEDBACK_RATE_REQUIRED: 'Please use stars to rate the product'
+  REVIEW_FEEDBACK_RATE_REQUIRED: 'Please use stars to rate the product',
 };

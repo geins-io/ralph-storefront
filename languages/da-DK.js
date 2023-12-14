@@ -80,7 +80,8 @@ export default {
     'Kunne ikke oprette ordre, da din bruger er blokeret hos Klarna',
   GO_BACK: 'Gå tilbage',
   PICK_COLOR: 'Vælg farve',
-  PICK_SIZE: 'Vælg størrelse',
+  PICK_SKU: 'Vælg størrelse',
+  PICK_VARIANT: 'Vælg variant',
   STOCK_STATUS_IN_STOCK: 'På lager',
   STOCK_STATUS_OUT_OF_STOCK: 'Udsolgt',
   STOCK_STATUS_FEW_LEFT: 'Kun {quantity} på lager',
@@ -336,5 +337,5 @@ export default {
   REVIEW_WRITTEN_BY: 'Skrevet af:',
   REVIEWS_LIST_EMPTY: 'Dette produkt har endnu ingen anmeldelser.',
   REVIEW_FEEDBACK_RATE_REQUIRED:
-    'Brug venligst stjerner til at bedømme produktet'
+    'Brug venligst stjerner til at bedømme produktet',
 };

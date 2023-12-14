@@ -3,11 +3,10 @@
     <CaContainer>
       <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
       <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
-      <CaListTop v-if="!hideListInfo" :type="type" :list-info="listInfo" />
+      <CaListTop :type="type" :list-info="listInfo" />
       <CaImage
-        v-if="type === 'category' && listInfo && listInfo.primaryImage"
+        v-if="listInfo && listInfo.primaryImage"
         class="ca-list-page__image"
-        size="1280w"
         type="categoryheader"
         :alt="listInfo.name"
         :filename="listInfo.primaryImage"
@@ -104,6 +103,7 @@
 <script>
 /*
   CaListPage is the main component for the product list pages.
+  Please refer to the documentation of MixListPage in Ralph UI for more info.
 */
 import MixListPage from 'MixListPage';
 
@@ -115,7 +115,7 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss">

@@ -2,23 +2,23 @@
   max-width: $checkout-width;
   margin: 0 auto;
   padding-bottom: $px32;
-  
+
   &__login {
     margin: 0 auto rem-calc(-14);
     text-decoration: underline;
     display: table;
   }
-  
+
   &__logout {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   &__logout-button {
     text-decoration: underline;
   }
-  
+
   &__sub-heading {
     font-size: $font-size-m;
     font-weight: $font-weight-bold;
@@ -26,7 +26,7 @@
     position: relative;
     z-index: 1;
     text-align: center;
-    
+
     &::before {
       @include valign;
 
@@ -37,60 +37,62 @@
       background-color: $c-border-dark;
       z-index: -2;
     }
-    
+
     &--inner {
       display: inline-block;
       background-color: $c-white;
       padding: $px4 rem-calc(26);
     }
-    
+
     @include bp(laptop) {
       font-size: $font-size-l;
     }
   }
-  
+
   &__payment-options {
     margin: 0 0 rem-calc(20);
   }
-  
-  &__vat-toggle {
-    .ca-customer-type-toggle__toggles {
-      justify-content: center;
-      align-items: center;
-      height: 4rem;
-    }
 
-    .ca-customer-type-toggle__link {
-      display: flex;
-      align-items: center;
-      font-size: $font-size-xs;
-      
-      @include bp(tablet) {
-        font-size: $font-size-s;
+  &__vat-toggle {
+    .ca-customer-type-toggle {
+      &__toggles {
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
       }
-      
-      &:first-child {
-        margin-right: $px16;
-        
+
+      &__link {
+        display: flex;
+        align-items: center;
+        font-size: $font-size-xs;
+
         @include bp(tablet) {
-          margin-right: $px32;
+          font-size: $font-size-s;
         }
-      }
-      
-      &::before {
-        content: '';
-        width: 20px;
-        height: 20px;
-        box-shadow: 0 0 0 1px $c-medium-gray;
-        border: 4px solid $c-white;
-        background-color: $c-white;
-        border-radius: 50%;
-        margin-right: $px10;
-      }
-      
-      &--active {
+
+        &:first-child {
+          margin-right: $px16;
+
+          @include bp(tablet) {
+            margin-right: $px32;
+          }
+        }
+
         &::before {
-          background-color: $c-accent-color;
+          content: '';
+          width: 20px;
+          height: 20px;
+          box-shadow: 0 0 0 1px $c-medium-gray;
+          border: 4px solid $c-white;
+          background-color: $c-white;
+          border-radius: 50%;
+          margin-right: $px10;
+        }
+
+        &--active {
+          &::before {
+            background-color: $c-accent-color;
+          }
         }
       }
     }

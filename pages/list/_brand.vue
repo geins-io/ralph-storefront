@@ -10,7 +10,7 @@
 /*
   Renders the brand page.
 
-  middleware: list-page-routing - handles the routing for the list pages
+  middleware: ralph-list-page-routing - handles the routing for the list pages
   
   computed:
     currentAlias: The current alias of the brand.
@@ -19,21 +19,21 @@
 import MixListInfo from 'MixListInfo';
 
 export default {
-  middleware: 'list-page-routing',
   name: 'BrandListView',
   mixins: [MixListInfo],
+  middleware: 'ralph-list-page-routing',
   data: () => ({
-    listType: 'brand'
+    listType: 'brand',
   }),
   computed: {
     currentAlias() {
       return this.$route.params.brand.split('/').pop();
-    }
+    },
   },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Brand Page'
-  }
+    pageType: 'Brand Page',
+  },
 };
 </script>

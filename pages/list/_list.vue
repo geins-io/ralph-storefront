@@ -6,23 +6,23 @@
 /*
   Renders the list page.
   
-  middleware: list-page-routing - handles the routing for the list pages
+  middleware: ralph-list-page-routing - handles the routing for the list pages
 
 */
 import MixListInfo from 'MixListInfo';
 
 export default {
-  middleware: 'list-page-routing',
   name: 'ListView',
   mixins: [MixListInfo],
+  middleware: 'ralph-list-page-routing',
   data: () => ({
-    listType: 'list'
+    listType: 'list',
   }),
   computed: {},
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'List Page'
-  }
+    pageType: 'List Page',
+  },
 };
 </script>

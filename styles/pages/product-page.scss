@@ -1,4 +1,5 @@
 $column-width: 48.2%;
+$minus-margin: calc(-1 * #{$default-spacing}/ 2);
 
 .ca-product-page {
   &__section {
@@ -96,13 +97,14 @@ $column-width: 48.2%;
   &__usp {
     padding: 0 $px4;
     text-align: center;
+
     .ca-icon {
       margin-bottom: $px4;
     }
   }
 
   &__accordion {
-    margin: 0 -#{$default-spacing/2} $default-spacing;
+    margin: 0 $minus-margin $default-spacing;
 
     @include bp(laptop) {
       margin: 0;

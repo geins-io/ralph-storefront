@@ -10,12 +10,9 @@
 */
 export default {
   name: 'StartPage',
-  data: () => ({}),
   methods: {},
   meta: {
-    pageType: 'Start Page'
-  }
+    pageType: 'Start Page',
+  },
 };
 </script>
-
-<style lang="scss"></style>

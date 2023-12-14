@@ -93,3 +93,6 @@ sw.*
 # Snippets file
 
 !\*.code-snippets
+
+# npx link config
+/link.config.json

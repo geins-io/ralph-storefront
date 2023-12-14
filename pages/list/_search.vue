@@ -10,18 +10,18 @@
 /*
   Renders the search page.
 
-  middleware: list-page-routing - handles the routing for the list pages
+  middleware: ralph-list-page-routing - handles the routing for the list pages
 
   computed:
     currentAlias: The current alias of the search.
-    filtersVars: The variables for the filters query.
+    staticListInfo: The listPageInfo for the search page.
 
 */
 
 export default {
-  middleware: 'list-page-routing',
   name: 'SearchListView',
   mixins: [],
+  middleware: 'ralph-list-page-routing',
   data: () => ({ listType: 'search' }),
   computed: {
     currentAlias() {
@@ -29,21 +29,21 @@ export default {
     },
     staticListInfo() {
       const title = this.$t('SEARCH_RESULTS_PAGE_TITLE', {
-        search: this.$route.params.search
+        search: this.$route.params.search,
       });
       return {
         name: title,
         meta: {
           title,
-          description: title
-        }
+          description: title,
+        },
       };
-    }
+    },
   },
   mounted() {},
   methods: {},
   meta: {
-    pageType: 'Search Page'
-  }
+    pageType: 'Search Page',
+  },
 };
 </script>
