@@ -198,6 +198,8 @@ export default {
   ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Enter a new password for your account',
   ACCOUNT_LOGGING_IN_AS_USER: 'You are being logged in as user..',
   ACCOUNT_SETTING_NOT_SPECIFIED: 'Not specified',
+  REFUNDED: 'Refunded',
+  REFUNDS: 'Refunds',
   FEEDBACK_ERROR:
     'We are sorry, but something went wrong. Please try again and contact our customer service if the problem persists.',
   FEEDBACK_REQUIRED_FIELD: 'This field is required',
@@ -300,6 +302,8 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Regular price',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'left to free shipping',
   CART_SUMMARY_VAT: 'VAT',
+  CART_SUMMARY_TOTAL_EX_BALANCE: 'Total before balance',
+  CART_SUMMARY_BALANCE: 'Balance',
   FREE_SHIPPING: 'Free shipping',
   SWEDEN: 'Sweden',
   BREADCRUMBS_HOME: 'Home',

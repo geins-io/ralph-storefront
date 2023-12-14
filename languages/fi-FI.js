@@ -195,6 +195,8 @@ export default {
   ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Anna tilillesi uusi salasana',
   ACCOUNT_LOGGING_IN_AS_USER: 'Olet kirjautunut sisään käyttäjänä.',
   ACCOUNT_SETTING_NOT_SPECIFIED: 'Ei määritelty',
+  REFUNDED: 'Palautettu',
+  REFUNDS: 'Palautukset',
   FEEDBACK_ERROR:
     'Valitettavasti jotain meni pieleen. Yritä uudelleen ja ota yhteyttä asiakaspalveluun, jos ongelma jatkuu.',
   FEEDBACK_REQUIRED_FIELD: 'Tämä kenttä on pakollinen',
@@ -298,6 +300,8 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Normaalihinta',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'Jäljellä ilmainen toimitus',
   CART_SUMMARY_VAT: 'arvonlisävero',
+  CART_SUMMARY_TOTAL_EX_BALANCE: 'Yhteensä ennen saldoa',
+  CART_SUMMARY_BALANCE: 'Saldoa',
   FREE_SHIPPING: 'Ilmainen toimitus',
   SWEDEN: ' Sverige',
   BREADCRUMBS_HOME: 'Etusivu',

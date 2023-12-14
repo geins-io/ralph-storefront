@@ -59,9 +59,9 @@
 
         <CaPrice class="ca-product-card__price" :price="product.unitPrice" />
         <CaCampaigns
-          v-if="product.discountCampaigns && product.discountCampaigns.length"
+          v-show="product.discountCampaigns && product.discountCampaigns.length"
           class="ca-product-card__campaigns"
-          :campaigns="product.discountCampaigns"
+          :campaigns="product.discountCampaigns || []"
         />
         <CaStockDisplay
           class="ca-product-card__stock-display"

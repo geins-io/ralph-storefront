@@ -198,6 +198,8 @@ export default {
   ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Indtast en ny adgangskode til din konto',
   ACCOUNT_LOGGING_IN_AS_USER: 'Du er logget ind som bruger..',
   ACCOUNT_SETTING_NOT_SPECIFIED: 'Ikke specificeret',
+  REFUNDED: 'Refunderet',
+  REFUNDS: 'Tilbagebetalinger',
   FEEDBACK_ERROR:
     'Desværre gik der noget galt. Prøv venligst igen og kontakt kundeservice, hvis problemet fortsætter.',
   FEEDBACK_REQUIRED_FIELD: 'Dette felt er obligatorisk',
@@ -261,7 +263,7 @@ export default {
   CHECKOUT_CONSENT_SMS:
     'Ja tak, jeg vil gerne modtage SMS med spændende tilbud',
   CHECKOUT_TERMS: 'købsbetingelserne',
-  CHECKOUT_TOTAL: 'Samlet beløbincl. moms',
+  CHECKOUT_TOTAL: 'Samlet beløb incl. moms',
   CHECKOUT_SHOW_SUMMARY: 'Vis detaljer',
   CHECKOUT_HIDE_SUMMARY: 'Skjul detaljer',
   CHECKOUT_CONFIRM_TITLE: 'Tak for din ordre!',
@@ -297,6 +299,8 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Normal pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'Tilbage indtil fri fragt',
   CART_SUMMARY_VAT: 'Moms',
+  CART_SUMMARY_TOTAL_EX_BALANCE: 'I alt før saldo',
+  CART_SUMMARY_BALANCE: 'Saldo',
   FREE_SHIPPING: 'Fri fragt',
   SWEDEN: 'Sverige',
   BREADCRUMBS_HOME: 'Hjem',

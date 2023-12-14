@@ -196,6 +196,8 @@ export default {
   ACCOUNT_RESET_PASSWORD_PAGE_TEXT: 'Ange ett nytt lösenord för ditt konto',
   ACCOUNT_LOGGING_IN_AS_USER: 'Du loggas in som användare..',
   ACCOUNT_SETTING_NOT_SPECIFIED: 'Ej angivet',
+  REFUNDED: 'Återbetald',
+  REFUNDS: 'Återbetalningar',
   FEEDBACK_ERROR:
     'Något gick tyvärr fel. Försök gärna igen och kontakta kundtjänst om problemet kvarstår.',
   FEEDBACK_REQUIRED_FIELD: 'Detta fält är obligatoriskt',
@@ -298,6 +300,8 @@ export default {
   CART_SUMMARY_REGULAR_PRICE: 'Ordinarie pris',
   CART_SUMMARY_LEFT_TO_FREE_SHIPPING: 'kvar till fri frakt',
   CART_SUMMARY_VAT: 'Moms',
+  CART_SUMMARY_TOTAL_EX_BALANCE: 'Totalt innan saldo',
+  CART_SUMMARY_BALANCE: 'Saldo',
   FREE_SHIPPING: 'Fri frakt',
   SWEDEN: 'Sverige',
   BREADCRUMBS_HOME: 'Hem',
