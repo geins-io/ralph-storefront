@@ -54,7 +54,7 @@ RUN npm run build \
     # Put all the garbage in the 'output' folder
 
 # Grab the parts that makes our app work, and put them on a fresh linux image
-FROM node:16.16.0-alpine
+FROM node:16.20.0-alpine
 WORKDIR /app
 ARG PORT=3000
 ARG NODE_ENV
