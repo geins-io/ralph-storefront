@@ -50,7 +50,7 @@ ENV NODE_ENV=${NODE_ENV}
 RUN npm run build \
     && node-prune \
     && mkdir output \
-    && cp -r package.json nuxt.config.js node_modules .nuxt static scripts output
+    && cp -r package.json nuxt.config.js node_modules .nuxt static scripts config output
     # Put all the garbage in the 'output' folder
 
 # Grab the parts that makes our app work, and put them on a fresh linux image
