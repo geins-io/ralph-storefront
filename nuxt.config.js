@@ -447,6 +447,7 @@ export default async () => {
         defaultPaymentId: 23,
         defaultShippingId: null,
         showMultipleMarkets: true,
+        useInternalShipping: false,
       },
       /* ******************** */
       /* ******* CART ******* */
