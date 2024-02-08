@@ -132,9 +132,9 @@
         :new-checkout-session="selectedPaymentOption.newCheckoutSession"
         :type="paymentType"
       />
-      <CaCheckoutCarismar
+      <CaCheckoutInvoice
         v-else
-        ref="checkoutCarismar"
+        ref="checkoutInvoice"
         :checkout="checkout"
         @update="updateCheckoutData"
         @place-order="placeOrder"
