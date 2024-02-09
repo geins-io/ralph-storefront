@@ -76,6 +76,8 @@ export default async () => {
      ** Nuxt.js build modules
      */
     buildModules: [
+      // Internal build module
+      '~/node_modules/@geins/ralph-ui/modules/ralph-build',
       // Doc: https://www.npmjs.com/package/@nuxtjs/router
       [
         '@nuxtjs/router',
