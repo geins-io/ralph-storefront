@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.1.0] - 2024-02-12
+
+### Added
+
+- Switch for internal/external shipping
+- General Ralph build module
+
+### Changed
+
+- Updated to Ralph UI 21.1.0
+- Removed deprecated component `CaCheckoutCarismar` and using `CaCheckoutInvoice` instead
+
+### Fixed
+
+- Do not show internal checkout confirm when external checkout
+
 ## [2.0.0] - 2023-12-14
 
 ### Added
