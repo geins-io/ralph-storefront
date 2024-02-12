@@ -2,15 +2,10 @@
   <div class="ca-checkout-confirm-page">
     <CaContainer>
       <CaCheckoutHeader :title="$t('ORDER_CONFIRM_TITLE')" />
-      <CaCheckoutSection :bottom-arrow="false">
+      <CaCheckoutSection :loading="loading" :bottom-arrow="false">
         <CaCheckoutExternal
-          v-if="$route.query.kid || $route.query.sid"
-          :type="$route.query.sid ? 'SVEA' : 'KLARNA'"
-          :confirm="true"
-        />
-        <CaCheckoutExternal
-          v-if="$route.query.wid"
-          :type="'WALLEY'"
+          v-if="$route.query.kid || $route.query.sid || $route.query.wid"
+          :type="type"
           :confirm="true"
         />
         <div v-else class="ca-checkout-confirm">
@@ -34,7 +29,7 @@
           </p>
         </div>
       </CaCheckoutSection>
-      <CaCheckoutSection :bottom-arrow="false">
+      <CaCheckoutSection :loading="loading" :bottom-arrow="false">
         <template #title>
           {{ $t('ORDER_SUMMARY_TITLE') }}
         </template>

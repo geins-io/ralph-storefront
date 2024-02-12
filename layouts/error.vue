@@ -20,7 +20,7 @@ export default {
       return 'CaError';
     },
   },
-  created() {
+  mounted() {
     this.$store.dispatch('loading/end');
   },
 };
