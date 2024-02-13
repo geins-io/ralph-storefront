@@ -72,13 +72,13 @@
         {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
       </template>
       <CaShippingOptions
-        v-if="checkout.shippingOptions"
+        v-if="$config.checkout.useInternalShipping && checkout.shippingOptions"
         class="ca-checkout__shipping-options"
         :options="checkout.shippingOptions"
         @selection="shippingSelectionHandler"
       />
-      <!-- IF USING NSHIFT FOR SHIPPING, REMOVE COMPONENT ABOVE AND USE THIS BELOW -->
-      <!-- <CaNshift
+      <CaNshift
+        v-else-if="!$config.checkout.useInternalShipping"
         ref="nshift"
         :shipping-data="checkout.shippingData"
         :zip="currentZip"
@@ -87,7 +87,7 @@
         @init="initNshift"
         @changed="setNshiftData"
         @validation="nshiftValid = $event"
-      /> -->
+      />
       <template #guard>
         {{ $t('CHECKOUT_LOCATION_GUARD') }}
       </template>
@@ -132,9 +132,9 @@
         :new-checkout-session="selectedPaymentOption.newCheckoutSession"
         :type="paymentType"
       />
-      <CaCheckoutCarismar
+      <CaCheckoutInvoice
         v-else
-        ref="checkoutCarismar"
+        ref="checkoutInvoice"
         :checkout="checkout"
         @update="updateCheckoutData"
         @place-order="placeOrder"

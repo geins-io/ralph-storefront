@@ -1,6 +1,6 @@
 {
   "name": "@geins/ralph-storefront",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "PWA Launchpad for Geins Commerce",
   "author": "Geins Commerce",
   "private": true,
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.1",
-    "@geins/ralph-ui": "^21.0.0",
+    "@geins/ralph-ui": "^21.1.0",
     "@nuxtjs/apollo": "4.0.1-rc.5",
     "@nuxtjs/i18n": "^7.3.1",
     "@nuxtjs/pwa": "^3.3.5",
