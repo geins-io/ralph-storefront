@@ -325,6 +325,13 @@ export default async () => {
       /* ***************** */
       /* **** GLOBAL ***** */
       /* ***************** */
+      ralphLog: {
+        all: false,
+        api: false,
+        events: false,
+        checkout: false,
+        warnings: false,
+      },
       ralphEnv,
       baseUrl: process.env.BASE_URL,
       imageServer: process.env.IMAGE_SERVER,
