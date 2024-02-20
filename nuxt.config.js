@@ -441,7 +441,7 @@ export default async () => {
           itemCondition: 'https://schema.org/NewCondition',
         },
       },
-      productShowRelated: true,
+      productShowRelated: false,
       showProductReviewSection: false,
       showStarsInProductReviewForm: true,
       /* ******************** */

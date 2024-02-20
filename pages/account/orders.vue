@@ -35,21 +35,8 @@
 /*
   Renders the orders page.
 
-  apollo:
-    getOrders: The orders query.
+  mixins: MixAccountOrders
 
-  data:
-    orders: The orders object.
-    inProgressStatuses: The statuses that are considered in progress.
-    historyStatuses: The statuses that are considered history.
-  
-  computed:
-    ordersInProgress: The orders that are in progress.
-    orderHistory: The orders that are in history.
-
-  methods:
-    mapStatus: Maps the status to the correct status.
-    splitOrders: Splits the orders into in progress and history.
 */
 import MixAccountOrders from 'MixAccountOrders';
 export default {
