@@ -204,6 +204,8 @@ export default {
     'We are sorry, but something went wrong. Please try again and contact our customer service if the problem persists.',
   FEEDBACK_REQUIRED_FIELD: 'This field is required',
   FEEDBACK_PERSONAL_ID_NOT_VALID: 'You have to enter a valid personal ID',
+  FEEDBACK_ORGANIZATION_ID_NOT_VALID:
+    'You have to enter a valid organization ID',
   LABEL_FIRST_NAME: 'First name',
   LABEL_LAST_NAME: 'Last name',
   LABEL_PHONE_NUMBER: 'Phone number',

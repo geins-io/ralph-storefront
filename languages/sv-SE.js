@@ -202,6 +202,8 @@ export default {
     'Något gick tyvärr fel. Försök gärna igen och kontakta kundtjänst om problemet kvarstår.',
   FEEDBACK_REQUIRED_FIELD: 'Detta fält är obligatoriskt',
   FEEDBACK_PERSONAL_ID_NOT_VALID: 'Du måste ange ett giltigt personnummer',
+  FEEDBACK_ORGANIZATION_ID_NOT_VALID:
+    'Du måste ange ett giltigt organisationsnummer',
   LABEL_FIRST_NAME: 'Förnamn',
   LABEL_LAST_NAME: 'Efternamn',
   LABEL_PHONE_NUMBER: 'Telefonnummer',
