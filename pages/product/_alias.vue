@@ -223,25 +223,14 @@
   Renders product page.
 
   @mixin MixProductPage - handles product page logic
-  @mixin MixAddToCart - handles add to cart logic
-  @mixin MixVariantHandler - handles variant logic
-
-  events:
-    - replaceProduct - replaces product with new one
-    - notify - notifies user about product
-    - changeSku - changes sku
-    - changed - quantity changed
-    - thresholdReached - quantity threshold reached
-    - clicked - add to cart clicked
 
 */
-import MixAddToCart from 'MixAddToCart';
-import MixVariantHandler from 'MixVariantHandler';
+
 import MixProductPage from 'MixProductPage';
 
 export default {
   name: 'ProductPage',
-  mixins: [MixProductPage, MixAddToCart, MixVariantHandler],
+  mixins: [MixProductPage],
   data: () => ({}),
   computed: {},
   methods: {},
