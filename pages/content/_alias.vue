@@ -10,7 +10,7 @@
         class="ca-content-page__sidebar"
         menu-location-id="info-pages"
       />
-      <CaWidgetArea :alias="$route.params.alias" @dataFetched="onDataFetched" />
+      <CaWidgetArea :widget-data="widgetData" :alias="$route.params.alias" />
     </CaContainer>
   </div>
 </template>

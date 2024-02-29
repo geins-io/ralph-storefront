@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.2.0] - 2024-02-29
+
+### Added
+
+- Added `ralphLog` object in `nuxt.config.js` to enable/disable dev console logs
+- Added lang key `FEEDBACK_ORGANIZATION_ID_NOT_VALID`
+- Added `@vuese/cli` package to `devDependencies` to be able to show Ralph UI documentation locally
+
+### Changed
+
+- Using `nextPageLoading` and `prevPageLoading` in `CaListPage`, to make loading indicators work with Ralph UI 22.0.0
+- Passing `:data="confirmSnippet"` to `CaCheckoutExternal` in confirm page instead of the old `:confirm="true"`
+- Passing `:widget-data="widgetData"` to `CaWidgetArea` on content pages and removing the event handler
+- Using only `MixProductPage` in product page since that mixin now includes `MixAddToCart` and `MixVariantHandler`
+
 ## [2.1.0] - 2024-02-12
 
 ### Added

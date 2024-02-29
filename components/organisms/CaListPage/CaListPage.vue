@@ -66,7 +66,7 @@
         :min-count="currentMinCount"
         :max-count="currentMaxCount"
         :all-products-loaded="allProductsLoaded"
-        :loading="$apollo.queries.products.loading"
+        :loading="prevPageLoading"
         @loadprev="loadPrev"
         @reset="resetCurrentPage"
       />
@@ -86,7 +86,7 @@
         :min-count="currentMinCount"
         :max-count="currentMaxCount"
         :all-products-loaded="allProductsLoaded"
-        :loading="$apollo.queries.products.loading"
+        :loading="nextPageLoading"
         @loadmore="loadMore"
         @reset="resetCurrentPage"
       />

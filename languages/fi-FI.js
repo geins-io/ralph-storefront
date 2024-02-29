@@ -202,6 +202,8 @@ export default {
   FEEDBACK_REQUIRED_FIELD: 'Tämä kenttä on pakollinen',
   FEEDBACK_PERSONAL_ID_NOT_VALID:
     'Sinun on syötettävä voimassa oleva sosiaaliturvatunnus',
+  FEEDBACK_ORGANIZATION_ID_NOT_VALID:
+    'Sinun on syötettävä voimassa oleva organisaationumero',
   LABEL_FIRST_NAME: 'Etunimi',
   LABEL_LAST_NAME: 'Sukunimi',
   LABEL_PHONE_NUMBER: 'Puhelinnumero',

@@ -6,7 +6,7 @@
         <CaCheckoutExternal
           v-if="$route.query.kid || $route.query.sid || $route.query.wid"
           :type="type"
-          :confirm="true"
+          :data="confirmSnippet"
         />
         <div v-else class="ca-checkout-confirm">
           <CaIcon class="ca-checkout-confirm__icon" name="check-circle" />

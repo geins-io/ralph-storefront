@@ -204,6 +204,8 @@ export default {
     'Desværre gik der noget galt. Prøv venligst igen og kontakt kundeservice, hvis problemet fortsætter.',
   FEEDBACK_REQUIRED_FIELD: 'Dette felt er obligatorisk',
   FEEDBACK_PERSONAL_ID_NOT_VALID: 'Du skal indtaste et gyldigt personnummer',
+  FEEDBACK_ORGANIZATION_ID_NOT_VALID:
+    'Du skal indtaste et gyldigt organisationsnummer',
   LABEL_FIRST_NAME: 'Fornavn',
   LABEL_LAST_NAME: 'Efternavn',
   LABEL_PHONE_NUMBER: 'Telefonnummer',
