@@ -45,6 +45,7 @@
     "@nuxtjs/router": "^1.7.0",
     "@nuxtjs/style-resources": "^1.2.1",
     "@nuxtjs/stylelint-module": "^4.2.0",
+    "@vuese/cli": "^2.14.3",
     "concurrently": "^8.2.1",
     "core-js": "^3.32.0",
     "cross-fetch": "^4.0.0",
