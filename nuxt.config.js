@@ -109,7 +109,14 @@ export default async () => {
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
+      // Doc: https://www.npmjs.com/package/nuxt-compress
+      'nuxt-compress',
     ],
+    'nuxt-compress': {
+      brotli: {
+        threshold: 8192,
+      },
+    },
     /*
      ** Nuxt.js i18n configuration
      */
@@ -474,6 +481,7 @@ export default async () => {
       },
     },
     render: {
+      asyncScripts: true,
       http2: {
         push: true,
       },
@@ -500,6 +508,7 @@ export default async () => {
         },
       },
       transpile: ['@geins/ralph-ui'],
+      extractCSS: true,
       optimization: {
         splitChunks: {
           automaticNameDelimiter: 'ca.',

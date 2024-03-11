@@ -5,7 +5,7 @@
       :class="{ 'ca-content-page__container--has-menu': hasMenu }"
       :design="hasMenu ? 'default' : 'full-width'"
     >
-      <CaInfoPageMenu
+      <LazyCaInfoPageMenu
         v-if="hasMenu"
         class="ca-content-page__sidebar"
         menu-location-id="info-pages"

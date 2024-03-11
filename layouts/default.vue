@@ -9,11 +9,11 @@
       <client-only>
         <transition name="fade">
           <div v-if="globalLoading" class="ca-layout-default__loading">
-            <CaSpinner class="ca-layout-default__spinner" />
+            <LazyCaSpinner class="ca-layout-default__spinner" />
           </div>
         </transition>
       </client-only>
-      <CaCookieConsent />
+      <LazyCaCookieConsent />
       <LazyCaDisplayCart />
       <LazyCaAccountPanel />
       <LazyCaMenuPanel menu-location-id="main-mobile" />

@@ -1,8 +1,8 @@
 <template>
   <header class="ca-header" :class="modifiers">
-    <CaGlobalMessage v-if="$store.state.ancientBrowser">
+    <LazyCaGlobalMessage v-if="$store.state.ancientBrowser">
       {{ $t('ANCIENT_BROWSER_MESSAGE') }}
-    </CaGlobalMessage>
+    </LazyCaGlobalMessage>
     <CaTopBar />
     <div class="ca-header__bar">
       <CaContainer class="ca-header__container">
@@ -12,7 +12,7 @@
           aria-label="Show menu"
           @clicked="$store.commit('contentpanel/open', { name: 'menu-panel' })"
         />
-        <CaIconButton
+        <LazyCaIconButton
           v-if="!$store.getters.siteIsAtTop && !$store.getters.viewportComputer"
           class="ca-header__search-toggle"
           icon-name="search"
