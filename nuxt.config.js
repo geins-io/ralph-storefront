@@ -1,4 +1,5 @@
 import path from 'path';
+import pkg from './package.json';
 import { getImageSizes } from './config/image-sizes';
 import { getFallbackMarkets, getFallbackMeta } from './config/fallback-data';
 import { getMarketSettings } from './config/market-settings';
@@ -17,6 +18,7 @@ export default async () => {
   const { domainSettings, domainUrls, marketSettings } = getMarketSettings();
 
   return {
+    version: pkg.version,
     /*
      ** Global CSS
      */
@@ -111,7 +113,20 @@ export default async () => {
       'nuxt-user-agent',
       // Doc: https://www.npmjs.com/package/nuxt-compress
       'nuxt-compress',
+      // Doc: https://www.npmjs.com/package/nuxt-ssr-cache
+      'nuxt-ssr-cache',
     ],
+    cache: {
+      pages: ['/'],
+      store: {
+        type: 'memory',
+        max: 100,
+        ttl: 60,
+      },
+    },
+    /*
+     ** Nuxt Compress configuration
+     */
     'nuxt-compress': {
       brotli: {
         threshold: 8192,
@@ -266,6 +281,7 @@ export default async () => {
      */
     router: {
       middleware: ['ralph-default'],
+      prefetchLinks: false,
       extendRoutes(routes, resolve) {
         routes.push({
           name: 'pdp',
