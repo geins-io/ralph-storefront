@@ -18,7 +18,7 @@ export default async () => {
   const { domainSettings, domainUrls, marketSettings } = getMarketSettings();
 
   return {
-    version: pkg.version,
+    version: pkg.version + '-' + pkg.dependencies['@geins/ralph-ui'],
     /*
      ** Global CSS
      */

@@ -14,6 +14,7 @@
           class="ca-product-page__gallery"
           :images="productImages"
           :alt="product.brand.name + ' ' + product.name"
+          :preloaded-img="imgSrc"
         />
         <div v-else class="ca-product-page__gallery ca-product-gallery">
           <div class="ca-product-gallery__slider">
