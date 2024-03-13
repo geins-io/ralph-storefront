@@ -30,7 +30,8 @@
           </div>
         </div>
         <div v-if="product" class="ca-product-page__main">
-          <CaToggleFavorite
+          <LazyCaToggleFavorite
+            v-if="prodAlias"
             :prod-alias="prodAlias"
             :prod-id="product.productId"
           />
