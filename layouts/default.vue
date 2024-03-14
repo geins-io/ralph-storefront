@@ -2,7 +2,7 @@
   <div class="ca-layout-default" :class="modifiers">
     <CaHeader />
     <main class="ca-layout-default__main" :class="pageTypeClass">
-      <Nuxt keep-alive />
+      <Nuxt />
     </main>
     <div>
       <CaFooter />
