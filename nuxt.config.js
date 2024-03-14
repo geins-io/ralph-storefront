@@ -128,8 +128,13 @@ export default async () => {
      ** Nuxt Compress configuration
      */
     'nuxt-compress': {
+      gzip: {
+        threshold: 8192,
+        cache: true,
+      },
       brotli: {
         threshold: 8192,
+        cache: true,
       },
     },
     /*
@@ -524,7 +529,14 @@ export default async () => {
         },
       },
       transpile: ['@geins/ralph-ui'],
-      extractCSS: true,
+      cache: true,
+      splitChunks: {
+        pages: true,
+        vendor: true,
+        commons: true,
+        runtime: true,
+        layouts: true,
+      },
       optimization: {
         splitChunks: {
           automaticNameDelimiter: 'ca.',
