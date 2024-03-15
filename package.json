@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build --modern=server",
-    "start": "nuxt start --modern=server",
+    "start": "node_modules/nuxt/bin/nuxt.js start --modern=server",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "lint:scss": "npx stylelint \"**/*.{css,scss,vue}\" --fix",
