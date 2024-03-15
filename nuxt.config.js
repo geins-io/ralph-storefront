@@ -354,7 +354,8 @@ export default async () => {
       /* **** GLOBAL ***** */
       /* ***************** */
       ralphLog: {
-        all: false,
+        onlyInClient: true,
+        all: ralphEnv === 'dev',
         api: false,
         events: false,
         checkout: false,
