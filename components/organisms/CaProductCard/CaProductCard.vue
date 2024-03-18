@@ -87,7 +87,12 @@
             : $t('READ_MORE')
         }}
       </CaButton>
-      <CaSkeleton v-else class="ca-product-card__buy-button" width="100%" />
+      <CaSkeleton
+        v-else
+        class="ca-product-card__buy-button"
+        width="100%"
+        height="43px"
+      />
     </div>
   </component>
 </template>
