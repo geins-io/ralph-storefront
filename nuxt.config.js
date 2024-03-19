@@ -473,6 +473,7 @@ export default async () => {
       productShowRelated: false,
       showProductReviewSection: false,
       showStarsInProductReviewForm: true,
+      preLoadedProductImageSizes: ['1000f1000'],
       /* ******************** */
       /* ***** CHECKOUT ***** */
       /* ******************** */
