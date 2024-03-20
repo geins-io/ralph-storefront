@@ -69,11 +69,13 @@
         />
       </CaClickable>
       <div v-else>
-        <CaSkeleton width="30%" />
-        <CaSkeleton width="70%" />
-        <CaSkeleton width="50%" />
+        <CaSkeleton class="ca-brand-and-name__brand" width="30%" />
+        <CaSkeleton class="ca-brand-and-name__name" width="70%" />
+        <CaSkeleton class="ca-product-card__price" width="50%" />
+        <CaSkeleton class="ca-product-card__stock-display" width="40%" />
       </div>
       <CaButton
+        v-if="productPopulated"
         class="ca-product-card__buy-button"
         type="full-width"
         :loading="addToCartLoading"
@@ -85,6 +87,12 @@
             : $t('READ_MORE')
         }}
       </CaButton>
+      <CaSkeleton
+        v-else
+        class="ca-product-card__buy-button"
+        width="100%"
+        height="43px"
+      />
     </div>
   </component>
 </template>

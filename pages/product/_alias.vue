@@ -14,6 +14,7 @@
           class="ca-product-page__gallery"
           :images="productImages"
           :alt="product.brand.name + ' ' + product.name"
+          :preloaded-image="preloadedImage"
         />
         <div v-else class="ca-product-page__gallery ca-product-gallery">
           <div class="ca-product-gallery__slider">
@@ -29,7 +30,8 @@
           </div>
         </div>
         <div v-if="product" class="ca-product-page__main">
-          <CaToggleFavorite
+          <LazyCaToggleFavorite
+            v-if="prodAlias"
             :prod-alias="prodAlias"
             :prod-id="product.productId"
           />
@@ -41,17 +43,17 @@
           />
           <CaPrice class="ca-product-page__price" :price="product.unitPrice" />
 
-          <CaHtml
+          <LazyCaHtml
             v-if="product && product.texts.text1"
             class="ca-product-page__product-summary"
             :content="product.texts.text1"
           />
-          <CaCampaigns
+          <LazyCaCampaigns
             v-if="product.discountCampaigns && product.discountCampaigns.length"
             class="ca-product-page__campaigns"
             :campaigns="product.discountCampaigns"
           />
-          <CaVariantPicker
+          <LazyCaVariantPicker
             v-if="hasVariants"
             :variants="baseVariants"
             :variants-data="variantPickerData"
@@ -65,7 +67,7 @@
             @notify="notifyHandler"
           />
 
-          <CaVariantPicker
+          <LazyCaVariantPicker
             v-if="hasMultipleDimensions"
             :variants="secondDimensionVariants"
             :variants-data="variantPickerData"
@@ -75,7 +77,7 @@
             @notify="notifyHandler"
           />
 
-          <CaVariantPicker
+          <LazyCaVariantPicker
             v-if="hasSkuVariants"
             :variants="skuVariants"
             :variants-data="variantPickerData"
@@ -156,7 +158,7 @@
             <h3 class="ca-product-page__related-title">
               {{ $t('RELATED_PRODUCTS') }}
             </h3>
-            <CaQuickAddProducts
+            <LazyCaQuickAddProducts
               class="ca-product-page__related-products"
               :products="relatedProductsRelated"
             />
@@ -187,7 +189,7 @@
           <h2 class="ca-product-page__specifications-title">
             {{ $t('PRODUCT_SPECIFICATION') }}
           </h2>
-          <CaSpecifications
+          <LazyCaSpecifications
             v-if="product && product.parameterGroups !== null"
             :specification-groups="product.parameterGroups"
           />
@@ -201,8 +203,8 @@
         class="ca-product-page__section-review"
       >
         <client-only>
-          <CaReviewsList :product-alias="prodAlias" />
-          <CaReviewForm :product-alias="prodAlias" />
+          <LazyCaReviewsList :product-alias="prodAlias" />
+          <LazyCaReviewForm :product-alias="prodAlias" />
         </client-only>
       </section>
     </CaContainer>

@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.3.0] - 2024-03-20
+
+This update aims to improve TTFB and other performance metrics.
+
+### Added
+
+- Caching and compressing modules
+
+### Changed
+
+- Lazyloading components that might not need to be shown
+- Better skeleton for product cards
+
 ## [2.2.0] - 2024-02-29
 
 ### Added

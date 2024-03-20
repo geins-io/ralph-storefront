@@ -1,4 +1,5 @@
 import path from 'path';
+import pkg from './package.json';
 import { getImageSizes } from './config/image-sizes';
 import { getFallbackMarkets, getFallbackMeta } from './config/fallback-data';
 import { getMarketSettings } from './config/market-settings';
@@ -17,6 +18,7 @@ export default async () => {
   const { domainSettings, domainUrls, marketSettings } = getMarketSettings();
 
   return {
+    version: pkg.version + '-' + pkg.dependencies['@geins/ralph-ui'],
     /*
      ** Global CSS
      */
@@ -109,7 +111,32 @@ export default async () => {
       'cookie-universal-nuxt',
       // Doc: https://www.npmjs.com/package/nuxt-user-agent
       'nuxt-user-agent',
+      // Doc: https://www.npmjs.com/package/nuxt-compress
+      'nuxt-compress',
+      // Doc: https://www.npmjs.com/package/nuxt-ssr-cache
+      'nuxt-ssr-cache',
     ],
+    cache: {
+      pages: ['/'],
+      store: {
+        type: 'memory',
+        max: 100,
+        ttl: 60,
+      },
+    },
+    /*
+     ** Nuxt Compress configuration
+     */
+    'nuxt-compress': {
+      gzip: {
+        threshold: 8192,
+        cache: true,
+      },
+      brotli: {
+        threshold: 8192,
+        cache: true,
+      },
+    },
     /*
      ** Nuxt.js i18n configuration
      */
@@ -259,6 +286,7 @@ export default async () => {
      */
     router: {
       middleware: ['ralph-default'],
+      prefetchLinks: false,
       extendRoutes(routes, resolve) {
         routes.push({
           name: 'pdp',
@@ -326,7 +354,8 @@ export default async () => {
       /* **** GLOBAL ***** */
       /* ***************** */
       ralphLog: {
-        all: false,
+        onlyInClient: true,
+        all: ralphEnv === 'dev',
         api: false,
         events: false,
         checkout: false,
@@ -444,6 +473,7 @@ export default async () => {
       productShowRelated: false,
       showProductReviewSection: false,
       showStarsInProductReviewForm: true,
+      preLoadedProductImageSizes: ['1000f1000'],
       /* ******************** */
       /* ***** CHECKOUT ***** */
       /* ******************** */
@@ -474,6 +504,7 @@ export default async () => {
       },
     },
     render: {
+      asyncScripts: true,
       http2: {
         push: true,
       },
@@ -500,6 +531,14 @@ export default async () => {
         },
       },
       transpile: ['@geins/ralph-ui'],
+      cache: true,
+      splitChunks: {
+        pages: true,
+        vendor: true,
+        commons: true,
+        runtime: true,
+        layouts: true,
+      },
       optimization: {
         splitChunks: {
           automaticNameDelimiter: 'ca.',
