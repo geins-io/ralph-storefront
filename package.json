@@ -7,14 +7,16 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build --modern=server",
-    "start": "node_modules/nuxt/bin/nuxt.js start --modern=server",
+    "start": "node ./node_modules/nuxt/bin/nuxt.js start --modern=server",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "lint:scss": "npx stylelint \"**/*.{css,scss,vue}\" --fix",
     "stats": "set NODE_ENV=development && yarn nuxt build --modern=server --analyze",
     "ralph-ride": "node ./scripts/ralph-ride.cjs",
     "ralph-create": "node ./scripts/ralph-create.cjs",
-    "ralph-ui-docs": "npm --prefix ./node_modules/@geins/ralph-ui/ run documentation-serve"
+    "ralph-ui-docs": "npm --prefix ./node_modules/@geins/ralph-ui/ run documentation-serve",
+    "lhci:mobile": "lhci autorun",
+    "lhci:desktop": "lhci autorun --collect.settings.preset=desktop"
   },
   "lint-staged": {
     "*.{js,vue}": "npm run lint:js",
@@ -41,6 +43,7 @@
     "@babel/core": "^7.22.10",
     "@babel/eslint-parser": "^7.22.10",
     "@babel/runtime-corejs3": "^7.22.10",
+    "@lhci/cli": "^0.12.0",
     "@nuxtjs/eslint-config": "^10.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
     "@nuxtjs/router": "^1.7.0",

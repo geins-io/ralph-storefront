@@ -96,3 +96,6 @@ sw.*
 
 # npx link config
 /link.config.json
+
+# lighthouse ci
+.lighthouseci
