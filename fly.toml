@@ -1,0 +1,34 @@
+# fly.toml app configuration file generated for ralph-storefront on 2024-04-09T12:51:47+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'ralph-storefront'
+primary_region = 'lhr'
+
+[build]
+  dockerfile = 'Dockerfile.fly'
+
+[env]
+  API_ENDPOINT = 'https://carismar-merchant-api-qa-app.azurewebsites.net/graphql'
+  AUTH_ENDPOINT = 'https://car-auth-fa-prod.azurewebsites.net/api/Ralph_qa/'
+  BASE_URL = 'https://ralph-storefront.fly.dev'
+  DEFAULT_LOCALE = 'sv'
+  FALLBACK_CHANNEL_ID = '1|se'
+  FALLBACK_MARKET_ALIAS = 'se'
+  IMAGE_SERVER = 'https://ralphimages.carismar.com'
+  RALPH_ENV = 'prod'
+  SIGN_ENDPOINT = 'https://carismar-merchant-api-qa-app.azurewebsites.net/auth/sign/{API_KEY}?identity='
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
