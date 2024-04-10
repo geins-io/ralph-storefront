@@ -9,6 +9,16 @@ env:
   # Set these to your Fly.io organization and preferred region.
   FLY_REGION: lhr
   FLY_ORG: personal
+  API_KEY: ${{ secrets.API_KEY }}
+  API_ENDPOINT: ${{ vars.API_ENDPOINT }}
+  AUTH_ENDPOINT: ${{ vars.AUTH_ENDPOINT }}
+  BASE_URL: ${{ vars.BASE_URL }}
+  DEFAULT_LOCALE: ${{ vars.DEFAULT_LOCALE }}
+  FALLBACK_CHANNEL_ID: ${{ vars.FALLBACK_CHANNEL_ID }}
+  FALLBACK_MARKET_ALIAS: ${{ vars.FALLBACK_MARKET_ALIAS }}
+  IMAGE_SERVER: ${{ vars.IMAGE_SERVER }}
+  SIGN_ENDPOINT: ${{ vars.SIGN_ENDPOINT }}
+  RALPH_ENV: dev
 
 jobs:
   review_app:
@@ -33,5 +43,3 @@ jobs:
       - name: Deploy PR app to Fly.io
         id: deploy
         uses: superfly/fly-pr-review-apps@1.2.0
-        with:
-          secrets: API_KEY=${{ secrets.API_KEY }}

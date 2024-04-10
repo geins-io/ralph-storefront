@@ -14,3 +14,13 @@ jobs:
       - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          API_KEY: ${{ secrets.API_KEY }}
+          API_ENDPOINT: ${{ vars.API_ENDPOINT }}
+          AUTH_ENDPOINT: ${{ vars.AUTH_ENDPOINT }}
+          BASE_URL: ${{ vars.BASE_URL }}
+          DEFAULT_LOCALE: ${{ vars.DEFAULT_LOCALE }}
+          FALLBACK_CHANNEL_ID: ${{ vars.FALLBACK_CHANNEL_ID }}
+          FALLBACK_MARKET_ALIAS: ${{ vars.FALLBACK_MARKET_ALIAS }}
+          IMAGE_SERVER: ${{ vars.IMAGE_SERVER }}
+          SIGN_ENDPOINT: ${{ vars.SIGN_ENDPOINT }}
+          RALPH_ENV: prod
