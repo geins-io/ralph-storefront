@@ -12,6 +12,7 @@ import DirectoryNamedWebpackPlugin from './config/directory-named-webpack-resolv
 
 export default async () => {
   console.log('🚀 ~ process.env.API_ENDPOINT:', process.env.API_ENDPOINT);
+  console.log('🚀 ~ process.env.AUTH_ENDPOINT:', process.env.AUTH_ENDPOINT);
   console.log('🚀 ~ process.env.API_KEY:', process.env.API_KEY);
   const ralphEnv = process.env.RALPH_ENV || 'prod';
   const imageSizes = await getImageSizes();
