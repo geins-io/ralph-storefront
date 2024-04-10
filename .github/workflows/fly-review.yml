@@ -6,7 +6,6 @@ on:
 
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-  # Set these to your Fly.io organization and preferred region.
   FLY_REGION: lhr
   FLY_ORG: personal
   API_KEY: ${{ secrets.API_KEY }}
@@ -39,6 +38,11 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
+
+      - name: Use variables
+        run: |
+          echo "api endpoint - $API_ENDPOINT"
+          echo "api key - $API_KEY"
 
       - name: Deploy PR app to Fly.io
         id: deploy
