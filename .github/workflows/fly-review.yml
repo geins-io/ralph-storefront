@@ -36,7 +36,14 @@ jobs:
     needs: [fly]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v11
         with:
