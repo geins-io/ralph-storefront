@@ -4,7 +4,7 @@ on:
     branches:
       - master
 jobs:
-  deploy:
+  fly:
     name: Deploy app
     runs-on: ubuntu-latest
     concurrency: deploy-group
@@ -15,7 +15,7 @@ jobs:
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
   lighthouse:
-    needs: deploy
+    needs: fly
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

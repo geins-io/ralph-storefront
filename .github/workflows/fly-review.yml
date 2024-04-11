@@ -10,7 +10,7 @@ env:
   FLY_ORG: personal
 
 jobs:
-  review_app:
+  fly:
     runs-on: ubuntu-latest
     outputs:
       url: ${{ steps.deploy.outputs.url }}
@@ -33,7 +33,7 @@ jobs:
         id: deploy
         uses: superfly/fly-pr-review-apps@1.2.0
   lighthouse:
-    needs: review_app
+    needs: fly
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,8 +41,8 @@ jobs:
         uses: treosh/lighthouse-ci-action@v11
         with:
           urls: |
-            ${{ steps.deploy.outputs.url }}/se/sv
-            ${{ steps.deploy.outputs.url }}/se/sv/l/kampanjprodukter/third-level
-            ${{ steps.deploy.outputs.url }}/se/sv/p/gavor-2/foretagsgavor-2/guldpraliner-24-karat-2
+            ${{ fly.steps.deploy.outputs.url }}/se/sv
+            ${{ fly.steps.deploy.outputs.url }}/se/sv/l/kampanjprodukter/third-level
+            ${{ fly.steps.deploy.outputs.url }}/se/sv/p/gavor-2/foretagsgavor-2/guldpraliner-24-karat-2
           uploadArtifacts: true
           temporaryPublicStorage: true
