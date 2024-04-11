@@ -1,9 +1,8 @@
-name: Fly Deploy
+name: Deploy to Fly.io and Lighthouse audit
 on:
   push:
     branches:
       - master
-
 jobs:
   deploy:
     name: Deploy app
@@ -15,3 +14,17 @@ jobs:
       - run: flyctl deploy --remote-only --build-arg API_KEY=${{ secrets.API_KEY }} --build-arg RALPH_ENV=prod
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  lighthouse:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://ralph-storefront.fly.dev/se/sv
+            https://ralph-storefront.fly.dev/se/sv/l/kampanjprodukter/third-level
+            https://ralph-storefront.fly.dev/se/sv/p/gavor-2/foretagsgavor-2/guldpraliner-24-karat-2
+          uploadArtifacts: true
+          temporaryPublicStorage: true

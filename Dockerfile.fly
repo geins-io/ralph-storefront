@@ -36,17 +36,6 @@ ENV DOMAINS=${DOMAINS}
 ENV DEFAULT_LOCALE=${DEFAULT_LOCALE}
 ENV RALPH_ENV=${RALPH_ENV}
 
-RUN echo "API_ENDPOINT=${API_ENDPOINT}" \
-    && echo "IMAGE_SERVER=${IMAGE_SERVER}" \
-    && echo "AUTH_ENDPOINT=${AUTH_ENDPOINT}" \
-    && echo "SIGN_ENDPOINT=${SIGN_ENDPOINT}" \
-    && echo "BASE_URL=${BASE_URL}" \
-    && echo "FALLBACK_CHANNEL_ID=${FALLBACK_CHANNEL_ID}" \
-    && echo "FALLBACK_MARKET_ALIAS=${FALLBACK_MARKET_ALIAS}" \
-    && echo "DOMAINS=${DOMAINS}" \
-    && echo "DEFAULT_LOCALE=${DEFAULT_LOCALE}" \
-    && echo "RALPH_ENV=${RALPH_ENV}"
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
