@@ -1,0 +1,74 @@
+# syntax = docker/dockerfile:1
+
+# Adjust NODE_VERSION as desired
+ARG NODE_VERSION=16.20.0
+FROM node:${NODE_VERSION}-slim as base
+
+LABEL fly_launch_runtime="Nuxt"
+
+# Nuxt app lives here
+WORKDIR /app
+
+# Arguments
+ARG API_KEY
+ARG API_ENDPOINT
+ARG IMAGE_SERVER
+ARG AUTH_ENDPOINT
+ARG SIGN_ENDPOINT
+ARG BASE_URL
+ARG FALLBACK_CHANNEL_ID
+ARG FALLBACK_MARKET_ALIAS
+ARG DOMAINS
+ARG DEFAULT_LOCALE
+ARG RALPH_ENV
+
+# Set environment variables
+ENV NODE_ENV="production"
+ENV API_KEY=${API_KEY}
+ENV API_ENDPOINT=${API_ENDPOINT}
+ENV IMAGE_SERVER=${IMAGE_SERVER}
+ENV AUTH_ENDPOINT=${AUTH_ENDPOINT}
+ENV SIGN_ENDPOINT=${SIGN_ENDPOINT}
+ENV BASE_URL=${BASE_URL}
+ENV FALLBACK_CHANNEL_ID=${FALLBACK_CHANNEL_ID}
+ENV FALLBACK_MARKET_ALIAS=${FALLBACK_MARKET_ALIAS}
+ENV DOMAINS=${DOMAINS}
+ENV DEFAULT_LOCALE=${DEFAULT_LOCALE}
+ENV RALPH_ENV=${RALPH_ENV}
+
+# Throw-away build stage to reduce size of final image
+FROM base as build
+
+# Install packages needed to build node modules
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python
+
+# Install node modules
+COPY --link .npmrc package-lock.json package.json ./
+RUN npm ci --include=dev
+
+# Copy application code
+COPY --link . .
+
+RUN npm install -g node-prune
+
+# Build application
+RUN npm run build \
+    && node-prune \
+    && mkdir output \
+    && cp -r package.json nuxt.config.js node_modules .nuxt static scripts config output
+
+# Remove development dependencies
+RUN npm prune --omit=dev
+
+# Final stage for app image
+FROM base
+
+# Copy built application
+COPY --from=build ./app/output ./
+
+# Start the server by default, this can be overwritten at runtime
+EXPOSE 3000
+ENV HOST=0
+ENV NUXT_HOST=0.0.0.0
+CMD ["npm", "run", "start"]
