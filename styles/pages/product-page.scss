@@ -25,7 +25,7 @@ $minus-margin: calc(-1 * #{$default-spacing}/ 2);
 
   &__main {
     position: relative;
-    max-width: 500px;
+    max-width: 600px;
     margin: $px16 auto 0;
 
     @include bp(laptop) {
@@ -115,7 +115,7 @@ $minus-margin: calc(-1 * #{$default-spacing}/ 2);
   &__specifications-box {
     @include bp(laptop) {
       width: $column-width;
-      background-color: $c-lightest-gray;
+      border: $border-light;
       padding: 0 $px24 $px16;
     }
   }

@@ -425,12 +425,12 @@ export default async () => {
       bannerWidgetPrimaryColor: '#000000',
       bannerWidgetSecondaryColor: '#FFFFFF',
       productListWidgetArrowIconName: 'chevron',
-      productListRowSize: 5,
+      productListRowSize: 4,
       widgetImageSizes: {
-        full: '(min-width: 1360px) 1320px, 96vw',
-        half: '(min-width: 1360px) 650px, (min-width: 768px) 47vw, 96vw',
-        third: '(min-width: 1360px) 427px, (min-width: 768px) 31vw, 96vw',
-        quarter: '(min-width: 1360px) 315px, (min-width: 768px) 23vw, 96vw',
+        full: '(min-width: 1920px) 1920px, 97vw',
+        half: '(min-width: 1920px) 950px, (min-width: 768px) 48vw, 97vw',
+        third: '(min-width: 1920px) 627px, (min-width: 768px) 32vw, 97vw',
+        quarter: '(min-width: 1920px) 465px, (min-width: 768px) 24vw, 97vw',
       },
       widgetImageSizesFullWidth: {
         full: '100vw',
@@ -446,9 +446,9 @@ export default async () => {
       productListScrollSize: {
         phone: 2,
         tablet: 3,
-        laptop: 5,
-        desktop: 5,
-        desktopBig: 6,
+        laptop: 4,
+        desktop: 4,
+        desktopBig: 4,
       },
       showCategoryFilter: true,
       showCategoryTreeViewFilter: true,
@@ -457,6 +457,7 @@ export default async () => {
       showPriceFilter: true,
       showDiscountFilter: true,
       customSortRoutes: [],
+      productCardBuyButton: false,
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
