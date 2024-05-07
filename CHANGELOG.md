@@ -8,10 +8,10 @@
 
 ### Changed
 
-- Increased the default site with to 1920px
-- Updated all image sizes attributes accoridngly
+- Increased the default site width to 1920px
+- Updated all image sizes attributes accordingly
 - Changed the default font of the site
-- Added geins logo instead of the placeholder logo
+- Added Geins logo instead of the placeholder logo
 
 ## [2.3.0] - 2024-03-20
 
