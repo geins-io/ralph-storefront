@@ -13,6 +13,10 @@
   &__info {
     padding-top: $px12;
     display: block;
+
+    @include bp(laptop) {
+      padding-top: $px16;
+    }
   }
 
   &__price {

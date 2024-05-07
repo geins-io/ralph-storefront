@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.4.0] - 2024-05-07
+
+### Added
+
+- `productCardBuyButton` option to the `publicRuntimeConfig` for enabling/disabling the buy button on product cards
+
+### Changed
+
+- Increased the default site width to 1920px
+- Updated all image sizes attributes accordingly
+- Changed the default font of the site
+- Added Geins logo instead of the placeholder logo
+
 ## [2.3.0] - 2024-03-20
 
 This update aims to improve TTFB and other performance metrics.

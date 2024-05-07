@@ -46,7 +46,11 @@
   &__logo {
     @include calign;
 
-    width: 120px;
+    width: 100px;
+
+    @include bp(laptop) {
+      width: 120px;
+    }
   }
 
   &--scrolled & {

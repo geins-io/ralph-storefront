@@ -14,8 +14,8 @@ This is a [Nuxt.js](https://v2.nuxt.com/) storefront fully integrated with Geins
 ## Getting started
 
 1. Sign up for a free trial at [geins.io](https://www.geins.io)
-2. Fork this repository
-3. Create an .env file in the root of your project. See the file [.env.example](.env.example) for a specification of what variables you need to set.
+2. Run `npx create-geins-app` or fork this repository.
+3. Create an .env file in the root of your project. See the file [.env.example](.env.example) or visit the [docs](https://docs.geins.io/docs/launchpads/web/configuration#environment-variables) for a specification of what variables you need to set.
 4. Now you're ready to start developing your storefront
 
 ## Start development environment
@@ -31,9 +31,11 @@ You can now access your storefront at [localhost:3000](http://localhost:3000)
 
 ## General setup
 
+For a more extensive documentation for setup, please visit the [Geins docs](https://docs.geins.io/docs/launchpads/web/configuration).
+
 ### Nuxt config
 
-In the Nuxt config file [nuxt.config.js](nuxt.config.js) you can set up most things, for example routes configuration and your runtime config (global variables that are accessed through the `$config` object). Please refer to the [Nuxt Configuration Glossary](https://v2.nuxt.com/docs/configuration-glossary) for more information.
+In the Nuxt config file [nuxt.config.js](nuxt.config.js) you can set up most things, for example routes configuration and your [runtime config](https://docs.geins.io/docs/launchpads/web/configuration#runtime-config-publicruntimeconfig) (global variables that are accessed through the `$config` object). Please refer to the [Nuxt Configuration Glossary](https://v2.nuxt.com/docs/configuration-glossary) for more information about the Nuxt config file.
 
 ### Channel settings
 
@@ -100,7 +102,7 @@ npm run start
 
 ## Learn more
 
-Visit the Geins Commerce [documentation](https://docs.geins.io) to learn more about Geins Commerce, Ralph Storefront and everything else in the Geins Commerce ecosystem.
+Visit the [Geins documentation](https://docs.geins.io/docs/category/ralph-storefront-pwa) to learn more about Ralph Storefront and everything else in the Geins Commerce ecosystem.
 
 ## Changelog
 
