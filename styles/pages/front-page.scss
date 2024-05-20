@@ -1,0 +1,7 @@
+.ca-front-page {
+  margin-top: -$px12;
+
+  @include bp(tablet) {
+    margin-top: -$default-spacing;
+  }
+}
