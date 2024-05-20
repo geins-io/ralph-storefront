@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.5.0] - 2024-05-20
+
+- New images sizes for products and cms images
+- New script `npm run ralph-image-sizes` to generate image sizes csv
+
 ## [2.4.0] - 2024-05-07
 
 ### Added
