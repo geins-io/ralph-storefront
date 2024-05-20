@@ -1,0 +1,44 @@
+{
+  "imageSizes": [
+    {
+      "type": "product",
+      "aspectRatio": "4:5",
+      "startWidth": 100,
+      "endWidth": 2000,
+      "resizeFunction": "f",
+      "incrementStep": 100
+    },
+    {
+      "type": "cms",
+      "aspectRatio": "",
+      "startWidth": 100,
+      "endWidth": 1000,
+      "resizeFunction": "w",
+      "incrementStep": 100
+    },
+    {
+      "type": "cms",
+      "aspectRatio": "",
+      "startWidth": 1500,
+      "endWidth": 4000,
+      "resizeFunction": "w",
+      "incrementStep": 500
+    },
+    {
+      "type": "category",
+      "aspectRatio": "",
+      "startWidth": 700,
+      "endWidth": 1000,
+      "resizeFunction": "w",
+      "incrementStep": 100
+    },
+    {
+      "type": "category",
+      "aspectRatio": "",
+      "startWidth": 1500,
+      "endWidth": 4000,
+      "resizeFunction": "w",
+      "incrementStep": 500
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import path from 'path';
 import pkg from './package.json';
-import { getImageSizes } from './config/image-sizes';
+import { getImageSizes, getProductImageRatio } from './config/image-sizes';
 import { getFallbackMarkets, getFallbackMeta } from './config/fallback-data';
 import { getMarketSettings } from './config/market-settings';
 import {
@@ -13,6 +13,7 @@ import DirectoryNamedWebpackPlugin from './config/directory-named-webpack-resolv
 export default async () => {
   const ralphEnv = process.env.RALPH_ENV || 'prod';
   const imageSizes = await getImageSizes();
+  const productImageRatio = getProductImageRatio();
   const fallbackMarkets = await getFallbackMarkets();
   const fallbackMeta = await getFallbackMeta();
   const { domainSettings, domainUrls, marketSettings } = getMarketSettings();
@@ -461,7 +462,7 @@ export default async () => {
       /* ****************** */
       /* **** PRODUCT ***** */
       /* ****************** */
-      productImageRatio: 1 / 1,
+      productImageRatio,
       productStockFewLeftLimit: 6,
       productSchemaOptions: {
         productSkuLabelIsSize: true,

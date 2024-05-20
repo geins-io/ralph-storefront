@@ -1,7 +1,8 @@
 import fs from 'fs';
 import csv from 'csv-parser';
 
-const imageSizesFile = './config/ImageSize.csv';
+const imageSizesFile = './config/image-sizes.csv';
+const imageSizeSettings = require('./image-sizes.json');
 
 export async function getImageSizes() {
   const imageSizesStream = fs.createReadStream(imageSizesFile);
@@ -30,4 +31,13 @@ export async function getImageSizes() {
       });
   });
   return await imageSizesStreamRead;
+}
+
+export function getProductImageRatio() {
+  const productSetting = imageSizeSettings.imageSizes.find(
+    (setting) => setting.type === 'product',
+  );
+  const aspectRatio = productSetting?.aspectRatio || '1:1';
+  const [widthRatio, heightRatio] = aspectRatio.split(':');
+  return parseInt(heightRatio) / parseInt(widthRatio);
 }
