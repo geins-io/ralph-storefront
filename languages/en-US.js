@@ -248,7 +248,7 @@ export default {
   PROMO_CODE_REMOVE: 'Remove',
   NEWSLETTER_TITLE: 'Newsletter',
   NEWSLETTER_TEXT:
-    'Register for our newslater and keep updated with our latest news.',
+    'Register for our newsletter and keep updated with our latest news.',
   NEWSLETTER_PLACEHOLDER: 'your@email.com',
   NEWSLETTER_LABEL: '',
   NEWSLETTER_BUTTON: 'Register',

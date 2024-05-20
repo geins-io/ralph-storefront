@@ -1,5 +1,13 @@
 .ca-footer {
-  margin-top: $default-spacing;
+  margin-top: $px20;
+
+  @include bp(tablet) {
+    margin-top: $px40;
+  }
+
+  @include bp(laptop) {
+    margin-top: $px64;
+  }
 
   &__section {
     &--usps {
