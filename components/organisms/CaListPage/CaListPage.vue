@@ -11,7 +11,7 @@
         :alt="listInfo.name"
         :filename="listInfo.primaryImage"
         :ratio="271 / 1280"
-        sizes="(min-width: 1360px) 1320px, 96vw"
+        sizes="(min-width: 1920px) 1920px, 97vw"
       />
       <CaSkeleton
         v-else-if="!listInfo"
