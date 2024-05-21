@@ -1,9 +1,32 @@
 # Changelog
 
+## [2.6.0] - 2024-05-21
+
+### Added
+
+- `cart.productImageSizes` to `publicRuntimeConfig` for setting image sizes attribute for cart products
+- `searchProductsImageSizes` to `publicRuntimeConfig` for setting image sizes attribute for search products
+
+### Changed
+
+- Updated to Ralph UI v23.0.0
+- Changed sizes attributes for all images
+- Using accent color as a base for more colors in the site
+- Moved content from `start/index.vue` to `index.vue` since `useStartPage` function has been removed in latest version of Ralph UI
+
+### Removed
+
+- Removed page `start/index.vue` to use the original `index.vue` since `useStartPage` function has been removed in latest version of Ralph UI
+
 ## [2.5.0] - 2024-05-20
 
-- New images sizes for products and cms images
+### Added
+
 - New script `npm run ralph-image-sizes` to generate image sizes csv
+
+### Changed
+
+- New images sizes for products and cms images
 
 ## [2.4.0] - 2024-05-07
 
