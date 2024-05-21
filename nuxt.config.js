@@ -379,7 +379,6 @@ export default async () => {
       channelSettings,
       fallbackMarkets,
       imageSizes,
-      useStartPage: false,
       customerServiceEmail: 'info@geins.io',
       customerServicePhone: '+46 123 23 43 45',
       breakpoints: {
@@ -420,6 +419,7 @@ export default async () => {
         'list/relocateAlias',
         'list/relocatePage',
       ],
+      searchProductsImageSizes: '35px',
       /* ****************** */
       /* **** WIDGETS ***** */
       /* ****************** */
@@ -467,7 +467,7 @@ export default async () => {
       productSchemaOptions: {
         productSkuLabelIsSize: true,
         productDescriptionField: 'text1',
-        schemaImageSize: '700f700', // Make sure this is a valid product image size
+        schemaImageSize: '1000f1250', // Make sure this is a valid product image size
         extraOfferProperties: {
           itemCondition: 'https://schema.org/NewCondition',
         },
@@ -475,7 +475,7 @@ export default async () => {
       productShowRelated: false,
       showProductReviewSection: false,
       showStarsInProductReviewForm: true,
-      preLoadedProductImageSizes: ['1000f1000'],
+      preLoadedProductImageSizes: ['1000f1250'],
       /* ******************** */
       /* ***** CHECKOUT ***** */
       /* ******************** */
@@ -496,6 +496,7 @@ export default async () => {
       cart: {
         hiddenSkuValues: ['-', 'One size'],
         quantityChangerType: 'default', // Options: `default`, `round`, `stacked`
+        productImageSizes: '(min-width: 768px) 80px, 53px',
       },
       /* ******************** */
       /* ******* USER ******* */

@@ -3,7 +3,7 @@
     <CaContainer
       class="ca-content-page__container"
       :class="{ 'ca-content-page__container--has-menu': hasMenu }"
-      :design="hasMenu ? 'default' : 'full-width'"
+      :design="hasMenu ? 'narrow' : 'full-width'"
     >
       <LazyCaInfoPageMenu
         v-if="hasMenu"

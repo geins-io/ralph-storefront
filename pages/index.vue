@@ -1,18 +1,24 @@
 <template>
-  <div class="ca-start-page">
-    <!-- This page is used for redirection to front page with default or no market, or to create a market picker -->
+  <div class="ca-front-page">
+    <CaWidgetArea
+      family="Frontpage"
+      area-name="The front page area"
+      @dataFetched="$store.dispatch('loading/end')"
+    />
   </div>
 </template>
 
 <script>
 /*
-  Renders the start page (redirects to front page).
+  Renders the front page.
 */
 export default {
-  name: 'StartPage',
-  methods: {},
+  name: 'FrontPage',
   meta: {
-    pageType: 'Start Page',
+    pageType: 'Front Page',
   },
 };
 </script>
+<style lang="scss">
+@import './styles/pages/front-page';
+</style>

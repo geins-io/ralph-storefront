@@ -16,7 +16,7 @@
           :alt="product.brand.name + ' ' + product.name"
           :preloaded-image="preloadedImage"
           gallery-mode="plain"
-          main-image-sizes="(min-width: 1920px) 815px, (min-width: 1024px) 42vw, (min-width: 768px) 45vw, 63vw"
+          main-image-sizes="(min-width: 1920px) 815px, (min-width: 1024px) 42vw, (min-width: 768px) 600px, 100vw"
           thumbnail-sizes="(min-width: 1920px) 400px, 21vw"
           thumbnail-mode="grid"
         />
