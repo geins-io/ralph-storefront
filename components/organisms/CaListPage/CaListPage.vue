@@ -4,21 +4,6 @@
       <CaBreadcrumbs v-if="listInfo" :current="breadcrumbsCurrent" />
       <CaSkeleton v-else class="ca-breadcrumbs" width="30%" />
       <CaListTop :type="type" :list-info="listInfo" />
-      <CaImage
-        v-if="listInfo && listInfo.primaryImage"
-        class="ca-list-page__image"
-        type="categoryheader"
-        :alt="listInfo.name"
-        :filename="listInfo.primaryImage"
-        :ratio="271 / 1280"
-        sizes="(min-width: 1920px) 1920px, 97vw"
-      />
-      <CaSkeleton
-        v-else-if="!listInfo"
-        class="ca-list-page__image"
-        :ratio="271 / 1280"
-        :radius="false"
-      />
     </CaContainer>
     <CaWidgetArea
       class="ca-list-page__widget-area"
