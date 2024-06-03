@@ -76,6 +76,6 @@
   },
   "license": "BSD-3-Clause",
   "engines": {
-    "node": ">=18.13.0"
+    "node": "^18.0.0"
   }
 }
