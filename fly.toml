@@ -3,23 +3,23 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'ralph-storefront'
+app = 'ralph-storefront-node18'
 primary_region = 'lhr'
 
 [build]
   dockerfile = 'Dockerfile.fly'
 
 [build.args]
-  API_ENDPOINT='https://carismar-merchant-api-qa-app.azurewebsites.net/graphql'
-  API_KEY='33333CD2-E46F-4E81-9CEE-21290B0C778A'
-  AUTH_ENDPOINT='https://car-auth-fa-prod.azurewebsites.net/api/Ralph_qa/'
-  BASE_URL='https://ralph-storefront.fly.dev'
-  DEFAULT_LOCALE='sv'
-  FALLBACK_CHANNEL_ID='1|se'
-  FALLBACK_MARKET_ALIAS='se'
-  IMAGE_SERVER='https://ralphimages.carismar.com'
-  RALPH_ENV='dev'
-  SIGN_ENDPOINT='https://carismar-merchant-api-qa-app.azurewebsites.net/auth/sign/{API_KEY}?identity='
+  API_ENDPOINT=
+  API_KEY=
+  AUTH_ENDPOINT=
+  BASE_URL=
+  DEFAULT_LOCALE=
+  FALLBACK_CHANNEL_ID=
+  FALLBACK_MARKET_ALIAS=
+  IMAGE_SERVER=
+  RALPH_ENV=
+  SIGN_ENDPOINT=
 
 [http_service]
   internal_port = 3000
