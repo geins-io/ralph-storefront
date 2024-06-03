@@ -22,7 +22,6 @@
     "*.{scss}": "npm run lint:scss"
   },
   "dependencies": {
-    "@apollo/client": "^3.8.1",
     "@geins/ralph-ui": "^23.0.0",
     "@nuxtjs/apollo": "4.0.1-rc.5",
     "@nuxtjs/i18n": "^7.3.1",
@@ -75,5 +74,8 @@
     "uppercamelcase": "^3.0.0",
     "zen-observable-ts": "^0.8.21"
   },
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "engines": {
+    "node": ">=18.13.0"
+  }
 }

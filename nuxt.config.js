@@ -256,6 +256,9 @@ export default async () => {
       icon: {
         purpose: 'any',
       },
+      workbox: {
+        enabled: false,
+      },
     },
     /*
      ** Apollo module configuration
