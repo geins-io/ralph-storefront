@@ -553,7 +553,7 @@ export default async () => {
           minChunks: 1,
           maxAsyncRequests: 30,
           maxInitialRequests: 30,
-          enforceSizeThreshold: 50000,
+          enforceSizeThreshold: 25000,
           cacheGroups: {
             defaultVendors: {
               test: /[\\/]node_modules[\\/]/,
