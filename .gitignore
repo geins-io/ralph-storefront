@@ -99,3 +99,6 @@ sw.*
 
 # lighthouse ci
 .lighthouseci
+
+# qa deploy config
+fly-qa.toml
