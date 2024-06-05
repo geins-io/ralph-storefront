@@ -14,7 +14,10 @@
     >
       {{ $t('LOG_IN') }}/{{ $t('CREATE_ACCOUNT') }}
     </button>
-    <div v-else-if="$config.customerTypesToggle" class="ca-checkout__logout">
+    <div
+      v-else-if="$config.public.customerTypesToggle"
+      class="ca-checkout__logout"
+    >
       <CaCustomerTypeToggle />
       <CaClickable class="ca-checkout__logout-button" @clicked="logout">
         {{ $t('LOG_OUT') }}
@@ -22,7 +25,8 @@
     </div>
     <CaCheckoutSection
       v-if="
-        !$store.getters['auth/authenticated'] && $config.customerTypesToggle
+        !$store.getters['auth/authenticated'] &&
+        $config.public.customerTypesToggle
       "
     >
       <template #title>
@@ -50,7 +54,7 @@
     <CaCheckoutSection
       v-if="
         $store.getters['cart/totalQuantity'] &&
-        $config.checkout.showMultipleMarkets &&
+        $config.public.checkout.showMultipleMarkets &&
         selectableMarkets &&
         selectableMarkets.length > 1
       "
@@ -66,19 +70,22 @@
     <CaCheckoutSection
       v-if="$store.getters['cart/totalQuantity'] > 0"
       :loading="shippingLoading"
-      :blocked="$config.checkout.showMultipleMarkets && !currentMarket"
+      :blocked="$config.public.checkout.showMultipleMarkets && !currentMarket"
     >
       <template #title>
         {{ $t('CHECKOUT_CHOOSE_SHIPPING') }}
       </template>
       <CaShippingOptions
-        v-if="$config.checkout.useInternalShipping && checkout.shippingOptions"
+        v-if="
+          $config.public.checkout.useInternalShipping &&
+          checkout.shippingOptions
+        "
         class="ca-checkout__shipping-options"
         :options="checkout.shippingOptions"
         @selection="shippingSelectionHandler"
       />
       <CaNshift
-        v-else-if="!$config.checkout.useInternalShipping"
+        v-else-if="!$config.public.checkout.useInternalShipping"
         ref="nshift"
         :shipping-data="checkout.shippingData"
         :zip="currentZip"

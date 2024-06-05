@@ -27,7 +27,7 @@
             >
               <CaSkeleton
                 class="ca-product-gallery__image"
-                :ratio="$config.productImageRatio"
+                :ratio="$config.public.productImageRatio"
                 :radius="false"
               />
             </div>
@@ -156,7 +156,9 @@
             </CaIconAndText>
           </div>
           <div
-            v-if="$config.productShowRelated && relatedProductsRelated.length"
+            v-if="
+              $config.public.productShowRelated && relatedProductsRelated.length
+            "
             class="ca-product-page__related"
           >
             <h3 class="ca-product-page__related-title">
@@ -203,7 +205,7 @@
         </div>
       </section>
       <section
-        v-if="$config.showProductReviewSection"
+        v-if="$config.public.showProductReviewSection"
         class="ca-product-page__section-review"
       >
         <client-only>

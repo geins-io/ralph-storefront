@@ -11,8 +11,8 @@
           v-if="product.productImages && product.productImages.length > 0"
           class="ca-product-card__image"
           type="product"
-          :size-array="$config.imageSizes.product"
-          :ratio="$config.productImageRatio"
+          :size-array="$config.public.imageSizes.product"
+          :ratio="$config.public.productImageRatio"
           :filename="product.productImages[0].fileName"
           :alt="product.brand.name + ' ' + product.name"
           sizes="(min-width: 1920px) 410px, (min-width: 1024px) 21vw, (min-width: 768px) 27vw, 43vw"
@@ -20,7 +20,7 @@
         <CaImage
           v-else
           class="ca-product-card__image"
-          :ratio="$config.productImageRatio"
+          :ratio="$config.public.productImageRatio"
           :src="require('~/assets/placeholders/product-image-square.png')"
           :alt="product.brand.name + ' ' + product.name"
         />
@@ -34,7 +34,7 @@
     <CaSkeleton
       v-else
       class="ca-product-card__image-wrap"
-      :ratio="$config.productImageRatio"
+      :ratio="$config.public.productImageRatio"
       :radius="false"
     />
 
@@ -69,7 +69,7 @@
         <CaSkeleton class="ca-product-card__stock-display" width="40%" />
       </div>
       <CaButton
-        v-if="$config.productCardBuyButton && productPopulated"
+        v-if="$config.public.productCardBuyButton && productPopulated"
         class="ca-product-card__buy-button"
         type="full-width"
         :loading="addToCartLoading"
@@ -82,7 +82,7 @@
         }}
       </CaButton>
       <CaSkeleton
-        v-else-if="$config.productCardBuyButton"
+        v-else-if="$config.public.productCardBuyButton"
         class="ca-product-card__buy-button"
         width="100%"
         height="43px"

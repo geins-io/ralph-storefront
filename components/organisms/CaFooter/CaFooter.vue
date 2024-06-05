@@ -46,9 +46,9 @@
             <span class="ca-footer__contact-title">{{ $t('EMAIL') }}:</span>
             <a
               class="ca-footer__contact-info"
-              :href="'mailto:' + $config.customerServiceEmail"
+              :href="'mailto:' + $config.public.customerServiceEmail"
             >
-              {{ $config.customerServiceEmail }}
+              {{ $config.public.customerServiceEmail }}
             </a>
           </div>
           <div class="ca-footer__contact">
@@ -57,9 +57,9 @@
             >
             <a
               class="ca-footer__contact-info"
-              :href="'tel:' + $config.customerServicePhone"
+              :href="'tel:' + $config.public.customerServicePhone"
             >
-              {{ $config.customerServicePhone }}
+              {{ $config.public.customerServicePhone }}
             </a>
           </div>
         </section>
@@ -73,7 +73,7 @@
           <h2 class="ca-footer__title">Följ oss</h2>
           <ul class="ca-footer__social">
             <li
-              v-for="(link, index) in $config.socialMediaLinks"
+              v-for="(link, index) in $config.public.socialMediaLinks"
               :key="index"
               class="ca-footer__social-item"
             >
@@ -134,7 +134,8 @@
           class="ca-footer__bottom-column ca-footer__bottom-column--copyright"
         >
           <div class="ca-footer__copyright">
-            Copyright &copy; {{ $config.currentChannelSettings.siteName }}
+            Copyright &copy;
+            {{ $config.public.currentChannelSettings.siteName }}
           </div>
           <a
             class="ca-footer__powered-by"

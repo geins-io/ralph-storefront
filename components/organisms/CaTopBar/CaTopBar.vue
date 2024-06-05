@@ -52,7 +52,7 @@
         </NuxtLink>
 
         <CaCustomerTypeToggle
-          v-if="$config.customerTypesToggle"
+          v-if="$config.public.customerTypesToggle"
           v-show="!undistracted"
           class="ca-top-bar__customer-type-toggle only-computer"
         />

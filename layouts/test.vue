@@ -1,14 +1,8 @@
 <template>
   <div class="ca-layout-undistracted">
-    <LazyCaGlobalMessage v-if="$store.state.ancientBrowser">
-      {{ $t('ANCIENT_BROWSER_MESSAGE') }}
-    </LazyCaGlobalMessage>
-    <CaTopBar :undistracted="true" />
-    <main class="ca-layout-undistracted__main">
+    <main>
       <Nuxt />
     </main>
-    <CaCookieConsent ref="cookieConsent" />
-    <LazyCaAccountPanel />
   </div>
 </template>
 <script>

@@ -1,11 +1,5 @@
 <template>
-  <div class="ca-front-page">
-    <!-- <CaWidgetArea
-      family="Frontpage"
-      area-name="The front page area"
-      @dataFetched="$store.dispatch('loading/end')"
-    /> -->
-  </div>
+  <div class="ca-front-page">Nuxt Bridge test</div>
 </template>
 
 <script>
@@ -14,7 +8,7 @@
 */
 export default {
   name: 'FrontPage',
-  layout: 'undistracted',
+  layout: 'test',
   meta: {
     pageType: 'Front Page',
   },

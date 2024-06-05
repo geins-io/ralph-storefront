@@ -20,6 +20,9 @@ const fallbackMeta = getFallbackMeta();
 const { domainSettings, domainUrls, marketSettings } = getMarketSettings();
 
 export default defineNuxtConfig({
+  bridge: {
+    nitro: true,
+  },
   version: pkg.version + '-' + pkg.dependencies['@geins/ralph-ui'],
   /*
    ** Global CSS
@@ -70,10 +73,6 @@ export default defineNuxtConfig({
     {
       src: '~/node_modules/@geins/ralph-ui/plugins/broadcast-channel.js',
       mode: 'client',
-    },
-    {
-      src: '~/node_modules/@geins/ralph-ui/plugins/headers-control.js',
-      mode: 'server',
     },
   ],
   /*
@@ -336,166 +335,168 @@ export default defineNuxtConfig({
    ** Nuxt.js router configuration
    */
   router: {
-    middleware: ['ralph-default'],
+    // middleware: ['ralph-default'],
     prefetchLinks: false,
   },
   /*
    ** Setup of global $config variables
    */
-  publicRuntimeConfig: {
-    /* ***************** */
-    /* **** GLOBAL ***** */
-    /* ***************** */
-    ralphLog: {
-      onlyInClient: true,
-      all: ralphEnv === 'dev',
-      api: false,
-      events: false,
-      checkout: false,
-      warnings: false,
-    },
-    ralphEnv,
-    baseUrl: process.env.BASE_URL,
-    imageServer: process.env.IMAGE_SERVER,
-    authEndpoint: process.env.AUTH_ENDPOINT,
-    signEndpoint: process.env.SIGN_ENDPOINT.replace(
-      '{API_KEY}',
-      process.env.API_KEY,
-    ),
-    apiKey: process.env.API_KEY,
-    apiEndpoint: process.env.API_ENDPOINT,
-    fallbackChannelId: process.env.FALLBACK_CHANNEL_ID,
-    fallbackMarketAlias: process.env.FALLBACK_MARKET_ALIAS,
-    ...marketSettings,
-    currentChannelSettings,
-    channelSettings,
-    fallbackMarkets,
-    imageSizes,
-    customerServiceEmail: 'info@geins.io',
-    customerServicePhone: '+46 123 23 43 45',
-    breakpoints: {
-      tablet: 768,
-      laptop: 1024,
-      desktop: 1200,
-      desktopBig: 1440,
-    },
-    siteTopThreshold: 10,
-    socialMediaLinks: [
-      {
-        icon: 'facebook',
-        title: 'Facebook',
-        link: 'https://www.facebook.com',
+  runtimeConfig: {
+    public: {
+      /* ***************** */
+      /* **** GLOBAL ***** */
+      /* ***************** */
+      ralphLog: {
+        onlyInClient: true,
+        all: ralphEnv === 'dev',
+        api: false,
+        events: false,
+        checkout: false,
+        warnings: false,
       },
-      {
-        icon: 'instagram',
-        title: 'Instagram',
-        link: 'https://www.instagram.com',
+      ralphEnv,
+      baseUrl: process.env.BASE_URL,
+      imageServer: process.env.IMAGE_SERVER,
+      authEndpoint: process.env.AUTH_ENDPOINT,
+      signEndpoint: process.env.SIGN_ENDPOINT.replace(
+        '{API_KEY}',
+        process.env.API_KEY,
+      ),
+      apiKey: process.env.API_KEY,
+      apiEndpoint: process.env.API_ENDPOINT,
+      fallbackChannelId: process.env.FALLBACK_CHANNEL_ID,
+      fallbackMarketAlias: process.env.FALLBACK_MARKET_ALIAS,
+      ...marketSettings,
+      currentChannelSettings,
+      channelSettings,
+      fallbackMarkets,
+      imageSizes,
+      customerServiceEmail: 'info@geins.io',
+      customerServicePhone: '+46 123 23 43 45',
+      breakpoints: {
+        tablet: 768,
+        laptop: 1024,
+        desktop: 1200,
+        desktopBig: 1440,
       },
-    ],
-    customerTypesToggle: true,
-    customerTypes: [
-      {
-        type: 'PERSON',
-        vat: true,
+      siteTopThreshold: 10,
+      socialMediaLinks: [
+        {
+          icon: 'facebook',
+          title: 'Facebook',
+          link: 'https://www.facebook.com',
+        },
+        {
+          icon: 'instagram',
+          title: 'Instagram',
+          link: 'https://www.instagram.com',
+        },
+      ],
+      customerTypesToggle: true,
+      customerTypes: [
+        {
+          type: 'PERSON',
+          vat: true,
+        },
+        {
+          type: 'ORGANIZATION',
+          vat: false,
+        },
+      ],
+      routePaths,
+      statesToPersist: [
+        'favorites',
+        'customerType',
+        'vatIncluded',
+        'list/relocateAlias',
+        'list/relocatePage',
+      ],
+      searchProductsImageSizes: '35px',
+      /* ****************** */
+      /* **** WIDGETS ***** */
+      /* ****************** */
+      bannerWidgetPrimaryColor: '#000000',
+      bannerWidgetSecondaryColor: '#FFFFFF',
+      productListWidgetArrowIconName: 'chevron',
+      productListRowSize: 4,
+      widgetImageSizes: {
+        full: '(min-width: 1920px) 1920px, 97vw',
+        half: '(min-width: 1920px) 950px, (min-width: 768px) 48vw, 97vw',
+        third: '(min-width: 1920px) 627px, (min-width: 768px) 32vw, 97vw',
+        quarter: '(min-width: 1920px) 465px, (min-width: 768px) 24vw, 97vw',
       },
-      {
-        type: 'ORGANIZATION',
-        vat: false,
+      widgetImageSizesFullWidth: {
+        full: '100vw',
+        half: '(min-width: 768px) 49vw, 100vw',
+        third: '(min-width: 768px) 33vw, 100vw',
+        quarter: '(min-width: 768px) 24vw, 100vw',
       },
-    ],
-    routePaths,
-    statesToPersist: [
-      'favorites',
-      'customerType',
-      'vatIncluded',
-      'list/relocateAlias',
-      'list/relocatePage',
-    ],
-    searchProductsImageSizes: '35px',
-    /* ****************** */
-    /* **** WIDGETS ***** */
-    /* ****************** */
-    bannerWidgetPrimaryColor: '#000000',
-    bannerWidgetSecondaryColor: '#FFFFFF',
-    productListWidgetArrowIconName: 'chevron',
-    productListRowSize: 4,
-    widgetImageSizes: {
-      full: '(min-width: 1920px) 1920px, 97vw',
-      half: '(min-width: 1920px) 950px, (min-width: 768px) 48vw, 97vw',
-      third: '(min-width: 1920px) 627px, (min-width: 768px) 32vw, 97vw',
-      quarter: '(min-width: 1920px) 465px, (min-width: 768px) 24vw, 97vw',
-    },
-    widgetImageSizesFullWidth: {
-      full: '100vw',
-      half: '(min-width: 768px) 49vw, 100vw',
-      third: '(min-width: 768px) 33vw, 100vw',
-      quarter: '(min-width: 768px) 24vw, 100vw',
-    },
-    /* *********************** */
-    /* **** PRODUCT LIST ***** */
-    /* *********************** */
-    productListDefaultSort: 'LATEST',
-    productListPageSize: 20,
-    productListScrollSize: {
-      phone: 2,
-      tablet: 3,
-      laptop: 4,
-      desktop: 4,
-      desktopBig: 4,
-    },
-    showCategoryFilter: true,
-    showCategoryTreeViewFilter: true,
-    showBrandsFilter: true,
-    showSkuFilter: true,
-    showPriceFilter: true,
-    showDiscountFilter: true,
-    customSortRoutes: [],
-    productCardBuyButton: false,
-    /* ****************** */
-    /* **** PRODUCT ***** */
-    /* ****************** */
-    productImageRatio,
-    productStockFewLeftLimit: 6,
-    productSchemaOptions: {
-      productSkuLabelIsSize: true,
-      productDescriptionField: 'text1',
-      schemaImageSize: '1000f1250', // Make sure this is a valid product image size
-      extraOfferProperties: {
-        itemCondition: 'https://schema.org/NewCondition',
+      /* *********************** */
+      /* **** PRODUCT LIST ***** */
+      /* *********************** */
+      productListDefaultSort: 'LATEST',
+      productListPageSize: 20,
+      productListScrollSize: {
+        phone: 2,
+        tablet: 3,
+        laptop: 4,
+        desktop: 4,
+        desktopBig: 4,
       },
-    },
-    productShowRelated: false,
-    showProductReviewSection: false,
-    showStarsInProductReviewForm: true,
-    preLoadedProductImageSizes: ['1000f1250'],
-    /* ******************** */
-    /* ***** CHECKOUT ***** */
-    /* ******************** */
-    checkout: {
-      promoCodes: true,
-      shippingAddress: true,
-      identityNumber: true,
-      entryCode: true,
-      message: true,
-      defaultPaymentId: 23,
-      defaultShippingId: null,
-      showMultipleMarkets: true,
-      useInternalShipping: false,
-    },
-    /* ******************** */
-    /* ******* CART ******* */
-    /* ******************** */
-    cart: {
-      hiddenSkuValues: ['-', 'One size'],
-      quantityChangerType: 'default', // Options: `default`, `round`, `stacked`
-      productImageSizes: '(min-width: 768px) 80px, 53px',
-    },
-    /* ******************** */
-    /* ******* USER ******* */
-    /* ******************** */
-    user: {
-      gender: false,
-      country: false,
+      showCategoryFilter: true,
+      showCategoryTreeViewFilter: true,
+      showBrandsFilter: true,
+      showSkuFilter: true,
+      showPriceFilter: true,
+      showDiscountFilter: true,
+      customSortRoutes: [],
+      productCardBuyButton: false,
+      /* ****************** */
+      /* **** PRODUCT ***** */
+      /* ****************** */
+      productImageRatio,
+      productStockFewLeftLimit: 6,
+      productSchemaOptions: {
+        productSkuLabelIsSize: true,
+        productDescriptionField: 'text1',
+        schemaImageSize: '1000f1250', // Make sure this is a valid product image size
+        extraOfferProperties: {
+          itemCondition: 'https://schema.org/NewCondition',
+        },
+      },
+      productShowRelated: false,
+      showProductReviewSection: false,
+      showStarsInProductReviewForm: true,
+      preLoadedProductImageSizes: ['1000f1250'],
+      /* ******************** */
+      /* ***** CHECKOUT ***** */
+      /* ******************** */
+      checkout: {
+        promoCodes: true,
+        shippingAddress: true,
+        identityNumber: true,
+        entryCode: true,
+        message: true,
+        defaultPaymentId: 23,
+        defaultShippingId: null,
+        showMultipleMarkets: true,
+        useInternalShipping: false,
+      },
+      /* ******************** */
+      /* ******* CART ******* */
+      /* ******************** */
+      cart: {
+        hiddenSkuValues: ['-', 'One size'],
+        quantityChangerType: 'default', // Options: `default`, `round`, `stacked`
+        productImageSizes: '(min-width: 768px) 80px, 53px',
+      },
+      /* ******************** */
+      /* ******* USER ******* */
+      /* ******************** */
+      user: {
+        gender: false,
+        country: false,
+      },
     },
   },
   render: {
@@ -564,7 +565,13 @@ export default defineNuxtConfig({
     /*
      ** You can extend webpack config here
      */
-    extend(config, { isDev }) {
+    extend(config, ctx) {
+      // Add GraphQL loader
+      config.module.rules.push({
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader',
+      });
       config.resolve.extensions.unshift('.vue');
       config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
       // Resolve modules by always checking storefront first to allow for overrides
@@ -590,7 +597,7 @@ export default defineNuxtConfig({
         // Then the UI middleware
         path.resolve(__dirname, 'node_modules/@geins/ralph-ui/middleware/'),
       ];
-      if (isDev) {
+      if (ctx.isDev) {
         config.devtool = 'source-map';
       }
     },

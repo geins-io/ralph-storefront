@@ -99,3 +99,6 @@ sw.*
 
 # lighthouse ci
 .lighthouseci
+
+# fly qa
+fly-qa.toml
