@@ -3,7 +3,7 @@ import { defineNuxtConfig } from '@nuxt/bridge';
 import pkg from './package.json';
 
 import { getImageSizes, getProductImageRatio } from './config/image-sizes';
-import { getFallbackMarkets, getFallbackMeta } from './config/fallback-data';
+// import { getFallbackMarkets, getFallbackMeta } from './config/fallback-data';
 import { getMarketSettings } from './config/market-settings';
 import {
   channelSettings,
@@ -15,12 +15,13 @@ import DirectoryNamedWebpackPlugin from './config/directory-named-webpack-resolv
 const ralphEnv = process.env.RALPH_ENV || 'prod';
 const imageSizes = getImageSizes();
 const productImageRatio = getProductImageRatio();
-const fallbackMarkets = getFallbackMarkets();
-const fallbackMeta = getFallbackMeta();
+const fallbackMarkets = []; // getFallbackMarkets();
+const fallbackMeta = []; // getFallbackMeta();
 const { domainSettings, domainUrls, marketSettings } = getMarketSettings();
 
 export default defineNuxtConfig({
   bridge: {
+    vite: false,
     nitro: true,
   },
   version: pkg.version + '-' + pkg.dependencies['@geins/ralph-ui'],
@@ -335,7 +336,7 @@ export default defineNuxtConfig({
    ** Nuxt.js router configuration
    */
   router: {
-    // middleware: ['ralph-default'],
+    middleware: ['ralph-default'],
     prefetchLinks: false,
   },
   /*
@@ -568,9 +569,8 @@ export default defineNuxtConfig({
     extend(config, ctx) {
       // Add GraphQL loader
       config.module.rules.push({
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        loader: 'graphql-tag/loader',
+        test: /\.graphql?$/,
+        loader: 'webpack-graphql-loader',
       });
       config.resolve.extensions.unshift('.vue');
       config.resolve.plugins = [new DirectoryNamedWebpackPlugin()];
