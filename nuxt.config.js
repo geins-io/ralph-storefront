@@ -65,12 +65,15 @@ export default defineNuxtConfig({
    */
   plugins: [
     {
-      src: '~/node_modules/@geins/ralph-ui/plugins/ralph.js',
+      src: '~/node_modules/@geins/ralph-ui/plugins/apollo-client.js',
     },
     {
-      src: '~/node_modules/@geins/ralph-ui/plugins/set-css-variables.js',
-      mode: 'client',
+      src: '~/node_modules/@geins/ralph-ui/plugins/ralph.js',
     },
+    // {
+    //   src: '~/node_modules/@geins/ralph-ui/plugins/set-css-variables.js',
+    //   mode: 'client',
+    // },
     {
       src: '~/node_modules/@geins/ralph-ui/plugins/broadcast-channel.js',
       mode: 'client',

@@ -19,11 +19,11 @@
       </div>
       <div class="ca-top-bar__usp only-mobile">{{ $t('USP_TEXT') }}</div>
       <div class="ca-top-bar__group">
-        <CaMarketSelectorButton
-          v-if="$store.state.channel.markets.length > 1"
+        <!-- <CaMarketSelectorButton
+          v-if="$store.state.channel?.markets?.length > 1"
           v-show="!undistracted"
           class="ca-top-bar__lang-switcher only-computer"
-        />
+        /> -->
         <button
           v-if="!$store.getters['auth/authenticated']"
           v-show="!undistracted"

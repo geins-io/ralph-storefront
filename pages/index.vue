@@ -8,7 +8,6 @@
 */
 export default {
   name: 'FrontPage',
-  layout: 'test',
   meta: {
     pageType: 'Front Page',
   },
