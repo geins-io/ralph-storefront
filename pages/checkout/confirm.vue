@@ -52,9 +52,11 @@
 
 */
 import MixConfirmPage from 'MixConfirmPage';
+import MixCheckoutPage from 'MixCheckoutPage';
+
 export default {
   name: 'CheckoutConfirmPage',
-  mixins: [MixConfirmPage],
+  mixins: [MixConfirmPage, MixCheckoutPage],
   layout: 'undistracted',
   data: () => ({}),
   computed: {},

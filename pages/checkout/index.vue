@@ -1,12 +1,14 @@
 <template>
   <div class="ca-checkout-page">
     <CaContainer>
-      <CaCheckout />
+      <CaCheckout :avarda-script-loaded="avardaScriptLoaded" />
     </CaContainer>
   </div>
 </template>
 
 <script>
+import MixCheckoutPage from 'MixCheckoutPage';
+
 /*
 
   Renders the checkout page.
@@ -16,6 +18,7 @@
 */
 export default {
   name: 'CheckoutPage',
+  mixins: [MixCheckoutPage],
   layout: 'undistracted',
   data: () => ({}),
   methods: {},

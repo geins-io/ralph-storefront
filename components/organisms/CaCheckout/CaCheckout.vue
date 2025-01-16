@@ -125,7 +125,8 @@
         v-if="
           paymentType === 'KLARNA' ||
           paymentType === 'SVEA' ||
-          paymentType === 'WALLEY'
+          paymentType === 'WALLEY' ||
+          (paymentType === 'AVARDA' && avardaScriptLoaded)
         "
         ref="externalcheckout"
         :data="selectedPaymentOption.paymentData"
@@ -161,6 +162,7 @@
   2. Klarna
   3. Svea
   4. Walley
+  5. Avarda
 
 */
 
@@ -168,7 +170,12 @@ import MixCheckout from 'MixCheckout';
 export default {
   name: 'CaCheckout',
   mixins: [MixCheckout],
-  props: {},
+  props: {
+    avardaScriptLoaded: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data: () => ({}),
   computed: {},
   watch: {},
